@@ -1,0 +1,14 @@
+#Fat Jar Configuration File
+#Tue Apr 20 23:10:20 CST 2010
+onejar.license.required=true
+manifest.classpath=
+manifest.removesigners=true
+onejar.checkbox=false
+jarname=..\\nepxion-swing-demo\\release\\application\\lib\\nepxion-util.jar
+manifest.mergeall=true
+manifest.mainclass=
+manifest.file=reference\\MANIFEST.MF
+jarname.isextern=false
+onejar.expand=
+excludes=<jar|servlet-api.jar>;<jar|dom4j-1.6.1.jar>
+includes=
