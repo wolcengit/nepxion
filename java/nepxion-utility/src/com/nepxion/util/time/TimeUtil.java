@@ -5,7 +5,7 @@ package com.nepxion.util.time;
  * <p>Description: Nepxion Utility Repository</p>
  * <p>Copyright: Copyright (c) 2010</p>
  * <p>Company: Nepxion</p>
- * @author Neptune ÈÎºÆ¾ü
+ * @author Neptune ä»»æµ©å†›
  * @email hj_ren@msn.com
  * @version 1.0
  */
@@ -22,7 +22,7 @@ import java.util.TimeZone;
 public class TimeUtil
 {
 	/**
-	 * »ñÈ¡µ±Ç°Äê·İ
+	 * è·å–å½“å‰å¹´ä»½
 	 */
 	public static int getCurrentYear()
 	{
@@ -30,7 +30,7 @@ public class TimeUtil
 	}
 	
 	/**
-	 * »ñÈ¡µ±Ç°ÔÂ·İ
+	 * è·å–å½“å‰æœˆä»½
 	 */
 	public static int getCurrentMonth()
 	{
@@ -38,7 +38,7 @@ public class TimeUtil
 	}
 	
 	/**
-	 * »ñÈ¡µ±Ç°ÈÕ×Ó
+	 * è·å–å½“å‰æ—¥å­
 	 */
 	public static int getCurrentDay()
 	{
@@ -46,7 +46,7 @@ public class TimeUtil
 	}
 	
 	/**
-	 * »ñÈ¡µ±Ç°Ğ¡Ê±
+	 * è·å–å½“å‰å°æ—¶
 	 */
 	public static int getCurrentHour()
 	{
@@ -54,7 +54,7 @@ public class TimeUtil
 	}
 	
 	/**
-	 * »ñÈ¡µ±Ç°·ÖÖÓ
+	 * è·å–å½“å‰åˆ†é’Ÿ
 	 */
 	public static int getCurrentMinute()
 	{
@@ -62,7 +62,7 @@ public class TimeUtil
 	}
 	
 	/**
-	 * »ñÈ¡µ±Ç°Ãë
+	 * è·å–å½“å‰ç§’
 	 */
 	public static int getCurrentSecond()
 	{
@@ -70,7 +70,7 @@ public class TimeUtil
 	}
 	
 	/**
-	 * »ñÈ¡µ±Ç°ºÁÃë
+	 * è·å–å½“å‰æ¯«ç§’
 	 */
 	public static int getCurrentMilliSecond()
 	{
@@ -78,7 +78,7 @@ public class TimeUtil
 	}
 	
 	/**
-	 * »ñÈ¡µ±Ç°ÍêÕûµÄÈÕÆÚºÍÊ±¼ä£¬¸ñÊ½Îªyyyy-MM-dd HH:mm:ss
+	 * è·å–å½“å‰å®Œæ•´çš„æ—¥æœŸå’Œæ—¶é—´ï¼Œæ ¼å¼ä¸ºyyyy-MM-dd HH:mm:ss
 	 */
 	public static String getCurrentDateTime()
 	{
@@ -86,7 +86,7 @@ public class TimeUtil
 	}
 	
 	/**
-	 * »ñÈ¡Ä³Ê±¿ÌµÄÍêÕûµÄÈÕÆÚºÍÊ±¼ä, ¸ñÊ½Îªyyyy-MM-dd HH:mm:ss
+	 * è·å–æŸæ—¶åˆ»çš„å®Œæ•´çš„æ—¥æœŸå’Œæ—¶é—´, æ ¼å¼ä¸ºyyyy-MM-dd HH:mm:ss
 	 */
 	public static String getDateTime(Date date)
 	{
@@ -94,7 +94,7 @@ public class TimeUtil
 	}
 	
 	/**
-	 * »ñÈ¡µ±Ç°ÈÕÆÚ£¬¸ñÊ½Îªyyyy-MM-dd
+	 * è·å–å½“å‰æ—¥æœŸï¼Œæ ¼å¼ä¸ºyyyy-MM-dd
 	 */
 	public static String getCurrentDate()
 	{
@@ -102,7 +102,7 @@ public class TimeUtil
 	}
 	
 	/**
-	 * »ñÈ¡Ä³¸öÈÕÆÚµÄ×Ö·û´®¸ñÊ½£¬¸ñÊ½Îªyyyy-MM-dd
+	 * è·å–æŸä¸ªæ—¥æœŸçš„å­—ç¬¦ä¸²æ ¼å¼ï¼Œæ ¼å¼ä¸ºyyyy-MM-dd
 	 */
 	public static String getDate(Date date)
 	{
@@ -110,7 +110,7 @@ public class TimeUtil
 	}
 	
 	/**
-	 * »ñÈ¡µ±Ç°Ê±¿ÌµÄÊ±¼ä£¬¸ñÊ½ÎªHH:mm:ss
+	 * è·å–å½“å‰æ—¶åˆ»çš„æ—¶é—´ï¼Œæ ¼å¼ä¸ºHH:mm:ss
 	 */
 	public static String getCurrentTime()
 	{
@@ -118,7 +118,7 @@ public class TimeUtil
 	}
 	
 	/**
-	 * »ñÈ¡Ä³Ê±¿ÌµÄÊ±¼ä£¬¸ñÊ½ÎªHH:mm:ss
+	 * è·å–æŸæ—¶åˆ»çš„æ—¶é—´ï¼Œæ ¼å¼ä¸ºHH:mm:ss
 	 */
 	public static String getTime(Date time)
 	{
@@ -126,7 +126,7 @@ public class TimeUtil
 	}
 	
 	/**
-	 * ×ª»¯Ê±¼ä¸ñÊ½Îª×Ö·û´®¸ñÊ½µÄÍ¨ÓÃ·½·¨
+	 * è½¬åŒ–æ—¶é—´æ ¼å¼ä¸ºå­—ç¬¦ä¸²æ ¼å¼çš„é€šç”¨æ–¹æ³•
 	 */
 	public static String getFormatString(Date date, DateFormat dateFormat)
 	{
@@ -134,7 +134,7 @@ public class TimeUtil
 	}
 	
 	/**
-	 * »ñÈ¡½ñÌìÊÇÒ»¸öĞÇÆÚµÄµÚ¼¸Ìì
+	 * è·å–ä»Šå¤©æ˜¯ä¸€ä¸ªæ˜ŸæœŸçš„ç¬¬å‡ å¤©
 	 */
 	public static int getCurrentDayOfWeek()
 	{
@@ -142,7 +142,7 @@ public class TimeUtil
 	}
 	
 	/**
-	 * »ñÈ¡Ä³ÌìÊÇÒ»¸öĞÇÆÚµÄµÚ¼¸Ìì
+	 * è·å–æŸå¤©æ˜¯ä¸€ä¸ªæ˜ŸæœŸçš„ç¬¬å‡ å¤©
 	 */
 	public static int getDayOfWeek(int year, int month, int date)
 	{
@@ -151,7 +151,7 @@ public class TimeUtil
 	}
 	
 	/**
-	 * »ñÈ¡½ñÌìËùÔÚµÄĞÇÆÚÊÇµ±ÔÂµÄµÚ¼¸¸öĞÇÆÚ
+	 * è·å–ä»Šå¤©æ‰€åœ¨çš„æ˜ŸæœŸæ˜¯å½“æœˆçš„ç¬¬å‡ ä¸ªæ˜ŸæœŸ
 	 */
 	public static int getCurrentWeekOfMonth()
 	{
@@ -159,7 +159,7 @@ public class TimeUtil
 	}
 	
 	/**
-	 * »ñÈ¡Ä³ÌìËùÔÚµÄĞÇÆÚÊÇµ±ÔÂµÄµÚ¼¸¸öĞÇÆÚ
+	 * è·å–æŸå¤©æ‰€åœ¨çš„æ˜ŸæœŸæ˜¯å½“æœˆçš„ç¬¬å‡ ä¸ªæ˜ŸæœŸ
 	 */
 	public static int getWeekOfMonth(int year, int month, int date)
 	{
@@ -168,7 +168,7 @@ public class TimeUtil
 	}
 	
 	/**
-	 * »ñÈ¡½ñÌìËùÔÚµÄĞÇÆÚÊÇÒ»ÄêµÄµÚ¼¸¸öĞÇÆÚ
+	 * è·å–ä»Šå¤©æ‰€åœ¨çš„æ˜ŸæœŸæ˜¯ä¸€å¹´çš„ç¬¬å‡ ä¸ªæ˜ŸæœŸ
 	 */
 	public static int getCurrentWeekOfYear()
 	{
@@ -176,7 +176,7 @@ public class TimeUtil
 	}
 	
 	/**
-	 * »ñÈ¡Ä³ÌìËùÔÚµÄĞÇÆÚÊÇÒ»ÄêµÄµÚ¼¸¸öĞÇÆÚ
+	 * è·å–æŸå¤©æ‰€åœ¨çš„æ˜ŸæœŸæ˜¯ä¸€å¹´çš„ç¬¬å‡ ä¸ªæ˜ŸæœŸ
 	 */
 	public static int getWeekOfYear(int year, int month, int date)
 	{
@@ -185,7 +185,7 @@ public class TimeUtil
 	}
 	
 	/**
-	 * ¸ù¾İÍêÕûµÄÈÕÆÚºÍÊ±¼ä£¬»ñÈ¡ÈÕÆÚ¶ÔÏó£¬¸ñÊ½Îªyyyy-MM-dd HH:mm:ss
+	 * æ ¹æ®å®Œæ•´çš„æ—¥æœŸå’Œæ—¶é—´ï¼Œè·å–æ—¥æœŸå¯¹è±¡ï¼Œæ ¼å¼ä¸ºyyyy-MM-dd HH:mm:ss
 	 */
 	public static Date parseDateTime(String date)
 	{
@@ -193,7 +193,15 @@ public class TimeUtil
 	}
 	
 	/**
-	 * ¸ù¾İÍêÕûµÄÈÕÆÚ£¬»ñÈ¡ÈÕÆÚ¶ÔÏó£¬¸ñÊ½Îªyyyy-MM-dd
+	 * æ ¹æ®å®Œæ•´çš„æ—¥æœŸå’Œæ—¶é—´ï¼Œè·å–æ—¥æœŸå¯¹è±¡ï¼Œæ ¼å¼ä¸ºyyyy-MM-dd HH:mm:ss zzzz
+	 */
+	public static Date parseTimeZoneDateTime(String date)
+	{
+		return parseFormatString(date, getTimeZoneDateTimeFormat());
+	}	
+	
+	/**
+	 * æ ¹æ®å®Œæ•´çš„æ—¥æœŸï¼Œè·å–æ—¥æœŸå¯¹è±¡ï¼Œæ ¼å¼ä¸ºyyyy-MM-dd
 	 */
 	public static Date parseDate(String date)
 	{
@@ -201,7 +209,7 @@ public class TimeUtil
 	}
 	
 	/**
-	 * ¸ù¾İÍêÕûµÄÊ±¼ä£¬»ñÈ¡ÈÕÆÚ¶ÔÏó£¬¸ñÊ½ÎªHH:mm:ss
+	 * æ ¹æ®å®Œæ•´çš„æ—¶é—´ï¼Œè·å–æ—¥æœŸå¯¹è±¡ï¼Œæ ¼å¼ä¸ºHH:mm:ss
 	 */
 	public static Date parseTime(String time)
 	{
@@ -209,7 +217,7 @@ public class TimeUtil
 	}
 	
 	/**
-	 * ×ª»¯×Ö·û´®¸ñÊ½ÎªÊ±¼ä¸ñÊ½µÄÍ¨ÓÃ·½·¨
+	 * è½¬åŒ–å­—ç¬¦ä¸²æ ¼å¼ä¸ºæ—¶é—´æ ¼å¼çš„é€šç”¨æ–¹æ³•
 	 */
 	public static Date parseFormatString(String dateString, DateFormat dateFormat)
 	{
@@ -227,7 +235,7 @@ public class TimeUtil
 	}
 	
 	/**
-	 * ½âÎöµ±µØÏÄÁîÊ±¼äºÍ±ê×¼Ê±¼äÖ®¼äµÄÆ«²î£¬Ò»°ãÎªÒ»Ğ¡Ê±£»Èç´«ÈëµÄÎª·ÇÏÄÁîÊ±¼ä£¬ÔòÆ«²îÖµÎª0
+	 * è§£æå½“åœ°å¤ä»¤æ—¶é—´å’Œæ ‡å‡†æ—¶é—´ä¹‹é—´çš„åå·®ï¼Œä¸€èˆ¬ä¸ºä¸€å°æ—¶ï¼›å¦‚ä¼ å…¥çš„ä¸ºéå¤ä»¤æ—¶é—´ï¼Œåˆ™åå·®å€¼ä¸º0
 	 */
 	public static int getDSTOffset(Date date)
 	{
@@ -235,7 +243,7 @@ public class TimeUtil
 	}
 	
 	/**
-	 * ½âÎöµ±µØÏÄÁîÊ±¼äºÍ±ê×¼Ê±¼äÖ®¼äµÄÆ«²î£¬Ò»°ãÎªÒ»Ğ¡Ê±£»Èç´«ÈëµÄÎª·ÇÏÄÁîÊ±¼ä£¬ÔòÆ«²îÖµÎª0
+	 * è§£æå½“åœ°å¤ä»¤æ—¶é—´å’Œæ ‡å‡†æ—¶é—´ä¹‹é—´çš„åå·®ï¼Œä¸€èˆ¬ä¸ºä¸€å°æ—¶ï¼›å¦‚ä¼ å…¥çš„ä¸ºéå¤ä»¤æ—¶é—´ï¼Œåˆ™åå·®å€¼ä¸º0
 	 */
 	public static int getDSTOffset(Date date, TimeZone timeZone)
 	{				
@@ -248,7 +256,7 @@ public class TimeUtil
 	}
 	
 	/**
-	 * ¸ù¾İÍêÕûµÄÊ±¼ä£¬»ñÈ¡GregorianCalendar¶ÔÏó
+	 * æ ¹æ®å®Œæ•´çš„æ—¶é—´ï¼Œè·å–GregorianCalendarå¯¹è±¡
 	 */
 	public static GregorianCalendar parseCalendar(String time)
 	{
@@ -259,7 +267,7 @@ public class TimeUtil
 	}
 	
 	/**
-	 * »ñÈ¡Á½¸ö³¤Ê±¼ä²îµÄÊ±¼ä¸ñÊ½
+	 * è·å–ä¸¤ä¸ªé•¿æ—¶é—´å·®çš„æ—¶é—´æ ¼å¼
 	 */
 	public static String getTimeInterval(long startTimeInMillis, long endTimeInMillis)
 	{
@@ -277,7 +285,7 @@ public class TimeUtil
 	}
 	
 	/**
-	 * ÅĞ¶ÏÊ±¼ätime1ÊÇ·ñÔÚÊ±¼ätime2Ö®Ç°£¬¸ñÊ½Îªyyyy-MM-dd HH:mm:ss
+	 * åˆ¤æ–­æ—¶é—´time1æ˜¯å¦åœ¨æ—¶é—´time2ä¹‹å‰ï¼Œæ ¼å¼ä¸ºyyyy-MM-dd HH:mm:ss
 	 */
 	public static boolean isTimeBefore(String time1, String time2)
 	{
@@ -285,7 +293,7 @@ public class TimeUtil
 	}
 	
 	/**
-	 * ÅĞ¶ÏÊ±¼ätime1ÊÇ·ñÔÚÊ±¼ätime2Ö®Ç°
+	 * åˆ¤æ–­æ—¶é—´time1æ˜¯å¦åœ¨æ—¶é—´time2ä¹‹å‰
 	 */
 	public static boolean isTimeBefore(String time1, String time2, DateFormat dateFormat)
 	{
@@ -303,7 +311,7 @@ public class TimeUtil
 	}
 	
 	/**
-	 * ÅĞ¶Ïµ±Ç°Ê±¼äÊÇ·ñÔÚÊ±¼ätime2Ö®Ç°£¬¸ñÊ½Îªyyyy-MM-dd HH:mm:ss
+	 * åˆ¤æ–­å½“å‰æ—¶é—´æ˜¯å¦åœ¨æ—¶é—´time2ä¹‹å‰ï¼Œæ ¼å¼ä¸ºyyyy-MM-dd HH:mm:ss
 	 */
 	public static boolean isTimeBefore(String time2)
 	{
@@ -311,7 +319,7 @@ public class TimeUtil
 	}
 	
 	/**
-	 * ÅĞ¶Ïµ±Ç°Ê±¼äÊÇ·ñÔÚÊ±¼ätime2Ö®Ç°
+	 * åˆ¤æ–­å½“å‰æ—¶é—´æ˜¯å¦åœ¨æ—¶é—´time2ä¹‹å‰
 	 */
 	public static boolean isTimeBefore(String time2, DateFormat dateFormat)
 	{
@@ -329,7 +337,7 @@ public class TimeUtil
 	}
 	
 	/**
-	 * µÃµ½Ò»¸öÍêÕûÈÕÆÚÊ±¼äµÄÈÕÆÚºÁÃëÊı 
+	 * å¾—åˆ°ä¸€ä¸ªå®Œæ•´æ—¥æœŸæ—¶é—´çš„æ—¥æœŸæ¯«ç§’æ•° 
 	 */
 	public static long getDateMilliSecond(Date date)
 	{
@@ -337,7 +345,7 @@ public class TimeUtil
 	}	
 	
 	/**
-	 * µÃµ½Ò»¸öÍêÕûÈÕÆÚÊ±¼äµÄÊ±¼äºÁÃëÊı 
+	 * å¾—åˆ°ä¸€ä¸ªå®Œæ•´æ—¥æœŸæ—¶é—´çš„æ—¶é—´æ¯«ç§’æ•° 
 	 */
 	public static long getTimeMilliSecond(Date date)
 	{
@@ -345,7 +353,7 @@ public class TimeUtil
 	}
 	
 	/**
-	 * ×ª»»Ê±¼ä¸ñÊ½ÎªÊı×é
+	 * è½¬æ¢æ—¶é—´æ ¼å¼ä¸ºæ•°ç»„
 	 */
 	public static int[] parseTimeArray(String timeValue)
 	{
@@ -361,7 +369,7 @@ public class TimeUtil
 	}
 	
 	/**
-	 * ×ª»»Ê±¼äÊı×éÎªÃë
+	 * è½¬æ¢æ—¶é—´æ•°ç»„ä¸ºç§’
 	 */
 	public static long parseSecond(int[] timeArray)
 	{
@@ -369,7 +377,7 @@ public class TimeUtil
 	}
 	
 	/**
-	 * ×ª»»Ê±¼äÊı×éÎªºÁÃë
+	 * è½¬æ¢æ—¶é—´æ•°ç»„ä¸ºæ¯«ç§’
 	 */
 	public static long parseMilliSecond(int[] timeArray)
 	{
@@ -377,7 +385,7 @@ public class TimeUtil
 	}
 	
 	/**
-	 * ×ª»¯³ÉÈÕÆÚ×Ö·û´®
+	 * è½¬åŒ–æˆæ—¥æœŸå­—ç¬¦ä¸²
 	 */
 	public static String getDateString(long year, long month, long day)
 	{
@@ -406,7 +414,7 @@ public class TimeUtil
 	}
 	
 	/**
-	 * ×ª»¯³ÉÊ±¼ä×Ö·û´®
+	 * è½¬åŒ–æˆæ—¶é—´å­—ç¬¦ä¸²
 	 */
 	public static String getTimeString(long hour, long minute, long second)
 	{
@@ -444,7 +452,7 @@ public class TimeUtil
 	}
 	
 	/**
-	 * ±ÜÃâÔÚ¶àÏß³ÌÖĞÓ¦ÓÃ²»°²È«
+	 * é¿å…åœ¨å¤šçº¿ç¨‹ä¸­åº”ç”¨ä¸å®‰å…¨
 	 */
 	public static DateFormat getDateTimeFormat()
 	{
@@ -452,7 +460,15 @@ public class TimeUtil
 	}
 	
 	/**
-	 * ±ÜÃâÔÚ¶àÏß³ÌÖĞÓ¦ÓÃ²»°²È«
+	 * é¿å…åœ¨å¤šçº¿ç¨‹ä¸­åº”ç”¨ä¸å®‰å…¨
+	 */
+	public static DateFormat getTimeZoneDateTimeFormat()
+	{
+		return new SimpleDateFormat("yyyy-MM-dd HH:mm:ss zzzz");
+	}	
+	
+	/**
+	 * é¿å…åœ¨å¤šçº¿ç¨‹ä¸­åº”ç”¨ä¸å®‰å…¨
 	 */
 	public static DateFormat getDateFormat()
 	{
@@ -460,7 +476,7 @@ public class TimeUtil
 	}
 	
 	/**
-	 * ±ÜÃâÔÚ¶àÏß³ÌÖĞÓ¦ÓÃ²»°²È«
+	 * é¿å…åœ¨å¤šçº¿ç¨‹ä¸­åº”ç”¨ä¸å®‰å…¨
 	 */
 	public static DateFormat getMilliSecondTimeDateFormat()
 	{
@@ -468,7 +484,7 @@ public class TimeUtil
 	}
 	
 	/**
-	 * ±ÜÃâÔÚ¶àÏß³ÌÖĞÓ¦ÓÃ²»°²È«
+	 * é¿å…åœ¨å¤šçº¿ç¨‹ä¸­åº”ç”¨ä¸å®‰å…¨
 	 */
 	public static DateFormat getTimeFormat()
 	{
@@ -476,7 +492,7 @@ public class TimeUtil
 	}
 	
 	/**
-	 * ±ÜÃâÔÚ¶àÏß³ÌÖĞÓ¦ÓÃ²»°²È«
+	 * é¿å…åœ¨å¤šçº¿ç¨‹ä¸­åº”ç”¨ä¸å®‰å…¨
 	 */
 	public static DateFormat getMilliSecondTimeFormat()
 	{
