@@ -40,9 +40,9 @@ public class Dom4JReader
 				return document;
 			}
 		}
-		catch (DocumentException ex)
+		catch (DocumentException e)
 		{
-			throw ex;
+			throw e;
 		}
 		return null;
 	}
@@ -65,9 +65,9 @@ public class Dom4JReader
 				return document;
 			}
 		}
-		catch (DocumentException ex)
+		catch (DocumentException e)
 		{
-			throw ex;
+			throw e;
 		}
 		return null;
 	}    
@@ -90,9 +90,9 @@ public class Dom4JReader
 				return document;
 			}
 		}
-		catch (DocumentException ex)
+		catch (DocumentException e)
 		{
-			throw ex;
+			throw e;
 		}
 		return null;
 	} 
@@ -115,9 +115,9 @@ public class Dom4JReader
 				return document;
 			}
 		}
-		catch (DocumentException ex)
+		catch (DocumentException e)
 		{
-			throw ex;
+			throw e;
 		}
 		return null;
 	}   
@@ -140,9 +140,9 @@ public class Dom4JReader
 				return document;
 			}
 		}
-		catch (DocumentException ex)
+		catch (DocumentException e)
 		{
-			throw ex;
+			throw e;
 		}
 		return null;
 	}
@@ -165,9 +165,9 @@ public class Dom4JReader
 				return document;
 			}
 		}
-		catch (DocumentException ex)
+		catch (DocumentException e)
 		{
-			throw ex;
+			throw e;
 		}
 		return null;
 	}    

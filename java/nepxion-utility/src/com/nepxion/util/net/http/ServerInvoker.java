@@ -5,25 +5,23 @@ package com.nepxion.util.net.http;
  * <p>Description: Nepxion Utility Repository</p>
  * <p>Copyright: Copyright (c) 2010</p>
  * <p>Company: Nepxion</p>
- * @author Neptune 任浩军
+ * @author Neptune
  * @email hj_ren@msn.com
  * @version 1.0
  */
 
-import java.io.*;
-import javax.servlet.*;
-import javax.servlet.http.*;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 public class ServerInvoker
     extends HttpServlet
 {
-    /**
-     * 实现服务端向客户端调用数据的功能，通过Http流的方式
-     * @param request HttpServletRequest
-     * @param response HttpServletResponse
-     * @throws ServletException
-     * @throws IOException
-     */
     public void doPost(HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException
     {
@@ -40,9 +38,9 @@ public class ServerInvoker
             oos.flush();
             oos.close();
         }
-        catch (ClassNotFoundException ex)
+        catch (ClassNotFoundException e)
         {
-            ex.printStackTrace();
+            e.printStackTrace();
         }
     }
 
@@ -54,13 +52,13 @@ public class ServerInvoker
         {
             invokerAction = (InvokerAction) actionClass.newInstance();
         }
-        catch (IllegalAccessException ex)
+        catch (IllegalAccessException e)
         {
-            ex.printStackTrace();
+            e.printStackTrace();
         }
-        catch (InstantiationException ex)
+        catch (InstantiationException e)
         {
-            ex.printStackTrace();
+            e.printStackTrace();
         }
         invokerAction.setInvokerHandle(invokerHandle);
         return invokerAction.execute();

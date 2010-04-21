@@ -5,13 +5,17 @@ package com.nepxion.util.net.http;
  * <p>Description: Nepxion Utility Repository</p>
  * <p>Copyright: Copyright (c) 2010</p>
  * <p>Company: Nepxion</p>
- * @author Neptune 任浩军
+ * @author Neptune
  * @email hj_ren@msn.com
  * @version 1.0
  */
 
-import java.net.*;
-import java.io.*;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLConnection;
 
 public class ClientInvoker
 {
@@ -19,9 +23,9 @@ public class ClientInvoker
     public static String module;
 
     /**
-     * 注册Servlet的路径
-     * @param newCodeBase URL   Applet CodeBase
-     * @param newModule String  Web Module
+     * Register servlet path
+     * @param newCodeBase  applet codeBase
+     * @param newModule    web module
      */
     public static void registerServletPath(URL newCodeBase, String newModule)
     {
@@ -30,9 +34,9 @@ public class ClientInvoker
     }
 
     /**
-     * 调用入口
-     * @param invokerHandle InvokerHandle  InvokerAction的句柄，该类必须被序列化过
-     * @return Object                      返回对象
+     * The portal of invoke.If codeBase and module are all not null,it will invoke in applet mode, otherwise in application mode
+     * @param invokerHandle  the handle of InvokerAction.It should be serialized
+     * @return Object        the return object.It may be entity object or exception object
      */
     public static Object invoke(InvokerHandle invokerHandle)
         throws Exception
@@ -48,19 +52,19 @@ public class ClientInvoker
                 return ClientInvoker.invokeAppliciton(invokerHandle);
             }
         }
-        catch (Exception ex)
+        catch (Exception e)
         {
-            throw ex;
+            throw e;
         }
     }
 
     /**
-     * 实现Applet向Servlet调用数据的功能，通过Http流的方式
-     * @param codeBase URL                 Applet CodeBase
-     * @param module String                Web Module
-     * @param InvokerHandle invokerHandle  InvokerAction的句柄，该类必须被序列化过
-     * @return Object                      返回调用结果(实体类或异常类)
-     * @throws Exception                   异常信息
+     * The invoking and alternation between applet and servlet 
+     * @param codeBase       applet codeBase
+     * @param module         web module
+     * @param invokerHandle  the handle of InvokerAction.It should be serialized
+     * @return Object        the return object.It may be entity object or exception object
+     * @throws Exception
      */
     public static Object invokeApplet(URL codeBase, String module, InvokerHandle invokerHandle)
         throws Exception
@@ -71,10 +75,10 @@ public class ClientInvoker
         {
             URL url = new URL(servletAbsolutePath);
             URLConnection connection = url.openConnection();
-            connection.setDoInput(true); //允许数据流输入
-            connection.setDoOutput(true); //允许数据流输出;
-            connection.setUseCaches(true); //本次连接启动缓存
-            connection.setDefaultUseCaches(true); //下次连接启动缓存
+            connection.setDoInput(true);
+            connection.setDoOutput(true);
+            connection.setUseCaches(true);
+            connection.setDefaultUseCaches(true);
             connection.setRequestProperty("Content-Type", "application/octet-stream");
 
             ObjectOutputStream oos = new ObjectOutputStream(connection.getOutputStream());
@@ -86,20 +90,17 @@ public class ClientInvoker
             returnObject = ois.readObject();
             ois.close();
         }
-        catch (ClassNotFoundException ex)
+        catch (ClassNotFoundException e)
         {
-            Exception e = new Exception("请求连接服务 " + servletAbsolutePath + " 异常", ex);
-            throw e;
+        	throw new Exception("Invalid connection request exception for " + servletAbsolutePath, e);
         }
-        catch (MalformedURLException ex)
+        catch (MalformedURLException e)
         {
-            Exception e = new Exception("请求连接服务 " + servletAbsolutePath + " 异常", ex);
-            throw e;
+        	throw new Exception("Invalid connection request exception for " + servletAbsolutePath, e);
         }
-        catch (IOException ex)
+        catch (IOException e)
         {
-            Exception e = new Exception("请求连接服务 " + servletAbsolutePath + " 异常", ex);
-            throw e;
+        	throw new Exception("Invalid connection request exception for " + servletAbsolutePath, e);
         }
         if (returnObject instanceof Exception)
         {
@@ -110,9 +111,9 @@ public class ClientInvoker
     }
 
     /**
-     * 实现Application向Servlet调用数据的功能
-     * @param InvokerHandle invokerHandle  InvokerAction的句柄，该类必须被序列化过
-     * @return Object                      返回调用结果(实体类或异常类)
+     * The invoking and alternation between application and servlet 
+     * @param invokerHandle  the handle of InvokerAction.It should be serialized
+     * @return Object        the return object.It may be entity object or exception object
      */
     public static Object invokeAppliciton(InvokerHandle invokerHandle)
         throws Exception

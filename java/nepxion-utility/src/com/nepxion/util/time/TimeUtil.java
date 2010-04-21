@@ -404,9 +404,9 @@ public class TimeUtil
 		{
 			return dateFormat.parse(time1).before(dateFormat.parse(time2));
 		}
-		catch (ParseException ex)
+		catch (ParseException e)
 		{
-			ex.printStackTrace();
+			e.printStackTrace();
 			return false;
 		}
 	}
@@ -435,9 +435,9 @@ public class TimeUtil
 			Date currentTime = new Date();
 			return dateFormat.parse(time).before(currentTime);
 		}
-		catch (ParseException ex)
+		catch (ParseException e)
 		{
-			ex.printStackTrace();
+			e.printStackTrace();
 			return false;
 		}
 	}
@@ -468,9 +468,9 @@ public class TimeUtil
 		{
 			return dateFormat.parse(time1).after(dateFormat.parse(time2));
 		}
-		catch (ParseException ex)
+		catch (ParseException e)
 		{
-			ex.printStackTrace();
+			e.printStackTrace();
 			return false;
 		}
 	}
@@ -499,9 +499,9 @@ public class TimeUtil
 			Date currentTime = new Date();
 			return dateFormat.parse(time).after(currentTime);
 		}
-		catch (ParseException ex)
+		catch (ParseException e)
 		{
-			ex.printStackTrace();
+			e.printStackTrace();
 			return false;
 		}
 	}	

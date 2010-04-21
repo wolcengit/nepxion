@@ -5,12 +5,14 @@ package com.nepxion.util.schedule;
  * <p>Description: Nepxion Utility Repository</p>
  * <p>Copyright: Copyright (c) 2010</p>
  * <p>Company: Nepxion</p>
- * @author Neptune хн╨ф╬Э
+ * @author Neptune
  * @email hj_ren@msn.com
  * @version 1.0
  */
 
-import java.util.*;
+import java.util.Date;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class Scheduler
 {

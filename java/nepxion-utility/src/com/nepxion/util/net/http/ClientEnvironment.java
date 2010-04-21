@@ -5,14 +5,17 @@ package com.nepxion.util.net.http;
  * <p>Description: Nepxion Utility Repository</p>
  * <p>Copyright: Copyright (c) 2010</p>
  * <p>Company: Nepxion</p>
- * @author Neptune хн╨ф╬Э
+ * @author Neptune
  * @email hj_ren@msn.com
  * @version 1.0
  */
 
-import java.net.*;
-import java.io.*;
-import java.util.*;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.net.URL;
+import java.util.Map;
+import java.util.Properties;
 
 public class ClientEnvironment
 {
@@ -31,14 +34,14 @@ public class ClientEnvironment
             codeBase = new URL(properties.getProperty("URL"));
             module = properties.getProperty("Module");
         }
-        catch (IOException ex)
+        catch (IOException e)
         {
-            ex.printStackTrace();
+            e.printStackTrace();
         }
 
         initEnvironment(codeBase, module);
     }
-
+  
     public static void initEnvironment(URL codeBase)
     {
         Properties properties = new Properties();
@@ -48,9 +51,9 @@ public class ClientEnvironment
             properties.load(new URL(codeBase + CONFIG_PATH).openStream());
             module = properties.getProperty("Module");
         }
-        catch (IOException ex)
+        catch (IOException e)
         {
-            ex.printStackTrace();
+            e.printStackTrace();
         }
 
         initEnvironment(codeBase, module);
@@ -60,7 +63,6 @@ public class ClientEnvironment
     {
         ClientInvoker.registerServletPath(codeBase, module);
     }
-
 
     public static void initParameters(Map map)
     {

@@ -5,22 +5,25 @@ package com.nepxion.util.xml;
  * <p>Description: Nepxion Utility Repository</p>
  * <p>Copyright: Copyright (c) 2010</p>
  * <p>Company: Nepxion</p>
- * @author Neptune �κƾ�
+ * @author Neptune
  * @email hj_ren@msn.com
  * @version 1.0
  */
 
-import java.io.*;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 
-import org.dom4j.*;
-import org.dom4j.io.*;
+import org.dom4j.Document;
+import org.dom4j.io.OutputFormat;
+import org.dom4j.io.XMLWriter;
 
 public class Dom4JWriter
 {
 	/**
 	 * Get xml string by document
 	 * @param document  the instanceof Document
-	 * @param encoding  the encoding content, eamx: GB2321, UTF-8
+	 * @param encoding  the encoding content, example "GB2321", "UTF-8"
 	 * @return          the xml string
 	 * @throws UnsupportedEncodingException
 	 * @throws IOException
@@ -40,13 +43,13 @@ public class Dom4JWriter
 				return content;
 			}
 		}
-		catch (UnsupportedEncodingException ex)
+		catch (UnsupportedEncodingException e)
 		{
-			throw ex;
+			throw e;
 		}
-		catch (IOException ex)
+		catch (IOException e)
 		{
-			throw ex;
+			throw e;
 		}
 		return null;
 	}
