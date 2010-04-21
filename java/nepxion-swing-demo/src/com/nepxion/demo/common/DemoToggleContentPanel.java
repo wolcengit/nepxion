@@ -21,21 +21,21 @@ public class DemoToggleContentPanel
 	extends JToggleContentPanel
 {
 	private static DemoToggleContentPanel toggleContentPanel;
-    
-    public static DemoToggleContentPanel getInstance()
-    {
-    	if (toggleContentPanel == null)
-    	{
-    		toggleContentPanel = new DemoToggleContentPanel();
-    	}	
-    	return toggleContentPanel;
-    }
-    
-    private DemoToggleContentPanel()
-	{		
-    	super();
-    	
-    	JLabel logoLabel = new JLabel(IconFactory.getSwingIcon("logo.png"));
-    	getHeader().add(logoLabel, BorderLayout.EAST);
+	
+	public static DemoToggleContentPanel getInstance()
+	{
+		if (toggleContentPanel == null)
+		{
+			toggleContentPanel = new DemoToggleContentPanel();
+		}
+		return toggleContentPanel;
+	}
+	
+	private DemoToggleContentPanel()
+	{
+		super();
+		
+		JLabel logoLabel = new JLabel(IconFactory.getSwingIcon("logo.png"));
+		getHeader().add(logoLabel, BorderLayout.EAST);
 	}
 }

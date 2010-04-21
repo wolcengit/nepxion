@@ -18,12 +18,12 @@ public abstract class DemoToggleOutlook
 	extends JFlatOutlook
 {
 	public DemoToggleOutlook()
-	{	
+	{
 	}
 	
-    public void addButton(AbstractButton button)
-    {
-        super.add(button);
-        DemoButtonGroup.getInstance().add(button);
-    }
+	public void addButton(AbstractButton button)
+	{
+		super.add(button);
+		DemoButtonGroup.getInstance().add(button);
+	}
 }
