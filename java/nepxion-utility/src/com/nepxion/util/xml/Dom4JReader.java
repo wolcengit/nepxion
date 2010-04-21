@@ -29,7 +29,7 @@ public class Dom4JReader
 	 * @return         the instance of Document
 	 * @throws DocumentException
 	 */
-    public static Document getDocument(String content)
+	public static Document getDocument(String content)
 		throws DocumentException
 	{
 		try
