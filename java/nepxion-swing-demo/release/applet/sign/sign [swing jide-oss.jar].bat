@@ -1,0 +1,1 @@
+jarsigner -keystore Security.store ../lib/swing/jide-oss-2.8.4.jar Security

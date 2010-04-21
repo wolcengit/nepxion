@@ -1,0 +1,1 @@
+jarsigner -keystore Security.store ../lib/nepxion-util.jar Security
