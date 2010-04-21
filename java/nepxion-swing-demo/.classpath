@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry excluding="**/Thumbs.db" kind="src" path="asset"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JDK1.5.0_22"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/Nepxion-Swing"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/Nepxion-Utility"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Nepxion-Swing"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Nepxion-Util"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
