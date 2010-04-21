@@ -5,7 +5,7 @@ package com.nepxion.util.time;
  * <p>Description: Nepxion Utility Repository</p>
  * <p>Copyright: Copyright (c) 2010</p>
  * <p>Company: Nepxion</p>
- * @author Neptune 任浩军
+ * @author Neptune
  * @email hj_ren@msn.com
  * @version 1.0
  */
@@ -22,7 +22,8 @@ import java.util.TimeZone;
 public class TimeUtil
 {
 	/**
-	 * 获取当前年份
+	 * Get the current year
+	 * @return  the current year
 	 */
 	public static int getCurrentYear()
 	{
@@ -30,7 +31,8 @@ public class TimeUtil
 	}
 	
 	/**
-	 * 获取当前月份
+	 * Get the current month
+	 * @return  the current month
 	 */
 	public static int getCurrentMonth()
 	{
@@ -38,7 +40,8 @@ public class TimeUtil
 	}
 	
 	/**
-	 * 获取当前日子
+	 * Get the current day
+	 * @return  the current day
 	 */
 	public static int getCurrentDay()
 	{
@@ -46,7 +49,8 @@ public class TimeUtil
 	}
 	
 	/**
-	 * 获取当前小时
+	 * Get the current hour
+	 * @return  the current hour
 	 */
 	public static int getCurrentHour()
 	{
@@ -54,7 +58,8 @@ public class TimeUtil
 	}
 	
 	/**
-	 * 获取当前分钟
+	 * Get the current minute
+	 * @return  the current minute
 	 */
 	public static int getCurrentMinute()
 	{
@@ -62,7 +67,8 @@ public class TimeUtil
 	}
 	
 	/**
-	 * 获取当前秒
+	 * Get the current second
+	 * @return  the current second
 	 */
 	public static int getCurrentSecond()
 	{
@@ -70,23 +76,27 @@ public class TimeUtil
 	}
 	
 	/**
-	 * 获取当前毫秒
+	 * Get the current millisecond
+	 * @return  the current millisecond
 	 */
-	public static int getCurrentMilliSecond()
+	public static int getCurrentMillisecond()
 	{
 		return Calendar.getInstance().get(Calendar.MILLISECOND);
 	}
 	
 	/**
-	 * 获取当前完整的日期和时间，格式为yyyy-MM-dd HH:mm:ss
+	 * Get the current date and time string.Its format string is yyyy-MM-dd HH:mm:ss
+	 * @return  the current date and time string
 	 */
 	public static String getCurrentDateTime()
 	{
 		return getDateTime(new Date());
 	}
-	
+		
 	/**
-	 * 获取某时刻的完整的日期和时间, 格式为yyyy-MM-dd HH:mm:ss
+	 * Get a date and time string.Its format string is yyyy-MM-dd HH:mm:ss
+	 * @param date  the instance of Date
+	 * @return      a date and time string 
 	 */
 	public static String getDateTime(Date date)
 	{
@@ -94,23 +104,27 @@ public class TimeUtil
 	}
 	
 	/**
-	 * 获取当前日期，格式为yyyy-MM-dd
-	 */
+	 * Get the current date string.Its format string is yyyy-MM-dd
+	 * @return  the current date string
+	 */	
 	public static String getCurrentDate()
 	{
 		return getDate(new Date());
 	}
 	
 	/**
-	 * 获取某个日期的字符串格式，格式为yyyy-MM-dd
+	 * Get a date string.Its format string is yyyy-MM-dd
+	 * @param date  the instance of Date
+	 * @return      a date string
 	 */
 	public static String getDate(Date date)
 	{
 		return getFormatString(date, getDateFormat());
 	}
 	
-	/**
-	 * 获取当前时刻的时间，格式为HH:mm:ss
+	/** 
+	 * Get the current time string.Its format string is HH:mm:ss
+	 * @return the current time string
 	 */
 	public static String getCurrentTime()
 	{
@@ -118,15 +132,39 @@ public class TimeUtil
 	}
 	
 	/**
-	 * 获取某时刻的时间，格式为HH:mm:ss
+	 * Get a time string.Its format string is HH:mm:ss
+	 * @param date  the instance of Date
+	 * @return      a time string
 	 */
-	public static String getTime(Date time)
+	public static String getTime(Date date)
 	{
-		return getFormatString(time, getTimeFormat());
+		return getFormatString(date, getTimeFormat());
+	}
+	
+	/** 
+	 * Get the current millisecond time string.Its format string is HH:mm:ss:SSS
+	 * @return the current millisecond time string
+	 */
+	public static String getCurrentMillisecondTime()
+	{
+		return getMillisecondTime(new Date());
 	}
 	
 	/**
-	 * 转化时间格式为字符串格式的通用方法
+	 * Get a time millisecond string.Its format string is HH:mm:ss:SSS
+	 * @param date  the instance of Date
+	 * @return      a millisecond time string
+	 */
+	public static String getMillisecondTime(Date date)
+	{		
+		return getFormatString(date, getMillisecondTimeFormat());
+	}	
+		
+	/**
+	 * Get the common format string
+	 * @param date        the instanceof Date 
+	 * @param dateFormat  the instanceof DateFormat
+	 * @return            the format string     
 	 */
 	public static String getFormatString(Date date, DateFormat dateFormat)
 	{
@@ -134,7 +172,8 @@ public class TimeUtil
 	}
 	
 	/**
-	 * 获取今天是一个星期的第几天
+	 * Get the current day of the week
+	 * @return  the current day of the week
 	 */
 	public static int getCurrentDayOfWeek()
 	{
@@ -142,16 +181,21 @@ public class TimeUtil
 	}
 	
 	/**
-	 * 获取某天是一个星期的第几天
+	 * Get a day of the week 
+	 * @param year   the year
+	 * @param month  the month
+	 * @param day    the day
+	 * @return       a day of the week
 	 */
-	public static int getDayOfWeek(int year, int month, int date)
+	public static int getDayOfWeek(int year, int month, int day)
 	{
-		Calendar calendar = new GregorianCalendar(year, month - 1, date);
+		Calendar calendar = new GregorianCalendar(year, month - 1, day);
 		return calendar.get(Calendar.DAY_OF_WEEK);
 	}
 	
 	/**
-	 * 获取今天所在的星期是当月的第几个星期
+	 * Get the current week of the month
+	 * @return  the current week of the month
 	 */
 	public static int getCurrentWeekOfMonth()
 	{
@@ -159,16 +203,21 @@ public class TimeUtil
 	}
 	
 	/**
-	 * 获取某天所在的星期是当月的第几个星期
+	 * Get a week of the month
+	 * @param year   the year
+	 * @param month  the month
+	 * @param day    the day
+	 * @return       a week of the month
 	 */
-	public static int getWeekOfMonth(int year, int month, int date)
+	public static int getWeekOfMonth(int year, int month, int day)
 	{
-		Calendar calendar = new GregorianCalendar(year, month - 1, date);
+		Calendar calendar = new GregorianCalendar(year, month - 1, day);
 		return calendar.get(Calendar.WEEK_OF_MONTH);
 	}
 	
 	/**
-	 * 获取今天所在的星期是一年的第几个星期
+	 * Get the current week of the year
+	 * @return  the current week of the year
 	 */
 	public static int getCurrentWeekOfYear()
 	{
@@ -176,16 +225,22 @@ public class TimeUtil
 	}
 	
 	/**
-	 * 获取某天所在的星期是一年的第几个星期
+	 * Get a week of the year
+	 * @param year   the year
+	 * @param month  the month
+	 * @param day    the day
+	 * @return       a week of the year
 	 */
-	public static int getWeekOfYear(int year, int month, int date)
+	public static int getWeekOfYear(int year, int month, int day)
 	{
-		Calendar calendar = new GregorianCalendar(year, month - 1, date);
+		Calendar calendar = new GregorianCalendar(year, month - 1, day);
 		return calendar.get(Calendar.WEEK_OF_YEAR);
 	}
 	
 	/**
-	 * 根据完整的日期和时间，获取日期对象，格式为yyyy-MM-dd HH:mm:ss
+	 * Parse string to date instance.Its format is yyyy-MM-dd HH:mm:ss
+	 * @param date  the date string
+	 * @return      the instance of Date
 	 */
 	public static Date parseDateTime(String date)
 	{
@@ -193,31 +248,40 @@ public class TimeUtil
 	}
 	
 	/**
-	 * 根据完整的日期和时间，获取日期对象，格式为yyyy-MM-dd HH:mm:ss zzzz
+	 * Parse string to date instance.Its format is yyyy-MM-dd HH:mm:ss zzzz
+	 * @param date  the date string
+	 * @return      the instance of Date
 	 */
 	public static Date parseTimeZoneDateTime(String date)
 	{
 		return parseFormatString(date, getTimeZoneDateTimeFormat());
-	}	
-	
+	}
+
 	/**
-	 * 根据完整的日期，获取日期对象，格式为yyyy-MM-dd
-	 */
+	 * Parse string to date instance.Its format is yyyy-MM-dd
+	 * @param date  the date string
+	 * @return      the instance of Date
+	 */	
 	public static Date parseDate(String date)
 	{
 		return parseFormatString(date, getDateFormat());
 	}
 	
 	/**
-	 * 根据完整的时间，获取日期对象，格式为HH:mm:ss
-	 */
+	 * Parse String to date instance.Its format is HH:mm:ss
+	 * @param time  the time string
+	 * @return      the instance of Date
+	 */		
 	public static Date parseTime(String time)
 	{
 		return parseFormatString(time, getTimeFormat());
 	}
 	
 	/**
-	 * 转化字符串格式为时间格式的通用方法
+	 * Parse the common format string
+	 * @param dateString  the date string
+	 * @param dateFormat  the instance of DateFormat
+	 * @return            the instance of Date
 	 */
 	public static Date parseFormatString(String dateString, DateFormat dateFormat)
 	{
@@ -233,9 +297,24 @@ public class TimeUtil
 		}
 		return date;
 	}
-	
+		
 	/**
-	 * 解析当地夏令时间和标准时间之间的偏差，一般为一小时；如传入的为非夏令时间，则偏差值为0
+	 * Get the calendar instance
+	 * @param dateTime  the date time string
+	 * @return          the instance of GregorianCalendar
+	 */
+	public static GregorianCalendar getCalendar(String dateTime)
+	{
+		GregorianCalendar gc = new GregorianCalendar();
+		Date date = parseDateTime(dateTime);
+		gc.setTime(date);
+		return gc;
+	}
+
+	/**
+	 * Get the daylight saving time offset
+	 * @param date  the instance of Date
+	 * @return      the daylight saving time offset
 	 */
 	public static int getDSTOffset(Date date)
 	{
@@ -243,49 +322,67 @@ public class TimeUtil
 	}
 	
 	/**
-	 * 解析当地夏令时间和标准时间之间的偏差，一般为一小时；如传入的为非夏令时间，则偏差值为0
+	 * Get the daylight saving time offset
+	 * @param date      the instance of Date
+	 * @param timeZone  the instance of TimeZone
+	 * @return          the daylight saving time offset
 	 */
 	public static int getDSTOffset(Date date, TimeZone timeZone)
-	{				
+	{
 		if (timeZone.inDaylightTime(date))
 		{
 			int offset = timeZone.getOffset(date.getTime()) - timeZone.getRawOffset();
 			return offset;
 		}
 		return 0;
-	}
+	}	
 	
 	/**
-	 * 根据完整的时间，获取GregorianCalendar对象
+	 * Get time interval String.Its format is "HH:mm:ss"
+	 * @param startMillisecond  the start millisecond
+	 * @param endMillisecond    the end millisecond
+	 * @return                  time interval String
 	 */
-	public static GregorianCalendar parseCalendar(String time)
+	public static String getTimeInterval(long startMillisecond, long endMillisecond)
 	{
-		GregorianCalendar gc = new GregorianCalendar();
-		Date date = parseTime(time);
-		gc.setTime(date);
-		return gc;
+		long second = Math.abs(startMillisecond - endMillisecond) / 1000;
+		
+		long hour = second / 3600;
+		second = second - (hour * 3600);
+		
+		long minute = second / 60;
+		second = second - (minute * 60);
+		
+		return getTimeString(hour, minute, second);
 	}
 	
 	/**
-	 * 获取两个长时间差的时间格式
+	 * Get millisecond time interval String.Its format is "HH:mm:ss:SSS"
+	 * @param startMillisecond  the start millisecond
+	 * @param endMillisecond    the end millisecond
+	 * @return                  millisecond time interval String
 	 */
-	public static String getTimeInterval(long startTimeInMillis, long endTimeInMillis)
+	public static String getMillisecondTimeInterval(long startMillisecond, long endMillisecond)
 	{
-		long timeInMillis = Math.abs((endTimeInMillis - startTimeInMillis) / 1000);
+		long millisecond = Math.abs(startMillisecond - endMillisecond);
 		
-		long hours = timeInMillis / 3600;
-		timeInMillis = timeInMillis - (hours * 3600);
+		long hour = millisecond / 3600000;
+		millisecond = millisecond - (hour * 3600000);
 		
-		long minutes = timeInMillis / 60;
-		timeInMillis = timeInMillis - (minutes * 60);
+		long minute = millisecond / 60000;
+		millisecond = millisecond - (minute * 60000);
 		
-		long seconds = timeInMillis;
+		long second = millisecond / 1000;
+		millisecond = millisecond - (second * 1000);
 		
-		return getTimeString(hours, minutes, seconds);
-	}
+		return getMillisecondTimeString(hour, minute, second, millisecond);
+	}	
 	
 	/**
-	 * 判断时间time1是否在时间time2之前，格式为yyyy-MM-dd HH:mm:ss
+	 * Judge whether time1 is before time2.Its format is yyyy-MM-dd HH:mm:ss
+	 * @param time1  the inputting time1
+	 * @param time2  the inputting time2
+	 * @return       boolean flag
 	 */
 	public static boolean isTimeBefore(String time1, String time2)
 	{
@@ -293,7 +390,11 @@ public class TimeUtil
 	}
 	
 	/**
-	 * 判断时间time1是否在时间time2之前
+	 * Judge whether time1 is before time2
+	 * @param time1       the inputting time1
+	 * @param time2       the inputting time2
+	 * @param dateFormat  the instance of DateFormat
+	 * @return            boolean flag
 	 */
 	public static boolean isTimeBefore(String time1, String time2, DateFormat dateFormat)
 	{
@@ -311,23 +412,28 @@ public class TimeUtil
 	}
 	
 	/**
-	 * 判断当前时间是否在时间time2之前，格式为yyyy-MM-dd HH:mm:ss
+	 * Judge whether inputting time is before current time.Its format is yyyy-MM-dd HH:mm:ss
+	 * @param time  the inputting time
+	 * @return      boolean flag
 	 */
-	public static boolean isTimeBefore(String time2)
+	public static boolean isTimeBefore(String time)
 	{
-		return isTimeBefore(time2, getDateTimeFormat());
+		return isTimeBefore(time, getDateTimeFormat());
 	}
 	
 	/**
-	 * 判断当前时间是否在时间time2之前
+	 * Judge whether inputting time is before current time
+	 * @param time        the inputting time
+	 * @param dateFormat  the instance of DateFormat
+	 * @return            boolean flag
 	 */
-	public static boolean isTimeBefore(String time2, DateFormat dateFormat)
+	public static boolean isTimeBefore(String time, DateFormat dateFormat)
 	{
-		time2 = time2.trim();
+		time = time.trim();
 		try
 		{
-			Date time1 = new Date();
-			return time1.before(dateFormat.parse(time2));
+			Date currentTime = new Date();
+			return dateFormat.parse(time).before(currentTime);
 		}
 		catch (ParseException ex)
 		{
@@ -337,28 +443,119 @@ public class TimeUtil
 	}
 	
 	/**
-	 * 得到一个完整日期时间的日期毫秒数 
+	 * Judge whether time1 is after time2.Its format is yyyy-MM-dd HH:mm:ss
+	 * @param time1  the inputting time1
+	 * @param time2  the inputting time2
+	 * @return       boolean flag
 	 */
-	public static long getDateMilliSecond(Date date)
+	public static boolean isTimeAfter(String time1, String time2)
 	{
-		return date.getTime() - getTimeMilliSecond(date);
+		return isTimeAfter(time1, time2, getDateTimeFormat());
+	}
+	
+	/**
+	 * Judge whether time1 is after time2
+	 * @param time1       the inputting time1
+	 * @param time2       the inputting time2
+	 * @param dateFormat  the instance of DateFormat
+	 * @return            boolean flag
+	 */
+	public static boolean isTimeAfter(String time1, String time2, DateFormat dateFormat)
+	{
+		time1 = time1.trim();
+		time2 = time2.trim();
+		try
+		{
+			return dateFormat.parse(time1).after(dateFormat.parse(time2));
+		}
+		catch (ParseException ex)
+		{
+			ex.printStackTrace();
+			return false;
+		}
+	}
+	
+	/**
+	 * Judge whether inputting time is after current time.Its format is yyyy-MM-dd HH:mm:ss
+	 * @param time  the inputting time
+	 * @return      boolean flag
+	 */
+	public static boolean isTimeAfter(String time)
+	{
+		return isTimeAfter(time, getDateTimeFormat());
+	}
+	
+	/**
+	 * Judge whether inputting time is after current time
+	 * @param time        the inputting time
+	 * @param dateFormat  the instance of DateFormat
+	 * @return            boolean flag
+	 */
+	public static boolean isTimeAfter(String time, DateFormat dateFormat)
+	{
+		time = time.trim();
+		try
+		{
+			Date currentTime = new Date();
+			return dateFormat.parse(time).after(currentTime);
+		}
+		catch (ParseException ex)
+		{
+			ex.printStackTrace();
+			return false;
+		}
 	}	
 	
 	/**
-	 * 得到一个完整日期时间的时间毫秒数 
+	 * Get the date millisecond
+	 * @param date  the instance of Date
+	 * @return      
 	 */
-	public static long getTimeMilliSecond(Date date)
+	public static long getDateMillisecond(Date date)
+	{
+		return date.getTime() - getTimeMillisecond(date);
+	}
+	
+	/**
+	 * Get the time millisecond
+	 * @param date  the instance of Date
+	 * @return      the millisecond
+	 */
+	public static long getTimeMillisecond(Date date)
 	{
 		return date.getTime() % (24 * 60 * 60 * 1000);
 	}
 	
 	/**
-	 * 转换时间格式为数组
+	 * Get the second
+	 * @param timeArray  the time array.Its format is {day, hour, minute, second}
+	 * @return           the second
 	 */
-	public static int[] parseTimeArray(String timeValue)
+	public static long getSecond(int[] timeArray)
 	{
-		int[] timeArray = new int[5];
-		StringTokenizer st = new StringTokenizer(timeValue, ",");
+		return timeArray[0] * 24 * 60 * 60 + timeArray[1] * 60 * 60 + timeArray[2] * 60 + timeArray[3];
+	}
+	
+	/**
+	 * Get the milliSecond
+	 * @param timeArray  the time array.Its format is {day, hour, minute, second, milliSecond}
+	 * @return           the milliSecond
+	 */
+	public static long getMillisecond(int[] timeArray)
+	{
+		return getSecond(timeArray) * 1000 + timeArray[4];
+	}
+	
+	/**
+	 * Get the time array
+	 * @param timeString  the time string.Its format is example "day, hour, minute, second"
+	 * @param delim       the time timeDelim, example ", "
+	 * @return            the time array
+	 */
+	public static int[] parseTimeArray(String timeString, String timeDelim)
+	{
+		int[] timeArray = new int[4];
+		StringTokenizer st = new StringTokenizer(timeString, timeDelim);
 		int i = 0;
 		while (st.hasMoreTokens())
 		{
@@ -366,26 +563,33 @@ public class TimeUtil
 			i++;
 		}
 		return timeArray;
-	}
+	}		
 	
 	/**
-	 * 转换时间数组为秒
+	 * Get the millisecond time array
+	 * @param timeString  the time string.Its format is example "day, hour, minute ,second, milliSecond"
+	 * @param delim       the time timeDelim, example ", "
+	 * @return            the millisecond time array
 	 */
-	public static long parseSecond(int[] timeArray)
+	public static int[] parseMillisecondTimeArray(String timeString, String timeDelim)
 	{
-		return timeArray[0] * 24 * 60 * 60 + timeArray[1] * 60 * 60 + timeArray[2] * 60 + timeArray[3];
-	}
+		int[] timeArray = new int[5];
+		StringTokenizer st = new StringTokenizer(timeString, timeDelim);
+		int i = 0;
+		while (st.hasMoreTokens())
+		{
+			timeArray[i] = Integer.parseInt(st.nextToken());
+			i++;
+		}
+		return timeArray;
+	}	
 	
 	/**
-	 * 转换时间数组为毫秒
-	 */
-	public static long parseMilliSecond(int[] timeArray)
-	{
-		return parseSecond(timeArray) * 1000 + timeArray[4];
-	}
-	
-	/**
-	 * 转化成日期字符串
+	 * Get the date string
+	 * @param year   the year
+	 * @param month  the month
+	 * @param day    the day
+	 * @return       the date string
 	 */
 	public static String getDateString(long year, long month, long day)
 	{
@@ -414,7 +618,11 @@ public class TimeUtil
 	}
 	
 	/**
-	 * 转化成时间字符串
+	 * Get the time string
+	 * @param hour    the hour
+	 * @param minute  the minute
+	 * @param second  the second
+	 * @return        the time string
 	 */
 	public static String getTimeString(long hour, long minute, long second)
 	{
@@ -452,97 +660,204 @@ public class TimeUtil
 	}
 	
 	/**
-	 * 避免在多线程中应用不安全
+	 * Get the millisecond time string
+	 * @param hour         the hour
+	 * @param minute       the minute
+	 * @param second       the second
+	 * @param millisecond  the millisecond
+	 * @return             the millisecond time string
 	 */
+	public static String getMillisecondTimeString(long hour, long minute, long second, long millisecond)
+	{
+		String hourString = null;
+		String minuteString = null;
+		String secondString = null;
+		String millisecondString = null;
+		
+		if (hour < 10)
+		{
+			hourString = "0" + hour;
+		}
+		else
+		{
+			hourString = "" + hour;
+		}
+		
+		if (minute < 10)
+		{
+			minuteString = "0" + minute;
+		}
+		else
+		{
+			minuteString = "" + minute;
+		}
+		
+		if (second < 10)
+		{
+			secondString = "0" + second;
+		}
+		else
+		{
+			secondString = "" + second;
+		}
+		
+		if (millisecond < 10)
+		{
+			millisecondString = "00" + millisecond;
+		}
+		else if (millisecond < 100)
+		{
+			millisecondString = "0" + millisecond;
+		}	
+		else 
+		{
+			millisecondString = "" + millisecond;
+		}		
+		return hourString + ":" + minuteString + ":" + secondString + ":" + millisecondString;
+	}	
+	
+	/**
+	 * Get the date time format
+	 * @return  the instance of DateFormat
+	 */		
 	public static DateFormat getDateTimeFormat()
 	{
 		return new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 	}
 	
 	/**
-	 * 避免在多线程中应用不安全
-	 */
+	 * Get the time zone date time format
+	 * @return  the instance of DateFormat
+	 */		
 	public static DateFormat getTimeZoneDateTimeFormat()
 	{
 		return new SimpleDateFormat("yyyy-MM-dd HH:mm:ss zzzz");
-	}	
+	}
 	
 	/**
-	 * 避免在多线程中应用不安全
-	 */
+	 * Get the date format
+	 * @return  the instance of DateFormat
+	 */	
 	public static DateFormat getDateFormat()
 	{
 		return new SimpleDateFormat("yyyy-MM-dd");
 	}
 	
 	/**
-	 * 避免在多线程中应用不安全
-	 */
-	public static DateFormat getMilliSecondTimeDateFormat()
+	 * Get the millisecond date time format
+	 * @return  the instance of DateFormat
+	 */	
+	public static DateFormat getMillisecondTimeDateFormat()
 	{
 		return new SimpleDateFormat("yyyy-MM-dd HH:mm:ss:SSS");
 	}
 	
 	/**
-	 * 避免在多线程中应用不安全
-	 */
+	 * Get the time format
+	 * @return  the instance of DateFormat
+	 */	
 	public static DateFormat getTimeFormat()
 	{
 		return new SimpleDateFormat("HH:mm:ss");
 	}
 	
 	/**
-	 * 避免在多线程中应用不安全
+	 * Get the millisecond time format
+	 * @return  the instance of DateFormat
 	 */
-	public static DateFormat getMilliSecondTimeFormat()
+	public static DateFormat getMillisecondTimeFormat()
 	{
 		return new SimpleDateFormat("HH:mm:ss:SSS");
 	}
 	
 	public static void main(String[] args)
-	{		
+	{
 //		System.out.println("getCurrentYear() : " + getCurrentYear());
 //		System.out.println("getCurrentMonth() : " + getCurrentMonth());
 //		System.out.println("getCurrentDay() : " + getCurrentDay());
 //		System.out.println("getCurrentHour() : " + getCurrentHour());
 //		System.out.println("getCurrentMinute() : " + getCurrentMinute());
 //		System.out.println("getCurrentSecond() : " + getCurrentSecond());
-//		System.out.println("getCurrentMilliSecond() : " + getCurrentMilliSecond());
+//		System.out.println("getCurrentMillisecond() : " + getCurrentMillisecond());
+		
 //		System.out.println("getCurrentDateTime() : " + getCurrentDateTime());
 //		System.out.println("getDateTime() : " + getDateTime(new Date()));
+		
 //		System.out.println("getCurrentDate() : " + getCurrentDate());
 //		System.out.println("getDate() : " + getDate(new Date()));
+		
 //		System.out.println("getCurrentTime() : " + getCurrentTime());
 //		System.out.println("getTime() : " + getTime(new Date()));
+		
+//		System.out.println("getCurrentMillisecondTime() : " + getCurrentMillisecondTime());
+//		System.out.println("getMillisecondTime() : " + getMillisecondTime(new Date()));
+		
 //		System.out.println("getCurrentDayOfWeek() : " + getCurrentDayOfWeek());
 //		System.out.println("getDayOfWeek() : " + getDayOfWeek(2010, 3, 9));
 //		System.out.println("getCurrentWeekOfMonth() : " + getCurrentWeekOfMonth());
 //		System.out.println("getWeekOfMonth() : " + getWeekOfMonth(2209, 4, 9));
 //		System.out.println("getCurrentWeekOfYear() : " + getCurrentWeekOfYear());
 //		System.out.println("getWeekOfYear() : " + getWeekOfYear(2010, 3, 9));
-//		System.out.println("parseDateTime() : " + parseDateTime("2010-01-01 01:01:01"));
+
+//		System.out.println("parseDateTime() : " + parseDateTime("2009-03-08 02:30:00"));
+//		System.out.println("parseTimeZoneDateTime() : " + parseTimeZoneDateTime("2009-03-08 02:30:00 CDT"));
+//		System.out.println("parseTimeZoneDateTime() : " + parseTimeZoneDateTime("2009-03-08 02:30:00 CST"));		
 //		System.out.println("parseDate() : " + parseDate("2012-02-02"));
 //		System.out.println("parseTime() : " + parseTime("02:02:02"));
+	
+//		Date date1 = parseDateTime("2000-10-29 00:59:59:111");
+//		String dateString1 = getFormatString(date1, getDateFormat());
 		
-		Date date1 = parseDateTime("2000-10-29 00:59:59");
-		System.out.println("Date : " + date1);
+//		Date date2 = parseDateTime("2005-11-01 23:00:00:222");
+//		String dataString2 = getFormatString(date2, getMillisecondTimeFormat());
+	
+//		Date date3 = parseDateTime(dateString1 + " " + dataString2);
+//		System.out.println(date3);
+					
+//		Date date4 = parseDateTime("2000-10-29 00:59:59");
+//		System.out.println("Date : " + date4);
 		
-		int offset1 = getDSTOffset(date1);
-		System.out.println("Offset: " + offset1);
+//		int offset1 = getDSTOffset(date4);
+//		System.out.println("Offset: " + offset1);
 		
-		Date date2 = parseDateTime("2000-10-29 01:00:00");
-		System.out.println("Date : " + date2);
+//		Date date5 = parseDateTime("2000-10-29 01:00:00");
+//		System.out.println("Date : " + date5);
 		
-		int offset2 = getDSTOffset(date2);
-		System.out.println("Offset: " + offset2);
+//		int offset2 = getDSTOffset(date5);
+//		System.out.println("Offset: " + offset2);
+
+//		System.out.println("getTimeInterval() : " + getTimeInterval(1000000, 2030500));
+//		System.out.println("getMillisecondTimeInterval() : " + getMillisecondTimeInterval(1000000, 2030500));
 		
-//		Date date5 = parseDateTime("2000-10-29 00:59:59:111");
-//		String dateString5 = getFormatString(date5, getDateFormat());
+//		System.out.println("isTimeBefore() : " + isTimeBefore("2010-01-01 01:01:00", "2010-01-01 01:01:01"));
+//		System.out.println("isTimeBefore() : " + isTimeBefore("2010-01-01 01:01:02", "2010-01-01 01:01:01"));
+//		System.out.println("isTimeBefore() : " + isTimeBefore("2010-01-01 01:01:01", "2010-01-01 01:01:01"));
+//		System.out.println("isTimeBefore() : " + isTimeBefore("2010-01-01 01:01:01:110", "2010-01-01 01:01:01:111", getMillisecondTimeDateFormat()));
+//		System.out.println("isTimeBefore() : " + isTimeBefore("2010-01-01 01:01:01:112", "2010-01-01 01:01:01:111", getMillisecondTimeDateFormat()));
+//		System.out.println("isTimeBefore() : " + isTimeBefore("2010-01-01 01:01:01:111", "2010-01-01 01:01:01:111", getMillisecondTimeDateFormat()));		
+//		System.out.println("isTimeBefore() : " + isTimeBefore("2010-01-01 01:01:01"));
+//		System.out.println("isTimeBefore() : " + isTimeBefore("2010-01-01 01:01:01:110", getMillisecondTimeDateFormat()));
 //		
-//		Date date6 = parseDateTime("2005-11-01 23:00:00:222");
-//		String dataString6 = getFormatString(date6, getMilliSecondTimeFormat());
-//		
-//		Date date7 = parseDateTime(dateString5 + " " + dataString6);
-//		System.out.println(date7);
+//		System.out.println("isTimeAfter() : " + isTimeAfter("2010-01-01 01:01:00", "2010-01-01 01:01:01"));
+//		System.out.println("isTimeAfter() : " + isTimeAfter("2010-01-01 01:01:02", "2010-01-01 01:01:01"));
+//		System.out.println("isTimeAfter() : " + isTimeAfter("2010-01-01 01:01:01", "2010-01-01 01:01:01"));
+//		System.out.println("isTimeAfter() : " + isTimeAfter("2010-01-01 01:01:01:110", "2010-01-01 01:01:01:111", getMillisecondTimeDateFormat()));
+//		System.out.println("isTimeAfter() : " + isTimeAfter("2010-01-01 01:01:01:112", "2010-01-01 01:01:01:111", getMillisecondTimeDateFormat()));
+//		System.out.println("isTimeAfter() : " + isTimeAfter("2010-01-01 01:01:01:111", "2010-01-01 01:01:01:111", getMillisecondTimeDateFormat()));		
+//		System.out.println("isTimeAfter() : " + isTimeAfter("2010-01-01 01:01:01"));
+//		System.out.println("isTimeAfter() : " + isTimeAfter("2010-01-01 01:01:01:110", getMillisecondTimeDateFormat()));		
+		
+//		System.out.println("getDateMillisecond() : " + getDateMillisecond(new Date()));
+//		System.out.println("getTimeMillisecond() : " + getTimeMillisecond(new Date()));
+	
+//		System.out.println("getSecond() : " + getSecond(new int[] {1, 1, 1, 1}));
+//		System.out.println("getMillisecond() : " + getMillisecond(new int[] {1, 1, 1, 1, 1}));
+		
+//		System.out.println("parseTimeArray() : " + parseTimeArray("1, 2, 3, 4", ", ")[0]);
+//		System.out.println("parseMillisecondTimeArray() : " + parseMillisecondTimeArray("1| 2| 3| 4| 5", "| ")[1]);
+		
+//		System.out.println("getDateString() : " + getDateString(2010, 2, 3));
+//		System.out.println("getTimeString() : " + getTimeString(1, 2, 3));
+//		System.out.println("getMillisecondTimeString() : " + getMillisecondTimeString(1, 2, 3, 4));		
 	}
 }
