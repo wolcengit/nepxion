@@ -5,7 +5,7 @@ package com.nepxion.util.xml;
  * <p>Description: Nepxion Utility Repository</p>
  * <p>Copyright: Copyright (c) 2010</p>
  * <p>Company: Nepxion</p>
- * @author Neptune �κƾ�
+ * @author Neptune �κƾ�
  * @email hj_ren@msn.com
  * @version 1.0
  */
@@ -17,12 +17,19 @@ import org.dom4j.io.*;
 
 public class Dom4JWriter
 {
-    public static String writeContentByString(Document document)
-        throws Exception
+	/**
+	 * Get xml string by document
+	 * @param document  the instanceof Document
+	 * @param encoding  the encoding content, eamx: GB2321, UTF-8
+	 * @return          
+	 * @throws UnsupportedEncodingException
+	 * @throws IOException
+	 */
+    public static String getString(Document document, String encoding)
+        throws UnsupportedEncodingException, IOException
     {
         try
         {
-            String encoding = "GB2312";
             ByteArrayOutputStream baos = new ByteArrayOutputStream();
             OutputFormat outputFormat = new OutputFormat("  ", true, encoding);
             XMLWriter writer = new XMLWriter(baos, outputFormat);
