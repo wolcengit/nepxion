@@ -17,9 +17,9 @@ import java.util.Locale;
 
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import com.nepxion.demo.common.DemoSelectionValuePanel;
 import com.nepxion.swing.border.ComplexEtchedBorder;
 import com.nepxion.swing.border.ComplexSide;
 import com.nepxion.swing.border.ComplexTitleBorder;
@@ -31,22 +31,21 @@ import com.nepxion.swing.layout.filed.FiledLayout;
 import com.nepxion.swing.selector.locale.JLocaleSelectorDialog;
 import com.nepxion.swing.selector.locale.JLocaleSelectorOptionPane;
 import com.nepxion.swing.selector.locale.JLocaleSelectorPopupMenu;
-import com.nepxion.swing.textfield.JBasicTextField;
 
 public class DemoLocaleSelectorPanel
 	extends JPanel
 {
-	private SelectorValuePanel selectorValuePanel;
+	private DemoSelectionValuePanel selectionValuePanel;
 	
 	public DemoLocaleSelectorPanel()
 	{
 		setLayout(new FiledLayout(FiledLayout.COLUMN, FiledLayout.FULL, 0));
 		setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
 		
-		selectorValuePanel = new SelectorValuePanel();
+		selectionValuePanel = new DemoSelectionValuePanel();
 		
 		add(new LocaleSelectorPanel());
-		add(selectorValuePanel);
+		add(selectionValuePanel);
 	}
 	
 	public class LocaleSelectorPanel
@@ -71,7 +70,7 @@ public class DemoLocaleSelectorPanel
 							{
 								return false;
 							}
-							selectorValuePanel.setValue(locale.toString());
+							selectionValuePanel.setValue(locale.toString());
 							return true;
 						}
 						
@@ -101,7 +100,7 @@ public class DemoLocaleSelectorPanel
 						{
 							return;
 						}
-						selectorValuePanel.setValue(locale.toString());
+						selectionValuePanel.setValue(locale.toString());
 					}
 				}
 			}
@@ -118,7 +117,7 @@ public class DemoLocaleSelectorPanel
 					{
 						return false;
 					}
-					selectorValuePanel.setValue(locale.toString());
+					selectionValuePanel.setValue(locale.toString());
 					return true;
 				}
 				
@@ -153,31 +152,4 @@ public class DemoLocaleSelectorPanel
 		button.setDimension(new Dimension(125, 30));	
 		return button;
 	}	
-	
-	public class SelectorValuePanel
-		extends JPanel
-	{
-		private JBasicTextField textField;
-		
-		public SelectorValuePanel()
-		{
-			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Selection Value"));
-			
-			textField = new JBasicTextField();
-			textField.setOpaque(false);
-			textField.setPreferredSize(new Dimension(225, textField.getPreferredSize().height));
-			textField.setMaximumSize(new Dimension(225, textField.getPreferredSize().height));
-			textField.setMinimumSize(new Dimension(225, textField.getPreferredSize().height));
-			textField.setSize(new Dimension(225, textField.getPreferredSize().height));
-			
-			add(new JLabel("Your Selection Value"));
-			add(textField);
-		}
-		
-		public void setValue(String value)
-		{
-			textField.setText(value);
-		}
-	}
 }

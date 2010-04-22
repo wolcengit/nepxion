@@ -18,10 +18,10 @@ import java.util.Date;
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.ButtonGroup;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButtonMenuItem;
 
+import com.nepxion.demo.common.DemoSelectionValuePanel;
 import com.nepxion.swing.border.ComplexEtchedBorder;
 import com.nepxion.swing.border.ComplexSide;
 import com.nepxion.swing.border.ComplexTitleBorder;
@@ -53,19 +53,18 @@ import com.nepxion.swing.selector.calendar.JTimeSelectorPopupMenu;
 import com.nepxion.swing.selector.calendar.JYearSelectorDialog;
 import com.nepxion.swing.selector.calendar.JYearSelectorOptionPane;
 import com.nepxion.swing.selector.calendar.JYearSelectorPopupMenu;
-import com.nepxion.swing.textfield.JBasicTextField;
 
 public class DemoCalendarSelectorPanel
 	extends JPanel
 {
-	private SelectorValuePanel selectorValuePanel;
+	private DemoSelectionValuePanel selectionValuePanel;
 	
 	public DemoCalendarSelectorPanel()
 	{
 		setLayout(new FiledLayout(FiledLayout.COLUMN, FiledLayout.FULL, 0));
 		setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
 		
-		selectorValuePanel = new SelectorValuePanel();
+		selectionValuePanel = new DemoSelectionValuePanel();
 		
 		add(new CalendarSelectorPanel());
 		add(new DateTimeSelectorPanel());
@@ -74,7 +73,7 @@ public class DemoCalendarSelectorPanel
 		add(new MonthSelectorPanel());
 		add(new DaySelectorPanel());
 		add(new TimeSelectorPanel());
-		add(selectorValuePanel);
+		add(selectionValuePanel);
 	}
 	
 	public class CalendarSelectorPanel
@@ -99,7 +98,7 @@ public class DemoCalendarSelectorPanel
 							{
 								return false;
 							}	
-							selectorValuePanel.setValue(date.toString());
+							selectionValuePanel.setValue(date.toString());
 							return true;
 						}
 						
@@ -129,7 +128,7 @@ public class DemoCalendarSelectorPanel
 						{
 							return;
 						}	
-						selectorValuePanel.setValue(date.toString());
+						selectionValuePanel.setValue(date.toString());
 					}
 				}
 			}
@@ -146,7 +145,7 @@ public class DemoCalendarSelectorPanel
 					{
 						return false;
 					}	
-					selectorValuePanel.setValue(date.toString());
+					selectionValuePanel.setValue(date.toString());
 					return true;
 				}
 				
@@ -183,7 +182,7 @@ public class DemoCalendarSelectorPanel
 							{
 								return false;
 							}
-							selectorValuePanel.setValue(date.toString());
+							selectionValuePanel.setValue(date.toString());
 							return true;
 						}
 						
@@ -214,7 +213,7 @@ public class DemoCalendarSelectorPanel
 						{
 							return;
 						}	
-						selectorValuePanel.setValue(date.toString());
+						selectionValuePanel.setValue(date.toString());
 					}
 				}
 			}
@@ -231,7 +230,7 @@ public class DemoCalendarSelectorPanel
 					{
 						return false;
 					}	
-					selectorValuePanel.setValue(date.toString());
+					selectionValuePanel.setValue(date.toString());
 					return true;
 				}
 				
@@ -280,7 +279,7 @@ public class DemoCalendarSelectorPanel
 							{
 								return false;
 							}	
-							selectorValuePanel.setValue(date.toString());
+							selectionValuePanel.setValue(date.toString());
 							return true;
 						}
 						
@@ -312,7 +311,7 @@ public class DemoCalendarSelectorPanel
 						{
 							return;
 						}	
-						selectorValuePanel.setValue(date.toString());
+						selectionValuePanel.setValue(date.toString());
 					}
 				}
 			}
@@ -329,7 +328,7 @@ public class DemoCalendarSelectorPanel
 					{
 						return false;
 					}	
-					selectorValuePanel.setValue(date.toString());
+					selectionValuePanel.setValue(date.toString());
 					return true;
 				}
 				
@@ -371,7 +370,7 @@ public class DemoCalendarSelectorPanel
 						public boolean confirm()
 						{
 							int year = getYearSelector().getYear();
-							selectorValuePanel.setValue(year + "");
+							selectionValuePanel.setValue(year + "");
 							return true;
 						}
 						
@@ -397,7 +396,7 @@ public class DemoCalendarSelectorPanel
 					if (selectedValue == JCalendarSelectorOptionPane.OK_OPTION)
 					{
 						int year = optionPane.getYearSelector().getYear();
-						selectorValuePanel.setValue(year + "");
+						selectionValuePanel.setValue(year + "");
 					}
 				}
 			}
@@ -410,7 +409,7 @@ public class DemoCalendarSelectorPanel
 				public boolean confirm()
 				{
 					int year = getYearSelector().getYear();
-					selectorValuePanel.setValue(year + "");
+					selectionValuePanel.setValue(year + "");
 					return true;
 				}
 				
@@ -443,7 +442,7 @@ public class DemoCalendarSelectorPanel
 						public boolean confirm()
 						{
 							int month = getMonthSelector().getMonth();
-							selectorValuePanel.setValue(month + "");
+							selectionValuePanel.setValue(month + "");
 							return true;
 						}
 						
@@ -469,7 +468,7 @@ public class DemoCalendarSelectorPanel
 					if (selectedValue == JCalendarSelectorOptionPane.OK_OPTION)
 					{
 						int month = optionPane.getMonthSelector().getMonth();
-						selectorValuePanel.setValue(month + "");
+						selectionValuePanel.setValue(month + "");
 					}
 				}
 			}
@@ -482,7 +481,7 @@ public class DemoCalendarSelectorPanel
 				public boolean confirm()
 				{
 					int month = getMonthSelector().getMonth();
-					selectorValuePanel.setValue(month + "");
+					selectionValuePanel.setValue(month + "");
 					return true;
 				}
 				
@@ -515,7 +514,7 @@ public class DemoCalendarSelectorPanel
 						public boolean confirm()
 						{
 							int day = getDaySelector().getDay();
-							selectorValuePanel.setValue(day + "");
+							selectionValuePanel.setValue(day + "");
 							return true;
 						}
 						
@@ -541,7 +540,7 @@ public class DemoCalendarSelectorPanel
 					if (selectedValue == JCalendarSelectorOptionPane.OK_OPTION)
 					{
 						int day = optionPane.getDaySelector().getDay();
-						selectorValuePanel.setValue(day + "");
+						selectionValuePanel.setValue(day + "");
 					}
 				}
 			}
@@ -554,7 +553,7 @@ public class DemoCalendarSelectorPanel
 				public boolean confirm()
 				{
 					int day = getDaySelector().getDay();
-					selectorValuePanel.setValue(day + "");
+					selectionValuePanel.setValue(day + "");
 					return true;
 				}
 				
@@ -591,7 +590,7 @@ public class DemoCalendarSelectorPanel
 							{
 								return false;
 							}	
-							selectorValuePanel.setValue(time.toString());
+							selectionValuePanel.setValue(time.toString());
 							return true;
 						}
 						
@@ -623,7 +622,7 @@ public class DemoCalendarSelectorPanel
 						{
 							return;
 						}							
-						selectorValuePanel.setValue(time.toString());
+						selectionValuePanel.setValue(time.toString());
 					}
 				}
 			}
@@ -640,7 +639,7 @@ public class DemoCalendarSelectorPanel
 					{
 						return false;
 					}	
-					selectorValuePanel.setValue(time.toString());
+					selectionValuePanel.setValue(time.toString());
 					return true;
 				}
 				
@@ -753,32 +752,5 @@ public class DemoCalendarSelectorPanel
 		{
 			this.timeFormat = timeFormat;
 		}		
-	}
-	
-	public class SelectorValuePanel
-		extends JPanel
-	{
-		private JBasicTextField textField;
-		
-		public SelectorValuePanel()
-		{
-			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Selection Value"));
-			
-			textField = new JBasicTextField();
-			textField.setOpaque(false);
-			textField.setPreferredSize(new Dimension(225, textField.getPreferredSize().height));
-			textField.setMaximumSize(new Dimension(225, textField.getPreferredSize().height));
-			textField.setMinimumSize(new Dimension(225, textField.getPreferredSize().height));
-			textField.setSize(new Dimension(225, textField.getPreferredSize().height));
-			
-			add(new JLabel("Your Selection Value"));
-			add(textField);
-		}
-		
-		public void setValue(String value)
-		{
-			textField.setText(value);
-		}
 	}
 }
