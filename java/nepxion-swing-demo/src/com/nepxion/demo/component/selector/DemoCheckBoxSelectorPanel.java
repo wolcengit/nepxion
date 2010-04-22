@@ -10,7 +10,6 @@ package com.nepxion.demo.component.selector;
  * @version 1.0
  */
 
-import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Iterator;
@@ -56,7 +55,6 @@ public class DemoCheckBoxSelectorPanel
 			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "CheckBox Selector"));
 			
 			JFlatButton checkBoxSelectorButton = new JFlatButton("CheckBox Selector", IconFactory.getSwingIcon("component/check_box_16.png"));
-			checkBoxSelectorButton.setDimension(new Dimension(132, 30));
 			checkBoxSelectorButton.addActionListener(new ActionListener()
 			{
 				public void actionPerformed(ActionEvent e)

@@ -10,7 +10,6 @@ package com.nepxion.demo.component.selector;
  * @version 1.0
  */
 
-import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Date;
@@ -669,28 +668,24 @@ public class DemoCalendarSelectorPanel
 	private JFlatButton createDialogStyleButton()
 	{
 		JFlatButton button = new JFlatButton("Dialog Style", IconFactory.getSwingIcon("component/dialog_16.png"));
-		button.setDimension(new Dimension(95, 30));
 		return button;
 	}
 	
 	private JFlatButton createOptionPaneStyleButton()
 	{
 		JFlatButton button = new JFlatButton("OptionPane Style", IconFactory.getSwingIcon("component/option_pane_16.png"));
-		button.setDimension(new Dimension(125, 30));
 		return button;
 	}
 	
 	private JFlatButton createPopupMenuStyleButton()
 	{
 		JFlatButton button = new JFlatButton("PopupMenu Style", IconFactory.getSwingIcon("component/popup_menu_16.png"));
-		button.setDimension(new Dimension(125, 30));	
 		return button;
 	}	
 	
 	private JFlatMenuButton createFormatButton(final FormatPanel panel, String[] formatList, final boolean isDateFormat)
 	{
 		JFlatMenuButton button = new JFlatMenuButton(isDateFormat ? "Date Format" : "Time Format", IconFactory.getSwingIcon("component/button_16.png"));
-		button.setDimension(new Dimension(112, 30));
 		
 		JDecorationPopupMenu popupMenu = new JDecorationPopupMenu();
 		ButtonGroup buttonGroup = new ButtonGroup();

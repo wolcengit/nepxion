@@ -10,8 +10,6 @@ package com.nepxion.demo.component.button;
  * @version 1.0
  */
 
-import java.awt.Dimension;
-
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.JMenu;
@@ -62,7 +60,6 @@ public class DemoMenuButtonPanel
 			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Flat ButtonUI"));
 			
 			JFlatMenuButton flatStyleButton = new JFlatMenuButton("Flat Style", IconFactory.getSwingIcon("component/button_16.png"));
-			flatStyleButton.setDimension(new Dimension(86, 30));
 			flatStyleButton.setUI(new FlatMenuButtonUI());
 			flatStyleButton.setPopupMenu(new PopupMenu());
 			add(flatStyleButton);			
@@ -78,25 +75,21 @@ public class DemoMenuButtonPanel
 			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Alloy ButtonUI"));
 			
 			JFlatMenuButton alloyStyleButton = new JFlatMenuButton("JAlloy Style", IconFactory.getSwingIcon("component/button_16.png"));
-			alloyStyleButton.setDimension(new Dimension(98, 30));
 			alloyStyleButton.setUI(new LiteMenuButtonUI(new JAlloyLiteButtonStyle()));
 			alloyStyleButton.setPopupMenu(new PopupMenu());
 			add(alloyStyleButton);
 			
 			JFlatMenuButton acidStyleButton = new JFlatMenuButton("JAcid Style", IconFactory.getSwingIcon("component/button_16.png"));
-			acidStyleButton.setDimension(new Dimension(96, 30));
 			acidStyleButton.setUI(new LiteMenuButtonUI(new JAcidLiteButtonStyle()));
 			acidStyleButton.setPopupMenu(new PopupMenu());
 			add(acidStyleButton);
 			
 			JFlatMenuButton bedouinStyleButton = new JFlatMenuButton("JBedouin Style", IconFactory.getSwingIcon("component/button_16.png"));
-			bedouinStyleButton.setDimension(new Dimension(116, 30));
 			bedouinStyleButton.setUI(new LiteMenuButtonUI(new JBedouinLiteButtonStyle()));
 			bedouinStyleButton.setPopupMenu(new PopupMenu());
 			add(bedouinStyleButton);
 			
 			JFlatMenuButton glassStyleButton = new JFlatMenuButton("JGlass Style", IconFactory.getSwingIcon("component/button_16.png"));
-			glassStyleButton.setDimension(new Dimension(106, 30));
 			glassStyleButton.setUI(new LiteMenuButtonUI(new JGlassLiteButtonStyle()));
 			glassStyleButton.setPopupMenu(new PopupMenu());
 			add(glassStyleButton);			
@@ -112,7 +105,6 @@ public class DemoMenuButtonPanel
 			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Eclipse ButtonUI"));
 			
 			JFlatMenuButton eclipseStyleButton = new JFlatMenuButton("JEclipse Style", IconFactory.getSwingIcon("component/button_16.png"));
-			eclipseStyleButton.setDimension(new Dimension(114, 30));
 			eclipseStyleButton.setUI(new LiteMenuButtonUI(new JEclipseLiteButtonStyle()));
 			eclipseStyleButton.setPopupMenu(new PopupMenu());
 			add(eclipseStyleButton);			
@@ -128,7 +120,6 @@ public class DemoMenuButtonPanel
 			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Borland ButtonUI"));
 			
 			JFlatMenuButton borlandStyleButton = new JFlatMenuButton("JBorland Style", IconFactory.getSwingIcon("component/button_16.png"));
-			borlandStyleButton.setDimension(new Dimension(116, 30));
 			borlandStyleButton.setUI(new LiteMenuButtonUI(new JBorlandLiteButtonStyle()));
 			borlandStyleButton.setPopupMenu(new PopupMenu());
 			add(borlandStyleButton);			
@@ -144,7 +135,6 @@ public class DemoMenuButtonPanel
 			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Nimbus ButtonUI"));
 			
 			JFlatMenuButton nimbusStyleButton = new JFlatMenuButton("JNimbus Style", IconFactory.getSwingIcon("component/button_16.png"));
-			nimbusStyleButton.setDimension(new Dimension(116, 30));
 			nimbusStyleButton.setUI(new LiteMenuButtonUI(new JNimbusLiteButtonStyle()));
 			nimbusStyleButton.setPopupMenu(new PopupMenu());
 			add(nimbusStyleButton);			
@@ -160,13 +150,11 @@ public class DemoMenuButtonPanel
 			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Color ButtonUI"));
 			
 			JFlatMenuButton blueStyleButton = new JFlatMenuButton("JBlue Style", IconFactory.getSwingIcon("component/button_16.png"));
-			blueStyleButton.setDimension(new Dimension(98, 30));
 			blueStyleButton.setUI(new LiteMenuButtonUI(new JBlueLiteButtonStyle()));
 			blueStyleButton.setPopupMenu(new PopupMenu());
 			add(blueStyleButton);
 			
 			JFlatMenuButton yellowStyleButton = new JFlatMenuButton("JYellow Style", IconFactory.getSwingIcon("component/button_16.png"));
-			yellowStyleButton.setDimension(new Dimension(110, 30));
 			yellowStyleButton.setUI(new LiteMenuButtonUI(new JYellowLiteButtonStyle()));
 			yellowStyleButton.setPopupMenu(new PopupMenu());
 			add(yellowStyleButton);			

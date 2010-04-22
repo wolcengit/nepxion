@@ -10,8 +10,6 @@ package com.nepxion.demo.component.button;
  * @version 1.0
  */
 
-import java.awt.Dimension;
-
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.JPanel;
@@ -61,7 +59,6 @@ public class DemoToggleButtonPanel
 			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Flat ButtonUI"));
 			
 			JFlatToggleButton flatStyleButton = new JFlatToggleButton("Flat Style", IconFactory.getSwingIcon("component/button_16.png"));
-			flatStyleButton.setDimension(new Dimension(80, 30));
 			flatStyleButton.setUI(new FlatButtonUI());
 			add(flatStyleButton);					
 		}
@@ -76,22 +73,18 @@ public class DemoToggleButtonPanel
 			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Alloy ButtonUI"));
 			
 			JFlatToggleButton alloyStyleButton = new JFlatToggleButton("JAlloy Style", IconFactory.getSwingIcon("component/button_16.png"));
-			alloyStyleButton.setDimension(new Dimension(92, 30));
 			alloyStyleButton.setUI(new LiteButtonUI(new JAlloyLiteButtonStyle()));
 			add(alloyStyleButton);
 			
 			JFlatToggleButton acidStyleButton = new JFlatToggleButton("JAcid Style", IconFactory.getSwingIcon("component/button_16.png"));
-			acidStyleButton.setDimension(new Dimension(90, 30));
 			acidStyleButton.setUI(new LiteButtonUI(new JAcidLiteButtonStyle()));
 			add(acidStyleButton);
 			
 			JFlatToggleButton bedouinStyleButton = new JFlatToggleButton("JBedouin Style", IconFactory.getSwingIcon("component/button_16.png"));
-			bedouinStyleButton.setDimension(new Dimension(110, 30));
 			bedouinStyleButton.setUI(new LiteButtonUI(new JBedouinLiteButtonStyle()));
 			add(bedouinStyleButton);
 			
 			JFlatToggleButton glassStyleButton = new JFlatToggleButton("JGlass Style", IconFactory.getSwingIcon("component/button_16.png"));
-			glassStyleButton.setDimension(new Dimension(100, 30));
 			glassStyleButton.setUI(new LiteButtonUI(new JGlassLiteButtonStyle()));
 			add(glassStyleButton);						
 		}
@@ -106,7 +99,6 @@ public class DemoToggleButtonPanel
 			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Eclipse ButtonUI"));
 			
 			JFlatToggleButton eclipseStyleButton = new JFlatToggleButton("JEclipse Style", IconFactory.getSwingIcon("component/button_16.png"));
-			eclipseStyleButton.setDimension(new Dimension(108, 30));
 			eclipseStyleButton.setUI(new LiteButtonUI(new JEclipseLiteButtonStyle()));
 			add(eclipseStyleButton);			
 		}
@@ -121,7 +113,6 @@ public class DemoToggleButtonPanel
 			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Borland ButtonUI"));
 			
 			JFlatToggleButton borlandStyleButton = new JFlatToggleButton("JBorland Style", IconFactory.getSwingIcon("component/button_16.png"));
-			borlandStyleButton.setDimension(new Dimension(110, 30));
 			borlandStyleButton.setUI(new LiteButtonUI(new JBorlandLiteButtonStyle()));
 			add(borlandStyleButton);			
 		}
@@ -136,7 +127,6 @@ public class DemoToggleButtonPanel
 			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Nimbus ButtonUI"));
 			
 			JFlatToggleButton nimbusStyleButton = new JFlatToggleButton("JNimbus Style", IconFactory.getSwingIcon("component/button_16.png"));
-			nimbusStyleButton.setDimension(new Dimension(110, 30));
 			nimbusStyleButton.setUI(new LiteButtonUI(new JNimbusLiteButtonStyle()));
 			add(nimbusStyleButton);			
 		}
@@ -151,12 +141,10 @@ public class DemoToggleButtonPanel
 			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Color ButtonUI"));
 			
 			JFlatToggleButton blueStyleButton = new JFlatToggleButton("JBlue Style", IconFactory.getSwingIcon("component/button_16.png"));
-			blueStyleButton.setDimension(new Dimension(92, 30));
 			blueStyleButton.setUI(new LiteButtonUI(new JBlueLiteButtonStyle()));
 			add(blueStyleButton);	
 			
 			JFlatToggleButton yellowStyleButton = new JFlatToggleButton("JYellow Style", IconFactory.getSwingIcon("component/button_16.png"));
-			yellowStyleButton.setDimension(new Dimension(104, 30));
 			yellowStyleButton.setUI(new LiteButtonUI(new JYellowLiteButtonStyle()));
 			add(yellowStyleButton);						
 		}
@@ -171,24 +159,20 @@ public class DemoToggleButtonPanel
 			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Style ButtonUI"));
 			
 			JStyleToggleButton flatStyleButton = new JStyleToggleButton("Flat Style", IconFactory.getSwingIcon("component/button_16.png"));
-			flatStyleButton.setDimension(new Dimension(80, 30));
 			flatStyleButton.setButtonStyle(JStyleToggleButton.FLAT_STYLE);
 			add(flatStyleButton);
 			
 			JStyleToggleButton hyperLinkStyleButton = new JStyleToggleButton("HyperLink Style", IconFactory.getSwingIcon("component/button_16.png"));
-			hyperLinkStyleButton.setDimension(new Dimension(110, 30));
 			hyperLinkStyleButton.setButtonStyle(JStyleToggleButton.HYPERLINK_STYLE);
 			add(hyperLinkStyleButton);
 			
 			JStyleToggleButton toolBarStyleButton = new JStyleToggleButton("ToolBar Style", IconFactory.getSwingIcon("component/button_16.png"));
-			toolBarStyleButton.setDimension(new Dimension(100, 30));
 			toolBarStyleButton.setButtonStyle(JStyleToggleButton.TOOLBAR_STYLE);
 			add(toolBarStyleButton);
 			
-			JStyleToggleButton toolBoxStyleButton = new JStyleToggleButton("ToolBox Style", IconFactory.getSwingIcon("component/button_16.png"));
-			toolBoxStyleButton.setDimension(new Dimension(100, 30));
+			/*JStyleToggleButton toolBoxStyleButton = new JStyleToggleButton("ToolBox Style", IconFactory.getSwingIcon("component/button_16.png"));
 			toolBoxStyleButton.setButtonStyle(JStyleToggleButton.TOOLBOX_STYLE);
-			add(toolBoxStyleButton);			
+			add(toolBoxStyleButton);*/			
 		}
 	}
 }

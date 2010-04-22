@@ -52,7 +52,6 @@ public class DemoDropDownSelectorPanel
 			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Tree DropDown Selector"));
 			
 			JFlatButton popupMenuStyleButton = new JFlatButton("PopupMenu Style", IconFactory.getSwingIcon("component/tree_16.png"));
-			popupMenuStyleButton.setDimension(new Dimension(125, 30));
 			popupMenuStyleButton.addActionListener(new ActionListener()
 			{
 				public void actionPerformed(ActionEvent e)
@@ -81,7 +80,6 @@ public class DemoDropDownSelectorPanel
 			add(popupMenuStyleButton);
 			
 			JFlatButton draggablePopupMenuStyleButton = new JFlatButton("DraggablePopupMenu Style", IconFactory.getSwingIcon("component/tree_16.png"));
-			draggablePopupMenuStyleButton.setDimension(new Dimension(182, 30));
 			draggablePopupMenuStyleButton.addActionListener(new ActionListener()
 			{
 				public void actionPerformed(ActionEvent e)
@@ -122,7 +120,6 @@ public class DemoDropDownSelectorPanel
 			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Table DropDown Selector"));
 			
 			JFlatButton popupMenuStyleButton = new JFlatButton("PopupMenu Style", IconFactory.getSwingIcon("component/table_16.png"));
-			popupMenuStyleButton.setDimension(new Dimension(125, 30));
 			popupMenuStyleButton.addActionListener(new ActionListener()
 			{
 				public void actionPerformed(ActionEvent e)
@@ -151,7 +148,6 @@ public class DemoDropDownSelectorPanel
 			add(popupMenuStyleButton);
 			
 			JFlatButton draggablePopupMenuStyleButton = new JFlatButton("DraggablePopupMenu Style", IconFactory.getSwingIcon("component/table_16.png"));
-			draggablePopupMenuStyleButton.setDimension(new Dimension(182, 30));
 			draggablePopupMenuStyleButton.addActionListener(new ActionListener()
 			{
 				public void actionPerformed(ActionEvent e)
@@ -192,7 +188,6 @@ public class DemoDropDownSelectorPanel
 			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "List DropDown Selector"));
 			
 			JFlatButton popupMenuStyleButton = new JFlatButton("PopupMenu Style", IconFactory.getSwingIcon("component/list_16.png"));
-			popupMenuStyleButton.setDimension(new Dimension(125, 30));
 			popupMenuStyleButton.addActionListener(new ActionListener()
 			{
 				public void actionPerformed(ActionEvent e)
@@ -221,7 +216,6 @@ public class DemoDropDownSelectorPanel
 			add(popupMenuStyleButton);
 			
 			JFlatButton draggablePopupMenuStyleButton = new JFlatButton("DraggablePopupMenu Style", IconFactory.getSwingIcon("component/list_16.png"));
-			draggablePopupMenuStyleButton.setDimension(new Dimension(182, 30));
 			draggablePopupMenuStyleButton.addActionListener(new ActionListener()
 			{
 				public void actionPerformed(ActionEvent e)

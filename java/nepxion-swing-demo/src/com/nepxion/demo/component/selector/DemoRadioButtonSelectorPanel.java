@@ -10,7 +10,6 @@ package com.nepxion.demo.component.selector;
  * @version 1.0
  */
 
-import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -55,7 +54,6 @@ public class DemoRadioButtonSelectorPanel
 			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "RadioButton Selector"));
 			
 			JFlatButton radioButtonSelectorButton = new JFlatButton("RadioButton Selector", IconFactory.getSwingIcon("component/radio_button_16.png"));
-			radioButtonSelectorButton.setDimension(new Dimension(145, 30));
 			radioButtonSelectorButton.addActionListener(new ActionListener()
 			{
 				public void actionPerformed(ActionEvent e)

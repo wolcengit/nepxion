@@ -10,8 +10,6 @@ package com.nepxion.demo.component.button;
  * @version 1.0
  */
 
-import java.awt.Dimension;
-
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.JMenu;
@@ -62,7 +60,6 @@ public class DemoSplitButtonPanel
 			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Flat ButtonUI"));
 			
 			JFlatSplitButton flatStyleButton = new JFlatSplitButton("Flat Style", IconFactory.getSwingIcon("component/button_16.png"));
-			flatStyleButton.setDimension(new Dimension(90, 30));
 			flatStyleButton.setUI(new FlatSplitButtonUI());
 			flatStyleButton.setPopupMenu(new PopupMenu());
 			add(flatStyleButton);			
@@ -78,25 +75,21 @@ public class DemoSplitButtonPanel
 			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Alloy ButtonUI"));
 			
 			JFlatSplitButton alloyStyleButton = new JFlatSplitButton("JAlloy Style", IconFactory.getSwingIcon("component/button_16.png"));
-			alloyStyleButton.setDimension(new Dimension(102, 30));
 			alloyStyleButton.setUI(new LiteSplitButtonUI(new JAlloyLiteButtonStyle()));
 			alloyStyleButton.setPopupMenu(new PopupMenu());
 			add(alloyStyleButton);
 			
 			JFlatSplitButton acidStyleButton = new JFlatSplitButton("JAcid Style", IconFactory.getSwingIcon("component/button_16.png"));
-			acidStyleButton.setDimension(new Dimension(100, 30));
 			acidStyleButton.setUI(new LiteSplitButtonUI(new JAcidLiteButtonStyle()));
 			acidStyleButton.setPopupMenu(new PopupMenu());
 			add(acidStyleButton);
 			
 			JFlatSplitButton bedouinStyleButton = new JFlatSplitButton("JBedouin Style", IconFactory.getSwingIcon("component/button_16.png"));
-			bedouinStyleButton.setDimension(new Dimension(120, 30));
 			bedouinStyleButton.setUI(new LiteSplitButtonUI(new JBedouinLiteButtonStyle()));
 			bedouinStyleButton.setPopupMenu(new PopupMenu());
 			add(bedouinStyleButton);
 			
 			JFlatSplitButton glassStyleButton = new JFlatSplitButton("JGlass Style", IconFactory.getSwingIcon("component/button_16.png"));
-			glassStyleButton.setDimension(new Dimension(110, 30));
 			glassStyleButton.setUI(new LiteSplitButtonUI(new JGlassLiteButtonStyle()));
 			glassStyleButton.setPopupMenu(new PopupMenu());
 			add(glassStyleButton);			
@@ -112,7 +105,6 @@ public class DemoSplitButtonPanel
 			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Eclipse ButtonUI"));
 			
 			JFlatSplitButton eclipseStyleButton = new JFlatSplitButton("JEclipse Style", IconFactory.getSwingIcon("component/button_16.png"));
-			eclipseStyleButton.setDimension(new Dimension(118, 30));
 			eclipseStyleButton.setUI(new LiteSplitButtonUI(new JEclipseLiteButtonStyle()));
 			eclipseStyleButton.setPopupMenu(new PopupMenu());
 			add(eclipseStyleButton);			
@@ -128,7 +120,6 @@ public class DemoSplitButtonPanel
 			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Borland ButtonUI"));
 			
 			JFlatSplitButton borlandStyleButton = new JFlatSplitButton("JBorland Style", IconFactory.getSwingIcon("component/button_16.png"));
-			borlandStyleButton.setDimension(new Dimension(120, 30));
 			borlandStyleButton.setUI(new LiteSplitButtonUI(new JBorlandLiteButtonStyle()));
 			borlandStyleButton.setPopupMenu(new PopupMenu());
 			add(borlandStyleButton);			
@@ -144,7 +135,6 @@ public class DemoSplitButtonPanel
 			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Nimbus ButtonUI"));
 			
 			JFlatSplitButton nimbusStyleButton = new JFlatSplitButton("JNimbus Style", IconFactory.getSwingIcon("component/button_16.png"));
-			nimbusStyleButton.setDimension(new Dimension(120, 30));
 			nimbusStyleButton.setUI(new LiteSplitButtonUI(new JNimbusLiteButtonStyle()));
 			nimbusStyleButton.setPopupMenu(new PopupMenu());
 			add(nimbusStyleButton);			
@@ -160,13 +150,11 @@ public class DemoSplitButtonPanel
 			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Color ButtonUI"));
 			
 			JFlatSplitButton blueStyleButton = new JFlatSplitButton("JBlue Style", IconFactory.getSwingIcon("component/button_16.png"));
-			blueStyleButton.setDimension(new Dimension(102, 30));
 			blueStyleButton.setUI(new LiteSplitButtonUI(new JBlueLiteButtonStyle()));
 			blueStyleButton.setPopupMenu(new PopupMenu());
 			add(blueStyleButton);
 			
 			JFlatSplitButton yellowStyleButton = new JFlatSplitButton("JYellow Style", IconFactory.getSwingIcon("component/button_16.png"));
-			yellowStyleButton.setDimension(new Dimension(114, 30));
 			yellowStyleButton.setUI(new LiteSplitButtonUI(new JYellowLiteButtonStyle()));
 			yellowStyleButton.setPopupMenu(new PopupMenu());
 			add(yellowStyleButton);			

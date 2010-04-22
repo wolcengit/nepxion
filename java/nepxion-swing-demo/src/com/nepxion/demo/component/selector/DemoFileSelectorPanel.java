@@ -10,7 +10,6 @@ package com.nepxion.demo.component.selector;
  * @version 1.0
  */
 
-import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
@@ -63,7 +62,6 @@ public class DemoFileSelectorPanel
 			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "File Selector"));
 			
 			JFlatButton openFileButton = new JFlatButton("Open File", IconFactory.getSwingIcon("component/file_chooser_16.png"));
-			openFileButton.setDimension(new Dimension(80, 30));
 			openFileButton.addActionListener(new ActionListener()
 			{
 				public void actionPerformed(ActionEvent e)
@@ -102,7 +100,6 @@ public class DemoFileSelectorPanel
 			add(openFileButton);
 			
 			JFlatButton saveFileButton = new JFlatButton("Save File", IconFactory.getSwingIcon("component/file_chooser_16.png"));
-			saveFileButton.setDimension(new Dimension(80, 30));
 			saveFileButton.addActionListener(new ActionListener()
 			{
 				public void actionPerformed(ActionEvent e)
@@ -141,7 +138,6 @@ public class DemoFileSelectorPanel
 			add(saveFileButton);
 			
 			JFlatButton openDirectoryButton = new JFlatButton("Open Directory", IconFactory.getSwingIcon("component/file_chooser_16.png"));
-			openDirectoryButton.setDimension(new Dimension(110, 30));
 			openDirectoryButton.addActionListener(new ActionListener()
 			{
 				public void actionPerformed(ActionEvent e)
@@ -170,7 +166,6 @@ public class DemoFileSelectorPanel
 			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Folder Selector"));
 			
 			JFlatButton openFolderButton = new JFlatButton("Open Folder", IconFactory.getSwingIcon("component/file_chooser_16.png"));
-			openFolderButton.setDimension(new Dimension(97, 30));
 			openFolderButton.addActionListener(new ActionListener()
 			{
 				public void actionPerformed(ActionEvent e)

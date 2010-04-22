@@ -53,6 +53,9 @@ public class DemoContext
 		//ButtonContext.registerUI(LiteButtonUI.ID, JBlueLiteButtonStyle.ID);
 		//ButtonContext.registerUI(LiteButtonUI.ID, JYellowLiteButtonStyle.ID);
 		
+		//注册按钮的Inset
+		//ButtonContext.registerInset(5, 5);
+		
 		//注册菜单的垂直标题，默认为Nepxion
 		PopupMenuContext.registerTitle("Nepxion");
 		

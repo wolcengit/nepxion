@@ -136,16 +136,16 @@ public class DemoFlatTabbedPanePanel
 			);			
 			add(hintCheckBox);	
 			
-			final JBasicCheckBox marginCheckBox = new JBasicCheckBox("Margin (=3) between Close Button & Icon", false);
-			marginCheckBox.addActionListener(new ActionListener()
+			final JBasicCheckBox gapCheckBox = new JBasicCheckBox("Gap (=3) between Close Button & Icon", false);
+			gapCheckBox.addActionListener(new ActionListener()
 			{
 				public void actionPerformed(ActionEvent e)
 				{
-					flatTabbedPane.setMargin(flatTabbedPane.getSelectedIndex(), marginCheckBox.isSelected() ? 3 : 0);
+					flatTabbedPane.setGap(flatTabbedPane.getSelectedIndex(), gapCheckBox.isSelected() ? 3 : 0);
 				}				
 			}
 			);				
-			add(marginCheckBox);			
+			add(gapCheckBox);			
 		}
 	}
 }
