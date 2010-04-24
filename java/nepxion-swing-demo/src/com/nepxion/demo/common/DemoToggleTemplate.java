@@ -23,7 +23,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
 import com.nepxion.swing.button.ButtonManager;
-import com.nepxion.swing.button.JFlatToggleButton;
+import com.nepxion.swing.button.JBasicToggleButton;
 import com.nepxion.swing.icon.IconFactory;
 import com.nepxion.swing.textarea.JBasicTextArea;
 import com.nepxion.util.io.FileUtil;
@@ -58,7 +58,7 @@ public class DemoToggleTemplate
 	{
 		public ToggleButtonPanel()
 		{			
-			JFlatToggleButton viewToggleButton = new JFlatToggleButton("View", IconFactory.getSwingIcon("component/view.png"), true);
+			JBasicToggleButton viewToggleButton = new JBasicToggleButton("View", IconFactory.getSwingIcon("component/view.png"), true);
 			viewToggleButton.addActionListener(new ActionListener()
 			{
 				public void actionPerformed(ActionEvent e)
@@ -70,7 +70,7 @@ public class DemoToggleTemplate
 				}
 			}
 			);
-			JFlatToggleButton codeToggleButton = new JFlatToggleButton("Code", IconFactory.getSwingIcon("component/java.png"), false);		
+			JBasicToggleButton codeToggleButton = new JBasicToggleButton("Code", IconFactory.getSwingIcon("component/java.png"), false);		
 			codeToggleButton.addActionListener(new ActionListener()
 			{
 				public void actionPerformed(ActionEvent e)
