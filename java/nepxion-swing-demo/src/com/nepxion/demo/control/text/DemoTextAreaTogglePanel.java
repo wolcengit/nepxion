@@ -15,7 +15,7 @@ import javax.swing.Icon;
 import com.nepxion.demo.common.DemoTogglePanel;
 import com.nepxion.demo.common.DemoToggleTemplate;
 import com.nepxion.demo.component.textarea.DemoAutoResizableTextAreaPanel;
-import com.nepxion.demo.component.textarea.DemoCopyPasteTextAreaPanel;
+import com.nepxion.demo.component.textarea.DemoBasicTextAreaPanel;
 import com.nepxion.demo.component.textarea.DemoHoverBorderTextAreaPanel;
 import com.nepxion.demo.component.textarea.DemoLabelStyleTextAreaPanel;
 import com.nepxion.swing.icon.IconFactory;
@@ -27,7 +27,7 @@ public class DemoTextAreaTogglePanel
 	public DemoTextAreaTogglePanel()
 	{
 		JEclipseTabbedPane toggleTabbedPane = getToggleTabbedPane();
-		toggleTabbedPane.addTab("Copy & Paste TextArea", IconFactory.getSwingIcon("component/text_area_16.png"), new DemoToggleTemplate(new DemoCopyPasteTextAreaPanel()));				
+		toggleTabbedPane.addTab("Basic TextArea", IconFactory.getSwingIcon("component/text_area_16.png"), new DemoToggleTemplate(new DemoBasicTextAreaPanel()));				
 		toggleTabbedPane.addTab("Auto Resizable TextArea", IconFactory.getSwingIcon("component/text_area_16.png"), new DemoToggleTemplate(new DemoAutoResizableTextAreaPanel()));
 		toggleTabbedPane.addTab("Label Style TextArea", IconFactory.getSwingIcon("component/text_area_16.png"), new DemoToggleTemplate(new DemoLabelStyleTextAreaPanel()));
 		toggleTabbedPane.addTab("Hover Border TextArea", IconFactory.getSwingIcon("component/text_area_16.png"), new DemoToggleTemplate(new DemoHoverBorderTextAreaPanel()));		

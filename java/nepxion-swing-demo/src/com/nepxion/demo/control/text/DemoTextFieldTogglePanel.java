@@ -14,7 +14,7 @@ import javax.swing.Icon;
 
 import com.nepxion.demo.common.DemoTogglePanel;
 import com.nepxion.demo.common.DemoToggleTemplate;
-import com.nepxion.demo.component.textfield.DemoCopyPasteTextFieldPanel;
+import com.nepxion.demo.component.textfield.DemoBasicTextFieldPanel;
 import com.nepxion.demo.component.textfield.DemoHoverBorderTextFieldPanel;
 import com.nepxion.demo.component.textfield.DemoIPAddressPanel;
 import com.nepxion.demo.component.textfield.DemoLabelStyleTextFieldPanel;
@@ -29,7 +29,7 @@ public class DemoTextFieldTogglePanel
 	public DemoTextFieldTogglePanel()
 	{
 		JEclipseTabbedPane toggleTabbedPane = getToggleTabbedPane();
-		toggleTabbedPane.addTab("Copy & Paste TextField", IconFactory.getSwingIcon("component/text_field_16.png"), new DemoToggleTemplate(new DemoCopyPasteTextFieldPanel()));
+		toggleTabbedPane.addTab("Basic TextField", IconFactory.getSwingIcon("component/text_field_16.png"), new DemoToggleTemplate(new DemoBasicTextFieldPanel()));
 		toggleTabbedPane.addTab("Number TextField", IconFactory.getSwingIcon("component/text_field_16.png"), new DemoToggleTemplate(new DemoNumberTextFieldPanel()));
 		toggleTabbedPane.addTab("IP Address TextField", IconFactory.getSwingIcon("component/text_field_16.png"), new DemoToggleTemplate(new DemoIPAddressPanel()));
 		toggleTabbedPane.addTab("Label Style TextField", IconFactory.getSwingIcon("component/text_field_16.png"), new DemoToggleTemplate(new DemoLabelStyleTextFieldPanel()));
