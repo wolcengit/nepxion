@@ -19,6 +19,7 @@ import javax.swing.JPanel;
 import com.nepxion.swing.border.ComplexEtchedBorder;
 import com.nepxion.swing.border.ComplexSide;
 import com.nepxion.swing.border.ComplexTitleBorder;
+import com.nepxion.swing.dimension.DimensionManager;
 import com.nepxion.swing.textfield.JBasicTextField;
 
 public class DemoSelectionValuePanel
@@ -38,10 +39,7 @@ public class DemoSelectionValuePanel
 		
 		textField = new JBasicTextField();
 		textField.setOpaque(false);
-		textField.setPreferredSize(new Dimension(textFieldWidth, textField.getPreferredSize().height));
-		textField.setMaximumSize(new Dimension(textFieldWidth, textField.getPreferredSize().height));
-		textField.setMinimumSize(new Dimension(textFieldWidth, textField.getPreferredSize().height));
-		textField.setSize(new Dimension(textFieldWidth, textField.getPreferredSize().height));
+		DimensionManager.setDimension(textField, new Dimension(textFieldWidth, textField.getPreferredSize().height));
 		
 		add(new JLabel("Your Selection Value"));
 		add(textField);

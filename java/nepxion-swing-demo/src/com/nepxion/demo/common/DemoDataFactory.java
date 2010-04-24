@@ -16,6 +16,9 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
+import javax.swing.JMenu;
+import javax.swing.JMenuItem;
+
 import com.nepxion.demo.control.advanced.DemoAdvancedControlOutlook;
 import com.nepxion.demo.control.button.DemoButtonControlOutlook;
 import com.nepxion.demo.control.container.DemoContainerControlOutlook;
@@ -27,6 +30,7 @@ import com.nepxion.demo.control.selector.DemoSelectorControlOutlook;
 import com.nepxion.demo.control.text.DemoTextControlOutlook;
 import com.nepxion.swing.common.InstallData;
 import com.nepxion.swing.icon.IconFactory;
+import com.nepxion.swing.popupmenu.JDecorationPopupMenu;
 import com.nepxion.swing.tabbedpane.JEclipseTabbedPane;
 
 public class DemoDataFactory
@@ -151,5 +155,32 @@ public class DemoDataFactory
 		shapeInstallDatas.add(windowsSelectedShapeInstallData);
 		
 		return shapeInstallDatas;
+	}
+	
+	public static JDecorationPopupMenu createDecorationPopupMenu()
+	{
+		JDecorationPopupMenu decorationPopupMenu = new JDecorationPopupMenu();
+		
+		JMenu menu1 = new JMenu("Menu");
+		menu1.setIcon(IconFactory.getSwingIcon("component/menu_16.png"));
+		menu1.add(new JMenuItem("MenuItem", IconFactory.getSwingIcon("component/menu_16.png")));
+		menu1.add(new JMenuItem("MenuItem", IconFactory.getSwingIcon("component/menu_16.png")));
+		decorationPopupMenu.add(menu1);
+		
+		JMenu menu2 = new JMenu("Menu");
+		menu2.setIcon(IconFactory.getSwingIcon("component/popup_menu_16.png"));
+		menu2.add(new JMenuItem("MenuItem", IconFactory.getSwingIcon("component/popup_menu_16.png")));
+		menu2.add(new JMenuItem("MenuItem", IconFactory.getSwingIcon("component/popup_menu_16.png")));
+		decorationPopupMenu.add(menu2);
+		
+		decorationPopupMenu.addSeparator();
+		
+		JMenu menu3 = new JMenu("Menu");
+		menu3.setIcon(IconFactory.getSwingIcon("component/list_16.png"));
+		menu3.add(new JMenuItem("MenuItem", IconFactory.getSwingIcon("component/list_16.png")));
+		menu3.add(new JMenuItem("MenuItem", IconFactory.getSwingIcon("component/list_16.png")));
+		decorationPopupMenu.add(menu3);
+		
+		return decorationPopupMenu;
 	}	
 }

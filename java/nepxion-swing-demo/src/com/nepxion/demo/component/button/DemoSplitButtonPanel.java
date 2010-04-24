@@ -12,17 +12,15 @@ package com.nepxion.demo.component.button;
 
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
-import javax.swing.JMenu;
-import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 
+import com.nepxion.demo.common.DemoDataFactory;
 import com.nepxion.swing.border.ComplexEtchedBorder;
 import com.nepxion.swing.border.ComplexSide;
 import com.nepxion.swing.border.ComplexTitleBorder;
 import com.nepxion.swing.button.JFlatSplitButton;
 import com.nepxion.swing.icon.IconFactory;
 import com.nepxion.swing.layout.filed.FiledLayout;
-import com.nepxion.swing.popupmenu.JDecorationPopupMenu;
 import com.nepxion.swing.style.button.flat.FlatSplitButtonUI;
 import com.nepxion.swing.style.button.lite.JAcidLiteButtonStyle;
 import com.nepxion.swing.style.button.lite.JAlloyLiteButtonStyle;
@@ -61,7 +59,7 @@ public class DemoSplitButtonPanel
 			
 			JFlatSplitButton flatStyleButton = new JFlatSplitButton("Flat Style", IconFactory.getSwingIcon("component/button_16.png"));
 			flatStyleButton.setUI(new FlatSplitButtonUI());
-			flatStyleButton.setPopupMenu(new PopupMenu());
+			flatStyleButton.setPopupMenu(DemoDataFactory.createDecorationPopupMenu());
 			add(flatStyleButton);			
 		}
 	}
@@ -76,22 +74,22 @@ public class DemoSplitButtonPanel
 			
 			JFlatSplitButton alloyStyleButton = new JFlatSplitButton("JAlloy Style", IconFactory.getSwingIcon("component/button_16.png"));
 			alloyStyleButton.setUI(new LiteSplitButtonUI(new JAlloyLiteButtonStyle()));
-			alloyStyleButton.setPopupMenu(new PopupMenu());
+			alloyStyleButton.setPopupMenu(DemoDataFactory.createDecorationPopupMenu());
 			add(alloyStyleButton);
 			
 			JFlatSplitButton acidStyleButton = new JFlatSplitButton("JAcid Style", IconFactory.getSwingIcon("component/button_16.png"));
 			acidStyleButton.setUI(new LiteSplitButtonUI(new JAcidLiteButtonStyle()));
-			acidStyleButton.setPopupMenu(new PopupMenu());
+			acidStyleButton.setPopupMenu(DemoDataFactory.createDecorationPopupMenu());
 			add(acidStyleButton);
 			
 			JFlatSplitButton bedouinStyleButton = new JFlatSplitButton("JBedouin Style", IconFactory.getSwingIcon("component/button_16.png"));
 			bedouinStyleButton.setUI(new LiteSplitButtonUI(new JBedouinLiteButtonStyle()));
-			bedouinStyleButton.setPopupMenu(new PopupMenu());
+			bedouinStyleButton.setPopupMenu(DemoDataFactory.createDecorationPopupMenu());
 			add(bedouinStyleButton);
 			
 			JFlatSplitButton glassStyleButton = new JFlatSplitButton("JGlass Style", IconFactory.getSwingIcon("component/button_16.png"));
 			glassStyleButton.setUI(new LiteSplitButtonUI(new JGlassLiteButtonStyle()));
-			glassStyleButton.setPopupMenu(new PopupMenu());
+			glassStyleButton.setPopupMenu(DemoDataFactory.createDecorationPopupMenu());
 			add(glassStyleButton);			
 		}
 	}
@@ -106,7 +104,7 @@ public class DemoSplitButtonPanel
 			
 			JFlatSplitButton eclipseStyleButton = new JFlatSplitButton("JEclipse Style", IconFactory.getSwingIcon("component/button_16.png"));
 			eclipseStyleButton.setUI(new LiteSplitButtonUI(new JEclipseLiteButtonStyle()));
-			eclipseStyleButton.setPopupMenu(new PopupMenu());
+			eclipseStyleButton.setPopupMenu(DemoDataFactory.createDecorationPopupMenu());
 			add(eclipseStyleButton);			
 		}
 	}
@@ -121,7 +119,7 @@ public class DemoSplitButtonPanel
 			
 			JFlatSplitButton borlandStyleButton = new JFlatSplitButton("JBorland Style", IconFactory.getSwingIcon("component/button_16.png"));
 			borlandStyleButton.setUI(new LiteSplitButtonUI(new JBorlandLiteButtonStyle()));
-			borlandStyleButton.setPopupMenu(new PopupMenu());
+			borlandStyleButton.setPopupMenu(DemoDataFactory.createDecorationPopupMenu());
 			add(borlandStyleButton);			
 		}
 	}
@@ -136,7 +134,7 @@ public class DemoSplitButtonPanel
 			
 			JFlatSplitButton nimbusStyleButton = new JFlatSplitButton("JNimbus Style", IconFactory.getSwingIcon("component/button_16.png"));
 			nimbusStyleButton.setUI(new LiteSplitButtonUI(new JNimbusLiteButtonStyle()));
-			nimbusStyleButton.setPopupMenu(new PopupMenu());
+			nimbusStyleButton.setPopupMenu(DemoDataFactory.createDecorationPopupMenu());
 			add(nimbusStyleButton);			
 		}
 	}
@@ -151,40 +149,13 @@ public class DemoSplitButtonPanel
 			
 			JFlatSplitButton blueStyleButton = new JFlatSplitButton("JBlue Style", IconFactory.getSwingIcon("component/button_16.png"));
 			blueStyleButton.setUI(new LiteSplitButtonUI(new JBlueLiteButtonStyle()));
-			blueStyleButton.setPopupMenu(new PopupMenu());
+			blueStyleButton.setPopupMenu(DemoDataFactory.createDecorationPopupMenu());
 			add(blueStyleButton);
 			
 			JFlatSplitButton yellowStyleButton = new JFlatSplitButton("JYellow Style", IconFactory.getSwingIcon("component/button_16.png"));
 			yellowStyleButton.setUI(new LiteSplitButtonUI(new JYellowLiteButtonStyle()));
-			yellowStyleButton.setPopupMenu(new PopupMenu());
+			yellowStyleButton.setPopupMenu(DemoDataFactory.createDecorationPopupMenu());
 			add(yellowStyleButton);			
-		}
-	}
-	
-	public class PopupMenu
-		extends JDecorationPopupMenu
-	{
-		public PopupMenu()
-		{			
-			JMenu menu1 = new JMenu("Menu");
-			menu1.setIcon(IconFactory.getSwingIcon("component/menu_16.png"));
-			menu1.add(new JMenuItem("MenuItem", IconFactory.getSwingIcon("component/menu_16.png")));
-			menu1.add(new JMenuItem("MenuItem", IconFactory.getSwingIcon("component/menu_16.png")));
-			add(menu1);
-						
-			JMenu menu2 = new JMenu("Menu");
-			menu2.setIcon(IconFactory.getSwingIcon("component/popup_menu_16.png"));
-			menu2.add(new JMenuItem("MenuItem", IconFactory.getSwingIcon("component/popup_menu_16.png")));
-			menu2.add(new JMenuItem("MenuItem", IconFactory.getSwingIcon("component/popup_menu_16.png")));
-			add(menu2);
-			
-			addSeparator();
-			
-			JMenu menu3 = new JMenu("Menu");
-			menu3.setIcon(IconFactory.getSwingIcon("component/list_16.png"));
-			menu3.add(new JMenuItem("MenuItem", IconFactory.getSwingIcon("component/list_16.png")));
-			menu3.add(new JMenuItem("MenuItem", IconFactory.getSwingIcon("component/list_16.png")));
-			add(menu3);
 		}
 	}
 }
