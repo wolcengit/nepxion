@@ -12,6 +12,8 @@ package com.nepxion.demo;
 
 import java.awt.Dimension;
 
+import javax.swing.SwingUtilities;
+
 import com.nepxion.demo.component.splash.DemoCaptionSplashWindow;
 import com.nepxion.swing.framework.dockable.JFrameWorkFrame;
 import com.nepxion.swing.icon.IconFactory;
@@ -36,9 +38,10 @@ public class DemoFrame
 		final DemoCaptionSplashWindow splashWindow = DemoCaptionSplashWindow.getInstance();
 		splashWindow.setVisible(true);
 		
-		DemoFrame frame = new DemoFrame();
+		final DemoFrame frame = new DemoFrame();
+		frame.setExtendedState(DemoFrame.MAXIMIZED_BOTH);
 		
-		JTray tray = new JTray(frame)
+		final JTray tray = new JTray(frame)
 		{
 			public void about()
 			{
@@ -46,9 +49,16 @@ public class DemoFrame
 			}			
 		};
 		
+		SwingUtilities.invokeLater(new Runnable()
+		{
+			public void run()
+			{				
+				tray.setVisible(true);
+				frame.setVisible(true);					
+			}			
+		}
+		);
+		
 		splashWindow.setVisible(false);	
-		tray.setVisible(true);
-		frame.setVisible(true);
-		frame.setExtendedState(DemoFrame.MAXIMIZED_BOTH);
 	}
 }
