@@ -17,7 +17,7 @@ import javax.swing.JPanel;
 import com.nepxion.swing.border.ComplexEtchedBorder;
 import com.nepxion.swing.border.ComplexSide;
 import com.nepxion.swing.border.ComplexTitleBorder;
-import com.nepxion.swing.button.JFlatButton;
+import com.nepxion.swing.button.JBasicButton;
 import com.nepxion.swing.button.JStyleButton;
 import com.nepxion.swing.icon.IconFactory;
 import com.nepxion.swing.layout.filed.FiledLayout;
@@ -58,7 +58,7 @@ public class DemoButtonPanel
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
 			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Flat ButtonUI"));
 
-			JFlatButton flatStyleButton = new JFlatButton("Flat Style", IconFactory.getSwingIcon("component/button_16.png"));
+			JBasicButton flatStyleButton = new JBasicButton("Flat Style", IconFactory.getSwingIcon("component/button_16.png"));
 			flatStyleButton.setUI(new FlatButtonUI());
 			add(flatStyleButton);					
 		}
@@ -72,19 +72,19 @@ public class DemoButtonPanel
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
 			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Alloy ButtonUI"));
 			
-			JFlatButton alloyStyleButton = new JFlatButton("JAlloy Style", IconFactory.getSwingIcon("component/button_16.png"));
+			JBasicButton alloyStyleButton = new JBasicButton("JAlloy Style", IconFactory.getSwingIcon("component/button_16.png"));
 			alloyStyleButton.setUI(new LiteButtonUI(new JAlloyLiteButtonStyle()));
 			add(alloyStyleButton);
 			
-			JFlatButton acidStyleButton = new JFlatButton("JAcid Style", IconFactory.getSwingIcon("component/button_16.png"));
+			JBasicButton acidStyleButton = new JBasicButton("JAcid Style", IconFactory.getSwingIcon("component/button_16.png"));
 			acidStyleButton.setUI(new LiteButtonUI(new JAcidLiteButtonStyle()));
 			add(acidStyleButton);
 			
-			JFlatButton bedouinStyleButton = new JFlatButton("JBedouin Style", IconFactory.getSwingIcon("component/button_16.png"));
+			JBasicButton bedouinStyleButton = new JBasicButton("JBedouin Style", IconFactory.getSwingIcon("component/button_16.png"));
 			bedouinStyleButton.setUI(new LiteButtonUI(new JBedouinLiteButtonStyle()));
 			add(bedouinStyleButton);
 			
-			JFlatButton glassStyleButton = new JFlatButton("JGlass Style", IconFactory.getSwingIcon("component/button_16.png"));
+			JBasicButton glassStyleButton = new JBasicButton("JGlass Style", IconFactory.getSwingIcon("component/button_16.png"));
 			glassStyleButton.setUI(new LiteButtonUI(new JGlassLiteButtonStyle()));
 			add(glassStyleButton);						
 		}
@@ -98,7 +98,7 @@ public class DemoButtonPanel
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
 			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Eclipse ButtonUI"));
 			
-			JFlatButton eclipseStyleButton = new JFlatButton("JEclipse Style", IconFactory.getSwingIcon("component/button_16.png"));
+			JBasicButton eclipseStyleButton = new JBasicButton("JEclipse Style", IconFactory.getSwingIcon("component/button_16.png"));
 			eclipseStyleButton.setUI(new LiteButtonUI(new JEclipseLiteButtonStyle()));
 			add(eclipseStyleButton);			
 		}
@@ -112,7 +112,7 @@ public class DemoButtonPanel
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
 			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Borland ButtonUI"));
 			
-			JFlatButton borlandStyleButton = new JFlatButton("JBorland Style", IconFactory.getSwingIcon("component/button_16.png"));
+			JBasicButton borlandStyleButton = new JBasicButton("JBorland Style", IconFactory.getSwingIcon("component/button_16.png"));
 			borlandStyleButton.setUI(new LiteButtonUI(new JBorlandLiteButtonStyle()));
 			add(borlandStyleButton);			
 		}
@@ -126,7 +126,7 @@ public class DemoButtonPanel
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
 			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Nimbus ButtonUI"));
 			
-			JFlatButton nimbusStyleButton = new JFlatButton("JNimbus Style", IconFactory.getSwingIcon("component/button_16.png"));
+			JBasicButton nimbusStyleButton = new JBasicButton("JNimbus Style", IconFactory.getSwingIcon("component/button_16.png"));
 			nimbusStyleButton.setUI(new LiteButtonUI(new JNimbusLiteButtonStyle()));
 			add(nimbusStyleButton);			
 		}
@@ -140,11 +140,11 @@ public class DemoButtonPanel
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
 			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Color ButtonUI"));
 			
-			JFlatButton blueStyleButton = new JFlatButton("JBlue Style", IconFactory.getSwingIcon("component/button_16.png"));
+			JBasicButton blueStyleButton = new JBasicButton("JBlue Style", IconFactory.getSwingIcon("component/button_16.png"));
 			blueStyleButton.setUI(new LiteButtonUI(new JBlueLiteButtonStyle()));
 			add(blueStyleButton);	
 			
-			JFlatButton yellowStyleButton = new JFlatButton("JYellow Style", IconFactory.getSwingIcon("component/button_16.png"));
+			JBasicButton yellowStyleButton = new JBasicButton("JYellow Style", IconFactory.getSwingIcon("component/button_16.png"));
 			yellowStyleButton.setUI(new LiteButtonUI(new JYellowLiteButtonStyle()));
 			add(yellowStyleButton);						
 		}

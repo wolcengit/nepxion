@@ -28,7 +28,7 @@ import com.nepxion.swing.border.ComplexEtchedBorder;
 import com.nepxion.swing.border.ComplexSide;
 import com.nepxion.swing.border.ComplexTitleBorder;
 import com.nepxion.swing.button.ButtonManager;
-import com.nepxion.swing.button.JFlatButton;
+import com.nepxion.swing.button.JBasicButton;
 import com.nepxion.swing.handle.HandleManager;
 import com.nepxion.swing.icon.IconFactory;
 import com.nepxion.swing.layout.filed.FiledLayout;
@@ -61,7 +61,7 @@ public class DemoFileSelectorPanel
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
 			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "File Selector"));
 			
-			JFlatButton openFileButton = new JFlatButton("Open File", IconFactory.getSwingIcon("component/file_chooser_16.png"));
+			JBasicButton openFileButton = new JBasicButton("Open File", IconFactory.getSwingIcon("component/file_chooser_16.png"));
 			openFileButton.addActionListener(new ActionListener()
 			{
 				public void actionPerformed(ActionEvent e)
@@ -99,7 +99,7 @@ public class DemoFileSelectorPanel
 			);
 			add(openFileButton);
 			
-			JFlatButton saveFileButton = new JFlatButton("Save File", IconFactory.getSwingIcon("component/file_chooser_16.png"));
+			JBasicButton saveFileButton = new JBasicButton("Save File", IconFactory.getSwingIcon("component/file_chooser_16.png"));
 			saveFileButton.addActionListener(new ActionListener()
 			{
 				public void actionPerformed(ActionEvent e)
@@ -137,7 +137,7 @@ public class DemoFileSelectorPanel
 			);
 			add(saveFileButton);
 			
-			JFlatButton openDirectoryButton = new JFlatButton("Open Directory", IconFactory.getSwingIcon("component/file_chooser_16.png"));
+			JBasicButton openDirectoryButton = new JBasicButton("Open Directory", IconFactory.getSwingIcon("component/file_chooser_16.png"));
 			openDirectoryButton.addActionListener(new ActionListener()
 			{
 				public void actionPerformed(ActionEvent e)
@@ -165,7 +165,7 @@ public class DemoFileSelectorPanel
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
 			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Folder Selector"));
 			
-			JFlatButton openFolderButton = new JFlatButton("Open Folder", IconFactory.getSwingIcon("component/file_chooser_16.png"));
+			JBasicButton openFolderButton = new JBasicButton("Open Folder", IconFactory.getSwingIcon("component/file_chooser_16.png"));
 			openFolderButton.addActionListener(new ActionListener()
 			{
 				public void actionPerformed(ActionEvent e)

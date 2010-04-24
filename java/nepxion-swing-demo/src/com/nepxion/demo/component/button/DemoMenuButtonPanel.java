@@ -18,7 +18,7 @@ import com.nepxion.demo.common.DemoDataFactory;
 import com.nepxion.swing.border.ComplexEtchedBorder;
 import com.nepxion.swing.border.ComplexSide;
 import com.nepxion.swing.border.ComplexTitleBorder;
-import com.nepxion.swing.button.JFlatMenuButton;
+import com.nepxion.swing.button.JBasicMenuButton;
 import com.nepxion.swing.icon.IconFactory;
 import com.nepxion.swing.layout.filed.FiledLayout;
 import com.nepxion.swing.style.button.flat.FlatMenuButtonUI;
@@ -57,7 +57,7 @@ public class DemoMenuButtonPanel
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
 			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Flat ButtonUI"));
 			
-			JFlatMenuButton flatStyleButton = new JFlatMenuButton("Flat Style", IconFactory.getSwingIcon("component/button_16.png"));
+			JBasicMenuButton flatStyleButton = new JBasicMenuButton("Flat Style", IconFactory.getSwingIcon("component/button_16.png"));
 			flatStyleButton.setUI(new FlatMenuButtonUI());
 			flatStyleButton.setPopupMenu(DemoDataFactory.createDecorationPopupMenu());
 			add(flatStyleButton);			
@@ -72,22 +72,22 @@ public class DemoMenuButtonPanel
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
 			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Alloy ButtonUI"));
 			
-			JFlatMenuButton alloyStyleButton = new JFlatMenuButton("JAlloy Style", IconFactory.getSwingIcon("component/button_16.png"));
+			JBasicMenuButton alloyStyleButton = new JBasicMenuButton("JAlloy Style", IconFactory.getSwingIcon("component/button_16.png"));
 			alloyStyleButton.setUI(new LiteMenuButtonUI(new JAlloyLiteButtonStyle()));
 			alloyStyleButton.setPopupMenu(DemoDataFactory.createDecorationPopupMenu());
 			add(alloyStyleButton);
 			
-			JFlatMenuButton acidStyleButton = new JFlatMenuButton("JAcid Style", IconFactory.getSwingIcon("component/button_16.png"));
+			JBasicMenuButton acidStyleButton = new JBasicMenuButton("JAcid Style", IconFactory.getSwingIcon("component/button_16.png"));
 			acidStyleButton.setUI(new LiteMenuButtonUI(new JAcidLiteButtonStyle()));
 			acidStyleButton.setPopupMenu(DemoDataFactory.createDecorationPopupMenu());
 			add(acidStyleButton);
 			
-			JFlatMenuButton bedouinStyleButton = new JFlatMenuButton("JBedouin Style", IconFactory.getSwingIcon("component/button_16.png"));
+			JBasicMenuButton bedouinStyleButton = new JBasicMenuButton("JBedouin Style", IconFactory.getSwingIcon("component/button_16.png"));
 			bedouinStyleButton.setUI(new LiteMenuButtonUI(new JBedouinLiteButtonStyle()));
 			bedouinStyleButton.setPopupMenu(DemoDataFactory.createDecorationPopupMenu());
 			add(bedouinStyleButton);
 			
-			JFlatMenuButton glassStyleButton = new JFlatMenuButton("JGlass Style", IconFactory.getSwingIcon("component/button_16.png"));
+			JBasicMenuButton glassStyleButton = new JBasicMenuButton("JGlass Style", IconFactory.getSwingIcon("component/button_16.png"));
 			glassStyleButton.setUI(new LiteMenuButtonUI(new JGlassLiteButtonStyle()));
 			glassStyleButton.setPopupMenu(DemoDataFactory.createDecorationPopupMenu());
 			add(glassStyleButton);			
@@ -102,7 +102,7 @@ public class DemoMenuButtonPanel
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
 			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Eclipse ButtonUI"));
 			
-			JFlatMenuButton eclipseStyleButton = new JFlatMenuButton("JEclipse Style", IconFactory.getSwingIcon("component/button_16.png"));
+			JBasicMenuButton eclipseStyleButton = new JBasicMenuButton("JEclipse Style", IconFactory.getSwingIcon("component/button_16.png"));
 			eclipseStyleButton.setUI(new LiteMenuButtonUI(new JEclipseLiteButtonStyle()));
 			eclipseStyleButton.setPopupMenu(DemoDataFactory.createDecorationPopupMenu());
 			add(eclipseStyleButton);			
@@ -117,7 +117,7 @@ public class DemoMenuButtonPanel
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
 			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Borland ButtonUI"));
 			
-			JFlatMenuButton borlandStyleButton = new JFlatMenuButton("JBorland Style", IconFactory.getSwingIcon("component/button_16.png"));
+			JBasicMenuButton borlandStyleButton = new JBasicMenuButton("JBorland Style", IconFactory.getSwingIcon("component/button_16.png"));
 			borlandStyleButton.setUI(new LiteMenuButtonUI(new JBorlandLiteButtonStyle()));
 			borlandStyleButton.setPopupMenu(DemoDataFactory.createDecorationPopupMenu());
 			add(borlandStyleButton);			
@@ -132,7 +132,7 @@ public class DemoMenuButtonPanel
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
 			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Nimbus ButtonUI"));
 			
-			JFlatMenuButton nimbusStyleButton = new JFlatMenuButton("JNimbus Style", IconFactory.getSwingIcon("component/button_16.png"));
+			JBasicMenuButton nimbusStyleButton = new JBasicMenuButton("JNimbus Style", IconFactory.getSwingIcon("component/button_16.png"));
 			nimbusStyleButton.setUI(new LiteMenuButtonUI(new JNimbusLiteButtonStyle()));
 			nimbusStyleButton.setPopupMenu(DemoDataFactory.createDecorationPopupMenu());
 			add(nimbusStyleButton);			
@@ -147,12 +147,12 @@ public class DemoMenuButtonPanel
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
 			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Color ButtonUI"));
 			
-			JFlatMenuButton blueStyleButton = new JFlatMenuButton("JBlue Style", IconFactory.getSwingIcon("component/button_16.png"));
+			JBasicMenuButton blueStyleButton = new JBasicMenuButton("JBlue Style", IconFactory.getSwingIcon("component/button_16.png"));
 			blueStyleButton.setUI(new LiteMenuButtonUI(new JBlueLiteButtonStyle()));
 			blueStyleButton.setPopupMenu(DemoDataFactory.createDecorationPopupMenu());
 			add(blueStyleButton);
 			
-			JFlatMenuButton yellowStyleButton = new JFlatMenuButton("JYellow Style", IconFactory.getSwingIcon("component/button_16.png"));
+			JBasicMenuButton yellowStyleButton = new JBasicMenuButton("JYellow Style", IconFactory.getSwingIcon("component/button_16.png"));
 			yellowStyleButton.setUI(new LiteMenuButtonUI(new JYellowLiteButtonStyle()));
 			yellowStyleButton.setPopupMenu(DemoDataFactory.createDecorationPopupMenu());
 			add(yellowStyleButton);			

@@ -24,7 +24,7 @@ import com.nepxion.swing.border.ComplexEtchedBorder;
 import com.nepxion.swing.border.ComplexSide;
 import com.nepxion.swing.border.ComplexTitleBorder;
 import com.nepxion.swing.button.ButtonManager;
-import com.nepxion.swing.button.JFlatButton;
+import com.nepxion.swing.button.JBasicButton;
 import com.nepxion.swing.handle.HandleManager;
 import com.nepxion.swing.icon.IconFactory;
 import com.nepxion.swing.layout.filed.FiledLayout;
@@ -54,7 +54,7 @@ public class DemoCheckBoxSelectorPanel
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
 			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "CheckBox Selector"));
 			
-			JFlatButton checkBoxSelectorButton = new JFlatButton("CheckBox Selector", IconFactory.getSwingIcon("component/check_box_16.png"));
+			JBasicButton checkBoxSelectorButton = new JBasicButton("CheckBox Selector", IconFactory.getSwingIcon("component/check_box_16.png"));
 			checkBoxSelectorButton.addActionListener(new ActionListener()
 			{
 				public void actionPerformed(ActionEvent e)

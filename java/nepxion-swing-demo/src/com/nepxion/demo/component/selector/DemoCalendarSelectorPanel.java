@@ -25,8 +25,8 @@ import com.nepxion.swing.border.ComplexEtchedBorder;
 import com.nepxion.swing.border.ComplexSide;
 import com.nepxion.swing.border.ComplexTitleBorder;
 import com.nepxion.swing.button.ButtonManager;
-import com.nepxion.swing.button.JFlatButton;
-import com.nepxion.swing.button.JFlatMenuButton;
+import com.nepxion.swing.button.JBasicButton;
+import com.nepxion.swing.button.JBasicMenuButton;
 import com.nepxion.swing.handle.HandleManager;
 import com.nepxion.swing.icon.IconFactory;
 import com.nepxion.swing.layout.filed.FiledLayout;
@@ -83,7 +83,7 @@ public class DemoCalendarSelectorPanel
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
 			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Calendar Selector"));
 						
-			JFlatButton dialogStyleButton = createDialogStyleButton();
+			JBasicButton dialogStyleButton = createDialogStyleButton();
 			dialogStyleButton.addActionListener(new ActionListener()
 			{
 				public void actionPerformed(ActionEvent e)
@@ -113,7 +113,7 @@ public class DemoCalendarSelectorPanel
 			);	
 			add(dialogStyleButton);
 			
-			JFlatButton optionPaneStyleButton = createOptionPaneStyleButton();
+			JBasicButton optionPaneStyleButton = createOptionPaneStyleButton();
 			optionPaneStyleButton.addActionListener(new ActionListener()
 			{
 				public void actionPerformed(ActionEvent e)
@@ -134,7 +134,7 @@ public class DemoCalendarSelectorPanel
 			);			
 			add(optionPaneStyleButton);
 			
-			JFlatButton popupMenuStyleButton = createPopupMenuStyleButton();	
+			JBasicButton popupMenuStyleButton = createPopupMenuStyleButton();	
 			JCalendarSelectorPopupMenu popupMenu = new JCalendarSelectorPopupMenu(popupMenuStyleButton)
 			{
 				public boolean confirm()
@@ -167,7 +167,7 @@ public class DemoCalendarSelectorPanel
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
 			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Date Time Selector"));
 			
-			JFlatButton dialogStyleButton = createDialogStyleButton();
+			JBasicButton dialogStyleButton = createDialogStyleButton();
 			dialogStyleButton.addActionListener(new ActionListener()
 			{
 				public void actionPerformed(ActionEvent e)
@@ -197,7 +197,7 @@ public class DemoCalendarSelectorPanel
 			});
 			add(dialogStyleButton);
 			
-			JFlatButton optionPaneStyleButton = createOptionPaneStyleButton();
+			JBasicButton optionPaneStyleButton = createOptionPaneStyleButton();
 			optionPaneStyleButton.addActionListener(new ActionListener()
 			{
 				public void actionPerformed(ActionEvent e)
@@ -219,7 +219,7 @@ public class DemoCalendarSelectorPanel
 			);			
 			add(optionPaneStyleButton);
 			
-			JFlatButton popupMenuStyleButton = createPopupMenuStyleButton();	
+			JBasicButton popupMenuStyleButton = createPopupMenuStyleButton();	
 			final JDateTimeSelectorPopupMenu popupMenu = new JDateTimeSelectorPopupMenu(popupMenuStyleButton)
 			{
 				public boolean confirm()
@@ -246,10 +246,10 @@ public class DemoCalendarSelectorPanel
 			};			
 			add(popupMenuStyleButton);				
 			
-			JFlatMenuButton dateFormatButton = createFormatButton(this, new String[] {"yyyy-MM-dd", "MM/dd/yyyy", "MMMMM d, yyyy", }, true);
+			JBasicMenuButton dateFormatButton = createFormatButton(this, new String[] {"yyyy-MM-dd", "MM/dd/yyyy", "MMMMM d, yyyy", }, true);
 			add(dateFormatButton);
 			
-			JFlatMenuButton timeFormatButton = createFormatButton(this, new String[] {"HH:mm:ss",  "HH:mm:ss:SSS", "hh:mm:ss a", "hh:mm:ss:SSS a"}, false);
+			JBasicMenuButton timeFormatButton = createFormatButton(this, new String[] {"HH:mm:ss",  "HH:mm:ss:SSS", "hh:mm:ss a", "hh:mm:ss:SSS a"}, false);
 			add(timeFormatButton);			
 			
 			ButtonManager.updateUI(this);
@@ -264,7 +264,7 @@ public class DemoCalendarSelectorPanel
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
 			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Date Selector"));
 		
-			JFlatButton dialogStyleButton = createDialogStyleButton();
+			JBasicButton dialogStyleButton = createDialogStyleButton();
 			dialogStyleButton.addActionListener(new ActionListener()
 			{
 				public void actionPerformed(ActionEvent e)
@@ -295,7 +295,7 @@ public class DemoCalendarSelectorPanel
 			);	
 			add(dialogStyleButton);
 			
-			JFlatButton optionPaneStyleButton = createOptionPaneStyleButton();
+			JBasicButton optionPaneStyleButton = createOptionPaneStyleButton();
 			optionPaneStyleButton.addActionListener(new ActionListener()
 			{
 				public void actionPerformed(ActionEvent e)
@@ -317,7 +317,7 @@ public class DemoCalendarSelectorPanel
 			);			
 			add(optionPaneStyleButton);
 			
-			JFlatButton popupMenuStyleButton = createPopupMenuStyleButton();	
+			JBasicButton popupMenuStyleButton = createPopupMenuStyleButton();	
 			final JDateSelectorPopupMenu popupMenu = new JDateSelectorPopupMenu(popupMenuStyleButton)
 			{
 				public boolean confirm()
@@ -344,7 +344,7 @@ public class DemoCalendarSelectorPanel
 			};			
 			add(popupMenuStyleButton);			
 			
-			JFlatMenuButton dateFormatButton = createFormatButton(this, new String[] {"yyyy-MM-dd", "MM/dd/yyyy", "MMMMM d, yyyy"}, true);
+			JBasicMenuButton dateFormatButton = createFormatButton(this, new String[] {"yyyy-MM-dd", "MM/dd/yyyy", "MMMMM d, yyyy"}, true);
 			add(dateFormatButton);
 			
 			ButtonManager.updateUI(this);			
@@ -359,7 +359,7 @@ public class DemoCalendarSelectorPanel
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
 			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Year Selector"));
 			
-			JFlatButton dialogStyleButton = createDialogStyleButton();
+			JBasicButton dialogStyleButton = createDialogStyleButton();
 			dialogStyleButton.addActionListener(new ActionListener()
 			{
 				public void actionPerformed(ActionEvent e)
@@ -385,7 +385,7 @@ public class DemoCalendarSelectorPanel
 			);
 			add(dialogStyleButton);
 			
-			JFlatButton optionPaneStyleButton = createOptionPaneStyleButton();
+			JBasicButton optionPaneStyleButton = createOptionPaneStyleButton();
 			optionPaneStyleButton.addActionListener(new ActionListener()
 			{
 				public void actionPerformed(ActionEvent e)
@@ -402,7 +402,7 @@ public class DemoCalendarSelectorPanel
 			);
 			add(optionPaneStyleButton);
 			
-			JFlatButton popupMenuStyleButton = createPopupMenuStyleButton();
+			JBasicButton popupMenuStyleButton = createPopupMenuStyleButton();
 			JYearSelectorPopupMenu popupMenu = new JYearSelectorPopupMenu(popupMenuStyleButton)
 			{
 				public boolean confirm()
@@ -431,7 +431,7 @@ public class DemoCalendarSelectorPanel
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
 			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Month Selector"));
 			
-			JFlatButton dialogStyleButton = createDialogStyleButton();
+			JBasicButton dialogStyleButton = createDialogStyleButton();
 			dialogStyleButton.addActionListener(new ActionListener()
 			{
 				public void actionPerformed(ActionEvent e)
@@ -457,7 +457,7 @@ public class DemoCalendarSelectorPanel
 			);
 			add(dialogStyleButton);
 			
-			JFlatButton optionPaneStyleButton = createOptionPaneStyleButton();
+			JBasicButton optionPaneStyleButton = createOptionPaneStyleButton();
 			optionPaneStyleButton.addActionListener(new ActionListener()
 			{
 				public void actionPerformed(ActionEvent e)
@@ -474,7 +474,7 @@ public class DemoCalendarSelectorPanel
 			);
 			add(optionPaneStyleButton);
 			
-			JFlatButton popupMenuStyleButton = createPopupMenuStyleButton();
+			JBasicButton popupMenuStyleButton = createPopupMenuStyleButton();
 			JMonthSelectorPopupMenu popupMenu = new JMonthSelectorPopupMenu(popupMenuStyleButton)
 			{
 				public boolean confirm()
@@ -503,7 +503,7 @@ public class DemoCalendarSelectorPanel
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
 			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Day Selector"));
 			
-			JFlatButton dialogStyleButton = createDialogStyleButton();
+			JBasicButton dialogStyleButton = createDialogStyleButton();
 			dialogStyleButton.addActionListener(new ActionListener()
 			{
 				public void actionPerformed(ActionEvent e)
@@ -529,7 +529,7 @@ public class DemoCalendarSelectorPanel
 			);
 			add(dialogStyleButton);
 			
-			JFlatButton optionPaneStyleButton = createOptionPaneStyleButton();
+			JBasicButton optionPaneStyleButton = createOptionPaneStyleButton();
 			optionPaneStyleButton.addActionListener(new ActionListener()
 			{
 				public void actionPerformed(ActionEvent e)
@@ -546,7 +546,7 @@ public class DemoCalendarSelectorPanel
 			);
 			add(optionPaneStyleButton);
 			
-			JFlatButton popupMenuStyleButton = createPopupMenuStyleButton();
+			JBasicButton popupMenuStyleButton = createPopupMenuStyleButton();
 			JDaySelectorPopupMenu popupMenu = new JDaySelectorPopupMenu(popupMenuStyleButton)
 			{
 				public boolean confirm()
@@ -575,7 +575,7 @@ public class DemoCalendarSelectorPanel
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
 			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Time Selector"));
 			
-			JFlatButton dialogStyleButton = createDialogStyleButton();
+			JBasicButton dialogStyleButton = createDialogStyleButton();
 			dialogStyleButton.addActionListener(new ActionListener()
 			{
 				public void actionPerformed(ActionEvent e)
@@ -606,7 +606,7 @@ public class DemoCalendarSelectorPanel
 			);
 			add(dialogStyleButton);
 			
-			JFlatButton optionPaneStyleButton = createOptionPaneStyleButton();
+			JBasicButton optionPaneStyleButton = createOptionPaneStyleButton();
 			optionPaneStyleButton.addActionListener(new ActionListener()
 			{
 				public void actionPerformed(ActionEvent e)
@@ -628,7 +628,7 @@ public class DemoCalendarSelectorPanel
 			);
 			add(optionPaneStyleButton);
 			
-			JFlatButton popupMenuStyleButton = createPopupMenuStyleButton();
+			JBasicButton popupMenuStyleButton = createPopupMenuStyleButton();
 			JTimeSelectorPopupMenu popupMenu = new JTimeSelectorPopupMenu(popupMenuStyleButton)
 			{
 				public boolean confirm()
@@ -655,37 +655,37 @@ public class DemoCalendarSelectorPanel
 			};
 			add(popupMenuStyleButton);				
 			
-			JFlatMenuButton dateFormatButton = createFormatButton(this, new String[] {"yyyy-MM-dd", "MM/dd/yyyy", "MMMMM d, yyyy", "Null"}, true);
+			JBasicMenuButton dateFormatButton = createFormatButton(this, new String[] {"yyyy-MM-dd", "MM/dd/yyyy", "MMMMM d, yyyy", "Null"}, true);
 			add(dateFormatButton);
 			
-			JFlatMenuButton timeFormatButton = createFormatButton(this, new String[] {"HH:mm:ss",  "HH:mm:ss:SSS", "hh:mm:ss a", "hh:mm:ss:SSS a", "Null"}, false);
+			JBasicMenuButton timeFormatButton = createFormatButton(this, new String[] {"HH:mm:ss",  "HH:mm:ss:SSS", "hh:mm:ss a", "hh:mm:ss:SSS a", "Null"}, false);
 			add(timeFormatButton);
 			
 			ButtonManager.updateUI(this);
 		}
 	}	
 	
-	private JFlatButton createDialogStyleButton()
+	private JBasicButton createDialogStyleButton()
 	{
-		JFlatButton button = new JFlatButton("Dialog Style", IconFactory.getSwingIcon("component/dialog_16.png"));
+		JBasicButton button = new JBasicButton("Dialog Style", IconFactory.getSwingIcon("component/dialog_16.png"));
 		return button;
 	}
 	
-	private JFlatButton createOptionPaneStyleButton()
+	private JBasicButton createOptionPaneStyleButton()
 	{
-		JFlatButton button = new JFlatButton("OptionPane Style", IconFactory.getSwingIcon("component/option_pane_16.png"));
+		JBasicButton button = new JBasicButton("OptionPane Style", IconFactory.getSwingIcon("component/option_pane_16.png"));
 		return button;
 	}
 	
-	private JFlatButton createPopupMenuStyleButton()
+	private JBasicButton createPopupMenuStyleButton()
 	{
-		JFlatButton button = new JFlatButton("PopupMenu Style", IconFactory.getSwingIcon("component/popup_menu_16.png"));
+		JBasicButton button = new JBasicButton("PopupMenu Style", IconFactory.getSwingIcon("component/popup_menu_16.png"));
 		return button;
 	}	
 	
-	private JFlatMenuButton createFormatButton(final FormatPanel panel, String[] formatList, final boolean isDateFormat)
+	private JBasicMenuButton createFormatButton(final FormatPanel panel, String[] formatList, final boolean isDateFormat)
 	{
-		JFlatMenuButton button = new JFlatMenuButton(isDateFormat ? "Date Format" : "Time Format", IconFactory.getSwingIcon("component/button_16.png"));
+		JBasicMenuButton button = new JBasicMenuButton(isDateFormat ? "Date Format" : "Time Format", IconFactory.getSwingIcon("component/button_16.png"));
 		
 		JDecorationPopupMenu popupMenu = new JDecorationPopupMenu();
 		ButtonGroup buttonGroup = new ButtonGroup();

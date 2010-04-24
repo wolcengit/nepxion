@@ -24,7 +24,7 @@ import com.nepxion.swing.border.ComplexEtchedBorder;
 import com.nepxion.swing.border.ComplexSide;
 import com.nepxion.swing.border.ComplexTitleBorder;
 import com.nepxion.swing.button.ButtonManager;
-import com.nepxion.swing.button.JFlatButton;
+import com.nepxion.swing.button.JBasicButton;
 import com.nepxion.swing.dialog.JBasicDialog;
 import com.nepxion.swing.handle.HandleManager;
 import com.nepxion.swing.icon.IconFactory;
@@ -56,7 +56,7 @@ public class DemoButtonPanel
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
 			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Button Panel"));
 			
-			JFlatButton optionButton = new JFlatButton("Option Button Panel", IconFactory.getSwingIcon("component/button_16.png"));
+			JBasicButton optionButton = new JBasicButton("Option Button Panel", IconFactory.getSwingIcon("component/button_16.png"));
 			optionButton.addActionListener(new ActionListener()
 			{
 				public void actionPerformed(ActionEvent e)
@@ -85,7 +85,7 @@ public class DemoButtonPanel
 			);
 			add(optionButton);
 			
-			JFlatButton closeButton = new JFlatButton("Close Button Panel", IconFactory.getSwingIcon("component/button_16.png"));
+			JBasicButton closeButton = new JBasicButton("Close Button Panel", IconFactory.getSwingIcon("component/button_16.png"));
 			closeButton.addActionListener(new ActionListener()
 			{
 				public void actionPerformed(ActionEvent e)

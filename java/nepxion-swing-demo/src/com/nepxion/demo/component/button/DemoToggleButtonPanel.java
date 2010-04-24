@@ -17,7 +17,7 @@ import javax.swing.JPanel;
 import com.nepxion.swing.border.ComplexEtchedBorder;
 import com.nepxion.swing.border.ComplexSide;
 import com.nepxion.swing.border.ComplexTitleBorder;
-import com.nepxion.swing.button.JFlatToggleButton;
+import com.nepxion.swing.button.JBasicToggleButton;
 import com.nepxion.swing.button.JStyleToggleButton;
 import com.nepxion.swing.icon.IconFactory;
 import com.nepxion.swing.layout.filed.FiledLayout;
@@ -58,7 +58,7 @@ public class DemoToggleButtonPanel
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
 			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Flat ButtonUI"));
 			
-			JFlatToggleButton flatStyleButton = new JFlatToggleButton("Flat Style", IconFactory.getSwingIcon("component/button_16.png"));
+			JBasicToggleButton flatStyleButton = new JBasicToggleButton("Flat Style", IconFactory.getSwingIcon("component/button_16.png"));
 			flatStyleButton.setUI(new FlatButtonUI());
 			add(flatStyleButton);					
 		}
@@ -72,19 +72,19 @@ public class DemoToggleButtonPanel
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
 			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Alloy ButtonUI"));
 			
-			JFlatToggleButton alloyStyleButton = new JFlatToggleButton("JAlloy Style", IconFactory.getSwingIcon("component/button_16.png"));
+			JBasicToggleButton alloyStyleButton = new JBasicToggleButton("JAlloy Style", IconFactory.getSwingIcon("component/button_16.png"));
 			alloyStyleButton.setUI(new LiteButtonUI(new JAlloyLiteButtonStyle()));
 			add(alloyStyleButton);
 			
-			JFlatToggleButton acidStyleButton = new JFlatToggleButton("JAcid Style", IconFactory.getSwingIcon("component/button_16.png"));
+			JBasicToggleButton acidStyleButton = new JBasicToggleButton("JAcid Style", IconFactory.getSwingIcon("component/button_16.png"));
 			acidStyleButton.setUI(new LiteButtonUI(new JAcidLiteButtonStyle()));
 			add(acidStyleButton);
 			
-			JFlatToggleButton bedouinStyleButton = new JFlatToggleButton("JBedouin Style", IconFactory.getSwingIcon("component/button_16.png"));
+			JBasicToggleButton bedouinStyleButton = new JBasicToggleButton("JBedouin Style", IconFactory.getSwingIcon("component/button_16.png"));
 			bedouinStyleButton.setUI(new LiteButtonUI(new JBedouinLiteButtonStyle()));
 			add(bedouinStyleButton);
 			
-			JFlatToggleButton glassStyleButton = new JFlatToggleButton("JGlass Style", IconFactory.getSwingIcon("component/button_16.png"));
+			JBasicToggleButton glassStyleButton = new JBasicToggleButton("JGlass Style", IconFactory.getSwingIcon("component/button_16.png"));
 			glassStyleButton.setUI(new LiteButtonUI(new JGlassLiteButtonStyle()));
 			add(glassStyleButton);						
 		}
@@ -98,7 +98,7 @@ public class DemoToggleButtonPanel
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
 			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Eclipse ButtonUI"));
 			
-			JFlatToggleButton eclipseStyleButton = new JFlatToggleButton("JEclipse Style", IconFactory.getSwingIcon("component/button_16.png"));
+			JBasicToggleButton eclipseStyleButton = new JBasicToggleButton("JEclipse Style", IconFactory.getSwingIcon("component/button_16.png"));
 			eclipseStyleButton.setUI(new LiteButtonUI(new JEclipseLiteButtonStyle()));
 			add(eclipseStyleButton);			
 		}
@@ -112,7 +112,7 @@ public class DemoToggleButtonPanel
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
 			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Borland ButtonUI"));
 			
-			JFlatToggleButton borlandStyleButton = new JFlatToggleButton("JBorland Style", IconFactory.getSwingIcon("component/button_16.png"));
+			JBasicToggleButton borlandStyleButton = new JBasicToggleButton("JBorland Style", IconFactory.getSwingIcon("component/button_16.png"));
 			borlandStyleButton.setUI(new LiteButtonUI(new JBorlandLiteButtonStyle()));
 			add(borlandStyleButton);			
 		}
@@ -126,7 +126,7 @@ public class DemoToggleButtonPanel
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
 			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Nimbus ButtonUI"));
 			
-			JFlatToggleButton nimbusStyleButton = new JFlatToggleButton("JNimbus Style", IconFactory.getSwingIcon("component/button_16.png"));
+			JBasicToggleButton nimbusStyleButton = new JBasicToggleButton("JNimbus Style", IconFactory.getSwingIcon("component/button_16.png"));
 			nimbusStyleButton.setUI(new LiteButtonUI(new JNimbusLiteButtonStyle()));
 			add(nimbusStyleButton);			
 		}
@@ -140,11 +140,11 @@ public class DemoToggleButtonPanel
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
 			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Color ButtonUI"));
 			
-			JFlatToggleButton blueStyleButton = new JFlatToggleButton("JBlue Style", IconFactory.getSwingIcon("component/button_16.png"));
+			JBasicToggleButton blueStyleButton = new JBasicToggleButton("JBlue Style", IconFactory.getSwingIcon("component/button_16.png"));
 			blueStyleButton.setUI(new LiteButtonUI(new JBlueLiteButtonStyle()));
 			add(blueStyleButton);	
 			
-			JFlatToggleButton yellowStyleButton = new JFlatToggleButton("JYellow Style", IconFactory.getSwingIcon("component/button_16.png"));
+			JBasicToggleButton yellowStyleButton = new JBasicToggleButton("JYellow Style", IconFactory.getSwingIcon("component/button_16.png"));
 			yellowStyleButton.setUI(new LiteButtonUI(new JYellowLiteButtonStyle()));
 			add(yellowStyleButton);						
 		}

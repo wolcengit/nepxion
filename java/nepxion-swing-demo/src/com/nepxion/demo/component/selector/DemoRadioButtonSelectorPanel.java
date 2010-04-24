@@ -23,7 +23,7 @@ import com.nepxion.swing.border.ComplexEtchedBorder;
 import com.nepxion.swing.border.ComplexSide;
 import com.nepxion.swing.border.ComplexTitleBorder;
 import com.nepxion.swing.button.ButtonManager;
-import com.nepxion.swing.button.JFlatButton;
+import com.nepxion.swing.button.JBasicButton;
 import com.nepxion.swing.handle.HandleManager;
 import com.nepxion.swing.icon.IconFactory;
 import com.nepxion.swing.layout.filed.FiledLayout;
@@ -53,7 +53,7 @@ public class DemoRadioButtonSelectorPanel
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
 			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "RadioButton Selector"));
 			
-			JFlatButton radioButtonSelectorButton = new JFlatButton("RadioButton Selector", IconFactory.getSwingIcon("component/radio_button_16.png"));
+			JBasicButton radioButtonSelectorButton = new JBasicButton("RadioButton Selector", IconFactory.getSwingIcon("component/radio_button_16.png"));
 			radioButtonSelectorButton.addActionListener(new ActionListener()
 			{
 				public void actionPerformed(ActionEvent e)

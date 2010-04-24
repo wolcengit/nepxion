@@ -23,7 +23,7 @@ import com.nepxion.swing.border.ComplexEtchedBorder;
 import com.nepxion.swing.border.ComplexSide;
 import com.nepxion.swing.border.ComplexTitleBorder;
 import com.nepxion.swing.button.ButtonManager;
-import com.nepxion.swing.button.JFlatButton;
+import com.nepxion.swing.button.JBasicButton;
 import com.nepxion.swing.handle.HandleManager;
 import com.nepxion.swing.icon.IconFactory;
 import com.nepxion.swing.layout.filed.FiledLayout;
@@ -55,7 +55,7 @@ public class DemoLocaleSelectorPanel
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
 			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Locale Selector"));
 			
-			JFlatButton dialogStyleButton = createDialogStyleButton();
+			JBasicButton dialogStyleButton = createDialogStyleButton();
 			dialogStyleButton.addActionListener(new ActionListener()
 			{
 				public void actionPerformed(ActionEvent e)
@@ -85,7 +85,7 @@ public class DemoLocaleSelectorPanel
 			);
 			add(dialogStyleButton);
 			
-			JFlatButton optionPaneStyleButton = createOptionPaneStyleButton();
+			JBasicButton optionPaneStyleButton = createOptionPaneStyleButton();
 			optionPaneStyleButton.addActionListener(new ActionListener()
 			{
 				public void actionPerformed(ActionEvent e)
@@ -106,7 +106,7 @@ public class DemoLocaleSelectorPanel
 			);
 			add(optionPaneStyleButton);
 			
-			JFlatButton popupMenuStyleButton = createPopupMenuStyleButton();
+			JBasicButton popupMenuStyleButton = createPopupMenuStyleButton();
 			JLocaleSelectorPopupMenu popupMenu = new JLocaleSelectorPopupMenu(popupMenuStyleButton)
 			{
 				public boolean confirm()
@@ -131,21 +131,21 @@ public class DemoLocaleSelectorPanel
 		}
 	}
 	
-	private JFlatButton createDialogStyleButton()
+	private JBasicButton createDialogStyleButton()
 	{
-		JFlatButton button = new JFlatButton("Dialog Style", IconFactory.getSwingIcon("component/dialog_16.png"));
+		JBasicButton button = new JBasicButton("Dialog Style", IconFactory.getSwingIcon("component/dialog_16.png"));
 		return button;
 	}
 	
-	private JFlatButton createOptionPaneStyleButton()
+	private JBasicButton createOptionPaneStyleButton()
 	{
-		JFlatButton button = new JFlatButton("OptionPane Style", IconFactory.getSwingIcon("component/option_pane_16.png"));
+		JBasicButton button = new JBasicButton("OptionPane Style", IconFactory.getSwingIcon("component/option_pane_16.png"));
 		return button;
 	}
 	
-	private JFlatButton createPopupMenuStyleButton()
+	private JBasicButton createPopupMenuStyleButton()
 	{
-		JFlatButton button = new JFlatButton("PopupMenu Style", IconFactory.getSwingIcon("component/popup_menu_16.png"));	
+		JBasicButton button = new JBasicButton("PopupMenu Style", IconFactory.getSwingIcon("component/popup_menu_16.png"));	
 		return button;
 	}	
 }
