@@ -13,6 +13,7 @@ package com.nepxion.demo;
 import com.nepxion.swing.icon.IconContext;
 import com.nepxion.swing.lookandfeel.LookAndFeelManager;
 import com.nepxion.swing.popupmenu.PopupMenuContext;
+import com.nepxion.swing.style.framework.JLiteStyle;
 import com.nepxion.swing.style.framework.JNimbusStyle;
 import com.nepxion.swing.style.framework.StyleContext;
 
@@ -25,7 +26,7 @@ public class DemoContext
 	public void initialize()
 	{		
 		//注册框架风格，默认由LookAndFeel分配
-		//StyleContext.registerStyle(JLiteStyle.ID);
+		StyleContext.registerStyle(JLiteStyle.ID);
 		//StyleContext.registerStyle(JWindowsStyle.ID);
 		//StyleContext.registerStyle(JEclipseStyle.ID);	
 		//StyleContext.registerStyle(JPlasticStyle.ID);		

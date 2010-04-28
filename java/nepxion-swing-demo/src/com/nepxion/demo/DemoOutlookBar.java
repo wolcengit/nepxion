@@ -43,10 +43,11 @@ public class DemoOutlookBar
     	for (Iterator iterator = componentInstallDatas.iterator(); iterator.hasNext();)
     	{
     		InstallData installData = (InstallData) iterator.next();
-    		String name = installData.getName();
+    		String name = installData.getText();
     		Icon icon = installData.getIcon();
+    		String toolTipText = installData.getToolTipText();
     		Component component = (Component) componentMap.get(name);
-    		addTab(name, icon, makeScrollPane(component));
+    		addTab(name, icon, makeScrollPane(component), toolTipText);
     	}	
         
         setAllTabsAlignment(SwingConstants.LEFT, 5);

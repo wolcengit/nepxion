@@ -10,8 +10,6 @@ package com.nepxion.demo;
  * @version 1.0
  */
 
-import java.awt.Dimension;
-
 import javax.swing.SwingUtilities;
 
 import com.nepxion.demo.component.splash.DemoCaptionSplashWindow;
@@ -21,17 +19,17 @@ import com.nepxion.swing.tray.JTray;
 
 public class DemoFrame
 	extends JFrameWorkFrame
-{	
+{
 	public DemoFrame()
 	{
-		super("Nepxion Swing", IconFactory.getSwingIcon("tray_java.png"), new Dimension(850, 650));
+		super("Nepxion Swing", IconFactory.getSwingIcon("tray_java.png")); // new Dimension(850, 650)
 		
 		DemoHierarchy hierarchy = new DemoHierarchy();
 		setHierarchy(hierarchy);
 	}
 	
 	public static void main(String[] args)
-	{				
+	{
 		DemoContext context = new DemoContext();
 		context.initialize();
 		
@@ -39,26 +37,35 @@ public class DemoFrame
 		splashWindow.setVisible(true);
 		
 		final DemoFrame frame = new DemoFrame();
-		frame.setExtendedState(DemoFrame.MAXIMIZED_BOTH);
 		
 		final JTray tray = new JTray(frame)
 		{
 			public void about()
 			{
 				splashWindow.setVisible(true);
-			}			
+			}
 		};
 		
 		SwingUtilities.invokeLater(new Runnable()
 		{
 			public void run()
-			{				
-				tray.setVisible(true);
-				frame.setVisible(true);					
-			}			
+			{
+				frame.setExtendedState(DemoFrame.MAXIMIZED_BOTH);
+				
+				try
+				{
+					Thread.sleep(500);
+				}
+				catch (InterruptedException e)
+				{
+				}
+				
+				frame.setVisible(true);
+				tray.setVisible(true);			
+			}
 		}
 		);
-		
-		splashWindow.setVisible(false);	
+
+		splashWindow.setVisible(false);
 	}
 }
