@@ -46,8 +46,7 @@ public class DemoAutoResizableTextAreaPanel
 			autoResizableTextArea.setText("Typing in new line here to see the text area growing automatically. \nMinimum 10 rows and maximum 20 rows");
 			
 			JScrollPane autoResizableScrollPane = new JScrollPane();
-			autoResizableScrollPane.getViewport().add(autoResizableTextArea);	
-			
+			autoResizableScrollPane.getViewport().add(autoResizableTextArea);				
 			add(autoResizableScrollPane);
 		}
 	}

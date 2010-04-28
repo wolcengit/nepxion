@@ -44,8 +44,9 @@ public class DemoBasicTextFieldPanel
 			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Basic TextField"));
 
 			JBasicTextField basicTextField = new JBasicTextField();
-			basicTextField.setMaximumSize(new Dimension(350, basicTextField.getPreferredSize().height));
 			basicTextField.setText("Right-clicked popupMenu to 'Copy' 'Paste' 'Cut' & 'Clean'");
+			basicTextField.supportSelectionAll(true);
+			basicTextField.setMaximumSize(new Dimension(350, basicTextField.getPreferredSize().height));			
 			add(basicTextField);
 		}
 	}

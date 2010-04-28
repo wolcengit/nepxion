@@ -78,8 +78,7 @@ public class DemoBasicTabbedPanePanel
 			basicTabbedPane.addTab("Tab 8", IconFactory.getSwingIcon("component/tabbed_pane_16.png"), new JScrollPane(new ConfigPanel(basicTabbedPane)), "Tab 8", true);
 			
 			JDecorationPopupMenu popupMenu = new JDecorationPopupMenu();
-			basicTabbedPane.setPopupMenu(popupMenu, true);
-			
+			basicTabbedPane.setPopupMenu(popupMenu, true);			
 			add(basicTabbedPane);			
 		}
 	}
@@ -136,7 +135,7 @@ public class DemoBasicTabbedPanePanel
 			);			
 			add(hintCheckBox);	
 			
-			final JBasicCheckBox gapCheckBox = new JBasicCheckBox("Gap (=3) between Close Button & Icon", false);
+			final JBasicCheckBox gapCheckBox = new JBasicCheckBox("Set gap length (=3) between Close Button & Icon", false);
 			gapCheckBox.addActionListener(new ActionListener()
 			{
 				public void actionPerformed(ActionEvent e)

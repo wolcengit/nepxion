@@ -63,10 +63,10 @@ public class DemoDataFactory
 			stringBuffer.append(installData.getIndex());
 			stringBuffer.append("]\t");
 			stringBuffer.append("Name : [");
-			stringBuffer.append(installData.getName());
+			stringBuffer.append(installData.getText());
 			stringBuffer.append("]\t");
 			stringBuffer.append("TooTipText : [");
-			stringBuffer.append(installData.getToolTip());
+			stringBuffer.append(installData.getToolTipText());
 			stringBuffer.append("]\t");
 			componentDescriptonDatas[index] = stringBuffer.toString();
 			index++;
@@ -76,17 +76,17 @@ public class DemoDataFactory
 	
 	public static List getComponentInstallDatas()
 	{
-		InstallData buttonControlInstallData = new InstallData(1, "Button Control", IconFactory.getSwingIcon("component/button_16.png"), "Button Control Component");
-		InstallData textControlInstallData = new InstallData(2, "Text Control", IconFactory.getSwingIcon("component/text_pane_16.png"), "Text Control Component");
-		InstallData menuControlInstallData = new InstallData(3, "Menu Control", IconFactory.getSwingIcon("component/menu_16.png"), "Menu Control Component");
-		InstallData borderControlInstallData = new InstallData(4, "Border Control", IconFactory.getSwingIcon("component/split_pane_16.png"), "Border Control Component");
-		InstallData containerControlInstallData = new InstallData(5, "Container Control", IconFactory.getSwingIcon("component/internal_frame_16.png"), "Container Control Component");
-		InstallData barControlInstallData = new InstallData(6, "Bar Control", IconFactory.getSwingIcon("component/tool_bar_16.png"), "Bar Control Component");
-		InstallData dataControlInstallData = new InstallData(7, "Data Control", IconFactory.getSwingIcon("component/table_16.png"), "Data Control Component");
-		InstallData selectorControlInstallData = new InstallData(8, "Selector Control", IconFactory.getSwingIcon("component/file_chooser_16.png"), "Selector Control Component");
-		InstallData layoutControlInstallData = new InstallData(9, "Layout Control", IconFactory.getSwingIcon("component/layout_16.png"), "Layout Control Component");
-		InstallData frameWorkControlInstallData = new InstallData(10, "FrameWork Control", IconFactory.getSwingIcon("component/desktop_pane_16.png"), "FrameWork Control Component");
-		InstallData advancedControlInstallData = new InstallData(11, "Advanced Control", IconFactory.getSwingIcon("component/advanced_16.png"), "Advanced Control Component");
+		InstallData buttonControlInstallData = new InstallData(1, "Button Control", IconFactory.getSwingIcon("component/button_16.png"), "Button Control Component", "Category", false, true);
+		InstallData textControlInstallData = new InstallData(2, "Text Control", IconFactory.getSwingIcon("component/text_pane_16.png"), "Text Control Component", "Category", false, false);
+		InstallData menuControlInstallData = new InstallData(3, "Menu Control", IconFactory.getSwingIcon("component/menu_16.png"), "Menu Control Component", "Category", false, true);
+		InstallData borderControlInstallData = new InstallData(4, "Border Control", IconFactory.getSwingIcon("component/split_pane_16.png"), "Border Control Component", "Category", false, false);
+		InstallData containerControlInstallData = new InstallData(5, "Container Control", IconFactory.getSwingIcon("component/internal_frame_16.png"), "Container Control Component", "Category", false, true);
+		InstallData barControlInstallData = new InstallData(6, "Bar Control", IconFactory.getSwingIcon("component/tool_bar_16.png"), "Bar Control Component", "Category", false, false);
+		InstallData dataControlInstallData = new InstallData(7, "Data Control", IconFactory.getSwingIcon("component/table_16.png"), "Data Control Component", "Category", false, true);
+		InstallData selectorControlInstallData = new InstallData(8, "Selector Control", IconFactory.getSwingIcon("component/file_chooser_16.png"), "Selector Control Component", "Category", false, false);
+		InstallData layoutControlInstallData = new InstallData(9, "Layout Control", IconFactory.getSwingIcon("component/layout_16.png"), "Layout Control Component", "Category", false, true);
+		InstallData frameWorkControlInstallData = new InstallData(10, "FrameWork Control", IconFactory.getSwingIcon("component/desktop_pane_16.png"), "FrameWork Control Component", "Category", false, false);
+		InstallData advancedControlInstallData = new InstallData(11, "Advanced Control", IconFactory.getSwingIcon("component/advanced_16.png"), "Advanced Control Component", "Category", false, true);
 		
 		List componentInstallDatas = new ArrayList();
 		componentInstallDatas.add(buttonControlInstallData);

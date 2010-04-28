@@ -10,87 +10,81 @@ package com.nepxion.demo.component.combobox;
  * @version 1.0
  */
 
-import java.awt.BorderLayout;
+import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.ItemEvent;
-import java.util.List;
 
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.JPanel;
 
-import com.nepxion.demo.common.DemoDataFactory;
 import com.nepxion.swing.border.ComplexEtchedBorder;
 import com.nepxion.swing.border.ComplexSide;
 import com.nepxion.swing.border.ComplexTitleBorder;
 import com.nepxion.swing.checkbox.JBasicCheckBox;
 import com.nepxion.swing.combobox.JBasicComboBox;
-import com.nepxion.swing.common.InstallData;
-import com.nepxion.swing.item.BasicItemListener;
 import com.nepxion.swing.layout.filed.FiledLayout;
-import com.nepxion.swing.renderer.combobox.ComboBoxIconCellRenderer;
-import com.nepxion.swing.tabbedpane.JEclipseTabbedPane;
-import com.nepxion.util.data.CollectionUtil;
 
 public class DemoBasicComboBoxPanel
 	extends JPanel
 {
-	private JEclipseTabbedPane eclipseTabbedPane;
+	private JBasicComboBox comboBox;
 	
 	public DemoBasicComboBoxPanel()
 	{
-		setLayout(new BorderLayout());
+		setLayout(new FiledLayout(FiledLayout.COLUMN, FiledLayout.FULL, 0));
 		setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
 		
-		add(new EclipseTabbedPanePanel(), BorderLayout.CENTER);
-		add(new PublicConfigPanel(), BorderLayout.SOUTH);
+		add(new BasicComboBoxPanel());
+		add(new ConfigPanel());
 	}
 	
-	public class EclipseTabbedPanePanel
+	public class BasicComboBoxPanel
 		extends JPanel
 	{
-		public EclipseTabbedPanePanel()
+		public BasicComboBoxPanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Eclipse TabbedPane"));
+			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Basic ComboBox"));
 			
+			String[] items = new String[] {"The standard JComboBox doesn't support the long width for combobox's popupmenu", "The popupmenu item width is only determinded by combobox width", "The JBasicComboBox will help you to resolve the issue.You can set its length by api"};
+			comboBox = new JBasicComboBox(items);
+			comboBox.setMaximumSize(new Dimension(350, comboBox.getPreferredSize().height));
+			comboBox.setPopupMenuWidth(500);
+			comboBox.setPopupMenuShowUp(true);	
+			add(comboBox);
 		}
 	}
 	
-	public class PublicConfigPanel
+	public class ConfigPanel
 		extends JPanel
 	{
-		public PublicConfigPanel()
+		public ConfigPanel()
 		{
 			setLayout(new FiledLayout(FiledLayout.COLUMN, FiledLayout.FULL, 0));
-			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Public Configuration"));
+			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Configuration"));
 			
-			List tabShapeInstallDatas = DemoDataFactory.getEclipseTabShapeInstallDatas();
-			
-			final JBasicComboBox tabShapeComboBox = new JBasicComboBox(CollectionUtil.parseVector(tabShapeInstallDatas));
-			tabShapeComboBox.setRenderer(new ComboBoxIconCellRenderer());
-			tabShapeComboBox.addItemListener(new BasicItemListener()
-			{
-				public void itemSelectionStateChanged(ItemEvent e)
-				{
-					InstallData installdata = (InstallData) tabShapeComboBox.getSelectedItem();
-					eclipseTabbedPane.setTabShape(installdata.getIndex());
-				}
-			}
-			);
-			add(tabShapeComboBox);
-			
-			final JBasicCheckBox showTabAreaCheckBox = new JBasicCheckBox("Show Tab Area", true);
-			showTabAreaCheckBox.addActionListener(new ActionListener()
+			final JBasicCheckBox popupMenuWithCheckBox = new JBasicCheckBox("Set PopupMenu width (=500)", true);
+			popupMenuWithCheckBox.addActionListener(new ActionListener()
 			{
 				public void actionPerformed(ActionEvent e)
 				{
-					eclipseTabbedPane.setShowTabArea(showTabAreaCheckBox.isSelected());
-				}
+					comboBox.setPopupMenuWidth(popupMenuWithCheckBox.isSelected() ? 500 : 0);
+				}				
 			}
-			);
-			add(showTabAreaCheckBox);			
+			);				
+			add(popupMenuWithCheckBox);		
+			
+			final JBasicCheckBox popupMenuShowUpCheckBox = new JBasicCheckBox("Show PopupMenu Up", true);
+			popupMenuShowUpCheckBox.addActionListener(new ActionListener()
+			{
+				public void actionPerformed(ActionEvent e)
+				{
+					comboBox.setPopupMenuShowUp(popupMenuShowUpCheckBox.isSelected());
+				}				
+			}
+			);				
+			add(popupMenuShowUpCheckBox);				
 		}
 	}
 }

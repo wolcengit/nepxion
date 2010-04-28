@@ -33,11 +33,11 @@ import com.nepxion.swing.combobox.JBasicComboBox;
 import com.nepxion.swing.common.InstallData;
 import com.nepxion.swing.handle.HandleManager;
 import com.nepxion.swing.icon.IconFactory;
-import com.nepxion.swing.item.BasicItemListener;
 import com.nepxion.swing.layout.filed.FiledLayout;
+import com.nepxion.swing.listener.SelectionListener;
 import com.nepxion.swing.optionpane.JBasicOptionPane;
 import com.nepxion.swing.popupmenu.JDecorationPopupMenu;
-import com.nepxion.swing.renderer.combobox.ComboBoxIconCellRenderer;
+import com.nepxion.swing.renderer.combobox.ComboBoxDecorationCellRenderer;
 import com.nepxion.swing.tabbedpane.JEclipseTabbedPane;
 import com.nepxion.util.data.CollectionUtil;
 
@@ -86,8 +86,7 @@ public class DemoEclipseTabbedPanePanel
 			eclipseTabbedPane.addTab("Tab 8", IconFactory.getSwingIcon("component/tabbed_pane_16.png"), new PrivateConfigPanel(), "Tab 8", true);
 			
 			JDecorationPopupMenu popupMenu = new JDecorationPopupMenu();
-			eclipseTabbedPane.setPopupMenu(popupMenu, true);
-			
+			eclipseTabbedPane.setPopupMenu(popupMenu, true);			
 			add(eclipseTabbedPane);	
 
 //	        setTabPlacement(JEclipseTabbedPane.TOP);
@@ -111,8 +110,8 @@ public class DemoEclipseTabbedPanePanel
 			List tabShapeInstallDatas = DemoDataFactory.getEclipseTabShapeInstallDatas();
 			
 			final JBasicComboBox tabShapeComboBox = new JBasicComboBox(CollectionUtil.parseVector(tabShapeInstallDatas));
-			tabShapeComboBox.setRenderer(new ComboBoxIconCellRenderer());
-			tabShapeComboBox.addItemListener(new BasicItemListener()
+			tabShapeComboBox.setRenderer(new ComboBoxDecorationCellRenderer());
+			tabShapeComboBox.addItemListener(new SelectionListener()
 			{
 				public void itemSelectionStateChanged(ItemEvent e)
 				{

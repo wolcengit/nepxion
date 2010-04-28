@@ -50,8 +50,7 @@ public class DemoCheckBoxListPanel
 			checkBoxList.setCellRenderer(new ListCheckBoxCellRenderer(checkBoxList));
 			
 			JScrollPane checkBoxListScrollPane = new JScrollPane();
-			checkBoxListScrollPane.getViewport().add(checkBoxList);
-			
+			checkBoxListScrollPane.getViewport().add(checkBoxList);			
 			add(checkBoxListScrollPane);			
 		}
 	}

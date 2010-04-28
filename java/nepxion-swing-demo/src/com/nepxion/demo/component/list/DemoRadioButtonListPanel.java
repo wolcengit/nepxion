@@ -50,8 +50,7 @@ public class DemoRadioButtonListPanel
 			radioButtonList.setCellRenderer(new ListRadioButtonCellRenderer(radioButtonList));
 			
 			JScrollPane radioButtonListScrollPane = new JScrollPane();
-			radioButtonListScrollPane.getViewport().add(radioButtonList);
-			
+			radioButtonListScrollPane.getViewport().add(radioButtonList);			
 			add(radioButtonListScrollPane);			
 		}
 	}

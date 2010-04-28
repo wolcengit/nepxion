@@ -45,8 +45,7 @@ public class DemoHoverBorderTextAreaPanel
 			hoverBorderTextArea.setText("This is the Hover border textfield. Type the words here");
 			
 			JScrollPane hoverBorderScrollPane = new JScrollPane();
-			hoverBorderScrollPane.getViewport().add(hoverBorderTextArea);
-			
+			hoverBorderScrollPane.getViewport().add(hoverBorderTextArea);			
 			add(hoverBorderScrollPane);
 		}
 	}

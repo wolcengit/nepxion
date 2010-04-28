@@ -13,13 +13,24 @@ package com.nepxion.demo.control.button;
 import javax.swing.Icon;
 
 import com.nepxion.demo.common.DemoTogglePanel;
+import com.nepxion.demo.common.DemoToggleTemplate;
+import com.nepxion.demo.component.combobox.DemoBasicComboBoxPanel;
+import com.nepxion.demo.component.combobox.DemoDecorationComboBoxPanel;
+import com.nepxion.demo.component.combobox.DemoGroupComboBoxPanel;
+import com.nepxion.demo.component.combobox.DemoTreeComboBoxPanel;
 import com.nepxion.swing.icon.IconFactory;
+import com.nepxion.swing.tabbedpane.JEclipseTabbedPane;
 
 public class DemoComboBoxTogglePanel
 	extends DemoTogglePanel
 {
 	public DemoComboBoxTogglePanel()
 	{
+		JEclipseTabbedPane toggleTabbedPane = getToggleTabbedPane();
+		toggleTabbedPane.addTab("Basic ComboBox", IconFactory.getSwingIcon("component/combo_box_16.png"), new DemoToggleTemplate(new DemoBasicComboBoxPanel()));
+		toggleTabbedPane.addTab("Decoration ComboBox", IconFactory.getSwingIcon("component/combo_box_16.png"), new DemoToggleTemplate(new DemoDecorationComboBoxPanel()));
+		toggleTabbedPane.addTab("Group ComboBox", IconFactory.getSwingIcon("component/combo_box_16.png"), new DemoToggleTemplate(new DemoGroupComboBoxPanel()));				
+		toggleTabbedPane.addTab("Tree ComboBox", IconFactory.getSwingIcon("component/combo_box_16.png"), new DemoToggleTemplate(new DemoTreeComboBoxPanel()));
 	}
 	
 	public String getToggleName()

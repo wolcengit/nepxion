@@ -45,8 +45,7 @@ public class DemoLabelStyleTextAreaPanel
 			
 			JBasicScrollPane labelStyleScrollPane = new JBasicScrollPane();
 			labelStyleScrollPane.setLabelStyle();
-			labelStyleScrollPane.getViewport().add(labelStyleTextArea);
-			
+			labelStyleScrollPane.getViewport().add(labelStyleTextArea);			
 			add(labelStyleScrollPane);
 		}
 	}
