@@ -48,7 +48,7 @@ public class DemoFillTableLayoutPanel
 			};
 			
 			JPanel panel = new JPanel();
-			panel.setLayout( new TableLayout(size));
+			panel.setLayout(new TableLayout(size));
 			
 			JButton[] buttons = new JButton[12];
 			for (int i = 0; i < 12; i++)
