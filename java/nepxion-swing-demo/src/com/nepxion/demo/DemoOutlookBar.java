@@ -16,7 +16,6 @@ import java.util.List;
 import java.util.Map;
 
 import javax.swing.Icon;
-import javax.swing.SwingConstants;
 
 import com.nepxion.demo.common.DemoDataFactory;
 import com.nepxion.swing.common.InstallData;
@@ -50,6 +49,6 @@ public class DemoOutlookBar
     		addTab(name, icon, makeScrollPane(component), toolTipText);
     	}	
         
-        setAllTabsAlignment(SwingConstants.LEFT, 5);
+        setAllTabsAlignment(LEFT, 5);
     }
 }

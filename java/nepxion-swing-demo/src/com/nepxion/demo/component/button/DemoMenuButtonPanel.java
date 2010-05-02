@@ -57,7 +57,7 @@ public class DemoMenuButtonPanel
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
 			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Flat ButtonUI"));
 			
-			JBasicMenuButton flatStyleButton = new JBasicMenuButton("Flat Style", IconFactory.getSwingIcon("component/button_16.png"));
+			JBasicMenuButton flatStyleButton = new JBasicMenuButton("JFlat Style", IconFactory.getSwingIcon("component/button_16.png"));
 			flatStyleButton.setUI(new FlatMenuButtonUI());
 			flatStyleButton.setPopupMenu(DemoDataFactory.createDecorationPopupMenu());
 			add(flatStyleButton);			

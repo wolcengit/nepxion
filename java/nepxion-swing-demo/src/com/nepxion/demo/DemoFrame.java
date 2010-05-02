@@ -37,6 +37,7 @@ public class DemoFrame
 		splashWindow.setVisible(true);
 		
 		final DemoFrame frame = new DemoFrame();
+		frame.setExtendedState(DemoFrame.MAXIMIZED_BOTH);
 		
 		final JTray tray = new JTray(frame)
 		{
@@ -45,24 +46,14 @@ public class DemoFrame
 				splashWindow.setVisible(true);
 			}
 		};
-		
+			
 		SwingUtilities.invokeLater(new Runnable()
 		{
 			public void run()
 			{
-				frame.setExtendedState(DemoFrame.MAXIMIZED_BOTH);
-				
-				try
-				{
-					Thread.sleep(500);
-				}
-				catch (InterruptedException e)
-				{
-				}
-				
 				frame.setVisible(true);
-				tray.setVisible(true);			
-			}
+				tray.setVisible(true);
+			}			
 		}
 		);
 

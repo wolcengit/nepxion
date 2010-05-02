@@ -12,8 +12,6 @@ package com.nepxion.demo.control.bar;
 
 import java.awt.Dimension;
 
-import javax.swing.SwingConstants;
-
 import com.nepxion.demo.common.DemoToggleContentPanel;
 import com.nepxion.demo.common.DemoToggleOutlook;
 import com.nepxion.swing.button.ButtonManager;
@@ -36,6 +34,6 @@ public class DemoBarControlOutlook
 		JToggleActionButton statusBarButton = new JToggleActionButton(DemoToggleContentPanel.getInstance(), new DemoStatusBarTogglePanel());
         addButton(statusBarButton); 
                 
-        ButtonManager.updateUI(this, new Dimension(50, 70), SwingConstants.VERTICAL);
+        ButtonManager.updateUI(this, new Dimension(50, 70), VERTICAL);
 	}
 }

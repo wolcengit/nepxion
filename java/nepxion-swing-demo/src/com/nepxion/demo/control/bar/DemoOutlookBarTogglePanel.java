@@ -14,7 +14,7 @@ import javax.swing.Icon;
 
 import com.nepxion.demo.common.DemoTogglePanel;
 import com.nepxion.demo.common.DemoToggleTemplate;
-import com.nepxion.demo.component.button.DemoButtonPanel;
+import com.nepxion.demo.component.outlookbar.DemoOutlookBarPanel;
 import com.nepxion.swing.icon.IconFactory;
 import com.nepxion.swing.tabbedpane.JEclipseTabbedPane;
 
@@ -24,7 +24,7 @@ public class DemoOutlookBarTogglePanel
 	public DemoOutlookBarTogglePanel()
 	{
 		JEclipseTabbedPane toggleTabbedPane = getToggleTabbedPane();
-		toggleTabbedPane.addTab("Button", IconFactory.getSwingIcon("component/tool_bar_16.png"), new DemoToggleTemplate(new DemoButtonPanel()));
+		toggleTabbedPane.addTab("OutlookBar", IconFactory.getSwingIcon("component/tool_bar_16.png"), new DemoToggleTemplate(new DemoOutlookBarPanel()));
 	}
 	
 	public String getToggleName()

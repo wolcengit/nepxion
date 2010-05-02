@@ -12,8 +12,6 @@ package com.nepxion.demo.control.selector;
 
 import java.awt.Dimension;
 
-import javax.swing.SwingConstants;
-
 import com.nepxion.demo.common.DemoToggleContentPanel;
 import com.nepxion.demo.common.DemoToggleOutlook;
 import com.nepxion.swing.button.ButtonManager;
@@ -45,6 +43,6 @@ public class DemoSelectorControlOutlook
 		JToggleActionButton radioButtonSelectorButton = new JToggleActionButton(DemoToggleContentPanel.getInstance(), new DemoRadioButtonSelectorTogglePanel());
         addButton(radioButtonSelectorButton);        
         
-        ButtonManager.updateUI(this, new Dimension(50, 70), SwingConstants.VERTICAL);
+        ButtonManager.updateUI(this, new Dimension(50, 70), VERTICAL);
 	}
 }

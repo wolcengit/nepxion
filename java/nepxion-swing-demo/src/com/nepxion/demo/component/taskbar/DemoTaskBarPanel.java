@@ -148,7 +148,7 @@ public class DemoTaskBarPanel
 			}
 			);			
 			taskBar.add(managementTaskGroup);
-            		
+			
 			JScrollPane taskBarScrollPane = new JScrollPane();
 			taskBarScrollPane.getViewport().add(taskBar);				
 			add(taskBarScrollPane);			

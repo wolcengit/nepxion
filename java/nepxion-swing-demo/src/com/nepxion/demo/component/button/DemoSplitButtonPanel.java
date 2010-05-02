@@ -57,7 +57,7 @@ public class DemoSplitButtonPanel
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
 			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Flat ButtonUI"));
 			
-			JBasicSplitButton flatStyleButton = new JBasicSplitButton("Flat Style", IconFactory.getSwingIcon("component/button_16.png"));
+			JBasicSplitButton flatStyleButton = new JBasicSplitButton("JFlat Style", IconFactory.getSwingIcon("component/button_16.png"));
 			flatStyleButton.setUI(new FlatSplitButtonUI());
 			flatStyleButton.setPopupMenu(DemoDataFactory.createDecorationPopupMenu());
 			add(flatStyleButton);			

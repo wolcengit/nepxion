@@ -58,7 +58,7 @@ public class DemoToggleButtonPanel
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
 			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Flat ButtonUI"));
 			
-			JBasicToggleButton flatStyleButton = new JBasicToggleButton("Flat Style", IconFactory.getSwingIcon("component/button_16.png"));
+			JBasicToggleButton flatStyleButton = new JBasicToggleButton("JFlat Style", IconFactory.getSwingIcon("component/button_16.png"));
 			flatStyleButton.setUI(new FlatButtonUI());
 			add(flatStyleButton);					
 		}

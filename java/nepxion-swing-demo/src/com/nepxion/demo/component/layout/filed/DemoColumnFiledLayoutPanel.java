@@ -52,19 +52,9 @@ public class DemoColumnFiledLayoutPanel
 			for (int i = 0; i < 5; i++)
 			{
 				buttons[i] = new JButton();
-			}			
-			
-			buttons[0].setText("1");
-			buttons[1].setText("2");
-			buttons[2].setText("3");
-			buttons[3].setText("4");
-			buttons[4].setText("5");	
-			
-			panel.add(buttons[0]);
-			panel.add(buttons[1]);
-			panel.add(buttons[2]);
-			panel.add(buttons[3]);					
-			panel.add(buttons[4]);			
+				buttons[i].setText(i + "");
+				panel.add(buttons[i]);
+			}					
 			
 			add(panel);
 		}

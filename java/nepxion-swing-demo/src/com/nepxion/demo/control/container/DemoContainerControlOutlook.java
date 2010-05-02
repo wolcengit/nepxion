@@ -12,8 +12,6 @@ package com.nepxion.demo.control.container;
 
 import java.awt.Dimension;
 
-import javax.swing.SwingConstants;
-
 import com.nepxion.demo.common.DemoToggleContentPanel;
 import com.nepxion.demo.common.DemoToggleOutlook;
 import com.nepxion.swing.button.ButtonManager;
@@ -30,6 +28,6 @@ public class DemoContainerControlOutlook
 		JToggleActionButton tabbedPaneButton = new JToggleActionButton(DemoToggleContentPanel.getInstance(), new DemoTabbedPaneTogglePanel());
         addButton(tabbedPaneButton);
         
-        ButtonManager.updateUI(this, new Dimension(50, 70), SwingConstants.VERTICAL);
+        ButtonManager.updateUI(this, new Dimension(50, 70), VERTICAL);
 	}
 }
