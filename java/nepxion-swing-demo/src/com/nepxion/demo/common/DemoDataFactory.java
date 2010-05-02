@@ -21,6 +21,7 @@ import javax.swing.JMenuItem;
 
 import com.nepxion.demo.control.advanced.DemoAdvancedControlOutlook;
 import com.nepxion.demo.control.bar.DemoBarControlOutlook;
+import com.nepxion.demo.control.border.DemoBorderControlOutlook;
 import com.nepxion.demo.control.button.DemoButtonControlOutlook;
 import com.nepxion.demo.control.container.DemoContainerControlOutlook;
 import com.nepxion.demo.control.data.DemoDataControlOutlook;
@@ -114,7 +115,7 @@ public class DemoDataFactory
 			componentMap.put("Button Control", new DemoButtonControlOutlook());
 			componentMap.put("Text Control", new DemoTextControlOutlook());
 			componentMap.put("Menu Control", new DemoMenuControlOutlook());
-			componentMap.put("Border Control", new DemoContainerControlOutlook());
+			componentMap.put("Border Control", new DemoBorderControlOutlook());
 			componentMap.put("Container Control", new DemoContainerControlOutlook());
 			componentMap.put("Bar Control", new DemoBarControlOutlook());
 			componentMap.put("Data Control", new DemoDataControlOutlook());
