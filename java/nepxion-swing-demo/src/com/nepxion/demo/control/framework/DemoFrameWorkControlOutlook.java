@@ -12,20 +12,19 @@ package com.nepxion.demo.control.framework;
 
 import java.awt.Dimension;
 
-import com.nepxion.demo.common.DemoToggleContentPanel;
+import com.nepxion.demo.common.DemoToggleActionButton;
 import com.nepxion.demo.common.DemoToggleOutlook;
 import com.nepxion.swing.button.ButtonManager;
-import com.nepxion.swing.panel.toggle.JToggleActionButton;
 
 public class DemoFrameWorkControlOutlook
 	extends DemoToggleOutlook
 {
 	public DemoFrameWorkControlOutlook()
 	{
-		JToggleActionButton frameFrameWorkButton = new JToggleActionButton(DemoToggleContentPanel.getInstance(), new DemoDockableFrameWorkTogglePanel());
+		DemoToggleActionButton frameFrameWorkButton = new DemoToggleActionButton(new DemoDockableFrameWorkTogglePanel());
         addButton(frameFrameWorkButton);
         
-		JToggleActionButton dialogFrameWorkButton = new JToggleActionButton(DemoToggleContentPanel.getInstance(), new DemoVLDockingFrameWorkTogglePanel());
+		DemoToggleActionButton dialogFrameWorkButton = new DemoToggleActionButton(new DemoVLDockingFrameWorkTogglePanel());
         addButton(dialogFrameWorkButton);      
         
         ButtonManager.updateUI(this, new Dimension(50, 70), VERTICAL);

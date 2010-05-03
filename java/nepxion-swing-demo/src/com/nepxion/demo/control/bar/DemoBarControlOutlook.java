@@ -12,26 +12,25 @@ package com.nepxion.demo.control.bar;
 
 import java.awt.Dimension;
 
-import com.nepxion.demo.common.DemoToggleContentPanel;
+import com.nepxion.demo.common.DemoToggleActionButton;
 import com.nepxion.demo.common.DemoToggleOutlook;
 import com.nepxion.swing.button.ButtonManager;
-import com.nepxion.swing.panel.toggle.JToggleActionButton;
 
 public class DemoBarControlOutlook
 	extends DemoToggleOutlook
 {
 	public DemoBarControlOutlook()
 	{
-		JToggleActionButton taskBarButton = new JToggleActionButton(DemoToggleContentPanel.getInstance(), new DemoTaskBarTogglePanel());
+		DemoToggleActionButton taskBarButton = new DemoToggleActionButton(new DemoTaskBarTogglePanel());
         addButton(taskBarButton); 
         
-		JToggleActionButton outlookBarButton = new JToggleActionButton(DemoToggleContentPanel.getInstance(), new DemoOutlookBarTogglePanel());
+		DemoToggleActionButton outlookBarButton = new DemoToggleActionButton(new DemoOutlookBarTogglePanel());
         addButton(outlookBarButton); 
         
-		JToggleActionButton buttonBarButton = new JToggleActionButton(DemoToggleContentPanel.getInstance(), new DemoButtonBarTogglePanel());
+		DemoToggleActionButton buttonBarButton = new DemoToggleActionButton(new DemoButtonBarTogglePanel());
         addButton(buttonBarButton);         
         
-		JToggleActionButton statusBarButton = new JToggleActionButton(DemoToggleContentPanel.getInstance(), new DemoStatusBarTogglePanel());
+		DemoToggleActionButton statusBarButton = new DemoToggleActionButton(new DemoStatusBarTogglePanel());
         addButton(statusBarButton); 
                 
         ButtonManager.updateUI(this, new Dimension(50, 70), VERTICAL);

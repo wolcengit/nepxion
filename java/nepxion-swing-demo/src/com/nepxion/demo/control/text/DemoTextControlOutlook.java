@@ -12,20 +12,19 @@ package com.nepxion.demo.control.text;
 
 import java.awt.Dimension;
 
-import com.nepxion.demo.common.DemoToggleContentPanel;
+import com.nepxion.demo.common.DemoToggleActionButton;
 import com.nepxion.demo.common.DemoToggleOutlook;
 import com.nepxion.swing.button.ButtonManager;
-import com.nepxion.swing.panel.toggle.JToggleActionButton;
 
 public class DemoTextControlOutlook
 	extends DemoToggleOutlook
 {
 	public DemoTextControlOutlook()
 	{
-		JToggleActionButton textFieldButton = new JToggleActionButton(DemoToggleContentPanel.getInstance(), new DemoTextFieldTogglePanel());
+		DemoToggleActionButton textFieldButton = new DemoToggleActionButton(new DemoTextFieldTogglePanel());
         addButton(textFieldButton); 
         
-		JToggleActionButton textAreaButton = new JToggleActionButton(DemoToggleContentPanel.getInstance(), new DemoTextAreaTogglePanel());
+		DemoToggleActionButton textAreaButton = new DemoToggleActionButton(new DemoTextAreaTogglePanel());
         addButton(textAreaButton);  
         
         ButtonManager.updateUI(this, new Dimension(50, 70), VERTICAL);

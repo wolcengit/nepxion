@@ -12,26 +12,25 @@ package com.nepxion.demo.control.button;
 
 import java.awt.Dimension;
 
-import com.nepxion.demo.common.DemoToggleContentPanel;
+import com.nepxion.demo.common.DemoToggleActionButton;
 import com.nepxion.demo.common.DemoToggleOutlook;
 import com.nepxion.swing.button.ButtonManager;
-import com.nepxion.swing.panel.toggle.JToggleActionButton;
 
 public class DemoButtonControlOutlook
 	extends DemoToggleOutlook
 {
 	public DemoButtonControlOutlook()
 	{
-		JToggleActionButton buttonButton = new JToggleActionButton(DemoToggleContentPanel.getInstance(), new DemoButtonTogglePanel());
+		DemoToggleActionButton buttonButton = new DemoToggleActionButton(new DemoButtonTogglePanel());
         addButton(buttonButton);
         
-        JToggleActionButton checkBoxButton = new JToggleActionButton(DemoToggleContentPanel.getInstance(), new DemoCheckBoxTogglePanel());
+        DemoToggleActionButton checkBoxButton = new DemoToggleActionButton(new DemoCheckBoxTogglePanel());
         addButton(checkBoxButton);  
         
-        JToggleActionButton radioButtonButton = new JToggleActionButton(DemoToggleContentPanel.getInstance(), new DemoRadioButtonTogglePanel());
+        DemoToggleActionButton radioButtonButton = new DemoToggleActionButton(new DemoRadioButtonTogglePanel());
         addButton(radioButtonButton);        
         
-        JToggleActionButton comboBoxButton = new JToggleActionButton(DemoToggleContentPanel.getInstance(), new DemoComboBoxTogglePanel());
+        DemoToggleActionButton comboBoxButton = new DemoToggleActionButton(new DemoComboBoxTogglePanel());
         addButton(comboBoxButton);   
         
         ButtonManager.updateUI(this, new Dimension(50, 70), VERTICAL);

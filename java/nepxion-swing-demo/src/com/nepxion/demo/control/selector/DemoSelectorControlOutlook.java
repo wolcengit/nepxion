@@ -12,35 +12,34 @@ package com.nepxion.demo.control.selector;
 
 import java.awt.Dimension;
 
-import com.nepxion.demo.common.DemoToggleContentPanel;
+import com.nepxion.demo.common.DemoToggleActionButton;
 import com.nepxion.demo.common.DemoToggleOutlook;
 import com.nepxion.swing.button.ButtonManager;
-import com.nepxion.swing.panel.toggle.JToggleActionButton;
 
 public class DemoSelectorControlOutlook
 	extends DemoToggleOutlook
 {
 	public DemoSelectorControlOutlook()
 	{
-		JToggleActionButton calendarSelectorButton = new JToggleActionButton(DemoToggleContentPanel.getInstance(), new DemoCalendarSelectorTogglePanel());
+		DemoToggleActionButton calendarSelectorButton = new DemoToggleActionButton(new DemoCalendarSelectorTogglePanel());
         addButton(calendarSelectorButton);  
 
-		JToggleActionButton localeSelectorButton = new JToggleActionButton(DemoToggleContentPanel.getInstance(), new DemoLocaleSelectorTogglePanel());
+		DemoToggleActionButton localeSelectorButton = new DemoToggleActionButton(new DemoLocaleSelectorTogglePanel());
         addButton(localeSelectorButton);  
         
-		JToggleActionButton fileSelectorButton = new JToggleActionButton(DemoToggleContentPanel.getInstance(), new DemoFileSelectorTogglePanel());
+		DemoToggleActionButton fileSelectorButton = new DemoToggleActionButton(new DemoFileSelectorTogglePanel());
         addButton(fileSelectorButton);    
         
-		JToggleActionButton colorSelectorButton = new JToggleActionButton(DemoToggleContentPanel.getInstance(), new DemoColorSelectorTogglePanel());
+		DemoToggleActionButton colorSelectorButton = new DemoToggleActionButton(new DemoColorSelectorTogglePanel());
         addButton(colorSelectorButton); 
         
-		JToggleActionButton dropDownSelectorButton = new JToggleActionButton(DemoToggleContentPanel.getInstance(), new DemoDropDownSelectorTogglePanel());
+		DemoToggleActionButton dropDownSelectorButton = new DemoToggleActionButton(new DemoDropDownSelectorTogglePanel());
         addButton(dropDownSelectorButton);
         
-		JToggleActionButton checkBoxSelectorButton = new JToggleActionButton(DemoToggleContentPanel.getInstance(), new DemoCheckBoxSelectorTogglePanel());
+		DemoToggleActionButton checkBoxSelectorButton = new DemoToggleActionButton(new DemoCheckBoxSelectorTogglePanel());
         addButton(checkBoxSelectorButton);
         
-		JToggleActionButton radioButtonSelectorButton = new JToggleActionButton(DemoToggleContentPanel.getInstance(), new DemoRadioButtonSelectorTogglePanel());
+		DemoToggleActionButton radioButtonSelectorButton = new DemoToggleActionButton(new DemoRadioButtonSelectorTogglePanel());
         addButton(radioButtonSelectorButton);        
         
         ButtonManager.updateUI(this, new Dimension(50, 70), VERTICAL);

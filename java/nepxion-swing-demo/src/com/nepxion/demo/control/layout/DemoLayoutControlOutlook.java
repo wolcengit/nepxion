@@ -11,29 +11,28 @@ package com.nepxion.demo.control.layout;
 
 import java.awt.Dimension;
 
-import com.nepxion.demo.common.DemoToggleContentPanel;
+import com.nepxion.demo.common.DemoToggleActionButton;
 import com.nepxion.demo.common.DemoToggleOutlook;
 import com.nepxion.swing.button.ButtonManager;
-import com.nepxion.swing.panel.toggle.JToggleActionButton;
 
 public class DemoLayoutControlOutlook
 	extends DemoToggleOutlook
 {
 	public DemoLayoutControlOutlook()
 	{
-		JToggleActionButton tableLayoutButton = new JToggleActionButton(DemoToggleContentPanel.getInstance(), new DemoTableLayoutTogglePanel());
+		DemoToggleActionButton tableLayoutButton = new DemoToggleActionButton(new DemoTableLayoutTogglePanel());
         addButton(tableLayoutButton);
         
-		JToggleActionButton filedLayoutButton = new JToggleActionButton(DemoToggleContentPanel.getInstance(), new DemoFiledLayoutTogglePanel());
+		DemoToggleActionButton filedLayoutButton = new DemoToggleActionButton(new DemoFiledLayoutTogglePanel());
         addButton(filedLayoutButton);
         
-		JToggleActionButton ratioLayoutButton = new JToggleActionButton(DemoToggleContentPanel.getInstance(), new DemoRatioLayoutTogglePanel());
+		DemoToggleActionButton ratioLayoutButton = new DemoToggleActionButton(new DemoRatioLayoutTogglePanel());
         addButton(ratioLayoutButton);        
         
-		JToggleActionButton borderedLayoutButton = new JToggleActionButton(DemoToggleContentPanel.getInstance(), new DemoBorderLayoutTogglePanel());
+		DemoToggleActionButton borderedLayoutButton = new DemoToggleActionButton(new DemoBorderLayoutTogglePanel());
         addButton(borderedLayoutButton); 
         
-		JToggleActionButton boxedLayoutButton = new JToggleActionButton(DemoToggleContentPanel.getInstance(), new DemoBoxLayoutTogglePanel());
+		DemoToggleActionButton boxedLayoutButton = new DemoToggleActionButton(new DemoBoxLayoutTogglePanel());
         addButton(boxedLayoutButton);      
         
         ButtonManager.updateUI(this, new Dimension(50, 70), VERTICAL);

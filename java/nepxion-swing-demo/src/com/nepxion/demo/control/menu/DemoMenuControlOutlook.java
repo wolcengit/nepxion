@@ -12,20 +12,19 @@ package com.nepxion.demo.control.menu;
 
 import java.awt.Dimension;
 
-import com.nepxion.demo.common.DemoToggleContentPanel;
+import com.nepxion.demo.common.DemoToggleActionButton;
 import com.nepxion.demo.common.DemoToggleOutlook;
 import com.nepxion.swing.button.ButtonManager;
-import com.nepxion.swing.panel.toggle.JToggleActionButton;
 
 public class DemoMenuControlOutlook
 	extends DemoToggleOutlook
 {
 	public DemoMenuControlOutlook()
 	{
-		JToggleActionButton popupMenuButton = new JToggleActionButton(DemoToggleContentPanel.getInstance(), new DemoPopupMenuTogglePanel());
+		DemoToggleActionButton popupMenuButton = new DemoToggleActionButton(new DemoPopupMenuTogglePanel());
         addButton(popupMenuButton); 
         
-		JToggleActionButton menuButton = new JToggleActionButton(DemoToggleContentPanel.getInstance(), new DemoMenuTogglePanel());
+		DemoToggleActionButton menuButton = new DemoToggleActionButton(new DemoMenuTogglePanel());
         addButton(menuButton);         
         
         ButtonManager.updateUI(this, new Dimension(50, 70), VERTICAL);

@@ -12,17 +12,16 @@ package com.nepxion.demo.control.advanced;
 
 import java.awt.Dimension;
 
-import com.nepxion.demo.common.DemoToggleContentPanel;
+import com.nepxion.demo.common.DemoToggleActionButton;
 import com.nepxion.demo.common.DemoToggleOutlook;
 import com.nepxion.swing.button.ButtonManager;
-import com.nepxion.swing.panel.toggle.JToggleActionButton;
 
 public class DemoAdvancedControlOutlook
 	extends DemoToggleOutlook
 {
 	public DemoAdvancedControlOutlook()
 	{
-		JToggleActionButton uiDefaultsExplorerButton = new JToggleActionButton(DemoToggleContentPanel.getInstance(), new DemoUIDefaultsTogglePanel());
+		DemoToggleActionButton uiDefaultsExplorerButton = new DemoToggleActionButton(new DemoUIDefaultsTogglePanel());
         addButton(uiDefaultsExplorerButton);      
         
         ButtonManager.updateUI(this, new Dimension(50, 70), VERTICAL);

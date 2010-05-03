@@ -12,20 +12,22 @@ package com.nepxion.demo.control.container;
 
 import java.awt.Dimension;
 
-import com.nepxion.demo.common.DemoToggleContentPanel;
+import com.nepxion.demo.common.DemoToggleActionButton;
 import com.nepxion.demo.common.DemoToggleOutlook;
 import com.nepxion.swing.button.ButtonManager;
-import com.nepxion.swing.panel.toggle.JToggleActionButton;
 
 public class DemoContainerControlOutlook
 	extends DemoToggleOutlook
 {
 	public DemoContainerControlOutlook()
 	{
-		JToggleActionButton panelButton = new JToggleActionButton(DemoToggleContentPanel.getInstance(), new DemoPanelTogglePanel());
+		DemoToggleActionButton panelButton = new DemoToggleActionButton(new DemoPanelTogglePanel());
         addButton(panelButton);
         
-		JToggleActionButton tabbedPaneButton = new JToggleActionButton(DemoToggleContentPanel.getInstance(), new DemoTabbedPaneTogglePanel());
+		DemoToggleActionButton scrollPaneButton = new DemoToggleActionButton(new DemoScrollPaneTogglePanel());
+        addButton(scrollPaneButton);
+        
+		DemoToggleActionButton tabbedPaneButton = new DemoToggleActionButton(new DemoTabbedPaneTogglePanel());
         addButton(tabbedPaneButton);
         
         ButtonManager.updateUI(this, new Dimension(50, 70), VERTICAL);

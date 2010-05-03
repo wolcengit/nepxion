@@ -13,13 +13,18 @@ package com.nepxion.demo.control.framework;
 import javax.swing.Icon;
 
 import com.nepxion.demo.common.DemoTogglePanel;
+import com.nepxion.demo.common.DemoToggleTemplate;
+import com.nepxion.demo.component.dockable.DemoDockableFrameWorkPanel;
 import com.nepxion.swing.icon.IconFactory;
+import com.nepxion.swing.tabbedpane.JEclipseTabbedPane;
 
 public class DemoDockableFrameWorkTogglePanel
 	extends DemoTogglePanel
 {
 	public DemoDockableFrameWorkTogglePanel()
 	{
+		JEclipseTabbedPane toggleTabbedPane = getToggleTabbedPane();
+		toggleTabbedPane.addTab("Dockable FrameWork", IconFactory.getSwingIcon("component/desktop_pane_16.png"), new DemoToggleTemplate(new DemoDockableFrameWorkPanel()));				
 	}
 	
 	public String getToggleName()
