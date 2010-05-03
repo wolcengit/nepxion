@@ -10,8 +10,6 @@ package com.nepxion.demo;
  * @version 1.0
  */
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.InputEvent;
 import java.awt.event.KeyEvent;
 
@@ -20,12 +18,14 @@ import javax.swing.JMenuItem;
 import javax.swing.KeyStroke;
 
 import com.nepxion.demo.common.DemoToggleContentPanel;
+import com.nepxion.swing.framework.dockable.FrameWorkManager;
 import com.nepxion.swing.framework.dockable.JDockable;
 import com.nepxion.swing.framework.dockable.JDockableView;
 import com.nepxion.swing.framework.dockable.JFrameWorkHierarchy;
 import com.nepxion.swing.framework.dockable.JFrameWorkStatusBar;
 import com.nepxion.swing.icon.IconFactory;
 import com.nepxion.swing.menubar.JBasicMenuBar;
+import com.nepxion.swing.menuitem.JLiteCheckBoxMenuItem;
 import com.nepxion.swing.toolbar.JBasicToolBar;
 
 public class DemoHierarchy
@@ -61,20 +61,18 @@ public class DemoHierarchy
     {
         JBasicMenuBar menuBar = getMenuBar();
         
-        JMenu menu = new JMenu("Help");
+        JMenu menu = FrameWorkManager.getToggleMenu(this);
+        ((JLiteCheckBoxMenuItem) menu.getMenuComponent(1)).doClick();
         menuBar.add(menu);
+        
+        JMenu helpMenu = new JMenu("Help");
+        helpMenu.setMnemonic('H');
+        menuBar.add(helpMenu);
 
-        JMenuItem clearMenuItem = new JMenuItem("Test");
-		clearMenuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_R, InputEvent.CTRL_MASK));	
-		clearMenuItem.addActionListener(new ActionListener()
-        {
-            public void actionPerformed(ActionEvent e)
-            {
-            	
-            }
-        }
-		);  
-		menu.add(clearMenuItem);
+        JMenuItem aboutMenuItem = new JMenuItem(DemoHierarchyController.getAboutAction());
+        aboutMenuItem.setMnemonic('A');
+        aboutMenuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_A, InputEvent.CTRL_MASK));        
+        helpMenu.add(aboutMenuItem);
     }
 
     private void initToolBar()

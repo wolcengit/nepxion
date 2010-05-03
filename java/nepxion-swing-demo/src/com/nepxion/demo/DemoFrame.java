@@ -15,6 +15,7 @@ import javax.swing.SwingUtilities;
 import com.nepxion.demo.component.splash.DemoCaptionSplashWindow;
 import com.nepxion.swing.framework.dockable.JFrameWorkFrame;
 import com.nepxion.swing.icon.IconFactory;
+import com.nepxion.swing.splash.SplashContext;
 import com.nepxion.swing.tray.JTray;
 
 public class DemoFrame
@@ -33,30 +34,24 @@ public class DemoFrame
 		DemoContext context = new DemoContext();
 		context.initialize();
 		
-		final DemoCaptionSplashWindow splashWindow = DemoCaptionSplashWindow.getInstance();
+		DemoCaptionSplashWindow splashWindow = new DemoCaptionSplashWindow();
+		SplashContext.registerSplashWindow(splashWindow);
 		splashWindow.setVisible(true);
 		
 		final DemoFrame frame = new DemoFrame();
 		frame.setExtendedState(DemoFrame.MAXIMIZED_BOTH);
+		frame.setVisible(true);
 		
-		final JTray tray = new JTray(frame)
-		{
-			public void about()
-			{
-				splashWindow.setVisible(true);
-			}
-		};
-			
 		SwingUtilities.invokeLater(new Runnable()
 		{
 			public void run()
 			{
-				frame.setVisible(true);
-				tray.setVisible(true);
+				JTray tray = new JTray(frame);
+				tray.setVisible(true);				
 			}			
 		}
 		);
-
+		
 		splashWindow.setVisible(false);
 	}
 }

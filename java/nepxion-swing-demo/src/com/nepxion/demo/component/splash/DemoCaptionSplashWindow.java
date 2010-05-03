@@ -15,18 +15,7 @@ import com.nepxion.swing.splash.JCaptionSplashWindow;
 
 public class DemoCaptionSplashWindow
 	extends JCaptionSplashWindow
-{
-	private static DemoCaptionSplashWindow splashWindow;
-	
-	public static DemoCaptionSplashWindow getInstance()
-	{
-		if (splashWindow == null)
-		{
-			splashWindow = new DemoCaptionSplashWindow();						
-		}			
-		return splashWindow;
-	}
-	
+{	
 	public DemoCaptionSplashWindow()
 	{
         super(IconFactory.getSwingIcon("splash.png"), new int[] {15, 200}, new int[] {220, 100}, new String[]
