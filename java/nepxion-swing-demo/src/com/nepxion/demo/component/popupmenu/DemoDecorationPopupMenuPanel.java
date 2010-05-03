@@ -18,7 +18,7 @@ import javax.swing.BoxLayout;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
-import com.nepxion.demo.common.DemoDataFactory;
+import com.nepxion.demo.common.DemoComponentFactory;
 import com.nepxion.swing.border.ComplexEtchedBorder;
 import com.nepxion.swing.border.ComplexSide;
 import com.nepxion.swing.border.ComplexTitleBorder;
@@ -232,7 +232,7 @@ public class DemoDecorationPopupMenuPanel
 	
 	public void createPopupMenu(final JBasicButton button, String text, IStyle style)
 	{
-		final JDecorationPopupMenu decorationPopupMenu = DemoDataFactory.createDecorationPopupMenu();
+		final JDecorationPopupMenu decorationPopupMenu = DemoComponentFactory.createDecorationPopupMenu();
 		decorationPopupMenu.setPainter(new JDecorationPopupMenuPainter(text, style));
 		button.addMouseListener(new MouseAdapter()
 		{

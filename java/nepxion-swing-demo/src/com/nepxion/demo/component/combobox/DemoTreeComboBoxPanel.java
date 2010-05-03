@@ -60,7 +60,7 @@ public class DemoTreeComboBoxPanel
 				comboBoxInstallDatas.add(installData);
 				for (int i = 0; i < 3; i++)
 				{
-					InstallData childInstallData = installData.getClone();
+					InstallData childInstallData = installData.deepClone();
 					childInstallData.setText(childInstallData.getText() + " - " + i);
 					childInstallData.setUserObject("Entity");
 					childInstallData.setEnabled(true);
