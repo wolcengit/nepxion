@@ -44,13 +44,13 @@ public class DemoHierarchy
     
     private void initContentPane()
     {
-    	JDockableView explorerView = new JDockableView(EXPLORER_TITLE, IconFactory.getSwingIcon("explorer.png"), DemoOutlookBar.getInstance());        
-        JDockableView contentPaneView = new JDockableView(CONTENT_PANE_TITLE, IconFactory.getSwingIcon("content_pane.png"), DemoToggleContentPanel.getInstance());
-
-        JDockable dockable = new JDockable();
-        dockable.setOrientation(JDockable.HORIZONTAL_SPLIT);
-        dockable.add(explorerView, JDockable.FLEXIBLE);
-        dockable.add(contentPaneView, JDockable.VARY);
+    	JDockableView explorerView = new JDockableView(EXPLORER_TITLE, IconFactory.getSwingIcon("explorer.png"), DemoOutlookBar.getInstance());
+		JDockableView contentPaneView = new JDockableView(CONTENT_PANE_TITLE, IconFactory.getSwingIcon("content_pane.png"), DemoToggleContentPanel.getInstance());
+		
+		JDockable dockable = new JDockable();
+		dockable.setOrientation(JDockable.HORIZONTAL_SPLIT);
+		dockable.add(explorerView, JDockable.FLEXIBLE);
+		dockable.add(contentPaneView, JDockable.VARY);
         
         dockable.setDividerLocation(0, 170);
                                 

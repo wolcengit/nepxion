@@ -10,14 +10,13 @@ package com.nepxion.demo;
  * @version 1.0
  */
 
-import java.awt.Component;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
 
 import javax.swing.Icon;
 
 import com.nepxion.demo.common.DemoDataFactory;
+import com.nepxion.demo.common.DemoToggleOutlook;
 import com.nepxion.swing.common.InstallData;
 import com.nepxion.swing.outlookbar.JFlatOutlookBar;
 
@@ -38,16 +37,23 @@ public class DemoOutlookBar
     private DemoOutlookBar()
     {
     	List componentInstallDatas = DemoDataFactory.getComponentInstallDatas();
-    	Map componentMap = DemoDataFactory.getComponentMap();
-    	for (Iterator iterator = componentInstallDatas.iterator(); iterator.hasNext();)
-    	{
-    		InstallData installData = (InstallData) iterator.next();
-    		String name = installData.getText();
-    		Icon icon = installData.getIcon();
-    		String toolTipText = installData.getToolTipText();
-    		Component component = (Component) componentMap.get(name);
-    		addTab(name, icon, makeScrollPane(component), toolTipText);
-    	}	
+    	try
+		{
+			for (Iterator iterator = componentInstallDatas.iterator(); iterator.hasNext();)
+			{
+				InstallData installData = (InstallData) iterator.next();
+				String name = installData.getText();
+				Icon icon = installData.getIcon();
+				String toolTipText = installData.getToolTipText();
+				String className = installData.getUserObject().toString();
+				DemoToggleOutlook toggleOutlook = (DemoToggleOutlook) Class.forName(className).newInstance();
+				addTab(name, icon, makeScrollPane(toggleOutlook), toolTipText);
+			}
+		}
+		catch (Exception e)
+		{
+			e.printStackTrace();
+		}	
         
         setAllTabsAlignment(LEFT, 5);
     }
