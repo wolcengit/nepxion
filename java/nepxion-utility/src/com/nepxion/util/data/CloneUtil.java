@@ -19,11 +19,11 @@ import java.io.ObjectOutputStream;
 public class CloneUtil
 {
 	/**
-	 * Get clone object
+	 * Get deep clone object
 	 * @param object
 	 * @return  the clone object
 	 */
-	public static Object getClone(Object object)
+	public static Object deepClone(Object object)
 	{
 		Object cloneObject = null;
 		try
@@ -31,7 +31,9 @@ public class CloneUtil
 			ByteArrayOutputStream baos = new ByteArrayOutputStream();
 			ObjectOutputStream oos = new ObjectOutputStream(baos);
 			oos.writeObject(object);
-			ObjectInputStream ois = new ObjectInputStream(new ByteArrayInputStream(baos.toByteArray()));
+			
+			ByteArrayInputStream bais = new ByteArrayInputStream(baos.toByteArray());
+			ObjectInputStream ois = new ObjectInputStream(bais);
 			cloneObject = ois.readObject();
 		}
 		catch (IOException e)
