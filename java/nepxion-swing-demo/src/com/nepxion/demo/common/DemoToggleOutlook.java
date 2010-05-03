@@ -15,7 +15,7 @@ import javax.swing.SwingConstants;
 
 import com.nepxion.swing.outlookbar.JFlatOutlook;
 
-public abstract class DemoToggleOutlook
+public class DemoToggleOutlook
 	extends JFlatOutlook implements SwingConstants
 {
 	public DemoToggleOutlook()

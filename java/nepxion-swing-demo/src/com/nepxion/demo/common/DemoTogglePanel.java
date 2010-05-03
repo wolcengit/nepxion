@@ -19,7 +19,7 @@ import com.nepxion.swing.tabbedpane.JEclipseTabbedPane;
 
 public abstract class DemoTogglePanel
 	extends AbstractTogglePanel
-{
+{	
 	private JEclipseTabbedPane toggleTabbedPane;
 	
 	public DemoTogglePanel()

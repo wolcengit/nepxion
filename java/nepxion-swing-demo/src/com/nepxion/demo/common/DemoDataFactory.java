@@ -11,13 +11,8 @@ package com.nepxion.demo.common;
  */
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
-
-import javax.swing.JMenu;
-import javax.swing.JMenuItem;
 
 import com.nepxion.demo.control.advanced.DemoAdvancedControlOutlook;
 import com.nepxion.demo.control.bar.DemoBarControlOutlook;
@@ -32,12 +27,45 @@ import com.nepxion.demo.control.selector.DemoSelectorControlOutlook;
 import com.nepxion.demo.control.text.DemoTextControlOutlook;
 import com.nepxion.swing.common.InstallData;
 import com.nepxion.swing.icon.IconFactory;
-import com.nepxion.swing.popupmenu.JDecorationPopupMenu;
 import com.nepxion.swing.tabbedpane.JEclipseTabbedPane;
 
 public class DemoDataFactory
-{
-	private static Map componentMap;
+{	
+	public static List getComponentInstallDatas()
+	{
+		InstallData buttonControlInstallData = new InstallData(1, "Button Control", IconFactory.getSwingIcon("component/button_16.png"), "Button Control Component", DemoButtonControlOutlook.class.getName(), false, true);
+		
+		List buttonControlChildren = new ArrayList();
+		buttonControlChildren.add(new InstallData(1, "Button", IconFactory.getSwingIcon("component/button_32.png"), "Multi-style Button ToggleButton MenuButton & SplitButton"));
+		buttonControlChildren.add(new InstallData(2, "CheckBox", IconFactory.getSwingIcon("component/check_box_32.png"), "Multi-style CheckBox"));
+		buttonControlInstallData.setChildren(buttonControlChildren);
+		
+		InstallData textControlInstallData = new InstallData(2, "Text Control", IconFactory.getSwingIcon("component/text_pane_16.png"), "Text Control Component", DemoTextControlOutlook.class.getName(), false, false);
+		InstallData menuControlInstallData = new InstallData(3, "Menu Control", IconFactory.getSwingIcon("component/menu_16.png"), "Menu Control Component", DemoMenuControlOutlook.class.getName(), false, true);
+		InstallData borderControlInstallData = new InstallData(4, "Border Control", IconFactory.getSwingIcon("component/split_pane_16.png"), "Border Control Component", DemoBorderControlOutlook.class.getName(), false, false);
+		InstallData containerControlInstallData = new InstallData(5, "Container Control", IconFactory.getSwingIcon("component/internal_frame_16.png"), "Container Control Component", DemoContainerControlOutlook.class.getName(), false, true);
+		InstallData barControlInstallData = new InstallData(6, "Bar Control", IconFactory.getSwingIcon("component/tool_bar_16.png"), "Bar Control Component", DemoBarControlOutlook.class.getName(), false, false);
+		InstallData dataControlInstallData = new InstallData(7, "Data Control", IconFactory.getSwingIcon("component/table_16.png"), "Data Control Component", DemoDataControlOutlook.class.getName(), false, true);
+		InstallData selectorControlInstallData = new InstallData(8, "Selector Control", IconFactory.getSwingIcon("component/file_chooser_16.png"), "Selector Control Component", DemoSelectorControlOutlook.class.getName(), false, false);
+		InstallData layoutControlInstallData = new InstallData(9, "Layout Control", IconFactory.getSwingIcon("component/layout_16.png"), "Layout Control Component", DemoLayoutControlOutlook.class.getName(), true);
+		InstallData frameWorkControlInstallData = new InstallData(10, "FrameWork Control", IconFactory.getSwingIcon("component/desktop_pane_16.png"), "FrameWork Control Component", DemoFrameWorkControlOutlook.class.getName(), false, false);
+		InstallData advancedControlInstallData = new InstallData(11, "Advanced Control", IconFactory.getSwingIcon("component/advanced_16.png"), "Advanced Control Component", DemoAdvancedControlOutlook.class.getName(), false, true);
+		
+		List componentInstallDatas = new ArrayList();
+		componentInstallDatas.add(buttonControlInstallData);
+		componentInstallDatas.add(textControlInstallData);
+		componentInstallDatas.add(menuControlInstallData);
+		componentInstallDatas.add(borderControlInstallData);
+		componentInstallDatas.add(containerControlInstallData);
+		componentInstallDatas.add(barControlInstallData);
+		componentInstallDatas.add(dataControlInstallData);
+		componentInstallDatas.add(selectorControlInstallData);
+		componentInstallDatas.add(layoutControlInstallData);
+		componentInstallDatas.add(frameWorkControlInstallData);
+		componentInstallDatas.add(advancedControlInstallData);
+		
+		return componentInstallDatas;
+	}
 	
 	public static String[] getComponentNameDatas()
 	{
@@ -75,57 +103,6 @@ public class DemoDataFactory
 		}	
 		return componentDescriptonDatas;
 	}	
-	
-	public static List getComponentInstallDatas()
-	{
-		InstallData buttonControlInstallData = new InstallData(1, "Button Control", IconFactory.getSwingIcon("component/button_16.png"), "Button Control Component", "Category", false, true);
-		InstallData textControlInstallData = new InstallData(2, "Text Control", IconFactory.getSwingIcon("component/text_pane_16.png"), "Text Control Component", "Category", false, false);
-		InstallData menuControlInstallData = new InstallData(3, "Menu Control", IconFactory.getSwingIcon("component/menu_16.png"), "Menu Control Component", "Category", false, true);
-		InstallData borderControlInstallData = new InstallData(4, "Border Control", IconFactory.getSwingIcon("component/split_pane_16.png"), "Border Control Component", "Category", false, false);
-		InstallData containerControlInstallData = new InstallData(5, "Container Control", IconFactory.getSwingIcon("component/internal_frame_16.png"), "Container Control Component", "Category", false, true);
-		InstallData barControlInstallData = new InstallData(6, "Bar Control", IconFactory.getSwingIcon("component/tool_bar_16.png"), "Bar Control Component", "Category", false, false);
-		InstallData dataControlInstallData = new InstallData(7, "Data Control", IconFactory.getSwingIcon("component/table_16.png"), "Data Control Component", "Category", false, true);
-		InstallData selectorControlInstallData = new InstallData(8, "Selector Control", IconFactory.getSwingIcon("component/file_chooser_16.png"), "Selector Control Component", "Category", false, false);
-		InstallData layoutControlInstallData = new InstallData(9, "Layout Control", IconFactory.getSwingIcon("component/layout_16.png"), "Layout Control Component", "Category", false, true);
-		InstallData frameWorkControlInstallData = new InstallData(10, "FrameWork Control", IconFactory.getSwingIcon("component/desktop_pane_16.png"), "FrameWork Control Component", "Category", false, false);
-		InstallData advancedControlInstallData = new InstallData(11, "Advanced Control", IconFactory.getSwingIcon("component/advanced_16.png"), "Advanced Control Component", "Category", false, true);
-		
-		List componentInstallDatas = new ArrayList();
-		componentInstallDatas.add(buttonControlInstallData);
-		componentInstallDatas.add(textControlInstallData);
-		componentInstallDatas.add(menuControlInstallData);
-		componentInstallDatas.add(borderControlInstallData);
-		componentInstallDatas.add(containerControlInstallData);
-		componentInstallDatas.add(barControlInstallData);
-		componentInstallDatas.add(dataControlInstallData);
-		componentInstallDatas.add(selectorControlInstallData);
-		componentInstallDatas.add(layoutControlInstallData);
-		componentInstallDatas.add(frameWorkControlInstallData);
-		componentInstallDatas.add(advancedControlInstallData);
-		
-		return componentInstallDatas;
-	}
-	
-	public static Map getComponentMap()
-	{
-		if (componentMap == null)
-		{
-			componentMap = new HashMap();
-			
-			componentMap.put("Button Control", new DemoButtonControlOutlook());
-			componentMap.put("Text Control", new DemoTextControlOutlook());
-			componentMap.put("Menu Control", new DemoMenuControlOutlook());
-			componentMap.put("Border Control", new DemoBorderControlOutlook());
-			componentMap.put("Container Control", new DemoContainerControlOutlook());
-			componentMap.put("Bar Control", new DemoBarControlOutlook());
-			componentMap.put("Data Control", new DemoDataControlOutlook());
-			componentMap.put("Selector Control", new DemoSelectorControlOutlook());
-			componentMap.put("Layout Control", new DemoLayoutControlOutlook());
-			componentMap.put("FrameWork Control", new DemoFrameWorkControlOutlook());
-			componentMap.put("Advanced Control", new DemoAdvancedControlOutlook());
-		}
-		return componentMap;
-	}
     
 	public static List getEclipseTabShapeInstallDatas()
 	{
@@ -158,31 +135,4 @@ public class DemoDataFactory
 		
 		return shapeInstallDatas;
 	}
-	
-	public static JDecorationPopupMenu createDecorationPopupMenu()
-	{
-		JDecorationPopupMenu decorationPopupMenu = new JDecorationPopupMenu();
-		
-		JMenu menu1 = new JMenu("Menu");
-		menu1.setIcon(IconFactory.getSwingIcon("component/menu_16.png"));
-		menu1.add(new JMenuItem("MenuItem", IconFactory.getSwingIcon("component/menu_16.png")));
-		menu1.add(new JMenuItem("MenuItem", IconFactory.getSwingIcon("component/menu_16.png")));
-		decorationPopupMenu.add(menu1);
-		
-		JMenu menu2 = new JMenu("Menu");
-		menu2.setIcon(IconFactory.getSwingIcon("component/popup_menu_16.png"));
-		menu2.add(new JMenuItem("MenuItem", IconFactory.getSwingIcon("component/popup_menu_16.png")));
-		menu2.add(new JMenuItem("MenuItem", IconFactory.getSwingIcon("component/popup_menu_16.png")));
-		decorationPopupMenu.add(menu2);
-		
-		decorationPopupMenu.addSeparator();
-		
-		JMenu menu3 = new JMenu("Menu");
-		menu3.setIcon(IconFactory.getSwingIcon("component/list_16.png"));
-		menu3.add(new JMenuItem("MenuItem", IconFactory.getSwingIcon("component/list_16.png")));
-		menu3.add(new JMenuItem("MenuItem", IconFactory.getSwingIcon("component/list_16.png")));
-		decorationPopupMenu.add(menu3);
-		
-		return decorationPopupMenu;
-	}	
 }
