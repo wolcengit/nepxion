@@ -10,20 +10,45 @@ package com.nepxion.demo.common;
  * @version 1.0
  */
 
+import java.util.Iterator;
+
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 import javax.swing.JTable;
 import javax.swing.JTree;
 import javax.swing.UIManager;
+import javax.swing.tree.DefaultMutableTreeNode;
 
+import com.nepxion.swing.common.InstallData;
 import com.nepxion.swing.icon.IconFactory;
 import com.nepxion.swing.popupmenu.JDecorationPopupMenu;
+import com.nepxion.swing.renderer.tree.TreeDecorationCellRenderer;
+import com.nepxion.swing.tree.JBasicTree;
+import com.nepxion.swing.tree.TreeManager;
 
 public class DemoComponentFactory
 {
 	public static JTree getTree()
 	{		
-		JTree tree = new JTree();
+		DefaultMutableTreeNode root = new DefaultMutableTreeNode(new InstallData(1, "Nepxion", IconFactory.getSwingIcon("tray_java.png"), "Nepxion Swing", "", false, true));
+		for (Iterator iterator = DemoDataFactory.getComponentInstallDatas().iterator(); iterator.hasNext();)
+		{
+			InstallData installData = (InstallData) iterator.next();
+			DefaultMutableTreeNode treeNode = new DefaultMutableTreeNode(installData);
+			root.add(treeNode);
+			if (installData.getChildren() != null)
+			{	
+				for (Iterator childIterator = installData.getChildren().iterator(); childIterator.hasNext();)
+				{
+					InstallData childInstallData = (InstallData) childIterator.next();
+					DefaultMutableTreeNode childTreeNode = new DefaultMutableTreeNode(childInstallData);
+					treeNode.add(childTreeNode);
+				}	
+			}
+		}	
+		JBasicTree tree = new JBasicTree(root);
+		tree.setCellRenderer(new TreeDecorationCellRenderer(20));
+		TreeManager.expandAll(tree);
 		return tree;				
 	}
 	
@@ -38,6 +63,7 @@ public class DemoComponentFactory
 		
 		JTable table = new JTable(rows, columns);
 		table.getTableHeader().setBackground(UIManager.getColor("control"));
+		
 		return table;
 	}
 	

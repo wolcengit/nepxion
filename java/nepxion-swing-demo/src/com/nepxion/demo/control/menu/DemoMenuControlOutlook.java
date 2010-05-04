@@ -21,11 +21,11 @@ public class DemoMenuControlOutlook
 {
 	public DemoMenuControlOutlook()
 	{
-		DemoToggleActionButton popupMenuButton = new DemoToggleActionButton(new DemoPopupMenuTogglePanel());
-        addButton(popupMenuButton); 
-        
 		DemoToggleActionButton menuButton = new DemoToggleActionButton(new DemoMenuTogglePanel());
-        addButton(menuButton);         
+        addButton(menuButton);    
+        
+		DemoToggleActionButton popupMenuButton = new DemoToggleActionButton(new DemoPopupMenuTogglePanel());
+        addButton(popupMenuButton);      
         
         ButtonManager.updateUI(this, new Dimension(50, 70), VERTICAL);
 	}

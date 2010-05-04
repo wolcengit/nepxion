@@ -44,6 +44,6 @@ public class DemoCheckBoxSelectorTogglePanel
 	
 	public String getToggleDescription()
 	{
-		return "CheckBox Selector";
+		return "Multi-style CheckBox Selector";
 	}
 }

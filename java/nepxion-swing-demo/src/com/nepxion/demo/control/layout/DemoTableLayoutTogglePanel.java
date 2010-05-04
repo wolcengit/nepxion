@@ -52,6 +52,6 @@ public class DemoTableLayoutTogglePanel
 	
 	public String getToggleDescription()
 	{
-		return "Table Layout";
+		return "Multi-style Table Layout";
 	}
 }

@@ -44,6 +44,6 @@ public class DemoFileSelectorTogglePanel
 	
 	public String getToggleDescription()
 	{
-		return "File Selector";
+		return "Multi-style File Selector";
 	}
 }

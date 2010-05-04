@@ -46,6 +46,6 @@ public class DemoFiledLayoutTogglePanel
 	
 	public String getToggleDescription()
 	{
-		return "Filed Layout";
+		return "Multi-style Filed Layout";
 	}
 }

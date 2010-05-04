@@ -44,6 +44,6 @@ public class DemoDropDownSelectorTogglePanel
 	
 	public String getToggleDescription()
 	{
-		return "DropDown Selector";
+		return "Multi-style DropDown Selector";
 	}
 }

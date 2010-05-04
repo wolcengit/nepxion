@@ -44,6 +44,6 @@ public class DemoLocaleSelectorTogglePanel
 	
 	public String getToggleDescription()
 	{
-		return "Locale Selector";
+		return "Multi-style Locale Selector";
 	}
 }

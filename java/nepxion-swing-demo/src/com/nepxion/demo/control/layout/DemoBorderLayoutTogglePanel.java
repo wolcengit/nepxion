@@ -46,6 +46,6 @@ public class DemoBorderLayoutTogglePanel
 	
 	public String getToggleDescription()
 	{
-		return "XBorder Layout";
+		return "Multi-style XBorder Layout";
 	}
 }

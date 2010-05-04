@@ -20,6 +20,7 @@ import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.JList;
 import javax.swing.JPanel;
+import javax.swing.tree.DefaultMutableTreeNode;
 
 import com.nepxion.demo.common.DemoDataFactory;
 import com.nepxion.swing.border.ComplexEtchedBorder;
@@ -58,13 +59,13 @@ public class DemoTreeComboBoxPanel
 				InstallData installData = (InstallData) iterator.next();
 				installData.setEnabled(true);
 				comboBoxInstallDatas.add(installData);
-				for (int i = 0; i < 3; i++)
-				{
-					InstallData childInstallData = installData.deepClone();
-					childInstallData.setText(childInstallData.getText() + " - " + i);
-					childInstallData.setUserObject("Entity");
-					childInstallData.setEnabled(true);
-					comboBoxInstallDatas.add(childInstallData);
+				if (installData.getChildren() != null)
+				{	
+					for (Iterator childIterator = installData.getChildren().iterator(); childIterator.hasNext();)
+					{
+						InstallData childInstallData = (InstallData) childIterator.next();
+						comboBoxInstallDatas.add(childInstallData);
+					}	
 				}	
 			}	
 			
@@ -86,7 +87,7 @@ public class DemoTreeComboBoxPanel
 		{
 			super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
 			InstallData installData = (InstallData) value;
-			if (installData.getUserObject().toString().equals("Entity"))
+			if (installData.getChildren() == null)
 			{
 				setBorder(BorderFactory.createEmptyBorder(0, 18, 0, 0));
 			}	

@@ -14,7 +14,6 @@ import javax.swing.Icon;
 
 import com.nepxion.demo.common.DemoTogglePanel;
 import com.nepxion.swing.icon.IconFactory;
-import com.nepxion.swing.tabbedpane.JEclipseTabbedPane;
 
 public class DemoRadioButtonTogglePanel
 	extends DemoTogglePanel

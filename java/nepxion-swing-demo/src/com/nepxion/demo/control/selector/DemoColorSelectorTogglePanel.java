@@ -41,6 +41,6 @@ public class DemoColorSelectorTogglePanel
 	
 	public String getToggleDescription()
 	{
-		return "Color Selector";
+		return "Multi-style Color Selector";
 	}
 }

@@ -44,6 +44,6 @@ public class DemoRadioButtonSelectorTogglePanel
 	
 	public String getToggleDescription()
 	{
-		return "RadioButton Selector";
+		return "Multi-style RadioButton Selector";
 	}
 }

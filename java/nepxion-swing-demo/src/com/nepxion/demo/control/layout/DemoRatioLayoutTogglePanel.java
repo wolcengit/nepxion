@@ -46,6 +46,6 @@ public class DemoRatioLayoutTogglePanel
 	
 	public String getToggleDescription()
 	{
-		return "Ratio Layout";
+		return "Multi-style Ratio Layout";
 	}
 }

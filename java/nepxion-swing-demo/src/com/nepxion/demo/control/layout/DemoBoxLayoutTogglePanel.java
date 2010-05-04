@@ -46,6 +46,6 @@ public class DemoBoxLayoutTogglePanel
 	
 	public String getToggleDescription()
 	{
-		return "XBox Layout";
+		return "Multi-style XBox Layout";
 	}
 }

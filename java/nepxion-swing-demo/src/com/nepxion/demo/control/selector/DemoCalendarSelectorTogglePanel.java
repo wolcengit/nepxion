@@ -44,6 +44,6 @@ public class DemoCalendarSelectorTogglePanel
 	
 	public String getToggleDescription()
 	{
-		return "Calendar Selector";
+		return "Multi-style Calendar Selector";
 	}
 }
