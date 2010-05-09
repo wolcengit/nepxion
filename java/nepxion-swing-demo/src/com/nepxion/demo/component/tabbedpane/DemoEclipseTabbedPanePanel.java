@@ -77,13 +77,13 @@ public class DemoEclipseTabbedPanePanel
 			};	
 			
 			eclipseTabbedPane.addTab("Tab 1", IconFactory.getSwingIcon("component/tabbed_pane_16.png"), new PrivateConfigPanel(), "Tab 1", true);					
-			eclipseTabbedPane.addTab("Tab 2", IconFactory.getSwingIcon("component/tabbed_pane_16.png"), new PrivateConfigPanel(), "Tab 2", true);
+			eclipseTabbedPane.addTab("Tab 2", IconFactory.getSwingIcon("component/tabbed_pane_16.png"), new PrivateConfigPanel(), "Tab 2", false);
 			eclipseTabbedPane.addTab("Tab 3", IconFactory.getSwingIcon("component/tabbed_pane_16.png"), new PrivateConfigPanel(), "Tab 3", true);
-			eclipseTabbedPane.addTab("Tab 4", IconFactory.getSwingIcon("component/tabbed_pane_16.png"), new PrivateConfigPanel(), "Tab 4", true);
+			eclipseTabbedPane.addTab("Tab 4", IconFactory.getSwingIcon("component/tabbed_pane_16.png"), new PrivateConfigPanel(), "Tab 4", false);
 			eclipseTabbedPane.addTab("Tab 5", IconFactory.getSwingIcon("component/tabbed_pane_16.png"), new PrivateConfigPanel(), "Tab 5", true);
-			eclipseTabbedPane.addTab("Tab 6", IconFactory.getSwingIcon("component/tabbed_pane_16.png"), new PrivateConfigPanel(), "Tab 6", true);
+			eclipseTabbedPane.addTab("Tab 6", IconFactory.getSwingIcon("component/tabbed_pane_16.png"), new PrivateConfigPanel(), "Tab 6", false);
 			eclipseTabbedPane.addTab("Tab 7", IconFactory.getSwingIcon("component/tabbed_pane_16.png"), new PrivateConfigPanel(), "Tab 7", true);
-			eclipseTabbedPane.addTab("Tab 8", IconFactory.getSwingIcon("component/tabbed_pane_16.png"), new PrivateConfigPanel(), "Tab 8", true);
+			eclipseTabbedPane.addTab("Tab 8", IconFactory.getSwingIcon("component/tabbed_pane_16.png"), new PrivateConfigPanel(), "Tab 8", false);
 			
 			JDecorationPopupMenu popupMenu = new JDecorationPopupMenu();
 			eclipseTabbedPane.setPopupMenu(popupMenu, true);			

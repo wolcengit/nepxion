@@ -10,8 +10,6 @@ package com.nepxion.demo.component.panel;
  * @version 1.0
  */
 
-import java.awt.Dimension;
-
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.JPanel;
@@ -40,7 +38,7 @@ public class DemoBannerPanel
 		public BannerPanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "IP Property Panel"));
+			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Banner Panel"));
 			
 			JBannerPanel bannerPanel = new JBannerPanel("This is a BannerPanel", "BannerPanel is very useful to display a title, a description and an icon. It can be used in dialog to show some help information or display a product logo in a nice way.", IconFactory.getSwingIcon("thread.png"));
 			add(bannerPanel);

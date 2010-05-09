@@ -13,13 +13,20 @@ package com.nepxion.demo.control.data;
 import javax.swing.Icon;
 
 import com.nepxion.demo.common.DemoTogglePanel;
+import com.nepxion.demo.common.DemoToggleTemplate;
+import com.nepxion.demo.component.tree.DemoCheckBoxTreePanel;
+import com.nepxion.demo.component.tree.DemoDecorationTreePanel;
 import com.nepxion.swing.icon.IconFactory;
+import com.nepxion.swing.tabbedpane.JEclipseTabbedPane;
 
 public class DemoTreeTogglePanel
 	extends DemoTogglePanel
 {
 	public DemoTreeTogglePanel()
 	{
+		JEclipseTabbedPane toggleTabbedPane = getToggleTabbedPane();
+		toggleTabbedPane.addTab("Decoration Tree", IconFactory.getSwingIcon("component/tree_16.png"), new DemoToggleTemplate(new DemoDecorationTreePanel()));				
+		toggleTabbedPane.addTab("CheckBox Tree", IconFactory.getSwingIcon("component/tree_16.png"), new DemoToggleTemplate(new DemoCheckBoxTreePanel()));
 	}
 	
 	public String getToggleName()

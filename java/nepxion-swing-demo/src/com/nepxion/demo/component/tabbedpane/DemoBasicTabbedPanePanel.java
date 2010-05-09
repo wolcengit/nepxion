@@ -69,13 +69,13 @@ public class DemoBasicTabbedPanePanel
 			};		
 			
 			basicTabbedPane.addTab("Tab 1", IconFactory.getSwingIcon("component/tabbed_pane_16.png"), new JScrollPane(new ConfigPanel(basicTabbedPane)), "Tab 1", true);					
-			basicTabbedPane.addTab("Tab 2", IconFactory.getSwingIcon("component/tabbed_pane_16.png"), new JScrollPane(new ConfigPanel(basicTabbedPane)), "Tab 2", true);
+			basicTabbedPane.addTab("Tab 2", IconFactory.getSwingIcon("component/tabbed_pane_16.png"), new JScrollPane(new ConfigPanel(basicTabbedPane)), "Tab 2", false);
 			basicTabbedPane.addTab("Tab 3", IconFactory.getSwingIcon("component/tabbed_pane_16.png"), new JScrollPane(new ConfigPanel(basicTabbedPane)), "Tab 3", true);
-			basicTabbedPane.addTab("Tab 4", IconFactory.getSwingIcon("component/tabbed_pane_16.png"), new JScrollPane(new ConfigPanel(basicTabbedPane)), "Tab 4", true);
+			basicTabbedPane.addTab("Tab 4", IconFactory.getSwingIcon("component/tabbed_pane_16.png"), new JScrollPane(new ConfigPanel(basicTabbedPane)), "Tab 4", false);
 			basicTabbedPane.addTab("Tab 5", IconFactory.getSwingIcon("component/tabbed_pane_16.png"), new JScrollPane(new ConfigPanel(basicTabbedPane)), "Tab 5", true);
-			basicTabbedPane.addTab("Tab 6", IconFactory.getSwingIcon("component/tabbed_pane_16.png"), new JScrollPane(new ConfigPanel(basicTabbedPane)), "Tab 6", true);
+			basicTabbedPane.addTab("Tab 6", IconFactory.getSwingIcon("component/tabbed_pane_16.png"), new JScrollPane(new ConfigPanel(basicTabbedPane)), "Tab 6", false);
 			basicTabbedPane.addTab("Tab 7", IconFactory.getSwingIcon("component/tabbed_pane_16.png"), new JScrollPane(new ConfigPanel(basicTabbedPane)), "Tab 7", true);
-			basicTabbedPane.addTab("Tab 8", IconFactory.getSwingIcon("component/tabbed_pane_16.png"), new JScrollPane(new ConfigPanel(basicTabbedPane)), "Tab 8", true);
+			basicTabbedPane.addTab("Tab 8", IconFactory.getSwingIcon("component/tabbed_pane_16.png"), new JScrollPane(new ConfigPanel(basicTabbedPane)), "Tab 8", false);
 			
 			JDecorationPopupMenu popupMenu = new JDecorationPopupMenu();
 			basicTabbedPane.setPopupMenu(popupMenu, true);			

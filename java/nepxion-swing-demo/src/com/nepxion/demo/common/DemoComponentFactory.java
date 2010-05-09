@@ -11,17 +11,20 @@ package com.nepxion.demo.common;
  */
 
 import java.util.Iterator;
+import java.util.List;
 
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 import javax.swing.JTable;
 import javax.swing.JTree;
 import javax.swing.UIManager;
+import javax.swing.table.AbstractTableModel;
 import javax.swing.tree.DefaultMutableTreeNode;
 
 import com.nepxion.swing.common.InstallData;
 import com.nepxion.swing.icon.IconFactory;
 import com.nepxion.swing.popupmenu.JDecorationPopupMenu;
+import com.nepxion.swing.renderer.table.TableDecorationCellRenderer;
 import com.nepxion.swing.renderer.tree.TreeDecorationCellRenderer;
 import com.nepxion.swing.tree.JBasicTree;
 import com.nepxion.swing.tree.TreeManager;
@@ -30,7 +33,7 @@ public class DemoComponentFactory
 {
 	public static JTree getTree()
 	{		
-		DefaultMutableTreeNode root = new DefaultMutableTreeNode(new InstallData(1, "Nepxion", IconFactory.getSwingIcon("tray_java.png"), "Nepxion Swing", "", false, true));
+		DefaultMutableTreeNode root = new DefaultMutableTreeNode(DemoDataFactory.getRootInstallData());
 		for (Iterator iterator = DemoDataFactory.getComponentInstallDatas().iterator(); iterator.hasNext();)
 		{
 			InstallData installData = (InstallData) iterator.next();
@@ -46,25 +49,65 @@ public class DemoComponentFactory
 				}	
 			}
 		}	
+		
 		JBasicTree tree = new JBasicTree(root);
 		tree.setCellRenderer(new TreeDecorationCellRenderer(20));
 		TreeManager.expandAll(tree);
+		
 		return tree;				
 	}
 	
 	public static JTable getTable()
-	{
-		Object[][] rows = { 
-			{"blue", "basketball", "hot dogs"}, 
-			{"violet", "soccer", "pizza"}, 
-			{"red", "football", "ravioli"}, {"yellow", "hockey", "bananas"}
-		};
-		Object[] columns = {"colors", "sports", "food"};
-		
-		JTable table = new JTable(rows, columns);
+	{		
+		JTable table = new JTable(new InstallDataTableModel());
 		table.getTableHeader().setBackground(UIManager.getColor("control"));
-		
+		table.getColumnModel().getColumn(2).setCellRenderer(new TableDecorationCellRenderer(TableDecorationCellRenderer.LEFT));
 		return table;
+	}
+	
+	public static class InstallDataTableModel
+		extends AbstractTableModel
+	{
+		private List rowDatas;
+		private String[] columnTitles;
+		
+		public InstallDataTableModel()
+		{
+			this.rowDatas = DemoDataFactory.getComponentInstallDatas();
+			this.columnTitles = DemoDataFactory.getComponentNameColumns();
+		}
+		
+		public int getRowCount()
+		{
+			return rowDatas.size();
+		}
+		
+		public int getColumnCount()
+		{
+			return columnTitles.length;
+		}
+		
+        public String getColumnName(int column)
+        {
+            return (String) columnTitles[column];
+        }		
+		
+		public Object getValueAt(int row, int column)
+		{
+			InstallData installData = (InstallData) rowDatas.get(row);
+			switch (column)
+			{
+				case 0: return installData.getIndex() + "";
+				case 1: return installData.getText();
+				case 2: return installData.getIcon();
+				case 3: return installData.getToolTipText();
+				case 4: return installData.getUserObject();
+				case 5: return new Boolean(installData.isSelected());
+				case 6: return new Boolean(installData.isEnabled());
+				case 7: return installData.getChildren();
+			}
+			return null;
+		}		
 	}
 	
 	public static JDecorationPopupMenu createDecorationPopupMenu()

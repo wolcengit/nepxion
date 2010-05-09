@@ -45,12 +45,14 @@ public class DemoToggleTemplate
 		codeTextArea = new JBasicTextArea();
 		codeTextArea.setTabSize(2);
 						
-		codeScrollPane = new JScrollPane(codeTextArea);
+		codeScrollPane = new JScrollPane();
+		codeScrollPane.getViewport().add(codeTextArea);
+		
 		toggleButtonPanel = new ToggleButtonPanel();
 		
 		setLayout(new BorderLayout());
 		add(viewComponent, BorderLayout.CENTER);
-		add(toggleButtonPanel, BorderLayout.SOUTH); 
+		add(toggleButtonPanel, BorderLayout.SOUTH);				
 	}
 	
 	public class ToggleButtonPanel

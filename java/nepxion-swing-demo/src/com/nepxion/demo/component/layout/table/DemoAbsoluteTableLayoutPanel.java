@@ -41,7 +41,7 @@ public class DemoAbsoluteTableLayoutPanel
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
 			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Regular"));
 			
-			double size[][] = 
+			double[][] size = 
 			{ 
 				{80, 60, 70, 90}, 
 				{25, 30, 35}
@@ -94,7 +94,7 @@ public class DemoAbsoluteTableLayoutPanel
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
 			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Complex"));			
 
-			double size[][] = 
+			double[][] size = 
 			{ 
 				{80, 60, 70, 90}, 
 				{25, 30, 35, 30, 25}

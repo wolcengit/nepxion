@@ -41,7 +41,7 @@ public class DemoFillTableLayoutPanel
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
 			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Regular"));
 			
-			double size[][] = 
+			double[][] size = 
 			{ 
 				{TableLayout.FILL, TableLayout.FILL, TableLayout.FILL, TableLayout.FILL}, 
 				{TableLayout.FILL, TableLayout.FILL, TableLayout.FILL}
@@ -94,7 +94,7 @@ public class DemoFillTableLayoutPanel
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
 			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Complex"));			
 
-			double size[][] = 
+			double[][] size = 
 			{ 
 				{TableLayout.FILL, TableLayout.FILL, TableLayout.FILL, TableLayout.FILL}, 
 				{TableLayout.FILL, TableLayout.FILL, TableLayout.FILL, TableLayout.FILL, TableLayout.FILL}

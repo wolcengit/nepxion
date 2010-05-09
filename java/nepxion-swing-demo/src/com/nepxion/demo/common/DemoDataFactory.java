@@ -20,6 +20,11 @@ import com.nepxion.swing.tabbedpane.JEclipseTabbedPane;
 
 public class DemoDataFactory
 {	
+	public static InstallData getRootInstallData()
+	{
+		return new InstallData(1, "Nepxion", IconFactory.getSwingIcon("tray_java.png"), "Nepxion Swing", false, true);
+	}
+	
 	public static List getComponentInstallDatas()
 	{
 		// Button Control
@@ -124,6 +129,12 @@ public class DemoDataFactory
 		componentInstallDatas.add(advancedControlInstallData);
 		
 		return componentInstallDatas;
+	}
+	
+	public static String[] getComponentNameColumns()
+	{
+		String[] columns = {"Index", "Text", "Icon", "ToolTipText", "UserObject", "Selected", "Enabled", "Children"};
+		return columns;
 	}
 	
 	public static String[] getComponentNameDatas()

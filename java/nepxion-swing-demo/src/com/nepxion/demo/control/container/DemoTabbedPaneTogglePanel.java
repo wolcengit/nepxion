@@ -14,8 +14,8 @@ import javax.swing.Icon;
 
 import com.nepxion.demo.common.DemoTogglePanel;
 import com.nepxion.demo.common.DemoToggleTemplate;
-import com.nepxion.demo.component.tabbedpane.DemoEclipseTabbedPanePanel;
 import com.nepxion.demo.component.tabbedpane.DemoBasicTabbedPanePanel;
+import com.nepxion.demo.component.tabbedpane.DemoEclipseTabbedPanePanel;
 import com.nepxion.swing.icon.IconFactory;
 import com.nepxion.swing.tabbedpane.JEclipseTabbedPane;
 

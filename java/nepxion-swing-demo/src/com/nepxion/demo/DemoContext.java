@@ -10,6 +10,8 @@ package com.nepxion.demo;
  * @version 1.0
  */
 
+import com.nepxion.demo.component.splash.DemoCaptionSplashWindow;
+import com.nepxion.swing.help.HelpContext;
 import com.nepxion.swing.icon.IconContext;
 import com.nepxion.swing.lookandfeel.LookAndFeelManager;
 import com.nepxion.swing.popupmenu.PopupMenuContext;
@@ -62,6 +64,9 @@ public class DemoContext
 		
 		//注册快速寻址的图标路径，默认为空
 		IconContext.registerIconFolder("com/nepxion/demo/component/icon/image/");
+		
+		//注册帮助主题 - 关于页
+		HelpContext.registerAboutComponent(new DemoCaptionSplashWindow());
 		
 		//注册外观效果
 		//LookAndFeelManager.setSystemLookAndFeel();

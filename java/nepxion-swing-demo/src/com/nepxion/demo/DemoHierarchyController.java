@@ -10,12 +10,12 @@ package com.nepxion.demo;
  * @version 1.0
  */
 
+import java.awt.Component;
 import java.awt.event.ActionEvent;
 
 import com.nepxion.swing.action.JAuthorityAction;
+import com.nepxion.swing.help.HelpContext;
 import com.nepxion.swing.icon.IconFactory;
-import com.nepxion.swing.splash.ISplashWindow;
-import com.nepxion.swing.splash.SplashContext;
 
 public class DemoHierarchyController
 {
@@ -25,12 +25,12 @@ public class DemoHierarchyController
         {
             public void execute(ActionEvent e)
             {
-            	ISplashWindow splashWindow = SplashContext.getSplashWindow();
-            	if (splashWindow == null)
+            	Component aboutComponent = HelpContext.getAboutComponent();
+            	if (aboutComponent == null)
             	{
             		return;
             	}	
-            	splashWindow.setVisible(true);
+            	aboutComponent.setVisible(true);
             }
         };
         return action;

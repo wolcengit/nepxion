@@ -41,7 +41,7 @@ public class DemoMixedTableLayoutPanel
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
 			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Regular"));
 			
-			double size[][] = 
+			double[][] size = 
 			{ 
 				{80, TableLayout.PREFERRED, TableLayout.MINIMUM, TableLayout.FILL}, 
 				{30, TableLayout.PREFERRED, TableLayout.MINIMUM}
@@ -94,7 +94,7 @@ public class DemoMixedTableLayoutPanel
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
 			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Complex"));			
 
-			double size[][] = 
+			double[][] size = 
 			{ 
 				{80, TableLayout.PREFERRED, TableLayout.MINIMUM, TableLayout.FILL}, 
 				{30, TableLayout.PREFERRED, TableLayout.MINIMUM, TableLayout.FILL, 40}

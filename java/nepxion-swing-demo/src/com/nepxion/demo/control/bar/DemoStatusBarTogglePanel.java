@@ -13,8 +13,6 @@ package com.nepxion.demo.control.bar;
 import javax.swing.Icon;
 
 import com.nepxion.demo.common.DemoTogglePanel;
-import com.nepxion.demo.common.DemoToggleTemplate;
-import com.nepxion.demo.component.button.DemoButtonPanel;
 import com.nepxion.swing.icon.IconFactory;
 import com.nepxion.swing.tabbedpane.JEclipseTabbedPane;
 

@@ -18,7 +18,7 @@ public class DemoCaptionSplashWindow
 {	
 	public DemoCaptionSplashWindow()
 	{
-        super(IconFactory.getSwingIcon("splash.png"), new int[] {15, 200}, new int[] {220, 100}, new String[]
+        super(IconFactory.getSwingIcon("splash.png"), new int[] {15, 200}, new int[] {220, 90}, new String[]
         {
             "Nepxion Awt & Swing 开源库整合将近", 
             "一百种样式新颖，风格独特，以及功能", 

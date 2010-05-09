@@ -43,7 +43,7 @@ public class DemoPreferredTableLayoutPanel
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
 			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Regular"));
 			
-			double size[][] = 
+			double[][] size = 
 			{ 
 				{TableLayout.PREFERRED, TableLayout.PREFERRED, TableLayout.PREFERRED, TableLayout.PREFERRED}, 
 				{TableLayout.PREFERRED, TableLayout.PREFERRED, TableLayout.PREFERRED}
@@ -97,7 +97,7 @@ public class DemoPreferredTableLayoutPanel
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
 			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Complex"));			
 
-			double size[][] = 
+			double[][] size = 
 			{ 
 				{TableLayout.PREFERRED, TableLayout.PREFERRED, TableLayout.PREFERRED, TableLayout.PREFERRED}, 
 				{TableLayout.PREFERRED, TableLayout.PREFERRED, TableLayout.PREFERRED, TableLayout.PREFERRED, TableLayout.PREFERRED}
