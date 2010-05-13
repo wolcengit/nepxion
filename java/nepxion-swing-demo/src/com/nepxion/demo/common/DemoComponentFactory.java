@@ -13,10 +13,11 @@ package com.nepxion.demo.common;
 import java.util.Iterator;
 import java.util.List;
 
+import javax.swing.BorderFactory;
+import javax.swing.JList;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
-import javax.swing.JTable;
-import javax.swing.JTree;
+import javax.swing.JScrollPane;
 import javax.swing.UIManager;
 import javax.swing.table.AbstractTableModel;
 import javax.swing.tree.DefaultMutableTreeNode;
@@ -24,14 +25,19 @@ import javax.swing.tree.DefaultMutableTreeNode;
 import com.nepxion.swing.common.InstallData;
 import com.nepxion.swing.icon.IconFactory;
 import com.nepxion.swing.popupmenu.JDecorationPopupMenu;
+import com.nepxion.swing.renderer.list.ListDecorationCellRenderer;
 import com.nepxion.swing.renderer.table.TableDecorationCellRenderer;
 import com.nepxion.swing.renderer.tree.TreeDecorationCellRenderer;
+import com.nepxion.swing.tabbedpane.JEclipseTabbedPane;
+import com.nepxion.swing.table.JBasicTable;
+import com.nepxion.swing.textarea.JBasicTextArea;
 import com.nepxion.swing.tree.JBasicTree;
 import com.nepxion.swing.tree.TreeManager;
+import com.nepxion.util.data.CollectionUtil;
 
 public class DemoComponentFactory
 {
-	public static JTree getTree()
+	public static JBasicTree getTree()
 	{		
 		DefaultMutableTreeNode root = new DefaultMutableTreeNode(DemoDataFactory.getRootInstallData());
 		for (Iterator iterator = DemoDataFactory.getComponentInstallDatas().iterator(); iterator.hasNext();)
@@ -57,11 +63,12 @@ public class DemoComponentFactory
 		return tree;				
 	}
 	
-	public static JTable getTable()
+	public static JBasicTable getTable()
 	{		
-		JTable table = new JTable(new InstallDataTableModel());
-		table.getTableHeader().setBackground(UIManager.getColor("control"));
-		table.getColumnModel().getColumn(2).setCellRenderer(new TableDecorationCellRenderer(TableDecorationCellRenderer.LEFT));
+		JBasicTable table = new JBasicTable(new InstallDataTableModel());
+		table.getTableHeader().setBackground(UIManager.getColor("Panel.background"));
+		table.setAutoResizeMode(JBasicTable.AUTO_RESIZE_OFF);
+		table.getColumnModel().getColumn(2).setCellRenderer(new TableDecorationCellRenderer());
 		return table;
 	}
 	
@@ -69,12 +76,12 @@ public class DemoComponentFactory
 		extends AbstractTableModel
 	{
 		private List rowDatas;
-		private String[] columnTitles;
+		private String[] columnNames;
 		
 		public InstallDataTableModel()
 		{
 			this.rowDatas = DemoDataFactory.getComponentInstallDatas();
-			this.columnTitles = DemoDataFactory.getComponentNameColumns();
+			this.columnNames = DemoDataFactory.getComponentNameColumns();
 		}
 		
 		public int getRowCount()
@@ -84,20 +91,33 @@ public class DemoComponentFactory
 		
 		public int getColumnCount()
 		{
-			return columnTitles.length;
+			return columnNames.length;
 		}
 		
         public String getColumnName(int column)
         {
-            return (String) columnTitles[column];
+            return (String) columnNames[column];
         }		
+        
+        public Class getColumnClass(int column)
+        {
+        	if (column == 0)
+        	{	
+        		return Integer.class;
+        	}
+        	else if (column == 5 || column == 6)
+        	{
+        		return Boolean.class;
+        	}	
+        	return String.class;
+        }
 		
 		public Object getValueAt(int row, int column)
 		{
 			InstallData installData = (InstallData) rowDatas.get(row);
 			switch (column)
 			{
-				case 0: return installData.getIndex() + "";
+				case 0: return new Integer(installData.getIndex());
 				case 1: return installData.getText();
 				case 2: return installData.getIcon();
 				case 3: return installData.getToolTipText();
@@ -108,6 +128,34 @@ public class DemoComponentFactory
 			}
 			return null;
 		}		
+	}
+	
+	public static JList getList()
+	{
+		List componentInstallDatas = DemoDataFactory.getComponentInstallDatas();
+		
+		JList list = new JList(CollectionUtil.parseVector(componentInstallDatas));
+		list.setCellRenderer(new ListDecorationCellRenderer(list, BorderFactory.createEmptyBorder(0, 5, 0, 0), 22));
+		
+		return list;
+	}
+	
+	public static JEclipseTabbedPane getTabbedPane()
+	{
+		JEclipseTabbedPane eclipseTabbedPane = new JEclipseTabbedPane();
+		eclipseTabbedPane.addTab("Tab 1", IconFactory.getSwingIcon("component/tabbed_pane_16.png"), new JScrollPane(new JBasicTextArea()), "Tab 1", true);					
+		eclipseTabbedPane.addTab("Tab 2", IconFactory.getSwingIcon("component/tabbed_pane_16.png"), new JScrollPane(new JBasicTextArea()), "Tab 2", false);
+		eclipseTabbedPane.addTab("Tab 3", IconFactory.getSwingIcon("component/tabbed_pane_16.png"), new JScrollPane(new JBasicTextArea()), "Tab 3", true);
+		eclipseTabbedPane.addTab("Tab 4", IconFactory.getSwingIcon("component/tabbed_pane_16.png"), new JScrollPane(new JBasicTextArea()), "Tab 4", false);
+		eclipseTabbedPane.addTab("Tab 5", IconFactory.getSwingIcon("component/tabbed_pane_16.png"), new JScrollPane(new JBasicTextArea()), "Tab 5", true);
+		eclipseTabbedPane.addTab("Tab 6", IconFactory.getSwingIcon("component/tabbed_pane_16.png"), new JScrollPane(new JBasicTextArea()), "Tab 6", false);
+		eclipseTabbedPane.addTab("Tab 7", IconFactory.getSwingIcon("component/tabbed_pane_16.png"), new JScrollPane(new JBasicTextArea()), "Tab 7", true);
+		eclipseTabbedPane.addTab("Tab 8", IconFactory.getSwingIcon("component/tabbed_pane_16.png"), new JScrollPane(new JBasicTextArea()), "Tab 8", false);		
+		
+		JDecorationPopupMenu popupMenu = new JDecorationPopupMenu();
+		eclipseTabbedPane.setPopupMenu(popupMenu, true);
+		
+		return eclipseTabbedPane;
 	}
 	
 	public static JDecorationPopupMenu createDecorationPopupMenu()

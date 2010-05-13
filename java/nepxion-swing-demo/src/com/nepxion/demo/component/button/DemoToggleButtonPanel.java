@@ -58,7 +58,7 @@ public class DemoToggleButtonPanel
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
 			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Flat ButtonUI"));
 			
-			JBasicToggleButton flatStyleButton = new JBasicToggleButton("JFlat Style", IconFactory.getSwingIcon("component/button_16.png"));
+			JBasicToggleButton flatStyleButton = new JBasicToggleButton("JFlat Style", IconFactory.getSwingIcon("component/button_16.png"), "JFlat Style");
 			flatStyleButton.setUI(new FlatButtonUI());
 			add(flatStyleButton);					
 		}
@@ -72,19 +72,19 @@ public class DemoToggleButtonPanel
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
 			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Alloy ButtonUI"));
 			
-			JBasicToggleButton alloyStyleButton = new JBasicToggleButton("JAlloy Style", IconFactory.getSwingIcon("component/button_16.png"));
+			JBasicToggleButton alloyStyleButton = new JBasicToggleButton("JAlloy Style", IconFactory.getSwingIcon("component/button_16.png"), "JAlloy Style");
 			alloyStyleButton.setUI(new LiteButtonUI(new JAlloyLiteButtonStyle()));
 			add(alloyStyleButton);
 			
-			JBasicToggleButton acidStyleButton = new JBasicToggleButton("JAcid Style", IconFactory.getSwingIcon("component/button_16.png"));
+			JBasicToggleButton acidStyleButton = new JBasicToggleButton("JAcid Style", IconFactory.getSwingIcon("component/button_16.png"), "JAcid Style");
 			acidStyleButton.setUI(new LiteButtonUI(new JAcidLiteButtonStyle()));
 			add(acidStyleButton);
 			
-			JBasicToggleButton bedouinStyleButton = new JBasicToggleButton("JBedouin Style", IconFactory.getSwingIcon("component/button_16.png"));
+			JBasicToggleButton bedouinStyleButton = new JBasicToggleButton("JBedouin Style", IconFactory.getSwingIcon("component/button_16.png"), "JBedouin Style");
 			bedouinStyleButton.setUI(new LiteButtonUI(new JBedouinLiteButtonStyle()));
 			add(bedouinStyleButton);
 			
-			JBasicToggleButton glassStyleButton = new JBasicToggleButton("JGlass Style", IconFactory.getSwingIcon("component/button_16.png"));
+			JBasicToggleButton glassStyleButton = new JBasicToggleButton("JGlass Style", IconFactory.getSwingIcon("component/button_16.png"), "JGlass Style");
 			glassStyleButton.setUI(new LiteButtonUI(new JGlassLiteButtonStyle()));
 			add(glassStyleButton);						
 		}
@@ -98,7 +98,7 @@ public class DemoToggleButtonPanel
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
 			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Eclipse ButtonUI"));
 			
-			JBasicToggleButton eclipseStyleButton = new JBasicToggleButton("JEclipse Style", IconFactory.getSwingIcon("component/button_16.png"));
+			JBasicToggleButton eclipseStyleButton = new JBasicToggleButton("JEclipse Style", IconFactory.getSwingIcon("component/button_16.png"), "JEclipse Style");
 			eclipseStyleButton.setUI(new LiteButtonUI(new JEclipseLiteButtonStyle()));
 			add(eclipseStyleButton);			
 		}
@@ -112,7 +112,7 @@ public class DemoToggleButtonPanel
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
 			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Borland ButtonUI"));
 			
-			JBasicToggleButton borlandStyleButton = new JBasicToggleButton("JBorland Style", IconFactory.getSwingIcon("component/button_16.png"));
+			JBasicToggleButton borlandStyleButton = new JBasicToggleButton("JBorland Style", IconFactory.getSwingIcon("component/button_16.png"), "JBorland Style");
 			borlandStyleButton.setUI(new LiteButtonUI(new JBorlandLiteButtonStyle()));
 			add(borlandStyleButton);			
 		}
@@ -126,7 +126,7 @@ public class DemoToggleButtonPanel
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
 			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Nimbus ButtonUI"));
 			
-			JBasicToggleButton nimbusStyleButton = new JBasicToggleButton("JNimbus Style", IconFactory.getSwingIcon("component/button_16.png"));
+			JBasicToggleButton nimbusStyleButton = new JBasicToggleButton("JNimbus Style", IconFactory.getSwingIcon("component/button_16.png"), "JNimbus Style");
 			nimbusStyleButton.setUI(new LiteButtonUI(new JNimbusLiteButtonStyle()));
 			add(nimbusStyleButton);			
 		}
@@ -140,11 +140,11 @@ public class DemoToggleButtonPanel
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
 			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Color ButtonUI"));
 			
-			JBasicToggleButton blueStyleButton = new JBasicToggleButton("JBlue Style", IconFactory.getSwingIcon("component/button_16.png"));
+			JBasicToggleButton blueStyleButton = new JBasicToggleButton("JBlue Style", IconFactory.getSwingIcon("component/button_16.png"), "JBlue Style");
 			blueStyleButton.setUI(new LiteButtonUI(new JBlueLiteButtonStyle()));
 			add(blueStyleButton);	
 			
-			JBasicToggleButton yellowStyleButton = new JBasicToggleButton("JYellow Style", IconFactory.getSwingIcon("component/button_16.png"));
+			JBasicToggleButton yellowStyleButton = new JBasicToggleButton("JYellow Style", IconFactory.getSwingIcon("component/button_16.png"), "JYellow Style");
 			yellowStyleButton.setUI(new LiteButtonUI(new JYellowLiteButtonStyle()));
 			add(yellowStyleButton);						
 		}
@@ -158,19 +158,19 @@ public class DemoToggleButtonPanel
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
 			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Style ButtonUI"));
 			
-			JStyleToggleButton flatStyleButton = new JStyleToggleButton("Flat Style", IconFactory.getSwingIcon("component/button_16.png"));
+			JStyleToggleButton flatStyleButton = new JStyleToggleButton("Flat Style", IconFactory.getSwingIcon("component/button_16.png"), "Flat Style");
 			flatStyleButton.setButtonStyle(JStyleToggleButton.FLAT_STYLE);
 			add(flatStyleButton);
 			
-			JStyleToggleButton hyperLinkStyleButton = new JStyleToggleButton("HyperLink Style", IconFactory.getSwingIcon("component/button_16.png"));
+			JStyleToggleButton hyperLinkStyleButton = new JStyleToggleButton("HyperLink Style", IconFactory.getSwingIcon("component/button_16.png"), "HyperLink Style");
 			hyperLinkStyleButton.setButtonStyle(JStyleToggleButton.HYPERLINK_STYLE);
 			add(hyperLinkStyleButton);
 			
-			JStyleToggleButton toolBarStyleButton = new JStyleToggleButton("ToolBar Style", IconFactory.getSwingIcon("component/button_16.png"));
+			JStyleToggleButton toolBarStyleButton = new JStyleToggleButton("ToolBar Style", IconFactory.getSwingIcon("component/button_16.png"), "ToolBar Style");
 			toolBarStyleButton.setButtonStyle(JStyleToggleButton.TOOLBAR_STYLE);
 			add(toolBarStyleButton);
 			
-			/*JStyleToggleButton toolBoxStyleButton = new JStyleToggleButton("ToolBox Style", IconFactory.getSwingIcon("component/button_16.png"));
+			/*JStyleToggleButton toolBoxStyleButton = new JStyleToggleButton("ToolBox Style", IconFactory.getSwingIcon("component/button_16.png"), "ToolBox Style");
 			toolBoxStyleButton.setButtonStyle(JStyleToggleButton.TOOLBOX_STYLE);
 			add(toolBoxStyleButton);*/			
 		}

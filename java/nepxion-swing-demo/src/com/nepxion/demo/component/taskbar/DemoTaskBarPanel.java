@@ -108,13 +108,13 @@ public class DemoTaskBarPanel
 			
 			// Details TaskGroup
 			JTaskGroup detailsTaskGroup = new JTaskGroup("Details", "Details");
-			detailsTaskGroup.setAnimated(false);
-			JEditorPane detailsText = new JEditorPane("text/html", "<html>");
-			LookAndFeelTweak.makeMultilineLabel(detailsText);
-			LookAndFeelTweak.htmlize(detailsText);			
-			detailsText.setText("<html><b>My Computer</b><br>Very special folder</html>");
-			detailsTaskGroup.add(detailsText);   
-			taskBar.add(detailsTaskGroup);
+//			detailsTaskGroup.setAnimated(false);
+//			JEditorPane detailsText = new JEditorPane("text/html", "<html>");
+//			LookAndFeelTweak.makeMultilineLabel(detailsText);
+//			LookAndFeelTweak.htmlize(detailsText);			
+//			detailsText.setText("<html><b>My Computer</b><br>Very special folder</html>");
+//			detailsTaskGroup.add(detailsText);   
+//			taskBar.add(detailsTaskGroup);
 
 			// Management
 			JTaskGroup managementTaskGroup = new JTaskGroup("Management", "Management");

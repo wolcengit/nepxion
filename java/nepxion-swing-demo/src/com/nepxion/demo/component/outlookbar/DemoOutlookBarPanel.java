@@ -78,11 +78,11 @@ public class DemoOutlookBarPanel
 			JFlatOutlook mailOutlook = new JFlatOutlook();			
 			ButtonGroup buttonGroup = new ButtonGroup();            
 			JBasicToggleButton[] toggleButtons = {
-				new JBasicToggleButton("Inbox", IconFactory.getIcon("com/l2fprod/common/demo/icons/outlook-inbox.gif"), true),
-				new JBasicToggleButton("Outbox", IconFactory.getIcon("com/l2fprod/common/demo/icons/outlook-outbox.gif")),
-				new JBasicToggleButton("Drafts", IconFactory.getIcon("com/l2fprod/common/demo/icons/outlook-inbox.gif")),
-				new JBasicToggleButton("Templates", IconFactory.getIcon("com/l2fprod/common/demo/icons/outlook-inbox.gif")),
-				new JBasicToggleButton("Deleted Items", IconFactory.getIcon("com/l2fprod/common/demo/icons/outlook-trash.gif"))
+				new JBasicToggleButton("Inbox", IconFactory.getIcon("com/l2fprod/common/demo/icons/outlook-inbox.gif"), "Inbox", true),
+				new JBasicToggleButton("Outbox", IconFactory.getIcon("com/l2fprod/common/demo/icons/outlook-outbox.gif"), "Outbox"),
+				new JBasicToggleButton("Drafts", IconFactory.getIcon("com/l2fprod/common/demo/icons/outlook-inbox.gif"), "Drafts"),
+				new JBasicToggleButton("Templates", IconFactory.getIcon("com/l2fprod/common/demo/icons/outlook-inbox.gif"), "Templates"),
+				new JBasicToggleButton("Deleted Items", IconFactory.getIcon("com/l2fprod/common/demo/icons/outlook-trash.gif"), "Deleted Items")
 			}; 
 
 			for (int i = 0; i < toggleButtons.length; i++)

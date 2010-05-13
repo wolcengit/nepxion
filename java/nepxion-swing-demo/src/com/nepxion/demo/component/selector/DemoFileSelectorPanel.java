@@ -61,7 +61,7 @@ public class DemoFileSelectorPanel
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
 			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "File Selector"));
 			
-			JBasicButton openFileButton = new JBasicButton("Open File", IconFactory.getSwingIcon("component/file_chooser_16.png"));
+			JBasicButton openFileButton = new JBasicButton("Open File", IconFactory.getSwingIcon("component/file_chooser_16.png"), "Open File");
 			openFileButton.addActionListener(new ActionListener()
 			{
 				public void actionPerformed(ActionEvent e)
@@ -99,7 +99,7 @@ public class DemoFileSelectorPanel
 			);
 			add(openFileButton);
 			
-			JBasicButton saveFileButton = new JBasicButton("Save File", IconFactory.getSwingIcon("component/file_chooser_16.png"));
+			JBasicButton saveFileButton = new JBasicButton("Save File", IconFactory.getSwingIcon("component/file_chooser_16.png"), "Save File");
 			saveFileButton.addActionListener(new ActionListener()
 			{
 				public void actionPerformed(ActionEvent e)
@@ -137,7 +137,7 @@ public class DemoFileSelectorPanel
 			);
 			add(saveFileButton);
 			
-			JBasicButton openDirectoryButton = new JBasicButton("Open Directory", IconFactory.getSwingIcon("component/file_chooser_16.png"));
+			JBasicButton openDirectoryButton = new JBasicButton("Open Directory", IconFactory.getSwingIcon("component/file_chooser_16.png"), "Open Directory");
 			openDirectoryButton.addActionListener(new ActionListener()
 			{
 				public void actionPerformed(ActionEvent e)
@@ -165,7 +165,7 @@ public class DemoFileSelectorPanel
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
 			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Folder Selector"));
 			
-			JBasicButton openFolderButton = new JBasicButton("Open Folder", IconFactory.getSwingIcon("component/file_chooser_16.png"));
+			JBasicButton openFolderButton = new JBasicButton("Open Folder", IconFactory.getSwingIcon("component/file_chooser_16.png"), "Open Folder");
 			openFolderButton.addActionListener(new ActionListener()
 			{
 				public void actionPerformed(ActionEvent e)

@@ -80,10 +80,10 @@ public class DemoButtonBarPanel
 			
 			ButtonGroup buttonGroup = new ButtonGroup();			
 			JBasicToggleButton[] toggleButtons = {
-				new JBasicToggleButton("Welcome", IconFactory.getIcon("com/l2fprod/common/demo/icons/welcome32x32.png"), true),
-				new JBasicToggleButton("Settings", IconFactory.getIcon("com/l2fprod/common/demo/icons/propertysheet32x32.png")),
-				new JBasicToggleButton("Sounds", IconFactory.getIcon("com/l2fprod/common/demo/icons/fonts32x32.png")),
-				new JBasicToggleButton("Statistics", IconFactory.getIcon("com/l2fprod/common/demo/icons/folder32x32.png"))
+				new JBasicToggleButton("Welcome", IconFactory.getIcon("com/l2fprod/common/demo/icons/welcome32x32.png"), "Welcome", true),
+				new JBasicToggleButton("Settings", IconFactory.getIcon("com/l2fprod/common/demo/icons/propertysheet32x32.png"), "Settings"),
+				new JBasicToggleButton("Sounds", IconFactory.getIcon("com/l2fprod/common/demo/icons/fonts32x32.png"), "Sounds"),
+				new JBasicToggleButton("Statistics", IconFactory.getIcon("com/l2fprod/common/demo/icons/folder32x32.png"), "Statistics")
 			}; 
 			for (int i = 0; i < toggleButtons.length; i++)
 			{

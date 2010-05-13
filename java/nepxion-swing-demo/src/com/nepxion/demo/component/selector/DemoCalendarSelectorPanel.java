@@ -667,13 +667,13 @@ public class DemoCalendarSelectorPanel
 	
 	private JBasicButton createDialogStyleButton()
 	{
-		JBasicButton button = new JBasicButton("Dialog Style", IconFactory.getSwingIcon("component/dialog_16.png"));
+		JBasicButton button = new JBasicButton("Dialog Style", IconFactory.getSwingIcon("component/dialog_16.png"), "Dialog Style");
 		return button;
 	}
 	
 	private JBasicButton createOptionPaneStyleButton()
 	{
-		JBasicButton button = new JBasicButton("OptionPane Style", IconFactory.getSwingIcon("component/option_pane_16.png"));
+		JBasicButton button = new JBasicButton("OptionPane Style", IconFactory.getSwingIcon("component/option_pane_16.png"), "OptionPane Style");
 		return button;
 	}
 	
@@ -685,7 +685,7 @@ public class DemoCalendarSelectorPanel
 	
 	private JBasicMenuButton createFormatButton(final FormatPanel panel, String[] formatList, final boolean isDateFormat)
 	{
-		JBasicMenuButton button = new JBasicMenuButton(isDateFormat ? "Date Format" : "Time Format", IconFactory.getSwingIcon("component/button_16.png"));
+		JBasicMenuButton button = new JBasicMenuButton(isDateFormat ? "Date Format" : "Time Format", IconFactory.getSwingIcon("component/button_16.png"), isDateFormat ? "Date Format" : "Time Format");
 		
 		JDecorationPopupMenu popupMenu = new JDecorationPopupMenu();
 		ButtonGroup buttonGroup = new ButtonGroup();

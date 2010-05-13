@@ -27,15 +27,15 @@ import com.nepxion.swing.outlookbar.JFlatOutlookBar;
 public class DemoOutlookBar
     extends JFlatOutlookBar
 {
-    private static DemoOutlookBar demoOutlookBar;
+    private static DemoOutlookBar outlookBar;
 
     public static DemoOutlookBar getInstance()
     {
-        if (demoOutlookBar == null)
+        if (outlookBar == null)
         {
-            demoOutlookBar = new DemoOutlookBar();
+            outlookBar = new DemoOutlookBar();
         }
-        return demoOutlookBar;
+        return outlookBar;
     }
 
     private DemoOutlookBar()

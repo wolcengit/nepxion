@@ -133,19 +133,19 @@ public class DemoLocaleSelectorPanel
 	
 	private JBasicButton createDialogStyleButton()
 	{
-		JBasicButton button = new JBasicButton("Dialog Style", IconFactory.getSwingIcon("component/dialog_16.png"));
+		JBasicButton button = new JBasicButton("Dialog Style", IconFactory.getSwingIcon("component/dialog_16.png"), "Dialog Style");
 		return button;
 	}
 	
 	private JBasicButton createOptionPaneStyleButton()
 	{
-		JBasicButton button = new JBasicButton("OptionPane Style", IconFactory.getSwingIcon("component/option_pane_16.png"));
+		JBasicButton button = new JBasicButton("OptionPane Style", IconFactory.getSwingIcon("component/option_pane_16.png"), "OptionPane Style");
 		return button;
 	}
 	
 	private JBasicButton createPopupMenuStyleButton()
 	{
-		JBasicButton button = new JBasicButton("PopupMenu Style", IconFactory.getSwingIcon("component/popup_menu_16.png"));	
+		JBasicButton button = new JBasicButton("PopupMenu Style", IconFactory.getSwingIcon("component/popup_menu_16.png"), "PopupMenu Style");	
 		return button;
 	}	
 }

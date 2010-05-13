@@ -57,7 +57,7 @@ public class DemoSplitButtonPanel
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
 			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Flat ButtonUI"));
 			
-			JBasicSplitButton flatStyleButton = new JBasicSplitButton("JFlat Style", IconFactory.getSwingIcon("component/button_16.png"));
+			JBasicSplitButton flatStyleButton = new JBasicSplitButton("JFlat Style", IconFactory.getSwingIcon("component/button_16.png"), "JFlat Style");
 			flatStyleButton.setUI(new FlatSplitButtonUI());
 			flatStyleButton.setPopupMenu(DemoComponentFactory.createDecorationPopupMenu());
 			add(flatStyleButton);			
@@ -72,22 +72,22 @@ public class DemoSplitButtonPanel
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
 			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Alloy ButtonUI"));
 			
-			JBasicSplitButton alloyStyleButton = new JBasicSplitButton("JAlloy Style", IconFactory.getSwingIcon("component/button_16.png"));
+			JBasicSplitButton alloyStyleButton = new JBasicSplitButton("JAlloy Style", IconFactory.getSwingIcon("component/button_16.png"), "JAlloy Style");
 			alloyStyleButton.setUI(new LiteSplitButtonUI(new JAlloyLiteButtonStyle()));
 			alloyStyleButton.setPopupMenu(DemoComponentFactory.createDecorationPopupMenu());
 			add(alloyStyleButton);
 			
-			JBasicSplitButton acidStyleButton = new JBasicSplitButton("JAcid Style", IconFactory.getSwingIcon("component/button_16.png"));
+			JBasicSplitButton acidStyleButton = new JBasicSplitButton("JAcid Style", IconFactory.getSwingIcon("component/button_16.png"), "JAcid Style");
 			acidStyleButton.setUI(new LiteSplitButtonUI(new JAcidLiteButtonStyle()));
 			acidStyleButton.setPopupMenu(DemoComponentFactory.createDecorationPopupMenu());
 			add(acidStyleButton);
 			
-			JBasicSplitButton bedouinStyleButton = new JBasicSplitButton("JBedouin Style", IconFactory.getSwingIcon("component/button_16.png"));
+			JBasicSplitButton bedouinStyleButton = new JBasicSplitButton("JBedouin Style", IconFactory.getSwingIcon("component/button_16.png"), "JBedouin Style");
 			bedouinStyleButton.setUI(new LiteSplitButtonUI(new JBedouinLiteButtonStyle()));
 			bedouinStyleButton.setPopupMenu(DemoComponentFactory.createDecorationPopupMenu());
 			add(bedouinStyleButton);
 			
-			JBasicSplitButton glassStyleButton = new JBasicSplitButton("JGlass Style", IconFactory.getSwingIcon("component/button_16.png"));
+			JBasicSplitButton glassStyleButton = new JBasicSplitButton("JGlass Style", IconFactory.getSwingIcon("component/button_16.png"), "JGlass Style");
 			glassStyleButton.setUI(new LiteSplitButtonUI(new JGlassLiteButtonStyle()));
 			glassStyleButton.setPopupMenu(DemoComponentFactory.createDecorationPopupMenu());
 			add(glassStyleButton);			
@@ -117,7 +117,7 @@ public class DemoSplitButtonPanel
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
 			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Borland ButtonUI"));
 			
-			JBasicSplitButton borlandStyleButton = new JBasicSplitButton("JBorland Style", IconFactory.getSwingIcon("component/button_16.png"));
+			JBasicSplitButton borlandStyleButton = new JBasicSplitButton("JBorland Style", IconFactory.getSwingIcon("component/button_16.png"), "JBorland Style");
 			borlandStyleButton.setUI(new LiteSplitButtonUI(new JBorlandLiteButtonStyle()));
 			borlandStyleButton.setPopupMenu(DemoComponentFactory.createDecorationPopupMenu());
 			add(borlandStyleButton);			
@@ -132,7 +132,7 @@ public class DemoSplitButtonPanel
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
 			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Nimbus ButtonUI"));
 			
-			JBasicSplitButton nimbusStyleButton = new JBasicSplitButton("JNimbus Style", IconFactory.getSwingIcon("component/button_16.png"));
+			JBasicSplitButton nimbusStyleButton = new JBasicSplitButton("JNimbus Style", IconFactory.getSwingIcon("component/button_16.png"), "JNimbus Style");
 			nimbusStyleButton.setUI(new LiteSplitButtonUI(new JNimbusLiteButtonStyle()));
 			nimbusStyleButton.setPopupMenu(DemoComponentFactory.createDecorationPopupMenu());
 			add(nimbusStyleButton);			
@@ -147,12 +147,12 @@ public class DemoSplitButtonPanel
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
 			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Color ButtonUI"));
 			
-			JBasicSplitButton blueStyleButton = new JBasicSplitButton("JBlue Style", IconFactory.getSwingIcon("component/button_16.png"));
+			JBasicSplitButton blueStyleButton = new JBasicSplitButton("JBlue Style", IconFactory.getSwingIcon("component/button_16.png"), "JBlue Style");
 			blueStyleButton.setUI(new LiteSplitButtonUI(new JBlueLiteButtonStyle()));
 			blueStyleButton.setPopupMenu(DemoComponentFactory.createDecorationPopupMenu());
 			add(blueStyleButton);
 			
-			JBasicSplitButton yellowStyleButton = new JBasicSplitButton("JYellow Style", IconFactory.getSwingIcon("component/button_16.png"));
+			JBasicSplitButton yellowStyleButton = new JBasicSplitButton("JYellow Style", IconFactory.getSwingIcon("component/button_16.png"), "JYellow Style");
 			yellowStyleButton.setUI(new LiteSplitButtonUI(new JYellowLiteButtonStyle()));
 			yellowStyleButton.setPopupMenu(DemoComponentFactory.createDecorationPopupMenu());
 			add(yellowStyleButton);			

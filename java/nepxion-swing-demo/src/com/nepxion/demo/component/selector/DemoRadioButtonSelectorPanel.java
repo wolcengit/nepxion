@@ -53,7 +53,7 @@ public class DemoRadioButtonSelectorPanel
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
 			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "RadioButton Selector"));
 			
-			JBasicButton radioButtonSelectorButton = new JBasicButton("RadioButton Selector", IconFactory.getSwingIcon("component/radio_button_16.png"));
+			JBasicButton radioButtonSelectorButton = new JBasicButton("RadioButton Selector", IconFactory.getSwingIcon("component/radio_button_16.png"), "RadioButton Selector");
 			radioButtonSelectorButton.addActionListener(new ActionListener()
 			{
 				public void actionPerformed(ActionEvent e)

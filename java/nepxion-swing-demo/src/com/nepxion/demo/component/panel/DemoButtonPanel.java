@@ -56,7 +56,7 @@ public class DemoButtonPanel
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
 			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Button Panel"));
 			
-			JBasicButton optionButton = new JBasicButton("Option Button Panel", IconFactory.getSwingIcon("component/button_16.png"));
+			JBasicButton optionButton = new JBasicButton("Option Button Panel", IconFactory.getSwingIcon("component/button_16.png"), "Option Button Panel");
 			optionButton.addActionListener(new ActionListener()
 			{
 				public void actionPerformed(ActionEvent e)
@@ -85,7 +85,7 @@ public class DemoButtonPanel
 			);
 			add(optionButton);
 			
-			JBasicButton closeButton = new JBasicButton("Close Button Panel", IconFactory.getSwingIcon("component/button_16.png"));
+			JBasicButton closeButton = new JBasicButton("Close Button Panel", IconFactory.getSwingIcon("component/button_16.png"), "Close Button Panel");
 			closeButton.addActionListener(new ActionListener()
 			{
 				public void actionPerformed(ActionEvent e)

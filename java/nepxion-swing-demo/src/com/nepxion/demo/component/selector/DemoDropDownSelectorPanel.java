@@ -17,7 +17,6 @@ import java.awt.event.ActionListener;
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.JPanel;
-import javax.swing.JTree;
 
 import com.nepxion.swing.border.ComplexEtchedBorder;
 import com.nepxion.swing.border.ComplexSide;
@@ -29,10 +28,11 @@ import com.nepxion.swing.handle.HandleManager;
 import com.nepxion.swing.icon.IconFactory;
 import com.nepxion.swing.layout.filed.FiledLayout;
 import com.nepxion.swing.selector.dropdown.component.JTreeDropDownSelector;
+import com.nepxion.swing.tree.JBasicTree;
 
 public class DemoDropDownSelectorPanel
 	extends JPanel
-{	
+{
 	public DemoDropDownSelectorPanel()
 	{
 		setLayout(new FiledLayout(FiledLayout.COLUMN, FiledLayout.FULL, 0));
@@ -51,12 +51,12 @@ public class DemoDropDownSelectorPanel
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
 			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Tree DropDown Selector"));
 			
-			JBasicButton popupMenuStyleButton = new JBasicButton("PopupMenu Style", IconFactory.getSwingIcon("component/tree_16.png"));
+			JBasicButton popupMenuStyleButton = new JBasicButton("PopupMenu Style", IconFactory.getSwingIcon("component/tree_16.png"), "PopupMenu Style");
 			popupMenuStyleButton.addActionListener(new ActionListener()
 			{
 				public void actionPerformed(ActionEvent e)
 				{
-					JTree tree = new JTree();
+					JBasicTree tree = new JBasicTree();
 					JTreeDropDownSelector dropDownSelector = new JTreeDropDownSelector(tree, false)
 					{
 						public boolean confirm()
@@ -79,12 +79,12 @@ public class DemoDropDownSelectorPanel
 			);
 			add(popupMenuStyleButton);
 			
-			JBasicButton draggablePopupMenuStyleButton = new JBasicButton("DraggablePopupMenu Style", IconFactory.getSwingIcon("component/tree_16.png"));
+			JBasicButton draggablePopupMenuStyleButton = new JBasicButton("DraggablePopupMenu Style", IconFactory.getSwingIcon("component/tree_16.png"), "DraggablePopupMenu Style");
 			draggablePopupMenuStyleButton.addActionListener(new ActionListener()
 			{
 				public void actionPerformed(ActionEvent e)
 				{
-					JTree tree = new JTree();
+					JBasicTree tree = new JBasicTree();
 					JTreeDropDownSelector dropDownSelector = new JTreeDropDownSelector(tree, true)
 					{
 						public boolean confirm()
@@ -119,12 +119,12 @@ public class DemoDropDownSelectorPanel
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
 			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Table DropDown Selector"));
 			
-			JBasicButton popupMenuStyleButton = new JBasicButton("PopupMenu Style", IconFactory.getSwingIcon("component/table_16.png"));
+			JBasicButton popupMenuStyleButton = new JBasicButton("PopupMenu Style", IconFactory.getSwingIcon("component/table_16.png"), "PopupMenu Style");
 			popupMenuStyleButton.addActionListener(new ActionListener()
 			{
 				public void actionPerformed(ActionEvent e)
 				{
-					JTree tree = new JTree();
+					JBasicTree tree = new JBasicTree();
 					JTreeDropDownSelector dropDownSelector = new JTreeDropDownSelector(tree, false)
 					{
 						public boolean confirm()
@@ -147,12 +147,12 @@ public class DemoDropDownSelectorPanel
 			);
 			add(popupMenuStyleButton);
 			
-			JBasicButton draggablePopupMenuStyleButton = new JBasicButton("DraggablePopupMenu Style", IconFactory.getSwingIcon("component/table_16.png"));
+			JBasicButton draggablePopupMenuStyleButton = new JBasicButton("DraggablePopupMenu Style", IconFactory.getSwingIcon("component/table_16.png"), "DraggablePopupMenu Style");
 			draggablePopupMenuStyleButton.addActionListener(new ActionListener()
 			{
 				public void actionPerformed(ActionEvent e)
 				{
-					JTree tree = new JTree();
+					JBasicTree tree = new JBasicTree();
 					JTreeDropDownSelector dropDownSelector = new JTreeDropDownSelector(tree, true)
 					{
 						public boolean confirm()
@@ -187,12 +187,12 @@ public class DemoDropDownSelectorPanel
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
 			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "List DropDown Selector"));
 			
-			JBasicButton popupMenuStyleButton = new JBasicButton("PopupMenu Style", IconFactory.getSwingIcon("component/list_16.png"));
+			JBasicButton popupMenuStyleButton = new JBasicButton("PopupMenu Style", IconFactory.getSwingIcon("component/list_16.png"), "PopupMenu Style");
 			popupMenuStyleButton.addActionListener(new ActionListener()
 			{
 				public void actionPerformed(ActionEvent e)
 				{
-					JTree tree = new JTree();
+					JBasicTree tree = new JBasicTree();
 					JTreeDropDownSelector dropDownSelector = new JTreeDropDownSelector(tree, false)
 					{
 						public boolean confirm()
@@ -215,12 +215,12 @@ public class DemoDropDownSelectorPanel
 			);
 			add(popupMenuStyleButton);
 			
-			JBasicButton draggablePopupMenuStyleButton = new JBasicButton("DraggablePopupMenu Style", IconFactory.getSwingIcon("component/list_16.png"));
+			JBasicButton draggablePopupMenuStyleButton = new JBasicButton("DraggablePopupMenu Style", IconFactory.getSwingIcon("component/list_16.png"), "DraggablePopupMenu Style");
 			draggablePopupMenuStyleButton.addActionListener(new ActionListener()
 			{
 				public void actionPerformed(ActionEvent e)
 				{
-					JTree tree = new JTree();
+					JBasicTree tree = new JBasicTree();
 					JTreeDropDownSelector dropDownSelector = new JTreeDropDownSelector(tree, true)
 					{
 						public boolean confirm()
@@ -245,22 +245,20 @@ public class DemoDropDownSelectorPanel
 			
 			ButtonManager.updateUI(this);
 		}
-	}	
+	}
 	
-	//
-	// JDropDownPopupMenu dropDownPopupMenu = new JDropDownPopupMenu();
-	// JDropDownPane dropDownPane = new JDropDownPane(dropDownPopupMenu, new
-	// JScrollPane(tree))
-	// {
-	// public boolean confirm()
-	// {
-	// return true;
-	// }
-	//    	
-	// public boolean cancel()
-	// {
-	// return true;
-	// }
-	// };
-	// JDropDownSelector dropDownSelector = new JDropDownSelector(dropDownPane);
+//	JDropDownPopupMenu dropDownPopupMenu = new JDropDownPopupMenu();
+//	JDropDownPane dropDownPane = new JDropDownPane(dropDownPopupMenu, new JScrollPane(tree))
+//	{
+//		public boolean confirm()
+//		{
+//			return true;
+//		}
+//		
+//		public boolean cancel()
+//		{
+//			return true;
+//		}
+//	};
+//	JDropDownSelector dropDownSelector = new JDropDownSelector(dropDownPane);
 }

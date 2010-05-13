@@ -58,7 +58,7 @@ public class DemoButtonPanel
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
 			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Flat ButtonUI"));
 
-			JBasicButton flatStyleButton = new JBasicButton("JFlat Style", IconFactory.getSwingIcon("component/button_16.png"));
+			JBasicButton flatStyleButton = new JBasicButton("JFlat Style", IconFactory.getSwingIcon("component/button_16.png"), "JFlat Style");
 			flatStyleButton.setUI(new FlatButtonUI());
 			add(flatStyleButton);					
 		}
@@ -72,19 +72,19 @@ public class DemoButtonPanel
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
 			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Alloy ButtonUI"));
 			
-			JBasicButton alloyStyleButton = new JBasicButton("JAlloy Style", IconFactory.getSwingIcon("component/button_16.png"));
+			JBasicButton alloyStyleButton = new JBasicButton("JAlloy Style", IconFactory.getSwingIcon("component/button_16.png"), "JAlloy Style");
 			alloyStyleButton.setUI(new LiteButtonUI(new JAlloyLiteButtonStyle()));
 			add(alloyStyleButton);
 			
-			JBasicButton acidStyleButton = new JBasicButton("JAcid Style", IconFactory.getSwingIcon("component/button_16.png"));
+			JBasicButton acidStyleButton = new JBasicButton("JAcid Style", IconFactory.getSwingIcon("component/button_16.png"), "JAcid Style");
 			acidStyleButton.setUI(new LiteButtonUI(new JAcidLiteButtonStyle()));
 			add(acidStyleButton);
 			
-			JBasicButton bedouinStyleButton = new JBasicButton("JBedouin Style", IconFactory.getSwingIcon("component/button_16.png"));
+			JBasicButton bedouinStyleButton = new JBasicButton("JBedouin Style", IconFactory.getSwingIcon("component/button_16.png"), "JBedouin Style");
 			bedouinStyleButton.setUI(new LiteButtonUI(new JBedouinLiteButtonStyle()));
 			add(bedouinStyleButton);
 			
-			JBasicButton glassStyleButton = new JBasicButton("JGlass Style", IconFactory.getSwingIcon("component/button_16.png"));
+			JBasicButton glassStyleButton = new JBasicButton("JGlass Style", IconFactory.getSwingIcon("component/button_16.png"), "JGlass Style");
 			glassStyleButton.setUI(new LiteButtonUI(new JGlassLiteButtonStyle()));
 			add(glassStyleButton);						
 		}
@@ -98,7 +98,7 @@ public class DemoButtonPanel
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
 			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Eclipse ButtonUI"));
 			
-			JBasicButton eclipseStyleButton = new JBasicButton("JEclipse Style", IconFactory.getSwingIcon("component/button_16.png"));
+			JBasicButton eclipseStyleButton = new JBasicButton("JEclipse Style", IconFactory.getSwingIcon("component/button_16.png"), "JEclipse Style");
 			eclipseStyleButton.setUI(new LiteButtonUI(new JEclipseLiteButtonStyle()));
 			add(eclipseStyleButton);			
 		}
@@ -112,7 +112,7 @@ public class DemoButtonPanel
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
 			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Borland ButtonUI"));
 			
-			JBasicButton borlandStyleButton = new JBasicButton("JBorland Style", IconFactory.getSwingIcon("component/button_16.png"));
+			JBasicButton borlandStyleButton = new JBasicButton("JBorland Style", IconFactory.getSwingIcon("component/button_16.png"), "JBorland Style");
 			borlandStyleButton.setUI(new LiteButtonUI(new JBorlandLiteButtonStyle()));
 			add(borlandStyleButton);			
 		}
@@ -126,7 +126,7 @@ public class DemoButtonPanel
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
 			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Nimbus ButtonUI"));
 			
-			JBasicButton nimbusStyleButton = new JBasicButton("JNimbus Style", IconFactory.getSwingIcon("component/button_16.png"));
+			JBasicButton nimbusStyleButton = new JBasicButton("JNimbus Style", IconFactory.getSwingIcon("component/button_16.png"), "JNimbus Style");
 			nimbusStyleButton.setUI(new LiteButtonUI(new JNimbusLiteButtonStyle()));
 			add(nimbusStyleButton);			
 		}
@@ -140,11 +140,11 @@ public class DemoButtonPanel
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
 			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Color ButtonUI"));
 			
-			JBasicButton blueStyleButton = new JBasicButton("JBlue Style", IconFactory.getSwingIcon("component/button_16.png"));
+			JBasicButton blueStyleButton = new JBasicButton("JBlue Style", IconFactory.getSwingIcon("component/button_16.png"), "JBlue Style");
 			blueStyleButton.setUI(new LiteButtonUI(new JBlueLiteButtonStyle()));
 			add(blueStyleButton);	
 			
-			JBasicButton yellowStyleButton = new JBasicButton("JYellow Style", IconFactory.getSwingIcon("component/button_16.png"));
+			JBasicButton yellowStyleButton = new JBasicButton("JYellow Style", IconFactory.getSwingIcon("component/button_16.png"), "JYellow Style");
 			yellowStyleButton.setUI(new LiteButtonUI(new JYellowLiteButtonStyle()));
 			add(yellowStyleButton);						
 		}
@@ -158,19 +158,19 @@ public class DemoButtonPanel
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
 			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Style ButtonUI"));
 			
-			JStyleButton flatStyleButton = new JStyleButton("Flat Style", IconFactory.getSwingIcon("component/button_16.png"));
+			JStyleButton flatStyleButton = new JStyleButton("Flat Style", IconFactory.getSwingIcon("component/button_16.png"), "Flat Style");
 			flatStyleButton.setButtonStyle(JStyleButton.FLAT_STYLE);
 			add(flatStyleButton);
 			
-			JStyleButton hyperLinkStyleButton = new JStyleButton("HyperLink Style", IconFactory.getSwingIcon("component/button_16.png"));
+			JStyleButton hyperLinkStyleButton = new JStyleButton("HyperLink Style", IconFactory.getSwingIcon("component/button_16.png"), "HyperLink Style");
 			hyperLinkStyleButton.setButtonStyle(JStyleButton.HYPERLINK_STYLE);
 			add(hyperLinkStyleButton);
 			
-			JStyleButton toolBarStyleButton = new JStyleButton("ToolBar Style", IconFactory.getSwingIcon("component/button_16.png"));
+			JStyleButton toolBarStyleButton = new JStyleButton("ToolBar Style", IconFactory.getSwingIcon("component/button_16.png"), "ToolBar Style");
 			toolBarStyleButton.setButtonStyle(JStyleButton.TOOLBAR_STYLE);
 			add(toolBarStyleButton);
 			
-			/*JStyleButton toolBoxStyleButton = new JStyleButton("ToolBox Style", IconFactory.getSwingIcon("component/button_16.png"));
+			/*JStyleButton toolBoxStyleButton = new JStyleButton("ToolBox Style", IconFactory.getSwingIcon("component/button_16.png"), "ToolBox Style");
 			toolBoxStyleButton.setButtonStyle(JStyleButton.TOOLBOX_STYLE);
 			add(toolBoxStyleButton);*/			
 		}

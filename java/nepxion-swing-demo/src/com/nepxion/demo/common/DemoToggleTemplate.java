@@ -60,7 +60,7 @@ public class DemoToggleTemplate
 	{
 		public ToggleButtonPanel()
 		{			
-			JBasicToggleButton viewToggleButton = new JBasicToggleButton("View", IconFactory.getSwingIcon("component/view.png"), true);
+			JBasicToggleButton viewToggleButton = new JBasicToggleButton("View", IconFactory.getSwingIcon("component/view.png"), "View", true);
 			viewToggleButton.addActionListener(new ActionListener()
 			{
 				public void actionPerformed(ActionEvent e)
@@ -72,7 +72,7 @@ public class DemoToggleTemplate
 				}
 			}
 			);
-			JBasicToggleButton codeToggleButton = new JBasicToggleButton("Code", IconFactory.getSwingIcon("component/java.png"), false);		
+			JBasicToggleButton codeToggleButton = new JBasicToggleButton("Code", IconFactory.getSwingIcon("component/java.png"), "Code");		
 			codeToggleButton.addActionListener(new ActionListener()
 			{
 				public void actionPerformed(ActionEvent e)

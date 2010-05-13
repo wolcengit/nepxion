@@ -11,12 +11,11 @@ package com.nepxion.demo.common;
  */
 
 import javax.swing.AbstractButton;
-import javax.swing.SwingConstants;
 
 import com.nepxion.swing.outlookbar.JFlatOutlook;
 
 public class DemoToggleOutlook
-	extends JFlatOutlook implements SwingConstants
+	extends JFlatOutlook
 {
 	public DemoToggleOutlook()
 	{
@@ -25,6 +24,6 @@ public class DemoToggleOutlook
 	public void addButton(AbstractButton button)
 	{
 		super.addButton(button);
-		DemoButtonGroup.getInstance().add(button);
+		DemoToggleButtonGroup.getInstance().add(button);
 	}
 }
