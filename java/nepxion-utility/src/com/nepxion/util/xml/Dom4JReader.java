@@ -29,12 +29,12 @@ public class Dom4JReader
 	 * @return         the instance of Document
 	 * @throws DocumentException
 	 */
-	public static Document getDocument(String content)
+	public static Document getDocument(String text)
 		throws DocumentException
 	{
 		try
 		{
-			Document document = DocumentHelper.parseText(content);
+			Document document = DocumentHelper.parseText(text);
 			if (document != null)
 			{
 				return document;

@@ -21,14 +21,14 @@ import org.dom4j.io.XMLWriter;
 public class Dom4JWriter
 {
 	/**
-	 * Get xml string by document
+	 * Get xml text by document
 	 * @param document  the instanceof Document
 	 * @param encoding  the encoding content, example "GB2321", "UTF-8"
-	 * @return          the xml string
+	 * @return          the xml text
 	 * @throws UnsupportedEncodingException
 	 * @throws IOException
 	 */
-	public static String getString(Document document, String encoding)
+	public static String getText(Document document, String encoding)
 		throws UnsupportedEncodingException, IOException
 	{
 		try
@@ -37,10 +37,10 @@ public class Dom4JWriter
 			OutputFormat outputFormat = new OutputFormat("  ", true, encoding);
 			XMLWriter writer = new XMLWriter(baos, outputFormat);
 			writer.write(document);
-			String content = baos.toString(encoding);
-			if (content != null)
+			String text = baos.toString(encoding);
+			if (text != null)
 			{
-				return content;
+				return text;
 			}
 		}
 		catch (UnsupportedEncodingException e)
