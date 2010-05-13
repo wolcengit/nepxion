@@ -14,63 +14,68 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.net.URL;
-import java.util.Map;
 import java.util.Properties;
 
 public class ClientEnvironment
 {
     public static final String CONFIG_PATH = "conf/config.properties";
-
-    private static Map parameters;
-
-    public static void initEnvironment(File configFile)
+    
+    public static final String TAG_HOST = "host";
+    public static final String TAG_PORT = "port";
+    public static final String TAG_SERVLET = "servlet";
+    
+	private static String host;
+	private static int port = 0;
+	private static String servlet;
+        
+    public static void initialize(File file)
     {
         Properties properties = new Properties();
-        URL codeBase = null;
-        String module = null;
         try
         {
-            properties.load(new FileInputStream(configFile));
-            codeBase = new URL(properties.getProperty("URL"));
-            module = properties.getProperty("Module");
+        	FileInputStream fis = new FileInputStream(file);
+            properties.load(fis);
+            
+            host = properties.getProperty(TAG_HOST);
+            port = Integer.parseInt(properties.getProperty(TAG_PORT));
+            servlet = properties.getProperty(TAG_SERVLET);
         }
         catch (IOException e)
         {
             e.printStackTrace();
-        }
-
-        initEnvironment(codeBase, module);
+        }    	
     }
-  
-    public static void initEnvironment(URL codeBase)
+    
+    public static void initialize(URL url)
     {
         Properties properties = new Properties();
-        String module = null;
         try
         {
-            properties.load(new URL(codeBase + CONFIG_PATH).openStream());
-            module = properties.getProperty("Module");
+        	URL filePath = new URL(url + CONFIG_PATH);
+            properties.load(filePath.openStream());
+            
+            host = url.getHost();
+            port = url.getPort();
+            servlet = properties.getProperty(TAG_SERVLET);
         }
         catch (IOException e)
         {
             e.printStackTrace();
-        }
-
-        initEnvironment(codeBase, module);
+        }    	
     }
-
-    public static void initEnvironment(URL codeBase, String module)
-    {
-        ClientInvoker.registerServletPath(codeBase, module);
-    }
-
-    public static void initParameters(Map map)
-    {
-        parameters = map;
-    }
-
-    public static Map getParameters()
-    {
-        return parameters;
-    }
+    
+	public static String getHost()
+	{
+		return host;
+	}
+	
+	public static int getPort()
+	{
+		return port;
+	}
+	
+	public static String getServlet()
+	{
+		return servlet;
+	}	
 }
