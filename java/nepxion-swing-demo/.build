@@ -1,5 +1,5 @@
 #Fat Jar Configuration File
-#Sat Apr 24 14:09:09 CST 2010
+#Fri May 14 23:25:30 CST 2010
 onejar.license.required=true
 manifest.classpath=
 manifest.removesigners=true
@@ -10,5 +10,5 @@ manifest.mainclass=
 manifest.file=<createnew>
 jarname.isextern=false
 onejar.expand=
-excludes=<po|Nepxion-Swing>;<po|Nepxion-Utility>;<jar|alloy-skin-1.4.4.jar>;<jar|borland-skin-2006.jar>;<jar|itext-2.1.7.jar>;<jar|itext-asian.jar>;<jar|jcommon-1.0.16.jar>;<jar|jfreechart-1.0.13.jar>;<jar|jfreechart-1.0.13-experimental.jar>;<jar|jgoodies-skin-2.1.4.jar>;<jar|jide-oss-2.9.0.jar>;<jar|l2fprod-common-all-7.3.jar>;<jar|native-skin-6.7.jar>;<jar|tiny-skin.jar>;<jar|trayIcon-1.7.9B.jar>;<jar|vldocking-2.1.5.jar>;<jar|xp-skin.jar>;<jar|servlet-api.jar>;<jar|dom4j-1.6.1.jar>
+excludes=<po|Nepxion-Swing>;<po|Nepxion-Utility>;<po|Nepxion-Utility>;<jar|alloy-skin-1.4.4.jar>;<jar|borland-skin-2006.jar>;<jar|itext-2.1.7.jar>;<jar|itext-asian.jar>;<jar|jcommon-1.0.16.jar>;<jar|jfreechart-1.0.13.jar>;<jar|jfreechart-1.0.13-experimental.jar>;<jar|jgoodies-skin-2.1.4.jar>;<jar|jide-oss-2.9.0.jar>;<jar|l2fprod-common-all-7.3.jar>;<jar|native-skin-6.7.jar>;<jar|tiny-skin.jar>;<jar|trayIcon-1.7.9B.jar>;<jar|vldocking-2.1.5.jar>;<jar|xp-skin.jar>;<jar|commons-logging-1.1.1.jar>;<jar|dom4j-1.6.1.jar>;<jar|http-client-4.0.1.jar>;<jar|http-core-4.0.1.jar>;<jar|log4j-1.2.16.jar>;<jar|proxool-0.9.1.jar>;<jar|proxool-cglib.jar>;<jar|servlet-api.jar>
 includes=
