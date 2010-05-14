@@ -14,56 +14,49 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.MalformedURLException;
+import java.net.URI;
 import java.net.URL;
 import java.net.URLConnection;
 
-import com.nepxion.util.net.http.ClientEnvironment;
-import com.nepxion.util.net.http.IClientHandle;
+import com.nepxion.util.net.http.ClientContext;
+import com.nepxion.util.net.http.IClientRequest;
 import com.nepxion.util.net.http.IClientInvoker;
 
 public class ClientInvoker
 	implements IClientInvoker
 {
     /**
-     * The portal of invoke. If the remotePath is not null, it will execute the invokeRemote method, otherwise the invokeNative method
-     * @param clientHandle  the handle of ServerAction.It should be serialized
-     * @return Object       the return object.It may be entity object or exception object
+     * The portal of invoke. If the uri is not null, it will execute the invokeRemote method, otherwise the invokeNative method
+     * @param clientRequest  the instance of ClientRequest.It should be serialized
+     * @return Object        the return object.It may be entity object or exception object
      * @throws Exception
      */
-    public Object invoke(IClientHandle clientHandle)
+    public Object invoke(IClientRequest clientRequest)
     	throws Exception
     {
-    	String remotePath = null;
+    	ClientContext.initialize(clientRequest);
     	
-    	String host = ClientEnvironment.getHost();
-    	int port = ClientEnvironment.getPort();
-    	String servlet = ClientEnvironment.getServlet();
-    	
-    	if (host == null || port == 0 || servlet == null)
+    	if (clientRequest.getURI() != null)
     	{
-    		remotePath = "http://" + host + ":" + port + servlet;    			
-    	}
-    	
-    	if (remotePath != null)
-    	{
-    		return invokeRemote(clientHandle, remotePath);
+    		return invokeRemote(clientRequest);
     	}	
     	else
     	{
-    		return invokeNative(clientHandle);
+    		return invokeNative(clientRequest);
     	}
     }
     
     /**
      * The invoking and alternation between client(Application & Applet) and Servlet in the remote mode
-     * @param clientHandle  the handle of ServerAction.It should be serialized
-     * @return Object       the return object.It may be entity object or exception object
+     * @param clientRequest  the instance of ClientRequest.It should be serialized
+     * @return Object        the return object.It may be entity object or exception object
      * @throws Exception
      */
-    public Object invokeRemote(IClientHandle clientHandle, String remotePath)
+    public Object invokeRemote(IClientRequest clientRequest)
         throws Exception
-    {    	
-    	if (remotePath == null)
+    {    
+    	URI uri = clientRequest.getURI();
+    	if (uri == null)
     	{
     		throw new IllegalArgumentException("Invalid URL parameter for remote invoking");
     	}	
@@ -71,7 +64,7 @@ public class ClientInvoker
         Object returnObject = null;
         try
         {
-            URL url = new URL(remotePath);
+            URL url = uri.toURL();
             URLConnection connection = url.openConnection();
             connection.setDoInput(true);
             connection.setDoOutput(true);
@@ -80,7 +73,7 @@ public class ClientInvoker
             connection.setRequestProperty("Content-Type", "application/octet-stream");
 
             ObjectOutputStream oos = new ObjectOutputStream(connection.getOutputStream());
-            oos.writeObject(clientHandle);
+            oos.writeObject(clientRequest);
             oos.flush();
             oos.close();
 
@@ -90,15 +83,15 @@ public class ClientInvoker
         }
         catch (ClassNotFoundException e)
         {
-        	throw new IllegalArgumentException("Invalid connection request exception for " + remotePath, e);
+        	throw new IllegalArgumentException("Invalid connection request exception for " + uri, e);
         }
         catch (MalformedURLException e)
         {
-        	throw new IllegalArgumentException("Invalid connection request exception for " + remotePath, e);
+        	throw new IllegalArgumentException("Invalid connection request exception for " + uri, e);
         }
         catch (IOException e)
         {
-        	throw new IllegalArgumentException("Invalid connection request exception for " + remotePath, e);
+        	throw new IllegalArgumentException("Invalid connection request exception for " + uri, e);
         }
         
         if (returnObject instanceof Exception)
@@ -111,15 +104,15 @@ public class ClientInvoker
 
     /**
      * The invoking and alternation between Application and Servlet in the native mode
-     * @param clientHandle  the handle of ServerAction.It should be serialized
-     * @return Object       the return object.It may be entity object or exception object
+     * @param clientRequest  the instance of ClientRequest.It should be serialized
+     * @return Object        the return object.It may be entity object or exception object
      * @throws Exception
      */
-    public Object invokeNative(IClientHandle clientHandle)
+    public Object invokeNative(IClientRequest clientRequest)
         throws Exception
     {
         ServerInvoker serverInvoker = new ServerInvoker();
-        Object returnObject = serverInvoker.invoke((ClientHandle) clientHandle);
+        Object returnObject = serverInvoker.invoke((ClientRequest) clientRequest);
 
         if (returnObject instanceof Exception)
         {

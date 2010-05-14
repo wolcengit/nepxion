@@ -12,5 +12,5 @@ package com.nepxion.util.net.http;
 
 public interface IClientInvoker
 {		
-	public Object invoke(IClientHandle clientHandle) throws Exception;
+	public Object invoke(IClientRequest clientRequest) throws Exception;
 }

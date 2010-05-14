@@ -22,17 +22,29 @@ import javax.servlet.http.HttpServletResponse;
 public class ServerInvoker
     extends HttpServlet
 {
+	public void doGet(HttpServletRequest request, HttpServletResponse response)
+		throws ServletException, IOException
+	{	
+		doExecute(request, response);
+	}
+	
     public void doPost(HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException
     {
-        ClientHandle clientHandle = null;
+    	doExecute(request, response);
+    }
+    
+    public void doExecute(HttpServletRequest request, HttpServletResponse response)
+    	throws ServletException, IOException
+    {
+        ClientRequest clientRequest = null;
         try
         {
             ObjectInputStream ois = new ObjectInputStream(request.getInputStream());
-            clientHandle = (ClientHandle) ois.readObject();
+            clientRequest = (ClientRequest) ois.readObject();
             ois.close();
 
-            Object returnObject = invoke(clientHandle);
+            Object returnObject = invoke(clientRequest);
             ObjectOutputStream oos = new ObjectOutputStream(response.getOutputStream());
             oos.writeObject(returnObject);
             oos.flush();
@@ -40,17 +52,18 @@ public class ServerInvoker
         }
         catch (ClassNotFoundException e)
         {
-            e.printStackTrace();
-        }
+        	e.printStackTrace();
+        	throw new IOException(e.toString());            
+        }    	
     }
 
-    public Object invoke(ClientHandle clientHandle)
+    public Object invoke(ClientRequest clientRequest)
     {
-        Class actionClass = clientHandle.getActionClass();
-        ServerAction serverAction = null;
+        Class responseClass = clientRequest.getResponseClass();
+        ServerResponse serverResponse = null;
         try
         {
-        	serverAction = (ServerAction) actionClass.newInstance();
+        	serverResponse = (ServerResponse) responseClass.newInstance();
         }
         catch (IllegalAccessException e)
         {
@@ -60,7 +73,7 @@ public class ServerInvoker
         {
             e.printStackTrace();
         }
-        serverAction.setClientHandle(clientHandle);
-        return serverAction.execute();
+        serverResponse.setClientRequest(clientRequest);
+        return serverResponse.execute();
     }
 }

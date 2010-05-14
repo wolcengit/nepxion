@@ -23,7 +23,7 @@ public class Dom4JWriter
 	/**
 	 * Get xml text by document
 	 * @param document  the instanceof Document
-	 * @param encoding  the encoding content, example "GB2321", "UTF-8"
+	 * @param encoding  the encoding content, example "UTF-8", "GBK", "GB2321"
 	 * @return          the xml text
 	 * @throws UnsupportedEncodingException
 	 * @throws IOException
