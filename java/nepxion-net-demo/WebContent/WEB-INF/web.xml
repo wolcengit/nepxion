@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+  <display-name>Nepxion-Net-Demo</display-name>
+  <servlet>
+    <servlet-name>ApacheXMLServlet</servlet-name>
+    <servlet-class>com.nepxion.net.http.apache.ApacheXMLServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ApacheXMLServlet</servlet-name>
+    <url-pattern>/ApacheXmlServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>ApacheObjectServlet</servlet-name>
+    <servlet-class>com.nepxion.net.http.apache.ApacheObjectServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ApacheObjectServlet</servlet-name>
+    <url-pattern>/ApacheObjectServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>FacilityXMLServlet</servlet-name>
+    <servlet-class>com.nepxion.net.http.facility.FacilityXMLServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>FacilityXMLServlet</servlet-name>
+    <url-pattern>/FacilityXMLServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>FacilityObjectServlet</servlet-name>
+    <servlet-class>com.nepxion.net.http.facility.FacilityObjectServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>FacilityObjectServlet</servlet-name>
+    <url-pattern>/FacilityObjectServlet</url-pattern>
+  </servlet-mapping>
+</web-app>
