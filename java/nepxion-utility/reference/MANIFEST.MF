@@ -1,2 +1,2 @@
 Manifest-Version: 1.0
-Class-Path: util/dom4j-1.6.1.jar util/http-client-4.0.1.jar util/http-core-4.0.1.jar util/servlet-api.jar
+Class-Path: util/commons-logging-1.1.1.jar util/dom4j-1.6.1.jar util/http-client-4.0.1.jar util/http-core-4.0.1.jar  util/log4j-1.2.16.jar util/proxool-0.9.1.jar util/proxool-cglib.jar util/servlet-api.jar
