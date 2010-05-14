@@ -17,15 +17,26 @@ import com.nepxion.swing.lookandfeel.LookAndFeelManager;
 import com.nepxion.swing.popupmenu.PopupMenuContext;
 import com.nepxion.swing.style.framework.JNimbusStyle;
 import com.nepxion.swing.style.framework.StyleContext;
+import com.nepxion.util.net.http.ClientContext;
 
 public class DemoContext
 {	
 	public DemoContext()
 	{
 	}
-	
 	public void initialize()
-	{		
+	{
+		// initEnvironment();
+		initStyle();
+	}
+	
+	public void initEnvironment()
+	{
+		ClientContext.initialize();
+	}
+	
+	public void initStyle()
+	{			
 		//注册框架风格，默认由LookAndFeel分配
 		//StyleContext.registerStyle(JLiteStyle.ID);
 		//StyleContext.registerStyle(JWindowsStyle.ID);

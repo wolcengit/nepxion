@@ -87,7 +87,7 @@ public class DemoToggleTemplate
 						String projectFolderName = "nepxion-swing-demo";
 						String codePath = FileUtil.getCodePath(viewComponent.getClass(), projectFolderName);
 						
-						codeContent = FileUtil.read(codePath, false);
+						codeContent = FileUtil.read(codePath);
 						
 						codeTextArea.setText(codeContent);
 						codeTextArea.moveCaretPosition(0);
