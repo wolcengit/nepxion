@@ -27,6 +27,7 @@ import com.nepxion.swing.button.JBasicToggleButton;
 import com.nepxion.swing.icon.IconFactory;
 import com.nepxion.swing.textarea.JBasicTextArea;
 import com.nepxion.util.io.FileUtil;
+import com.nepxion.util.io.IOUtil;
 
 public class DemoToggleTemplate
 	extends JPanel
@@ -87,7 +88,7 @@ public class DemoToggleTemplate
 						String projectFolderName = "nepxion-swing-demo";
 						String codePath = FileUtil.getCodePath(viewComponent.getClass(), projectFolderName);
 						
-						codeContent = FileUtil.read(codePath);
+						codeContent = FileUtil.read(codePath, "GBK");
 						
 						codeTextArea.setText(codeContent);
 						codeTextArea.moveCaretPosition(0);
