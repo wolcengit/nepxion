@@ -11,16 +11,15 @@ package com.nepxion.util.net.http.facility;
  */
 
 import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URL;
 import java.net.URLConnection;
 
+import com.nepxion.util.io.IOUtil;
 import com.nepxion.util.net.http.ClientContext;
-import com.nepxion.util.net.http.IClientRequest;
 import com.nepxion.util.net.http.IClientInvoker;
+import com.nepxion.util.net.http.IClientRequest;
 
 public class ClientInvoker
 	implements IClientInvoker
@@ -34,7 +33,14 @@ public class ClientInvoker
     public Object invoke(IClientRequest clientRequest)
     	throws Exception
     {
-    	ClientContext.initialize(clientRequest);
+		if (clientRequest.getURI() == null)
+		{
+			URI uri = ClientContext.getURI();
+			if (uri != null)
+			{
+				clientRequest.setURI(uri);
+			}
+		}
     	
     	if (clientRequest.getURI() != null)
     	{
@@ -58,7 +64,7 @@ public class ClientInvoker
     	URI uri = clientRequest.getURI();
     	if (uri == null)
     	{
-    		throw new IllegalArgumentException("Invalid URL parameter for remote invoking");
+    		throw new IllegalArgumentException("Invalid URL parameter for invoking");
     	}	
     	
         Object returnObject = null;
@@ -70,16 +76,11 @@ public class ClientInvoker
             connection.setDoOutput(true);
             connection.setUseCaches(true);
             connection.setDefaultUseCaches(true);
-            connection.setRequestProperty("Content-Type", "application/octet-stream");
-
-            ObjectOutputStream oos = new ObjectOutputStream(connection.getOutputStream());
-            oos.writeObject(clientRequest);
-            oos.flush();
-            oos.close();
-
-            ObjectInputStream ois = new ObjectInputStream(connection.getInputStream());
-            returnObject = ois.readObject();
-            ois.close();
+            connection.setRequestProperty("Content-Type", "application/octet-stream"); // application/x-java-serialized-object
+                        
+            IOUtil.write(connection.getOutputStream(), clientRequest);
+            
+            returnObject = IOUtil.read(connection.getInputStream());
         }
         catch (ClassNotFoundException e)
         {

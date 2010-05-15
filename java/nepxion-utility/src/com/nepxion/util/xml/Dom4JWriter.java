@@ -23,7 +23,7 @@ public class Dom4JWriter
 	/**
 	 * Get xml text by document
 	 * @param document  the instanceof Document
-	 * @param encoding  the encoding content, example "UTF-8", "GBK", "GB2321"
+	 * @param encoding  the encoding text, example "UTF-8", "GBK", "GB2321"
 	 * @return          the xml text
 	 * @throws UnsupportedEncodingException
 	 * @throws IOException
@@ -31,26 +31,10 @@ public class Dom4JWriter
 	public static String getText(Document document, String encoding)
 		throws UnsupportedEncodingException, IOException
 	{
-		try
-		{
-			ByteArrayOutputStream baos = new ByteArrayOutputStream();
-			OutputFormat outputFormat = new OutputFormat("  ", true, encoding);
-			XMLWriter writer = new XMLWriter(baos, outputFormat);
-			writer.write(document);
-			String text = baos.toString(encoding);
-			if (text != null)
-			{
-				return text;
-			}
-		}
-		catch (UnsupportedEncodingException e)
-		{
-			throw e;
-		}
-		catch (IOException e)
-		{
-			throw e;
-		}
-		return null;
+		ByteArrayOutputStream baos = new ByteArrayOutputStream();
+		OutputFormat outputFormat = new OutputFormat("  ", true, encoding);
+		XMLWriter writer = new XMLWriter(baos, outputFormat);
+		writer.write(document);
+		return baos.toString(encoding);
 	}
 }

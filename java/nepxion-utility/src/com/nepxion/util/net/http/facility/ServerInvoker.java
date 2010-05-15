@@ -11,13 +11,13 @@ package com.nepxion.util.net.http.facility;
  */
 
 import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.nepxion.util.io.IOUtil;
 
 public class ServerInvoker
     extends HttpServlet
@@ -39,16 +39,12 @@ public class ServerInvoker
     {
         ClientRequest clientRequest = null;
         try
-        {
-            ObjectInputStream ois = new ObjectInputStream(request.getInputStream());
-            clientRequest = (ClientRequest) ois.readObject();
-            ois.close();
+        {            
+            clientRequest = (ClientRequest) IOUtil.read(request.getInputStream());            
 
-            Object returnObject = invoke(clientRequest);
-            ObjectOutputStream oos = new ObjectOutputStream(response.getOutputStream());
-            oos.writeObject(returnObject);
-            oos.flush();
-            oos.close();
+            Object returnObject = invoke(clientRequest); 
+            
+            IOUtil.write(response.getOutputStream(), returnObject);
         }
         catch (ClassNotFoundException e)
         {

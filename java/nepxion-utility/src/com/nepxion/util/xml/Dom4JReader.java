@@ -32,19 +32,7 @@ public class Dom4JReader
 	public static Document getDocument(String text)
 		throws DocumentException
 	{
-		try
-		{
-			Document document = DocumentHelper.parseText(text);
-			if (document != null)
-			{
-				return document;
-			}
-		}
-		catch (DocumentException e)
-		{
-			throw e;
-		}
-		return null;
+		return DocumentHelper.parseText(text);
 	}
     
     /**
@@ -56,20 +44,8 @@ public class Dom4JReader
     public static Document getDocument(File file)
 		throws DocumentException
 	{
-		try
-		{
-			SAXReader saxReader = new SAXReader();
-			Document document = saxReader.read(file);
-			if (document != null)
-			{
-				return document;
-			}
-		}
-		catch (DocumentException e)
-		{
-			throw e;
-		}
-		return null;
+		SAXReader saxReader = new SAXReader();
+		return saxReader.read(file);
 	}    
     
     /**
@@ -81,20 +57,8 @@ public class Dom4JReader
     public static Document getDocument(InputSource inputSource)
 		throws DocumentException
 	{
-		try
-		{
-			SAXReader saxReader = new SAXReader();
-			Document document = saxReader.read(inputSource);
-			if (document != null)
-			{
-				return document;
-			}
-		}
-		catch (DocumentException e)
-		{
-			throw e;
-		}
-		return null;
+		SAXReader saxReader = new SAXReader();
+		return saxReader.read(inputSource);
 	} 
     
     /**
@@ -106,20 +70,8 @@ public class Dom4JReader
     public static Document getDocument(InputStream inputStream)
 		throws DocumentException
 	{
-		try
-		{
-			SAXReader saxReader = new SAXReader();
-			Document document = saxReader.read(inputStream);
-			if (document != null)
-			{
-				return document;
-			}
-		}
-		catch (DocumentException e)
-		{
-			throw e;
-		}
-		return null;
+		SAXReader saxReader = new SAXReader();
+		return saxReader.read(inputStream);
 	}   
     
     /**
@@ -131,20 +83,8 @@ public class Dom4JReader
     public static Document getDocument(Reader reader)
 		throws DocumentException
 	{
-		try
-		{
-			SAXReader saxReader = new SAXReader();
-			Document document = saxReader.read(reader);
-			if (document != null)
-			{
-				return document;
-			}
-		}
-		catch (DocumentException e)
-		{
-			throw e;
-		}
-		return null;
+		SAXReader saxReader = new SAXReader();
+		return saxReader.read(reader);
 	}
     
     /**
@@ -156,19 +96,7 @@ public class Dom4JReader
     public static Document getDocument(URL url)
 		throws DocumentException
 	{
-		try
-		{
-			SAXReader saxReader = new SAXReader();
-			Document document = saxReader.read(url);
-			if (document != null)
-			{
-				return document;
-			}
-		}
-		catch (DocumentException e)
-		{
-			throw e;
-		}
-		return null;
+		SAXReader saxReader = new SAXReader();
+		return saxReader.read(url);
 	}    
 }

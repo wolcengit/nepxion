@@ -21,27 +21,19 @@ public class ClientContext
 {
     public static final String CONFIG_PATH = "conf/config.properties";
     
-    public static final String TAG_HOST = "Host";
-    public static final String TAG_PORT = "Port";
-    public static final String TAG_PATH = "Path";
+    public static final String HOST = "Host";
+    public static final String PORT = "Port";
+    public static final String PATH = "Path";
+    public static final String TIMEOUT = "TimeOut";
+    public static final String CONNECTION_TIMEOUT = "CollectionTimeOut";
     
 	private static String host;
 	private static int port = 0;
 	private static String path;
+	private static int timeOut = -1;
+	private static int connectionTimeOut = -1;
 	
 	private static URI uri;
-	
-	public static void initialize(IClientRequest clientRequest)
-	{
-		if (clientRequest.getURI() == null)
-		{
-			URI uri = ClientContext.getURI();
-			if (uri != null)
-			{
-				clientRequest.setURI(uri);
-			}
-		}		
-	}	
 	
 	public static void initialize()
 	{
@@ -61,9 +53,11 @@ public class ClientContext
         	FileInputStream fis = new FileInputStream(file);
             properties.load(fis);
             
-            host = properties.getProperty(TAG_HOST);
-            port = Integer.parseInt(properties.getProperty(TAG_PORT));
-            path = properties.getProperty(TAG_PATH);
+            host = properties.getProperty(HOST);
+            port = Integer.parseInt(properties.getProperty(PORT));
+            path = properties.getProperty(PATH);
+            timeOut = Integer.parseInt(properties.getProperty(TIMEOUT));
+            connectionTimeOut = Integer.parseInt(properties.getProperty(CONNECTION_TIMEOUT));
             
             uri = createURI(host, port, path);            
         }
@@ -83,7 +77,9 @@ public class ClientContext
             
             host = url.getHost();
             port = url.getPort();
-            path = properties.getProperty(TAG_PATH);
+            path = properties.getProperty(PATH);
+            timeOut = Integer.parseInt(properties.getProperty(TIMEOUT));
+            connectionTimeOut = Integer.parseInt(properties.getProperty(CONNECTION_TIMEOUT));            
             
             uri = createURI(host, port, path);
         }
@@ -132,6 +128,26 @@ public class ClientContext
 	{
 		path = value;
 	}
+	
+	public static int getTimeOut()
+	{
+		return timeOut;
+	}
+	
+	public static void setTimeOut(int value)
+	{
+		timeOut = value;
+	}
+	
+	public static int getConnectionTimeOut()
+	{
+		return connectionTimeOut;
+	}
+	
+	public static void setConnectionTimeOut(int value)
+	{
+		connectionTimeOut = value;
+	}	
 	
 	public static URI getURI()
 	{  

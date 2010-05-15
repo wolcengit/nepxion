@@ -10,31 +10,23 @@ package com.nepxion.util.data;
  * @version 1.0
  */
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
+
+import com.nepxion.util.io.IOUtil;
 
 public class CloneUtil
 {
 	/**
 	 * Get deep clone object
-	 * @param object
-	 * @return  the clone object
+	 * @param object  the origin
+	 * @return        the clone object
 	 */
 	public static Object deepClone(Object object)
 	{
 		Object cloneObject = null;
 		try
 		{
-			ByteArrayOutputStream baos = new ByteArrayOutputStream();
-			ObjectOutputStream oos = new ObjectOutputStream(baos);
-			oos.writeObject(object);
-			
-			ByteArrayInputStream bais = new ByteArrayInputStream(baos.toByteArray());
-			ObjectInputStream ois = new ObjectInputStream(bais);
-			cloneObject = ois.readObject();
+			cloneObject = IOUtil.deepClone(object);
 		}
 		catch (IOException e)
 		{
@@ -45,5 +37,22 @@ public class CloneUtil
 			e.printStackTrace();
 		}
 		return cloneObject;
+	}
+	
+	public static void main(String[] args)
+	{
+		String[] array = {"Value1", "Value2", "Value3"};
+		System.out.println("array [" + array + "]'s value is [" + array[0] + ", " + array[1] + ", " + array[2] + "]");
+		
+		System.out.println("execute deep clone");
+		
+		String[] arrayClone = (String[]) CloneUtil.deepClone(array);
+
+		array[0] = "Value4";
+		array[1] = "Value5";
+		array[2] = "Value6";
+		
+		System.out.println("array [" + array + "]'s new value [" + array[0] + ", " + array[1] + ", " + array[2] + "]");
+		System.out.println("deep clone array [" + arrayClone + "]'s value [" + arrayClone[0] + ", " + arrayClone[1] + ", " + arrayClone[2] + "]");
 	}
 }
