@@ -2,35 +2,28 @@
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
   <display-name>Nepxion-Net-Demo</display-name>
   <servlet>
-    <servlet-name>ApacheXMLServlet</servlet-name>
-    <servlet-class>com.nepxion.net.http.apache.ApacheXMLServlet</servlet-class>
+    <servlet-name>ApacheServerInvoker</servlet-name>
+    <servlet-class>com.nepxion.net.http.apache.ApacheServerInvoker</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>ApacheXMLServlet</servlet-name>
-    <url-pattern>/ApacheXmlServlet</url-pattern>
+    <servlet-name>ApacheServerInvoker</servlet-name>
+    <url-pattern>/ApacheServerInvoker</url-pattern>
   </servlet-mapping>
   <servlet>
-    <servlet-name>ApacheObjectServlet</servlet-name>
-    <servlet-class>com.nepxion.net.http.apache.ApacheObjectServlet</servlet-class>
+    <servlet-name>ApacheServlet</servlet-name>
+    <servlet-class>com.nepxion.net.http.apache.ApacheServlet</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>ApacheObjectServlet</servlet-name>
-    <url-pattern>/ApacheObjectServlet</url-pattern>
+    <servlet-name>ApacheServlet</servlet-name>
+    <url-pattern>/ApacheServlet</url-pattern>
   </servlet-mapping>
+
   <servlet>
-    <servlet-name>FacilityXMLServlet</servlet-name>
-    <servlet-class>com.nepxion.net.http.facility.FacilityXMLServlet</servlet-class>
+    <servlet-name>FacilityServerInvoker</servlet-name>
+    <servlet-class>com.nepxion.net.http.facility.FacilityServerInvoker</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>FacilityXMLServlet</servlet-name>
-    <url-pattern>/FacilityXMLServlet</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <servlet-name>FacilityObjectServlet</servlet-name>
-    <servlet-class>com.nepxion.net.http.facility.FacilityObjectServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>FacilityObjectServlet</servlet-name>
-    <url-pattern>/FacilityObjectServlet</url-pattern>
+    <servlet-name>FacilityServerInvoker</servlet-name>
+    <url-pattern>/FacilityServerInvoker</url-pattern>
   </servlet-mapping>
 </web-app>
