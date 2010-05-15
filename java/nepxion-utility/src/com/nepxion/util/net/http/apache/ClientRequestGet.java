@@ -11,14 +11,18 @@ package com.nepxion.util.net.http.apache;
  */
 
 import java.net.URI;
+import java.util.List;
 
 import org.apache.http.client.methods.HttpGet;
+import org.apache.http.client.utils.URLEncodedUtils;
 
 import com.nepxion.util.net.http.IClientRequest;
 
 public class ClientRequestGet
 	extends HttpGet implements IClientRequest
 {	
+	private String urlParameter = "";
+	
 	public ClientRequestGet()
 	{
 		super();
@@ -37,5 +41,24 @@ public class ClientRequestGet
 	public void setURI(String uri)
 	{
 		setURI(URI.create(uri));
+	}
+	
+	public void setParameterEntity(List parameterEntity)
+	{
+		setParameterEntity(parameterEntity, null);
+	}
+	
+	public void setParameterEntity(List parameterEntity, String encoding)
+	{
+		String format = URLEncodedUtils.format(parameterEntity, encoding);
+		if (format != null)
+		{	
+			urlParameter = "?" + format;
+		}
+	}
+	
+	public String getURLParameter()
+	{
+		return urlParameter;
 	}
 }

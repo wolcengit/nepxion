@@ -21,4 +21,6 @@ public interface IClientRequest
 	public void setURI(URI uri);
 	
 	public void setURI(String uri);
+	
+	public String getURLParameter();
 }

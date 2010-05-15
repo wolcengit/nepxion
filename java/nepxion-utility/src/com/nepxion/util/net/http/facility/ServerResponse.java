@@ -10,14 +10,20 @@ package com.nepxion.util.net.http.facility;
  * @version 1.0
  */
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 public abstract class ServerResponse
 {
     private ClientRequest clientRequest;
     
+    private HttpServletRequest httpServletRequest;
+    private HttpServletResponse httpServletResponse;
+          
     public ServerResponse()
     {    	
     }
-
+    
     public ClientRequest getClientRequest()
     {
         return clientRequest;
@@ -27,6 +33,26 @@ public abstract class ServerResponse
     {
         this.clientRequest = clientRequest;
     }
+    
+    public HttpServletRequest getHttpServletRequest()
+    {
+    	return httpServletRequest;
+    }
+    
+    public void setHttpServletRequest(HttpServletRequest httpServletRequest)
+    {
+    	this.httpServletRequest = httpServletRequest;
+    }
+    
+    public HttpServletResponse getHttpServletResponse()
+    {
+    	return httpServletResponse;
+    }
+    
+    public void setHttpServletResponse(HttpServletResponse httpServletResponse)
+    {
+    	this.httpServletResponse = httpServletResponse;
+    }    
 
     public abstract Object execute();
 }

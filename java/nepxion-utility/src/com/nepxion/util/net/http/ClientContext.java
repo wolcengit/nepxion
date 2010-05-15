@@ -33,7 +33,7 @@ public class ClientContext
 	private static int timeOut = -1;
 	private static int connectionTimeOut = -1;
 	
-	private static URI uri;
+	private static String url;
 	
 	public static void initialize()
 	{
@@ -59,7 +59,7 @@ public class ClientContext
             timeOut = Integer.parseInt(properties.getProperty(TIMEOUT));
             connectionTimeOut = Integer.parseInt(properties.getProperty(CONNECTION_TIMEOUT));
             
-            uri = createURI(host, port, path);            
+            url = createURL(host, port, path);            
         }
         catch (IOException e)
         {
@@ -67,21 +67,21 @@ public class ClientContext
         }    	
     }
     
-    public static void initialize(URL url)
+    public static void initialize(URL fileURL)
     {
         Properties properties = new Properties();
         try
         {
-        	URL filePath = new URL(url + CONFIG_PATH);
-            properties.load(filePath.openStream());
+        	fileURL = new URL(fileURL + CONFIG_PATH);
+            properties.load(fileURL.openStream());
             
-            host = url.getHost();
-            port = url.getPort();
+            host = fileURL.getHost();
+            port = fileURL.getPort();
             path = properties.getProperty(PATH);
             timeOut = Integer.parseInt(properties.getProperty(TIMEOUT));
             connectionTimeOut = Integer.parseInt(properties.getProperty(CONNECTION_TIMEOUT));            
             
-            uri = createURI(host, port, path);
+            url = createURL(host, port, path);  
         }
         catch (IOException e)
         {
@@ -89,11 +89,20 @@ public class ClientContext
         }    	
     }
     
-    public static URI createURI(String host, int port, String path)
+    public static String createURL(String host, int port, String path)
     {
     	if (host != null && port != 0 && path != null)
     	{    		
-    		String url = "http://" + host + ":" + port + path;
+    		return "http://" + host + ":" + port + path;
+    	}      	
+    	return null; 	
+    }
+    
+    public static URI createURI(String host, int port, String path)
+    {
+    	String url = createURL(host, port, path);
+    	if (url != null)
+    	{    		
     		return URI.create(url);
     	}      	
     	return null;
@@ -149,18 +158,13 @@ public class ClientContext
 		connectionTimeOut = value;
 	}	
 	
-	public static URI getURI()
+	public static String getURL()
 	{  
-		return uri;
+		return url;
 	}
 	
-	public static void setURI(URI value)
+	public static void setURL(String value)
 	{
-		uri = value;
+		url = value;
 	}
-	
-	public static void setURI(String value)
-	{
-		uri = URI.create(value);
-	}	
 }

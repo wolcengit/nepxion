@@ -10,8 +10,6 @@ package com.nepxion.util.net.http.apache;
  * @version 1.0
  */
 
-import java.net.URI;
-
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpUriRequest;
@@ -19,6 +17,7 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.params.HttpConnectionParams;
 import org.apache.http.util.EntityUtils;
 
+import com.nepxion.util.io.IOUtil;
 import com.nepxion.util.net.http.ClientContext;
 import com.nepxion.util.net.http.IClientInvoker;
 import com.nepxion.util.net.http.IClientRequest;
@@ -31,10 +30,11 @@ public class ClientInvoker
 	{
 		if (clientRequest.getURI() == null)
 		{
-			URI uri = ClientContext.getURI();
-			if (uri != null)
+			String url = ClientContext.getURL();
+			if (url != null)
 			{
-				clientRequest.setURI(uri);
+				// If the method is HttpGet, the URLParameter is ""
+				clientRequest.setURI(url + clientRequest.getURLParameter());
 			}
 		}
 				
@@ -62,12 +62,41 @@ public class ClientInvoker
 		}			
 		
 		HttpUriRequest request = (HttpUriRequest) clientRequest;
-		HttpResponse response = execute(request);
-		
-		getConnectionManager().shutdown();
-		
+		HttpResponse response = execute(request);		
 		return response;
 	}
+	
+	public HttpEntity getResponseEntity(IClientRequest clientRequest)
+		throws Exception
+	{
+		HttpResponse response = (HttpResponse) invoke(clientRequest);
+		HttpEntity entity = response.getEntity();
+		return entity;
+	}
+	
+	public Object getResponseObject(IClientRequest clientRequest)
+		throws Exception
+	{
+		HttpEntity entity = getResponseEntity(clientRequest);
+		Object object = IOUtil.read(entity.getContent());
+		close();
+		return object;
+	}
+	
+	public String getResponseText(IClientRequest clientRequest)
+		throws Exception
+	{
+		return getResponseText(clientRequest, null);
+	}
+	
+	public String getResponseText(IClientRequest clientRequest, String encoding)
+		throws Exception
+	{
+		HttpEntity entity = getResponseEntity(clientRequest);
+		String text = EntityUtils.toString(entity, encoding);
+		close();
+		return text;
+	}	
 	
 	public int getTimeOut()
 	{
@@ -89,25 +118,8 @@ public class ClientInvoker
 		getParams().setIntParameter(HttpConnectionParams.CONNECTION_TIMEOUT, timeOut);		
 	}
 	
-	public HttpEntity getEntity(IClientRequest clientRequest)
-		throws Exception
+	public void close()
 	{
-		HttpResponse response = (HttpResponse) invoke(clientRequest);
-		HttpEntity entity = response.getEntity();		
-		return entity;
-	}
-	
-	public String getContent(IClientRequest clientRequest)
-		throws Exception
-	{
-		return getContent(clientRequest, null);
-	}	
-	
-	public String getContent(IClientRequest clientRequest, String encoding)
-		throws Exception
-	{
-		HttpEntity entity = getEntity(clientRequest);
-		String content = EntityUtils.toString(entity, encoding);		
-		return content;
+		getConnectionManager().shutdown();
 	}
 }

@@ -35,10 +35,10 @@ public class ClientInvoker
     {
 		if (clientRequest.getURI() == null)
 		{
-			URI uri = ClientContext.getURI();
-			if (uri != null)
+			String url = ClientContext.getURL();
+			if (url != null)
 			{
-				clientRequest.setURI(uri);
+				clientRequest.setURI(url);
 			}
 		}
     	
@@ -67,7 +67,7 @@ public class ClientInvoker
     		throw new IllegalArgumentException("Invalid URL parameter for invoking");
     	}	
     	
-        Object returnObject = null;
+        Object responseObject = null;
         try
         {
             URL url = uri.toURL();
@@ -80,7 +80,7 @@ public class ClientInvoker
                         
             IOUtil.write(connection.getOutputStream(), clientRequest);
             
-            returnObject = IOUtil.read(connection.getInputStream());
+            responseObject = IOUtil.read(connection.getInputStream());
         }
         catch (ClassNotFoundException e)
         {
@@ -95,12 +95,12 @@ public class ClientInvoker
         	throw new IllegalArgumentException("Invalid connection request exception for " + uri, e);
         }
         
-        if (returnObject instanceof Exception)
+        if (responseObject instanceof Exception)
         {
-            Exception e = (Exception) returnObject;
+            Exception e = (Exception) responseObject;
             throw e;
         }
-        return returnObject;
+        return responseObject;
     }
 
     /**
@@ -113,13 +113,13 @@ public class ClientInvoker
         throws Exception
     {
         ServerInvoker serverInvoker = new ServerInvoker();
-        Object returnObject = serverInvoker.invoke((ClientRequest) clientRequest);
+        Object responseObject = serverInvoker.invoke((ClientRequest) clientRequest, null, null);
 
-        if (returnObject instanceof Exception)
+        if (responseObject instanceof Exception)
         {
-            Exception e = (Exception) returnObject;
+            Exception e = (Exception) responseObject;
             throw e;
         }
-        return returnObject;
+        return responseObject;
     }
 }

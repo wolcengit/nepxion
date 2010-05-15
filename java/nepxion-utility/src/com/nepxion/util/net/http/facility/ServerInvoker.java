@@ -37,23 +37,22 @@ public class ServerInvoker
     public void doExecute(HttpServletRequest request, HttpServletResponse response)
     	throws ServletException, IOException
     {
-        ClientRequest clientRequest = null;
         try
         {            
-            clientRequest = (ClientRequest) IOUtil.read(request.getInputStream());            
-
-            Object returnObject = invoke(clientRequest); 
+        	ClientRequest clientRequest = (ClientRequest) IOUtil.read(request.getInputStream()); 
             
-            IOUtil.write(response.getOutputStream(), returnObject);
+            Object serverResponseObject = invoke(clientRequest, request, response); 
+         
+            IOUtil.write(response.getOutputStream(), serverResponseObject);            
         }
         catch (ClassNotFoundException e)
-        {
+        {        		
         	e.printStackTrace();
-        	throw new IOException(e.toString());            
-        }    	
+        	throw new IOException(e.toString());        	
+        }  
     }
 
-    public Object invoke(ClientRequest clientRequest)
+    public Object invoke(ClientRequest clientRequest, HttpServletRequest request, HttpServletResponse response)
     {
         Class responseClass = clientRequest.getResponseClass();
         ServerResponse serverResponse = null;
@@ -68,8 +67,10 @@ public class ServerInvoker
         catch (InstantiationException e)
         {
             e.printStackTrace();
-        }
+        }       
         serverResponse.setClientRequest(clientRequest);
+        serverResponse.setHttpServletRequest(request);
+        serverResponse.setHttpServletResponse(response);
         return serverResponse.execute();
     }
 }

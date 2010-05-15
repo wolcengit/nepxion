@@ -97,4 +97,9 @@ public class ClientRequest
 	{
 		this.entity = entity;
 	}
+	
+	public String getURLParameter()
+	{
+		return "";
+	}	
 }

@@ -30,7 +30,6 @@ import org.apache.http.entity.InputStreamEntity;
 import org.apache.http.entity.SerializableEntity;
 import org.apache.http.entity.StringEntity;
 
-import com.nepxion.util.io.IOUtil;
 import com.nepxion.util.net.http.IClientRequest;
 
 public class ClientRequestPost
@@ -188,4 +187,9 @@ public class ClientRequestPost
 		EntityTemplate entityTemplate = new EntityTemplate(contentProducer);
 		return entityTemplate;
 	}
+	
+	public String getURLParameter()
+	{
+		return "";
+	}	
 }
