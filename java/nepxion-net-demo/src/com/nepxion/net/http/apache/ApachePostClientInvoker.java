@@ -10,14 +10,17 @@ package com.nepxion.net.http.apache;
  * @version 1.0
  */
 
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import org.apache.http.entity.StringEntity;
 import org.apache.http.message.BasicNameValuePair;
 
+import com.nepxion.util.encode.EncodeContext;
 import com.nepxion.util.io.IOUtil;
 import com.nepxion.util.net.http.ClientContext;
 import com.nepxion.util.net.http.apache.ClientInvoker;
@@ -25,18 +28,19 @@ import com.nepxion.util.net.http.apache.ClientRequestPost;
 
 public class ApachePostClientInvoker
 {	
+	private static ClientInvoker clientInvoker = new ClientInvoker();
+	
 	public static void invokeServletForParameter()
 	{
 		ClientContext.setURL("http://localhost:8080/Nepxion-Net-Demo/ApacheServlet");
+		EncodeContext.setCharset("GBK");
 				
 		List entity = new ArrayList();
-		entity.add(new BasicNameValuePair("target", "servlet"));
-		entity.add(new BasicNameValuePair("entity", "parameter"));
+		entity.add(new BasicNameValuePair("target", "服务调用"));
+		entity.add(new BasicNameValuePair("entity", "参数"));
 		
 		ClientRequestPost clientRequestPost = new ClientRequestPost();
-		clientRequestPost.setParameterEntity(entity, "GBK");
-  
-		ClientInvoker clientInvoker = new ClientInvoker();
+		clientRequestPost.setParameterEntity(entity);
 
 		String responseText = null;
 		try
@@ -52,16 +56,14 @@ public class ApachePostClientInvoker
 	
 	public static void invokeServerForSerializable()
 	{
-		ClientContext.setURL("http://localhost:8080/Nepxion-Net-Demo/ApacheServerInvoker");
+		ClientContext.setURL("http://localhost:8080/Nepxion-Net-Demo/ApacheServerObjectInvoker");
 		
 		HashMap map = new HashMap();
-		map.put("target", "server");
-		map.put("entity", "serializable");
+		map.put("target", "服务调用");
+		map.put("entity", "序列化");
 		
 		ClientRequestPost clientRequestPost = new ClientRequestPost();
-		clientRequestPost.setSerializableEntity(map, false);
-  
-		ClientInvoker clientInvoker = new ClientInvoker();			
+		clientRequestPost.setSerializableEntity(map, false);		
 
 		Object responseObject = null;
 		try
@@ -77,11 +79,11 @@ public class ApachePostClientInvoker
 	
 	public static void invokeServerForInputStream()
 	{
-		ClientContext.setURL("http://localhost:8080/Nepxion-Net-Demo/ApacheServerInvoker");
+		ClientContext.setURL("http://localhost:8080/Nepxion-Net-Demo/ApacheServerObjectInvoker");
 		
 		List list = new ArrayList();
-		list.add("server");
-		list.add("inputStream");
+		list.add("服务调用");
+		list.add("流");
 		
 		InputStream inputStream = null;
 		try
@@ -94,9 +96,7 @@ public class ApachePostClientInvoker
 		}
 		
 		ClientRequestPost clientRequestPost = new ClientRequestPost();
-		clientRequestPost.setInputStreamEntity(inputStream);
-  
-		ClientInvoker clientInvoker = new ClientInvoker();			
+		clientRequestPost.setInputStreamEntity(inputStream);		
 
 		Object responseObject = null;
 		try
@@ -112,15 +112,14 @@ public class ApachePostClientInvoker
 	
 	public static void invokeServerForString()
 	{
-		ClientContext.setURL("http://localhost:8080/Nepxion-Net-Demo/ApacheServerInvoker");
+		ClientContext.setURL("http://localhost:8080/Nepxion-Net-Demo/ApacheServerStringInvoker");
+		EncodeContext.setCharset("GBK");
 		
-		String text = "the target is server, the entity is string";
+		String text = "[目标为服务调用，实体对字符串]";
 		
 		ClientRequestPost clientRequestPost = new ClientRequestPost();
-		clientRequestPost.setStringEntity(text);
-  
-		ClientInvoker clientInvoker = new ClientInvoker();			
-
+		StringEntity entity = clientRequestPost.setStringEntity(text);		
+		
 		Object responseObject = null;
 		try
 		{
@@ -133,11 +132,67 @@ public class ApachePostClientInvoker
 		System.out.println(responseObject);		
 	}	
 	
+	public static void invokeServerForFile()
+	{
+		ClientContext.setURL("http://localhost:8080/Nepxion-Net-Demo/ApacheServerStringInvoker");
+		
+		File file = new File("conf/config.properties");
+		
+		ClientRequestPost clientRequestPost = new ClientRequestPost();
+		clientRequestPost.setFileEntity(file);
+		//clientRequestPost.setFileEntity(file, "text/plain; charset=\"UTF-8\"");
+		
+		Object responseObject = null;
+		try
+		{
+			responseObject = clientInvoker.getResponseObject(clientRequestPost);		
+		}
+		catch (Exception e)
+		{
+			e.printStackTrace();
+		}   
+		System.out.println(responseObject);		
+	}	
+	
+	public static void invokeServerForByteArray()
+	{
+		ClientContext.setURL("http://localhost:8080/Nepxion-Net-Demo/ApacheServerObjectInvoker");
+		
+		File file = new File("conf/config.properties");
+		
+		ClientRequestPost clientRequestPost = new ClientRequestPost();
+		try
+		{
+			clientRequestPost.setByteArrayEntity(IOUtil.write(file).toByteArray());
+		}
+		catch (IOException e)
+		{
+			e.printStackTrace();
+		}		
+
+		Object responseObject = null;
+		try
+		{
+			responseObject = clientInvoker.getResponseObject(clientRequestPost);		
+		}
+		catch (Exception e)
+		{
+			e.printStackTrace();
+		}   
+		
+		File responseFile = (File) responseObject;
+		System.out.println(responseFile.getAbsoluteFile());
+	}	
+	
 	public static void main(String[] args)
-	{				
-		ApachePostClientInvoker.invokeServletForParameter();
+	{					
+		ApachePostClientInvoker.invokeServletForParameter();		
 		ApachePostClientInvoker.invokeServerForSerializable();
-		ApachePostClientInvoker.invokeServerForInputStream();
+		ApachePostClientInvoker.invokeServerForInputStream();		
 		ApachePostClientInvoker.invokeServerForString();
+		ApachePostClientInvoker.invokeServerForFile();
+		ApachePostClientInvoker.invokeServerForByteArray();
+		
+		clientInvoker.shutdown();
 	}	
 }

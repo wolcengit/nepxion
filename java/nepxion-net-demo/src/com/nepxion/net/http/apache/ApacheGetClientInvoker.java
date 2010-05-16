@@ -15,24 +15,28 @@ import java.util.List;
 
 import org.apache.http.message.BasicNameValuePair;
 
+import com.nepxion.util.encode.EncodeContext;
 import com.nepxion.util.net.http.ClientContext;
 import com.nepxion.util.net.http.apache.ClientInvoker;
 import com.nepxion.util.net.http.apache.ClientRequestGet;
 
 public class ApacheGetClientInvoker
 {	
+	private static ClientInvoker clientInvoker = new ClientInvoker();
+	
 	public static void invokeServletForParameter()
 	{
-		ClientContext.setURL("http://localhost:8080/Nepxion-Net-Demo/ApacheServlet");
-				
+		// ClientContext.setURL("http://localhost:8080/Nepxion-Net-Demo/ApacheServlet");
+		ClientContext.initialize();
+		
+		EncodeContext.setCharset("GBK");
+		
 		List list = new ArrayList();
-		list.add(new BasicNameValuePair("target", "servlet"));
-		list.add(new BasicNameValuePair("entity", "parameter"));
+		list.add(new BasicNameValuePair("target", "服务调用"));
+		list.add(new BasicNameValuePair("entity", "参数"));
 		
 		ClientRequestGet clientRequestGet = new ClientRequestGet();
-		clientRequestGet.setParameterEntity(list, "GBK");		
-  
-		ClientInvoker clientInvoker = new ClientInvoker();
+		clientRequestGet.setParameterEntity(list);		
 
 		String responseText = null;
 		try
@@ -44,12 +48,12 @@ public class ApacheGetClientInvoker
 			e.printStackTrace();
 		}
 		System.out.println(responseText);
-		
-		clientInvoker.close();
 	}
 	
 	public static void main(String[] args)
 	{		
 		ApacheGetClientInvoker.invokeServletForParameter();
+		
+		clientInvoker.shutdown();
 	}	
 }

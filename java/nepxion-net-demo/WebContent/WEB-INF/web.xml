@@ -2,13 +2,21 @@
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
   <display-name>Nepxion-Net-Demo</display-name>
   <servlet>
-    <servlet-name>ApacheServerInvoker</servlet-name>
-    <servlet-class>com.nepxion.net.http.apache.ApacheServerInvoker</servlet-class>
+    <servlet-name>ApacheServerObjectInvoker</servlet-name>
+    <servlet-class>com.nepxion.net.http.apache.ApacheServerObjectInvoker</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>ApacheServerInvoker</servlet-name>
-    <url-pattern>/ApacheServerInvoker</url-pattern>
+    <servlet-name>ApacheServerObjectInvoker</servlet-name>
+    <url-pattern>/ApacheServerObjectInvoker</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>ApacheServerStringInvoker</servlet-name>
+    <servlet-class>com.nepxion.net.http.apache.ApacheServerStringInvoker</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ApacheServerStringInvoker</servlet-name>
+    <url-pattern>/ApacheServerStringInvoker</url-pattern>
+  </servlet-mapping>  
   <servlet>
     <servlet-name>ApacheServlet</servlet-name>
     <servlet-class>com.nepxion.net.http.apache.ApacheServlet</servlet-class>
@@ -17,7 +25,6 @@
     <servlet-name>ApacheServlet</servlet-name>
     <url-pattern>/ApacheServlet</url-pattern>
   </servlet-mapping>
-
   <servlet>
     <servlet-name>FacilityServerInvoker</servlet-name>
     <servlet-class>com.nepxion.net.http.facility.FacilityServerInvoker</servlet-class>

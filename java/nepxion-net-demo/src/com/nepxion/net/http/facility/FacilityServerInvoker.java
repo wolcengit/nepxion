@@ -28,8 +28,8 @@ public class FacilityServerInvoker
 		String entity = (String) requestMap.get("entity");
 		
 		HashMap responseMap = new HashMap();
-		responseMap.put("target", target + "-response");
-		responseMap.put("entity", entity + "-response");
+		responseMap.put("target", target + "响应");
+		responseMap.put("entity", entity + "响应");
 		return responseMap;
 	}	
 }

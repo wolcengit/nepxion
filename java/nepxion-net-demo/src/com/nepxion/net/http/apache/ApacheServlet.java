@@ -18,6 +18,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.nepxion.util.encode.EncodeUtil;
+
 public class ApacheServlet
 	extends HttpServlet
 {
@@ -35,19 +37,18 @@ public class ApacheServlet
 	
 	private void doExecute(HttpServletRequest request, HttpServletResponse response)
 		throws ServletException, IOException	
-	{
+	{		
 		request.setCharacterEncoding("GBK");		
 		response.setCharacterEncoding("GBK");		
 		response.setContentType("text/xml");
 		
-		String target = request.getParameter("target");
-		String entity = request.getParameter("entity");
-		// String entity = EncodeUtil.formatGBK(request.getParameter("entity"));
+		String target = EncodeUtil.formatGBK(request.getParameter("target"));
+		String entity = EncodeUtil.formatGBK(request.getParameter("entity"));
 		
 		PrintWriter out = response.getWriter();
 		out.println("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
 		out.println("<records>");
-		out.println("<record index=\"" + 1 + "\" target=\"" + target + "-response" + "\" entity=\"" + entity + "-response" + "\"/>");
+		out.println("<record index=\"" + 1 + "\" target=\"" + target + "响应" + "\" entity=\"" + entity + "响应" + "\"/>");
 		out.println("</records>");		
 	}
 }

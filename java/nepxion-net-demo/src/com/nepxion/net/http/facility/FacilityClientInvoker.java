@@ -23,8 +23,8 @@ public class FacilityClientInvoker
 		ClientContext.setURL("http://localhost:8080/Nepxion-Net-Demo/FacilityServerInvoker");
 		
 		HashMap map = new HashMap();
-		map.put("target", "server");
-		map.put("entity", "object");
+		map.put("target", "服务调用");
+		map.put("entity", "对象");
 		
 		ClientRequest clientRequest = new ClientRequest();
 		clientRequest.setEntity(map);
