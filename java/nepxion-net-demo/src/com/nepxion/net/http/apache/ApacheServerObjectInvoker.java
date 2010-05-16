@@ -11,19 +11,27 @@ package com.nepxion.net.http.apache;
  */
 
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.nepxion.util.net.http.apache.ServerInvoker;
 
-public class ApacheServerInvoker
+public class ApacheServerObjectInvoker
 	extends ServerInvoker
 {
+	public ApacheServerObjectInvoker()
+	{		
+		setInputStreamType(ServerInvoker.INPUT_STREAM_TYPE_OBJECT);
+	}
+	
     public Object invoke(Object requestObject, HttpServletRequest request, HttpServletResponse response)
+		throws ServletException, IOException    
     {
     	if (requestObject instanceof HashMap) // Serializable Entity
     	{	
@@ -34,8 +42,8 @@ public class ApacheServerInvoker
 			String entity = (String) requestMap.get("entity");
 			
 			HashMap responseMap = new HashMap();
-			responseMap.put("target", target + "-response");
-			responseMap.put("entity", entity + "-response");
+			responseMap.put("target", target + "响应");
+			responseMap.put("entity", entity + "响应");
 			return responseMap;
     	}
     	else if (requestObject instanceof List) // InputStream Entity
@@ -45,21 +53,17 @@ public class ApacheServerInvoker
     		List requestList = (List) requestObject;
     		
 			List responseList = new ArrayList();
-			responseList.add(requestList.get(0) + "-response");
-			responseList.add(requestList.get(1) + "-response");			
+			responseList.add(requestList.get(0) + "响应");
+			responseList.add(requestList.get(1) + "响应");			
 			return responseList;    		
     	}
-    	else if (requestObject instanceof String) // String entity
+    	else if (requestObject instanceof File) // File Entity
     	{
-    		System.out.println("String Entity for " + requestObject);
+    		System.out.println("File Entity for " + requestObject);
     		
-    		return requestObject + "-response";
+    		File requestFile = (File) requestObject;    		
+    		return requestFile;
     	}	
-    	else if (requestObject instanceof File)
-    	{
-    		
-    	}	
-    	
 		return null;
     }
 }
