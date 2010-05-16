@@ -17,11 +17,18 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.nepxion.util.encode.EncodeContext;
 import com.nepxion.util.io.IOUtil;
 
 public class ServerInvoker
     extends HttpServlet
 {
+	public static final int INPUT_STREAM_TYPE_OBJECT = 0;	
+	public static final int INPUT_STREAM_TYPE_STRING = 1;
+	
+	private int inputStreamType = INPUT_STREAM_TYPE_OBJECT;
+	private String charset = EncodeContext.getCharset();
+	
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 		throws ServletException, IOException
 	{	
@@ -38,9 +45,15 @@ public class ServerInvoker
     	throws ServletException, IOException
     {
         try
-        {            
-        	Object requestObject = IOUtil.read(request.getInputStream());        	
-        	
+        {    
+        	Object requestObject = null;
+        	switch (inputStreamType)
+        	{
+        		case INPUT_STREAM_TYPE_OBJECT : requestObject = IOUtil.read(request.getInputStream()); break;
+        		case INPUT_STREAM_TYPE_STRING : requestObject = IOUtil.getString(request.getInputStream(), charset); break;
+        		default : requestObject = IOUtil.read(request.getInputStream()); break;
+        	}
+        	     	
         	Object responseObject = invoke(requestObject, request, response); 
             
             IOUtil.write(response.getOutputStream(), responseObject);        	
@@ -53,7 +66,28 @@ public class ServerInvoker
     }
 
     public Object invoke(Object requestObject, HttpServletRequest request, HttpServletResponse response)
+		throws ServletException, IOException      
     {
     	return null;
+    }
+    
+    public int getInputStreamType()
+    {
+    	return inputStreamType;
+    }
+    
+    public void setInputStreamType(int inputStreamType)
+    {
+    	this.inputStreamType = inputStreamType;
+    }
+    
+    public String getCharset()
+    {
+    	return charset;
+    }
+    
+    public void setCharset(String charset)
+    {
+    	this.charset = charset;
     }
 }

@@ -23,4 +23,6 @@ public interface IClientRequest
 	public void setURI(String uri);
 	
 	public String getURLParameter();
+	
+	public void abort();
 }

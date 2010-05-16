@@ -101,5 +101,10 @@ public class ClientRequest
 	public String getURLParameter()
 	{
 		return "";
-	}	
+	}
+	
+	public void abort()
+	{
+		
+	}
 }

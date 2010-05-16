@@ -53,6 +53,7 @@ public class ServerInvoker
     }
 
     public Object invoke(ClientRequest clientRequest, HttpServletRequest request, HttpServletResponse response)
+		throws ServletException, IOException    
     {
         Class responseClass = clientRequest.getResponseClass();
         ServerResponse serverResponse = null;

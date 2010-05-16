@@ -16,8 +16,14 @@ import com.nepxion.util.time.TimeUtil;
 
 public class ScheduleExecuter
 {
-    private Scheduler scheduler = new Scheduler();
-    private ScheduleIteratorImpl scheduleIterator = new ScheduleIteratorImpl();
+    private Scheduler scheduler;
+    private ScheduleIteratorImpl scheduleIterator;
+    
+    public ScheduleExecuter()
+    {
+    	scheduler = new Scheduler();
+    	scheduleIterator = new ScheduleIteratorImpl();
+    }
 
     public void executeScheduler(SchedulerTask schedulerTask)
     {

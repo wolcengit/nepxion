@@ -10,13 +10,16 @@ package com.nepxion.util.net.http.apache;
  * @version 1.0
  */
 
+import java.io.IOException;
+
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
+import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.methods.HttpUriRequest;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.params.HttpConnectionParams;
-import org.apache.http.util.EntityUtils;
 
+import com.nepxion.util.encode.EncodeContext;
 import com.nepxion.util.io.IOUtil;
 import com.nepxion.util.net.http.ClientContext;
 import com.nepxion.util.net.http.IClientInvoker;
@@ -62,7 +65,23 @@ public class ClientInvoker
 		}			
 		
 		HttpUriRequest request = (HttpUriRequest) clientRequest;
-		HttpResponse response = execute(request);		
+		HttpResponse response = null;
+		try
+		{
+			response = execute(request);
+		}
+		catch (ClientProtocolException e)
+		{
+			request.abort();
+			e.printStackTrace();
+			throw e;
+		}
+		catch (IOException e)
+		{
+			request.abort();
+			e.printStackTrace();
+			throw e;			
+		}		
 		return response;
 	}
 	
@@ -79,22 +98,24 @@ public class ClientInvoker
 	{
 		HttpEntity entity = getResponseEntity(clientRequest);
 		Object object = IOUtil.read(entity.getContent());
-		close();
+		entity.consumeContent();
+		clientRequest.abort();
 		return object;
 	}
 	
 	public String getResponseText(IClientRequest clientRequest)
 		throws Exception
 	{
-		return getResponseText(clientRequest, null);
+		return getResponseText(clientRequest, EncodeContext.getCharset());
 	}
 	
-	public String getResponseText(IClientRequest clientRequest, String encoding)
+	public String getResponseText(IClientRequest clientRequest, String charset)
 		throws Exception
 	{
 		HttpEntity entity = getResponseEntity(clientRequest);
-		String text = EntityUtils.toString(entity, encoding);
-		close();
+		String text = IOUtil.getString(entity.getContent(), charset);
+		entity.consumeContent();
+		clientRequest.abort();
 		return text;
 	}	
 	
@@ -118,7 +139,7 @@ public class ClientInvoker
 		getParams().setIntParameter(HttpConnectionParams.CONNECTION_TIMEOUT, timeOut);		
 	}
 	
-	public void close()
+	public void shutdown()
 	{
 		getConnectionManager().shutdown();
 	}

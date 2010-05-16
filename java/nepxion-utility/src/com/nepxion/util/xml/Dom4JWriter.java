@@ -18,23 +18,38 @@ import org.dom4j.Document;
 import org.dom4j.io.OutputFormat;
 import org.dom4j.io.XMLWriter;
 
+import com.nepxion.util.encode.EncodeContext;
+
 public class Dom4JWriter
 {
 	/**
 	 * Get xml text by document
 	 * @param document  the instanceof Document
-	 * @param encoding  the encoding text, example "UTF-8", "GBK", "GB2321"
 	 * @return          the xml text
 	 * @throws UnsupportedEncodingException
 	 * @throws IOException
 	 */
-	public static String getText(Document document, String encoding)
+	public static String getText(Document document)
+		throws UnsupportedEncodingException, IOException
+	{
+		return getText(document, EncodeContext.getCharset());
+	}
+	
+	/**
+	 * Get xml text by document
+	 * @param document  the instanceof Document
+	 * @param Charset   the Charset text, example "ISO-8859-1", "UTF-8", "GBK", "GB2312"
+	 * @return          the xml text
+	 * @throws UnsupportedEncodingException
+	 * @throws IOException
+	 */
+	public static String getText(Document document, String charset)
 		throws UnsupportedEncodingException, IOException
 	{
 		ByteArrayOutputStream baos = new ByteArrayOutputStream();
-		OutputFormat outputFormat = new OutputFormat("  ", true, encoding);
+		OutputFormat outputFormat = new OutputFormat("  ", true, charset);
 		XMLWriter writer = new XMLWriter(baos, outputFormat);
 		writer.write(document);
-		return baos.toString(encoding);
+		return baos.toString(charset);
 	}
 }

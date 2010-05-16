@@ -30,6 +30,7 @@ import org.apache.http.entity.InputStreamEntity;
 import org.apache.http.entity.SerializableEntity;
 import org.apache.http.entity.StringEntity;
 
+import com.nepxion.util.encode.EncodeContext;
 import com.nepxion.util.net.http.IClientRequest;
 
 public class ClientRequestPost
@@ -57,27 +58,15 @@ public class ClientRequestPost
 	
 	public UrlEncodedFormEntity setParameterEntity(List parameterEntity)
 	{
-		UrlEncodedFormEntity entity = null;
-		try
-		{
-			entity = new UrlEncodedFormEntity(parameterEntity);
-			
-		}
-		catch (UnsupportedEncodingException e)
-		{
-			e.printStackTrace();
-		}
-		entity.setChunked(true);
-		setEntity(entity);
-		return entity;
+		return setParameterEntity(parameterEntity, EncodeContext.getCharset());
 	}
 	
-	public UrlEncodedFormEntity setParameterEntity(List parameterEntity, String encoding)
+	public UrlEncodedFormEntity setParameterEntity(List parameterEntity, String charset)
 	{
 		UrlEncodedFormEntity entity = null;
 		try
 		{
-			entity = new UrlEncodedFormEntity(parameterEntity, encoding);
+			entity = new UrlEncodedFormEntity(parameterEntity, charset);
 			
 		}
 		catch (UnsupportedEncodingException e)
@@ -121,26 +110,15 @@ public class ClientRequestPost
 	
 	public StringEntity setStringEntity(String text)
 	{
-		StringEntity entity = null;
-		try
-		{
-			entity = new StringEntity(text);
-		}
-		catch (UnsupportedEncodingException e)
-		{
-			e.printStackTrace();
-		}
-		entity.setChunked(true);
-		setEntity(entity);		
-		return entity;
+		return setStringEntity(text, EncodeContext.getCharset());
 	}
 	
-	public StringEntity setStringEntity(String text, String encoding)
+	public StringEntity setStringEntity(String text, String charset)
 	{
 		StringEntity entity = null;
 		try
 		{
-			entity = new StringEntity(text, encoding);
+			entity = new StringEntity(text, charset);
 		}
 		catch (UnsupportedEncodingException e)
 		{
@@ -158,6 +136,14 @@ public class ClientRequestPost
 		setEntity(entity);
 		return entity;
 	}
+	
+	public FileEntity setFileEntity(File file, String contentType)
+	{
+		FileEntity entity = new FileEntity(file, contentType);
+		entity.setChunked(true);
+		setEntity(entity);
+		return entity;
+	}	
 	
 	public BufferedHttpEntity setBufferedEntity(HttpEntity httpEntity)
 	{
