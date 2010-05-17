@@ -18,12 +18,12 @@ import java.util.HashMap;
 import java.util.List;
 
 import org.apache.http.entity.StringEntity;
-import org.apache.http.message.BasicNameValuePair;
 
 import com.nepxion.util.encode.EncodeContext;
 import com.nepxion.util.io.IOUtil;
 import com.nepxion.util.net.http.ClientContext;
 import com.nepxion.util.net.http.apache.ClientInvoker;
+import com.nepxion.util.net.http.apache.ClientParameter;
 import com.nepxion.util.net.http.apache.ClientRequestPost;
 
 public class ApachePostClientInvoker
@@ -36,8 +36,8 @@ public class ApachePostClientInvoker
 		EncodeContext.registerCharset("GB2312");
 				
 		List entity = new ArrayList();
-		entity.add(new BasicNameValuePair("target", "服务调用"));
-		entity.add(new BasicNameValuePair("entity", "参数"));
+		entity.add(new ClientParameter("target", "服务调用"));
+		entity.add(new ClientParameter("entity", "参数"));
 		
 		ClientRequestPost clientRequestPost = new ClientRequestPost();
 		clientRequestPost.setParameterEntity(entity);
@@ -115,7 +115,7 @@ public class ApachePostClientInvoker
 		ClientContext.registerURL("http://localhost:8080/Nepxion-Net-Demo/ApacheServerStringInvoker");
 		EncodeContext.registerCharset("GB2312");
 		
-		String text = "[目标为服务调用，实体对字符串]";
+		String text = "[目标为服务调用，实体为字符串]";
 		
 		ClientRequestPost clientRequestPost = new ClientRequestPost();
 		StringEntity entity = clientRequestPost.setStringEntity(text);		
@@ -136,7 +136,7 @@ public class ApachePostClientInvoker
 	{
 		ClientContext.registerURL("http://localhost:8080/Nepxion-Net-Demo/ApacheServerStringInvoker");
 		
-		File file = new File("conf/config.properties");
+		File file = new File("conf/http.properties");
 		
 		ClientRequestPost clientRequestPost = new ClientRequestPost();
 		clientRequestPost.setFileEntity(file);
@@ -158,7 +158,7 @@ public class ApachePostClientInvoker
 	{
 		ClientContext.registerURL("http://localhost:8080/Nepxion-Net-Demo/ApacheServerObjectInvoker");
 		
-		File file = new File("conf/config.properties");
+		File file = new File("conf/http.properties");
 		
 		ClientRequestPost clientRequestPost = new ClientRequestPost();
 		try

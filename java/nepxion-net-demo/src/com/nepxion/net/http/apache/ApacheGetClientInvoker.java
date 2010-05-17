@@ -13,11 +13,10 @@ package com.nepxion.net.http.apache;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.http.message.BasicNameValuePair;
-
 import com.nepxion.util.encode.EncodeContext;
 import com.nepxion.util.net.http.ClientContext;
 import com.nepxion.util.net.http.apache.ClientInvoker;
+import com.nepxion.util.net.http.apache.ClientParameter;
 import com.nepxion.util.net.http.apache.ClientRequestGet;
 
 public class ApacheGetClientInvoker
@@ -31,8 +30,8 @@ public class ApacheGetClientInvoker
 		EncodeContext.registerCharset("GB2312");
 		
 		List list = new ArrayList();
-		list.add(new BasicNameValuePair("target", "服务调用"));
-		list.add(new BasicNameValuePair("entity", "参数"));
+		list.add(new ClientParameter("target", "服务调用"));
+		list.add(new ClientParameter("entity", "参数"));
 		
 		ClientRequestGet clientRequestGet = new ClientRequestGet();
 		clientRequestGet.setParameterEntity(list);		
