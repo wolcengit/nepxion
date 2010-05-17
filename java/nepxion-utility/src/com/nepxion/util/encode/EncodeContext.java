@@ -14,13 +14,13 @@ public class EncodeContext
 {
     private static String charset = "ISO-8859-1";
     
+    public static void registerCharset(String value)
+    {
+    	charset = value;
+    } 
+    
     public static String getCharset()
     {
     	return charset;
-    }
-    
-    public static void setCharset(String value)
-    {
-    	charset = value;
-    }    
+    }   
 }
