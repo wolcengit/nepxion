@@ -35,17 +35,17 @@ public class ClientContext
 	
 	private static String url;
 	
-	public static void initialize()
+	public static void register()
 	{
-		initialize(CONFIG_PATH);
+		register(CONFIG_PATH);
 	}
 	
-	public static void initialize(String filePath)
+	public static void register(String filePath)
 	{
-		initialize(new File(filePath));
+		register(new File(filePath));
 	}
 	
-    public static void initialize(File file)
+    public static void register(File file)
     {
         Properties properties = new Properties();
         try
@@ -67,7 +67,7 @@ public class ClientContext
         }    	
     }
     
-    public static void initialize(URL fileURL)
+    public static void register(URL fileURL)
     {
         Properties properties = new Properties();
         try
@@ -108,14 +108,19 @@ public class ClientContext
     	return null;
     }
     
+	public static void registerHost(String value)
+	{
+		host = value;
+	}
+	
 	public static String getHost()
 	{
 		return host;
 	}
 	
-	public static void setHost(String value)
+	public static void registerPort(int value)
 	{
-		host = value;
+		port = value;
 	}
 	
 	public static int getPort()
@@ -123,9 +128,9 @@ public class ClientContext
 		return port;
 	}
 	
-	public static void setPort(int value)
+	public static void registertPath(String value)
 	{
-		port = value;
+		path = value;
 	}
 	
 	public static String getPath()
@@ -133,9 +138,9 @@ public class ClientContext
 		return path;
 	}
 	
-	public static void setPath(String value)
+	public static void registerTimeOut(int value)
 	{
-		path = value;
+		timeOut = value;
 	}
 	
 	public static int getTimeOut()
@@ -143,28 +148,23 @@ public class ClientContext
 		return timeOut;
 	}
 	
-	public static void setTimeOut(int value)
+	public static void registerConnectionTimeOut(int value)
 	{
-		timeOut = value;
+		connectionTimeOut = value;
 	}
 	
 	public static int getConnectionTimeOut()
 	{
 		return connectionTimeOut;
-	}
+	}	
 	
-	public static void setConnectionTimeOut(int value)
+	public static void registerURL(String value)
 	{
-		connectionTimeOut = value;
+		url = value;
 	}	
 	
 	public static String getURL()
 	{  
 		return url;
-	}
-	
-	public static void setURL(String value)
-	{
-		url = value;
 	}
 }
