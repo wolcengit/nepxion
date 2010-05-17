@@ -244,7 +244,7 @@ public class TimeUtil
 	 */
 	public static Date parseDateTime(String date)
 	{
-		return parseFormatString(date, getDateTimeFormat());
+		return parseFormatDate(date, getDateTimeFormat());
 	}
 	
 	/**
@@ -254,7 +254,7 @@ public class TimeUtil
 	 */
 	public static Date parseTimeZoneDateTime(String date)
 	{
-		return parseFormatString(date, getTimeZoneDateTimeFormat());
+		return parseFormatDate(date, getTimeZoneDateTimeFormat());
 	}
 
 	/**
@@ -264,7 +264,7 @@ public class TimeUtil
 	 */	
 	public static Date parseDate(String date)
 	{
-		return parseFormatString(date, getDateFormat());
+		return parseFormatDate(date, getDateFormat());
 	}
 	
 	/**
@@ -274,16 +274,16 @@ public class TimeUtil
 	 */		
 	public static Date parseTime(String time)
 	{
-		return parseFormatString(time, getTimeFormat());
+		return parseFormatDate(time, getTimeFormat());
 	}
 	
 	/**
-	 * Parse the common format string
+	 * Parse String to the common format Date
 	 * @param dateString  the date string
 	 * @param dateFormat  the instance of DateFormat
 	 * @return            the instance of Date
 	 */
-	public static Date parseFormatString(String dateString, DateFormat dateFormat)
+	public static Date parseFormatDate(String dateString, DateFormat dateFormat)
 	{
 		dateString = dateString.trim();
 		Date date = null;
