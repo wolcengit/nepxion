@@ -17,6 +17,7 @@ import com.nepxion.swing.lookandfeel.LookAndFeelManager;
 import com.nepxion.swing.popupmenu.PopupMenuContext;
 import com.nepxion.swing.style.framework.JNimbusStyle;
 import com.nepxion.swing.style.framework.StyleContext;
+import com.nepxion.util.encode.EncodeContext;
 import com.nepxion.util.net.http.ClientContext;
 
 public class DemoContext
@@ -26,13 +27,17 @@ public class DemoContext
 	}
 	public void initialize()
 	{
-		// initEnvironment();
+		initEnvironment();
 		initStyle();
 	}
 	
 	public void initEnvironment()
 	{
-		ClientContext.initialize();
+		//注册和后台通信的相关参数
+		ClientContext.register();
+		
+		//注册和后台通信的编码格式
+		EncodeContext.registerCharset("GB2312");	
 	}
 	
 	public void initStyle()
@@ -76,7 +81,7 @@ public class DemoContext
 		IconContext.registerIconFolder("com/nepxion/demo/component/icon/image/");
 		
 		//注册帮助主题 的关于页面
-		HelpContext.registerAboutComponent(new DemoCaptionSplashWindow());
+		HelpContext.registerAboutComponent(new DemoCaptionSplashWindow());		
 		
 		//注册外观效果
 		//LookAndFeelManager.setSystemLookAndFeel();
