@@ -157,7 +157,7 @@ public class IOUtil
 			stringBuffer.append(new String(bytes, 0, index));
 		}
 		inputStreamReader.close();
-		return stringBuffer.toString();
+		return stringBuffer.toString().trim();
 	}
 	
 	/**
@@ -191,7 +191,7 @@ public class IOUtil
 			stringBuffer.append(line + "\n");
 		}
 		bufferedReader.close();
-		return stringBuffer.toString();
+		return stringBuffer.toString().trim();
 	}
 	
 	/**
