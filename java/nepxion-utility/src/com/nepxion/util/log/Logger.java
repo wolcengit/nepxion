@@ -12,7 +12,6 @@ package com.nepxion.util.log;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
-import java.util.HashMap;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -20,109 +19,209 @@ import org.apache.commons.logging.LogFactory;
 import com.nepxion.util.time.TimeUtil;
 
 public class Logger
-{
-	private static HashMap logMap = new HashMap();
-	
-	public static Log getLog(String clazzName)
+{	
+	public static Log getLog(Class clazz)
 	{
-		Log log = (Log) logMap.get(clazzName);
-		if (log == null)
-		{
-			log = LogFactory.getLog(clazzName);
-			logMap.put(clazzName, log);
-		}
-		return log;
+		return LogFactory.getLog(clazz);
 	}
 	
-	public static void trace(String clazzName, Object message)
+	public static Log getLog(String className)
 	{
-		getLog(clazzName).trace(message);
-	}		
-	
-	public static void trace(String clazzName, Object message, Throwable throwable)
-	{
-		getLog(clazzName).trace(message, throwable);
+		return LogFactory.getLog(className);
 	}	
 	
-	public static void trace(String clazzName, Throwable throwable)
+	// Trace
+	public static void trace(Class clazz, Object message)
 	{
-		trace(clazzName, "Exception", throwable);
+		getLog(clazz).trace(message);
+	}	
+	
+	public static void trace(String className, Object message)
+	{
+		getLog(className).trace(message);
+	}		
+	
+	public static void trace(Class clazz, Throwable throwable)
+	{
+		getLog(clazz).trace("Exception", throwable);
+	}	
+	
+	public static void trace(String className, Throwable throwable)
+	{
+		getLog(className).trace("Exception", throwable);
+	}	
+	
+	public static void trace(Class clazz, Object message, Throwable throwable)
+	{
+		getLog(clazz).trace(message, throwable);
+	}	
+	
+	public static void trace(String className, Object message, Throwable throwable)
+	{
+		getLog(className).trace(message, throwable);
 	}	
 		
-	public static void debug(String clazzName, Object message)
-	{
-		getLog(clazzName).debug(message);
-	}	
 	
-	public static void debug(String clazzName, Object message, Throwable throwable)
+	// Debug
+	public static void debug(Class clazz, Object message)
 	{
-		getLog(clazzName).debug(message, throwable);
-	}	
-	
-	public static void debug(String clazzName, Throwable throwable)
-	{
-		debug(clazzName, "Exception", throwable);
-	}	
-	
-	public static void info(String clazzName, Object message)
-	{
-		getLog(clazzName).info(message);
-	}	
-	
-	public static void info(String clazzName, Object message, Throwable throwable)
-	{
-		getLog(clazzName).info(message, throwable);
+		getLog(clazz).debug(message);
 	}		
 	
-	public static void info(String clazzName, Throwable throwable)
+	public static void debug(String className, Object message)
 	{
-		info(clazzName, "Exception", throwable);
+		getLog(className).debug(message);
 	}	
-	
-	public static void warn(String clazzName, Object message)
+
+	public static void debug(Class clazz, Throwable throwable)
 	{
-		getLog(clazzName).warn(message);
-	}	
+		getLog(clazz).debug("Exception", throwable);
+	}
 	
-	public static void warn(String clazzName, Object message, Throwable throwable)
+	public static void debug(String className, Throwable throwable)
 	{
-		getLog(clazzName).warn(message, throwable);
-	}	
+		getLog(className).debug("Exception", throwable);
+	}
 	
-	public static void warn(String clazzName, Throwable throwable)
+	public static void debug(Class clazz, Object message, Throwable throwable)
 	{
-		warn(clazzName, "Exception", throwable);
-	}	
-	
-	public static void error(String clazzName, Object message)
-	{
-		getLog(clazzName).error(message);
-	}	
-	
-	public static void error(String clazzName, Object message, Throwable throwable)
-	{
-		getLog(clazzName).error(message, throwable);
-	}	
-	
-	public static void error(String clazzName, Throwable throwable)
-	{
-		error(clazzName, "Exception", throwable);
+		getLog(clazz).debug(message, throwable);
 	}		
 	
-	public static void fatal(String clazzName, Object message)
+	public static void debug(String className, Object message, Throwable throwable)
 	{
-		getLog(clazzName).fatal(message);
+		getLog(className).debug(message, throwable);
 	}	
 	
-	public static void fatal(String clazzName, Object message, Throwable throwable)
+
+	// Info
+	public static void info(Class clazz, Object message)
 	{
-		getLog(clazzName).fatal(message, throwable);
+		getLog(clazz).info(message);
+	}	
+	
+	public static void info(String className, Object message)
+	{
+		getLog(className).info(message);
+	}	
+	
+	public static void info(Class clazz, Throwable throwable)
+	{
+		getLog(clazz).info("Exception", throwable);
+	}		
+
+	public static void info(String className, Throwable throwable)
+	{
+		getLog(className).info("Exception", throwable);
 	}		
 	
-	public static void fatal(String clazzName, Throwable throwable)
+	public static void info(Class clazz, Object message, Throwable throwable)
 	{
-		fatal(clazzName, "Exception", throwable);
+		getLog(clazz).info(message, throwable);
 	}		
+	
+	public static void info(String className, Object message, Throwable throwable)
+	{
+		getLog(className).info(message, throwable);
+	}		
+	
+
+	// Warn
+	public static void warn(Class clazz, Object message)
+	{
+		getLog(clazz).warn(message);
+	}	
+	
+	public static void warn(String className, Object message)
+	{
+		getLog(className).warn(message);
+	}	
+	
+	public static void warn(Class clazz, Throwable throwable)
+	{
+		getLog(clazz).warn("Exception", throwable);
+	}	
+	
+	public static void warn(String className, Throwable throwable)
+	{
+		getLog(className).warn("Exception", throwable);
+	}	
+	
+	public static void warn(Class clazz, Object message, Throwable throwable)
+	{
+		getLog(clazz).warn(message, throwable);
+	}
+	
+	public static void warn(String className, Object message, Throwable throwable)
+	{
+		getLog(className).warn(message, throwable);
+	}	
+	
+
+	
+	// Error
+	public static void error(Class clazz, Object message)
+	{
+		getLog(clazz).error(message);
+	}	
+	
+	public static void error(String className, Object message)
+	{
+		getLog(className).error(message);
+	}	
+	
+	public static void error(Class clazz, Throwable throwable)
+	{
+		getLog(clazz).error("Exception", throwable);
+	}		
+	
+	public static void error(String className, Throwable throwable)
+	{
+		getLog(className).error("Exception", throwable);
+	}		
+	
+	public static void error(Class clazz, Object message, Throwable throwable)
+	{
+		getLog(clazz).error(message, throwable);
+	}	
+	
+	public static void error(String className, Object message, Throwable throwable)
+	{
+		getLog(className).error(message, throwable);
+	}	
+	
+	
+	// Fatal
+	public static void fatal(Class clazz, Object message)
+	{
+		getLog(clazz).fatal(message);
+	}	
+	
+	public static void fatal(String className, Object message)
+	{
+		getLog(className).fatal(message);
+	}
+	
+	public static void fatal(Class clazz, Throwable throwable)
+	{
+		getLog(clazz).fatal("Exception", throwable);
+	}		
+	
+	public static void fatal(String className, Throwable throwable)
+	{
+		getLog(className).fatal("Exception", throwable);
+	}		
+	
+	public static void fatal(Class clazz, Object message, Throwable throwable)
+	{
+		getLog(clazz).fatal(message, throwable);
+	}	
+	
+	public static void fatal(String className, Object message, Throwable throwable)
+	{
+		getLog(className).fatal(message, throwable);
+	}		
+	
 	
 	public static void print(Object message)
 	{
