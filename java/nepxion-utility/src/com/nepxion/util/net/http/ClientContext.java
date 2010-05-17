@@ -19,7 +19,7 @@ import java.util.Properties;
 
 public class ClientContext
 {
-    public static final String CONFIG_PATH = "conf/config.properties";
+    public static final String HTTP_CONFIG_FILE_PATH = "conf/http.properties";
     
     public static final String HOST = "Host";
     public static final String PORT = "Port";
@@ -37,7 +37,7 @@ public class ClientContext
 	
 	public static void register()
 	{
-		register(CONFIG_PATH);
+		register(HTTP_CONFIG_FILE_PATH);
 	}
 	
 	public static void register(String filePath)
@@ -72,7 +72,7 @@ public class ClientContext
         Properties properties = new Properties();
         try
         {
-        	fileURL = new URL(fileURL + CONFIG_PATH);
+        	fileURL = new URL(fileURL + HTTP_CONFIG_FILE_PATH);
             properties.load(fileURL.openStream());
             
             host = fileURL.getHost();
