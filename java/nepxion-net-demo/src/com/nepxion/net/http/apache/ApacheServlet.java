@@ -38,12 +38,12 @@ public class ApacheServlet
 	private void doExecute(HttpServletRequest request, HttpServletResponse response)
 		throws ServletException, IOException	
 	{		
-		request.setCharacterEncoding("GBK");		
-		response.setCharacterEncoding("GBK");		
+		request.setCharacterEncoding("GB2312");		
+		response.setCharacterEncoding("GB2312");		
 		response.setContentType("text/xml");
 		
-		String target = EncodeUtil.formatGBK(request.getParameter("target"));
-		String entity = EncodeUtil.formatGBK(request.getParameter("entity"));
+		String target = EncodeUtil.formatGB2312(request.getParameter("target"));
+		String entity = EncodeUtil.formatGB2312(request.getParameter("entity"));
 		
 		PrintWriter out = response.getWriter();
 		out.println("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");

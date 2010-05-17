@@ -31,12 +31,12 @@ public class ApacheServerStringInvoker
 		throws ServletException, IOException    
     {
     	System.out.println(requestObject);
-		request.setCharacterEncoding("GBK");		
-		response.setCharacterEncoding("GBK");	
+		request.setCharacterEncoding("GB2312");		
+		response.setCharacterEncoding("GB2312");	
 		
     	if (requestObject instanceof String) // String entity
     	{
-    		String reponseObject = EncodeUtil.formatGBK(requestObject.toString());
+    		String reponseObject = EncodeUtil.formatGB2312(requestObject.toString());
     		
     		System.out.println("String Entity for " + reponseObject);
     		

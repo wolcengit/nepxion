@@ -20,7 +20,7 @@ public class FacilityClientInvoker
 {
 	public static void invokeServer()
 	{		
-		ClientContext.setURL("http://localhost:8080/Nepxion-Net-Demo/FacilityServerInvoker");
+		ClientContext.registerURL("http://localhost:8080/Nepxion-Net-Demo/FacilityServerInvoker");
 		
 		HashMap map = new HashMap();
 		map.put("target", "服务调用");

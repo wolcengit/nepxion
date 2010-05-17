@@ -32,8 +32,8 @@ public class ApachePostClientInvoker
 	
 	public static void invokeServletForParameter()
 	{
-		ClientContext.setURL("http://localhost:8080/Nepxion-Net-Demo/ApacheServlet");
-		EncodeContext.setCharset("GBK");
+		ClientContext.registerURL("http://localhost:8080/Nepxion-Net-Demo/ApacheServlet");
+		EncodeContext.registerCharset("GB2312");
 				
 		List entity = new ArrayList();
 		entity.add(new BasicNameValuePair("target", "服务调用"));
@@ -56,7 +56,7 @@ public class ApachePostClientInvoker
 	
 	public static void invokeServerForSerializable()
 	{
-		ClientContext.setURL("http://localhost:8080/Nepxion-Net-Demo/ApacheServerObjectInvoker");
+		ClientContext.registerURL("http://localhost:8080/Nepxion-Net-Demo/ApacheServerObjectInvoker");
 		
 		HashMap map = new HashMap();
 		map.put("target", "服务调用");
@@ -79,7 +79,7 @@ public class ApachePostClientInvoker
 	
 	public static void invokeServerForInputStream()
 	{
-		ClientContext.setURL("http://localhost:8080/Nepxion-Net-Demo/ApacheServerObjectInvoker");
+		ClientContext.registerURL("http://localhost:8080/Nepxion-Net-Demo/ApacheServerObjectInvoker");
 		
 		List list = new ArrayList();
 		list.add("服务调用");
@@ -112,8 +112,8 @@ public class ApachePostClientInvoker
 	
 	public static void invokeServerForString()
 	{
-		ClientContext.setURL("http://localhost:8080/Nepxion-Net-Demo/ApacheServerStringInvoker");
-		EncodeContext.setCharset("GBK");
+		ClientContext.registerURL("http://localhost:8080/Nepxion-Net-Demo/ApacheServerStringInvoker");
+		EncodeContext.registerCharset("GB2312");
 		
 		String text = "[目标为服务调用，实体对字符串]";
 		
@@ -134,7 +134,7 @@ public class ApachePostClientInvoker
 	
 	public static void invokeServerForFile()
 	{
-		ClientContext.setURL("http://localhost:8080/Nepxion-Net-Demo/ApacheServerStringInvoker");
+		ClientContext.registerURL("http://localhost:8080/Nepxion-Net-Demo/ApacheServerStringInvoker");
 		
 		File file = new File("conf/config.properties");
 		
@@ -156,7 +156,7 @@ public class ApachePostClientInvoker
 	
 	public static void invokeServerForByteArray()
 	{
-		ClientContext.setURL("http://localhost:8080/Nepxion-Net-Demo/ApacheServerObjectInvoker");
+		ClientContext.registerURL("http://localhost:8080/Nepxion-Net-Demo/ApacheServerObjectInvoker");
 		
 		File file = new File("conf/config.properties");
 		

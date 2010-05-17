@@ -26,10 +26,9 @@ public class ApacheGetClientInvoker
 	
 	public static void invokeServletForParameter()
 	{
-		// ClientContext.setURL("http://localhost:8080/Nepxion-Net-Demo/ApacheServlet");
-		ClientContext.initialize();
-		
-		EncodeContext.setCharset("GBK");
+		//ClientContext.registerURL("http://localhost:8080/Nepxion-Net-Demo/ApacheServlet");
+		ClientContext.register();
+		EncodeContext.registerCharset("GB2312");
 		
 		List list = new ArrayList();
 		list.add(new BasicNameValuePair("target", "服务调用"));
