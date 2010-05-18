@@ -3,8 +3,11 @@ jarsigner -keystore Security.store ../lib/swing/borland-skin-2006.jar Security
 jarsigner -keystore Security.store ../lib/swing/itext-2.1.7.jar Security
 jarsigner -keystore Security.store ../lib/swing/itext-asian.jar Security
 jarsigner -keystore Security.store ../lib/swing/jcommon-1.0.16.jar Security
+jarsigner -keystore Security.store ../lib/swing/jdesktop-swing-worker-1.2.jar Security
+jarsigner -keystore Security.store ../lib/swing/jdesktop-swingx-1.6.jar Security
 jarsigner -keystore Security.store ../lib/swing/jfreechart-1.0.13.jar Security
 jarsigner -keystore Security.store ../lib/swing/jfreechart-1.0.13-experimental.jar Security
+jarsigner -keystore Security.store ../lib/swing/jgoodies-forms-1.3.0.jar Security
 jarsigner -keystore Security.store ../lib/swing/jgoodies-skin-2.1.4.jar Security
 jarsigner -keystore Security.store ../lib/swing/jide-oss-2.9.0.jar Security
 jarsigner -keystore Security.store ../lib/swing/l2fprod-common-all-7.3.jar Security
