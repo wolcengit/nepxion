@@ -14,9 +14,9 @@ public class EncodeContext
 {
     private static String charset = "ISO-8859-1";
     
-    public static void registerCharset(String value)
+    public static void registerCharset(String customCharset)
     {
-    	charset = value;
+    	charset = customCharset;
     } 
     
     public static String getCharset()
