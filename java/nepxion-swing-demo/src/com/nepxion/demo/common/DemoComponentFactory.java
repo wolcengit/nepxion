@@ -17,7 +17,6 @@ import javax.swing.BorderFactory;
 import javax.swing.JList;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
-import javax.swing.JScrollPane;
 import javax.swing.UIManager;
 import javax.swing.table.AbstractTableModel;
 import javax.swing.tree.DefaultMutableTreeNode;
@@ -28,11 +27,11 @@ import com.nepxion.swing.popupmenu.JDecorationPopupMenu;
 import com.nepxion.swing.renderer.list.ListDecorationCellRenderer;
 import com.nepxion.swing.renderer.table.TableDecorationCellRenderer;
 import com.nepxion.swing.renderer.tree.TreeDecorationCellRenderer;
+import com.nepxion.swing.scrollpane.JBasicScrollPane;
 import com.nepxion.swing.tabbedpane.JEclipseTabbedPane;
 import com.nepxion.swing.table.JBasicTable;
 import com.nepxion.swing.textarea.JBasicTextArea;
 import com.nepxion.swing.tree.JBasicTree;
-import com.nepxion.swing.tree.TreeManager;
 import com.nepxion.util.data.CollectionUtil;
 
 public class DemoComponentFactory
@@ -58,7 +57,7 @@ public class DemoComponentFactory
 		
 		JBasicTree tree = new JBasicTree(root);
 		tree.setCellRenderer(new TreeDecorationCellRenderer(20));
-		TreeManager.expandAll(tree);
+		tree.expandAll();
 		
 		return tree;				
 	}
@@ -143,14 +142,14 @@ public class DemoComponentFactory
 	public static JEclipseTabbedPane getTabbedPane()
 	{
 		JEclipseTabbedPane eclipseTabbedPane = new JEclipseTabbedPane();
-		eclipseTabbedPane.addTab("Tab 1", IconFactory.getSwingIcon("component/tabbed_pane_16.png"), new JScrollPane(new JBasicTextArea()), "Tab 1", true);					
-		eclipseTabbedPane.addTab("Tab 2", IconFactory.getSwingIcon("component/tabbed_pane_16.png"), new JScrollPane(new JBasicTextArea()), "Tab 2", false);
-		eclipseTabbedPane.addTab("Tab 3", IconFactory.getSwingIcon("component/tabbed_pane_16.png"), new JScrollPane(new JBasicTextArea()), "Tab 3", true);
-		eclipseTabbedPane.addTab("Tab 4", IconFactory.getSwingIcon("component/tabbed_pane_16.png"), new JScrollPane(new JBasicTextArea()), "Tab 4", false);
-		eclipseTabbedPane.addTab("Tab 5", IconFactory.getSwingIcon("component/tabbed_pane_16.png"), new JScrollPane(new JBasicTextArea()), "Tab 5", true);
-		eclipseTabbedPane.addTab("Tab 6", IconFactory.getSwingIcon("component/tabbed_pane_16.png"), new JScrollPane(new JBasicTextArea()), "Tab 6", false);
-		eclipseTabbedPane.addTab("Tab 7", IconFactory.getSwingIcon("component/tabbed_pane_16.png"), new JScrollPane(new JBasicTextArea()), "Tab 7", true);
-		eclipseTabbedPane.addTab("Tab 8", IconFactory.getSwingIcon("component/tabbed_pane_16.png"), new JScrollPane(new JBasicTextArea()), "Tab 8", false);		
+		eclipseTabbedPane.addTab("Tab 1", IconFactory.getSwingIcon("component/tabbed_pane_16.png"), new JBasicScrollPane(new JBasicTextArea()), "Tab 1", true);					
+		eclipseTabbedPane.addTab("Tab 2", IconFactory.getSwingIcon("component/tabbed_pane_16.png"), new JBasicScrollPane(new JBasicTextArea()), "Tab 2", false);
+		eclipseTabbedPane.addTab("Tab 3", IconFactory.getSwingIcon("component/tabbed_pane_16.png"), new JBasicScrollPane(new JBasicTextArea()), "Tab 3", true);
+		eclipseTabbedPane.addTab("Tab 4", IconFactory.getSwingIcon("component/tabbed_pane_16.png"), new JBasicScrollPane(new JBasicTextArea()), "Tab 4", false);
+		eclipseTabbedPane.addTab("Tab 5", IconFactory.getSwingIcon("component/tabbed_pane_16.png"), new JBasicScrollPane(new JBasicTextArea()), "Tab 5", true);
+		eclipseTabbedPane.addTab("Tab 6", IconFactory.getSwingIcon("component/tabbed_pane_16.png"), new JBasicScrollPane(new JBasicTextArea()), "Tab 6", false);
+		eclipseTabbedPane.addTab("Tab 7", IconFactory.getSwingIcon("component/tabbed_pane_16.png"), new JBasicScrollPane(new JBasicTextArea()), "Tab 7", true);
+		eclipseTabbedPane.addTab("Tab 8", IconFactory.getSwingIcon("component/tabbed_pane_16.png"), new JBasicScrollPane(new JBasicTextArea()), "Tab 8", false);		
 		
 		JDecorationPopupMenu popupMenu = new JDecorationPopupMenu();
 		eclipseTabbedPane.setPopupMenu(popupMenu, true);

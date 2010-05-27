@@ -18,7 +18,6 @@ import com.nepxion.swing.popupmenu.PopupMenuContext;
 import com.nepxion.swing.style.framework.JNimbusStyle;
 import com.nepxion.swing.style.framework.StyleContext;
 import com.nepxion.util.encode.EncodeContext;
-import com.nepxion.util.net.http.ClientContext;
 
 public class DemoContext
 {	
@@ -34,7 +33,7 @@ public class DemoContext
 	public void initEnvironment()
 	{
 		//注册和后台通信的相关参数
-		ClientContext.register();
+		// ClientContext.register();
 		
 		//注册和后台通信的编码格式
 		EncodeContext.registerCharset("GB2312");	

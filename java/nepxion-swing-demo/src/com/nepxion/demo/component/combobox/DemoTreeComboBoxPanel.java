@@ -20,7 +20,6 @@ import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.JList;
 import javax.swing.JPanel;
-import javax.swing.tree.DefaultMutableTreeNode;
 
 import com.nepxion.demo.common.DemoDataFactory;
 import com.nepxion.swing.border.ComplexEtchedBorder;

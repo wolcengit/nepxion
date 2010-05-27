@@ -16,7 +16,6 @@ import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.ButtonGroup;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
 
 import com.nepxion.demo.common.DemoComponentFactory;
 import com.nepxion.swing.border.ComplexEtchedBorder;
@@ -27,6 +26,7 @@ import com.nepxion.swing.icon.IconFactory;
 import com.nepxion.swing.layout.filed.FiledLayout;
 import com.nepxion.swing.outlookbar.JFlatOutlook;
 import com.nepxion.swing.outlookbar.JFlatOutlookBar;
+import com.nepxion.swing.scrollpane.JBasicScrollPane;
 import com.nepxion.swing.style.button.AbstractButtonUI;
 import com.nepxion.swing.style.button.flat.FlatButtonUI;
 import com.nepxion.swing.style.button.lite.JAcidLiteButtonStyle;
@@ -41,7 +41,7 @@ import com.nepxion.swing.style.button.lite.JYellowLiteButtonStyle;
 import com.nepxion.swing.style.button.lite.LiteButtonUI;
 
 public class DemoOutlookBarPanel
-	extends JScrollPane
+	extends JBasicScrollPane
 {
 	public DemoOutlookBarPanel()
 	{		

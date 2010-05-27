@@ -13,11 +13,11 @@ package com.nepxion.demo.component.textarea;
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
 
 import com.nepxion.swing.border.ComplexEtchedBorder;
 import com.nepxion.swing.border.ComplexSide;
 import com.nepxion.swing.border.ComplexTitleBorder;
+import com.nepxion.swing.scrollpane.JBasicScrollPane;
 import com.nepxion.swing.textarea.JBasicTextArea;
 
 public class DemoBasicTextAreaPanel
@@ -42,7 +42,7 @@ public class DemoBasicTextAreaPanel
 			JBasicTextArea basicTextArea = new JBasicTextArea();
 			basicTextArea.setText("Right-clicked popupMenu to 'Copy' 'Paste' 'Cut' & 'Clean'");
 			
-			JScrollPane basicScrollPane = new JScrollPane();
+			JBasicScrollPane basicScrollPane = new JBasicScrollPane();
 			basicScrollPane.getViewport().add(basicTextArea);				
 			add(basicScrollPane);			
 		}

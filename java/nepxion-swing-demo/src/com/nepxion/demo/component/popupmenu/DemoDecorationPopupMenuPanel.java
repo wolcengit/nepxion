@@ -16,7 +16,6 @@ import java.awt.event.MouseEvent;
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
 
 import com.nepxion.demo.common.DemoComponentFactory;
 import com.nepxion.swing.border.ComplexEtchedBorder;
@@ -27,6 +26,7 @@ import com.nepxion.swing.icon.IconFactory;
 import com.nepxion.swing.layout.filed.FiledLayout;
 import com.nepxion.swing.popupmenu.JDecorationPopupMenu;
 import com.nepxion.swing.popupmenu.JDecorationPopupMenuPainter;
+import com.nepxion.swing.scrollpane.JBasicScrollPane;
 import com.nepxion.swing.style.button.flat.FlatButtonUI;
 import com.nepxion.swing.style.button.lite.JAcidLiteButtonStyle;
 import com.nepxion.swing.style.button.lite.JAlloyLiteButtonStyle;
@@ -54,7 +54,7 @@ import com.nepxion.swing.style.framework.JWindowsStyle;
 import com.nepxion.swing.style.framework.JYellowStyle;
 
 public class DemoDecorationPopupMenuPanel
-	extends JScrollPane
+	extends JBasicScrollPane
 {
 	public DemoDecorationPopupMenuPanel()
 	{

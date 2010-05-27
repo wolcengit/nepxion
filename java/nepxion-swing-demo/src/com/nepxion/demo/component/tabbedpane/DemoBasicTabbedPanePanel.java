@@ -16,7 +16,6 @@ import java.awt.event.ActionListener;
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
 
 import com.nepxion.swing.border.ComplexEtchedBorder;
 import com.nepxion.swing.border.ComplexSide;
@@ -27,6 +26,7 @@ import com.nepxion.swing.icon.IconFactory;
 import com.nepxion.swing.layout.filed.FiledLayout;
 import com.nepxion.swing.optionpane.JBasicOptionPane;
 import com.nepxion.swing.popupmenu.JDecorationPopupMenu;
+import com.nepxion.swing.scrollpane.JBasicScrollPane;
 import com.nepxion.swing.tabbedpane.JBasicTabbedPane;
 
 public class DemoBasicTabbedPanePanel
@@ -68,14 +68,14 @@ public class DemoBasicTabbedPanePanel
 			    }				
 			};		
 			
-			basicTabbedPane.addTab("Tab 1", IconFactory.getSwingIcon("component/tabbed_pane_16.png"), new JScrollPane(new ConfigPanel(basicTabbedPane)), "Tab 1", true);					
-			basicTabbedPane.addTab("Tab 2", IconFactory.getSwingIcon("component/tabbed_pane_16.png"), new JScrollPane(new ConfigPanel(basicTabbedPane)), "Tab 2", false);
-			basicTabbedPane.addTab("Tab 3", IconFactory.getSwingIcon("component/tabbed_pane_16.png"), new JScrollPane(new ConfigPanel(basicTabbedPane)), "Tab 3", true);
-			basicTabbedPane.addTab("Tab 4", IconFactory.getSwingIcon("component/tabbed_pane_16.png"), new JScrollPane(new ConfigPanel(basicTabbedPane)), "Tab 4", false);
-			basicTabbedPane.addTab("Tab 5", IconFactory.getSwingIcon("component/tabbed_pane_16.png"), new JScrollPane(new ConfigPanel(basicTabbedPane)), "Tab 5", true);
-			basicTabbedPane.addTab("Tab 6", IconFactory.getSwingIcon("component/tabbed_pane_16.png"), new JScrollPane(new ConfigPanel(basicTabbedPane)), "Tab 6", false);
-			basicTabbedPane.addTab("Tab 7", IconFactory.getSwingIcon("component/tabbed_pane_16.png"), new JScrollPane(new ConfigPanel(basicTabbedPane)), "Tab 7", true);
-			basicTabbedPane.addTab("Tab 8", IconFactory.getSwingIcon("component/tabbed_pane_16.png"), new JScrollPane(new ConfigPanel(basicTabbedPane)), "Tab 8", false);
+			basicTabbedPane.addTab("Tab 1", IconFactory.getSwingIcon("component/tabbed_pane_16.png"), new JBasicScrollPane(new ConfigPanel(basicTabbedPane)), "Tab 1", true);					
+			basicTabbedPane.addTab("Tab 2", IconFactory.getSwingIcon("component/tabbed_pane_16.png"), new JBasicScrollPane(new ConfigPanel(basicTabbedPane)), "Tab 2", false);
+			basicTabbedPane.addTab("Tab 3", IconFactory.getSwingIcon("component/tabbed_pane_16.png"), new JBasicScrollPane(new ConfigPanel(basicTabbedPane)), "Tab 3", true);
+			basicTabbedPane.addTab("Tab 4", IconFactory.getSwingIcon("component/tabbed_pane_16.png"), new JBasicScrollPane(new ConfigPanel(basicTabbedPane)), "Tab 4", false);
+			basicTabbedPane.addTab("Tab 5", IconFactory.getSwingIcon("component/tabbed_pane_16.png"), new JBasicScrollPane(new ConfigPanel(basicTabbedPane)), "Tab 5", true);
+			basicTabbedPane.addTab("Tab 6", IconFactory.getSwingIcon("component/tabbed_pane_16.png"), new JBasicScrollPane(new ConfigPanel(basicTabbedPane)), "Tab 6", false);
+			basicTabbedPane.addTab("Tab 7", IconFactory.getSwingIcon("component/tabbed_pane_16.png"), new JBasicScrollPane(new ConfigPanel(basicTabbedPane)), "Tab 7", true);
+			basicTabbedPane.addTab("Tab 8", IconFactory.getSwingIcon("component/tabbed_pane_16.png"), new JBasicScrollPane(new ConfigPanel(basicTabbedPane)), "Tab 8", false);
 			
 			JDecorationPopupMenu popupMenu = new JDecorationPopupMenu();
 			basicTabbedPane.setPopupMenu(popupMenu, true);			

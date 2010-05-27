@@ -16,7 +16,6 @@ import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.ButtonGroup;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
 
 import com.l2fprod.common.swing.plaf.basic.BasicButtonBarUI;
 import com.nepxion.swing.border.ComplexEtchedBorder;
@@ -26,6 +25,7 @@ import com.nepxion.swing.button.JBasicToggleButton;
 import com.nepxion.swing.buttonbar.JBasicButtonBar;
 import com.nepxion.swing.icon.IconFactory;
 import com.nepxion.swing.layout.filed.FiledLayout;
+import com.nepxion.swing.scrollpane.JBasicScrollPane;
 import com.nepxion.swing.style.button.flat.FlatButtonUI;
 import com.nepxion.swing.style.button.lite.JAcidLiteButtonStyle;
 import com.nepxion.swing.style.button.lite.JAlloyLiteButtonStyle;
@@ -42,7 +42,7 @@ import com.nepxion.swing.style.buttonbar.DustButtonBarUI;
 import com.nepxion.swing.style.buttonbar.SkyButtonBarUI;
 
 public class DemoButtonBarPanel
-	extends JScrollPane
+	extends JBasicScrollPane
 {
 	public DemoButtonBarPanel()
 	{
@@ -91,7 +91,7 @@ public class DemoButtonBarPanel
 				buttonGroup.add(toggleButtons[i]);
 			}
 			
-			JScrollPane buttonBarScrollPane = new JScrollPane();
+			JBasicScrollPane buttonBarScrollPane = new JBasicScrollPane();
 			buttonBarScrollPane.getViewport().add(buttonBar);
 						
 			add(buttonBarScrollPane);

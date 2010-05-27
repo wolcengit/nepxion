@@ -13,12 +13,12 @@ package com.nepxion.demo.component.textarea;
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
 
 import com.nepxion.swing.border.ComplexEtchedBorder;
 import com.nepxion.swing.border.ComplexSide;
 import com.nepxion.swing.border.ComplexTitleBorder;
 import com.nepxion.swing.layout.filed.FiledLayout;
+import com.nepxion.swing.scrollpane.JBasicScrollPane;
 import com.nepxion.swing.textarea.JAutoResizableTextArea;
 
 public class DemoAutoResizableTextAreaPanel
@@ -45,7 +45,7 @@ public class DemoAutoResizableTextAreaPanel
 			autoResizableTextArea.setMaxRows(15);
 			autoResizableTextArea.setText("Typing in new line here to see the text area growing automatically. \nMinimum 10 rows and maximum 20 rows");
 			
-			JScrollPane autoResizableScrollPane = new JScrollPane();
+			JBasicScrollPane autoResizableScrollPane = new JBasicScrollPane();
 			autoResizableScrollPane.getViewport().add(autoResizableTextArea);				
 			add(autoResizableScrollPane);
 		}

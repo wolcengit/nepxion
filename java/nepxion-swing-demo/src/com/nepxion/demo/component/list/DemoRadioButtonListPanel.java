@@ -16,13 +16,13 @@ import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.JList;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
 
 import com.nepxion.demo.common.DemoDataFactory;
 import com.nepxion.swing.border.ComplexEtchedBorder;
 import com.nepxion.swing.border.ComplexSide;
 import com.nepxion.swing.border.ComplexTitleBorder;
 import com.nepxion.swing.renderer.list.ListRadioButtonCellRenderer;
+import com.nepxion.swing.scrollpane.JBasicScrollPane;
 import com.nepxion.util.data.CollectionUtil;
 
 public class DemoRadioButtonListPanel
@@ -49,7 +49,7 @@ public class DemoRadioButtonListPanel
 			JList radioButtonList = new JList(CollectionUtil.parseVector(componentInstallDatas));
 			radioButtonList.setCellRenderer(new ListRadioButtonCellRenderer(radioButtonList));
 			
-			JScrollPane radioButtonListScrollPane = new JScrollPane();
+			JBasicScrollPane radioButtonListScrollPane = new JBasicScrollPane();
 			radioButtonListScrollPane.getViewport().add(radioButtonList);			
 			add(radioButtonListScrollPane);			
 		}

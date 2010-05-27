@@ -20,20 +20,20 @@ import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JComponent;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
 
 import com.nepxion.swing.button.ButtonManager;
 import com.nepxion.swing.button.JBasicToggleButton;
+import com.nepxion.swing.container.JContainer;
 import com.nepxion.swing.icon.IconFactory;
+import com.nepxion.swing.scrollpane.JBasicScrollPane;
 import com.nepxion.swing.textarea.JBasicTextArea;
 import com.nepxion.util.io.FileUtil;
-import com.nepxion.util.io.IOUtil;
 
 public class DemoToggleTemplate
-	extends JPanel
+	extends JContainer
 {
 	private JComponent viewComponent;
-	private JScrollPane codeScrollPane;
+	private JBasicScrollPane codeScrollPane;
 	private JBasicTextArea codeTextArea;
 	private ToggleButtonPanel toggleButtonPanel;
 	
@@ -46,7 +46,7 @@ public class DemoToggleTemplate
 		codeTextArea = new JBasicTextArea();
 		codeTextArea.setTabSize(2);
 						
-		codeScrollPane = new JScrollPane();
+		codeScrollPane = new JBasicScrollPane();
 		codeScrollPane.getViewport().add(codeTextArea);
 		
 		toggleButtonPanel = new ToggleButtonPanel();
@@ -65,11 +65,8 @@ public class DemoToggleTemplate
 			viewToggleButton.addActionListener(new ActionListener()
 			{
 				public void actionPerformed(ActionEvent e)
-				{
-					DemoToggleTemplate.this.remove(codeScrollPane);
-					DemoToggleTemplate.this.add(viewComponent, BorderLayout.CENTER);
-					DemoToggleTemplate.this.revalidate();
-					DemoToggleTemplate.this.repaint(); 					
+				{					
+					addComponent(viewComponent, codeScrollPane, BorderLayout.CENTER);
 				}
 			}
 			);
@@ -77,11 +74,8 @@ public class DemoToggleTemplate
 			codeToggleButton.addActionListener(new ActionListener()
 			{
 				public void actionPerformed(ActionEvent e)
-				{
-					DemoToggleTemplate.this.remove(viewComponent);
-					DemoToggleTemplate.this.add(codeScrollPane, BorderLayout.CENTER);
-					DemoToggleTemplate.this.revalidate();
-					DemoToggleTemplate.this.repaint();
+				{					
+					addComponent(codeScrollPane, viewComponent, BorderLayout.CENTER);
 					
 					if (codeContent == null)
 					{

@@ -15,7 +15,6 @@ import java.awt.event.KeyEvent;
 
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
-import javax.swing.JScrollPane;
 import javax.swing.KeyStroke;
 
 import com.nepxion.demo.DemoHierarchyController;
@@ -29,6 +28,7 @@ import com.nepxion.swing.framework.dockable.JFrameWorkStatusBar;
 import com.nepxion.swing.icon.IconFactory;
 import com.nepxion.swing.menubar.JBasicMenuBar;
 import com.nepxion.swing.menuitem.JLiteCheckBoxMenuItem;
+import com.nepxion.swing.scrollpane.JBasicScrollPane;
 import com.nepxion.swing.selector.checkbox.JCheckBoxPanel;
 import com.nepxion.swing.selector.radiobutton.JRadioButtonPanel;
 import com.nepxion.swing.textarea.JBasicTextArea;
@@ -55,9 +55,9 @@ public class DemoDockableHierarchy
     
     private void initContentPane()
     {    	
-        JDockableView treeView = new JDockableView(TREE_TITLE, IconFactory.getSwingIcon("component/tree_16.png"), new JScrollPane(DemoComponentFactory.getTree()));
-        JDockableView tableView = new JDockableView(TABLE_TITLE, IconFactory.getSwingIcon("component/table_16.png"), new JScrollPane(DemoComponentFactory.getTable()));
-        JDockableView textAreaView = new JDockableView(TEXT_AREA_TITLE, IconFactory.getSwingIcon("component/text_area_16.png"), new JScrollPane(new JBasicTextArea("TextArea View")));
+        JDockableView treeView = new JDockableView(TREE_TITLE, IconFactory.getSwingIcon("component/tree_16.png"), new JBasicScrollPane(DemoComponentFactory.getTree()));
+        JDockableView tableView = new JDockableView(TABLE_TITLE, IconFactory.getSwingIcon("component/table_16.png"), new JBasicScrollPane(DemoComponentFactory.getTable()));
+        JDockableView textAreaView = new JDockableView(TEXT_AREA_TITLE, IconFactory.getSwingIcon("component/text_area_16.png"), new JBasicScrollPane(new JBasicTextArea("TextArea View")));
         
         JDockable leftDockable = new JDockable();
         leftDockable.setOrientation(JDockable.VERTICAL_SPLIT);
@@ -69,7 +69,7 @@ public class DemoDockableHierarchy
         
         JDockableView tabbedPaneView = new JDockableView(TABBED_PANE_TITLE, IconFactory.getSwingIcon("component/tabbed_pane_16.png"), DemoComponentFactory.getTabbedPane());
         
-        JDockableView listView = new JDockableView(LIST_TITLE, IconFactory.getSwingIcon("component/list_16.png"), new JScrollPane(DemoComponentFactory.getList()));
+        JDockableView listView = new JDockableView(LIST_TITLE, IconFactory.getSwingIcon("component/list_16.png"), new JBasicScrollPane(DemoComponentFactory.getList()));
         JDockableView checkBoxSelectorView = new JDockableView(CHECK_BOX_SELECTOR_TITLE, IconFactory.getSwingIcon("component/check_box_16.png"), new JCheckBoxPanel(DemoDataFactory.getComponentInstallDatas()));
         JDockableView radioButtonSelectorView = new JDockableView(RADIO_BUTTON_SELECTOR_TITLE, IconFactory.getSwingIcon("component/radio_button_16.png"), new JRadioButtonPanel(DemoDataFactory.getComponentInstallDatas()));
         

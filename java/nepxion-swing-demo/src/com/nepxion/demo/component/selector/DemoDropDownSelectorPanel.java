@@ -248,7 +248,7 @@ public class DemoDropDownSelectorPanel
 	}
 	
 //	JDropDownPopupMenu dropDownPopupMenu = new JDropDownPopupMenu();
-//	JDropDownPane dropDownPane = new JDropDownPane(dropDownPopupMenu, new JScrollPane(tree))
+//	JDropDownPane dropDownPane = new JDropDownPane(dropDownPopupMenu, new JBasicScrollPane(tree))
 //	{
 //		public boolean confirm()
 //		{

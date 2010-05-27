@@ -14,17 +14,16 @@ import java.awt.event.ActionEvent;
 
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
-import javax.swing.JEditorPane;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
 
 import com.nepxion.swing.border.ComplexEtchedBorder;
 import com.nepxion.swing.border.ComplexSide;
 import com.nepxion.swing.border.ComplexTitleBorder;
+import com.nepxion.swing.container.ContainerManager;
 import com.nepxion.swing.handle.HandleManager;
 import com.nepxion.swing.icon.IconFactory;
-import com.nepxion.swing.lookandfeel.LookAndFeelTweak;
 import com.nepxion.swing.optionpane.JBasicOptionPane;
+import com.nepxion.swing.scrollpane.JBasicScrollPane;
 import com.nepxion.swing.taskbar.JTaskAction;
 import com.nepxion.swing.taskbar.JTaskBar;
 import com.nepxion.swing.taskbar.JTaskGroup;
@@ -132,8 +131,8 @@ public class DemoTaskBarPanel
 					}
 					);
 					taskBar.add(newTaskGroup);
-					revalidate();
-					repaint();					
+
+					ContainerManager.update(TaskBarPanel.this);
 				}
 			}
 			);
@@ -142,14 +141,13 @@ public class DemoTaskBarPanel
 				public void actionPerformed(ActionEvent e)
 				{
 					taskBar.remove(0);
-					revalidate();
-					repaint();					
+					ContainerManager.update(TaskBarPanel.this);				
 				}
 			}
 			);			
 			taskBar.add(managementTaskGroup);
 			
-			JScrollPane taskBarScrollPane = new JScrollPane();
+			JBasicScrollPane taskBarScrollPane = new JBasicScrollPane();
 			taskBarScrollPane.getViewport().add(taskBar);				
 			add(taskBarScrollPane);			
 		}

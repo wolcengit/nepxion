@@ -13,12 +13,12 @@ package com.nepxion.demo.component.textarea;
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
 
 import com.nepxion.swing.border.ComplexEtchedBorder;
 import com.nepxion.swing.border.ComplexSide;
 import com.nepxion.swing.border.ComplexTitleBorder;
 import com.nepxion.swing.border.HoverBorderDecoration;
+import com.nepxion.swing.scrollpane.JBasicScrollPane;
 import com.nepxion.swing.textarea.JBasicTextArea;
 
 public class DemoHoverBorderTextAreaPanel
@@ -44,7 +44,7 @@ public class DemoHoverBorderTextAreaPanel
 			new HoverBorderDecoration(hoverBorderTextArea);
 			hoverBorderTextArea.setText("This is the Hover border textfield. Type the words here");
 			
-			JScrollPane hoverBorderScrollPane = new JScrollPane();
+			JBasicScrollPane hoverBorderScrollPane = new JBasicScrollPane();
 			hoverBorderScrollPane.getViewport().add(hoverBorderTextArea);			
 			add(hoverBorderScrollPane);
 		}
