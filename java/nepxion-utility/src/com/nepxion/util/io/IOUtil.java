@@ -26,8 +26,8 @@ public class IOUtil
 {
 	/**
 	 * Write Object by OutputStream
-	 * @param outputStream the instance of OutputStream
-	 * @param object the instance of Object
+	 * @param outputStream  the instance of OutputStream
+	 * @param object        the instance of Object
 	 * @throws IOException
 	 */
 	public static void write(OutputStream outputStream, Object object)
@@ -41,7 +41,7 @@ public class IOUtil
 	
 	/**
 	 * Read Object by InputStream
-	 * @param inputStream the instance of InputStream
+	 * @param inputStream  the instance of InputStream
 	 * @return the instance of Object
 	 * @throws IOException
 	 * @throws ClassNotFoundException
@@ -57,7 +57,7 @@ public class IOUtil
 	
 	/**
 	 * Write Object by ByteArrayOutputStream
-	 * @param object the instance of Object
+	 * @param object  the instance of Object
 	 * @return the instance of ByteArrayOutputStream
 	 * @throws IOException
 	 */
@@ -72,7 +72,7 @@ public class IOUtil
 	
 	/**
 	 * Read Object by ByteArrayOutputStream
-	 * @param outputStream the instance of ByteArrayOutputStream
+	 * @param outputStream  the instance of ByteArrayOutputStream
 	 * @return the instance of Object
 	 * @throws IOException
 	 * @throws ClassNotFoundException
@@ -88,7 +88,7 @@ public class IOUtil
 	
 	/**
 	 * Get ByteArrayInputStream by Object
-	 * @param object the instance of Object
+	 * @param object  the instance of Object
 	 * @return the instance of ByteArrayInputStream
 	 * @throws IOException
 	 */
@@ -103,7 +103,7 @@ public class IOUtil
 	
 	/**
 	 * Get Object by InputStream
-	 * @param inputStream the instance of InputStream
+	 * @param inputStream  the instance of InputStream
 	 * @return the instance of Object
 	 * @throws IOException
 	 * @throws ClassNotFoundException
@@ -116,7 +116,7 @@ public class IOUtil
 	
 	/**
 	 * Get InputStream by String
-	 * @param text the instance of String
+	 * @param text  the instance of String
 	 * @return the instance of ByteArrayInputStream
 	 */
 	public static ByteArrayInputStream getInputStream(String text)
@@ -196,7 +196,7 @@ public class IOUtil
 	
 	/**
 	 * Get deep clone object
-	 * @param object the origin
+	 * @param object  the origin
 	 * @return the clone object
 	 * @throws IOException
 	 * @throws ClassNotFoundException
