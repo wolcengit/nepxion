@@ -26,8 +26,8 @@ public class Dom4JWriter
 	 * Get xml text by document
 	 * @param document  the instanceof Document
 	 * @return          the xml text
-	 * @throws UnsupportedEncodingException
-	 * @throws IOException
+	 * @throws          UnsupportedEncodingException
+	 * @throws          IOException
 	 */
 	public static String getText(Document document)
 		throws UnsupportedEncodingException, IOException
@@ -40,8 +40,8 @@ public class Dom4JWriter
 	 * @param document  the instanceof Document
 	 * @param Charset   the Charset text, example "ISO-8859-1", "UTF-8", "GBK", "GB2312"
 	 * @return          the xml text
-	 * @throws UnsupportedEncodingException
-	 * @throws IOException
+	 * @throws          UnsupportedEncodingException
+	 * @throws          IOException
 	 */
 	public static String getText(Document document, String charset)
 		throws UnsupportedEncodingException, IOException

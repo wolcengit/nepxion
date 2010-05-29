@@ -27,76 +27,76 @@ public class Dom4JReader
 	 * Get document by string
 	 * @param content  the xml content
 	 * @return         the instance of Document
-	 * @throws DocumentException
+	 * @throws         DocumentException
 	 */
 	public static Document getDocument(String text)
 		throws DocumentException
 	{
 		return DocumentHelper.parseText(text);
 	}
-    
-    /**
-     * Get document by file
-     * @param url   the instance of File
-     * @return      the instance of Document   
-     * @throws DocumentException
-     */
-    public static Document getDocument(File file)
+	
+	/**
+	 * Get document by file
+	 * @param url  the instance of File
+	 * @return     the instance of Document
+	 * @throws     DocumentException
+	 */
+	public static Document getDocument(File file)
 		throws DocumentException
 	{
 		SAXReader saxReader = new SAXReader();
 		return saxReader.read(file);
-	}    
-    
-    /**
-     * Get document by inputSource
-     * @param url   the instance of InputSource
-     * @return      the instance of Document   
-     * @throws DocumentException
-     */
-    public static Document getDocument(InputSource inputSource)
+	}
+	
+	/**
+	 * Get document by inputSource
+	 * @param url  the instance of InputSource
+	 * @return     the instance of Document
+	 * @throws     DocumentException
+	 */
+	public static Document getDocument(InputSource inputSource)
 		throws DocumentException
 	{
 		SAXReader saxReader = new SAXReader();
 		return saxReader.read(inputSource);
-	} 
-    
-    /**
-     * Get document by inputStream
-     * @param url   the instance of InputStream
-     * @return      the instance of Document   
-     * @throws DocumentException
-     */
-    public static Document getDocument(InputStream inputStream)
+	}
+	
+	/**
+	 * Get document by inputStream
+	 * @param url  the instance of InputStream
+	 * @return     the instance of Document
+	 * @throws     DocumentException
+	 */
+	public static Document getDocument(InputStream inputStream)
 		throws DocumentException
 	{
 		SAXReader saxReader = new SAXReader();
 		return saxReader.read(inputStream);
-	}   
-    
-    /**
-     * Get document by reader
-     * @param url   the instance of Reader
-     * @return      the instance of Document   
-     * @throws DocumentException
-     */
-    public static Document getDocument(Reader reader)
+	}
+	
+	/**
+	 * Get document by reader
+	 * @param url  the instance of Reader
+	 * @return     the instance of Document
+	 * @throws     DocumentException
+	 */
+	public static Document getDocument(Reader reader)
 		throws DocumentException
 	{
 		SAXReader saxReader = new SAXReader();
 		return saxReader.read(reader);
 	}
-    
-    /**
-     * Get document by url
-     * @param url   the instance of URL
-     * @return      the instance of Document   
-     * @throws DocumentException
-     */
-    public static Document getDocument(URL url)
+	
+	/**
+	 * Get document by url
+	 * @param url  the instance of URL
+	 * @return     the instance of Document
+	 * @throws     DocumentException
+	 */
+	public static Document getDocument(URL url)
 		throws DocumentException
 	{
 		SAXReader saxReader = new SAXReader();
 		return saxReader.read(url);
-	}    
+	}
 }
