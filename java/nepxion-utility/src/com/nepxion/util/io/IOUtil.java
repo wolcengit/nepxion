@@ -28,7 +28,7 @@ public class IOUtil
 	 * Write Object by OutputStream
 	 * @param outputStream  the instance of OutputStream
 	 * @param object        the instance of Object
-	 * @throws IOException
+	 * @throws              IOException
 	 */
 	public static void write(OutputStream outputStream, Object object)
 		throws IOException
@@ -42,9 +42,9 @@ public class IOUtil
 	/**
 	 * Read Object by InputStream
 	 * @param inputStream  the instance of InputStream
-	 * @return the instance of Object
-	 * @throws IOException
-	 * @throws ClassNotFoundException
+	 * @return             the instance of Object
+	 * @throws             IOException
+	 * @throws             ClassNotFoundException
 	 */
 	public static Object read(InputStream inputStream)
 		throws IOException, ClassNotFoundException
@@ -58,8 +58,8 @@ public class IOUtil
 	/**
 	 * Write Object by ByteArrayOutputStream
 	 * @param object  the instance of Object
-	 * @return the instance of ByteArrayOutputStream
-	 * @throws IOException
+	 * @return        the instance of ByteArrayOutputStream
+	 * @throws        IOException
 	 */
 	public static ByteArrayOutputStream write(Object object)
 		throws IOException
@@ -73,9 +73,9 @@ public class IOUtil
 	/**
 	 * Read Object by ByteArrayOutputStream
 	 * @param outputStream  the instance of ByteArrayOutputStream
-	 * @return the instance of Object
-	 * @throws IOException
-	 * @throws ClassNotFoundException
+	 * @return              the instance of Object
+	 * @throws              IOException
+	 * @throws              ClassNotFoundException
 	 */
 	public static Object read(ByteArrayOutputStream outputStream)
 		throws IOException, ClassNotFoundException
@@ -89,8 +89,8 @@ public class IOUtil
 	/**
 	 * Get ByteArrayInputStream by Object
 	 * @param object  the instance of Object
-	 * @return the instance of ByteArrayInputStream
-	 * @throws IOException
+	 * @return        the instance of ByteArrayInputStream
+	 * @throws        IOException
 	 */
 	public static ByteArrayInputStream getInputStream(Object object)
 		throws IOException
@@ -104,9 +104,9 @@ public class IOUtil
 	/**
 	 * Get Object by InputStream
 	 * @param inputStream  the instance of InputStream
-	 * @return the instance of Object
-	 * @throws IOException
-	 * @throws ClassNotFoundException
+	 * @return             the instance of Object
+	 * @throws             IOException
+	 * @throws             ClassNotFoundException
 	 */
 	public static Object getObject(InputStream inputStream)
 		throws IOException, ClassNotFoundException
@@ -117,7 +117,7 @@ public class IOUtil
 	/**
 	 * Get InputStream by String
 	 * @param text  the instance of String
-	 * @return the instance of ByteArrayInputStream
+	 * @return      the instance of ByteArrayInputStream
 	 */
 	public static ByteArrayInputStream getInputStream(String text)
 	{
@@ -128,8 +128,8 @@ public class IOUtil
 	/**
 	 * Get String by InputStream
 	 * @param inputStream  the instance of InputStream
-	 * @return the instance of String
-	 * @throws IOException
+	 * @return             the instance of String
+	 * @throws             IOException
 	 */
 	public static String getString(InputStream inputStream)
 		throws IOException
@@ -141,8 +141,8 @@ public class IOUtil
 	 * Get String by InputStream
 	 * @param inputStream  the instance of InputStream
 	 * @param charset      the charset text, example "ISO-8859-1", "UTF-8", "GBK", "GB2312"
-	 * @return the instance of String
-	 * @throws IOException
+	 * @return             the instance of String
+	 * @throws             IOException
 	 */
 	public static String getString(InputStream inputStream, String charset)
 		throws IOException
@@ -163,8 +163,8 @@ public class IOUtil
 	/**
 	 * Read String by InputStream
 	 * @param inputStream  the instance of InputStream
-	 * @return the instance of String
-	 * @throws IOException
+	 * @return             the instance of String
+	 * @throws             IOException
 	 */
 	public static String readString(InputStream inputStream)
 		throws IOException	
@@ -176,8 +176,8 @@ public class IOUtil
 	 * Read String by InputStream
 	 * @param inputStream  the instance of InputStream
 	 * @param charset      the charset text, example "ISO-8859-1", "UTF-8", "GBK", "GB2312"
-	 * @return the instance of String
-	 * @throws IOException
+	 * @return             the instance of String
+	 * @throws             IOException
 	 */
 	public static String readString(InputStream inputStream, String charset)
 		throws IOException	
@@ -197,9 +197,9 @@ public class IOUtil
 	/**
 	 * Get deep clone object
 	 * @param object  the origin
-	 * @return the clone object
-	 * @throws IOException
-	 * @throws ClassNotFoundException
+	 * @return        the clone object
+	 * @throws        IOException
+	 * @throws        ClassNotFoundException
 	 */
 	public static Object deepClone(Object object)
 		throws IOException, ClassNotFoundException

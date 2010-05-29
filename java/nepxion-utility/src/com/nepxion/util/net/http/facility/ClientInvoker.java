@@ -27,8 +27,8 @@ public class ClientInvoker
     /**
      * The portal of invoke. If the uri is not null, it will execute the invokeRemote method, otherwise the invokeNative method
      * @param clientRequest  the instance of ClientRequest.It should be serialized
-     * @return Object        the return object.It may be entity object or exception object
-     * @throws Exception
+     * @return               the return object.It may be entity object or exception object
+     * @throws               Exception
      */
     public Object invoke(IClientRequest clientRequest)
     	throws Exception
@@ -55,8 +55,8 @@ public class ClientInvoker
     /**
      * The invoking and alternation between client(Application & Applet) and Servlet in the remote mode
      * @param clientRequest  the instance of ClientRequest.It should be serialized
-     * @return Object        the return object.It may be entity object or exception object
-     * @throws Exception
+     * @return               the return object.It may be entity object or exception object
+     * @throws               Exception
      */
     public Object invokeRemote(IClientRequest clientRequest)
         throws Exception
@@ -106,8 +106,8 @@ public class ClientInvoker
     /**
      * The invoking and alternation between Application and Servlet in the native mode
      * @param clientRequest  the instance of ClientRequest.It should be serialized
-     * @return Object        the return object.It may be entity object or exception object
-     * @throws Exception
+     * @return               the return object.It may be entity object or exception object
+     * @throws               Exception
      */
     public Object invokeNative(IClientRequest clientRequest)
         throws Exception
