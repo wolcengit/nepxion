@@ -230,17 +230,17 @@ public class Logger
 		
 	public static void print(Exception exception)
 	{
-        ByteArrayOutputStream bos = new ByteArrayOutputStream();
-        try
-        {
-        	exception.printStackTrace(new PrintStream(bos));
-            bos.close();
-        }
-        catch (Exception ex)
-        {
-            ex.printStackTrace();
-        }
-        
+		ByteArrayOutputStream bos = new ByteArrayOutputStream();
+		try
+		{
+			exception.printStackTrace(new PrintStream(bos));
+			bos.close();
+		}
+		catch (Exception ex)
+		{
+			ex.printStackTrace();
+		}
+		
 		System.out.print(TimeUtil.getCurrentTime() + " : ");
 		System.err.println(new String(bos.toByteArray()).trim());
 	}	
