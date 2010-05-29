@@ -17,16 +17,16 @@ public class ExceptionUtil
 {
 	public static String getText(Exception e)
 	{
-        ByteArrayOutputStream out = new ByteArrayOutputStream();
-        try
-        {
-            e.printStackTrace(new PrintStream(out));
-            out.close();
-        }
-        catch (Exception ex)
-        {
-            ex.printStackTrace();
-        }
-        return new String(out.toByteArray()).trim();		
+		ByteArrayOutputStream out = new ByteArrayOutputStream();
+		try
+		{
+			e.printStackTrace(new PrintStream(out));
+			out.close();
+		}
+		catch (Exception ex)
+		{
+			ex.printStackTrace();
+		}
+		return new String(out.toByteArray()).trim();
 	}
 }
