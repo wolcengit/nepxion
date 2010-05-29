@@ -10,28 +10,30 @@ package com.nepxion.demo.component.tree;
  * @version 1.0
  */
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.File;
 
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.Icon;
-import javax.swing.JButton;
+import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.filechooser.FileSystemView;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
+import javax.swing.tree.TreeNode;
 
 import com.nepxion.swing.border.ComplexEtchedBorder;
 import com.nepxion.swing.border.ComplexSide;
 import com.nepxion.swing.border.ComplexTitleBorder;
 import com.nepxion.swing.common.InstallData;
 import com.nepxion.swing.frame.JBasicFrame;
+import com.nepxion.swing.lookandfeel.LookAndFeelManager;
+import com.nepxion.swing.popupmenu.JDecorationPopupMenu;
 import com.nepxion.swing.renderer.tree.TreeDecorationCellRenderer;
 import com.nepxion.swing.scrollpane.JBasicScrollPane;
 import com.nepxion.swing.tree.lazyloader.AbstractLazyLoader;
 import com.nepxion.swing.tree.lazyloader.JLazyLoaderTree;
+import com.nepxion.swing.tree.lazyloader.LazyLoaderTreeController;
 import com.nepxion.swing.tree.lazyloader.LazyLoaderTreeNode;
 
 public class DemoLazyLoaderTreePanel
@@ -53,146 +55,12 @@ public class DemoLazyLoaderTreePanel
 		public LazyLoaderTreePanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "LazyLoader Tree"));
+			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "File LazyLoader Tree"));
 			
-			DefaultMutableTreeNode root = new DefaultMutableTreeNode("File System View");
-			
-			File[] files = fileSystemView.getRoots();
-			for (int i = 0; i < files.length; i++)
-			{
-				FileNode fileNode = createFileNode(files[i]);
-				root.add(fileNode);
-			}
-			
-			DefaultTreeModel treeModel = new DefaultTreeModel(root);
-			
-			final JLazyLoaderTree lazyLoaderTree = new JLazyLoaderTree();
-			lazyLoaderTree.setModel(treeModel);
-//			lazyLoaderTree.setRootVisible(false);
-			lazyLoaderTree.setCellRendererStyle(TreeDecorationCellRenderer.NIMBUS_STYLE);
-			lazyLoaderTree.setLazyLoaderType(JLazyLoaderTree.ASYNCHRONISM);
-			lazyLoaderTree.setLazyLoader(new FileLazyLoader());				
-			
-			JBasicScrollPane lazyLoaderTreeScrollPane = new JBasicScrollPane();
-			lazyLoaderTreeScrollPane.getViewport().add(lazyLoaderTree);			
-			add(lazyLoaderTreeScrollPane);
-
-			JButton loadButton = new JButton("展开节点");
-			loadButton.addActionListener(new ActionListener()
-			{
-				public void actionPerformed(ActionEvent e)
-				{
-					if (lazyLoaderTree.getSelectionTreeNode() != null)
-					{	
-						lazyLoaderTree.load(lazyLoaderTree.getSelectionTreeNode());
-					}
-				}
-			}
-			);
-			add(loadButton);
-			
-			JButton loadChildrenButton = new JButton("展开子节点");
-			loadChildrenButton.addActionListener(new ActionListener()
-			{
-				public void actionPerformed(ActionEvent e)
-				{
-					if (lazyLoaderTree.getSelectionTreeNode() != null)
-					{	
-						lazyLoaderTree.loadChildren(lazyLoaderTree.getSelectionTreeNode());
-					}										
-				}
-			}
-			);
-			add(loadChildrenButton);
-			
-			JButton expandAllButton = new JButton("展开全部节点");
-			expandAllButton.addActionListener(new ActionListener()
-			{
-				public void actionPerformed(ActionEvent e)
-				{
-					lazyLoaderTree.loadAll();
-				}
-			}
-			);
-			add(expandAllButton);			
-			
-			JButton collapseButton = new JButton("收缩节点");
-			collapseButton.addActionListener(new ActionListener()
-			{
-				public void actionPerformed(ActionEvent e)
-				{
-					if (lazyLoaderTree.getSelectionPath() != null)
-					{	
-						lazyLoaderTree.collapse(lazyLoaderTree.getSelectionPath());
-					}											
-				}
-			}
-			);
-			add(collapseButton);
-			
-			JButton collapseChildrenButton = new JButton("收缩子节点");
-			collapseChildrenButton.addActionListener(new ActionListener()
-			{
-				public void actionPerformed(ActionEvent e)
-				{
-					if (lazyLoaderTree.getSelectionPath() != null)
-					{	
-						lazyLoaderTree.collapseChildren(lazyLoaderTree.getSelectionPath());
-					}											
-				}
-			}
-			);
-			add(collapseChildrenButton);
-			
-			JButton collapseAllButton = new JButton("收缩全部节点");
-			collapseAllButton.addActionListener(new ActionListener()
-			{
-				public void actionPerformed(ActionEvent e)
-				{
-					lazyLoaderTree.collapseAll();										
-				}
-			}
-			);
-			add(collapseAllButton);	
-			
-			JButton cancelButton = new JButton("取消任务");
-			cancelButton.addActionListener(new ActionListener()
-			{
-				public void actionPerformed(ActionEvent e)
-				{
-					if (lazyLoaderTree.getSelectionTreeNode() != null)
-					{	
-						lazyLoaderTree.cancel(lazyLoaderTree.getSelectionTreeNode());
-					}
-			}
-			}
-			);		
-			add(cancelButton);
-			
-			JButton cancelChildrenButton = new JButton("取消子节点任务");
-			cancelChildrenButton.addActionListener(new ActionListener()
-			{
-				public void actionPerformed(ActionEvent e)
-				{
-					if (lazyLoaderTree.getSelectionTreeNode() != null)
-					{	
-						lazyLoaderTree.cancelChildren(lazyLoaderTree.getSelectionTreeNode());
-					}
-			}
-			}
-			);		
-			add(cancelChildrenButton);				
-
-			JButton cancelAllButton = new JButton("取消全部任务");
-			cancelAllButton.addActionListener(new ActionListener()
-			{
-				public void actionPerformed(ActionEvent e)
-				{
-					lazyLoaderTree.cancelAll();
-				}
-			}
-			);
-			add(cancelAllButton);
+			FileTree fileTree = new FileTree();
+			JBasicScrollPane fileTreeScrollPane = new JBasicScrollPane();
+			fileTreeScrollPane.getViewport().add(fileTree);
+			add(fileTreeScrollPane);
 		}
 	}
 	
@@ -230,6 +98,39 @@ public class DemoLazyLoaderTreePanel
 		return fileNode;
 	}
 	
+	public class FileTree
+		extends JLazyLoaderTree
+	{
+		private FilePopopMenu popupMenu;
+		
+		public FileTree()
+		{
+			DefaultMutableTreeNode root = new DefaultMutableTreeNode("File System View");
+			
+			File[] files = fileSystemView.getRoots();
+			for (int i = 0; i < files.length; i++)
+			{
+				FileNode fileNode = createFileNode(files[i]);
+				root.add(fileNode);
+			}
+			
+			DefaultTreeModel treeModel = new DefaultTreeModel(root);
+		
+			setModel(treeModel);
+			// setRootVisible(false);
+			// setSelectionMode(SINGLE_TREE_SELECTION);
+			setCellRenderer(new TreeDecorationCellRenderer(20));
+			setLazyLoader(new FileLazyLoader(false));
+			
+			popupMenu = new FilePopopMenu(this);
+		}
+		
+		public void executePopupMenu(TreeNode treeNode, int treePathCount, int x, int y)
+		{
+			popupMenu.show(this, x, y);
+		}		
+	}
+	
 	public class FileNode
 		extends LazyLoaderTreeNode
 	{
@@ -249,30 +150,23 @@ public class DemoLazyLoaderTreePanel
 		{
 			this.file = file;
 		}
-	}	
+	}
 	
 	public class FileLazyLoader
 		extends AbstractLazyLoader
 	{
-		public Object loadBackground(LazyLoaderTreeNode lazyLoaderTreeNode)
+		public FileLazyLoader()
 		{
-			FileNode fileNode = (FileNode) lazyLoaderTreeNode;
-			File file = fileNode.getFile();
-			File[] files = fileSystemView.getFiles(file, true);	
-			try
-			{
-				Thread.sleep(2000);
-			}
-			catch (InterruptedException e)
-			{				
-				return null;
-			}
-
-			return files;
+			super();
 		}
-
+		
+		public FileLazyLoader(boolean isSynchronized)
+		{
+			super(isSynchronized);
+		}
+		
 		public void loadForeground(Object data, LazyLoaderTreeNode lazyLoaderTreeNode)
-		{					
+		{
 			File[] files = (File[]) data;
 			if (files != null && files.length > 0)
 			{
@@ -281,15 +175,90 @@ public class DemoLazyLoaderTreePanel
 					FileNode fileNode = createFileNode(files[i]);
 					lazyLoaderTreeNode.add(fileNode);
 				}
-			}		
+			}
 		}
-	}	
+		
+		public Object loadBackground(LazyLoaderTreeNode lazyLoaderTreeNode)
+		{
+			FileNode fileNode = (FileNode) lazyLoaderTreeNode;
+			File file = fileNode.getFile();
+			File[] files = fileSystemView.getFiles(file, true);
+			
+			try
+			{
+				Thread.sleep(10000);
+			}
+			catch (InterruptedException e)
+			{
+			}
+			
+			return files;
+		}
+	}
+	
+	public class FilePopopMenu
+		extends JDecorationPopupMenu
+	{
+		public FilePopopMenu(JLazyLoaderTree lazyLoaderTree)
+		{
+			JMenuItem refreshMenuItem = new JMenuItem(LazyLoaderTreeController.getRefreshAction(lazyLoaderTree));
+			add(refreshMenuItem);
+			
+			addSeparator();
+			
+			JMenuItem loadMenuItem = new JMenuItem(LazyLoaderTreeController.getLoadAction(lazyLoaderTree));
+			add(loadMenuItem);
+			
+			JMenuItem loadChildrenMenuItem = new JMenuItem(LazyLoaderTreeController.getLoadChildrenAction(lazyLoaderTree));
+			add(loadChildrenMenuItem);
+			
+			JMenuItem loadAllMenuItem = new JMenuItem(LazyLoaderTreeController.getLoadAllAction(lazyLoaderTree));
+			add(loadAllMenuItem);
+			
+			addSeparator();
+			
+			// JMenuItem pageLoadMenuItem = new JMenuItem(LazyLoaderManager.getPageLoadAction(lazyLoaderTree));
+			// add(pageLoadMenuItem);
+			
+			JMenuItem cancelMenuItem = new JMenuItem(LazyLoaderTreeController.getCancelAction(lazyLoaderTree));
+			add(cancelMenuItem);
+			
+			JMenuItem cancelChildrenMenuItem = new JMenuItem(LazyLoaderTreeController.getCancelChildrenAction(lazyLoaderTree));
+			add(cancelChildrenMenuItem);
+			
+			JMenuItem cancelAllMenuItem = new JMenuItem(LazyLoaderTreeController.getCancelAllAction(lazyLoaderTree));
+			add(cancelAllMenuItem);
+			
+			addSeparator();
+			
+			JMenuItem expandMenuItem = new JMenuItem(LazyLoaderTreeController.getExpandAction(lazyLoaderTree));
+			add(expandMenuItem);
+			
+			JMenuItem expandChildrenMenuItem = new JMenuItem(LazyLoaderTreeController.getExpandChildrenAction(lazyLoaderTree));
+			add(expandChildrenMenuItem);
+			
+			JMenuItem expandAllMenuItem = new JMenuItem(LazyLoaderTreeController.getExpandAllAction(lazyLoaderTree));
+			add(expandAllMenuItem);
+			
+			addSeparator();
+			
+			JMenuItem collapseMenuItem = new JMenuItem(LazyLoaderTreeController.getCollapseAction(lazyLoaderTree));
+			add(collapseMenuItem);
+			
+			JMenuItem collapseChildrenMenuItem = new JMenuItem(LazyLoaderTreeController.getCollapseChildrenAction(lazyLoaderTree));
+			add(collapseChildrenMenuItem);
+			
+			JMenuItem collapseAllMenuItem = new JMenuItem(LazyLoaderTreeController.getCollapseAllAction(lazyLoaderTree));
+			add(collapseAllMenuItem);
+		}
+	}
 	
 	public static void main(String[] args)
 	{
+		LookAndFeelManager.setPlasticXPLookAndFeel();
 		JBasicFrame frame = new JBasicFrame();
 		frame.getContentPane().add(new DemoLazyLoaderTreePanel());
-		frame.setSize(1400, 768);
+		frame.setSize(800, 600);
 		frame.setVisible(true);
 	}
 }
