@@ -16,8 +16,8 @@ import java.util.HashMap;
 import com.nepxion.util.net.http.IClientRequest;
 
 public class ClientRequest
-    implements IClientRequest
-{	
+	implements IClientRequest
+{
 	private static final long serialVersionUID = -2619050867163898049L;
 	
 	private String responseKey;
@@ -25,67 +25,67 @@ public class ClientRequest
 	private URI uri;
 	
 	private HashMap entity;
-
-    public ClientRequest()
-    {
-    	this((String) null);
-    }
-    
-    public ClientRequest(URI uri)
-    {
-    	this(null, uri);
-    }
-    
-    public ClientRequest(String responseKey)
-    {
-    	this(responseKey, null);
-    }    
-    
-    public ClientRequest(String responseKey, URI uri)
-    {
-    	this(responseKey, null, uri);
-    }       
-    
-    public ClientRequest(String responseKey, Class responseClass, URI uri)
-    {
-    	this.responseKey = responseKey;
-    	this.responseClass = responseClass;
-    	this.uri = uri;
-    }    
-
-    public String getResponseKey()
-    {
-        return responseKey;
-    }
-
-    public void setResponseKey(String responseKey)
-    {
-        this.responseKey = responseKey;
-    }
-
-    public Class getResponseClass()
-    {
-        return responseClass;
-    }
-
-    public void setResponseClass(Class responseClass)
-    {
-        this.responseClass = responseClass;
-    }
-    
-    public URI getURI()
-    {
-    	return uri;
-    }
-    
-    public void setURI(URI uri)
-    {
-    	this.uri = uri;
-    }
-    
+	
+	public ClientRequest()
+	{
+		this((String) null);
+	}
+	
+	public ClientRequest(URI uri)
+	{
+		this(null, uri);
+	}
+	
+	public ClientRequest(String responseKey)
+	{
+		this(responseKey, null);
+	}
+	
+	public ClientRequest(String responseKey, URI uri)
+	{
+		this(responseKey, null, uri);
+	}
+	
+	public ClientRequest(String responseKey, Class responseClass, URI uri)
+	{
+		this.responseKey = responseKey;
+		this.responseClass = responseClass;
+		this.uri = uri;
+	}
+	
+	public String getResponseKey()
+	{
+		return responseKey;
+	}
+	
+	public void setResponseKey(String responseKey)
+	{
+		this.responseKey = responseKey;
+	}
+	
+	public Class getResponseClass()
+	{
+		return responseClass;
+	}
+	
+	public void setResponseClass(Class responseClass)
+	{
+		this.responseClass = responseClass;
+	}
+	
+	public URI getURI()
+	{
+		return uri;
+	}
+	
+	public void setURI(URI uri)
+	{
+		this.uri = uri;
+	}
+	
 	public void setURI(String uri)
 	{
-		setURI(URI.create(uri));		
+		setURI(URI.create(uri));
 	}
 	
 	public HashMap getEntity()
