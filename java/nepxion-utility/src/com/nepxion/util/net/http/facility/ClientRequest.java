@@ -86,7 +86,7 @@ public class ClientRequest
 	public void setURI(String uri)
 	{
 		setURI(URI.create(uri));		
-	}   
+	}
 	
 	public HashMap getEntity()
 	{
