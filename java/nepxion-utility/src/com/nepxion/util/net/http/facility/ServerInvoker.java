@@ -20,58 +20,58 @@ import javax.servlet.http.HttpServletResponse;
 import com.nepxion.util.io.IOUtil;
 
 public class ServerInvoker
-    extends HttpServlet
+	extends HttpServlet
 {
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 		throws ServletException, IOException
-	{	
+	{
 		doExecute(request, response);
 	}
 	
-    public void doPost(HttpServletRequest request, HttpServletResponse response)
-        throws ServletException, IOException
-    {
-    	doExecute(request, response);
-    }
-    
-    public void doExecute(HttpServletRequest request, HttpServletResponse response)
-    	throws ServletException, IOException
-    {
-        try
-        {            
-        	ClientRequest clientRequest = (ClientRequest) IOUtil.read(request.getInputStream()); 
-            
-            Object serverResponseObject = invoke(clientRequest, request, response); 
-         
-            IOUtil.write(response.getOutputStream(), serverResponseObject);            
-        }
-        catch (ClassNotFoundException e)
-        {        		
-        	e.printStackTrace();
-        	throw new IOException(e.toString());        	
-        }  
-    }
-
-    public Object invoke(ClientRequest clientRequest, HttpServletRequest request, HttpServletResponse response)
-		throws ServletException, IOException    
-    {
-        Class responseClass = clientRequest.getResponseClass();
-        ServerResponse serverResponse = null;
-        try
-        {
-        	serverResponse = (ServerResponse) responseClass.newInstance();
-        }
-        catch (IllegalAccessException e)
-        {
-            e.printStackTrace();
-        }
-        catch (InstantiationException e)
-        {
-            e.printStackTrace();
-        }       
-        serverResponse.setClientRequest(clientRequest);
-        serverResponse.setHttpServletRequest(request);
-        serverResponse.setHttpServletResponse(response);
-        return serverResponse.execute();
-    }
+	public void doPost(HttpServletRequest request, HttpServletResponse response)
+		throws ServletException, IOException
+	{
+		doExecute(request, response);
+	}
+	
+	public void doExecute(HttpServletRequest request, HttpServletResponse response)
+		throws ServletException, IOException
+	{
+		try
+		{
+			ClientRequest clientRequest = (ClientRequest) IOUtil.read(request.getInputStream());
+			
+			Object serverResponseObject = invoke(clientRequest, request, response);
+			
+			IOUtil.write(response.getOutputStream(), serverResponseObject);
+		}
+		catch (ClassNotFoundException e)
+		{
+			e.printStackTrace();
+			throw new IOException(e.toString());
+		}
+	}
+	
+	public Object invoke(ClientRequest clientRequest, HttpServletRequest request, HttpServletResponse response)
+		throws ServletException, IOException
+	{
+		Class responseClass = clientRequest.getResponseClass();
+		ServerResponse serverResponse = null;
+		try
+		{
+			serverResponse = (ServerResponse) responseClass.newInstance();
+		}
+		catch (IllegalAccessException e)
+		{
+			e.printStackTrace();
+		}
+		catch (InstantiationException e)
+		{
+			e.printStackTrace();
+		}
+		serverResponse.setClientRequest(clientRequest);
+		serverResponse.setHttpServletRequest(request);
+		serverResponse.setHttpServletResponse(response);
+		return serverResponse.execute();
+	}
 }
