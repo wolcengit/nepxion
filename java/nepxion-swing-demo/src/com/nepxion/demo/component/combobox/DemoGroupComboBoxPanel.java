@@ -45,11 +45,11 @@ public class DemoGroupComboBoxPanel
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
 			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Group ComboBox"));
 			
-			List componentInstallDatas = DemoDataFactory.getComponentInstallDatas();
-			componentInstallDatas.add(3, ComboBoxGroupCellRenderer.SEPARATOR);
-			componentInstallDatas.add(8, ComboBoxGroupCellRenderer.SEPARATOR);
+			List componentElementNodes = DemoDataFactory.getComponentElementNodes();
+			componentElementNodes.add(3, ComboBoxGroupCellRenderer.SEPARATOR);
+			componentElementNodes.add(8, ComboBoxGroupCellRenderer.SEPARATOR);
 			
-			JGroupComboBox groupComboBox = new JGroupComboBox(CollectionUtil.parseVector(componentInstallDatas));
+			JGroupComboBox groupComboBox = new JGroupComboBox(CollectionUtil.parseVector(componentElementNodes));
 			groupComboBox.setMaximumSize(new Dimension(350, groupComboBox.getPreferredSize().height));
 			groupComboBox.setRenderer(new ComboBoxGroupCellRenderer(BorderFactory.createEmptyBorder(0, 5, 0, 0), -1));
 			add(groupComboBox);

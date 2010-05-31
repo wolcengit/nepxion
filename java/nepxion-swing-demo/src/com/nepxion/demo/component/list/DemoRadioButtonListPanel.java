@@ -44,9 +44,9 @@ public class DemoRadioButtonListPanel
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
 			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "RadioButton List"));
 			
-			List componentInstallDatas = DemoDataFactory.getComponentInstallDatas();
+			List componentElementNodes = DemoDataFactory.getComponentElementNodes();
 			
-			JList radioButtonList = new JList(CollectionUtil.parseVector(componentInstallDatas));
+			JList radioButtonList = new JList(CollectionUtil.parseVector(componentElementNodes));
 			radioButtonList.setCellRenderer(new ListRadioButtonCellRenderer(radioButtonList));
 			
 			JBasicScrollPane radioButtonListScrollPane = new JBasicScrollPane();

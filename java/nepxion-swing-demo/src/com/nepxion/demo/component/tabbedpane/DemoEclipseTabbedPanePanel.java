@@ -30,14 +30,14 @@ import com.nepxion.swing.border.ComplexSide;
 import com.nepxion.swing.border.ComplexTitleBorder;
 import com.nepxion.swing.checkbox.JBasicCheckBox;
 import com.nepxion.swing.combobox.JBasicComboBox;
-import com.nepxion.swing.common.InstallData;
+import com.nepxion.swing.element.ElementNode;
 import com.nepxion.swing.handle.HandleManager;
 import com.nepxion.swing.icon.IconFactory;
 import com.nepxion.swing.layout.filed.FiledLayout;
 import com.nepxion.swing.listener.SelectionListener;
 import com.nepxion.swing.optionpane.JBasicOptionPane;
 import com.nepxion.swing.popupmenu.JDecorationPopupMenu;
-import com.nepxion.swing.renderer.combobox.ComboBoxDecorationCellRenderer;
+import com.nepxion.swing.renderer.combobox.ComboBoxElementCellRenderer;
 import com.nepxion.swing.tabbedpane.JEclipseTabbedPane;
 import com.nepxion.util.data.CollectionUtil;
 
@@ -107,16 +107,16 @@ public class DemoEclipseTabbedPanePanel
 			setLayout(new FiledLayout(FiledLayout.COLUMN, FiledLayout.FULL, 0));
 			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Public Configuration"));
 			
-			List tabShapeInstallDatas = DemoDataFactory.getEclipseTabShapeInstallDatas();
+			List tabShapeElementNodes = DemoDataFactory.getEclipseTabShapeElementNodes();
 			
-			final JBasicComboBox tabShapeComboBox = new JBasicComboBox(CollectionUtil.parseVector(tabShapeInstallDatas));
-			tabShapeComboBox.setRenderer(new ComboBoxDecorationCellRenderer());
+			final JBasicComboBox tabShapeComboBox = new JBasicComboBox(CollectionUtil.parseVector(tabShapeElementNodes));
+			tabShapeComboBox.setRenderer(new ComboBoxElementCellRenderer());
 			tabShapeComboBox.addItemListener(new SelectionListener()
 			{
 				public void itemSelectionStateChanged(ItemEvent e)
 				{
-					InstallData installdata = (InstallData) tabShapeComboBox.getSelectedItem();
-					eclipseTabbedPane.setTabShape(installdata.getIndex());
+					ElementNode elementNode = (ElementNode) tabShapeComboBox.getSelectedItem();
+					eclipseTabbedPane.setTabShape(elementNode.getIndex());
 				}
 			}
 			);

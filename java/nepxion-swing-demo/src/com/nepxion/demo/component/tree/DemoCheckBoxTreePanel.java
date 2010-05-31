@@ -21,8 +21,8 @@ import com.nepxion.demo.common.DemoDataFactory;
 import com.nepxion.swing.border.ComplexEtchedBorder;
 import com.nepxion.swing.border.ComplexSide;
 import com.nepxion.swing.border.ComplexTitleBorder;
-import com.nepxion.swing.common.InstallData;
-import com.nepxion.swing.renderer.tree.TreeDecorationCellRenderer;
+import com.nepxion.swing.element.ElementNode;
+import com.nepxion.swing.renderer.tree.TreeElementCellRenderer;
 import com.nepxion.swing.scrollpane.JBasicScrollPane;
 import com.nepxion.swing.tree.JCheckBoxTree;
 
@@ -45,25 +45,25 @@ public class DemoCheckBoxTreePanel
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
 			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "CheckBox Tree"));
 			
-			DefaultMutableTreeNode root = new DefaultMutableTreeNode(DemoDataFactory.getRootInstallData());
-			for (Iterator iterator = DemoDataFactory.getComponentInstallDatas().iterator(); iterator.hasNext();)
+			DefaultMutableTreeNode root = new DefaultMutableTreeNode(DemoDataFactory.getRootElementNode());
+			for (Iterator iterator = DemoDataFactory.getComponentElementNodes().iterator(); iterator.hasNext();)
 			{
-				InstallData installData = (InstallData) iterator.next();
-				DefaultMutableTreeNode treeNode = new DefaultMutableTreeNode(installData);
+				ElementNode elementNode = (ElementNode) iterator.next();
+				DefaultMutableTreeNode treeNode = new DefaultMutableTreeNode(elementNode);
 				root.add(treeNode);
-				if (installData.getChildren() != null)
+				if (elementNode.getChildren() != null)
 				{
-					for (Iterator childIterator = installData.getChildren().iterator(); childIterator.hasNext();)
+					for (Iterator childIterator = elementNode.getChildren().iterator(); childIterator.hasNext();)
 					{
-						InstallData childInstallData = (InstallData) childIterator.next();
-						DefaultMutableTreeNode childTreeNode = new DefaultMutableTreeNode(childInstallData);
+						ElementNode childElementNode = (ElementNode) childIterator.next();
+						DefaultMutableTreeNode childTreeNode = new DefaultMutableTreeNode(childElementNode);
 						treeNode.add(childTreeNode);
 					}
 				}
 			}
 			
 			JCheckBoxTree checkBoxTree = new JCheckBoxTree(root);
-			checkBoxTree.setCellRenderer(new TreeDecorationCellRenderer(20));
+			checkBoxTree.setCellRenderer(new TreeElementCellRenderer(20));
 			checkBoxTree.expandAll();
 			
 			JBasicScrollPane checkBoxTreeScrollPane = new JBasicScrollPane();

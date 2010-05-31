@@ -58,7 +58,7 @@ public class DemoRadioButtonSelectorPanel
 			{
 				public void actionPerformed(ActionEvent e)
 				{					
-					JRadioButtonSelector radioButtonSelector = new JRadioButtonSelector(HandleManager.getFrame(DemoRadioButtonSelectorPanel.this), "Selection", DemoDataFactory.getComponentInstallDatas());
+					JRadioButtonSelector radioButtonSelector = new JRadioButtonSelector(HandleManager.getFrame(DemoRadioButtonSelectorPanel.this), "Selection", DemoDataFactory.getComponentElementNodes());
 					radioButtonSelector.setVisible(true);
 					
 					if (radioButtonSelector.isConfirmed())

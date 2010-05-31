@@ -21,12 +21,12 @@ import javax.swing.UIManager;
 import javax.swing.table.AbstractTableModel;
 import javax.swing.tree.DefaultMutableTreeNode;
 
-import com.nepxion.swing.common.InstallData;
+import com.nepxion.swing.element.ElementNode;
 import com.nepxion.swing.icon.IconFactory;
 import com.nepxion.swing.popupmenu.JDecorationPopupMenu;
-import com.nepxion.swing.renderer.list.ListDecorationCellRenderer;
-import com.nepxion.swing.renderer.table.TableDecorationCellRenderer;
-import com.nepxion.swing.renderer.tree.TreeDecorationCellRenderer;
+import com.nepxion.swing.renderer.list.ListElementCellRenderer;
+import com.nepxion.swing.renderer.table.TableElementCellRenderer;
+import com.nepxion.swing.renderer.tree.TreeElementCellRenderer;
 import com.nepxion.swing.scrollpane.JBasicScrollPane;
 import com.nepxion.swing.tabbedpane.JEclipseTabbedPane;
 import com.nepxion.swing.table.JBasicTable;
@@ -38,25 +38,25 @@ public class DemoComponentFactory
 {
 	public static JBasicTree getTree()
 	{		
-		DefaultMutableTreeNode root = new DefaultMutableTreeNode(DemoDataFactory.getRootInstallData());
-		for (Iterator iterator = DemoDataFactory.getComponentInstallDatas().iterator(); iterator.hasNext();)
+		DefaultMutableTreeNode root = new DefaultMutableTreeNode(DemoDataFactory.getRootElementNode());
+		for (Iterator iterator = DemoDataFactory.getComponentElementNodes().iterator(); iterator.hasNext();)
 		{
-			InstallData installData = (InstallData) iterator.next();
-			DefaultMutableTreeNode treeNode = new DefaultMutableTreeNode(installData);
+			ElementNode elementNode = (ElementNode) iterator.next();
+			DefaultMutableTreeNode treeNode = new DefaultMutableTreeNode(elementNode);
 			root.add(treeNode);
-			if (installData.getChildren() != null)
+			if (elementNode.getChildren() != null)
 			{	
-				for (Iterator childIterator = installData.getChildren().iterator(); childIterator.hasNext();)
+				for (Iterator childIterator = elementNode.getChildren().iterator(); childIterator.hasNext();)
 				{
-					InstallData childInstallData = (InstallData) childIterator.next();
-					DefaultMutableTreeNode childTreeNode = new DefaultMutableTreeNode(childInstallData);
+					ElementNode childElementNode = (ElementNode) childIterator.next();
+					DefaultMutableTreeNode childTreeNode = new DefaultMutableTreeNode(childElementNode);
 					treeNode.add(childTreeNode);
 				}	
 			}
 		}	
 		
 		JBasicTree tree = new JBasicTree(root);
-		tree.setCellRenderer(new TreeDecorationCellRenderer(20));
+		tree.setCellRenderer(new TreeElementCellRenderer(20));
 		tree.expandAll();
 		
 		return tree;				
@@ -64,22 +64,22 @@ public class DemoComponentFactory
 	
 	public static JBasicTable getTable()
 	{		
-		JBasicTable table = new JBasicTable(new InstallDataTableModel());
+		JBasicTable table = new JBasicTable(new ElementNodeTableModel());
 		table.getTableHeader().setBackground(UIManager.getColor("Panel.background"));
 		table.setAutoResizeMode(JBasicTable.AUTO_RESIZE_OFF);
-		table.getColumnModel().getColumn(2).setCellRenderer(new TableDecorationCellRenderer());
+		table.getColumnModel().getColumn(2).setCellRenderer(new TableElementCellRenderer());
 		return table;
 	}
 	
-	public static class InstallDataTableModel
+	public static class ElementNodeTableModel
 		extends AbstractTableModel
 	{
 		private List rowDatas;
 		private String[] columnNames;
 		
-		public InstallDataTableModel()
+		public ElementNodeTableModel()
 		{
-			this.rowDatas = DemoDataFactory.getComponentInstallDatas();
+			this.rowDatas = DemoDataFactory.getComponentElementNodes();
 			this.columnNames = DemoDataFactory.getComponentNameColumns();
 		}
 		
@@ -104,7 +104,7 @@ public class DemoComponentFactory
         	{	
         		return Integer.class;
         	}
-        	else if (column == 5 || column == 6)
+        	else if (column == 4 || column == 5)
         	{
         		return Boolean.class;
         	}	
@@ -113,17 +113,16 @@ public class DemoComponentFactory
 		
 		public Object getValueAt(int row, int column)
 		{
-			InstallData installData = (InstallData) rowDatas.get(row);
+			ElementNode elementNode = (ElementNode) rowDatas.get(row);
 			switch (column)
 			{
-				case 0: return new Integer(installData.getIndex());
-				case 1: return installData.getText();
-				case 2: return installData.getIcon();
-				case 3: return installData.getToolTipText();
-				case 4: return installData.getUserObject();
-				case 5: return new Boolean(installData.isSelected());
-				case 6: return new Boolean(installData.isEnabled());
-				case 7: return installData.getChildren();
+				case 0: return new Integer(elementNode.getIndex());
+				case 1: return elementNode.getText();
+				case 2: return elementNode.getIcon();
+				case 3: return elementNode.getToolTipText();
+				case 4: return new Boolean(elementNode.isSelected());
+				case 5: return new Boolean(elementNode.isEnabled());
+				case 6: return elementNode.getUserObject();				
 			}
 			return null;
 		}		
@@ -131,10 +130,10 @@ public class DemoComponentFactory
 	
 	public static JList getList()
 	{
-		List componentInstallDatas = DemoDataFactory.getComponentInstallDatas();
+		List componentElementNodes = DemoDataFactory.getComponentElementNodes();
 		
-		JList list = new JList(CollectionUtil.parseVector(componentInstallDatas));
-		list.setCellRenderer(new ListDecorationCellRenderer(list, BorderFactory.createEmptyBorder(0, 5, 0, 0), 22));
+		JList list = new JList(CollectionUtil.parseVector(componentElementNodes));
+		list.setCellRenderer(new ListElementCellRenderer(list, BorderFactory.createEmptyBorder(0, 5, 0, 0), 22));
 		
 		return list;
 	}

@@ -15,7 +15,7 @@ import javax.swing.Icon;
 import com.nepxion.demo.common.DemoTogglePanel;
 import com.nepxion.demo.common.DemoToggleTemplate;
 import com.nepxion.demo.component.list.DemoCheckBoxListPanel;
-import com.nepxion.demo.component.list.DemoDecorationListPanel;
+import com.nepxion.demo.component.list.DemoElementListPanel;
 import com.nepxion.demo.component.list.DemoRadioButtonListPanel;
 import com.nepxion.demo.component.list.DemoTabbedListPanel;
 import com.nepxion.swing.icon.IconFactory;
@@ -27,7 +27,7 @@ public class DemoListTogglePanel
 	public DemoListTogglePanel()
 	{
 		JEclipseTabbedPane toggleTabbedPane = getToggleTabbedPane();
-		toggleTabbedPane.addTab("Decoration List", IconFactory.getSwingIcon("component/list_16.png"), new DemoToggleTemplate(new DemoDecorationListPanel()));		
+		toggleTabbedPane.addTab("Element List", IconFactory.getSwingIcon("component/list_16.png"), new DemoToggleTemplate(new DemoElementListPanel()));		
 		toggleTabbedPane.addTab("CheckBox List", IconFactory.getSwingIcon("component/list_16.png"), new DemoToggleTemplate(new DemoCheckBoxListPanel()));
 		toggleTabbedPane.addTab("RadioButton List", IconFactory.getSwingIcon("component/list_16.png"), new DemoToggleTemplate(new DemoRadioButtonListPanel()));		
 		toggleTabbedPane.addTab("Tab List", IconFactory.getSwingIcon("component/list_16.png"), new DemoToggleTemplate(new DemoTabbedListPanel()));

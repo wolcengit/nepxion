@@ -44,9 +44,9 @@ public class DemoCheckBoxListPanel
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
 			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "CheckBox List"));
 			
-			List componentInstallDatas = DemoDataFactory.getComponentInstallDatas();
+			List componentElementNodes = DemoDataFactory.getComponentElementNodes();
 			
-			JList checkBoxList = new JList(CollectionUtil.parseVector(componentInstallDatas));
+			JList checkBoxList = new JList(CollectionUtil.parseVector(componentElementNodes));
 			checkBoxList.setCellRenderer(new ListCheckBoxCellRenderer(checkBoxList));
 			
 			JBasicScrollPane checkBoxListScrollPane = new JBasicScrollPane();

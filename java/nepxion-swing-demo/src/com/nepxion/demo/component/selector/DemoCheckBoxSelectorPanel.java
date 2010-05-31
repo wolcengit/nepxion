@@ -59,7 +59,7 @@ public class DemoCheckBoxSelectorPanel
 			{
 				public void actionPerformed(ActionEvent e)
 				{					
-					JCheckBoxSelector checkBoxSelector = new JCheckBoxSelector(HandleManager.getFrame(DemoCheckBoxSelectorPanel.this), "Selection", DemoDataFactory.getComponentInstallDatas());
+					JCheckBoxSelector checkBoxSelector = new JCheckBoxSelector(HandleManager.getFrame(DemoCheckBoxSelectorPanel.this), "Selection", DemoDataFactory.getComponentElementNodes());
 					checkBoxSelector.setVisible(true);
 					
 					if (checkBoxSelector.isConfirmed())

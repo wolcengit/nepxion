@@ -25,16 +25,16 @@ import javax.swing.tree.TreeNode;
 import com.nepxion.swing.border.ComplexEtchedBorder;
 import com.nepxion.swing.border.ComplexSide;
 import com.nepxion.swing.border.ComplexTitleBorder;
-import com.nepxion.swing.common.InstallData;
+import com.nepxion.swing.element.ElementNode;
 import com.nepxion.swing.frame.JBasicFrame;
 import com.nepxion.swing.lookandfeel.LookAndFeelManager;
 import com.nepxion.swing.popupmenu.JDecorationPopupMenu;
-import com.nepxion.swing.renderer.tree.TreeDecorationCellRenderer;
+import com.nepxion.swing.renderer.tree.TreeElementCellRenderer;
 import com.nepxion.swing.scrollpane.JBasicScrollPane;
 import com.nepxion.swing.tree.lazyloader.AbstractLazyLoader;
 import com.nepxion.swing.tree.lazyloader.JLazyLoaderTree;
 import com.nepxion.swing.tree.lazyloader.LazyLoaderTreeController;
-import com.nepxion.swing.tree.lazyloader.LazyLoaderTreeNode;
+import com.nepxion.swing.tree.lazyloader.JLazyLoaderTreeNode;
 
 public class DemoLazyLoaderTreePanel
 	extends JPanel
@@ -89,12 +89,12 @@ public class DemoLazyLoaderTreePanel
 		String name = fileSystemView.getSystemDisplayName(file);
 		Icon icon = fileSystemView.getSystemIcon(file);
 		
-		InstallData installData = new InstallData();
-		installData.setText(name);
-		installData.setIcon(icon);
-		installData.setToolTipText(name);
+		ElementNode elementNode = new ElementNode();
+		elementNode.setText(name);
+		elementNode.setIcon(icon);
+		elementNode.setToolTipText(name);
 		
-		fileNode.setUserObject(installData);
+		fileNode.setUserObject(elementNode);
 		return fileNode;
 	}
 	
@@ -115,11 +115,11 @@ public class DemoLazyLoaderTreePanel
 			}
 			
 			DefaultTreeModel treeModel = new DefaultTreeModel(root);
-		
+			
 			setModel(treeModel);
 			// setRootVisible(false);
 			// setSelectionMode(SINGLE_TREE_SELECTION);
-			setCellRenderer(new TreeDecorationCellRenderer(20));
+			setCellRenderer(new TreeElementCellRenderer(20));
 			setLazyLoader(new FileLazyLoader(false));
 			
 			popupMenu = new FilePopopMenu(this);
@@ -128,11 +128,11 @@ public class DemoLazyLoaderTreePanel
 		public void executePopupMenu(TreeNode treeNode, int treePathCount, int x, int y)
 		{
 			popupMenu.show(this, x, y);
-		}		
+		}
 	}
 	
 	public class FileNode
-		extends LazyLoaderTreeNode
+		extends JLazyLoaderTreeNode
 	{
 		private File file;
 		
@@ -165,7 +165,7 @@ public class DemoLazyLoaderTreePanel
 			super(isSynchronized);
 		}
 		
-		public void loadForeground(Object data, LazyLoaderTreeNode lazyLoaderTreeNode)
+		public void loadForeground(Object data, JLazyLoaderTreeNode lazyLoaderTreeNode)
 		{
 			File[] files = (File[]) data;
 			if (files != null && files.length > 0)
@@ -178,18 +178,21 @@ public class DemoLazyLoaderTreePanel
 			}
 		}
 		
-		public Object loadBackground(LazyLoaderTreeNode lazyLoaderTreeNode)
+		public Object loadBackground(JLazyLoaderTreeNode lazyLoaderTreeNode)
 		{
 			FileNode fileNode = (FileNode) lazyLoaderTreeNode;
 			File file = fileNode.getFile();
 			File[] files = fileSystemView.getFiles(file, true);
 			
-			try
-			{
-				Thread.sleep(10000);
-			}
-			catch (InterruptedException e)
-			{
+			if (files != null && files.length != 0)
+			{	
+				try
+				{
+					Thread.sleep(100);
+				}
+				catch (InterruptedException e)
+				{
+				}
 			}
 			
 			return files;
@@ -203,6 +206,9 @@ public class DemoLazyLoaderTreePanel
 		{
 			JMenuItem refreshMenuItem = new JMenuItem(LazyLoaderTreeController.getRefreshAction(lazyLoaderTree));
 			add(refreshMenuItem);
+
+			JMenuItem searchMenuItem = new JMenuItem(LazyLoaderTreeController.getSearchAction(lazyLoaderTree));
+			add(searchMenuItem);			
 			
 			addSeparator();
 			
@@ -216,9 +222,6 @@ public class DemoLazyLoaderTreePanel
 			add(loadAllMenuItem);
 			
 			addSeparator();
-			
-			// JMenuItem pageLoadMenuItem = new JMenuItem(LazyLoaderManager.getPageLoadAction(lazyLoaderTree));
-			// add(pageLoadMenuItem);
 			
 			JMenuItem cancelMenuItem = new JMenuItem(LazyLoaderTreeController.getCancelAction(lazyLoaderTree));
 			add(cancelMenuItem);

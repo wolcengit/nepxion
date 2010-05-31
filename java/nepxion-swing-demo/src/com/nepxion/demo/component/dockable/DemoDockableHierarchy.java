@@ -70,8 +70,8 @@ public class DemoDockableHierarchy
         JDockableView tabbedPaneView = new JDockableView(TABBED_PANE_TITLE, IconFactory.getSwingIcon("component/tabbed_pane_16.png"), DemoComponentFactory.getTabbedPane());
         
         JDockableView listView = new JDockableView(LIST_TITLE, IconFactory.getSwingIcon("component/list_16.png"), new JBasicScrollPane(DemoComponentFactory.getList()));
-        JDockableView checkBoxSelectorView = new JDockableView(CHECK_BOX_SELECTOR_TITLE, IconFactory.getSwingIcon("component/check_box_16.png"), new JCheckBoxPanel(DemoDataFactory.getComponentInstallDatas()));
-        JDockableView radioButtonSelectorView = new JDockableView(RADIO_BUTTON_SELECTOR_TITLE, IconFactory.getSwingIcon("component/radio_button_16.png"), new JRadioButtonPanel(DemoDataFactory.getComponentInstallDatas()));
+        JDockableView checkBoxSelectorView = new JDockableView(CHECK_BOX_SELECTOR_TITLE, IconFactory.getSwingIcon("component/check_box_16.png"), new JCheckBoxPanel(DemoDataFactory.getComponentElementNodes()));
+        JDockableView radioButtonSelectorView = new JDockableView(RADIO_BUTTON_SELECTOR_TITLE, IconFactory.getSwingIcon("component/radio_button_16.png"), new JRadioButtonPanel(DemoDataFactory.getComponentElementNodes()));
         
         JDockable rightDockable = new JDockable();
         rightDockable.setOrientation(JDockable.VERTICAL_SPLIT);
