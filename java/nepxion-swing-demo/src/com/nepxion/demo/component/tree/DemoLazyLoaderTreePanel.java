@@ -30,11 +30,11 @@ import com.nepxion.swing.frame.JBasicFrame;
 import com.nepxion.swing.lookandfeel.LookAndFeelManager;
 import com.nepxion.swing.popupmenu.JDecorationPopupMenu;
 import com.nepxion.swing.renderer.tree.TreeElementCellRenderer;
-import com.nepxion.swing.scrollpane.JBasicScrollPane;
 import com.nepxion.swing.tree.lazyloader.AbstractLazyLoader;
+import com.nepxion.swing.tree.lazyloader.JLazyLoaderContainer;
 import com.nepxion.swing.tree.lazyloader.JLazyLoaderTree;
-import com.nepxion.swing.tree.lazyloader.LazyLoaderTreeController;
 import com.nepxion.swing.tree.lazyloader.JLazyLoaderTreeNode;
+import com.nepxion.swing.tree.lazyloader.LazyLoaderTreeController;
 
 public class DemoLazyLoaderTreePanel
 	extends JPanel
@@ -58,9 +58,9 @@ public class DemoLazyLoaderTreePanel
 			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "File LazyLoader Tree"));
 			
 			FileTree fileTree = new FileTree();
-			JBasicScrollPane fileTreeScrollPane = new JBasicScrollPane();
-			fileTreeScrollPane.getViewport().add(fileTree);
-			add(fileTreeScrollPane);
+			
+			JLazyLoaderContainer lazyLoaderContainer = new JLazyLoaderContainer(fileTree);
+			add(lazyLoaderContainer);
 		}
 	}
 	
@@ -89,12 +89,9 @@ public class DemoLazyLoaderTreePanel
 		String name = fileSystemView.getSystemDisplayName(file);
 		Icon icon = fileSystemView.getSystemIcon(file);
 		
-		ElementNode elementNode = new ElementNode();
-		elementNode.setText(name);
-		elementNode.setIcon(icon);
-		elementNode.setToolTipText(name);
-		
-		fileNode.setUserObject(elementNode);
+		fileNode.setText(name);
+		fileNode.setIcon(icon);
+		fileNode.setToolTipText(name);
 		return fileNode;
 	}
 	
@@ -188,7 +185,7 @@ public class DemoLazyLoaderTreePanel
 			{	
 				try
 				{
-					Thread.sleep(100);
+					Thread.sleep(2000);
 				}
 				catch (InterruptedException e)
 				{
@@ -203,12 +200,31 @@ public class DemoLazyLoaderTreePanel
 		extends JDecorationPopupMenu
 	{
 		public FilePopopMenu(JLazyLoaderTree lazyLoaderTree)
-		{
+		{		
+			JMenuItem newAction = new JMenuItem(LazyLoaderTreeController.getAddAction(lazyLoaderTree, new ElementNode("新增节点")));
+			add(newAction);				
+			
+			JMenuItem deleteAction = new JMenuItem(LazyLoaderTreeController.getDeleteAction(lazyLoaderTree));
+			add(deleteAction);				
+			
+			JMenuItem renameAction = new JMenuItem(LazyLoaderTreeController.getRenameAction(lazyLoaderTree));
+			add(renameAction);					
+			
+			addSeparator();
+			
 			JMenuItem refreshMenuItem = new JMenuItem(LazyLoaderTreeController.getRefreshAction(lazyLoaderTree));
 			add(refreshMenuItem);
 
 			JMenuItem searchMenuItem = new JMenuItem(LazyLoaderTreeController.getSearchAction(lazyLoaderTree));
-			add(searchMenuItem);			
+			add(searchMenuItem);
+			
+			addSeparator();			
+			
+			JMenuItem moveUpAction = new JMenuItem(LazyLoaderTreeController.getMoveUpAction(lazyLoaderTree));
+			add(moveUpAction);	
+			
+			JMenuItem moveDownAction = new JMenuItem(LazyLoaderTreeController.getMoveDownAction(lazyLoaderTree));
+			add(moveDownAction);			
 			
 			addSeparator();
 			

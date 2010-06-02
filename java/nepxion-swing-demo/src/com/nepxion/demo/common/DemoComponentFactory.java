@@ -10,7 +10,6 @@ package com.nepxion.demo.common;
  * @version 1.0
  */
 
-import java.util.Iterator;
 import java.util.List;
 
 import javax.swing.BorderFactory;
@@ -19,7 +18,6 @@ import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 import javax.swing.UIManager;
 import javax.swing.table.AbstractTableModel;
-import javax.swing.tree.DefaultMutableTreeNode;
 
 import com.nepxion.swing.element.ElementNode;
 import com.nepxion.swing.icon.IconFactory;
@@ -37,25 +35,8 @@ import com.nepxion.util.data.CollectionUtil;
 public class DemoComponentFactory
 {
 	public static JBasicTree getTree()
-	{		
-		DefaultMutableTreeNode root = new DefaultMutableTreeNode(DemoDataFactory.getRootElementNode());
-		for (Iterator iterator = DemoDataFactory.getComponentElementNodes().iterator(); iterator.hasNext();)
-		{
-			ElementNode elementNode = (ElementNode) iterator.next();
-			DefaultMutableTreeNode treeNode = new DefaultMutableTreeNode(elementNode);
-			root.add(treeNode);
-			if (elementNode.getChildren() != null)
-			{	
-				for (Iterator childIterator = elementNode.getChildren().iterator(); childIterator.hasNext();)
-				{
-					ElementNode childElementNode = (ElementNode) childIterator.next();
-					DefaultMutableTreeNode childTreeNode = new DefaultMutableTreeNode(childElementNode);
-					treeNode.add(childTreeNode);
-				}	
-			}
-		}	
-		
-		JBasicTree tree = new JBasicTree(root);
+	{				
+		JBasicTree tree = new JBasicTree(DemoDataFactory.getRootElementNode());
 		tree.setCellRenderer(new TreeElementCellRenderer(20));
 		tree.expandAll();
 		
@@ -104,7 +85,7 @@ public class DemoComponentFactory
         	{	
         		return Integer.class;
         	}
-        	else if (column == 4 || column == 5)
+        	else if (column == 5 || column == 6)
         	{
         		return Boolean.class;
         	}	
@@ -117,12 +98,13 @@ public class DemoComponentFactory
 			switch (column)
 			{
 				case 0: return new Integer(elementNode.getIndex());
-				case 1: return elementNode.getText();
-				case 2: return elementNode.getIcon();
-				case 3: return elementNode.getToolTipText();
-				case 4: return new Boolean(elementNode.isSelected());
-				case 5: return new Boolean(elementNode.isEnabled());
-				case 6: return elementNode.getUserObject();				
+				case 1: return elementNode.getName();
+				case 2: return elementNode.getText();
+				case 3: return elementNode.getIcon();
+				case 4: return elementNode.getToolTipText();
+				case 5: return new Boolean(elementNode.isSelected());
+				case 6: return new Boolean(elementNode.isEnabled());
+				case 7: return elementNode.getUserObject();				
 			}
 			return null;
 		}		

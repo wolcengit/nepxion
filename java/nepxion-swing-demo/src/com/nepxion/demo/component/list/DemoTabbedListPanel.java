@@ -44,7 +44,7 @@ public class DemoTabbedListPanel
 			String[] componentDescriptonDatas = DemoDataFactory.getComponentDescriptonDatas();
 			
 			JList checkBoxList = new JList(componentDescriptonDatas);
-			checkBoxList.setCellRenderer(new ListTabbedCellRenderer(550, "\t", new int[] {100, 270}, 50));
+			checkBoxList.setCellRenderer(new ListTabbedCellRenderer(700, "\t", new int[] {100, 270, 430}, 50));
 			
 			JBasicScrollPane checkBoxListScrollPane = new JBasicScrollPane();
 			checkBoxListScrollPane.getViewport().add(checkBoxList);			

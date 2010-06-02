@@ -18,6 +18,7 @@ import java.awt.event.ActionListener;
 import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
+import javax.swing.ButtonGroup;
 import javax.swing.JComponent;
 import javax.swing.JPanel;
 
@@ -80,7 +81,7 @@ public class DemoToggleTemplate
 					if (codeContent == null)
 					{
 						String projectFolderName = "nepxion-swing-demo";
-						String codePath = FileUtil.getCodePath(viewComponent.getClass(), projectFolderName);
+						String codePath = FileUtil.getResourcePath(viewComponent.getClass(), projectFolderName);
 						
 						codeContent = FileUtil.read(codePath, "GBK");
 						
@@ -98,7 +99,7 @@ public class DemoToggleTemplate
 			add(Box.createHorizontalStrut(3));
 			add(codeToggleButton);
 			
-			ButtonManager.updateUI(this, new Dimension(75, 25));
+			ButtonManager.updateUI(this, new Dimension(75, 25), new ButtonGroup());
 		}
 	}
 }

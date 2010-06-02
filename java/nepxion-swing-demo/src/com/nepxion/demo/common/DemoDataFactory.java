@@ -14,6 +14,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import javax.swing.Icon;
+
 import com.nepxion.swing.element.ElementNode;
 import com.nepxion.swing.icon.IconFactory;
 import com.nepxion.swing.tabbedpane.JEclipseTabbedPane;
@@ -21,110 +23,84 @@ import com.nepxion.swing.tabbedpane.JEclipseTabbedPane;
 public class DemoDataFactory
 {	
 	public static ElementNode getRootElementNode()
-	{
-		return new ElementNode(1, "Nepxion", IconFactory.getSwingIcon("tray_java.png"), "Nepxion Swing", false, true);
+	{		
+		ElementNode root = new ElementNode(1, "Nepxion", "Nepxion", IconFactory.getSwingIcon("tray_java.png"), "Nepxion Swing");
+		List elementNodes = getComponentElementNodes();
+		for (Iterator childIterator = elementNodes.iterator(); childIterator.hasNext();)
+		{
+			ElementNode childElementNode = (ElementNode) childIterator.next();
+			root.add(childElementNode);
+		}
+		return root;
 	}
 	
 	public static List getComponentElementNodes()
 	{
 		// Button Control
-		ElementNode buttonControlElementNode = new ElementNode(1, "Button Control", IconFactory.getSwingIcon("component/button_16.png"), "Button Control Component", false);		
-		buttonControlElementNode.setEnabled(true);
-		List buttonControlChildren = new ArrayList();
-		buttonControlChildren.add(new ElementNode(1, "Button", IconFactory.getSwingIcon("component/button_16.png"), "Multi-style Button ToggleButton MenuButton & SplitButton"));
-		buttonControlChildren.add(new ElementNode(2, "CheckBox", IconFactory.getSwingIcon("component/check_box_16.png"), "Multi-style CheckBox"));
-		buttonControlChildren.add(new ElementNode(3, "RadioButton", IconFactory.getSwingIcon("component/radio_button_16.png"), "Multi-style RadioButton"));
-		buttonControlChildren.add(new ElementNode(4, "ComboBox", IconFactory.getSwingIcon("component/combo_box_16.png"), "Multi-style ComboBox"));
-		buttonControlElementNode.setChildren(buttonControlChildren);
+		ElementNode buttonControlElementNode = new ElementNode(1, "Button Control", IconFactory.getSwingIcon("component/button_16.png"), "Button Control Component", false, true);		
+		buttonControlElementNode.add(new ElementNode(1, "Button", IconFactory.getSwingIcon("component/button_16.png"), "Multi-style Button ToggleButton MenuButton & SplitButton"));
+		buttonControlElementNode.add(new ElementNode(2, "CheckBox", IconFactory.getSwingIcon("component/check_box_16.png"), "Multi-style CheckBox"));
+		buttonControlElementNode.add(new ElementNode(3, "RadioButton", IconFactory.getSwingIcon("component/radio_button_16.png"), "Multi-style RadioButton"));
+		buttonControlElementNode.add(new ElementNode(4, "ComboBox", IconFactory.getSwingIcon("component/combo_box_16.png"), "Multi-style ComboBox"));
 
 		// Text Control
-		ElementNode textControlElementNode = new ElementNode(2, "Text Control", IconFactory.getSwingIcon("component/text_pane_16.png"), "Text Control Component", true);		
-		textControlElementNode.setEnabled(false);
-		List textControlChildren = new ArrayList();
-		textControlChildren.add(new ElementNode(1, "TextField", IconFactory.getSwingIcon("component/text_field_16.png"), "Multi-style TextField"));
-		textControlChildren.add(new ElementNode(2, "TextArea", IconFactory.getSwingIcon("component/text_area_16.png"), "Multi-style TextArea"));
-		textControlElementNode.setChildren(textControlChildren);		
+		ElementNode textControlElementNode = new ElementNode(2, "Text Control", IconFactory.getSwingIcon("component/text_pane_16.png"), "Text Control Component", false, false);		
+		textControlElementNode.add(new ElementNode(1, "TextField", IconFactory.getSwingIcon("component/text_field_16.png"), "Multi-style TextField"));
+		textControlElementNode.add(new ElementNode(2, "TextArea", IconFactory.getSwingIcon("component/text_area_16.png"), "Multi-style TextArea"));		
 		
 		// Menu Control
-		ElementNode menuControlElementNode = new ElementNode(3, "Menu Control", IconFactory.getSwingIcon("component/menu_16.png"), "Menu Control Component", false);		
-		menuControlElementNode.setEnabled(true);
-		List menuControlChildren = new ArrayList();
-		menuControlChildren.add(new ElementNode(1, "Menu", IconFactory.getSwingIcon("component/menu_16.png"), "Multi-style Menu"));
-		menuControlChildren.add(new ElementNode(2, "PopupMenu", IconFactory.getSwingIcon("component/popup_menu_16.png"), "Multi-style PopupMenu"));
-		menuControlElementNode.setChildren(menuControlChildren);		
+		ElementNode menuControlElementNode = new ElementNode(3, "Menu Control", IconFactory.getSwingIcon("component/menu_16.png"), "Menu Control Component", false, true);		
+		menuControlElementNode.add(new ElementNode(1, "Menu", IconFactory.getSwingIcon("component/menu_16.png"), "Multi-style Menu"));
+		menuControlElementNode.add(new ElementNode(2, "PopupMenu", IconFactory.getSwingIcon("component/popup_menu_16.png"), "Multi-style PopupMenu"));	
 		
 		// Border Control
-		ElementNode borderControlElementNode = new ElementNode(4, "Border Control", IconFactory.getSwingIcon("component/split_pane_16.png"), "Border Control Component", true);
-		borderControlElementNode.setEnabled(false);
-		List borderControlChildren = new ArrayList();		
-		borderControlElementNode.setChildren(borderControlChildren);
+		ElementNode borderControlElementNode = new ElementNode(4, "Border Control", IconFactory.getSwingIcon("component/split_pane_16.png"), "Border Control Component", false, false);
 		
 		// Container Control
-		ElementNode containerControlElementNode = new ElementNode(5, "Container Control", IconFactory.getSwingIcon("component/internal_frame_16.png"), "Container Control Component", false);
-		containerControlElementNode.setEnabled(true);
-		List containerControlChildren = new ArrayList();
-		containerControlChildren.add(new ElementNode(1, "Panel", IconFactory.getSwingIcon("component/panel_16.png"), "Multi-style Panel"));
-		containerControlChildren.add(new ElementNode(2, "ScrollPane", IconFactory.getSwingIcon("component/scroll_pane_16.png"), "Multi-style ScrollPane"));		
-		containerControlChildren.add(new ElementNode(3, "TabbedPane", IconFactory.getSwingIcon("component/tabbed_pane_16.png"), "Multi-style TabbedPane"));
-		containerControlElementNode.setChildren(containerControlChildren);
+		ElementNode containerControlElementNode = new ElementNode(5, "Container Control", IconFactory.getSwingIcon("component/internal_frame_16.png"), "Container Control Component", false, true);
+		containerControlElementNode.add(new ElementNode(1, "Panel", IconFactory.getSwingIcon("component/panel_16.png"), "Multi-style Panel"));
+		containerControlElementNode.add(new ElementNode(2, "ScrollPane", IconFactory.getSwingIcon("component/scroll_pane_16.png"), "Multi-style ScrollPane"));		
+		containerControlElementNode.add(new ElementNode(3, "TabbedPane", IconFactory.getSwingIcon("component/tabbed_pane_16.png"), "Multi-style TabbedPane"));
 		
 		// Bar Control
-		ElementNode barControlElementNode = new ElementNode(6, "Bar Control", IconFactory.getSwingIcon("component/tool_bar_16.png"), "Bar Control Component", true);
-		barControlElementNode.setEnabled(false);
-		List barControlChildren = new ArrayList();
-		barControlChildren.add(new ElementNode(1, "TaskBar", IconFactory.getSwingIcon("component/tool_bar_16.png"), "Multi-style TaskBar"));
-		barControlChildren.add(new ElementNode(2, "OutlookBar", IconFactory.getSwingIcon("component/tool_bar_16.png"), "Multi-style OutlookBar"));		
-		barControlChildren.add(new ElementNode(3, "ButtonBar", IconFactory.getSwingIcon("component/tool_bar_16.png"), "Multi-style ButtonBar"));
-		barControlChildren.add(new ElementNode(4, "StatusBar", IconFactory.getSwingIcon("component/tool_bar_16.png"), "Multi-style StatusBar"));
-		barControlElementNode.setChildren(barControlChildren);		
+		ElementNode barControlElementNode = new ElementNode(6, "Bar Control", IconFactory.getSwingIcon("component/tool_bar_16.png"), "Bar Control Component", false, false);
+		barControlElementNode.add(new ElementNode(1, "TaskBar", IconFactory.getSwingIcon("component/tool_bar_16.png"), "Multi-style TaskBar"));
+		barControlElementNode.add(new ElementNode(2, "OutlookBar", IconFactory.getSwingIcon("component/tool_bar_16.png"), "Multi-style OutlookBar"));		
+		barControlElementNode.add(new ElementNode(3, "ButtonBar", IconFactory.getSwingIcon("component/tool_bar_16.png"), "Multi-style ButtonBar"));
+		barControlElementNode.add(new ElementNode(4, "StatusBar", IconFactory.getSwingIcon("component/tool_bar_16.png"), "Multi-style StatusBar"));	
 		
 		// Data Control
-		ElementNode dataControlElementNode = new ElementNode(7, "Data Control", IconFactory.getSwingIcon("component/table_16.png"), "Data Control Component", false);
-		dataControlElementNode.setEnabled(true);
-		List dataControlChildren = new ArrayList();
-		dataControlChildren.add(new ElementNode(1, "Tree", IconFactory.getSwingIcon("component/tree_16.png"), "Multi-style Tree"));
-		dataControlChildren.add(new ElementNode(2, "Table", IconFactory.getSwingIcon("component/table_16.png"), "Multi-style Table"));		
-		dataControlChildren.add(new ElementNode(3, "List", IconFactory.getSwingIcon("component/list_16.png"), "Multi-style List"));
-		dataControlElementNode.setChildren(dataControlChildren);
+		ElementNode dataControlElementNode = new ElementNode(7, "Data Control", IconFactory.getSwingIcon("component/table_16.png"), "Data Control Component", false, true);
+		dataControlElementNode.add(new ElementNode(1, "Tree", IconFactory.getSwingIcon("component/tree_16.png"), "Multi-style Tree"));
+		dataControlElementNode.add(new ElementNode(2, "Table", IconFactory.getSwingIcon("component/table_16.png"), "Multi-style Table"));		
+		dataControlElementNode.add(new ElementNode(3, "List", IconFactory.getSwingIcon("component/list_16.png"), "Multi-style List"));
 		
 		// Selector Control
-		ElementNode selectorControlElementNode = new ElementNode(8, "Selector Control", IconFactory.getSwingIcon("component/file_chooser_16.png"), "Selector Control Component", true);
-		selectorControlElementNode.setEnabled(false);
-		List selectorControlChildren = new ArrayList();
-		selectorControlChildren.add(new ElementNode(1, "Calendar", IconFactory.getSwingIcon("component/calendar_16.png"), "Multi-style Calendar Selector"));
-		selectorControlChildren.add(new ElementNode(2, "Locale", IconFactory.getSwingIcon("component/locale_16.png"), "Multi-style Locale Selector"));		
-		selectorControlChildren.add(new ElementNode(3, "File", IconFactory.getSwingIcon("component/file_chooser_16.png"), "Multi-style File Selector"));
-		selectorControlChildren.add(new ElementNode(4, "Color", IconFactory.getSwingIcon("component/color_chooser_16.png"), "Multi-style Color Selector"));
-		selectorControlChildren.add(new ElementNode(5, "DropDown", IconFactory.getSwingIcon("component/popup_menu_16.png"), "Multi-style DropDown Selector"));		
-		selectorControlChildren.add(new ElementNode(6, "CheckBox", IconFactory.getSwingIcon("component/check_box_16.png"), "Multi-style CheckBox Selector"));
-		selectorControlChildren.add(new ElementNode(7, "RadioButton", IconFactory.getSwingIcon("component/radio_button_16.png"), "Multi-style RadioButton Selector"));		
-		selectorControlElementNode.setChildren(selectorControlChildren);	
+		ElementNode selectorControlElementNode = new ElementNode(8, "Selector Control", IconFactory.getSwingIcon("component/file_chooser_16.png"), "Selector Control Component", false, false);
+		selectorControlElementNode.add(new ElementNode(1, "Calendar", IconFactory.getSwingIcon("component/calendar_16.png"), "Multi-style Calendar Selector"));
+		selectorControlElementNode.add(new ElementNode(2, "Locale", IconFactory.getSwingIcon("component/locale_16.png"), "Multi-style Locale Selector"));		
+		selectorControlElementNode.add(new ElementNode(3, "File", IconFactory.getSwingIcon("component/file_chooser_16.png"), "Multi-style File Selector"));
+		selectorControlElementNode.add(new ElementNode(4, "Color", IconFactory.getSwingIcon("component/color_chooser_16.png"), "Multi-style Color Selector"));
+		selectorControlElementNode.add(new ElementNode(5, "DropDown", IconFactory.getSwingIcon("component/popup_menu_16.png"), "Multi-style DropDown Selector"));		
+		selectorControlElementNode.add(new ElementNode(6, "CheckBox", IconFactory.getSwingIcon("component/check_box_16.png"), "Multi-style CheckBox Selector"));
+		selectorControlElementNode.add(new ElementNode(7, "RadioButton", IconFactory.getSwingIcon("component/radio_button_16.png"), "Multi-style RadioButton Selector"));		
 		
 		// Layout Control
-		ElementNode layoutControlElementNode = new ElementNode(9, "Layout Control", IconFactory.getSwingIcon("component/layout_16.png"), "Layout Control Component", false);
-		layoutControlElementNode.setEnabled(true);
-		List layoutControlChildren = new ArrayList();
-		layoutControlChildren.add(new ElementNode(1, "Table Layout", IconFactory.getSwingIcon("component/layout_16.png"), "Multi-style Table Layout"));
-		layoutControlChildren.add(new ElementNode(2, "Filed Layout", IconFactory.getSwingIcon("component/layout_16.png"), "Multi-style Filed Layout"));		
-		layoutControlChildren.add(new ElementNode(3, "Ratio Layout", IconFactory.getSwingIcon("component/layout_16.png"), "Multi-style Ratio Layout"));
-		layoutControlChildren.add(new ElementNode(4, "XBorder Layout", IconFactory.getSwingIcon("component/layout_16.png"), "Multi-style XBorder Layout"));
-		layoutControlChildren.add(new ElementNode(5, "XBox Layout", IconFactory.getSwingIcon("component/layout_16.png"), "Multi-style XBox Layout"));		
-		layoutControlElementNode.setChildren(layoutControlChildren);
+		ElementNode layoutControlElementNode = new ElementNode(9, "Layout Control", IconFactory.getSwingIcon("component/layout_16.png"), "Layout Control Component", false, true);
+		layoutControlElementNode.add(new ElementNode(1, "Table Layout", IconFactory.getSwingIcon("component/layout_16.png"), "Multi-style Table Layout"));
+		layoutControlElementNode.add(new ElementNode(2, "Filed Layout", IconFactory.getSwingIcon("component/layout_16.png"), "Multi-style Filed Layout"));		
+		layoutControlElementNode.add(new ElementNode(3, "Ratio Layout", IconFactory.getSwingIcon("component/layout_16.png"), "Multi-style Ratio Layout"));
+		layoutControlElementNode.add(new ElementNode(4, "XBorder Layout", IconFactory.getSwingIcon("component/layout_16.png"), "Multi-style XBorder Layout"));
+		layoutControlElementNode.add(new ElementNode(5, "XBox Layout", IconFactory.getSwingIcon("component/layout_16.png"), "Multi-style XBox Layout"));		
 		
 		// FrameWork Control
-		ElementNode frameWorkControlElementNode = new ElementNode(10, "FrameWork Control", IconFactory.getSwingIcon("component/desktop_pane_16.png"), "FrameWork Control Component", true);
-		frameWorkControlElementNode.setEnabled(false);
-		List frameWorkControlChildren = new ArrayList();
-		frameWorkControlChildren.add(new ElementNode(1, "Dockable", IconFactory.getSwingIcon("component/desktop_pane_16.png"), "Dockable FrameWork"));
-		frameWorkControlChildren.add(new ElementNode(2, "VLDocking", IconFactory.getSwingIcon("component/desktop_pane_16.png"), "VLDocking Framework"));		
-		frameWorkControlElementNode.setChildren(frameWorkControlChildren);
+		ElementNode frameWorkControlElementNode = new ElementNode(10, "FrameWork Control", IconFactory.getSwingIcon("component/desktop_pane_16.png"), "FrameWork Control Component", false, false);
+		frameWorkControlElementNode.add(new ElementNode(1, "Dockable", IconFactory.getSwingIcon("component/desktop_pane_16.png"), "Dockable FrameWork"));
+		frameWorkControlElementNode.add(new ElementNode(2, "VLDocking", IconFactory.getSwingIcon("component/desktop_pane_16.png"), "VLDocking Framework"));		
 		
 		// Advanced Control
-		ElementNode advancedControlElementNode = new ElementNode(11, "Advanced Control", IconFactory.getSwingIcon("component/advanced_16.png"), "Advanced Control Component", false);
-		advancedControlElementNode.setEnabled(true);
-		List advancedControlChildren = new ArrayList();
-		advancedControlChildren.add(new ElementNode(1, "UI Defaults", IconFactory.getSwingIcon("component/ui_defaults_16.png"), "UI Defaults Explorer"));		
-		advancedControlElementNode.setChildren(advancedControlChildren);
+		ElementNode advancedControlElementNode = new ElementNode(11, "Advanced Control", IconFactory.getSwingIcon("component/advanced_16.png"), "Advanced Control Component", false, true);
+		advancedControlElementNode.add(new ElementNode(1, "UI Defaults", IconFactory.getSwingIcon("component/ui_defaults_16.png"), "UI Defaults Explorer"));		
 		
 		List componentElementNodes = new ArrayList();
 		componentElementNodes.add(buttonControlElementNode);
@@ -144,7 +120,7 @@ public class DemoDataFactory
 	
 	public static String[] getComponentNameColumns()
 	{
-		String[] columns = {"Index", "Text", "Icon", "ToolTipText", "Selected", "Enabled", "UserObject"};
+		String[] columns = {"Index", "Name", "Text", "Icon", "ToolTipText", "Selected", "Enabled", "UserObject"};
 		return columns;
 	}
 	
@@ -174,6 +150,9 @@ public class DemoDataFactory
 			stringBuffer.append(elementNode.getIndex());
 			stringBuffer.append("]\t");
 			stringBuffer.append("Name : [");
+			stringBuffer.append(elementNode.getName());
+			stringBuffer.append("]\t");			
+			stringBuffer.append("text : [");
 			stringBuffer.append(elementNode.getText());
 			stringBuffer.append("]\t");
 			stringBuffer.append("TooTipText : [");

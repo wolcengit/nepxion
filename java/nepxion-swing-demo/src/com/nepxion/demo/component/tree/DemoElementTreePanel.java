@@ -45,24 +45,7 @@ public class DemoElementTreePanel
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
 			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Element Tree"));
 			
-			DefaultMutableTreeNode root = new DefaultMutableTreeNode(DemoDataFactory.getRootElementNode());
-			for (Iterator iterator = DemoDataFactory.getComponentElementNodes().iterator(); iterator.hasNext();)
-			{
-				ElementNode elementNode = (ElementNode) iterator.next();
-				DefaultMutableTreeNode treeNode = new DefaultMutableTreeNode(elementNode);
-				root.add(treeNode);
-				if (elementNode.getChildren() != null)
-				{
-					for (Iterator childIterator = elementNode.getChildren().iterator(); childIterator.hasNext();)
-					{
-						ElementNode childElementNode = (ElementNode) childIterator.next();
-						DefaultMutableTreeNode childTreeNode = new DefaultMutableTreeNode(childElementNode);
-						treeNode.add(childTreeNode);
-					}
-				}
-			}
-			
-			JBasicTree decorationTree = new JBasicTree(root);
+			JBasicTree decorationTree = new JBasicTree(DemoDataFactory.getRootElementNode());
 			decorationTree.setCellRenderer(new TreeElementCellRenderer(20));
 			decorationTree.expandAll();
 			

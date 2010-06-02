@@ -13,6 +13,7 @@ package com.nepxion.demo.component.combobox;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.util.ArrayList;
+import java.util.Enumeration;
 import java.util.Iterator;
 import java.util.List;
 
@@ -57,14 +58,11 @@ public class DemoTreeComboBoxPanel
 			{
 				ElementNode elementNode = (ElementNode) iterator.next();
 				elementNode.setEnabled(true);
-				comboBoxElementNodes.add(elementNode);
-				if (elementNode.getChildren() != null)
-				{	
-					for (Iterator childIterator = elementNode.getChildren().iterator(); childIterator.hasNext();)
-					{
-						ElementNode childElementNode = (ElementNode) childIterator.next();
-						comboBoxElementNodes.add(childElementNode);
-					}	
+				comboBoxElementNodes.add(elementNode);	
+				for (Enumeration childEnumeration = elementNode.children(); childEnumeration.hasMoreElements();)
+				{
+					ElementNode childElementNode = (ElementNode) childEnumeration.nextElement();
+					comboBoxElementNodes.add(childElementNode);
 				}	
 			}	
 			
@@ -86,7 +84,7 @@ public class DemoTreeComboBoxPanel
 		{
 			super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
 			ElementNode elementNode = (ElementNode) value;
-			if (elementNode.getChildren() == null)
+			if (elementNode.getChildCount() == 0)
 			{
 				setBorder(BorderFactory.createEmptyBorder(0, 18, 0, 0));
 			}	
