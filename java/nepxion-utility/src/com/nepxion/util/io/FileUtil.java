@@ -108,14 +108,28 @@ public class FileUtil
 	}
 	
 	/**
+	 * Get the code project path
+	 * @param clazz               the instance of Class
+	 * @param projectFolderName   the project folder name
+	 * @return                    the project path
+	 */
+	public static String getProjectPath(Class clazz, String projectFolderName)
+	{		
+		String resourcePath = clazz.getClassLoader().getResource("").getPath();
+		resourcePath = resourcePath.substring(1);
+		resourcePath = resourcePath.substring(0, resourcePath.indexOf(projectFolderName) + projectFolderName.length());
+		return resourcePath;
+	}	
+	
+	/**
 	 * Get the code resource path
 	 * @param clazz              the instance of Class
 	 * @param projectFolderName  the project folder name
 	 * @return                   the code resource path
 	 */
-	public static String getCodePath(Class clazz, String projectFolderName)
+	public static String getResourcePath(Class clazz, String projectFolderName)
 	{
-		return getCodePath(clazz, projectFolderName, "src");
+		return getResourcePath(clazz, projectFolderName, "src");
 	}
 	
 	/**
@@ -125,7 +139,7 @@ public class FileUtil
 	 * @param resourceFolderName  the source folder name
 	 * @return                    the code resource path
 	 */
-	public static String getCodePath(Class clazz, String projectFolderName, String resourceFolderName)
+	public static String getResourcePath(Class clazz, String projectFolderName, String resourceFolderName)
 	{
 		String classPath = clazz.getName();
 		classPath = classPath.replace('.', '/') + ".java";
