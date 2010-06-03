@@ -14,13 +14,13 @@ import java.util.List;
 
 import javax.swing.BorderFactory;
 import javax.swing.JList;
-import javax.swing.JMenu;
-import javax.swing.JMenuItem;
 import javax.swing.UIManager;
 import javax.swing.table.AbstractTableModel;
 
 import com.nepxion.swing.element.ElementNode;
 import com.nepxion.swing.icon.IconFactory;
+import com.nepxion.swing.menu.JBasicMenu;
+import com.nepxion.swing.menuitem.JBasicMenuItem;
 import com.nepxion.swing.popupmenu.JDecorationPopupMenu;
 import com.nepxion.swing.renderer.list.ListElementCellRenderer;
 import com.nepxion.swing.renderer.table.TableElementCellRenderer;
@@ -142,24 +142,24 @@ public class DemoComponentFactory
 	{
 		JDecorationPopupMenu decorationPopupMenu = new JDecorationPopupMenu();
 		
-		JMenu menu1 = new JMenu("Menu");
+		JBasicMenu menu1 = new JBasicMenu("Menu");
 		menu1.setIcon(IconFactory.getSwingIcon("component/menu_16.png"));
-		menu1.add(new JMenuItem("MenuItem", IconFactory.getSwingIcon("component/menu_16.png")));
-		menu1.add(new JMenuItem("MenuItem", IconFactory.getSwingIcon("component/menu_16.png")));
+		menu1.add(new JBasicMenuItem("MenuItem", IconFactory.getSwingIcon("component/menu_16.png"), "MenuItem"));
+		menu1.add(new JBasicMenuItem("MenuItem", IconFactory.getSwingIcon("component/menu_16.png"), "MenuItem"));
 		decorationPopupMenu.add(menu1);
 		
-		JMenu menu2 = new JMenu("Menu");
+		JBasicMenu menu2 = new JBasicMenu("Menu");
 		menu2.setIcon(IconFactory.getSwingIcon("component/popup_menu_16.png"));
-		menu2.add(new JMenuItem("MenuItem", IconFactory.getSwingIcon("component/popup_menu_16.png")));
-		menu2.add(new JMenuItem("MenuItem", IconFactory.getSwingIcon("component/popup_menu_16.png")));
+		menu2.add(new JBasicMenuItem("MenuItem", IconFactory.getSwingIcon("component/popup_menu_16.png"), "MenuItem"));
+		menu2.add(new JBasicMenuItem("MenuItem", IconFactory.getSwingIcon("component/popup_menu_16.png"), "MenuItem"));
 		decorationPopupMenu.add(menu2);
 		
 		decorationPopupMenu.addSeparator();
 		
-		JMenu menu3 = new JMenu("Menu");
+		JBasicMenu menu3 = new JBasicMenu("Menu");
 		menu3.setIcon(IconFactory.getSwingIcon("component/list_16.png"));
-		menu3.add(new JMenuItem("MenuItem", IconFactory.getSwingIcon("component/list_16.png")));
-		menu3.add(new JMenuItem("MenuItem", IconFactory.getSwingIcon("component/list_16.png")));
+		menu3.add(new JBasicMenuItem("MenuItem", IconFactory.getSwingIcon("component/list_16.png"), "MenuItem"));
+		menu3.add(new JBasicMenuItem("MenuItem", IconFactory.getSwingIcon("component/list_16.png"), "MenuItem"));
 		decorationPopupMenu.add(menu3);
 		
 		return decorationPopupMenu;

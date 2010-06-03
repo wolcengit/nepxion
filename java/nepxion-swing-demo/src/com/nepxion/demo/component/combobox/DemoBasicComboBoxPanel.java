@@ -64,7 +64,7 @@ public class DemoBasicComboBoxPanel
 			setLayout(new FiledLayout(FiledLayout.COLUMN, FiledLayout.FULL, 0));
 			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Configuration"));
 			
-			final JBasicCheckBox popupMenuWithCheckBox = new JBasicCheckBox("Set PopupMenu width (=500)", true);
+			final JBasicCheckBox popupMenuWithCheckBox = new JBasicCheckBox("Set PopupMenu width (=500)", "Set PopupMenu width (=500)", true);
 			popupMenuWithCheckBox.addActionListener(new ActionListener()
 			{
 				public void actionPerformed(ActionEvent e)
@@ -75,7 +75,7 @@ public class DemoBasicComboBoxPanel
 			);				
 			add(popupMenuWithCheckBox);		
 			
-			final JBasicCheckBox popupMenuShowUpCheckBox = new JBasicCheckBox("Show PopupMenu Up", true);
+			final JBasicCheckBox popupMenuShowUpCheckBox = new JBasicCheckBox("Show PopupMenu Up", "Show PopupMenu Up", true);
 			popupMenuShowUpCheckBox.addActionListener(new ActionListener()
 			{
 				public void actionPerformed(ActionEvent e)

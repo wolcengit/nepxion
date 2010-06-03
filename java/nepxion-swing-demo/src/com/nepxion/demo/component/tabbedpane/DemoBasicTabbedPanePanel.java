@@ -91,7 +91,7 @@ public class DemoBasicTabbedPanePanel
 			setLayout(new FiledLayout(FiledLayout.COLUMN, FiledLayout.FULL, 0));
 			setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
 			
-			final JBasicCheckBox closableCheckBox = new JBasicCheckBox("Show Close Button", true);
+			final JBasicCheckBox closableCheckBox = new JBasicCheckBox("Show Close Button", "Show Close Button", true);
 			closableCheckBox.addActionListener(new ActionListener()
 			{
 				public void actionPerformed(ActionEvent e)
@@ -102,7 +102,7 @@ public class DemoBasicTabbedPanePanel
 			);			
 			add(closableCheckBox);	
 			
-			final JBasicCheckBox drawCenterCheckBox = new JBasicCheckBox("Close Button - Draw Center", true);
+			final JBasicCheckBox drawCenterCheckBox = new JBasicCheckBox("Close Button - Draw Center", "Close Button - Draw Center", true);
 			drawCenterCheckBox.addActionListener(new ActionListener()
 			{
 				public void actionPerformed(ActionEvent e)
@@ -113,7 +113,7 @@ public class DemoBasicTabbedPanePanel
 			);				
 			add(drawCenterCheckBox);	
 			
-			final JBasicCheckBox drawBorderCheckBox = new JBasicCheckBox("Close Button - Draw Border", true);
+			final JBasicCheckBox drawBorderCheckBox = new JBasicCheckBox("Close Button - Draw Border", "Close Button - Draw Border", true);
 			drawBorderCheckBox.addActionListener(new ActionListener()
 			{
 				public void actionPerformed(ActionEvent e)
@@ -124,7 +124,7 @@ public class DemoBasicTabbedPanePanel
 			);				
 			add(drawBorderCheckBox);		
 			
-			final JBasicCheckBox hintCheckBox = new JBasicCheckBox("Show hint before closing", false);
+			final JBasicCheckBox hintCheckBox = new JBasicCheckBox("Show hint before closing", "Show hint before closing", false);
 			hintCheckBox.addActionListener(new ActionListener()
 			{
 				public void actionPerformed(ActionEvent e)
@@ -135,7 +135,7 @@ public class DemoBasicTabbedPanePanel
 			);			
 			add(hintCheckBox);	
 			
-			final JBasicCheckBox gapCheckBox = new JBasicCheckBox("Set gap length (=3) between Close Button & Icon", false);
+			final JBasicCheckBox gapCheckBox = new JBasicCheckBox("Set gap length (=3) between Close Button & Icon", "Set gap length (=3) between Close Button & Icon", false);
 			gapCheckBox.addActionListener(new ActionListener()
 			{
 				public void actionPerformed(ActionEvent e)

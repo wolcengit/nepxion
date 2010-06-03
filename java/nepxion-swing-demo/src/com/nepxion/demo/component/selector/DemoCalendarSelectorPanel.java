@@ -18,7 +18,6 @@ import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.ButtonGroup;
 import javax.swing.JPanel;
-import javax.swing.JRadioButtonMenuItem;
 
 import com.nepxion.demo.common.DemoSelectionValuePanel;
 import com.nepxion.swing.border.ComplexEtchedBorder;
@@ -30,6 +29,7 @@ import com.nepxion.swing.button.JBasicMenuButton;
 import com.nepxion.swing.handle.HandleManager;
 import com.nepxion.swing.icon.IconFactory;
 import com.nepxion.swing.layout.filed.FiledLayout;
+import com.nepxion.swing.menuitem.JBasicRadioButtonMenuItem;
 import com.nepxion.swing.popupmenu.JDecorationPopupMenu;
 import com.nepxion.swing.selector.calendar.JCalendarSelectorDialog;
 import com.nepxion.swing.selector.calendar.JCalendarSelectorOptionPane;
@@ -691,7 +691,7 @@ public class DemoCalendarSelectorPanel
 		ButtonGroup buttonGroup = new ButtonGroup();
 		for (int i = 0; i < formatList.length; i++)
 		{
-			final JRadioButtonMenuItem menuItem = new JRadioButtonMenuItem(formatList[i]);
+			final JBasicRadioButtonMenuItem menuItem = new JBasicRadioButtonMenuItem(formatList[i], formatList[i]);
 			menuItem.addActionListener(new ActionListener()
 			{
 				public void actionPerformed(ActionEvent e)

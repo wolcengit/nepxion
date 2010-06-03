@@ -15,7 +15,6 @@ import java.io.File;
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.Icon;
-import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.filechooser.FileSystemView;
 import javax.swing.tree.DefaultMutableTreeNode;
@@ -28,6 +27,7 @@ import com.nepxion.swing.border.ComplexTitleBorder;
 import com.nepxion.swing.element.ElementNode;
 import com.nepxion.swing.frame.JBasicFrame;
 import com.nepxion.swing.lookandfeel.LookAndFeelManager;
+import com.nepxion.swing.menuitem.JBasicMenuItem;
 import com.nepxion.swing.popupmenu.JDecorationPopupMenu;
 import com.nepxion.swing.renderer.tree.TreeElementCellRenderer;
 import com.nepxion.swing.tree.lazyloader.AbstractLazyLoader;
@@ -201,80 +201,80 @@ public class DemoLazyLoaderTreePanel
 	{
 		public FilePopopMenu(JLazyLoaderTree lazyLoaderTree)
 		{		
-			JMenuItem newAction = new JMenuItem(LazyLoaderTreeController.getAddAction(lazyLoaderTree, new ElementNode("新增节点")));
+			JBasicMenuItem newAction = new JBasicMenuItem(LazyLoaderTreeController.getAddAction(lazyLoaderTree, new ElementNode("新增节点")));
 			add(newAction);				
 			
-			JMenuItem deleteAction = new JMenuItem(LazyLoaderTreeController.getDeleteAction(lazyLoaderTree));
+			JBasicMenuItem deleteAction = new JBasicMenuItem(LazyLoaderTreeController.getDeleteAction(lazyLoaderTree));
 			add(deleteAction);				
 			
-			JMenuItem renameAction = new JMenuItem(LazyLoaderTreeController.getRenameAction(lazyLoaderTree));
+			JBasicMenuItem renameAction = new JBasicMenuItem(LazyLoaderTreeController.getRenameAction(lazyLoaderTree));
 			add(renameAction);					
 			
 			addSeparator();
 			
-			JMenuItem refreshMenuItem = new JMenuItem(LazyLoaderTreeController.getRefreshAction(lazyLoaderTree));
+			JBasicMenuItem refreshMenuItem = new JBasicMenuItem(LazyLoaderTreeController.getRefreshAction(lazyLoaderTree));
 			add(refreshMenuItem);
 
-			JMenuItem searchMenuItem = new JMenuItem(LazyLoaderTreeController.getSearchAction(lazyLoaderTree));
+			JBasicMenuItem searchMenuItem = new JBasicMenuItem(LazyLoaderTreeController.getSearchAction(lazyLoaderTree));
 			add(searchMenuItem);
 			
 			addSeparator();			
 			
-			JMenuItem moveUpAction = new JMenuItem(LazyLoaderTreeController.getMoveUpAction(lazyLoaderTree));
+			JBasicMenuItem moveUpAction = new JBasicMenuItem(LazyLoaderTreeController.getMoveUpAction(lazyLoaderTree));
 			add(moveUpAction);	
 			
-			JMenuItem moveDownAction = new JMenuItem(LazyLoaderTreeController.getMoveDownAction(lazyLoaderTree));
+			JBasicMenuItem moveDownAction = new JBasicMenuItem(LazyLoaderTreeController.getMoveDownAction(lazyLoaderTree));
 			add(moveDownAction);			
 			
 			addSeparator();
 			
-			JMenuItem loadMenuItem = new JMenuItem(LazyLoaderTreeController.getLoadAction(lazyLoaderTree));
+			JBasicMenuItem loadMenuItem = new JBasicMenuItem(LazyLoaderTreeController.getLoadAction(lazyLoaderTree));
 			add(loadMenuItem);
 			
-			JMenuItem loadChildrenMenuItem = new JMenuItem(LazyLoaderTreeController.getLoadChildrenAction(lazyLoaderTree));
+			JBasicMenuItem loadChildrenMenuItem = new JBasicMenuItem(LazyLoaderTreeController.getLoadChildrenAction(lazyLoaderTree));
 			add(loadChildrenMenuItem);
 			
-			JMenuItem loadAllMenuItem = new JMenuItem(LazyLoaderTreeController.getLoadAllAction(lazyLoaderTree));
+			JBasicMenuItem loadAllMenuItem = new JBasicMenuItem(LazyLoaderTreeController.getLoadAllAction(lazyLoaderTree));
 			add(loadAllMenuItem);
 			
 			addSeparator();
 			
-			JMenuItem cancelMenuItem = new JMenuItem(LazyLoaderTreeController.getCancelAction(lazyLoaderTree));
+			JBasicMenuItem cancelMenuItem = new JBasicMenuItem(LazyLoaderTreeController.getCancelAction(lazyLoaderTree));
 			add(cancelMenuItem);
 			
-			JMenuItem cancelChildrenMenuItem = new JMenuItem(LazyLoaderTreeController.getCancelChildrenAction(lazyLoaderTree));
+			JBasicMenuItem cancelChildrenMenuItem = new JBasicMenuItem(LazyLoaderTreeController.getCancelChildrenAction(lazyLoaderTree));
 			add(cancelChildrenMenuItem);
 			
-			JMenuItem cancelAllMenuItem = new JMenuItem(LazyLoaderTreeController.getCancelAllAction(lazyLoaderTree));
+			JBasicMenuItem cancelAllMenuItem = new JBasicMenuItem(LazyLoaderTreeController.getCancelAllAction(lazyLoaderTree));
 			add(cancelAllMenuItem);
 			
 			addSeparator();
 			
-			JMenuItem expandMenuItem = new JMenuItem(LazyLoaderTreeController.getExpandAction(lazyLoaderTree));
+			JBasicMenuItem expandMenuItem = new JBasicMenuItem(LazyLoaderTreeController.getExpandAction(lazyLoaderTree));
 			add(expandMenuItem);
 			
-			JMenuItem expandChildrenMenuItem = new JMenuItem(LazyLoaderTreeController.getExpandChildrenAction(lazyLoaderTree));
+			JBasicMenuItem expandChildrenMenuItem = new JBasicMenuItem(LazyLoaderTreeController.getExpandChildrenAction(lazyLoaderTree));
 			add(expandChildrenMenuItem);
 			
-			JMenuItem expandAllMenuItem = new JMenuItem(LazyLoaderTreeController.getExpandAllAction(lazyLoaderTree));
+			JBasicMenuItem expandAllMenuItem = new JBasicMenuItem(LazyLoaderTreeController.getExpandAllAction(lazyLoaderTree));
 			add(expandAllMenuItem);
 			
 			addSeparator();
 			
-			JMenuItem collapseMenuItem = new JMenuItem(LazyLoaderTreeController.getCollapseAction(lazyLoaderTree));
+			JBasicMenuItem collapseMenuItem = new JBasicMenuItem(LazyLoaderTreeController.getCollapseAction(lazyLoaderTree));
 			add(collapseMenuItem);
 			
-			JMenuItem collapseChildrenMenuItem = new JMenuItem(LazyLoaderTreeController.getCollapseChildrenAction(lazyLoaderTree));
+			JBasicMenuItem collapseChildrenMenuItem = new JBasicMenuItem(LazyLoaderTreeController.getCollapseChildrenAction(lazyLoaderTree));
 			add(collapseChildrenMenuItem);
 			
-			JMenuItem collapseAllMenuItem = new JMenuItem(LazyLoaderTreeController.getCollapseAllAction(lazyLoaderTree));
+			JBasicMenuItem collapseAllMenuItem = new JBasicMenuItem(LazyLoaderTreeController.getCollapseAllAction(lazyLoaderTree));
 			add(collapseAllMenuItem);
 		}
 	}
 	
 	public static void main(String[] args)
 	{
-		LookAndFeelManager.setPlasticXPLookAndFeel();
+		LookAndFeelManager.setAlloyLookAndFeel();
 		JBasicFrame frame = new JBasicFrame();
 		frame.getContentPane().add(new DemoLazyLoaderTreePanel());
 		frame.setSize(800, 600);

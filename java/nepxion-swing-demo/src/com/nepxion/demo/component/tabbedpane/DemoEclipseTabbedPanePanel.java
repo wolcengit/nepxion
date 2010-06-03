@@ -122,7 +122,7 @@ public class DemoEclipseTabbedPanePanel
 			);
 			add(tabShapeComboBox);
 	        
-	        final JBasicCheckBox showTabAreaCheckBox = new JBasicCheckBox("Show Tab Area", true);	
+	        final JBasicCheckBox showTabAreaCheckBox = new JBasicCheckBox("Show Tab Area", "Show Tab Area", true);	
 	        showTabAreaCheckBox.addActionListener(new ActionListener()
 			{
 				public void actionPerformed(ActionEvent e)
@@ -133,7 +133,7 @@ public class DemoEclipseTabbedPanePanel
 			);	
 	        add(showTabAreaCheckBox);	        
 	        
-	        final JBasicCheckBox hideTabAreaCheckBox = new JBasicCheckBox("Show Tab Area If More Than One Tabs Shown", false);	
+	        final JBasicCheckBox hideTabAreaCheckBox = new JBasicCheckBox("Show Tab Area If More Than One Tabs Shown", "Show Tab Area If More Than One Tabs Shown", false);	
 	        hideTabAreaCheckBox.addActionListener(new ActionListener()
 			{
 				public void actionPerformed(ActionEvent e)
@@ -144,7 +144,7 @@ public class DemoEclipseTabbedPanePanel
 			);	
 	        add(hideTabAreaCheckBox);	
 	        
-	        final JBasicCheckBox showTabContentCheckBox = new JBasicCheckBox("Show Tab Content", true);	
+	        final JBasicCheckBox showTabContentCheckBox = new JBasicCheckBox("Show Tab Content", "Show Tab Content", true);	
 	        showTabContentCheckBox.addActionListener(new ActionListener()
 			{
 				public void actionPerformed(ActionEvent e)
@@ -155,7 +155,7 @@ public class DemoEclipseTabbedPanePanel
 			);	
 	        add(showTabContentCheckBox);		        
 						
-	        final JBasicCheckBox showTabButtonsCheckBox = new JBasicCheckBox("Show Tab Buttons", false);	
+	        final JBasicCheckBox showTabButtonsCheckBox = new JBasicCheckBox("Show Tab Buttons", "Show Tab Buttons", false);	
 	        showTabButtonsCheckBox.addActionListener(new ActionListener()
 			{
 				public void actionPerformed(ActionEvent e)
@@ -166,7 +166,7 @@ public class DemoEclipseTabbedPanePanel
 			);	
 	        add(showTabButtonsCheckBox);	
 			
-			final JBasicCheckBox showBoldFontCheckBox = new JBasicCheckBox("Show Bold Font In Selection Tab", false);
+			final JBasicCheckBox showBoldFontCheckBox = new JBasicCheckBox("Show Bold Font In Selection Tab", "Show Bold Font In Selection Tab", false);
 			showBoldFontCheckBox.addActionListener(new ActionListener()
 			{
 				public void actionPerformed(ActionEvent e)
@@ -177,7 +177,7 @@ public class DemoEclipseTabbedPanePanel
 			);			
 			add(showBoldFontCheckBox);	
 			
-			final JBasicCheckBox showTabLeadingComponentCheckBox = new JBasicCheckBox("Show Tab Leading Component", false);
+			final JBasicCheckBox showTabLeadingComponentCheckBox = new JBasicCheckBox("Show Tab Leading Component", "Show Tab Leading Component", false);
 			showTabLeadingComponentCheckBox.addActionListener(new ActionListener()
 			{
 				public void actionPerformed(ActionEvent e)
@@ -196,7 +196,7 @@ public class DemoEclipseTabbedPanePanel
 			);			
 			add(showTabLeadingComponentCheckBox);	
 			
-			final JBasicCheckBox showTabTrailingComponentCheckBox = new JBasicCheckBox("Show Tab Trailing Component", false);
+			final JBasicCheckBox showTabTrailingComponentCheckBox = new JBasicCheckBox("Show Tab Trailing Component", "Show Tab Trailing Component", false);
 			showTabTrailingComponentCheckBox.addActionListener(new ActionListener()
 			{
 				public void actionPerformed(ActionEvent e)
@@ -215,7 +215,7 @@ public class DemoEclipseTabbedPanePanel
 			);			
 			add(showTabTrailingComponentCheckBox);		
 			
-	        final JBasicCheckBox allowEditingTabTitleCheckBox = new JBasicCheckBox("Allow Editing Tab Title", false);
+	        final JBasicCheckBox allowEditingTabTitleCheckBox = new JBasicCheckBox("Allow Editing Tab Title", "Allow Editing Tab Title", false);
 	        allowEditingTabTitleCheckBox.addActionListener(new ActionListener()
 			{
 				public void actionPerformed(ActionEvent e)
@@ -245,7 +245,7 @@ public class DemoEclipseTabbedPanePanel
 			setLayout(new FiledLayout(FiledLayout.COLUMN, FiledLayout.FULL, 0));
 			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Private Configuration"));	
 	        
-			final JBasicCheckBox showCloseButtonCheckBox = new JBasicCheckBox("Show Close Button", true);
+			final JBasicCheckBox showCloseButtonCheckBox = new JBasicCheckBox("Show Close Button", "Show Close Button", true);
 			showCloseButtonCheckBox.addActionListener(new ActionListener()
 			{
 				public void actionPerformed(ActionEvent e)

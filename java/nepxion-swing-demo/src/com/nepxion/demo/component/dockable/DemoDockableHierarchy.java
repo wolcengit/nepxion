@@ -13,8 +13,6 @@ package com.nepxion.demo.component.dockable;
 import java.awt.event.InputEvent;
 import java.awt.event.KeyEvent;
 
-import javax.swing.JMenu;
-import javax.swing.JMenuItem;
 import javax.swing.KeyStroke;
 
 import com.nepxion.demo.DemoHierarchyController;
@@ -26,7 +24,9 @@ import com.nepxion.swing.framework.dockable.JDockableView;
 import com.nepxion.swing.framework.dockable.JFrameWorkHierarchy;
 import com.nepxion.swing.framework.dockable.JFrameWorkStatusBar;
 import com.nepxion.swing.icon.IconFactory;
+import com.nepxion.swing.menu.JBasicMenu;
 import com.nepxion.swing.menubar.JBasicMenuBar;
+import com.nepxion.swing.menuitem.JBasicMenuItem;
 import com.nepxion.swing.menuitem.JLiteCheckBoxMenuItem;
 import com.nepxion.swing.scrollpane.JBasicScrollPane;
 import com.nepxion.swing.selector.checkbox.JCheckBoxPanel;
@@ -114,15 +114,15 @@ public class DemoDockableHierarchy
     {
         JBasicMenuBar menuBar = getMenuBar();
         
-        JMenu menu = FrameWorkManager.getToggleMenu(this);
+        JBasicMenu menu = FrameWorkManager.getToggleMenu(this);
         ((JLiteCheckBoxMenuItem) menu.getMenuComponent(1)).doClick();
         menuBar.add(menu);
         
-        JMenu helpMenu = new JMenu("Help");
+        JBasicMenu helpMenu = new JBasicMenu("Help", "°ïÖú(H)");
         helpMenu.setMnemonic('H');
         menuBar.add(helpMenu);
 
-        JMenuItem aboutMenuItem = new JMenuItem(DemoHierarchyController.getAboutAction());
+        JBasicMenuItem aboutMenuItem = new JBasicMenuItem(DemoHierarchyController.getAboutAction());
         aboutMenuItem.setMnemonic('A');
         aboutMenuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_A, InputEvent.CTRL_MASK));        
         helpMenu.add(aboutMenuItem);
