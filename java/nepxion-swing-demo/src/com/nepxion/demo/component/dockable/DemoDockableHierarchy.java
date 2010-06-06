@@ -10,7 +10,6 @@ package com.nepxion.demo.component.dockable;
  * @version 1.0
  */
 
-import java.awt.event.InputEvent;
 import java.awt.event.KeyEvent;
 
 import javax.swing.KeyStroke;
@@ -124,7 +123,7 @@ public class DemoDockableHierarchy
 
         JBasicMenuItem aboutMenuItem = new JBasicMenuItem(DemoHierarchyController.getAboutAction());
         aboutMenuItem.setMnemonic('A');
-        aboutMenuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_A, InputEvent.CTRL_MASK));        
+        aboutMenuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_A, KeyEvent.CTRL_MASK));        
         helpMenu.add(aboutMenuItem);
     }
 

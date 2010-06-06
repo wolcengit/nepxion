@@ -16,6 +16,7 @@ import com.nepxion.demo.common.DemoTogglePanel;
 import com.nepxion.demo.common.DemoToggleTemplate;
 import com.nepxion.demo.component.tree.DemoCheckBoxTreePanel;
 import com.nepxion.demo.component.tree.DemoElementTreePanel;
+import com.nepxion.demo.component.tree.DemoLazyLoaderTreePanel;
 import com.nepxion.swing.icon.IconFactory;
 import com.nepxion.swing.tabbedpane.JEclipseTabbedPane;
 
@@ -27,6 +28,7 @@ public class DemoTreeTogglePanel
 		JEclipseTabbedPane toggleTabbedPane = getToggleTabbedPane();
 		toggleTabbedPane.addTab("Element Tree", IconFactory.getSwingIcon("component/tree_16.png"), new DemoToggleTemplate(new DemoElementTreePanel()));				
 		toggleTabbedPane.addTab("CheckBox Tree", IconFactory.getSwingIcon("component/tree_16.png"), new DemoToggleTemplate(new DemoCheckBoxTreePanel()));
+		toggleTabbedPane.addTab("LazyLoader Tree", IconFactory.getSwingIcon("component/tree_16.png"), new DemoToggleTemplate(new DemoLazyLoaderTreePanel()));
 	}
 	
 	public String getToggleName()
