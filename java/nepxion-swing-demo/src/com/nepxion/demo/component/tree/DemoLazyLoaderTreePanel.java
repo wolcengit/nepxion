@@ -11,12 +11,14 @@ package com.nepxion.demo.component.tree;
  */
 
 import java.awt.BorderLayout;
+import java.awt.event.KeyEvent;
 import java.io.File;
 
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.Icon;
 import javax.swing.JPanel;
+import javax.swing.KeyStroke;
 import javax.swing.filechooser.FileSystemView;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
@@ -31,6 +33,7 @@ import com.nepxion.swing.button.JBasicSplitButton;
 import com.nepxion.swing.element.ElementNode;
 import com.nepxion.swing.frame.JBasicFrame;
 import com.nepxion.swing.icon.IconFactory;
+import com.nepxion.swing.keystroke.KeyStrokeManager;
 import com.nepxion.swing.layout.toolbar.ToolBarLayout;
 import com.nepxion.swing.lookandfeel.LookAndFeelManager;
 import com.nepxion.swing.menuitem.JBasicMenuItem;
@@ -195,7 +198,7 @@ public class DemoLazyLoaderTreePanel
 			{	
 				try
 				{
-					Thread.sleep(500);
+					Thread.sleep(1000);
 				}
 				catch (InterruptedException e)
 				{
@@ -215,20 +218,25 @@ public class DemoLazyLoaderTreePanel
 			setBorder(BorderFactory.createEmptyBorder(0, 0, 5, 0));
 			
 			JBasicButton newButton = new JBasicButton(LazyLoaderTreeController.getAddAction(lazyLoaderTree, new ElementNode("新增节点", IconFactory.getSwingIcon("solid/add_16.png"), "新增节点")));
+			KeyStrokeManager.registerButton(newButton, newButton.getAction(), KeyEvent.VK_N, KeyEvent.CTRL_MASK);
 			add(newButton);
 			
 			JBasicButton deleteButton = new JBasicButton(LazyLoaderTreeController.getDeleteAction(lazyLoaderTree));
+			KeyStrokeManager.registerButton(deleteButton, deleteButton.getAction(), KeyEvent.VK_DELETE);	
 			add(deleteButton);	
 			
 			JBasicButton renameButton = new JBasicButton(LazyLoaderTreeController.getRenameAction(lazyLoaderTree));
+			KeyStrokeManager.registerButton(renameButton, renameButton.getAction(), KeyEvent.VK_R, KeyEvent.CTRL_MASK);	
 			add(renameButton);						
 			
 			add(new JBasicSeparator());
 			
 			JBasicButton refreshButton = new JBasicButton(LazyLoaderTreeController.getRefreshAction(lazyLoaderTree));
+			KeyStrokeManager.registerButton(refreshButton, refreshButton.getAction(), KeyEvent.VK_F5);	
 			add(refreshButton);
 
 			JBasicButton searchButton = new JBasicButton(LazyLoaderTreeController.getSearchAction(lazyLoaderTree));
+			KeyStrokeManager.registerButton(searchButton, searchButton.getAction(), KeyEvent.VK_F, KeyEvent.CTRL_MASK);	
 			add(searchButton);
 						
 			add(new JBasicSeparator());	
@@ -240,6 +248,7 @@ public class DemoLazyLoaderTreePanel
 			loadSplitButton.setPopupMenu(loadPopupMenu);
 			
 			JBasicMenuItem loadMenuItem = new JBasicMenuItem(LazyLoaderTreeController.getLoadAction(lazyLoaderTree));
+			KeyStrokeManager.registerButton(loadMenuItem, loadMenuItem.getAction(), KeyEvent.VK_F3);
 			loadPopupMenu.add(loadMenuItem);
 			
 			loadPopupMenu.addSeparator();
@@ -265,7 +274,8 @@ public class DemoLazyLoaderTreePanel
 			JBasicMenuItem cancelChildrenMenuItem = new JBasicMenuItem(LazyLoaderTreeController.getCancelChildrenAction(lazyLoaderTree));
 			cancelPopupMenu.add(cancelChildrenMenuItem);
 			
-			JBasicMenuItem cancelAllMenuItem = new JBasicMenuItem(LazyLoaderTreeController.getCancelAllAction(lazyLoaderTree));			
+			JBasicMenuItem cancelAllMenuItem = new JBasicMenuItem(LazyLoaderTreeController.getCancelAllAction(lazyLoaderTree));		
+			KeyStrokeManager.registerButton(cancelAllMenuItem, cancelAllMenuItem.getAction(), KeyEvent.VK_ESCAPE);	
 			cancelPopupMenu.add(cancelAllMenuItem);
 			
 			add(new JBasicSeparator());
@@ -323,28 +333,34 @@ public class DemoLazyLoaderTreePanel
 		public FilePopopMenu(JLazyLoaderTree lazyLoaderTree)
 		{		
 			JBasicMenuItem newMenuItem = new JBasicMenuItem(LazyLoaderTreeController.getAddAction(lazyLoaderTree, new ElementNode("新增节点", IconFactory.getSwingIcon("solid/add_16.png"), "新增节点")));
-			add(newMenuItem);				
+			KeyStrokeManager.registerButton(newMenuItem, newMenuItem.getAction(), KeyEvent.VK_N, KeyEvent.CTRL_MASK);				
+			add(newMenuItem);						
 			
 			JBasicMenuItem deleteMenuItem = new JBasicMenuItem(LazyLoaderTreeController.getDeleteAction(lazyLoaderTree));
-			add(deleteMenuItem);				
-			
+			KeyStrokeManager.registerButton(deleteMenuItem, deleteMenuItem.getAction(), KeyEvent.VK_DELETE);			
+			add(deleteMenuItem);
+						
 			JBasicMenuItem renameMenuItem = new JBasicMenuItem(LazyLoaderTreeController.getRenameAction(lazyLoaderTree));
-			add(renameMenuItem);					
+			KeyStrokeManager.registerButton(renameMenuItem, renameMenuItem.getAction(), KeyEvent.VK_R, KeyEvent.CTRL_MASK);				
+			add(renameMenuItem);							
 			
 			addSeparator();
 			
 			JBasicMenuItem refreshMenuItem = new JBasicMenuItem(LazyLoaderTreeController.getRefreshAction(lazyLoaderTree));
-			add(refreshMenuItem);
+			KeyStrokeManager.registerButton(refreshMenuItem, refreshMenuItem.getAction(), KeyEvent.VK_F5);				
+			add(refreshMenuItem);		
 
 			JBasicMenuItem searchMenuItem = new JBasicMenuItem(LazyLoaderTreeController.getSearchAction(lazyLoaderTree));
+			KeyStrokeManager.registerButton(searchMenuItem, searchMenuItem.getAction(), KeyEvent.VK_F, KeyEvent.CTRL_MASK);				
 			add(searchMenuItem);
 						
 			addSeparator();
 		    
-			JBasicMenuItem loadModeMenuItem = new JBasicMenuItem(LazyLoaderTreeController.getLoadModeAction(lazyLoaderTree));
+			JBasicMenuItem loadModeMenuItem = new JBasicMenuItem(LazyLoaderTreeController.getLoadModeAction(lazyLoaderTree));			
 			add(loadModeMenuItem);		    
 			
 			JBasicMenuItem loadMenuItem = new JBasicMenuItem(LazyLoaderTreeController.getLoadAction(lazyLoaderTree));
+			KeyStrokeManager.registerButton(loadMenuItem, loadMenuItem.getAction(), KeyEvent.VK_F3);			
 			add(loadMenuItem);
 			
 			JBasicMenuItem loadChildrenMenuItem = new JBasicMenuItem(LazyLoaderTreeController.getLoadChildrenAction(lazyLoaderTree));
@@ -361,7 +377,8 @@ public class DemoLazyLoaderTreePanel
 			JBasicMenuItem cancelChildrenMenuItem = new JBasicMenuItem(LazyLoaderTreeController.getCancelChildrenAction(lazyLoaderTree));
 			add(cancelChildrenMenuItem);
 			
-			JBasicMenuItem cancelAllMenuItem = new JBasicMenuItem(LazyLoaderTreeController.getCancelAllAction(lazyLoaderTree));			
+			JBasicMenuItem cancelAllMenuItem = new JBasicMenuItem(LazyLoaderTreeController.getCancelAllAction(lazyLoaderTree));		
+			KeyStrokeManager.registerButton(cancelAllMenuItem, cancelAllMenuItem.getAction(), KeyEvent.VK_ESCAPE);	
 			add(cancelAllMenuItem);
 			
 			addSeparator();			
