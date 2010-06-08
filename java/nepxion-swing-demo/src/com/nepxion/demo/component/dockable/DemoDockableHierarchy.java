@@ -12,6 +12,7 @@ package com.nepxion.demo.component.dockable;
 
 import java.awt.event.KeyEvent;
 
+import javax.swing.JMenuItem;
 import javax.swing.KeyStroke;
 
 import com.nepxion.demo.DemoHierarchyController;
@@ -26,7 +27,6 @@ import com.nepxion.swing.icon.IconFactory;
 import com.nepxion.swing.menu.JBasicMenu;
 import com.nepxion.swing.menubar.JBasicMenuBar;
 import com.nepxion.swing.menuitem.JBasicMenuItem;
-import com.nepxion.swing.menuitem.JLiteCheckBoxMenuItem;
 import com.nepxion.swing.scrollpane.JBasicScrollPane;
 import com.nepxion.swing.selector.checkbox.JCheckBoxPanel;
 import com.nepxion.swing.selector.radiobutton.JRadioButtonPanel;
@@ -114,7 +114,7 @@ public class DemoDockableHierarchy
         JBasicMenuBar menuBar = getMenuBar();
         
         JBasicMenu menu = FrameWorkManager.getToggleMenu(this);
-        ((JLiteCheckBoxMenuItem) menu.getMenuComponent(1)).doClick();
+        ((JMenuItem) menu.getMenuComponent(1)).doClick();
         menuBar.add(menu);
         
         JBasicMenu helpMenu = new JBasicMenu("Help", "°ïÖú(H)");
