@@ -49,6 +49,8 @@ public class ClientRequestPost
 	public ClientRequestPost(String uri)
 	{
 		super();
+		
+		setURI(uri);
 	}
 	
 	public void setURI(String uri)
