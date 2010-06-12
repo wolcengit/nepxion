@@ -103,7 +103,7 @@ public class GeoCoordinateParser
 	{
 		GeoCoordinateParser geoCoordinateParser = new GeoCoordinateParser();
 		
-		Geo geo = geoCoordinateParser.getGeo(18711, 22552);
+		Geo geo = geoCoordinateParser.getGeo(19625, 22770);
 		System.out.println("latitude : " + geo.getLatitude());
 		System.out.println("longitude : " + geo.getLongitude());
 		System.out.println("address : " + geo);
