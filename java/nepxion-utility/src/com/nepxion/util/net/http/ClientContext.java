@@ -67,21 +67,37 @@ public class ClientContext
         }    	
     }
     
-    public static void register(URL fileURL)
+    public static void register(URL codeBaseURL)
     {
         Properties properties = new Properties();
         try
         {
-        	fileURL = new URL(fileURL + HTTP_CONFIG_FILE_PATH);
-            properties.load(fileURL.openStream());
+        	codeBaseURL = new URL(codeBaseURL + HTTP_CONFIG_FILE_PATH);
+            properties.load(codeBaseURL.openStream());
             
-            host = fileURL.getHost();
-            port = fileURL.getPort();
+            if (properties.getProperty(HOST) != null && !properties.getProperty(HOST).equals(""))
+            {
+            	host = properties.getProperty(HOST);
+            }
+            else
+            {
+            	host = codeBaseURL.getHost();
+            }
+            
+            if (properties.getProperty(PORT) != null && !properties.getProperty(PORT).equals(""))
+            {
+            	port = Integer.parseInt(properties.getProperty(PORT));
+            }
+            else
+            {
+            	port = codeBaseURL.getPort();
+            }
+            
             path = properties.getProperty(PATH);
             timeOut = Integer.parseInt(properties.getProperty(TIMEOUT));
             connectionTimeOut = Integer.parseInt(properties.getProperty(CONNECTION_TIMEOUT));            
             
-            url = createURL(host, port, path);  
+            url = createURL(host, port, path);
         }
         catch (IOException e)
         {
