@@ -118,7 +118,7 @@ public class ApachePostClientInvoker
 		String text = "[目标为服务调用，实体为字符串]";
 		
 		ClientRequestPost clientRequestPost = new ClientRequestPost();
-		StringEntity entity = clientRequestPost.setStringEntity(text);		
+		clientRequestPost.setStringEntity(text);		
 		
 		Object responseObject = null;
 		try
