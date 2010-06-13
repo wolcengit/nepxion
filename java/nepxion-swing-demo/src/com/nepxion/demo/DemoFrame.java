@@ -24,14 +24,17 @@ public class DemoFrame
 	{
 		super("Nepxion Swing", IconFactory.getSwingIcon("tray_java.png")); // new Dimension(850, 650)
 		
+		/*DemoEnvironmentContext environmentContext = new DemoEnvironmentContext();
+		environmentContext.initialize();*/
+		
 		DemoHierarchy hierarchy = new DemoHierarchy();
 		setHierarchy(hierarchy);
 	}
 	
 	public static void main(String[] args)
 	{
-		DemoContext context = new DemoContext();
-		context.initialize();
+		DemoUIContext uiContext = new DemoUIContext();
+		uiContext.initialize();
 		
 		final DemoSplashWindow splashWindow = new DemoSplashWindow();
 		splashWindow.setVisible(true);

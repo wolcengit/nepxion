@@ -19,13 +19,16 @@ public class DemoApplet
 	{
 		super.init();
 		
+		/*DemoEnvironmentContext environmentContext = new DemoEnvironmentContext();
+		environmentContext.initialize(getCodeBase());*/		
+		
 		DemoHierarchy hierarchy = new DemoHierarchy();
 		setHierarchy(hierarchy);
 	}
 	
 	public void initContext()
 	{
-		DemoContext context = new DemoContext();
+		DemoUIContext context = new DemoUIContext();
 		context.initialize();
 	}
 }
