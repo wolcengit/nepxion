@@ -13,6 +13,7 @@ jarsigner -keystore Security.store ../lib/swing/jgoodies-skin-2.1.4.jar Security
 jarsigner -keystore Security.store ../lib/swing/jide-oss-2.9.2.jar Security
 jarsigner -keystore Security.store ../lib/swing/l2fprod-common-all-7.3.jar Security
 jarsigner -keystore Security.store ../lib/swing/native-skin-6.7.jar Security
+jarsigner -keystore Security.store ../lib/swing/plugin.jar Security
 jarsigner -keystore Security.store ../lib/swing/tiny-skin.jar Security
 jarsigner -keystore Security.store ../lib/swing/trayIcon-1.7.9B.jar Security
 jarsigner -keystore Security.store ../lib/swing/vldocking-2.1.5.jar Security
