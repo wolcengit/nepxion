@@ -13,7 +13,6 @@ package com.nepxion.demo.component.dockable;
 import java.awt.event.KeyEvent;
 
 import javax.swing.JMenuItem;
-import javax.swing.KeyStroke;
 
 import com.nepxion.demo.DemoHierarchyController;
 import com.nepxion.demo.common.DemoComponentFactory;
@@ -24,6 +23,7 @@ import com.nepxion.swing.framework.dockable.JDockableView;
 import com.nepxion.swing.framework.dockable.JFrameWorkHierarchy;
 import com.nepxion.swing.framework.dockable.JFrameWorkStatusBar;
 import com.nepxion.swing.icon.IconFactory;
+import com.nepxion.swing.keystroke.KeyStrokeManager;
 import com.nepxion.swing.menu.JBasicMenu;
 import com.nepxion.swing.menubar.JBasicMenuBar;
 import com.nepxion.swing.menuitem.JBasicMenuItem;
@@ -122,8 +122,7 @@ public class DemoDockableHierarchy
         menuBar.add(helpMenu);
 
         JBasicMenuItem aboutMenuItem = new JBasicMenuItem(DemoHierarchyController.getAboutAction());
-        aboutMenuItem.setMnemonic('A');
-        aboutMenuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_A, KeyEvent.CTRL_MASK));        
+        KeyStrokeManager.registerButton(aboutMenuItem, KeyEvent.VK_F1, 'U');
         helpMenu.add(aboutMenuItem);
     }
 
