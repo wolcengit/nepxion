@@ -15,6 +15,7 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 
 import org.dom4j.Document;
+import org.dom4j.DocumentHelper;
 import org.dom4j.io.OutputFormat;
 import org.dom4j.io.XMLWriter;
 
@@ -22,6 +23,15 @@ import com.nepxion.util.encode.EncodeContext;
 
 public class Dom4JWriter
 {
+	/**
+	 * Create the instanceof Document
+	 * @return  the instanceof Document
+	 */
+	public static Document createDocument()
+	{
+		return DocumentHelper.createDocument();
+	}
+	
 	/**
 	 * Get xml text by document
 	 * @param document  the instanceof Document
