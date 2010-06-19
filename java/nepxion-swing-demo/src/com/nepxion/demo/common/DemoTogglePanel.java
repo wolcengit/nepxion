@@ -14,11 +14,11 @@ import java.awt.BorderLayout;
 
 import javax.swing.BorderFactory;
 
-import com.nepxion.swing.panel.toggle.AbstractTogglePanel;
+import com.nepxion.swing.panel.toggle.JTogglePanel;
 import com.nepxion.swing.tabbedpane.JEclipseTabbedPane;
 
 public abstract class DemoTogglePanel
-	extends AbstractTogglePanel
+	extends JTogglePanel
 {	
 	private JEclipseTabbedPane toggleTabbedPane;
 	

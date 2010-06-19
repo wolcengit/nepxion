@@ -94,7 +94,7 @@ public class DemoToggleTemplate
 			
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
 			setBorder(BorderFactory.createEmptyBorder(2, 0, 3, 3)); // 2, 0, 1, 1
-			add(Box.createGlue());
+			add(Box.createHorizontalGlue());
 			add(viewToggleButton);			
 			add(Box.createHorizontalStrut(3));
 			add(codeToggleButton);
