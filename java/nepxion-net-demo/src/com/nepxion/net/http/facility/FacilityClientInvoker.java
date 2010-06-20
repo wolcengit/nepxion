@@ -12,21 +12,22 @@ package com.nepxion.net.http.facility;
 
 import java.util.HashMap;
 
-import com.nepxion.util.net.http.ClientContext;
+import com.nepxion.util.net.http.HttpConfig;
+import com.nepxion.util.net.http.HttpContext;
 import com.nepxion.util.net.http.facility.ClientInvoker;
 import com.nepxion.util.net.http.facility.ClientRequest;
 
 public class FacilityClientInvoker
 {
 	public static void invokeServer()
-	{		
-		ClientContext.registerURL("http://localhost:8080/Nepxion-Net-Demo/FacilityServerInvoker");
-		
+	{				
 		HashMap map = new HashMap();
 		map.put("target", "服务调用");
 		map.put("entity", "对象");
 		
-		ClientRequest clientRequest = new ClientRequest();
+		HttpConfig httpConfig = HttpContext.getHttpConfig("FacilityServerInvoker");
+		
+		ClientRequest clientRequest = new ClientRequest(httpConfig);
 		clientRequest.setEntity(map);
 				
 		ClientInvoker clientInvoker = new ClientInvoker();
@@ -45,6 +46,8 @@ public class FacilityClientInvoker
 	
 	public static void main(String[] args)
 	{		
+		HttpContext.register();
+		
 		FacilityClientInvoker.invokeServer();
 	}
 }
