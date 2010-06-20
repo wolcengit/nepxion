@@ -11,6 +11,7 @@ package com.nepxion.util.net.http.apache;
  */
 
 import java.io.IOException;
+import java.net.URI;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -21,7 +22,7 @@ import org.apache.http.params.HttpConnectionParams;
 
 import com.nepxion.util.encode.EncodeContext;
 import com.nepxion.util.io.IOUtil;
-import com.nepxion.util.net.http.ClientContext;
+import com.nepxion.util.net.http.HttpConfig;
 import com.nepxion.util.net.http.IClientInvoker;
 import com.nepxion.util.net.http.IClientRequest;
 
@@ -33,36 +34,19 @@ public class ClientInvoker
 	{
 		if (clientRequest.getURI() == null)
 		{
-			String url = ClientContext.getURL();
-			if (url != null)
-			{
-				// If the method is HttpGet, the URLParameter is ""
-				clientRequest.setURI(url + clientRequest.getURLParameter());
-			}
+			throw new IllegalArgumentException("Invalid URL for invoking");
 		}
-				
-		if (clientRequest.getURI() == null)
-		{
-			throw new IllegalArgumentException("Invalid URL parameter for invoking");
+			
+		// If the method is HttpPost, the URLParameter is ""		
+		clientRequest.setURI(URI.create(clientRequest.getURI() + clientRequest.getURLParameter()));
+	
+		HttpConfig httpConfig = clientRequest.getHttpConfig();
+		if (httpConfig != null)
+		{	
+			getParams().setIntParameter(HttpConnectionParams.CONNECTION_TIMEOUT, httpConfig.getConnectionTimeOut());		
+			getParams().setIntParameter(HttpConnectionParams.SO_TIMEOUT, httpConfig.getResponseTimeOut());
+			getParams().setIntParameter(HttpConnectionParams.SOCKET_BUFFER_SIZE, httpConfig.getBufferSize());
 		}
-		
-		if (getTimeOut() == -1)
-		{
-			int timeOut = ClientContext.getTimeOut();
-			if (timeOut != -1)
-			{
-				setTimeOut(timeOut);
-			}	
-		}
-		
-		if (getConnectionTimeOut() == -1)
-		{
-			int connectionTimeOut = ClientContext.getConnectionTimeOut();
-			if (connectionTimeOut != -1)
-			{
-				setConnectionTimeOut(connectionTimeOut);
-			}	
-		}			
 		
 		HttpUriRequest request = (HttpUriRequest) clientRequest;
 		HttpResponse response = null;
@@ -118,26 +102,6 @@ public class ClientInvoker
 		clientRequest.abort();
 		return text;
 	}	
-	
-	public int getTimeOut()
-	{
-		return getParams().getIntParameter(HttpConnectionParams.SO_TIMEOUT, -1);	
-	}
-	
-	public void setTimeOut(int timeOut)
-	{
-		getParams().setIntParameter(HttpConnectionParams.SO_TIMEOUT, timeOut);		
-	}
-	
-	public int getConnectionTimeOut()
-	{
-		return getParams().getIntParameter(HttpConnectionParams.CONNECTION_TIMEOUT, -1);	
-	}	
-	
-	public void setConnectionTimeOut(int timeOut)
-	{
-		getParams().setIntParameter(HttpConnectionParams.CONNECTION_TIMEOUT, timeOut);		
-	}
 	
 	public void shutdown()
 	{

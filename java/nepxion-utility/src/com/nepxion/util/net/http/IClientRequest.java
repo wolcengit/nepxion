@@ -15,12 +15,14 @@ import java.net.URI;
 
 public interface IClientRequest
 	extends Serializable
-{				
+{					
+	public HttpConfig getHttpConfig();
+	
+	public void setHttpConfig(HttpConfig httpConfig);
+	
 	public URI getURI();
 	
 	public void setURI(URI uri);
-	
-	public void setURI(String uri);
 	
 	public String getURLParameter();
 	

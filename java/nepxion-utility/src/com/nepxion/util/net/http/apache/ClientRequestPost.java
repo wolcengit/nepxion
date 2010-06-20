@@ -15,7 +15,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.Serializable;
 import java.io.UnsupportedEncodingException;
-import java.net.URI;
 import java.util.List;
 
 import org.apache.http.HttpEntity;
@@ -31,32 +30,42 @@ import org.apache.http.entity.SerializableEntity;
 import org.apache.http.entity.StringEntity;
 
 import com.nepxion.util.encode.EncodeContext;
+import com.nepxion.util.net.http.HttpConfig;
 import com.nepxion.util.net.http.IClientRequest;
 
 public class ClientRequestPost
 	extends HttpPost implements IClientRequest
 {
+	private HttpConfig httpConfig;
+	
 	public ClientRequestPost()
 	{
 		super();
 	}
 	
-	public ClientRequestPost(URI uri)
+	public ClientRequestPost(HttpConfig httpConfig)
 	{
-		super(uri);
-	}
-	
-	public ClientRequestPost(String uri)
-	{
-		super();
+		super(httpConfig.toURI());
 		
-		setURI(uri);
+		this.httpConfig = httpConfig;
 	}
 	
-	public void setURI(String uri)
+	public HttpConfig getHttpConfig()
 	{
-		setURI(URI.create(uri));
+		return httpConfig;
 	}
+
+	public void setHttpConfig(HttpConfig httpConfig)
+	{
+		this.httpConfig = httpConfig;
+		
+		setURI(httpConfig.toURI());
+	}
+	
+	public String getURLParameter()
+	{
+		return "";
+	}	
 	
 	public UrlEncodedFormEntity setParameterEntity(List parameterEntity)
 	{
@@ -175,9 +184,4 @@ public class ClientRequestPost
 		EntityTemplate entityTemplate = new EntityTemplate(contentProducer);
 		return entityTemplate;
 	}
-	
-	public String getURLParameter()
-	{
-		return "";
-	}	
 }

@@ -13,6 +13,7 @@ package com.nepxion.util.net.http.facility;
 import java.net.URI;
 import java.util.HashMap;
 
+import com.nepxion.util.net.http.HttpConfig;
 import com.nepxion.util.net.http.IClientRequest;
 
 public class ClientRequest
@@ -20,9 +21,11 @@ public class ClientRequest
 {
 	private static final long serialVersionUID = -2619050867163898049L;
 	
+	private HttpConfig httpConfig;
+	private URI uri;
+	
 	private String responseKey;
 	private Class responseClass;
-	private URI uri;
 	
 	private HashMap entity;
 	
@@ -31,27 +34,60 @@ public class ClientRequest
 		this((String) null);
 	}
 	
-	public ClientRequest(URI uri)
+	public ClientRequest(HttpConfig httpConfig)
 	{
-		this(null, uri);
+		this(httpConfig, null);
 	}
 	
 	public ClientRequest(String responseKey)
 	{
-		this(responseKey, null);
+		this(null, responseKey);
 	}
 	
-	public ClientRequest(String responseKey, URI uri)
+	public ClientRequest(HttpConfig httpConfig, String responseKey)
 	{
-		this(responseKey, null, uri);
+		this(httpConfig, responseKey, null);
 	}
 	
-	public ClientRequest(String responseKey, Class responseClass, URI uri)
-	{
+	public ClientRequest(HttpConfig httpConfig, String responseKey, Class responseClass)
+	{		
+		setHttpConfig(httpConfig);
+		
 		this.responseKey = responseKey;
-		this.responseClass = responseClass;
-		this.uri = uri;
+		this.responseClass = responseClass;		
 	}
+	
+	public HttpConfig getHttpConfig()
+	{
+		return httpConfig;
+	}
+
+	public void setHttpConfig(HttpConfig httpConfig)
+	{
+		this.httpConfig = httpConfig;
+		
+		setURI(httpConfig.toURI());
+	}	
+		
+	public URI getURI()
+	{
+		return uri;
+	}
+
+	public void setURI(URI uri)
+	{		
+		this.uri = uri;
+	}	
+	
+	public String getURLParameter()
+	{
+		return "";
+	}
+	
+	public void abort()
+	{
+		
+	}	
 	
 	public String getResponseKey()
 	{
@@ -73,21 +109,6 @@ public class ClientRequest
 		this.responseClass = responseClass;
 	}
 	
-	public URI getURI()
-	{
-		return uri;
-	}
-	
-	public void setURI(URI uri)
-	{
-		this.uri = uri;
-	}
-	
-	public void setURI(String uri)
-	{
-		setURI(URI.create(uri));
-	}
-	
 	public HashMap getEntity()
 	{
 		return entity;
@@ -96,15 +117,5 @@ public class ClientRequest
 	public void setEntity(HashMap entity)
 	{
 		this.entity = entity;
-	}
-	
-	public String getURLParameter()
-	{
-		return "";
-	}
-	
-	public void abort()
-	{
-		
 	}
 }

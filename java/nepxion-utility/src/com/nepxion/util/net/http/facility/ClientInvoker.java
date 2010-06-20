@@ -17,7 +17,6 @@ import java.net.URL;
 import java.net.URLConnection;
 
 import com.nepxion.util.io.IOUtil;
-import com.nepxion.util.net.http.ClientContext;
 import com.nepxion.util.net.http.IClientInvoker;
 import com.nepxion.util.net.http.IClientRequest;
 
@@ -32,16 +31,7 @@ public class ClientInvoker
      */
     public Object invoke(IClientRequest clientRequest)
     	throws Exception
-    {
-		if (clientRequest.getURI() == null)
-		{
-			String url = ClientContext.getURL();
-			if (url != null)
-			{
-				clientRequest.setURI(url);
-			}
-		}
-    	
+    {    	
     	if (clientRequest.getURI() != null)
     	{
     		return invokeRemote(clientRequest);

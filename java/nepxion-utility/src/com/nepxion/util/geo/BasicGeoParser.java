@@ -10,6 +10,8 @@ package com.nepxion.util.geo;
  * @version 1.0
  */
 
+import java.net.URI;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -35,7 +37,7 @@ public class BasicGeoParser
 	public String getResponseText(String jsonText)
 	{
 		ClientRequestPost clientRequestPost = new ClientRequestPost();
-		clientRequestPost.setURI(URL);
+		clientRequestPost.setURI(URI.create(URL));
 		clientRequestPost.setStringEntity(jsonText);
 		
 		String responseText = null;
