@@ -14,7 +14,7 @@ import java.net.URL;
 
 import com.nepxion.swing.activex.ActiveXContext;
 import com.nepxion.util.encode.EncodeContext;
-import com.nepxion.util.net.http.ClientContext;
+import com.nepxion.util.net.http.HttpContext;
 
 public class DemoEnvironmentContext
 {	
@@ -25,14 +25,14 @@ public class DemoEnvironmentContext
 	
 	public void initialize()
 	{
-		ClientContext.register();
+		HttpContext.register();
 		EncodeContext.registerCharset("GB2312");			
 		ActiveXContext.registerStrategy(ActiveXContext.STRATEGY_APPLICATION);
 	}
 	
 	public void initialize(URL codeBase)
 	{
-		ClientContext.register(codeBase);
+		HttpContext.register(codeBase);
 		EncodeContext.registerCharset("GB2312");		
 		ActiveXContext.registerStrategy(ActiveXContext.STRATEGY_APPLET);
 	}	
