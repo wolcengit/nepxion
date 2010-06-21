@@ -14,8 +14,8 @@ import java.awt.Component;
 import java.awt.event.ActionEvent;
 
 import com.nepxion.swing.action.JAuthorityAction;
-import com.nepxion.swing.help.HelpContext;
 import com.nepxion.swing.icon.IconFactory;
+import com.nepxion.swing.topic.TopicContext;
 
 public class DemoHierarchyController
 {
@@ -25,12 +25,12 @@ public class DemoHierarchyController
         {
             public void execute(ActionEvent e)
             {
-            	Component aboutComponent = HelpContext.getAboutComponent();
-            	if (aboutComponent == null)
+            	Component topicComponent = TopicContext.getTopicComponent();
+            	if (topicComponent == null)
             	{
             		return;
             	}	
-            	aboutComponent.setVisible(true);
+            	topicComponent.setVisible(true);
             }
         };
         return action;
