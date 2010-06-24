@@ -549,13 +549,13 @@ public class TimeUtil
 	/**
 	 * Get the time array
 	 * @param timeString  the time string.Its format is example "day, hour, minute, second"
-	 * @param delim       the time timeDelim, example ", "
+	 * @param delimiter   the time delimiter, example ", "
 	 * @return            the time array
 	 */
-	public static int[] parseTimeArray(String timeString, String timeDelim)
+	public static int[] parseTimeArray(String timeString, String delimiter)
 	{
 		int[] timeArray = new int[4];
-		StringTokenizer st = new StringTokenizer(timeString, timeDelim);
+		StringTokenizer st = new StringTokenizer(timeString, delimiter);
 		int i = 0;
 		while (st.hasMoreTokens())
 		{
@@ -568,13 +568,13 @@ public class TimeUtil
 	/**
 	 * Get the millisecond time array
 	 * @param timeString  the time string.Its format is example "day, hour, minute ,second, milliSecond"
-	 * @param delim       the time timeDelim, example ", "
+	 * @param delimiter   the time delimiter, example ", "
 	 * @return            the millisecond time array
 	 */
-	public static int[] parseMillisecondTimeArray(String timeString, String timeDelim)
+	public static int[] parseMillisecondTimeArray(String timeString, String delimiter)
 	{
 		int[] timeArray = new int[5];
-		StringTokenizer st = new StringTokenizer(timeString, timeDelim);
+		StringTokenizer st = new StringTokenizer(timeString, delimiter);
 		int i = 0;
 		while (st.hasMoreTokens())
 		{
