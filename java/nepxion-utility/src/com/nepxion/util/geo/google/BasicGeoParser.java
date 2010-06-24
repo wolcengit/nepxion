@@ -15,8 +15,8 @@ import java.net.URI;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import com.nepxion.util.http.apache.ClientInvoker;
-import com.nepxion.util.http.apache.ClientRequestPost;
+import com.nepxion.util.net.http.apache.ClientInvoker;
+import com.nepxion.util.net.http.apache.ClientRequestPost;
 
 public class BasicGeoParser
 {
