@@ -243,11 +243,11 @@ public class DemoLazyLoaderTreePanel
 						
 			add(new JBasicSeparator());	
 			
-			JBasicSplitButton loadSplitButton = new JBasicSplitButton(LazyLoaderTreeController.getLoadAction(lazyLoaderTree));
-			add(loadSplitButton);
+			JBasicSplitButton loadButton = new JBasicSplitButton(LazyLoaderTreeController.getLoadAction(lazyLoaderTree));
+			add(loadButton);
 			
 			JDecorationPopupMenu loadPopupMenu = new JDecorationPopupMenu();
-			loadSplitButton.setPopupMenu(loadPopupMenu);
+			loadButton.setPopupMenu(loadPopupMenu);
 			
 			JBasicMenuItem loadMenuItem = new JBasicMenuItem(LazyLoaderTreeController.getLoadAction(lazyLoaderTree));
 			KeyStrokeManager.registerButton(loadMenuItem, KeyEvent.VK_F3);
@@ -261,12 +261,12 @@ public class DemoLazyLoaderTreePanel
 			JBasicMenuItem loadAllMenuItem = new JBasicMenuItem(LazyLoaderTreeController.getLoadAllAction(lazyLoaderTree));
 			loadPopupMenu.add(loadAllMenuItem);
 			
-			JBasicSplitButton cancelSplitButton = new JBasicSplitButton(LazyLoaderTreeController.getCancelAllAction(lazyLoaderTree));
-			cancelSplitButton.setText("取消");
-			add(cancelSplitButton);
+			JBasicSplitButton cancelButton = new JBasicSplitButton(LazyLoaderTreeController.getCancelAllAction(lazyLoaderTree));
+			cancelButton.setText("取消");
+			add(cancelButton);
 			
 			JDecorationPopupMenu cancelPopupMenu = new JDecorationPopupMenu();
-			cancelSplitButton.setPopupMenu(cancelPopupMenu);			
+			cancelButton.setPopupMenu(cancelPopupMenu);			
 			
 			JBasicMenuItem cancelMenuItem = new JBasicMenuItem(LazyLoaderTreeController.getCancelAction(lazyLoaderTree)); 
 			cancelPopupMenu.add(cancelMenuItem);
@@ -311,11 +311,11 @@ public class DemoLazyLoaderTreePanel
 			
 			add(new JBasicSeparator());
 
-			JBasicSplitButton expandSplitButton = new JBasicSplitButton(LazyLoaderTreeController.getExpandAction(lazyLoaderTree));
-			add(expandSplitButton);
+			JBasicSplitButton expandButton = new JBasicSplitButton(LazyLoaderTreeController.getExpandAction(lazyLoaderTree));
+			add(expandButton);
 			
 			JDecorationPopupMenu expandPopupMenu = new JDecorationPopupMenu();
-			expandSplitButton.setPopupMenu(expandPopupMenu);			
+			expandButton.setPopupMenu(expandPopupMenu);			
 			
 			JBasicMenuItem expandMenuItem = new JBasicMenuItem(LazyLoaderTreeController.getExpandAction(lazyLoaderTree));
 			expandPopupMenu.add(expandMenuItem);
@@ -329,11 +329,11 @@ public class DemoLazyLoaderTreePanel
 			expandPopupMenu.add(expandAllMenuItem);
 			
 
-			JBasicSplitButton collapseSplitButton = new JBasicSplitButton(LazyLoaderTreeController.getCollapseAction(lazyLoaderTree));
-			add(collapseSplitButton);
+			JBasicSplitButton collapseButton = new JBasicSplitButton(LazyLoaderTreeController.getCollapseAction(lazyLoaderTree));
+			add(collapseButton);
 			
 			JDecorationPopupMenu collapsePopupMenu = new JDecorationPopupMenu();
-			collapseSplitButton.setPopupMenu(collapsePopupMenu);				
+			collapseButton.setPopupMenu(collapsePopupMenu);				
 			
 			JBasicMenuItem collapseMenuItem = new JBasicMenuItem(LazyLoaderTreeController.getCollapseAction(lazyLoaderTree));
 			collapsePopupMenu.add(collapseMenuItem);
