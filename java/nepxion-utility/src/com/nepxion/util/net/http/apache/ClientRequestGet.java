@@ -1,4 +1,4 @@
-package com.nepxion.util.http.apache;
+package com.nepxion.util.net.http.apache;
 
 /**
  * <p>Title: Nepxion Utility</p>
@@ -16,8 +16,8 @@ import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.utils.URLEncodedUtils;
 
 import com.nepxion.util.encode.EncodeContext;
-import com.nepxion.util.http.HttpConfig;
-import com.nepxion.util.http.IClientRequest;
+import com.nepxion.util.net.http.HttpConfig;
+import com.nepxion.util.net.http.IClientRequest;
 
 public class ClientRequestGet
 	extends HttpGet implements IClientRequest

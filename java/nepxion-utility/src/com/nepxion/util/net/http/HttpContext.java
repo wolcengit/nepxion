@@ -1,4 +1,4 @@
-package com.nepxion.util.http;
+package com.nepxion.util.net.http;
 
 /**
  * <p>Title: Nepxion Utility</p>

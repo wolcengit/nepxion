@@ -1,4 +1,4 @@
-package com.nepxion.util.http.apache;
+package com.nepxion.util.net.http.apache;
 
 /**
  * <p>Title: Nepxion Utility</p>
@@ -30,8 +30,8 @@ import org.apache.http.entity.SerializableEntity;
 import org.apache.http.entity.StringEntity;
 
 import com.nepxion.util.encode.EncodeContext;
-import com.nepxion.util.http.HttpConfig;
-import com.nepxion.util.http.IClientRequest;
+import com.nepxion.util.net.http.HttpConfig;
+import com.nepxion.util.net.http.IClientRequest;
 
 public class ClientRequestPost
 	extends HttpPost implements IClientRequest

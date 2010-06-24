@@ -1,4 +1,4 @@
-package com.nepxion.util.http.apache;
+package com.nepxion.util.net.http.apache;
 
 /**
  * <p>Title: Nepxion Utility</p>
@@ -22,9 +22,9 @@ import org.apache.http.params.HttpConnectionParams;
 
 import com.nepxion.util.encode.EncodeContext;
 import com.nepxion.util.io.IOUtil;
-import com.nepxion.util.http.HttpConfig;
-import com.nepxion.util.http.IClientInvoker;
-import com.nepxion.util.http.IClientRequest;
+import com.nepxion.util.net.http.HttpConfig;
+import com.nepxion.util.net.http.IClientInvoker;
+import com.nepxion.util.net.http.IClientRequest;
 
 public class ClientInvoker
 	extends DefaultHttpClient implements IClientInvoker
