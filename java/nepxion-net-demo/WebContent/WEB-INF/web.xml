@@ -25,12 +25,4 @@
     <servlet-name>ApacheServlet</servlet-name>
     <url-pattern>/ApacheServlet</url-pattern>
   </servlet-mapping>
-  <servlet>
-    <servlet-name>FacilityServerInvoker</servlet-name>
-    <servlet-class>com.nepxion.net.http.facility.FacilityServerInvoker</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>FacilityServerInvoker</servlet-name>
-    <url-pattern>/FacilityServerInvoker</url-pattern>
-  </servlet-mapping>
 </web-app>
