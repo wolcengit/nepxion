@@ -10,7 +10,7 @@ package com.nepxion.demo.common;
  * @version 1.0
  */
 
-import com.nepxion.swing.panel.toggle.JToggleActionButton;
+import com.nepxion.swing.toggle.JToggleActionButton;
 
 public class DemoToggleActionButton
 	extends JToggleActionButton

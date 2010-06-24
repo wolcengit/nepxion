@@ -15,7 +15,7 @@ import java.awt.BorderLayout;
 import javax.swing.JLabel;
 
 import com.nepxion.swing.icon.IconFactory;
-import com.nepxion.swing.panel.toggle.JToggleContentPanel;
+import com.nepxion.swing.toggle.JToggleContentPanel;
 
 public class DemoToggleContentPanel
 	extends JToggleContentPanel

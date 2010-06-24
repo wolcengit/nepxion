@@ -14,8 +14,8 @@ import java.awt.BorderLayout;
 
 import javax.swing.BorderFactory;
 
-import com.nepxion.swing.panel.toggle.JTogglePanel;
 import com.nepxion.swing.tabbedpane.JEclipseTabbedPane;
+import com.nepxion.swing.toggle.JTogglePanel;
 
 public abstract class DemoTogglePanel
 	extends JTogglePanel
