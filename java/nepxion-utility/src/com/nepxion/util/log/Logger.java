@@ -107,12 +107,12 @@ public class Logger
 	
 	public static void info(Class clazz, Throwable throwable)
 	{
-		getLog(clazz).info("Exception", throwable);
+		getLog(clazz).info("Info", throwable);
 	}		
 
 	public static void info(String className, Throwable throwable)
 	{
-		getLog(className).info("Exception", throwable);
+		getLog(className).info("Info", throwable);
 	}		
 	
 	public static void info(Class clazz, Object message, Throwable throwable)
@@ -139,12 +139,12 @@ public class Logger
 	
 	public static void warn(Class clazz, Throwable throwable)
 	{
-		getLog(clazz).warn("Exception", throwable);
+		getLog(clazz).warn("Warn", throwable);
 	}	
 	
 	public static void warn(String className, Throwable throwable)
 	{
-		getLog(className).warn("Exception", throwable);
+		getLog(className).warn("Warn", throwable);
 	}	
 	
 	public static void warn(Class clazz, Object message, Throwable throwable)
@@ -172,12 +172,12 @@ public class Logger
 	
 	public static void error(Class clazz, Throwable throwable)
 	{
-		getLog(clazz).error("Exception", throwable);
+		getLog(clazz).error("Error", throwable);
 	}		
 	
 	public static void error(String className, Throwable throwable)
 	{
-		getLog(className).error("Exception", throwable);
+		getLog(className).error("Error", throwable);
 	}		
 	
 	public static void error(Class clazz, Object message, Throwable throwable)
@@ -204,12 +204,12 @@ public class Logger
 	
 	public static void fatal(Class clazz, Throwable throwable)
 	{
-		getLog(clazz).fatal("Exception", throwable);
+		getLog(clazz).fatal("Fatal", throwable);
 	}		
 	
 	public static void fatal(String className, Throwable throwable)
 	{
-		getLog(className).fatal("Exception", throwable);
+		getLog(className).fatal("Fatal", throwable);
 	}		
 	
 	public static void fatal(Class clazz, Object message, Throwable throwable)
