@@ -19,8 +19,8 @@ public class DemoApplet
 	{
 		super.init();
 		
-		/*DemoEnvironmentContext environmentContext = new DemoEnvironmentContext();
-		environmentContext.initialize(getCodeBase());*/		
+		/*DemoDataContext dataContext = new DemoDataContext();
+		dataContext.initialize();*/	
 		
 		DemoHierarchy hierarchy = new DemoHierarchy();
 		setHierarchy(hierarchy);
