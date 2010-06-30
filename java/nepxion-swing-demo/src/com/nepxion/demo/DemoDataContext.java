@@ -26,14 +26,16 @@ public class DemoDataContext
 	public void initialize()
 	{
 		HttpContext.register();
-		EncodeContext.registerCharset("GB2312");			
+		EncodeContext.registerIOCharset("GB2312");
+		EncodeContext.registerHttpCharset("UTF-8");
 		ActiveXContext.registerStrategy(ActiveXContext.STRATEGY_APPLICATION);
 	}
 	
 	public void initialize(URL codeBase)
 	{
 		HttpContext.register(codeBase);
-		EncodeContext.registerCharset("GB2312");		
+		EncodeContext.registerIOCharset("GB2312");
+		EncodeContext.registerHttpCharset("UTF-8");		
 		ActiveXContext.registerStrategy(ActiveXContext.STRATEGY_APPLET);
 	}	
 }
