@@ -134,7 +134,7 @@ public class IOUtil
 	public static String getString(InputStream inputStream)
 		throws IOException
 	{
-		return getString(inputStream, EncodeContext.getCharset());
+		return getString(inputStream, EncodeContext.getIOCharset());
 	}
 	
 	/**
@@ -169,7 +169,7 @@ public class IOUtil
 	public static String readString(InputStream inputStream)
 		throws IOException	
 	{
-		return readString(inputStream, EncodeContext.getCharset());
+		return readString(inputStream, EncodeContext.getIOCharset());
 	}
 	
 	/**

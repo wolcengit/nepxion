@@ -28,7 +28,7 @@ public class FileUtil
 	 */
 	public static String read(String filePath)
 	{
-		return read(filePath, EncodeContext.getCharset(), false);
+		return read(filePath, EncodeContext.getIOCharset(), false);
 	}
 	
 	/**
@@ -39,7 +39,7 @@ public class FileUtil
 	 */
 	public static String read(String filePath, boolean classLoader)
 	{
-		return read(filePath, EncodeContext.getCharset(), classLoader);
+		return read(filePath, EncodeContext.getIOCharset(), classLoader);
 	}
 	
 	/**

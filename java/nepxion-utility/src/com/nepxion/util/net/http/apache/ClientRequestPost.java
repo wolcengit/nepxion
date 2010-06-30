@@ -69,7 +69,7 @@ public class ClientRequestPost
 	
 	public UrlEncodedFormEntity setParameterEntity(List parameterEntity)
 	{
-		return setParameterEntity(parameterEntity, EncodeContext.getCharset());
+		return setParameterEntity(parameterEntity, EncodeContext.getHttpCharset());
 	}
 	
 	public UrlEncodedFormEntity setParameterEntity(List parameterEntity, String charset)
@@ -121,7 +121,7 @@ public class ClientRequestPost
 	
 	public StringEntity setStringEntity(String text)
 	{
-		return setStringEntity(text, EncodeContext.getCharset());
+		return setStringEntity(text, EncodeContext.getHttpCharset());
 	}
 	
 	public StringEntity setStringEntity(String text, String charset)

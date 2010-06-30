@@ -90,7 +90,7 @@ public class ClientInvoker
 	public String getResponseText(IClientRequest clientRequest)
 		throws Exception
 	{
-		return getResponseText(clientRequest, EncodeContext.getCharset());
+		return getResponseText(clientRequest, EncodeContext.getHttpCharset());
 	}
 	
 	public String getResponseText(IClientRequest clientRequest, String charset)

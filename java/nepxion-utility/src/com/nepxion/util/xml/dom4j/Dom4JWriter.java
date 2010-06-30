@@ -42,7 +42,7 @@ public class Dom4JWriter
 	public static String getText(Document document)
 		throws UnsupportedEncodingException, IOException
 	{
-		return getText(document, EncodeContext.getCharset());
+		return getText(document, EncodeContext.getIOCharset());
 	}
 	
 	/**

@@ -56,7 +56,7 @@ public class ClientRequestGet
 	
 	public void setParameterEntity(List parameterEntity)
 	{
-		setParameterEntity(parameterEntity, EncodeContext.getCharset());
+		setParameterEntity(parameterEntity, EncodeContext.getHttpCharset());
 	}
 	
 	public void setParameterEntity(List parameterEntity, String charset)

@@ -27,7 +27,7 @@ public class ServerInvoker
 	public static final int INPUT_STREAM_TYPE_STRING = 1;
 	
 	private int inputStreamType = INPUT_STREAM_TYPE_OBJECT;
-	private String charset = EncodeContext.getCharset();
+	private String charset = EncodeContext.getHttpCharset();
 	
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 		throws ServletException, IOException

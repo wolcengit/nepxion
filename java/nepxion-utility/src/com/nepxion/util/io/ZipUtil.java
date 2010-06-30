@@ -33,7 +33,7 @@ public class ZipUtil
 	 */	
 	public static List getZipFileList(String filePath, boolean classLoader)
 	{
-		return getZipFileList(filePath, EncodeContext.getCharset(), classLoader);
+		return getZipFileList(filePath, EncodeContext.getIOCharset(), classLoader);
 	}
 	
 	/**
@@ -80,7 +80,7 @@ public class ZipUtil
 	 */	
 	public static BufferedReader getZipReader(String filePath, boolean classLoader)
 	{
-		return getZipReader(filePath, EncodeContext.getCharset(), classLoader);
+		return getZipReader(filePath, EncodeContext.getIOCharset(), classLoader);
 	}
 	
 	/**
