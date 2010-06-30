@@ -10,6 +10,8 @@ package com.nepxion.demo;
  * @version 1.0
  */
 
+import javax.swing.SwingUtilities;
+
 import com.nepxion.swing.framework.dockable.JFrameWorkApplet;
 
 public class DemoApplet
@@ -22,8 +24,15 @@ public class DemoApplet
 		/*DemoDataContext dataContext = new DemoDataContext();
 		dataContext.initialize();*/	
 		
-		DemoHierarchy hierarchy = new DemoHierarchy();
-		setHierarchy(hierarchy);
+		SwingUtilities.invokeLater(new Runnable()
+		{
+			public void run()
+			{
+				DemoHierarchy hierarchy = new DemoHierarchy();
+				setHierarchy(hierarchy);
+			}
+		}
+		);		
 	}
 	
 	public void initContext()
