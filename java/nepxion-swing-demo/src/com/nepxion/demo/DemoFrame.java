@@ -24,8 +24,8 @@ public class DemoFrame
 	{
 		super("Nepxion Swing", IconFactory.getSwingIcon("tray_java.png")); // new Dimension(850, 650)
 		
-		/*DemoDataContext dataContext = new DemoDataContext();
-		dataContext.initialize();*/
+		DemoDataContext dataContext = new DemoDataContext();
+		dataContext.initialize();
 		
 		DemoHierarchy hierarchy = new DemoHierarchy();
 		setHierarchy(hierarchy);

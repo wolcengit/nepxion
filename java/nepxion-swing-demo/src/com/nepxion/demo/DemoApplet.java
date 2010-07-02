@@ -21,8 +21,8 @@ public class DemoApplet
 	{
 		super.init();
 		
-		/*DemoDataContext dataContext = new DemoDataContext();
-		dataContext.initialize();*/	
+		DemoDataContext dataContext = new DemoDataContext();
+		dataContext.initialize();	
 		
 		SwingUtilities.invokeLater(new Runnable()
 		{
