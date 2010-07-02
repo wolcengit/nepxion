@@ -16,6 +16,7 @@ import com.nepxion.demo.common.DemoTogglePanel;
 import com.nepxion.demo.common.DemoToggleTemplate;
 import com.nepxion.demo.component.button.DemoButtonPanel;
 import com.nepxion.demo.component.button.DemoMenuButtonPanel;
+import com.nepxion.demo.component.button.DemoSelectorMenuButtonPanel;
 import com.nepxion.demo.component.button.DemoSplitButtonPanel;
 import com.nepxion.demo.component.button.DemoToggleButtonPanel;
 import com.nepxion.swing.icon.IconFactory;
@@ -31,6 +32,7 @@ public class DemoButtonTogglePanel
 		toggleTabbedPane.addTab("ToggleButton", IconFactory.getSwingIcon("component/toggle_button_16.png"), new DemoToggleTemplate(new DemoToggleButtonPanel()));
 		toggleTabbedPane.addTab("MenuButton", IconFactory.getSwingIcon("component/menu_16.png"), new DemoToggleTemplate(new DemoMenuButtonPanel()));
 		toggleTabbedPane.addTab("SplitButton", IconFactory.getSwingIcon("component/popup_menu_16.png"), new DemoToggleTemplate(new DemoSplitButtonPanel()));
+		toggleTabbedPane.addTab("SelectorMenuButton", IconFactory.getSwingIcon("component/popup_menu_16.png"), new DemoToggleTemplate(new DemoSelectorMenuButtonPanel()));
 	}
 	
 	public String getToggleName()
