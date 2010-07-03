@@ -15,6 +15,8 @@ import java.io.Serializable;
 public class Geo
 	implements Serializable
 {
+	private static final long serialVersionUID = -2307089454521722153L;
+
 	private double latitude;
 	private double longitude;
 	private String country = "";
