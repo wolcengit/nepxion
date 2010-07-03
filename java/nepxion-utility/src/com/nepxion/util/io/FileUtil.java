@@ -68,7 +68,7 @@ public class FileUtil
 			InputStream inputStream = null;
 			if (classLoader)
 			{
-				inputStream = IOUtil.class.getClassLoader().getResourceAsStream(filePath);
+				inputStream = FileUtil.class.getClassLoader().getResourceAsStream(filePath);
 			}
 			else
 			{
