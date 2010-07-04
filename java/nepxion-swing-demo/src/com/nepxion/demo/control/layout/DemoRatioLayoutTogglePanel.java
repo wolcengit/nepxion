@@ -25,8 +25,8 @@ public class DemoRatioLayoutTogglePanel
 	public DemoRatioLayoutTogglePanel()
 	{
 		JEclipseTabbedPane toggleTabbedPane = getToggleTabbedPane();
-		toggleTabbedPane.addTab("Horizontal Mode", IconFactory.getSwingIcon("component/layout_16.png"), new DemoToggleTemplate(new DemoHorizontalRatioLayoutPanel()));
-		toggleTabbedPane.addTab("Vertical Mode", IconFactory.getSwingIcon("component/layout_16.png"), new DemoToggleTemplate(new DemoVerticalRatioLayoutPanel()));
+		toggleTabbedPane.addTab("Horizontal Mode", IconFactory.getSwingIcon("component/layout_16.png"), new DemoToggleTemplate(new DemoHorizontalRatioLayoutPanel()), "Horizontal Mode");
+		toggleTabbedPane.addTab("Vertical Mode", IconFactory.getSwingIcon("component/layout_16.png"), new DemoToggleTemplate(new DemoVerticalRatioLayoutPanel()), "Vertical Mode");
 	}
 	
 	public String getToggleName()

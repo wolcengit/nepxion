@@ -24,7 +24,7 @@ public class DemoRadioButtonSelectorTogglePanel
 	public DemoRadioButtonSelectorTogglePanel()
 	{
 		JEclipseTabbedPane toggleTabbedPane = getToggleTabbedPane();
-		toggleTabbedPane.addTab("RadioButton", IconFactory.getSwingIcon("component/radio_button_16.png"), new DemoToggleTemplate(new DemoRadioButtonSelectorPanel()));
+		toggleTabbedPane.addTab("RadioButton", IconFactory.getSwingIcon("component/radio_button_16.png"), new DemoToggleTemplate(new DemoRadioButtonSelectorPanel()), "RadioButton");
 	}
 	
 	public String getToggleName()

@@ -27,22 +27,22 @@ public class DemoTaskBarTogglePanel
 		JEclipseTabbedPane toggleTabbedPane = getToggleTabbedPane();
 		
 		LookAndFeelManager.addonMetalLookAndFeel();
-		toggleTabbedPane.addTab("Metal L&F", IconFactory.getSwingIcon("component/tool_bar_16.png"), new DemoToggleTemplate(new DemoTaskBarPanel()));
+		toggleTabbedPane.addTab("Metal L&F", IconFactory.getSwingIcon("component/tool_bar_16.png"), new DemoToggleTemplate(new DemoTaskBarPanel()), "Metal L&F");
 		
 		LookAndFeelManager.addonWindowsLookAndFeel();
-		toggleTabbedPane.addTab("Windows L&F", IconFactory.getSwingIcon("component/tool_bar_16.png"), new DemoToggleTemplate(new DemoTaskBarPanel()));
+		toggleTabbedPane.addTab("Windows L&F", IconFactory.getSwingIcon("component/tool_bar_16.png"), new DemoToggleTemplate(new DemoTaskBarPanel()), "Windows L&F");
 		
 		LookAndFeelManager.addonLunaLookAndFeel();
-		toggleTabbedPane.addTab("Luna L&F", IconFactory.getSwingIcon("component/tool_bar_16.png"), new DemoToggleTemplate(new DemoTaskBarPanel()));
+		toggleTabbedPane.addTab("Luna L&F", IconFactory.getSwingIcon("component/tool_bar_16.png"), new DemoToggleTemplate(new DemoTaskBarPanel()), "Luna L&F");
 		
 		LookAndFeelManager.addonHomesteadLookAndFeel();
-		toggleTabbedPane.addTab("Homestead L&F", IconFactory.getSwingIcon("component/tool_bar_16.png"), new DemoToggleTemplate(new DemoTaskBarPanel()));
+		toggleTabbedPane.addTab("Homestead L&F", IconFactory.getSwingIcon("component/tool_bar_16.png"), new DemoToggleTemplate(new DemoTaskBarPanel()), "Homestead L&F");
 		
 		LookAndFeelManager.addonMetallicLookAndFeel();
-		toggleTabbedPane.addTab("Metallic L&F", IconFactory.getSwingIcon("component/tool_bar_16.png"), new DemoToggleTemplate(new DemoTaskBarPanel()));
+		toggleTabbedPane.addTab("Metallic L&F", IconFactory.getSwingIcon("component/tool_bar_16.png"), new DemoToggleTemplate(new DemoTaskBarPanel()), "Metallic L&F");
 		
 		LookAndFeelManager.addonGlossyLookAndFeel();
-		toggleTabbedPane.addTab("Glossy L&F", IconFactory.getSwingIcon("component/tool_bar_16.png"), new DemoToggleTemplate(new DemoTaskBarPanel()));
+		toggleTabbedPane.addTab("Glossy L&F", IconFactory.getSwingIcon("component/tool_bar_16.png"), new DemoToggleTemplate(new DemoTaskBarPanel()), "Glossy L&F");
 	}
 	
 	public String getToggleName()

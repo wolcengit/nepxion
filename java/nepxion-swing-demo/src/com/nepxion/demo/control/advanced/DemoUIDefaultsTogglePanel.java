@@ -24,7 +24,7 @@ public class DemoUIDefaultsTogglePanel
 	public DemoUIDefaultsTogglePanel()
 	{
 		JEclipseTabbedPane toggleTabbedPane = getToggleTabbedPane();
-		toggleTabbedPane.addTab("UI Defaults", IconFactory.getSwingIcon("component/ui_defaults_16.png"), new DemoToggleTemplate(new DemoUIDefaultsPanel()));				
+		toggleTabbedPane.addTab("UI Defaults", IconFactory.getSwingIcon("component/ui_defaults_16.png"), new DemoToggleTemplate(new DemoUIDefaultsPanel()), "UI Defaults");				
 	}
 	
 	public String getToggleName()

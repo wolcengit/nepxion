@@ -22,10 +22,6 @@ public class DemoScrollPaneTogglePanel
 	public DemoScrollPaneTogglePanel()
 	{
 		JEclipseTabbedPane toggleTabbedPane = getToggleTabbedPane();
-//		toggleTabbedPane.addTab("Decoration Panel", IconFactory.getSwingIcon("component/panel_16.png"), new DemoToggleTemplate(new DemoDecorationPanel()));
-//		toggleTabbedPane.addTab("Button Panel", IconFactory.getSwingIcon("component/panel_16.png"), new DemoToggleTemplate(new DemoButtonPanel()));		
-//		toggleTabbedPane.addTab("Banner Panel", IconFactory.getSwingIcon("component/panel_16.png"), new DemoToggleTemplate(new DemoBannerPanel()));
-//		toggleTabbedPane.addTab("IP Property Panel", IconFactory.getSwingIcon("component/panel_16.png"), new DemoToggleTemplate(new DemoIPPropertyPanel()));
 	}
 	
 	public String getToggleName()

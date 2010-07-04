@@ -24,7 +24,7 @@ public class DemoCheckBoxSelectorTogglePanel
 	public DemoCheckBoxSelectorTogglePanel()
 	{
 		JEclipseTabbedPane toggleTabbedPane = getToggleTabbedPane();
-		toggleTabbedPane.addTab("CheckBox", IconFactory.getSwingIcon("component/check_box_16.png"), new DemoToggleTemplate(new DemoCheckBoxSelectorPanel()));
+		toggleTabbedPane.addTab("CheckBox", IconFactory.getSwingIcon("component/check_box_16.png"), new DemoToggleTemplate(new DemoCheckBoxSelectorPanel()), "CheckBox");
 	}
 	
 	public String getToggleName()

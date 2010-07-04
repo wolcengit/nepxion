@@ -27,10 +27,10 @@ public class DemoTextAreaTogglePanel
 	public DemoTextAreaTogglePanel()
 	{
 		JEclipseTabbedPane toggleTabbedPane = getToggleTabbedPane();
-		toggleTabbedPane.addTab("Basic TextArea", IconFactory.getSwingIcon("component/text_area_16.png"), new DemoToggleTemplate(new DemoBasicTextAreaPanel()));				
-		toggleTabbedPane.addTab("Auto Resizable TextArea", IconFactory.getSwingIcon("component/text_area_16.png"), new DemoToggleTemplate(new DemoAutoResizableTextAreaPanel()));
-		toggleTabbedPane.addTab("Label Style TextArea", IconFactory.getSwingIcon("component/text_area_16.png"), new DemoToggleTemplate(new DemoLabelStyleTextAreaPanel()));
-		toggleTabbedPane.addTab("Hover Border TextArea", IconFactory.getSwingIcon("component/text_area_16.png"), new DemoToggleTemplate(new DemoHoverBorderTextAreaPanel()));		
+		toggleTabbedPane.addTab("Basic TextArea", IconFactory.getSwingIcon("component/text_area_16.png"), new DemoToggleTemplate(new DemoBasicTextAreaPanel()), "Basic TextArea");				
+		toggleTabbedPane.addTab("Auto Resizable TextArea", IconFactory.getSwingIcon("component/text_area_16.png"), new DemoToggleTemplate(new DemoAutoResizableTextAreaPanel()), "Auto Resizable TextArea");
+		toggleTabbedPane.addTab("Label Style TextArea", IconFactory.getSwingIcon("component/text_area_16.png"), new DemoToggleTemplate(new DemoLabelStyleTextAreaPanel()), "Label Style TextArea");
+		toggleTabbedPane.addTab("Hover Border TextArea", IconFactory.getSwingIcon("component/text_area_16.png"), new DemoToggleTemplate(new DemoHoverBorderTextAreaPanel()), "Hover Border TextArea");		
 	}
 	
 	public String getToggleName()

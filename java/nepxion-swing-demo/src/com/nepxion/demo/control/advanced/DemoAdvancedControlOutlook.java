@@ -21,8 +21,11 @@ public class DemoAdvancedControlOutlook
 {
 	public DemoAdvancedControlOutlook()
 	{
-		DemoToggleActionButton uiDefaultsExplorerButton = new DemoToggleActionButton(new DemoUIDefaultsTogglePanel());
-        addButton(uiDefaultsExplorerButton);      
+		DemoToggleActionButton uiDefaultsButton = new DemoToggleActionButton(new DemoUIDefaultsTogglePanel());
+        addButton(uiDefaultsButton);  
+        
+		DemoToggleActionButton geoButton = new DemoToggleActionButton(new DemoGisTogglePanel());
+        addButton(geoButton);         
         
         ButtonManager.updateUI(this, new Dimension(50, 70), VERTICAL);
 	}

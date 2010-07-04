@@ -25,8 +25,8 @@ public class DemoTabbedPaneTogglePanel
 	public DemoTabbedPaneTogglePanel()
 	{
 		JEclipseTabbedPane toggleTabbedPane = getToggleTabbedPane();
-		toggleTabbedPane.addTab("Basic TabbedPane", IconFactory.getSwingIcon("component/tabbed_pane_16.png"), new DemoToggleTemplate(new DemoBasicTabbedPanePanel()));
-		toggleTabbedPane.addTab("Eclipse TabbedPane", IconFactory.getSwingIcon("component/tabbed_pane_16.png"), new DemoToggleTemplate(new DemoEclipseTabbedPanePanel()));								
+		toggleTabbedPane.addTab("Basic TabbedPane", IconFactory.getSwingIcon("component/tabbed_pane_16.png"), new DemoToggleTemplate(new DemoBasicTabbedPanePanel()), "Basic TabbedPane");
+		toggleTabbedPane.addTab("Eclipse TabbedPane", IconFactory.getSwingIcon("component/tabbed_pane_16.png"), new DemoToggleTemplate(new DemoEclipseTabbedPanePanel()), "Eclipse TabbedPane");								
 	}
 	
 	public String getToggleName()

@@ -24,7 +24,7 @@ public class DemoDropDownSelectorTogglePanel
 	public DemoDropDownSelectorTogglePanel()
 	{
 		JEclipseTabbedPane toggleTabbedPane = getToggleTabbedPane();
-		toggleTabbedPane.addTab("DropDown", IconFactory.getSwingIcon("component/popup_menu_16.png"), new DemoToggleTemplate(new DemoDropDownSelectorPanel()));		
+		toggleTabbedPane.addTab("DropDown", IconFactory.getSwingIcon("component/popup_menu_16.png"), new DemoToggleTemplate(new DemoDropDownSelectorPanel()), "DropDown");		
 	}
 	
 	public String getToggleName()

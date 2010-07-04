@@ -27,10 +27,10 @@ public class DemoPanelTogglePanel
 	public DemoPanelTogglePanel()
 	{
 		JEclipseTabbedPane toggleTabbedPane = getToggleTabbedPane();
-		toggleTabbedPane.addTab("Decoration Panel", IconFactory.getSwingIcon("component/panel_16.png"), new DemoToggleTemplate(new DemoDecorationPanel()));
-		toggleTabbedPane.addTab("Button Panel", IconFactory.getSwingIcon("component/panel_16.png"), new DemoToggleTemplate(new DemoButtonPanel()));		
-		toggleTabbedPane.addTab("Banner Panel", IconFactory.getSwingIcon("component/panel_16.png"), new DemoToggleTemplate(new DemoBannerPanel()));
-		toggleTabbedPane.addTab("IP Property Panel", IconFactory.getSwingIcon("component/panel_16.png"), new DemoToggleTemplate(new DemoIPPropertyPanel()));
+		toggleTabbedPane.addTab("Decoration Panel", IconFactory.getSwingIcon("component/panel_16.png"), new DemoToggleTemplate(new DemoDecorationPanel()), "Decoration Panel");
+		toggleTabbedPane.addTab("Button Panel", IconFactory.getSwingIcon("component/panel_16.png"), new DemoToggleTemplate(new DemoButtonPanel()), "Button Panel");		
+		toggleTabbedPane.addTab("Banner Panel", IconFactory.getSwingIcon("component/panel_16.png"), new DemoToggleTemplate(new DemoBannerPanel()), "Banner Panel");
+		toggleTabbedPane.addTab("IP Property Panel", IconFactory.getSwingIcon("component/panel_16.png"), new DemoToggleTemplate(new DemoIPPropertyPanel()), "IP Property Panel");
 	}
 	
 	public String getToggleName()

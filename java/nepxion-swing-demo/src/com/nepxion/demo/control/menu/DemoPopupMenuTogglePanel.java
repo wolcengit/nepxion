@@ -24,7 +24,7 @@ public class DemoPopupMenuTogglePanel
 	public DemoPopupMenuTogglePanel()
 	{
 		JEclipseTabbedPane toggleTabbedPane = getToggleTabbedPane();
-		toggleTabbedPane.addTab("Decoration PopupMenu", IconFactory.getSwingIcon("component/popup_menu_16.png"), new DemoToggleTemplate(new DemoDecorationPopupMenuPanel()));		
+		toggleTabbedPane.addTab("Decoration PopupMenu", IconFactory.getSwingIcon("component/popup_menu_16.png"), new DemoToggleTemplate(new DemoDecorationPopupMenuPanel()), "Decoration PopupMenu");		
 	}
 	
 	public String getToggleName()

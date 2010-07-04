@@ -25,8 +25,8 @@ public class DemoBorderLayoutTogglePanel
 	public DemoBorderLayoutTogglePanel()
 	{
 		JEclipseTabbedPane toggleTabbedPane = getToggleTabbedPane();
-		toggleTabbedPane.addTab("XBorder", IconFactory.getSwingIcon("component/layout_16.png"), new DemoToggleTemplate(new DemoXBorderLayoutPanel()));				
-		toggleTabbedPane.addTab("Border", IconFactory.getSwingIcon("component/layout_16.png"), new DemoToggleTemplate(new DemoBorderLayoutPanel()));
+		toggleTabbedPane.addTab("XBorder", IconFactory.getSwingIcon("component/layout_16.png"), new DemoToggleTemplate(new DemoXBorderLayoutPanel()), "XBorder");				
+		toggleTabbedPane.addTab("Border", IconFactory.getSwingIcon("component/layout_16.png"), new DemoToggleTemplate(new DemoBorderLayoutPanel()), "Border");
 	}
 	
 	public String getToggleName()

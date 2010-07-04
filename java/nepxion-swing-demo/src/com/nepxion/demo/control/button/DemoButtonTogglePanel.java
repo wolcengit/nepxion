@@ -28,11 +28,11 @@ public class DemoButtonTogglePanel
 	public DemoButtonTogglePanel()
 	{
 		JEclipseTabbedPane toggleTabbedPane = getToggleTabbedPane();
-		toggleTabbedPane.addTab("Button", IconFactory.getSwingIcon("component/button_16.png"), new DemoToggleTemplate(new DemoButtonPanel()));
-		toggleTabbedPane.addTab("ToggleButton", IconFactory.getSwingIcon("component/toggle_button_16.png"), new DemoToggleTemplate(new DemoToggleButtonPanel()));
-		toggleTabbedPane.addTab("MenuButton", IconFactory.getSwingIcon("component/menu_16.png"), new DemoToggleTemplate(new DemoMenuButtonPanel()));
-		toggleTabbedPane.addTab("SplitButton", IconFactory.getSwingIcon("component/popup_menu_16.png"), new DemoToggleTemplate(new DemoSplitButtonPanel()));
-		toggleTabbedPane.addTab("SelectorMenuButton", IconFactory.getSwingIcon("component/popup_menu_16.png"), new DemoToggleTemplate(new DemoSelectorMenuButtonPanel()));
+		toggleTabbedPane.addTab("Button", IconFactory.getSwingIcon("component/button_16.png"), new DemoToggleTemplate(new DemoButtonPanel()), "Button");
+		toggleTabbedPane.addTab("ToggleButton", IconFactory.getSwingIcon("component/toggle_button_16.png"), new DemoToggleTemplate(new DemoToggleButtonPanel()), "ToggleButton");
+		toggleTabbedPane.addTab("MenuButton", IconFactory.getSwingIcon("component/menu_16.png"), new DemoToggleTemplate(new DemoMenuButtonPanel()), "MenuButton");
+		toggleTabbedPane.addTab("SplitButton", IconFactory.getSwingIcon("component/popup_menu_16.png"), new DemoToggleTemplate(new DemoSplitButtonPanel()), "SplitButton");
+		toggleTabbedPane.addTab("SelectorMenuButton", IconFactory.getSwingIcon("component/popup_menu_16.png"), new DemoToggleTemplate(new DemoSelectorMenuButtonPanel()), "SelectorMenuButton");
 	}
 	
 	public String getToggleName()

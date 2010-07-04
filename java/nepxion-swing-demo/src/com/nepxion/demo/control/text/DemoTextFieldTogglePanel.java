@@ -29,12 +29,12 @@ public class DemoTextFieldTogglePanel
 	public DemoTextFieldTogglePanel()
 	{
 		JEclipseTabbedPane toggleTabbedPane = getToggleTabbedPane();
-		toggleTabbedPane.addTab("Basic TextField", IconFactory.getSwingIcon("component/text_field_16.png"), new DemoToggleTemplate(new DemoBasicTextFieldPanel()));
-		toggleTabbedPane.addTab("Number TextField", IconFactory.getSwingIcon("component/text_field_16.png"), new DemoToggleTemplate(new DemoNumberTextFieldPanel()));
-		toggleTabbedPane.addTab("IP Address TextField", IconFactory.getSwingIcon("component/text_field_16.png"), new DemoToggleTemplate(new DemoIPAddressPanel()));
-		toggleTabbedPane.addTab("Label Style TextField", IconFactory.getSwingIcon("component/text_field_16.png"), new DemoToggleTemplate(new DemoLabelStyleTextFieldPanel()));
-		toggleTabbedPane.addTab("Hover Border TextField", IconFactory.getSwingIcon("component/text_field_16.png"), new DemoToggleTemplate(new DemoHoverBorderTextFieldPanel()));
-		toggleTabbedPane.addTab("Underline Border TextField", IconFactory.getSwingIcon("component/text_field_16.png"), new DemoToggleTemplate(new DemoUnderlineBorderTextFieldPanel()));
+		toggleTabbedPane.addTab("Basic TextField", IconFactory.getSwingIcon("component/text_field_16.png"), new DemoToggleTemplate(new DemoBasicTextFieldPanel()), "Basic TextField");
+		toggleTabbedPane.addTab("Number TextField", IconFactory.getSwingIcon("component/text_field_16.png"), new DemoToggleTemplate(new DemoNumberTextFieldPanel()), "Number TextField");
+		toggleTabbedPane.addTab("IP Address TextField", IconFactory.getSwingIcon("component/text_field_16.png"), new DemoToggleTemplate(new DemoIPAddressPanel()), "IP Address TextField");
+		toggleTabbedPane.addTab("Label Style TextField", IconFactory.getSwingIcon("component/text_field_16.png"), new DemoToggleTemplate(new DemoLabelStyleTextFieldPanel()), "Label Style TextField");
+		toggleTabbedPane.addTab("Hover Border TextField", IconFactory.getSwingIcon("component/text_field_16.png"), new DemoToggleTemplate(new DemoHoverBorderTextFieldPanel()), "Hover Border TextField");
+		toggleTabbedPane.addTab("Underline Border TextField", IconFactory.getSwingIcon("component/text_field_16.png"), new DemoToggleTemplate(new DemoUnderlineBorderTextFieldPanel()), "Underline Border TextField");
 	}
 	
 	public String getToggleName()

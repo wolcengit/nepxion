@@ -27,10 +27,10 @@ public class DemoListTogglePanel
 	public DemoListTogglePanel()
 	{
 		JEclipseTabbedPane toggleTabbedPane = getToggleTabbedPane();
-		toggleTabbedPane.addTab("Element List", IconFactory.getSwingIcon("component/list_16.png"), new DemoToggleTemplate(new DemoElementListPanel()));		
-		toggleTabbedPane.addTab("CheckBox List", IconFactory.getSwingIcon("component/list_16.png"), new DemoToggleTemplate(new DemoCheckBoxListPanel()));
-		toggleTabbedPane.addTab("RadioButton List", IconFactory.getSwingIcon("component/list_16.png"), new DemoToggleTemplate(new DemoRadioButtonListPanel()));		
-		toggleTabbedPane.addTab("Tab List", IconFactory.getSwingIcon("component/list_16.png"), new DemoToggleTemplate(new DemoTabbedListPanel()));
+		toggleTabbedPane.addTab("Element List", IconFactory.getSwingIcon("component/list_16.png"), new DemoToggleTemplate(new DemoElementListPanel()), "Element List");		
+		toggleTabbedPane.addTab("CheckBox List", IconFactory.getSwingIcon("component/list_16.png"), new DemoToggleTemplate(new DemoCheckBoxListPanel()), "CheckBox List");
+		toggleTabbedPane.addTab("RadioButton List", IconFactory.getSwingIcon("component/list_16.png"), new DemoToggleTemplate(new DemoRadioButtonListPanel()), "RadioButton List");		
+		toggleTabbedPane.addTab("Tab List", IconFactory.getSwingIcon("component/list_16.png"), new DemoToggleTemplate(new DemoTabbedListPanel()), "Tab List");
 	}
 	
 	public String getToggleName()
