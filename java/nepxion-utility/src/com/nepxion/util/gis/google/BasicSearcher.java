@@ -48,33 +48,32 @@ public class BasicSearcher
 		catch (Exception e)
 		{
 			e.printStackTrace();
-		}
-		
+		}		
 		return responseText;
 	}
 	
-	public GisEntity parseGeo(String jsonText)
+	public GisEntity parseGisEntity(String jsonText)
 	{
 		if (jsonText.equals("") || jsonText.equals("{}"))
 		{
 			return null;
 		}
 		
-		GisEntity geo = new GisEntity();
+		GisEntity gisEntity = new GisEntity();
 		try
 		{
 			JSONObject jsonObject = new JSONObject(jsonText);
 			
 			String accessToken = jsonObject.getString("access_token");
-			geo.setAccessToken(accessToken);
+			gisEntity.setAccessToken(accessToken);
 			
 			JSONObject locationJSONObject = (JSONObject) jsonObject.get("location");
 			
 			double latitude = locationJSONObject.getDouble("latitude");
-			geo.setLatitude(latitude);
+			gisEntity.setLatitude(latitude);
 			
 			double longitude = locationJSONObject.getDouble("longitude");
-			geo.setLongitude(longitude);			
+			gisEntity.setLongitude(longitude);			
 			
 			Object addressObject = locationJSONObject.get("address");
 			if (addressObject != null)
@@ -82,34 +81,34 @@ public class BasicSearcher
 				JSONObject addressJSONObject = (JSONObject) addressObject;
 				
 				String country = addressJSONObject.getString("country");
-				geo.setCountry(country);
+				gisEntity.setCountry(country);
 				
 				String countryCode = addressJSONObject.getString("country_code");
-				geo.setCountryCode(countryCode);
+				gisEntity.setCountryCode(countryCode);
 				
 				String region = addressJSONObject.getString("region");
-				geo.setRegion(region);
+				gisEntity.setRegion(region);
 				
 				String city = addressJSONObject.getString("city");
-				geo.setCity(city);
+				gisEntity.setCity(city);
 				
 				String street = addressJSONObject.getString("street");
-				geo.setStreet(street);
+				gisEntity.setStreet(street);
 				
 				String streetNumber = addressJSONObject.getString("street_number");
-				geo.setStreetNumber(streetNumber);
+				gisEntity.setStreetNumber(streetNumber);
 				
 				String postalCode = addressJSONObject.getString("postal_code");
-				geo.setPostalCode(postalCode);				
+				gisEntity.setPostalCode(postalCode);				
 				
 				double accuracy = addressJSONObject.getDouble("accuracy");
-				geo.setAccuracy(accuracy);
+				gisEntity.setAccuracy(accuracy);
 			}
 		}
 		catch (JSONException e)
 		{
 
 		}
-		return geo;
+		return gisEntity;
 	}
 }

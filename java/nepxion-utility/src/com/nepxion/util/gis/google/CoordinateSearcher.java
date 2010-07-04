@@ -13,99 +13,63 @@ package com.nepxion.util.gis.google;
 public class CoordinateSearcher
 	extends BasicSearcher
 {
-	public static final int DEFAULT_MCC = 460;
-	public static final int DEFAULT_MNC = 0;
-	
-	protected boolean requestAddress = true;
 	protected String addressLanguage = ADDRESS_LANGUAGE_ZH_CN;
 	
 	public CoordinateSearcher()
 	{
-		this(true);
-	}
+		this("UTF-8");
+	}	
 	
 	public CoordinateSearcher(String charset)
 	{
-		this(true, ADDRESS_LANGUAGE_ZH_CN, charset);
-	}
-	
-	public CoordinateSearcher(boolean requestAddress)
-	{
-		this(requestAddress, ADDRESS_LANGUAGE_ZH_CN);
+		this(ADDRESS_LANGUAGE_ZH_CN, charset);
 	}	
 	
-	public CoordinateSearcher(boolean requestAddress, String addressLanguage)
-	{
-		this(requestAddress, addressLanguage, "UTF-8");
-	}	
-	
-	public CoordinateSearcher(boolean requestAddress, String addressLanguage, String charset)
+	public CoordinateSearcher(String addressLanguage, String charset)
 	{
 		super(charset);
 		
-		this.requestAddress = requestAddress;
 		this.addressLanguage = addressLanguage;
-	}
-		
-	public GisEntity getGeo(int cellID, int lac)
+	}	
+	
+	public GisEntity getGisEntity(double latitude, double longitude)
 	{
-		String geoText = getGeoText(cellID, lac);
-		return parseGeo(geoText);
+		String gisText = getGisText(latitude, longitude);
+		return parseGisEntity(gisText);
 	}
 	
-	public GisEntity getGeo(int cellID, int lac, int mcc, int mnc)
+	public String getGisText(double latitude, double longitude)
 	{
-		String geoText = getGeoText(cellID, lac, mcc, mnc);
-		return parseGeo(geoText);
-	}
-	
-	public String getGeoText(int cellID, int lac)
-	{
-		return getGeoText(cellID, lac, DEFAULT_MCC, DEFAULT_MNC);
-	}
-
-	/**
-	 * @param cellID  全球唯一的小区ID
-	 * @param lac     全球唯一的位置码
-	 * @param mcc     移动国家号码，中国为460
-	 * @param mnc     移动网号，中国移动为00，中国中国联通为01
-	 */
-	public String getGeoText(int cellID, int lac, int mcc, int mnc)
-	{
-		String jsonText = parseJSONText(cellID, lac, mcc, mnc);
+		String jsonText = parseJSONText(latitude, longitude);
 		return getResponseText(jsonText);
 	}
-	
-	private String parseJSONText(int cellID, int lac, int mcc, int mnc)
+		
+	private String parseJSONText(double latitude, double longitude)
 	{
 		StringBuffer stringBuffer = new StringBuffer();
 		stringBuffer.append("{\n");
 		stringBuffer.append("  \"version\": \"1.1.0\",\n");
 		stringBuffer.append("  \"host\": \"maps.google.com\",\n");
 		
-		stringBuffer.append("  \"request_address\": " + requestAddress + ",\n");
+		stringBuffer.append("  \"request_address\": true,\n");
 		stringBuffer.append("  \"address_language\": \"" + addressLanguage + "\",\n");
 		
-		stringBuffer.append("  \"cell_towers\": \n");
-		stringBuffer.append("  [\n");		
-		stringBuffer.append("    {\n");
-		stringBuffer.append("      \"cell_id\": " + cellID + ",\n");
-		stringBuffer.append("      \"location_area_code\": " + lac + ",\n");
-		stringBuffer.append("      \"mobile_country_code\": " + mcc + ",\n");
-		stringBuffer.append("      \"mobile_network_code\": " + mnc + "\n");
-		stringBuffer.append("    }\n");
-		stringBuffer.append("  ]\n");
+		stringBuffer.append("  \"location\": \n");
+		stringBuffer.append("  {\n");
+		stringBuffer.append("    \"latitude\": " + latitude + ",\n");
+		stringBuffer.append("    \"longitude\": " + longitude + "\n");
+		stringBuffer.append("  }\n");
 		stringBuffer.append("}");
 		return stringBuffer.toString();
 	}
 	
 	public static void main(String[] args)
 	{
-		CoordinateSearcher coordinateSearcher = new CoordinateSearcher();
+		CoordinateSearcher addressSearcher = new CoordinateSearcher();
 		
-		GisEntity gisEntity = coordinateSearcher.getGeo(19625, 22770);
+		GisEntity gisEntity = addressSearcher.getGisEntity(30.16932, 120.160527);
 		System.out.println("latitude : " + gisEntity.getLatitude());
 		System.out.println("longitude : " + gisEntity.getLongitude());
-		System.out.println("address : " + gisEntity);
+		System.out.println("address : " + gisEntity);	
 	}
 }
