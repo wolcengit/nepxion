@@ -24,8 +24,14 @@ public class DemoAdvancedControlOutlook
 		DemoToggleActionButton uiDefaultsButton = new DemoToggleActionButton(new DemoUIDefaultsTogglePanel());
         addButton(uiDefaultsButton);  
         
-		DemoToggleActionButton geoButton = new DemoToggleActionButton(new DemoGisTogglePanel());
-        addButton(geoButton);         
+		DemoToggleActionButton googleMapButton = new DemoToggleActionButton(new DemoGoogleMapTogglePanel());
+        addButton(googleMapButton); 
+        
+		DemoToggleActionButton ipButton = new DemoToggleActionButton(new DemoIPTogglePanel());
+        addButton(ipButton);           
+        
+		DemoToggleActionButton mobileButton = new DemoToggleActionButton(new DemoMobileTogglePanel());
+        addButton(mobileButton); 
         
         ButtonManager.updateUI(this, new Dimension(50, 70), VERTICAL);
 	}

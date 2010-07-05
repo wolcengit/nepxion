@@ -49,6 +49,7 @@ public class DemoOutlookBar
 		addTab("Data Control", IconFactory.getSwingIcon("component/table_16.png"), makeScrollPane(new DemoDataControlOutlook()), "Data Control Component");
 		addTab("Selector Control", IconFactory.getSwingIcon("component/file_chooser_16.png"), makeScrollPane(new DemoSelectorControlOutlook()), "Selector Control Component");
 		addTab("Layout Control", IconFactory.getSwingIcon("component/layout_16.png"), makeScrollPane(new DemoLayoutControlOutlook()), "Layout Control Component");
+		addTab("UI Control", IconFactory.getSwingIcon("component/layout_16.png"), makeScrollPane(new DemoLayoutControlOutlook()), "UI Control Component");
 		addTab("FrameWork Control", IconFactory.getSwingIcon("component/desktop_pane_16.png"), makeScrollPane(new DemoFrameWorkControlOutlook()), "FrameWork Control Component");
 		addTab("Advanced Control", IconFactory.getSwingIcon("component/advanced_16.png"), makeScrollPane(new DemoAdvancedControlOutlook()), "Advanced Control Component");		
         
