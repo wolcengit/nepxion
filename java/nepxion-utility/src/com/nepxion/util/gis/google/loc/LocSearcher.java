@@ -19,16 +19,11 @@ import com.nepxion.util.net.http.apache.ClientInvoker;
 import com.nepxion.util.net.http.apache.ClientRequestPost;
 
 public class LocSearcher
-{
-	public static final String URL = "http://www.google.com/loc/json";
-	public static final String LANGUAGE_ZH_CN = "zh_CN";
-	public static final String LANGUAGE_EN_GB = "en_GB";
-	public static final int DEFAULT_MCC = 460;
-	public static final int DEFAULT_MNC = 0;
-	
-	protected String language = LANGUAGE_ZH_CN;
-	protected String charset = "UTF-8";
-	protected boolean requestAddress = true;
+	implements LocConstants
+{	
+	private String language = LANGUAGE_ZH_CN;
+	private String charset = "UTF-8";
+	private boolean requestAddress = true;
 	
 	protected ClientInvoker clientInvoker;
 	
@@ -66,27 +61,22 @@ public class LocSearcher
 		clientInvoker = new ClientInvoker();
 	}
 	
-	public LocEntity getLocEntity(int cellID, int lac)
-	{
-		return getLocEntity(cellID, lac, DEFAULT_MCC, DEFAULT_MNC);
-	}
-	
-	public LocEntity getLocEntity(int cellID, int lac, int mcc, int mnc)
-	{
-		String requestText = createCellText(cellID, lac, mcc, mnc);
-		String responseText = getResponseText(requestText);
-		return createLocEntity(responseText);
-	}
-	
-	public LocEntity getCoordinateEntity(double latitude, double longitude)
+	public LocEntity getLoc(double latitude, double longitude)
 	{
 		String requestText = createCoordinateText(latitude, longitude);
 		String responseText = getResponseText(requestText);
 		return createLocEntity(responseText);
 	}
 	
+	public LocEntity getLoc(int cellID, int lac, int mcc, int mnc)
+	{
+		String requestText = createCellText(cellID, lac, mcc, mnc);
+		String responseText = getResponseText(requestText);
+		return createLocEntity(responseText);
+	}
+	
 	/**
-	 * @param latitude 纬度
+	 * @param latitude  纬度
 	 * @param longitude 经度
 	 */
 	private String createCoordinateText(double latitude, double longitude)
@@ -219,12 +209,12 @@ public class LocSearcher
 	{
 		LocSearcher locSearcher = new LocSearcher();
 		
-		LocEntity coordinateEntity = locSearcher.getCoordinateEntity(31.231849, 121.475701);
+		LocEntity coordinateEntity = locSearcher.getLoc(31.231849, 121.475701);
 		System.out.println("latitude : " + coordinateEntity.getLatitude());
 		System.out.println("longitude : " + coordinateEntity.getLongitude());
 		System.out.println("address : " + coordinateEntity);
 		
-		LocEntity locEntity = locSearcher.getLocEntity(19625, 22770);
+		LocEntity locEntity = locSearcher.getLoc(19625, 22770, LocConstants.DEFAULT_MCC, LocConstants.DEFAULT_MNC);
 		System.out.println("latitude : " + locEntity.getLatitude());
 		System.out.println("longitude : " + locEntity.getLongitude());
 		System.out.println("address : " + locEntity);		
