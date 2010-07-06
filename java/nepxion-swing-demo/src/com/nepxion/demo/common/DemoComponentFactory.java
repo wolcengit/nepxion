@@ -13,9 +13,9 @@ package com.nepxion.demo.common;
 import java.util.List;
 
 import javax.swing.BorderFactory;
+import javax.swing.Icon;
 import javax.swing.JList;
 import javax.swing.UIManager;
-import javax.swing.table.AbstractTableModel;
 
 import com.nepxion.swing.element.ElementNode;
 import com.nepxion.swing.icon.IconFactory;
@@ -27,6 +27,7 @@ import com.nepxion.swing.renderer.table.TableElementCellRenderer;
 import com.nepxion.swing.renderer.tree.TreeElementCellRenderer;
 import com.nepxion.swing.scrollpane.JBasicScrollPane;
 import com.nepxion.swing.tabbedpane.JEclipseTabbedPane;
+import com.nepxion.swing.table.BasicTableModel;
 import com.nepxion.swing.table.JBasicTable;
 import com.nepxion.swing.textarea.JBasicTextArea;
 import com.nepxion.swing.tree.JBasicTree;
@@ -48,36 +49,17 @@ public class DemoComponentFactory
 		JBasicTable table = new JBasicTable(new ElementNodeTableModel());
 		table.getTableHeader().setBackground(UIManager.getColor("Panel.background"));
 		table.setAutoResizeMode(JBasicTable.AUTO_RESIZE_OFF);
-		table.getColumnModel().getColumn(2).setCellRenderer(new TableElementCellRenderer());
+		table.getColumnModel().getColumn(3).setCellRenderer(new TableElementCellRenderer());
 		return table;
 	}
 	
 	public static class ElementNodeTableModel
-		extends AbstractTableModel
-	{
-		private List rowDatas;
-		private String[] columnNames;
-		
+		extends BasicTableModel
+	{		
 		public ElementNodeTableModel()
 		{
-			this.rowDatas = DemoDataFactory.getComponentElementNodes();
-			this.columnNames = DemoDataFactory.getComponentNameColumns();
-		}
-		
-		public int getRowCount()
-		{
-			return rowDatas.size();
-		}
-		
-		public int getColumnCount()
-		{
-			return columnNames.length;
-		}
-		
-        public String getColumnName(int column)
-        {
-            return (String) columnNames[column];
-        }		
+			super(DemoDataFactory.getComponentElementNodes(), DemoDataFactory.getComponentNameColumns());
+		}	
         
         public Class getColumnClass(int column)
         {
@@ -85,6 +67,10 @@ public class DemoComponentFactory
         	{	
         		return Integer.class;
         	}
+        	else if (column == 3)
+        	{
+        		return Icon.class;
+        	}	
         	else if (column == 5 || column == 6)
         	{
         		return Boolean.class;
@@ -99,7 +85,7 @@ public class DemoComponentFactory
 			{
 				case 0: return new Integer(elementNode.getIndex());
 				case 1: return elementNode.getName();
-				case 2: return elementNode.getText();
+				case 2: return elementNode.getText();						
 				case 3: return elementNode.getIcon();
 				case 4: return elementNode.getToolTipText();
 				case 5: return new Boolean(elementNode.isSelected());

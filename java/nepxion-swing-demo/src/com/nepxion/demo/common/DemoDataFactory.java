@@ -116,6 +116,7 @@ public class DemoDataFactory
 		componentElementNodes.add(dataControlElementNode);
 		componentElementNodes.add(selectorControlElementNode);
 		componentElementNodes.add(layoutControlElementNode);
+		componentElementNodes.add(uiControlElementNode);
 		componentElementNodes.add(frameWorkControlElementNode);
 		componentElementNodes.add(advancedControlElementNode);
 		
