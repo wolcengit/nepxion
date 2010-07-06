@@ -24,7 +24,7 @@ public class DemoDockableFrameWorkTogglePanel
 	public DemoDockableFrameWorkTogglePanel()
 	{
 		JEclipseTabbedPane toggleTabbedPane = getToggleTabbedPane();
-		toggleTabbedPane.addTab("Dockable FrameWork", IconFactory.getSwingIcon("component/desktop_pane_16.png"), new DemoToggleTemplate(new DemoDockableFrameWorkPanel()), "Dockable FrameWork");				
+		toggleTabbedPane.addTab("Dockable FrameWork", IconFactory.getSwingIcon("component/framework_16.png"), new DemoToggleTemplate(new DemoDockableFrameWorkPanel()), "Dockable FrameWork");				
 	}
 	
 	public String getToggleName()
@@ -34,12 +34,12 @@ public class DemoDockableFrameWorkTogglePanel
 	
 	public Icon getToggleIcon()
 	{
-		return IconFactory.getSwingIcon("component/desktop_pane_32.png");
+		return IconFactory.getSwingIcon("component/framework_32.png");
 	}
 	
 	public Icon getToggleBannerIcon()
 	{
-		return IconFactory.getSwingIcon("component/desktop_pane_32.png");
+		return IconFactory.getSwingIcon("component/framework_32.png");
 	}
 	
 	public String getToggleDescription()

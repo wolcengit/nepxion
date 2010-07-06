@@ -20,10 +20,7 @@ public class DemoAdvancedControlOutlook
 	extends DemoToggleOutlook
 {
 	public DemoAdvancedControlOutlook()
-	{
-		DemoToggleActionButton uiDefaultsButton = new DemoToggleActionButton(new DemoUIDefaultsTogglePanel());
-        addButton(uiDefaultsButton);  
-        
+	{        
 		DemoToggleActionButton googleMapButton = new DemoToggleActionButton(new DemoGoogleMapTogglePanel());
         addButton(googleMapButton); 
         

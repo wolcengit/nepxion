@@ -29,12 +29,12 @@ public class DemoVLDockingFrameWorkTogglePanel
 	
 	public Icon getToggleIcon()
 	{
-		return IconFactory.getSwingIcon("component/desktop_pane_32.png");
+		return IconFactory.getSwingIcon("component/framework_32.png");
 	}
 	
 	public Icon getToggleBannerIcon()
 	{
-		return IconFactory.getSwingIcon("component/desktop_pane_32.png");
+		return IconFactory.getSwingIcon("component/framework_32.png");
 	}
 	
 	public String getToggleDescription()
