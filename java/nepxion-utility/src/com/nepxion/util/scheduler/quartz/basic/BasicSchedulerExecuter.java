@@ -11,6 +11,7 @@ package com.nepxion.util.scheduler.quartz.basic;
  */
 
 import java.util.Date;
+import java.util.Properties;
 
 import org.quartz.Scheduler;
 import org.quartz.SchedulerException;
@@ -19,7 +20,7 @@ import com.nepxion.util.scheduler.quartz.QuartzJobDetail;
 import com.nepxion.util.scheduler.quartz.QuartzSchedulerFactory;
 
 public class BasicSchedulerExecuter
-{		
+{
 	private String jobName;
 	private String jobGroup = Scheduler.DEFAULT_GROUP;
 	private Class jobClass;
@@ -39,24 +40,50 @@ public class BasicSchedulerExecuter
 	
 	public BasicSchedulerExecuter()
 	{
-		initialize();		
+		if (scheduler != null)
+		{
+			return;
+		}
+				
+		try
+		{
+			QuartzSchedulerFactory factory = new QuartzSchedulerFactory();
+			scheduler = factory.getScheduler();
+		}
+		catch (SchedulerException e)
+		{
+			e.printStackTrace();
+		}
 	}
 	
-	public BasicSchedulerExecuter(String fileName)
-	{
-		initialize();		
-	}	
-	
-	public void initialize()
+	public BasicSchedulerExecuter(Properties properties)
 	{
 		if (scheduler != null)
 		{
 			return;
 		}
-		
-		QuartzSchedulerFactory factory = new QuartzSchedulerFactory();
+				
 		try
 		{
+			QuartzSchedulerFactory factory = new QuartzSchedulerFactory(properties);
+			scheduler = factory.getScheduler();
+		}
+		catch (SchedulerException e)
+		{
+			e.printStackTrace();
+		}
+	}
+	
+	public BasicSchedulerExecuter(String fileName)
+	{
+		if (scheduler != null)
+		{
+			return;
+		}
+				
+		try
+		{
+			QuartzSchedulerFactory factory = new QuartzSchedulerFactory(fileName);
 			scheduler = factory.getScheduler();
 		}
 		catch (SchedulerException e)
@@ -78,7 +105,7 @@ public class BasicSchedulerExecuter
 		}
 		
 		jobDetail = new QuartzJobDetail(jobName, jobGroup, jobClass);
-		trigger = new BasicTrigger(triggerName, triggerGroup, jobName, jobGroup, startTime != null ? startTime : new Date(), endTime, repeatCount, repeatInterval);				
+		trigger = new BasicTrigger(triggerName, triggerGroup, jobName, jobGroup, startTime != null ? startTime : new Date(), endTime, repeatCount, repeatInterval);
 		try
 		{
 			scheduler.scheduleJob(jobDetail, trigger);
@@ -224,17 +251,17 @@ public class BasicSchedulerExecuter
 	
 	public void setJobClass(Class jobClass)
 		throws Exception
-	{		
+	{
 		if (isScheduled)
 		{
 			throw new Exception("The job has been scheduled");
-		}	
+		}
 		this.jobName = jobClass.getName();
 		this.jobClass = jobClass;
 		
 		this.triggerName = jobClass.getName();
 	}
-		
+	
 	public void setStartTime(Date startTime)
 	{
 		this.startTime = startTime;
@@ -253,5 +280,5 @@ public class BasicSchedulerExecuter
 	public void setRepeatInterval(int[] repeatInterval)
 	{
 		this.repeatInterval = repeatInterval;
-	}		
+	}
 }
