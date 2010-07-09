@@ -73,8 +73,13 @@ public class HttpContext
 	}
 	
 	public static HttpConfig getHttpConfig(String alias)
-	{
-		return (HttpConfig) httpConfigMap.get(alias);
+	{		
+		HttpConfig httpConfig = (HttpConfig) httpConfigMap.get(alias);
+		if (httpConfig == null)
+		{
+			throw new IllegalArgumentException("Http Config for " + alias + " hasn't been found");
+		}	
+		return httpConfig;
 	}
 	
 	private static void parseConfig(Properties properties)
@@ -117,7 +122,9 @@ public class HttpContext
 			Properties configProperties = (Properties) propertiesMap.get(key);
 			HttpConfig config = createConfig(configProperties, codeBaseURL);
 			httpConfigMap.put(config.getAlias(), config);
-		}	
+		}
+		
+		HttpContextLogger.log(httpConfigMap);
 	}
 	
 	private static HttpConfig createConfig(Properties configProperties, URL codeBaseURL)
