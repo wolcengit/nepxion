@@ -34,6 +34,7 @@ public class GeoSearcher
 	}
 	
 	public String getResponseText()
+		throws Exception
 	{
 		ClientRequestGet clientRequestPost = new ClientRequestGet();
 		clientRequestPost.setURI(URI.create(URL));
@@ -47,22 +48,7 @@ public class GeoSearcher
 		clientParameters.add(new ClientParameter("key", "ABQIAAAAdFLRljp2TovFzTpwXuVkFhQIFToVApsHYtA6KVCnU06oztO8qxSsJArkYIMxAP20jJu9M7nmmAjLQg"));
 		clientRequestPost.setParameterEntity(clientParameters, "UTF-8");
 		
-		String responseText = null;
-		try
-		{
-			responseText = clientInvoker.getResponseText(clientRequestPost, "UTF-8");
-		}
-		catch (Exception e)
-		{
-			e.printStackTrace();
-		}
+		String responseText = clientInvoker.getResponseText(clientRequestPost, "UTF-8");
 		return responseText;
-	}
-	
-	public static void main(String[] args)
-	{
-		GeoSearcher addressSearcher = new GeoSearcher("");
-		String responseText = addressSearcher.getResponseText();
-		System.out.println(responseText);
 	}
 }

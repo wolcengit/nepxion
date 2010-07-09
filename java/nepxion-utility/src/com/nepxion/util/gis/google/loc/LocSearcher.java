@@ -37,9 +37,9 @@ public class LocSearcher
 		this(LANGUAGE_ZH_CN, requestAddress);
 	}
 	
-	public LocSearcher(String charset)
+	public LocSearcher(String language)
 	{
-		this(LANGUAGE_ZH_CN, charset);
+		this(language, true);
 	}
 	
 	public LocSearcher(String language, boolean requestAddress)
@@ -62,6 +62,7 @@ public class LocSearcher
 	}
 	
 	public LocEntity getLoc(double latitude, double longitude)
+		throws Exception
 	{
 		String requestText = createCoordinateText(latitude, longitude);
 		String responseText = getResponseText(requestText);
@@ -69,6 +70,7 @@ public class LocSearcher
 	}
 	
 	public LocEntity getLoc(int cellID, int lac, int mcc, int mnc)
+		throws Exception
 	{
 		String requestText = createCellText(cellID, lac, mcc, mnc);
 		String responseText = getResponseText(requestText);
@@ -188,35 +190,13 @@ public class LocSearcher
 	}
 	
 	private String getResponseText(String requestText)
+		throws Exception
 	{
 		ClientRequestPost clientRequestPost = new ClientRequestPost();
 		clientRequestPost.setURI(URI.create(URL));
 		clientRequestPost.setStringEntity(requestText);
 		
-		String responseText = null;
-		try
-		{
-			responseText = clientInvoker.getResponseText(clientRequestPost, charset);
-		}
-		catch (Exception e)
-		{
-			e.printStackTrace();
-		}
+		String responseText = clientInvoker.getResponseText(clientRequestPost, charset);
 		return responseText;
-	}
-	
-	public static void main(String[] args)
-	{
-		LocSearcher locSearcher = new LocSearcher();
-		
-		LocEntity coordinateEntity = locSearcher.getLoc(31.231849, 121.475701);
-		System.out.println("latitude : " + coordinateEntity.getLatitude());
-		System.out.println("longitude : " + coordinateEntity.getLongitude());
-		System.out.println("address : " + coordinateEntity);
-		
-		LocEntity locEntity = locSearcher.getLoc(19625, 22770, LocConstants.DEFAULT_MCC, LocConstants.DEFAULT_MNC);
-		System.out.println("latitude : " + locEntity.getLatitude());
-		System.out.println("longitude : " + locEntity.getLongitude());
-		System.out.println("address : " + locEntity);		
 	}
 }
