@@ -11,6 +11,9 @@ package com.nepxion.util.net.http.apache;
  */
 
 import java.io.IOException;
+import java.util.Enumeration;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -18,51 +21,82 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.nepxion.util.encode.EncodeContext;
+import com.nepxion.util.encode.EncodeUtil;
 import com.nepxion.util.io.IOUtil;
 
 public class ServerInvoker
 	extends HttpServlet
 {
-	public static final int INPUT_STREAM_TYPE_OBJECT = 0;
-	public static final int INPUT_STREAM_TYPE_STRING = 1;
-	
-	private int inputStreamType = INPUT_STREAM_TYPE_OBJECT;
+	public static final int REQUEST_ENTITY_TYPE_PARAMETER = 0;
+	public static final int REQUEST_ENTITY_TYPE_STRING = 1;
+	public static final int REQUEST_ENTITY_TYPE_SERIALIZABLE = 2;
+
+	private int requestEntityType = REQUEST_ENTITY_TYPE_SERIALIZABLE;
 	private String charset = EncodeContext.getHttpCharset();
 	
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 		throws ServletException, IOException
 	{
-		doExecute(request, response);
+		doExecute(request, response, "Get");
 	}
 	
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 		throws ServletException, IOException
 	{
-		doExecute(request, response);
+		doExecute(request, response, "Post");
 	}
 	
-	public void doExecute(HttpServletRequest request, HttpServletResponse response)
+	public void doExecute(HttpServletRequest request, HttpServletResponse response, String method)
 		throws ServletException, IOException
 	{
 		try
 		{
 			Object requestObject = null;
-			switch (inputStreamType)
+			switch (requestEntityType)
 			{
-				case INPUT_STREAM_TYPE_OBJECT:
-					requestObject = IOUtil.read(request.getInputStream());
+				case REQUEST_ENTITY_TYPE_PARAMETER :
+				{						
+					Map parameters = new HashMap();
+					for (Enumeration enumeration = request.getParameterNames(); enumeration.hasMoreElements();)
+					{
+						String key = (String) enumeration.nextElement();
+						String value = request.getParameter(key);
+						
+						if (method.equals("Get"))
+						{	
+							value = EncodeUtil.format(value, charset);
+						}						
+						parameters.put(key, value);
+					}	
+					requestObject = parameters;
+					ServerInvokerLogger.requestLog(method, charset, "List - [URL Parameter]", requestObject);
 					break;
-				case INPUT_STREAM_TYPE_STRING:
+				}	
+				case REQUEST_ENTITY_TYPE_STRING :
+				{	
 					requestObject = IOUtil.getString(request.getInputStream(), charset);
+					ServerInvokerLogger.requestLog(method, charset, "String - [Text, XML, JSON, Properties ...]", requestObject);
 					break;
-				default:
+				}
+				case REQUEST_ENTITY_TYPE_SERIALIZABLE :
+				{	
 					requestObject = IOUtil.read(request.getInputStream());
+					ServerInvokerLogger.requestLog(method, "Serializable Entity", requestObject);
 					break;
+				}	
 			}
 			
 			Object responseObject = invoke(requestObject, request, response);
-			
-			IOUtil.write(response.getOutputStream(), responseObject);
+			if (responseObject != null)
+			{	
+				ServerInvokerLogger.responseLog("Serializable Entity", responseObject);
+				
+				IOUtil.write(response.getOutputStream(), responseObject);
+			}
+			else
+			{
+				ServerInvokerLogger.responseLog("Unknown Entity", "Invoked By Another Course - [OutputStream, PrintWriter ...]");
+			}
 		}
 		catch (ClassNotFoundException e)
 		{
@@ -77,14 +111,14 @@ public class ServerInvoker
 		return null;
 	}
 	
-	public int getInputStreamType()
+	public int getRequestEntityType()
 	{
-		return inputStreamType;
+		return requestEntityType;
 	}
 	
-	public void setInputStreamType(int inputStreamType)
+	public void setRequestEntityType(int requestEntityType)
 	{
-		this.inputStreamType = inputStreamType;
+		this.requestEntityType = requestEntityType;
 	}
 	
 	public String getCharset()

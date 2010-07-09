@@ -73,7 +73,9 @@ public class ClientRequestPost
 	}
 	
 	public UrlEncodedFormEntity setParameterEntity(List parameterEntity, String charset)
-	{
+	{		
+		ClientInvokerLogger.requestLog("Post", charset, "List - [URL Parameter]", parameterEntity);
+		
 		UrlEncodedFormEntity entity = null;
 		try
 		{
@@ -89,7 +91,9 @@ public class ClientRequestPost
 	}
 		
 	public SerializableEntity setSerializableEntity(Serializable serializable, boolean bufferize)
-	{
+	{		
+		ClientInvokerLogger.requestLog("Post", "Serializable Entity", serializable);
+		
 		SerializableEntity entity = null;
 		try
 		{
@@ -110,7 +114,9 @@ public class ClientRequestPost
 	}
 	
 	public InputStreamEntity setInputStreamEntity(InputStream inputStream, long length)
-	{
+	{		
+		ClientInvokerLogger.requestLog("Post", "InputStream Entity", inputStream);
+		
 		InputStreamEntity entity = new InputStreamEntity(inputStream, length);
 		entity.setContentType("binary/octet-stream");
 		entity.setChunked(true);
@@ -124,7 +130,9 @@ public class ClientRequestPost
 	}
 	
 	public StringEntity setStringEntity(String text, String charset)
-	{
+	{		
+		ClientInvokerLogger.requestLog("Post", charset, "String - [Text, XML, JSON, Properties ...]", text);
+		
 		StringEntity entity = null;
 		try
 		{
@@ -140,7 +148,9 @@ public class ClientRequestPost
 	}
 	
 	public FileEntity setFileEntity(File file)
-	{
+	{		
+		ClientInvokerLogger.requestLog("Post", "File Entity", file);
+		
 		FileEntity entity = new FileEntity(file, "binary/octet-stream");
 		entity.setChunked(true);
 		setEntity(entity);
@@ -148,7 +158,9 @@ public class ClientRequestPost
 	}
 	
 	public FileEntity setFileEntity(File file, String contentType)
-	{
+	{		
+		ClientInvokerLogger.requestLog("Post", "File Entity", file);
+		
 		FileEntity entity = new FileEntity(file, contentType);
 		entity.setChunked(true);
 		setEntity(entity);
@@ -156,7 +168,9 @@ public class ClientRequestPost
 	}	
 	
 	public BufferedHttpEntity setBufferedEntity(HttpEntity httpEntity)
-	{
+	{		
+		ClientInvokerLogger.requestLog("Post", "Buffered Entity", httpEntity);
+		
 		BufferedHttpEntity entity = null;
 		try
 		{
@@ -171,7 +185,9 @@ public class ClientRequestPost
 	}
 	
 	public ByteArrayEntity setByteArrayEntity(byte[] bytes)
-	{
+	{		
+		ClientInvokerLogger.requestLog("Post", "ByteArray Entity", bytes);
+		
 		ByteArrayEntity entity = new ByteArrayEntity(bytes);
 		entity.setChunked(true);
 		setEntity(entity);

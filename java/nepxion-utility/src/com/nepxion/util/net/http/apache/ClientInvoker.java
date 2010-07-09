@@ -31,7 +31,7 @@ public class ClientInvoker
 {
 	public Object invoke(IClientRequest clientRequest)
 		throws Exception
-	{
+	{		
 		if (clientRequest.getURI() == null)
 		{
 			throw new IllegalArgumentException("Invalid URL for invoking");
@@ -84,6 +84,9 @@ public class ClientInvoker
 		Object object = IOUtil.read(entity.getContent());
 		entity.consumeContent();
 		clientRequest.abort();
+		
+		ClientInvokerLogger.responseLog("Serializable Entity", object);
+		
 		return object;
 	}
 	
@@ -95,11 +98,14 @@ public class ClientInvoker
 	
 	public String getResponseText(IClientRequest clientRequest, String charset)
 		throws Exception
-	{
+	{		
 		HttpEntity entity = getResponseEntity(clientRequest);
 		String text = IOUtil.getString(entity.getContent(), charset);
 		entity.consumeContent();
 		clientRequest.abort();
+		
+		ClientInvokerLogger.responseLog(charset, "String - [Text, XML, JSON, Properties ...]", text);
+		
 		return text;
 	}	
 	

@@ -60,7 +60,9 @@ public class ClientRequestGet
 	}
 	
 	public void setParameterEntity(List parameterEntity, String charset)
-	{
+	{		
+		ClientInvokerLogger.requestLog("Get", charset, "List - [URL Parameter]", parameterEntity);
+		
 		String format = URLEncodedUtils.format(parameterEntity, charset);
 		if (format != null)
 		{	
