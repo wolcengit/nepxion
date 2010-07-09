@@ -10,14 +10,11 @@ package com.nepxion.net.http.apache.client;
  * @version 1.0
  */
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.nepxion.util.encode.EncodeContext;
 import com.nepxion.util.net.http.HttpConfig;
 import com.nepxion.util.net.http.HttpContext;
 import com.nepxion.util.net.http.apache.ClientInvoker;
-import com.nepxion.util.net.http.apache.ClientParameter;
+import com.nepxion.util.net.http.apache.ClientParameterList;
 import com.nepxion.util.net.http.apache.ClientRequestGet;
 
 public class GetClientInvoker
@@ -26,14 +23,14 @@ public class GetClientInvoker
 	
 	public static void invokeParameter()
 	{
-		List list = new ArrayList();
-		list.add(new ClientParameter("target", "服务调用"));
-		list.add(new ClientParameter("entity", "参数"));
+		ClientParameterList clientParameterList = new ClientParameterList();
+		clientParameterList.put("target", "服务调用");
+		clientParameterList.put("entity", "参数");
 		
 		HttpConfig httpConfig = HttpContext.getHttpConfig("ParameterServerInvoker");
 		
 		ClientRequestGet clientRequestGet = new ClientRequestGet(httpConfig);
-		clientRequestGet.setParameterEntity(list);
+		clientRequestGet.setParameterEntity(clientParameterList);
 		
 		String responseText = null;
 		try

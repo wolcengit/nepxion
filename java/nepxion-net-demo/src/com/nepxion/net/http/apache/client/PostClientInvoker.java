@@ -22,7 +22,7 @@ import com.nepxion.util.io.IOUtil;
 import com.nepxion.util.net.http.HttpConfig;
 import com.nepxion.util.net.http.HttpContext;
 import com.nepxion.util.net.http.apache.ClientInvoker;
-import com.nepxion.util.net.http.apache.ClientParameter;
+import com.nepxion.util.net.http.apache.ClientParameterList;
 import com.nepxion.util.net.http.apache.ClientRequestPost;
 
 public class PostClientInvoker
@@ -30,15 +30,15 @@ public class PostClientInvoker
 	private static ClientInvoker clientInvoker = new ClientInvoker();
 	
 	public static void invokeParameter()
-	{
-		List entity = new ArrayList();
-		entity.add(new ClientParameter("target", "服务调用"));
-		entity.add(new ClientParameter("entity", "参数"));
+	{		
+		ClientParameterList clientParameterList = new ClientParameterList();
+		clientParameterList.put("target", "服务调用");
+		clientParameterList.put("entity", "参数");
 		
 		HttpConfig httpConfig = HttpContext.getHttpConfig("ParameterServerInvoker");
 		
 		ClientRequestPost clientRequestPost = new ClientRequestPost(httpConfig);
-		clientRequestPost.setParameterEntity(entity);
+		clientRequestPost.setParameterEntity(clientParameterList);
 		
 		String responseText = null;
 		try
