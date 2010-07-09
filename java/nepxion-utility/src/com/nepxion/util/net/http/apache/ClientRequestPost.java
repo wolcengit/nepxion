@@ -77,8 +77,7 @@ public class ClientRequestPost
 		UrlEncodedFormEntity entity = null;
 		try
 		{
-			entity = new UrlEncodedFormEntity(parameterEntity, charset);
-			
+			entity = new UrlEncodedFormEntity(parameterEntity, charset);			
 		}
 		catch (UnsupportedEncodingException e)
 		{
