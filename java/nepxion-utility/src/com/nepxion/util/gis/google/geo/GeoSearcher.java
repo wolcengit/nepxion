@@ -14,16 +14,14 @@ import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.nepxion.util.gis.google.loc.LocConstants;
 import com.nepxion.util.net.http.apache.ClientInvoker;
 import com.nepxion.util.net.http.apache.ClientParameter;
 import com.nepxion.util.net.http.apache.ClientRequestGet;
 
 public class GeoSearcher
-{
-	public static final String URL = "http://maps.google.com/maps/geo";
-	public static final String LANGUAGE_ZH_CN = "zh_CN";
-	public static final String LANGUAGE_EN_GB = "en_GB";
-	
+	implements LocConstants
+{	
 	protected String charset;
 	protected ClientInvoker clientInvoker;
 	
@@ -36,8 +34,8 @@ public class GeoSearcher
 	public String getResponseText()
 		throws Exception
 	{
-		ClientRequestGet clientRequestPost = new ClientRequestGet();
-		clientRequestPost.setURI(URI.create(URL));
+		ClientRequestGet clientRequestGet = new ClientRequestGet();
+		clientRequestGet.setURI(URI.create(URL));
 		
 		List clientParameters = new ArrayList();
 		clientParameters.add(new ClientParameter("q", "花木"));
@@ -46,9 +44,9 @@ public class GeoSearcher
 		clientParameters.add(new ClientParameter("sensor", "true"));
 		clientParameters.add(new ClientParameter("hl", "en_GB"));
 		clientParameters.add(new ClientParameter("key", "ABQIAAAAdFLRljp2TovFzTpwXuVkFhQIFToVApsHYtA6KVCnU06oztO8qxSsJArkYIMxAP20jJu9M7nmmAjLQg"));
-		clientRequestPost.setParameterEntity(clientParameters, "UTF-8");
+		clientRequestGet.setParameterEntity(clientParameters, "UTF-8");
 		
-		String responseText = clientInvoker.getResponseText(clientRequestPost, "UTF-8");
+		String responseText = clientInvoker.getResponseText(clientRequestGet, "UTF-8");
 		return responseText;
 	}
 }

@@ -12,5 +12,7 @@ package com.nepxion.util.gis.google.geo;
 
 public class GeoConstants
 {
-	
+	public static final String URL = "http://maps.google.com/maps/geo";
+	public static final String LANGUAGE_ZH_CN = "zh_CN";
+	public static final String LANGUAGE_EN_GB = "en_GB";
 }
