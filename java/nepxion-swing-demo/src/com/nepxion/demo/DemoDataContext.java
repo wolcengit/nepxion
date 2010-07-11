@@ -24,7 +24,15 @@ public class DemoDataContext
 	
 	public void initialize()
 	{
-		// HttpContext.register();
+		try
+		{
+			// HttpContext.register();
+			// ProxoolContext.register();
+		}
+		catch (Exception e)
+		{
+			e.printStackTrace();
+		}
 		EncodeContext.registerIOCharset("GBK");
 		EncodeContext.registerHttpCharset("UTF-8");
 		ActiveXContext.registerStrategy(ActiveXContext.STRATEGY_APPLICATION);
@@ -32,7 +40,15 @@ public class DemoDataContext
 	
 	public void initialize(URL codeBase)
 	{
-		// HttpContext.register(codeBase);
+		try
+		{
+			// HttpContext.register(codeBase);
+			// ProxoolContext.register(codeBase);
+		}
+		catch (Exception e)
+		{
+			e.printStackTrace();
+		}
 		EncodeContext.registerIOCharset("GBK");
 		EncodeContext.registerHttpCharset("UTF-8");		
 		ActiveXContext.registerStrategy(ActiveXContext.STRATEGY_APPLET);

@@ -22,7 +22,7 @@ public class DemoApplet
 		super.init();
 		
 		DemoDataContext dataContext = new DemoDataContext();
-		dataContext.initialize();	
+		dataContext.initialize(getCodeBase());
 		
 		SwingUtilities.invokeLater(new Runnable()
 		{
