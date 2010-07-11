@@ -20,17 +20,12 @@ import java.util.Properties;
 
 public class HttpContext
 	implements HttpConstants
-{
-	public static final String HTTP_CONFIG_FILE_PATH = "conf/http.properties";
-	
-	public static final String PREFIX = "http";
-	public static final String DOT = ".";
-	
+{	
 	private static LinkedHashMap httpConfigMap;
 	
 	public static void register()
 	{
-		register(HTTP_CONFIG_FILE_PATH);
+		register(CONFIG_FILE_PATH);
 	}
 	
 	public static void register(String filePath)
@@ -61,7 +56,7 @@ public class HttpContext
 		Properties properties = new Properties();
 		try
 		{
-			codeBaseURL = new URL(codeBaseURL + HTTP_CONFIG_FILE_PATH);
+			codeBaseURL = new URL(codeBaseURL + CONFIG_FILE_PATH);
 			properties.load(codeBaseURL.openStream());
 			
 			parseConfig(properties, codeBaseURL);
@@ -70,6 +65,11 @@ public class HttpContext
 		{
 			e.printStackTrace();
 		}
+	}
+	
+	public static HttpConfig getDefaultHttpConfig()
+	{	
+		return getHttpConfig(DEFAULT_ALIAS);
 	}
 	
 	public static HttpConfig getHttpConfig(String alias)

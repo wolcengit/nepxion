@@ -15,6 +15,12 @@ import java.io.Serializable;
 public interface HttpConstants
 	extends Serializable
 {
+	public static final String CONFIG_FILE_PATH = "conf/http.properties";
+	
+	public static final String PREFIX = "http";
+	public static final String DOT = ".";
+	
+	public static final String DEFAULT_ALIAS = "DefaultHttp";
 	public static final int DEFAULT_CONNECTION_TIMEOUT = 0;
 	public static final int DEFAULT_RESPONSE_TIMEOUT = 0;
 	public static final int DEFAULT_BUFFER_SIZE = 8192;
@@ -25,5 +31,5 @@ public interface HttpConstants
 	public static final String PATH = "path";
 	public static final String CONNECTION_TIMEOUT = "connection-timeout";
 	public static final String RESPONSE_TIMEOUT = "response-timeout";
-	public static final String BUFFER_SIZE = "buffer-size";	
+	public static final String BUFFER_SIZE = "buffer-size";
 }
