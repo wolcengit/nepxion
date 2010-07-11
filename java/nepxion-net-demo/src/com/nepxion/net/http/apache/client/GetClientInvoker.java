@@ -46,7 +46,14 @@ public class GetClientInvoker
 	
 	public static void main(String[] args)
 	{
-		HttpContext.register();
+		try
+		{
+			HttpContext.register();
+		}
+		catch (Exception e)
+		{
+			e.printStackTrace();
+		}
 		EncodeContext.registerHttpCharset("GBK");
 		
 		GetClientInvoker.invokeParameter();
