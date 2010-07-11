@@ -16,35 +16,35 @@ public class ServerInvokerLogger
 {
 	public static void requestLog(String method, String charset, String dataType, Object dataInfo)
 	{
-		Logger.info(ClientInvokerLogger.class, "-------- Http Server Invoker Start --------");
-		Logger.info(ClientInvokerLogger.class, "Request Method     : " + method);
-		Logger.info(ClientInvokerLogger.class, "Request Charset    : " + charset);
-		Logger.info(ClientInvokerLogger.class, "Request Data Type  : " + dataType);
-		Logger.info(ClientInvokerLogger.class, "Request Data Info  :\n" + dataInfo);
+		Logger.info(ServerInvokerLogger.class, "--------- Http Server Invoker Start ---------");
+		Logger.info(ServerInvokerLogger.class, "Request Method     : " + method);
+		Logger.info(ServerInvokerLogger.class, "Request Charset    : " + charset);
+		Logger.info(ServerInvokerLogger.class, "Request Data Type  : " + dataType);
+		Logger.info(ServerInvokerLogger.class, "Request Data Info  :\n" + dataInfo);
 	}
 	
 	public static void requestLog(String method, String dataType, Object dataInfo)
 	{
-		Logger.info(ClientInvokerLogger.class, "-------- Http Server Invoker Start --------");
-		Logger.info(ClientInvokerLogger.class, "Request Method     : " + method);
-		Logger.info(ClientInvokerLogger.class, "Request Data Type  : " + dataType);
-		Logger.info(ClientInvokerLogger.class, "Request Data Info  :\n" + dataInfo);
+		Logger.info(ServerInvokerLogger.class, "--------- Http Server Invoker Start ---------");
+		Logger.info(ServerInvokerLogger.class, "Request Method     : " + method);
+		Logger.info(ServerInvokerLogger.class, "Request Data Type  : " + dataType);
+		Logger.info(ServerInvokerLogger.class, "Request Data Info  :\n" + dataInfo);
 	}
 	
 	public static void responseLog(String charset, String dataType, Object dataInfo)
 	{
-		Logger.info(ClientInvokerLogger.class, "-------------------------------------------");
-		Logger.info(ClientInvokerLogger.class, "Response Charset   : " + charset);
-		Logger.info(ClientInvokerLogger.class, "Response Data Type : " + dataType);
-		Logger.info(ClientInvokerLogger.class, "Response Data Info :\n" + dataInfo);
-		Logger.info(ClientInvokerLogger.class, "--------- Http Server Invoker End ---------");
+		Logger.info(ServerInvokerLogger.class, "---------------------------------------------");
+		Logger.info(ServerInvokerLogger.class, "Response Charset   : " + charset);
+		Logger.info(ServerInvokerLogger.class, "Response Data Type : " + dataType);
+		Logger.info(ServerInvokerLogger.class, "Response Data Info :\n" + dataInfo);
+		Logger.info(ServerInvokerLogger.class, "---------- Http Server Invoker End ----------");
 	}
 	
 	public static void responseLog(String dataType, Object dataInfo)
 	{
-		Logger.info(ClientInvokerLogger.class, "-------------------------------------------");
-		Logger.info(ClientInvokerLogger.class, "Response Data Type : " + dataType);
-		Logger.info(ClientInvokerLogger.class, "Response Data Info :\n" + dataInfo);
-		Logger.info(ClientInvokerLogger.class, "--------- Http Server Invoker End ---------");
+		Logger.info(ServerInvokerLogger.class, "---------------------------------------------");
+		Logger.info(ServerInvokerLogger.class, "Response Data Type : " + dataType);
+		Logger.info(ServerInvokerLogger.class, "Response Data Info :\n" + dataInfo);
+		Logger.info(ServerInvokerLogger.class, "---------- Http Server Invoker End ----------");
 	}
 }

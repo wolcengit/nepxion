@@ -10,6 +10,7 @@ package com.nepxion.util.database.pool.proxool;
  * @version 1.0
  */
 
+import java.net.URL;
 import java.util.Properties;
 
 import org.logicalcobwebs.proxool.ProxoolException;
@@ -21,14 +22,16 @@ public class ProxoolContext
 	implements ProxoolConstants
 {
 	public static void register()
-		throws ProxoolException
+		throws Exception
 	{
 		register(CONFIG_FILE_PATH);
 	}
 	
 	public static void register(String filePath)
-		throws ProxoolException
+		throws Exception
 	{
+		Logger.info(ProxoolContext.class, "---- Proxool Context Initialization Start ---");
+		
 		try
 		{
 			PropertyConfigurator.configure(filePath);
@@ -38,16 +41,40 @@ public class ProxoolContext
 			Logger.fatal(ProxoolConnectionPool.class, e);
 			throw e;
 		}
+		
+		Logger.info(ProxoolContext.class, "----- Proxool Context Initialization End ----");
 	}
 	
 	public static void register(Properties properties)
-		throws ProxoolException
+		throws Exception
 	{
+		Logger.info(ProxoolContext.class, "---- Proxool Context Initialization Start ---");
+		
 		try
 		{
 			PropertyConfigurator.configure(properties);
 		}
 		catch (ProxoolException e)
+		{
+			Logger.fatal(ProxoolConnectionPool.class, e);
+			throw e;
+		}
+		
+		Logger.info(ProxoolContext.class, "---- Proxool Context Initialization Start ---");
+	}
+	
+	public static void register(URL codeBaseURL)
+		throws Exception
+	{
+		Properties properties = new Properties();
+		try
+		{
+			codeBaseURL = new URL(codeBaseURL + CONFIG_FILE_PATH);
+			properties.load(codeBaseURL.openStream());
+			
+			register(properties);
+		}
+		catch (Exception e)
 		{
 			Logger.fatal(ProxoolConnectionPool.class, e);
 			throw e;

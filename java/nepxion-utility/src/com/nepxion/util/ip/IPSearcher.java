@@ -43,20 +43,22 @@ public class IPSearcher
 	private byte[] b4;
 	
 	public IPSearcher()
+		throws Exception
 	{
-		ipCache = new HashMap();
-		ipStringBuffer = new StringBuffer();
-		ipLocation = new IPLocation();
-		buffer = new byte[1000];
-		b3 = new byte[3];
-		b4 = new byte[4];
+		this("data/ip.dat");
+	}
+	
+	public IPSearcher(String filePath)
+		throws Exception
+	{
 		try
 		{
-			ipFile = new RandomAccessFile("ip.dat", "r");
+			ipFile = new RandomAccessFile(filePath, "r");
 		}
 		catch (FileNotFoundException e)
 		{
 			e.printStackTrace();
+			throw e;
 		}
 		if (ipFile != null)
 		{
@@ -72,13 +74,21 @@ public class IPSearcher
 			}
 			catch (IOException e)
 			{
-				System.out.println("Invalid IP data format file");
 				ipFile = null;
+				e.printStackTrace();
+				throw new Exception("Invalid IP data format file", e);	
 			}
 		}
+		
+		ipCache = new HashMap();
+		ipStringBuffer = new StringBuffer();
+		ipLocation = new IPLocation();
+		buffer = new byte[1000];
+		b3 = new byte[3];
+		b4 = new byte[4];
 	}
 	
-	public List getIPEntriesDebug(String ipString)
+	public List getIPEntityListDebug(String ipString)
 	{
 		List list = new ArrayList();
 		long endOffset = ipEnd + 4;
@@ -90,21 +100,21 @@ public class IPSearcher
 				IPLocation ipLocation = getIPLocation(value);
 				if (ipLocation.getCountry().indexOf(ipString) != -1 || ipLocation.getRegion().indexOf(ipString) != -1)
 				{
-					IPEntry entry = new IPEntry();
-					entry.setCountry(ipLocation.getCountry());
-					entry.setRegion(ipLocation.getRegion());
+					IPEntity entity = new IPEntity();
+					entity.setCountry(ipLocation.getCountry());
+					entity.setRegion(ipLocation.getRegion());
 					readIP(offset - 4, b4);
-					entry.setBeginIP(getString(b4));
+					entity.setBeginIP(getString(b4));
 					readIP(value, b4);
-					entry.setEndIP(getString(b4));
-					list.add(entry);
+					entity.setEndIP(getString(b4));
+					list.add(entity);
 				}
 			}
 		}
 		return list;
 	}
 	
-	public List getIPEntries(String ipString)
+	public List getIPEntityList(String ipString)
 	{
 		List list = new ArrayList();
 		try
@@ -125,14 +135,14 @@ public class IPSearcher
 					IPLocation ipLoc = getIPLocation(value);
 					if (ipLoc.getCountry().indexOf(ipString) != -1 || ipLoc.getRegion().indexOf(ipString) != -1)
 					{
-						IPEntry entry = new IPEntry();
-						entry.setCountry(ipLoc.getCountry());
-						entry.setRegion(ipLoc.getRegion());
+						IPEntity entity = new IPEntity();
+						entity.setCountry(ipLoc.getCountry());
+						entity.setRegion(ipLoc.getRegion());
 						readIP(offset - 4, b4);
-						entry.setBeginIP(getString(b4));
+						entity.setBeginIP(getString(b4));
 						readIP(value, b4);
-						entry.setEndIP(getString(b4));
-						list.add(entry);
+						entity.setEndIP(getString(b4));
+						list.add(entity);
 					}
 				}
 			}

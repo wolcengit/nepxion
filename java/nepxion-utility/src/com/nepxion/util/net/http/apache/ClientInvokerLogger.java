@@ -16,7 +16,7 @@ public class ClientInvokerLogger
 {
 	public static void requestLog(String method, String charset, String dataType, Object dataInfo)
 	{
-		Logger.info(ClientInvokerLogger.class, "-------- Http Client Invoker Start --------");
+		Logger.info(ClientInvokerLogger.class, "--------- Http Client Invoker Start ---------");
 		Logger.info(ClientInvokerLogger.class, "Request Method     : " + method);
 		Logger.info(ClientInvokerLogger.class, "Request Charset    : " + charset);
 		Logger.info(ClientInvokerLogger.class, "Request Data Type  : " + dataType);
@@ -25,7 +25,7 @@ public class ClientInvokerLogger
 
 	public static void requestLog(String method, String dataType, Object dataInfo)
 	{
-		Logger.info(ClientInvokerLogger.class, "-------- Http Client Invoker Start --------");
+		Logger.info(ClientInvokerLogger.class, "--------- Http Client Invoker Start ---------");
 		Logger.info(ClientInvokerLogger.class, "Request Method     : " + method);
 		Logger.info(ClientInvokerLogger.class, "Request Data Type  : " + dataType);
 		Logger.info(ClientInvokerLogger.class, "Request Data Info  :\n" + dataInfo);
@@ -33,18 +33,18 @@ public class ClientInvokerLogger
 	
 	public static void responseLog(String charset, String dataType, Object dataInfo)
 	{		
-		Logger.info(ClientInvokerLogger.class, "-------------------------------------------");
+		Logger.info(ClientInvokerLogger.class, "---------------------------------------------");
 		Logger.info(ClientInvokerLogger.class, "Response Charset   : " + charset);
 		Logger.info(ClientInvokerLogger.class, "Response Data Type : " + dataType);
 		Logger.info(ClientInvokerLogger.class, "Response Data Info :\n" + dataInfo);
-		Logger.info(ClientInvokerLogger.class, "--------- Http Client Invoker End ---------");
+		Logger.info(ClientInvokerLogger.class, "---------- Http Client Invoker End ----------");
 	}
 
 	public static void responseLog(String dataType, Object dataInfo)
 	{		
-		Logger.info(ClientInvokerLogger.class, "-------------------------------------------");
+		Logger.info(ClientInvokerLogger.class, "---------------------------------------------");
 		Logger.info(ClientInvokerLogger.class, "Response Data Type : " + dataType);
 		Logger.info(ClientInvokerLogger.class, "Response Data Info :\n" + dataInfo);
-		Logger.info(ClientInvokerLogger.class, "--------- Http Client Invoker End ---------");
+		Logger.info(ClientInvokerLogger.class, "---------- Http Client Invoker End ----------");
 	}
 }

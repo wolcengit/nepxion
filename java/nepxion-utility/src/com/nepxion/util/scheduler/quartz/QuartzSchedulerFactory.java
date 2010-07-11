@@ -23,15 +23,15 @@ public class QuartzSchedulerFactory
 		super();
 	}
 	
+	public QuartzSchedulerFactory(String filePath)
+		throws SchedulerException
+	{
+		super(filePath);
+	}
+	
 	public QuartzSchedulerFactory(Properties properties)
 		throws SchedulerException
 	{
 		super(properties);
-	}
-	
-	public QuartzSchedulerFactory(String fileName)
-		throws SchedulerException
-	{
-		super(fileName);
 	}
 }

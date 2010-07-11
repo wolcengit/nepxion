@@ -10,7 +10,6 @@ package com.nepxion.util.net.http;
  * @version 1.0
  */
 
-import java.io.File;
 import java.io.FileInputStream;
 import java.net.URL;
 import java.util.HashMap;
@@ -18,40 +17,65 @@ import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Properties;
 
+import com.nepxion.util.log.Logger;
+
 public class HttpContext
 	implements HttpConstants
 {	
 	private static LinkedHashMap httpConfigMap;
 	
 	public static void register()
+		throws Exception
 	{
 		register(CONFIG_FILE_PATH);
 	}
 	
 	public static void register(String filePath)
+		throws Exception
 	{
-		register(new File(filePath));
-	}
-	
-	public static void register(File file)
-	{
+		Logger.info(HttpContext.class, "----- Http Context Initialization Start -----");
+		
 		httpConfigMap = new LinkedHashMap();
 		Properties properties = new Properties();
 		try
 		{
-			FileInputStream fis = new FileInputStream(file);
+			FileInputStream fis = new FileInputStream(filePath);
 			properties.load(fis);
 			
 			parseConfig(properties);
 		}
 		catch (Exception e)
 		{
-			e.printStackTrace();
+			Logger.fatal(HttpConstants.class, e);
+			throw e;
 		}
+		
+		Logger.info(HttpContext.class, "------ Http Context Initialization End ------");
+	}
+	
+	public static void register(Properties properties)
+		throws Exception
+	{
+		Logger.info(HttpContext.class, "----- Http Context Initialization Start -----");
+		
+		try
+		{
+			parseConfig(properties);
+		}
+		catch (Exception e)
+		{
+			Logger.fatal(HttpConstants.class, e);
+			throw e;
+		}
+		
+		Logger.info(HttpContext.class, "------ Http Context Initialization End ------");
 	}
 	
 	public static void register(URL codeBaseURL)
+		throws Exception
 	{
+		Logger.info(HttpContext.class, "----- Http Context Initialization Start -----");
+		
 		httpConfigMap = new LinkedHashMap();
 		Properties properties = new Properties();
 		try
@@ -63,8 +87,11 @@ public class HttpContext
 		}
 		catch (Exception e)
 		{
-			e.printStackTrace();
+			Logger.fatal(HttpConstants.class, e);
+			throw e;
 		}
+		
+		Logger.info(HttpContext.class, "------ Http Context Initialization End ------");
 	}
 	
 	public static HttpConfig getDefaultHttpConfig()

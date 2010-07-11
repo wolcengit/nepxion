@@ -16,10 +16,13 @@ import java.util.Properties;
 import org.quartz.Scheduler;
 import org.quartz.SchedulerException;
 
+import com.nepxion.util.log.Logger;
+import com.nepxion.util.scheduler.quartz.QuartzConstants;
 import com.nepxion.util.scheduler.quartz.QuartzJobDetail;
 import com.nepxion.util.scheduler.quartz.QuartzSchedulerFactory;
 
 public class BasicSchedulerExecuter
+	implements QuartzConstants
 {
 	private String jobName;
 	private String jobGroup = Scheduler.DEFAULT_GROUP;
@@ -44,7 +47,9 @@ public class BasicSchedulerExecuter
 		{
 			return;
 		}
-				
+			
+		Logger.info(BasicSchedulerExecuter.class, "--- Quartz Scheduler Initialization Start ---");
+
 		try
 		{
 			QuartzSchedulerFactory factory = new QuartzSchedulerFactory();
@@ -54,6 +59,30 @@ public class BasicSchedulerExecuter
 		{
 			e.printStackTrace();
 		}
+		
+		Logger.info(BasicSchedulerExecuter.class, "---- Quartz Scheduler Initialization End ----");
+	}
+	
+	public BasicSchedulerExecuter(String filePath)
+	{
+		if (scheduler != null)
+		{
+			return;
+		}
+			
+		Logger.info(BasicSchedulerExecuter.class, "--- Quartz Scheduler Initialization Start ---");
+		
+		try
+		{
+			QuartzSchedulerFactory factory = new QuartzSchedulerFactory(filePath);
+			scheduler = factory.getScheduler();
+		}
+		catch (SchedulerException e)
+		{
+			e.printStackTrace();
+		}
+		
+		Logger.info(BasicSchedulerExecuter.class, "---- Quartz Scheduler Initialization End ----");
 	}
 	
 	public BasicSchedulerExecuter(Properties properties)
@@ -62,7 +91,9 @@ public class BasicSchedulerExecuter
 		{
 			return;
 		}
-				
+		
+		Logger.info(BasicSchedulerExecuter.class, "--- Quartz Scheduler Initialization Start ---");
+		
 		try
 		{
 			QuartzSchedulerFactory factory = new QuartzSchedulerFactory(properties);
@@ -72,24 +103,8 @@ public class BasicSchedulerExecuter
 		{
 			e.printStackTrace();
 		}
-	}
-	
-	public BasicSchedulerExecuter(String fileName)
-	{
-		if (scheduler != null)
-		{
-			return;
-		}
-				
-		try
-		{
-			QuartzSchedulerFactory factory = new QuartzSchedulerFactory(fileName);
-			scheduler = factory.getScheduler();
-		}
-		catch (SchedulerException e)
-		{
-			e.printStackTrace();
-		}
+		
+		Logger.info(BasicSchedulerExecuter.class, "---- Quartz Scheduler Initialization End ----");		                                          
 	}
 	
 	public void scheduleJob()

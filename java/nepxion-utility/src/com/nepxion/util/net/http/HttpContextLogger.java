@@ -19,10 +19,11 @@ public class HttpContextLogger
 {
 	public static void log(LinkedHashMap httpConfigMap)
 	{
-		Logger.info(HttpContextLogger.class, "--------- Http Context Initialize ---------");
+		int index = 0;
+		int size = httpConfigMap.keySet().size() - 1;
 		for (Iterator iterator = httpConfigMap.keySet().iterator(); iterator.hasNext();)
 		{
-			String alias = (String) iterator.next();
+			String alias = (String) iterator.next();			
 			HttpConfig httpConfig = (HttpConfig) httpConfigMap.get(alias);
 			Logger.info(HttpContextLogger.class, "Alias : " + httpConfig.getAlias());
 			Logger.info(HttpContextLogger.class, "Host : " + httpConfig.getHost());
@@ -31,7 +32,11 @@ public class HttpContextLogger
 			Logger.info(HttpContextLogger.class, "Connection TimeOut : " + httpConfig.getConnectionTimeOut());
 			Logger.info(HttpContextLogger.class, "Response TimeOut : " + httpConfig.getResponseTimeOut());
 			Logger.info(HttpContextLogger.class, "Buffer Size : " + httpConfig.getBufferSize());
-			Logger.info(HttpContextLogger.class, "-------------------------------------------");
-		}	
+			if (index < size)
+			{	
+				Logger.info(HttpContextLogger.class, "---------------------------------------------");
+			}
+			index++;
+		}		
 	}
 }
