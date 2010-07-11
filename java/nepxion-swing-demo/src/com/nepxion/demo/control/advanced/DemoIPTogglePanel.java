@@ -14,7 +14,7 @@ import javax.swing.Icon;
 
 import com.nepxion.demo.common.DemoTogglePanel;
 import com.nepxion.demo.common.DemoToggleTemplate;
-import com.nepxion.demo.component.gis.google.DemoCoordinatePanel;
+import com.nepxion.demo.component.ip.DemoIPPanel;
 import com.nepxion.swing.icon.IconFactory;
 import com.nepxion.swing.tabbedpane.JEclipseTabbedPane;
 
@@ -24,8 +24,9 @@ public class DemoIPTogglePanel
 	public DemoIPTogglePanel()
 	{
 		JEclipseTabbedPane toggleTabbedPane = getToggleTabbedPane();
-		toggleTabbedPane.addTab("模糊查询地理位置", IconFactory.getSwingIcon("component/advanced_16.png"), new DemoToggleTemplate(new DemoCoordinatePanel()), "模糊查询地理位置");
-		toggleTabbedPane.addTab("根据经纬度查询地理位置", IconFactory.getSwingIcon("component/advanced_16.png"), new DemoToggleTemplate(new DemoCoordinatePanel()), "根据经纬度查询地理位置");
+		
+		toggleTabbedPane.addTab("根据IP地址搜索地理位置", IconFactory.getSwingIcon("component/advanced_16.png"), new DemoToggleTemplate(new DemoIPPanel()), "根据经纬度查询地理位置");
+		toggleTabbedPane.addTab("根据地理位置搜索IP地址", IconFactory.getSwingIcon("component/advanced_16.png"), new DemoToggleTemplate(new DemoIPPanel()), "根据经纬度查询地理位置");
 	}
 	
 	public String getToggleName()

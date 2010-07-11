@@ -37,7 +37,7 @@ public class DemoCellPanel
 		public CellPanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "根据移动信息查询地理位置"));
+			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "根据移动信息搜索地理位置"));
 			
 			JCellPanel cellPanel = new JCellPanel();
 			cellPanel.setCellID(19625);

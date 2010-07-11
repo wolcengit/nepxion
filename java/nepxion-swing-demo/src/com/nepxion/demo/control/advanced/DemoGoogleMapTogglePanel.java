@@ -25,9 +25,9 @@ public class DemoGoogleMapTogglePanel
 	public DemoGoogleMapTogglePanel()
 	{
 		JEclipseTabbedPane toggleTabbedPane = getToggleTabbedPane();
-		toggleTabbedPane.addTab("模糊查询地理位置", IconFactory.getSwingIcon("component/advanced_16.png"), new DemoToggleTemplate(new DemoCoordinatePanel()), "模糊查询地理位置");
-		toggleTabbedPane.addTab("根据经纬度查询地理位置", IconFactory.getSwingIcon("component/advanced_16.png"), new DemoToggleTemplate(new DemoCoordinatePanel()), "根据经纬度查询地理位置");				
-		toggleTabbedPane.addTab("根据移动信息查询地理位置", IconFactory.getSwingIcon("component/advanced_16.png"), new DemoToggleTemplate(new DemoCellPanel()), "根据移动信息查询地理位置");
+		toggleTabbedPane.addTab("模糊搜索地理位置", IconFactory.getSwingIcon("component/advanced_16.png"), new DemoToggleTemplate(new DemoCoordinatePanel()), "模糊搜索地理位置");
+		toggleTabbedPane.addTab("根据经纬度搜索地理位置", IconFactory.getSwingIcon("component/advanced_16.png"), new DemoToggleTemplate(new DemoCoordinatePanel()), "根据经纬度搜索地理位置");				
+		toggleTabbedPane.addTab("根据移动信息搜索地理位置", IconFactory.getSwingIcon("component/advanced_16.png"), new DemoToggleTemplate(new DemoCellPanel()), "根据移动信息搜索地理位置");
 	}
 	
 	public String getToggleName()
