@@ -92,7 +92,7 @@ public class DemoSelectorMenuButtonPanel
 				}
 			};
 						
-			String text = FileUtil.read("zone.properties", true);
+			String text = FileUtil.readString("zone.properties", true);
 			
 			ElementNode root = null;		
 			try
