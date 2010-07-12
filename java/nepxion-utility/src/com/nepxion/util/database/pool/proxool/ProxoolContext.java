@@ -22,13 +22,13 @@ public class ProxoolContext
 	implements ProxoolConstants
 {
 	public static void register()
-		throws Exception
+		throws ProxoolException
 	{
 		register(CONFIG_FILE_PATH);
 	}
 	
 	public static void register(String filePath)
-		throws Exception
+		throws ProxoolException
 	{
 		Logger.info(ProxoolContext.class, "---- Proxool Context Initialization Start ---");
 		
@@ -46,7 +46,7 @@ public class ProxoolContext
 	}
 	
 	public static void register(Properties properties)
-		throws Exception
+		throws ProxoolException
 	{
 		Logger.info(ProxoolContext.class, "---- Proxool Context Initialization Start ---");
 		
