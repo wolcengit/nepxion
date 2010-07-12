@@ -18,17 +18,17 @@ public class ExceptionUtil
 {
 	public static String getText(Exception e)
 	{
-		ByteArrayOutputStream out = new ByteArrayOutputStream();
-		e.printStackTrace(new PrintStream(out));
+		ByteArrayOutputStream baos = new ByteArrayOutputStream();
+		e.printStackTrace(new PrintStream(baos));
 		try
 		{
-			out.flush();
-			out.close();
+			baos.flush();
+			baos.close();
 		}
 		catch (IOException ex)
 		{
 			ex.printStackTrace();
 		}		
-		return new String(out.toByteArray()).trim();
+		return new String(baos.toByteArray()).trim();
 	}
 }

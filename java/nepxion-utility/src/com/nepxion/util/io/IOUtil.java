@@ -238,6 +238,8 @@ public class IOUtil
 		/*ByteArrayOutputStream baos = new ByteArrayOutputStream();
 		ObjectOutputStream oos = new ObjectOutputStream(baos);
 		oos.writeObject(object);
+		oos.flush();
+		baos.flush();
 		oos.close();
 		baos.close();
 		

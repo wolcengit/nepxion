@@ -60,6 +60,8 @@ public class Dom4JWriter
 		OutputFormat outputFormat = new OutputFormat("  ", true, charset);
 		XMLWriter writer = new XMLWriter(baos, outputFormat);
 		writer.write(document);
+		baos.flush();
+		baos.close();
 		return baos.toString(charset);
 	}
 }

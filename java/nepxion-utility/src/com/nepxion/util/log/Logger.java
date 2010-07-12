@@ -10,12 +10,10 @@ package com.nepxion.util.log;
  * @version 1.0
  */
 
-import java.io.ByteArrayOutputStream;
-import java.io.PrintStream;
-
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
+import com.nepxion.util.exception.ExceptionUtil;
 import com.nepxion.util.time.TimeUtil;
 
 public class Logger
@@ -228,35 +226,9 @@ public class Logger
 		System.out.println(TimeUtil.getCurrentTime() + " : " + message);
 	}
 		
-	public static void print(Exception exception)
-	{
-		ByteArrayOutputStream bos = new ByteArrayOutputStream();
-		try
-		{
-			exception.printStackTrace(new PrintStream(bos));
-			bos.close();
-		}
-		catch (Exception ex)
-		{
-			ex.printStackTrace();
-		}
-		
+	public static void print(Exception e)
+	{		
 		System.out.print(TimeUtil.getCurrentTime() + " : ");
-		System.err.println(new String(bos.toByteArray()).trim());
+		System.err.println(ExceptionUtil.getText(e));
 	}	
-	
-	public static void main(String[] args)
-	{
-		for (int i = 0; i < 5; i++)
-		{		
-			try
-			{
-				Integer.parseInt("abc");
-			}
-			catch (NumberFormatException e)
-			{
-				Logger.fatal(Logger.class.getName(), "abc", e);
-			}
-		}
-	}
 }
