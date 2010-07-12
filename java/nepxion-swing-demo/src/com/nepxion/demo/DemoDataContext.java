@@ -28,11 +28,12 @@ public class DemoDataContext
 		{
 			// HttpContext.register();
 			// ProxoolContext.register();
+			// QuartzContext.register();
 		}
 		catch (Exception e)
 		{
 			e.printStackTrace();
-		}
+		}		
 		EncodeContext.registerIOCharset("GBK");
 		EncodeContext.registerHttpCharset("UTF-8");
 		ActiveXContext.registerStrategy(ActiveXContext.STRATEGY_APPLICATION);
@@ -44,6 +45,7 @@ public class DemoDataContext
 		{
 			// HttpContext.register(codeBase);
 			// ProxoolContext.register(codeBase);
+			// QuartzContext.register(codeBase);
 		}
 		catch (Exception e)
 		{
