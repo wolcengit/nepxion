@@ -21,8 +21,7 @@ public class CloneUtil
 	 */
 	public static Object deepClone(Object object)
 	{
-		Object cloneObject = IOUtil.deepClone(object);
-		return cloneObject;
+		return IOUtil.deepClone(object);
 	}
 	
 	public static void main(String[] args)
