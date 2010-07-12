@@ -30,7 +30,7 @@ public class ServerInvoker
 	public static final int REQUEST_ENTITY_TYPE_PARAMETER = 0;
 	public static final int REQUEST_ENTITY_TYPE_STRING = 1;
 	public static final int REQUEST_ENTITY_TYPE_SERIALIZABLE = 2;
-
+	
 	private int requestEntityType = REQUEST_ENTITY_TYPE_SERIALIZABLE;
 	private String charset = EncodeContext.getHttpCharset();
 	
@@ -49,59 +49,51 @@ public class ServerInvoker
 	public void doExecute(HttpServletRequest request, HttpServletResponse response, String method)
 		throws ServletException, IOException
 	{
-		try
+		Object requestObject = null;
+		switch (requestEntityType)
 		{
-			Object requestObject = null;
-			switch (requestEntityType)
+			case REQUEST_ENTITY_TYPE_PARAMETER:
 			{
-				case REQUEST_ENTITY_TYPE_PARAMETER :
-				{						
-					Map parameters = new HashMap();
-					for (Enumeration enumeration = request.getParameterNames(); enumeration.hasMoreElements();)
+				Map parameters = new HashMap();
+				for (Enumeration enumeration = request.getParameterNames(); enumeration.hasMoreElements();)
+				{
+					String key = (String) enumeration.nextElement();
+					String value = request.getParameter(key);
+					
+					if (method.equals("Get"))
 					{
-						String key = (String) enumeration.nextElement();
-						String value = request.getParameter(key);
-						
-						if (method.equals("Get"))
-						{	
-							value = EncodeUtil.format(value, charset);
-						}						
-						parameters.put(key, value);
-					}	
-					requestObject = parameters;
-					ServerInvokerLogger.requestLog(method, charset, "List - [URL Parameter]", requestObject);
-					break;
-				}	
-				case REQUEST_ENTITY_TYPE_STRING :
-				{	
-					requestObject = IOUtil.getString(request.getInputStream(), charset);
-					ServerInvokerLogger.requestLog(method, charset, "String - [Text, XML, JSON, Properties ...]", requestObject);
-					break;
+						value = EncodeUtil.format(value, charset);
+					}
+					parameters.put(key, value);
 				}
-				case REQUEST_ENTITY_TYPE_SERIALIZABLE :
-				{	
-					requestObject = IOUtil.read(request.getInputStream());
-					ServerInvokerLogger.requestLog(method, "Serializable Entity", requestObject);
-					break;
-				}	
+				requestObject = parameters;
+				ServerInvokerLogger.requestLog(method, charset, "List - [URL Parameter]", requestObject);
+				break;
 			}
-			
-			Object responseObject = invoke(requestObject, request, response);
-			if (responseObject != null)
-			{	
-				ServerInvokerLogger.responseLog("Serializable Entity", responseObject);
-				
-				IOUtil.write(response.getOutputStream(), responseObject);
-			}
-			else
+			case REQUEST_ENTITY_TYPE_STRING:
 			{
-				ServerInvokerLogger.responseLog("Unknown Entity", "Invoked By Another Course - [OutputStream, PrintWriter ...]");
+				requestObject = IOUtil.getString(request.getInputStream(), charset);
+				ServerInvokerLogger.requestLog(method, charset, "String - [Text, XML, JSON, Properties ...]", requestObject);
+				break;
+			}
+			case REQUEST_ENTITY_TYPE_SERIALIZABLE:
+			{
+				requestObject = IOUtil.read(request.getInputStream());
+				ServerInvokerLogger.requestLog(method, "Serializable Entity", requestObject);
+				break;
 			}
 		}
-		catch (ClassNotFoundException e)
+		
+		Object responseObject = invoke(requestObject, request, response);
+		if (responseObject != null)
 		{
-			e.printStackTrace();
-			throw new IOException(e.toString());
+			ServerInvokerLogger.responseLog("Serializable Entity", responseObject);
+			
+			IOUtil.write(response.getOutputStream(), responseObject);
+		}
+		else
+		{
+			ServerInvokerLogger.responseLog("Unknown Entity", "Invoked By Another Course - [OutputStream, PrintWriter ...]");
 		}
 	}
 	
