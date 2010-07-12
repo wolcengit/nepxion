@@ -19,6 +19,7 @@ import java.io.InputStreamReader;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.OutputStream;
+import java.io.UnsupportedEncodingException;
 
 import com.nepxion.util.encode.EncodeContext;
 
@@ -28,30 +29,44 @@ public class IOUtil
 	 * Write Object by OutputStream
 	 * @param outputStream  the instance of OutputStream
 	 * @param object        the instance of Object
-	 * @throws              IOException
 	 */
 	public static void write(OutputStream outputStream, Object object)
-		throws IOException
 	{
-		ObjectOutputStream oos = new ObjectOutputStream(outputStream);
-		oos.writeObject(object);
-		oos.flush();
-		oos.close();
+		try
+		{
+			ObjectOutputStream oos = new ObjectOutputStream(outputStream);
+			oos.writeObject(object);
+			oos.flush();
+			oos.close();
+		}
+		catch (IOException e)
+		{
+			e.printStackTrace();
+		}
 	}
 	
 	/**
 	 * Read Object by InputStream
 	 * @param inputStream  the instance of InputStream
 	 * @return             the instance of Object
-	 * @throws             IOException
-	 * @throws             ClassNotFoundException
 	 */
 	public static Object read(InputStream inputStream)
-		throws IOException, ClassNotFoundException
 	{
-		ObjectInputStream ois = new ObjectInputStream(inputStream);
-		Object object = ois.readObject();
-		ois.close();
+		Object object = null;
+		try
+		{
+			ObjectInputStream ois = new ObjectInputStream(inputStream);
+			object = ois.readObject();
+			ois.close();
+		}
+		catch (IOException e)
+		{
+			e.printStackTrace();
+		}
+		catch (ClassNotFoundException e)
+		{
+			e.printStackTrace();
+		}
 		return object;
 	}
 	
@@ -59,14 +74,20 @@ public class IOUtil
 	 * Write Object by ByteArrayOutputStream
 	 * @param object  the instance of Object
 	 * @return        the instance of ByteArrayOutputStream
-	 * @throws        IOException
 	 */
 	public static ByteArrayOutputStream write(Object object)
-		throws IOException
 	{
 		ByteArrayOutputStream baos = new ByteArrayOutputStream();
 		write(baos, object);
-		baos.close();
+		try
+		{
+			baos.flush();
+			baos.close();
+		}
+		catch (IOException e)
+		{
+			e.printStackTrace();
+		}
 		return baos;
 	}
 	
@@ -74,15 +95,19 @@ public class IOUtil
 	 * Read Object by ByteArrayOutputStream
 	 * @param outputStream  the instance of ByteArrayOutputStream
 	 * @return              the instance of Object
-	 * @throws              IOException
-	 * @throws              ClassNotFoundException
 	 */
 	public static Object read(ByteArrayOutputStream outputStream)
-		throws IOException, ClassNotFoundException
 	{
 		ByteArrayInputStream bais = new ByteArrayInputStream(outputStream.toByteArray());
 		Object object = read(bais);
-		bais.close();
+		try
+		{
+			bais.close();
+		}
+		catch (IOException e)
+		{
+			e.printStackTrace();
+		}
 		return object;
 	}
 	
@@ -90,10 +115,8 @@ public class IOUtil
 	 * Get ByteArrayInputStream by Object
 	 * @param object  the instance of Object
 	 * @return        the instance of ByteArrayInputStream
-	 * @throws        IOException
 	 */
 	public static ByteArrayInputStream getInputStream(Object object)
-		throws IOException
 	{
 		ByteArrayOutputStream baos = write(object);
 		
@@ -105,11 +128,8 @@ public class IOUtil
 	 * Get Object by InputStream
 	 * @param inputStream  the instance of InputStream
 	 * @return             the instance of Object
-	 * @throws             IOException
-	 * @throws             ClassNotFoundException
 	 */
 	public static Object getObject(InputStream inputStream)
-		throws IOException, ClassNotFoundException
 	{
 		return read(inputStream);
 	}
@@ -129,10 +149,8 @@ public class IOUtil
 	 * Get String by InputStream
 	 * @param inputStream  the instance of InputStream
 	 * @return             the instance of String
-	 * @throws             IOException
 	 */
 	public static String getString(InputStream inputStream)
-		throws IOException
 	{
 		return getString(inputStream, EncodeContext.getIOCharset());
 	}
@@ -142,21 +160,30 @@ public class IOUtil
 	 * @param inputStream  the instance of InputStream
 	 * @param charset      the charset text, example "ISO-8859-1", "UTF-8", "GBK", "GB2312"
 	 * @return             the instance of String
-	 * @throws             IOException
 	 */
 	public static String getString(InputStream inputStream, String charset)
-		throws IOException
 	{
 		StringBuffer stringBuffer = new StringBuffer();
-		InputStreamReader inputStreamReader = new InputStreamReader(inputStream, charset);
-		
-		char[] bytes = new char[4096];
-		int index = -1;
-		while ((index = inputStreamReader.read(bytes)) != -1)
+		try
 		{
-			stringBuffer.append(new String(bytes, 0, index));
+			InputStreamReader inputStreamReader = new InputStreamReader(inputStream, charset);
+			
+			char[] bytes = new char[4096];
+			int index = -1;
+			while ((index = inputStreamReader.read(bytes)) != -1)
+			{
+				stringBuffer.append(new String(bytes, 0, index));
+			}
+			inputStreamReader.close();
 		}
-		inputStreamReader.close();
+		catch (UnsupportedEncodingException e)
+		{
+			e.printStackTrace();
+		}
+		catch (IOException e)
+		{
+			e.printStackTrace();
+		}
 		return stringBuffer.toString().trim();
 	}
 	
@@ -164,10 +191,8 @@ public class IOUtil
 	 * Read String by InputStream
 	 * @param inputStream  the instance of InputStream
 	 * @return             the instance of String
-	 * @throws             IOException
 	 */
-	public static String readString(InputStream inputStream)
-		throws IOException	
+	public static String readString(InputStream inputStream)	
 	{
 		return readString(inputStream, EncodeContext.getIOCharset());
 	}
@@ -177,20 +202,29 @@ public class IOUtil
 	 * @param inputStream  the instance of InputStream
 	 * @param charset      the charset text, example "ISO-8859-1", "UTF-8", "GBK", "GB2312"
 	 * @return             the instance of String
-	 * @throws             IOException
 	 */
 	public static String readString(InputStream inputStream, String charset)
-		throws IOException	
 	{
 		StringBuffer stringBuffer = new StringBuffer();
-		BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream, charset));
-		
-		String line = null;
-		while ((line = bufferedReader.readLine()) != null)
+		try
 		{
-			stringBuffer.append(line + "\n");
+			BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream, charset));
+			
+			String line = null;
+			while ((line = bufferedReader.readLine()) != null)
+			{
+				stringBuffer.append(line + "\n");
+			}
+			bufferedReader.close();
 		}
-		bufferedReader.close();
+		catch (UnsupportedEncodingException e)
+		{
+			e.printStackTrace();
+		}
+		catch (IOException e)
+		{
+			e.printStackTrace();
+		}
 		return stringBuffer.toString().trim();
 	}
 	
@@ -198,11 +232,8 @@ public class IOUtil
 	 * Get deep clone object
 	 * @param object  the origin
 	 * @return        the clone object
-	 * @throws        IOException
-	 * @throws        ClassNotFoundException
 	 */
 	public static Object deepClone(Object object)
-		throws IOException, ClassNotFoundException
 	{		
 		/*ByteArrayOutputStream baos = new ByteArrayOutputStream();
 		ObjectOutputStream oos = new ObjectOutputStream(baos);
@@ -224,45 +255,18 @@ public class IOUtil
 	public static void main(String[] args)
 	{
 		String[] array = {"Value1", "Value2", "Value3"};
-		InputStream arrayInputStream = null;
-		try
-		{
-			arrayInputStream = getInputStream(array);
-		}
-		catch (IOException e)
-		{
-			e.printStackTrace();
-		}
+		InputStream arrayInputStream = getInputStream(array);
 		System.out.println("getInputStream() : " + arrayInputStream);
 		
-		String[] object = null;
-		try
-		{
-			object = (String[]) getObject(arrayInputStream);
-		}
-		catch (IOException e)
-		{
-			e.printStackTrace();
-		}
-		catch (ClassNotFoundException e)
-		{
-			e.printStackTrace();
-		}
+		String[] object = (String[]) getObject(arrayInputStream);
 		System.out.println("getObject() : [" + object[0] + ", " + object[1] + ", " + object[2] + "]");
 		
 		String text = "Value1, Value2, Value3";
 		InputStream stringInputStream = getInputStream(text);
 		System.out.println("getInputStream() : " + stringInputStream);
 		
-		String string = null;
-		try
-		{
-			string = getString(stringInputStream, "UTF-8");
-		}
-		catch (IOException e)
-		{
-			e.printStackTrace();
-		}
+		String string = getString(stringInputStream, "UTF-8");
+
 		System.out.println("getString() : " + string);
 	}
 }

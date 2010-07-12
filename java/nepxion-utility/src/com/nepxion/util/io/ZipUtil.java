@@ -11,7 +11,6 @@ package com.nepxion.util.io;
  */
 
 import java.io.BufferedReader;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
@@ -94,21 +93,7 @@ public class ZipUtil
 	{
 		try
 		{
-			InputStream inputStream = null;
-			if (classLoader)
-			{
-				inputStream = ZipUtil.class.getClassLoader().getResourceAsStream(filePath);
-			}
-			else
-			{
-				inputStream = new FileInputStream(filePath);
-			}
-			
-			if (inputStream == null)
-			{
-				return null;
-			}
-			
+			InputStream inputStream = FileUtil.getInputStream(filePath, classLoader);			
 			InputStream zipInputStream = new GZIPInputStream(inputStream);
 			return new BufferedReader(new InputStreamReader(zipInputStream, charset));
 		}
