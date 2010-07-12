@@ -10,8 +10,6 @@ package com.nepxion.util.data;
  * @version 1.0
  */
 
-import java.io.IOException;
-
 import com.nepxion.util.io.IOUtil;
 
 public class CloneUtil
@@ -23,19 +21,7 @@ public class CloneUtil
 	 */
 	public static Object deepClone(Object object)
 	{
-		Object cloneObject = null;
-		try
-		{
-			cloneObject = IOUtil.deepClone(object);
-		}
-		catch (IOException e)
-		{
-			e.printStackTrace();
-		}
-		catch (ClassNotFoundException e)
-		{
-			e.printStackTrace();
-		}
+		Object cloneObject = IOUtil.deepClone(object);
 		return cloneObject;
 	}
 	
