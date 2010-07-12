@@ -11,6 +11,7 @@ package com.nepxion.util.exception;
  */
 
 import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.io.PrintStream;
 
 public class ExceptionUtil
@@ -18,15 +19,16 @@ public class ExceptionUtil
 	public static String getText(Exception e)
 	{
 		ByteArrayOutputStream out = new ByteArrayOutputStream();
+		e.printStackTrace(new PrintStream(out));
 		try
 		{
-			e.printStackTrace(new PrintStream(out));
+			out.flush();
 			out.close();
 		}
-		catch (Exception ex)
+		catch (IOException ex)
 		{
 			ex.printStackTrace();
-		}
+		}		
 		return new String(out.toByteArray()).trim();
 	}
 }
