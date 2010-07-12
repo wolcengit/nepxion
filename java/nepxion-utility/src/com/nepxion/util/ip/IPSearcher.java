@@ -50,7 +50,14 @@ public class IPSearcher
 	
 	public IPSearcher(String filePath)
 		throws Exception
-	{
+	{		
+		ipCache = new HashMap();
+		ipStringBuffer = new StringBuffer();
+		ipLocation = new IPLocation();
+		buffer = new byte[1000];
+		b3 = new byte[3];
+		b4 = new byte[4];
+	
 		try
 		{
 			ipFile = new RandomAccessFile(filePath, "r");
@@ -79,13 +86,6 @@ public class IPSearcher
 				throw new Exception("Invalid IP data format file", e);	
 			}
 		}
-		
-		ipCache = new HashMap();
-		ipStringBuffer = new StringBuffer();
-		ipLocation = new IPLocation();
-		buffer = new byte[1000];
-		b3 = new byte[3];
-		b4 = new byte[4];
 	}
 	
 	public List getIPEntityListDebug(String ipString)

@@ -11,15 +11,13 @@ package com.nepxion.util.scheduler.quartz.basic;
  */
 
 import java.util.Date;
-import java.util.Properties;
 
 import org.quartz.Scheduler;
 import org.quartz.SchedulerException;
 
-import com.nepxion.util.log.Logger;
 import com.nepxion.util.scheduler.quartz.QuartzConstants;
+import com.nepxion.util.scheduler.quartz.QuartzContext;
 import com.nepxion.util.scheduler.quartz.QuartzJobDetail;
-import com.nepxion.util.scheduler.quartz.QuartzSchedulerFactory;
 
 public class BasicSchedulerExecuter
 	implements QuartzConstants
@@ -43,68 +41,7 @@ public class BasicSchedulerExecuter
 	
 	public BasicSchedulerExecuter()
 	{
-		if (scheduler != null)
-		{
-			return;
-		}
-			
-		Logger.info(BasicSchedulerExecuter.class, "--- Quartz Scheduler Initialization Start ---");
-
-		try
-		{
-			QuartzSchedulerFactory factory = new QuartzSchedulerFactory();
-			scheduler = factory.getScheduler();
-		}
-		catch (SchedulerException e)
-		{
-			e.printStackTrace();
-		}
-		
-		Logger.info(BasicSchedulerExecuter.class, "---- Quartz Scheduler Initialization End ----");
-	}
-	
-	public BasicSchedulerExecuter(String filePath)
-	{
-		if (scheduler != null)
-		{
-			return;
-		}
-			
-		Logger.info(BasicSchedulerExecuter.class, "--- Quartz Scheduler Initialization Start ---");
-		
-		try
-		{
-			QuartzSchedulerFactory factory = new QuartzSchedulerFactory(filePath);
-			scheduler = factory.getScheduler();
-		}
-		catch (SchedulerException e)
-		{
-			e.printStackTrace();
-		}
-		
-		Logger.info(BasicSchedulerExecuter.class, "---- Quartz Scheduler Initialization End ----");
-	}
-	
-	public BasicSchedulerExecuter(Properties properties)
-	{
-		if (scheduler != null)
-		{
-			return;
-		}
-		
-		Logger.info(BasicSchedulerExecuter.class, "--- Quartz Scheduler Initialization Start ---");
-		
-		try
-		{
-			QuartzSchedulerFactory factory = new QuartzSchedulerFactory(properties);
-			scheduler = factory.getScheduler();
-		}
-		catch (SchedulerException e)
-		{
-			e.printStackTrace();
-		}
-		
-		Logger.info(BasicSchedulerExecuter.class, "---- Quartz Scheduler Initialization End ----");		                                          
+		scheduler = QuartzContext.getScheduler();	
 	}
 	
 	public void scheduleJob()
