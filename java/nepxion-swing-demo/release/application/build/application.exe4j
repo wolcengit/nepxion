@@ -26,6 +26,8 @@
       <archive location="./lib/nepxion-util.jar" failOnError="false" />
       <archive location="./lib/nepxion-swing.jar" failOnError="false" />
       <archive location="./lib/nepxion-swing-demo.jar" failOnError="false" />
+      <directory location="./conf" failOnError="false" />
+      <directory location="./data" failOnError="false" />
     </classPath>
     <nativeLibraryDirectories>
       <directory name="./lib/swing/native" />
