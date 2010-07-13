@@ -10,6 +10,7 @@ package com.nepxion.util.ip;
  * @version 1.0
  */
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.RandomAccessFile;
@@ -42,13 +43,37 @@ public class IPSearcher
 	private byte[] b3;
 	private byte[] b4;
 	
+	private static IPSearcher ipSearcher;
+	
+	public static IPSearcher getInstance()
+	{
+		if (ipSearcher == null)
+		{
+			try
+			{
+				ipSearcher = new IPSearcher();
+			}
+			catch (Exception e)
+			{
+				e.printStackTrace();
+			}
+		}	
+		return ipSearcher;
+	}
+	
 	public IPSearcher()
 		throws Exception
 	{
-		this("data/ip.dat");
+		this(IPContext.getFile());
 	}
 	
 	public IPSearcher(String filePath)
+		throws Exception
+	{	
+		this(new File(filePath));
+	}
+	
+	public IPSearcher(File file)
 		throws Exception
 	{		
 		ipCache = new HashMap();
@@ -60,7 +85,7 @@ public class IPSearcher
 	
 		try
 		{
-			ipFile = new RandomAccessFile(filePath, "r");
+			ipFile = new RandomAccessFile(file, "r");
 		}
 		catch (FileNotFoundException e)
 		{
@@ -132,12 +157,12 @@ public class IPSearcher
 				int value = readInt3(offset);
 				if (value != -1)
 				{
-					IPLocation ipLoc = getIPLocation(value);
-					if (ipLoc.getCountry().indexOf(ipString) != -1 || ipLoc.getRegion().indexOf(ipString) != -1)
+					IPLocation ipLocation = getIPLocation(value);
+					if (ipLocation.getCountry().indexOf(ipString) != -1 || ipLocation.getRegion().indexOf(ipString) != -1)
 					{
 						IPEntity entity = new IPEntity();
-						entity.setCountry(ipLoc.getCountry());
-						entity.setRegion(ipLoc.getRegion());
+						entity.setCountry(ipLocation.getCountry());
+						entity.setRegion(ipLocation.getRegion());
 						readIP(offset - 4, b4);
 						entity.setBeginIP(getString(b4));
 						readIP(value, b4);
@@ -555,6 +580,7 @@ public class IPSearcher
 			{
 				;
 			}
+			
 			if (i != 0)
 			{
 				return getString(buffer, 0, i, "GBK");
@@ -577,6 +603,7 @@ public class IPSearcher
 			{
 				;
 			}
+			   
 			if (i != 0)
 			{
 				return getString(buffer, 0, i, "GBK");

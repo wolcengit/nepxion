@@ -11,6 +11,7 @@ package com.nepxion.util.io;
  */
 
 import java.io.BufferedInputStream;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -49,45 +50,81 @@ public class FileUtil
 	}
 	
 	/**
-	 * Read the file bytes for binary
-	 * @param fileURL     the file url
-	 * @return            the file bytes
+	 * Read the file bytes
+	 * @param inputStream  the instance of InputStream
+	 * @param bytesLength  the bytes length
+	 * @return             the instance of byte[]   
 	 * @throws IOException
 	 */
-	public static byte[] readBinary(String fileURL)
+	public static byte[] readBytes(InputStream inputStream, int bytesLength)
 		throws IOException
-	{
-		URL url = new URL(fileURL);
-		URLConnection urlConnection = url.openConnection();
+	{		
+		InputStream bufferedInputStream = new BufferedInputStream(inputStream);
 		
-		String contentType = urlConnection.getContentType();
-		int contentLength = urlConnection.getContentLength();
-		if (contentType.startsWith("text/") || contentLength == -1)
-		{
-			throw new IOException("This isn't a binary file");
-		}
-		
-		InputStream inputStream = urlConnection.getInputStream();
-		InputStream bis = new BufferedInputStream(inputStream);
-		byte[] bytes = new byte[contentLength];
+		byte[] bytes = new byte[bytesLength];
 		int bytesRead = 0;
 		int offset = 0;
-		while (offset < contentLength)
+		while (offset < bytesLength)
 		{
-			bytesRead = bis.read(bytes, offset, bytes.length - offset);
+			bytesRead = bufferedInputStream.read(bytes, offset, bytes.length - offset);
 			if (bytesRead == -1)
 			{	
 				break;
 			}
 			offset += bytesRead;
 		}
-		bis.close();
 		
-		if (offset != contentLength)
+		bufferedInputStream.close();
+		
+		if (offset != bytesLength)
 		{
-			throw new IOException("Only " + offset + " bytes read, " + contentLength + " bytes expected");
+			throw new IOException("Only " + offset + " bytes read, " + bytesLength + " bytes expected");
 		}
 		return bytes;
+	}
+	
+	/**
+	 * Read the remote bytes
+	 * @param httpURL   the http url
+	 * @return          the file bytes
+	 * @throws IOException
+	 */
+	public static byte[] readRemoteBytes(String httpURL)
+		throws IOException
+	{
+		URL url = new URL(httpURL);
+		URLConnection urlConnection = url.openConnection();
+		
+		int contentLength = urlConnection.getContentLength();	
+		if (contentLength == -1)
+		{
+			throw new IOException("Invalid bytes size");
+		}
+		
+		InputStream inputStream = urlConnection.getInputStream();
+		
+		return readBytes(inputStream, contentLength);
+	}
+	
+	/**
+	 * Read the remote bytes length 
+	 * @param httpURL   the http url
+	 * @return          the file bytes
+	 * @throws IOException
+	 */
+	public static int readRemoteBytesLength(String httpURL)
+		throws IOException
+	{
+		URL url = new URL(httpURL);
+		URLConnection urlConnection = url.openConnection();
+		
+		int contentLength = urlConnection.getContentLength();	
+		if (contentLength == -1)
+		{
+			throw new IOException("Invalid bytes size");
+		}
+		
+		return contentLength;
 	}
 	
 	/**
@@ -99,16 +136,6 @@ public class FileUtil
 	{
 		byte[] bytes = text.trim().getBytes();
 		writeBytes(bytes, filePath );
-	}
-	
-	/**
-	 * Write file bytes for binary
-	 * @param text      the file bytes
-	 * @param filePath  the file path
-	 */
-	public static void writeBinary(byte[] bytes, String filePath)
-	{
-		writeBytes(bytes, filePath);
 	}
 	
 	/**
@@ -134,7 +161,7 @@ public class FileUtil
 			e.printStackTrace();
 		}
 	}
-	
+		
 	/**
 	 * Get InputStream
 	 * @param filePath     the file path
@@ -160,7 +187,83 @@ public class FileUtil
 			}
 		}
 		return inputStream;
+	}
+	
+	/**
+	 * Download file by http
+	 * @param httpURL   the http url
+	 * @param filePath  the file path
+	 * @return          the instance of File
+	 * @throws IOException
+	 */
+	public static File download(String httpURL, String filePath)
+		throws IOException
+	{
+		File file = new File(filePath);
+		
+		if (file != null && file.exists())
+		{	
+			if (readRemoteBytesLength(httpURL) == getFileSize(file))
+			{
+				return file;
+			}	
+			else
+			{
+				file.delete();
+			}
+		}
+		
+		byte[] bytes = readRemoteBytes(httpURL);
+		writeBytes(bytes, filePath);
+		
+		return file;
+	}
+	
+	public static void upload()
+	{
+		
 	}	
+	
+	/**
+	 * Get user directory
+	 * @return  the user directory
+	 */
+	public static String getUserDirectory()
+	{
+		return System.getProperty("user.dir");
+	}
+	
+	/**
+	 * Get temp directory
+	 * @return  the temp directory
+	 */
+	public static String getTempDirectory()
+	{
+		return System.getProperty("java.io.tmpdir");
+	}	
+	
+	/**
+	 * Get file size
+	 * @param file  the instance of File
+	 * @return      the file size
+	 */
+	public static long getFileSize(File file)
+	{		
+		try
+		{
+			InputStream inputStream = new FileInputStream(file);
+			return inputStream.available();
+		}
+		catch (FileNotFoundException e)
+		{
+			e.printStackTrace();
+		}
+		catch (IOException e)
+		{
+			e.printStackTrace();
+		}		
+		return -1;
+	}
 	
 	/**
 	 * Get the code project path

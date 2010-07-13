@@ -28,7 +28,7 @@ public class IPLocation
 	
 	public String getCountry()
 	{
-		return country;
+		return country.trim().equals("CZ88.NET") ?  "" : country.trim();
 	}
 	
 	public void setCountry(String country)
@@ -38,7 +38,7 @@ public class IPLocation
 	
 	public String getRegion()
 	{
-		return region;
+		return region.trim().equals("CZ88.NET") ?  "" : region.trim();
 	}
 	
 	public void setRegion(String region)
