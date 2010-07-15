@@ -17,7 +17,7 @@ import javax.swing.JPanel;
 import com.nepxion.swing.border.ComplexEtchedBorder;
 import com.nepxion.swing.border.ComplexSide;
 import com.nepxion.swing.border.ComplexTitleBorder;
-import com.nepxion.swing.ip.JIPPanel;
+import com.nepxion.swing.searcher.wry.ip.JIPPanel;
 
 public class DemoIPPanel
 	extends JPanel

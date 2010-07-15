@@ -92,31 +92,31 @@ public class DemoSelectorMenuButtonPanel
 				}
 			};
 						
-			String text = FileUtil.readString("zone.properties", true);
-			
-			ElementNode root = null;		
-			try
-			{			
-				Dom4JTreeParser parser = new Dom4JTreeParser();
-				parser.setNameTag("code");
-				parser.setTextTag("name");
-				root = parser.parse(text);
-			}
-			catch (DocumentException e)
-			{
-				e.printStackTrace();
-			}
-			
-			DefaultTreeModel treeModel = new DefaultTreeModel(root);
-			tree.setModel(treeModel);			
-			tree.setCellRenderer(new TreeElementCellRenderer(TreeElementCellRenderer.NIMBUS_STYLE, 20));
-			tree.setSelectionMode(JBasicTree.SINGLE_TREE_SELECTION);			
-			// tree.expandAll();
-			
-			JScrollPane scrollPane = new JScrollPane(tree);
-			scrollPane.setPreferredSize(new Dimension(300, 300));
-			
-			setContentPane(scrollPane);
+//			String text = FileUtil.readString("zone.properties", true);
+//			
+//			ElementNode root = null;		
+//			try
+//			{			
+//				Dom4JTreeParser parser = new Dom4JTreeParser();
+//				parser.setNameTag("code");
+//				parser.setTextTag("name");
+//				root = parser.parse(text);
+//			}
+//			catch (DocumentException e)
+//			{
+//				e.printStackTrace();
+//			}
+//			
+//			DefaultTreeModel treeModel = new DefaultTreeModel(root);
+//			tree.setModel(treeModel);			
+//			tree.setCellRenderer(new TreeElementCellRenderer(TreeElementCellRenderer.NIMBUS_STYLE, 20));
+//			tree.setSelectionMode(JBasicTree.SINGLE_TREE_SELECTION);			
+//			// tree.expandAll();
+//			
+//			JScrollPane scrollPane = new JScrollPane(tree);
+//			scrollPane.setPreferredSize(new Dimension(300, 300));
+//			
+//			setContentPane(scrollPane);
 		}
 		
 		public boolean confirm()

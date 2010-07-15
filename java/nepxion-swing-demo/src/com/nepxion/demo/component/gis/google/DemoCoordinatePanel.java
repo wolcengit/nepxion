@@ -17,7 +17,7 @@ import javax.swing.JPanel;
 import com.nepxion.swing.border.ComplexEtchedBorder;
 import com.nepxion.swing.border.ComplexSide;
 import com.nepxion.swing.border.ComplexTitleBorder;
-import com.nepxion.swing.gis.google.loc.JCoordinatePanel;
+import com.nepxion.swing.searcher.google.loc.JCoordinatePanel;
 
 public class DemoCoordinatePanel
 	extends JPanel

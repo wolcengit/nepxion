@@ -17,8 +17,8 @@ import javax.swing.JPanel;
 import com.nepxion.swing.border.ComplexEtchedBorder;
 import com.nepxion.swing.border.ComplexSide;
 import com.nepxion.swing.border.ComplexTitleBorder;
-import com.nepxion.swing.gis.google.loc.JCellPanel;
-import com.nepxion.util.gis.google.loc.LocConstants;
+import com.nepxion.swing.searcher.google.loc.JCellPanel;
+import com.nepxion.util.searcher.gis.google.loc.LocConstants;
 
 public class DemoCellPanel
 	extends JPanel
