@@ -77,8 +77,16 @@ public class NeteaseMobileSearcher
 		String province = "";
 		String city = "";
 		int index = location.indexOf(" ");
-		province = location.substring(0, index);
-		city = location.substring(index + 1).equals("") ? location : location.substring(index + 1);
+		if (index > -1)
+		{	
+			province = location.substring(0, index);
+			city = location.substring(index + 1).equals("") ? location : location.substring(index + 1);
+		}
+		else
+		{
+			province = location;
+			city = location;
+		}
 		mobileEntity.setProvince(province);
 		mobileEntity.setCity(city);
 		
