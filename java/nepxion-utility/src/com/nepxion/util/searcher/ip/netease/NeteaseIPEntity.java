@@ -54,7 +54,7 @@ public class NeteaseIPEntity
 	public void setRegion(String region)
 	{
 		this.region = region;
-	}	
+	}
 	
 	public String getLocation()
 	{
