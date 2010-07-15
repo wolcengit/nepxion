@@ -1,4 +1,4 @@
-package com.nepxion.demo.control.advanced;
+package com.nepxion.demo.control.application;
 
 /**
  * <p>Title: Nepxion Swing</p>
@@ -24,8 +24,8 @@ public class DemoMobileTogglePanel
 	public DemoMobileTogglePanel()
 	{
 		JEclipseTabbedPane toggleTabbedPane = getToggleTabbedPane();
-		toggleTabbedPane.addTab("模糊查询地理位置", IconFactory.getSwingIcon("component/advanced_16.png"), new DemoToggleTemplate(new DemoCoordinatePanel()), "模糊查询地理位置");
-		toggleTabbedPane.addTab("根据经纬度查询地理位置", IconFactory.getSwingIcon("component/advanced_16.png"), new DemoToggleTemplate(new DemoCoordinatePanel()), "根据经纬度查询地理位置");
+		toggleTabbedPane.addTab("模糊查询地理位置", IconFactory.getSwingIcon("component/application_16.png"), new DemoToggleTemplate(new DemoCoordinatePanel()), "模糊查询地理位置");
+		toggleTabbedPane.addTab("根据经纬度查询地理位置", IconFactory.getSwingIcon("component/application_16.png"), new DemoToggleTemplate(new DemoCoordinatePanel()), "根据经纬度查询地理位置");
 	}
 	
 	public String getToggleName()
@@ -35,12 +35,12 @@ public class DemoMobileTogglePanel
 	
 	public Icon getToggleIcon()
 	{
-		return IconFactory.getSwingIcon("component/advanced_32.png");
+		return IconFactory.getSwingIcon("component/application_32.png");
 	}
 	
 	public Icon getToggleBannerIcon()
 	{
-		return IconFactory.getSwingIcon("component/advanced_32.png");
+		return IconFactory.getSwingIcon("component/application_32.png");
 	}
 	
 	public String getToggleDescription()
