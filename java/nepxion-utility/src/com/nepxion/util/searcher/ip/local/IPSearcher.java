@@ -38,7 +38,7 @@ public class IPSearcher
 	private long ipBegin;
 	private long ipEnd;
 	
-	private IPLocation ipLocation;
+	private IPEntity ipEntity;
 	private byte[] buffer;
 	private byte[] b3;
 	private byte[] b4;
@@ -78,7 +78,7 @@ public class IPSearcher
 	{		
 		ipCache = new HashMap();
 		ipStringBuffer = new StringBuffer();
-		ipLocation = new IPLocation();
+		ipEntity = new IPEntity();
 		buffer = new byte[1000];
 		b3 = new byte[3];
 		b4 = new byte[4];
@@ -122,12 +122,12 @@ public class IPSearcher
 			long value = readLong3(offset);
 			if (value != -1)
 			{
-				IPLocation ipLocation = getIPLocation(value);
-				if (ipLocation.getCountry().indexOf(ipString) != -1 || ipLocation.getRegion().indexOf(ipString) != -1)
+				IPEntity ipEntity = getIPEntity(value);
+				if (ipEntity.getCountry().indexOf(ipString) != -1 || ipEntity.getRegion().indexOf(ipString) != -1)
 				{
 					IPEntity entity = new IPEntity();
-					entity.setCountry(ipLocation.getCountry());
-					entity.setRegion(ipLocation.getRegion());
+					entity.setCountry(ipEntity.getCountry());
+					entity.setRegion(ipEntity.getRegion());
 					readIP(offset - 4, b4);
 					entity.setBeginIP(getString(b4));
 					readIP(value, b4);
@@ -157,12 +157,12 @@ public class IPSearcher
 				int value = readInt3(offset);
 				if (value != -1)
 				{
-					IPLocation ipLocation = getIPLocation(value);
-					if (ipLocation.getCountry().indexOf(ipString) != -1 || ipLocation.getRegion().indexOf(ipString) != -1)
+					IPEntity ipEntity = getIPEntity(value);
+					if (ipEntity.getCountry().indexOf(ipString) != -1 || ipEntity.getRegion().indexOf(ipString) != -1)
 					{
 						IPEntity entity = new IPEntity();
-						entity.setCountry(ipLocation.getCountry());
-						entity.setRegion(ipLocation.getRegion());
+						entity.setCountry(ipEntity.getCountry());
+						entity.setRegion(ipEntity.getRegion());
 						readIP(offset - 4, b4);
 						entity.setBeginIP(getString(b4));
 						readIP(value, b4);
@@ -188,14 +188,14 @@ public class IPSearcher
 		String ipString = getString(ipBytes);
 		if (ipCache.containsKey(ipString))
 		{
-			IPLocation ipLocation = (IPLocation) ipCache.get(ipString);
-			return ipLocation.getCountry();
+			IPEntity ipEntity = (IPEntity) ipCache.get(ipString);
+			return ipEntity.getCountry();
 		}
 		else
 		{
-			IPLocation ipLocation = getIPLocation(ipBytes);
-			ipCache.put(ipString, ipLocation.clone());
-			return ipLocation.getCountry();
+			IPEntity ipEntity = getIPEntity(ipBytes);
+			ipCache.put(ipString, ipEntity.clone());
+			return ipEntity.getCountry();
 		}
 	}
 	
@@ -213,14 +213,14 @@ public class IPSearcher
 		String ipString = getString(ipBytes);
 		if (ipCache.containsKey(ipString))
 		{
-			IPLocation ipLocation = (IPLocation) ipCache.get(ipString);
-			return ipLocation.getRegion();
+			IPEntity ipEntity = (IPEntity) ipCache.get(ipString);
+			return ipEntity.getRegion();
 		}
 		else
 		{
-			IPLocation ipLocation = getIPLocation(ipBytes);
-			ipCache.put(ipString, ipLocation.clone());
-			return ipLocation.getRegion();
+			IPEntity ipEntity = getIPEntity(ipBytes);
+			ipCache.put(ipString, ipEntity.clone());
+			return ipEntity.getRegion();
 		}
 	}
 	
@@ -274,24 +274,24 @@ public class IPSearcher
 		}
 	}
 	
-	private IPLocation getIPLocation(byte[] ipBytes)
+	private IPEntity getIPEntity(byte[] ipBytes)
 	{
-		IPLocation ipLocation = null;
+		IPEntity ipEntity = null;
 		long offset = locateIP(ipBytes);
 		if (offset != -1)
 		{
-			ipLocation = getIPLocation(offset);
+			ipEntity = getIPEntity(offset);
 		}
-		if (ipLocation == null)
+		if (ipEntity == null)
 		{
-			ipLocation = new IPLocation();
-			ipLocation.setCountry("Unknown Country");
-			ipLocation.setRegion("Unknown Region");
+			ipEntity = new IPEntity();
+			ipEntity.setCountry("Unknown Country");
+			ipEntity.setRegion("Unknown Region");
 		}
-		return ipLocation;
+		return ipEntity;
 	}
 	
-	private IPLocation getIPLocation(long offset)
+	private IPEntity getIPEntity(long offset)
 	{
 		try
 		{
@@ -304,26 +304,26 @@ public class IPSearcher
 				ipByte = ipFile.readByte();
 				if (ipByte == REDIRECT_MODE_2)
 				{
-					ipLocation.setCountry(readString(readLong3()));
+					ipEntity.setCountry(readString(readLong3()));
 					ipFile.seek(countryOffset + 4);
 				}
 				else
 				{
-					ipLocation.setCountry(readString(countryOffset));
+					ipEntity.setCountry(readString(countryOffset));
 				}
-				ipLocation.setRegion(readRegion(ipFile.getFilePointer()));
+				ipEntity.setRegion(readRegion(ipFile.getFilePointer()));
 			}
 			else if (ipByte == REDIRECT_MODE_2)
 			{
-				ipLocation.setCountry(readString(readLong3()));
-				ipLocation.setRegion(readRegion(offset + 8));
+				ipEntity.setCountry(readString(readLong3()));
+				ipEntity.setRegion(readRegion(offset + 8));
 			}
 			else
 			{
-				ipLocation.setCountry(readString(ipFile.getFilePointer() - 1));
-				ipLocation.setRegion(readRegion(ipFile.getFilePointer()));
+				ipEntity.setCountry(readString(ipFile.getFilePointer() - 1));
+				ipEntity.setRegion(readRegion(ipFile.getFilePointer()));
 			}
-			return ipLocation;
+			return ipEntity;
 		}
 		catch (IOException e)
 		{
@@ -331,7 +331,7 @@ public class IPSearcher
 		}
 	}
 	
-	private IPLocation getIPLocation(int offset)
+	private IPEntity getIPEntity(int offset)
 	{
 		ipByteBuffer.position(offset + 4);
 		byte ipByte = ipByteBuffer.get();
@@ -342,26 +342,26 @@ public class IPSearcher
 			ipByte = ipByteBuffer.get();
 			if (ipByte == REDIRECT_MODE_2)
 			{
-				ipLocation.setCountry(readString(readInt3()));
+				ipEntity.setCountry(readString(readInt3()));
 				ipByteBuffer.position(countryOffset + 4);
 			}
 			else
 			{
-				ipLocation.setCountry(readString(countryOffset));
+				ipEntity.setCountry(readString(countryOffset));
 			}
-			ipLocation.setRegion(readRegion(ipByteBuffer.position()));
+			ipEntity.setRegion(readRegion(ipByteBuffer.position()));
 		}
 		else if (ipByte == REDIRECT_MODE_2)
 		{
-			ipLocation.setCountry(readString(readInt3()));
-			ipLocation.setRegion(readRegion(offset + 8));
+			ipEntity.setCountry(readString(readInt3()));
+			ipEntity.setRegion(readRegion(offset + 8));
 		}
 		else
 		{
-			ipLocation.setCountry(readString(ipByteBuffer.position() - 1));
-			ipLocation.setRegion(readRegion(ipByteBuffer.position()));
+			ipEntity.setCountry(readString(ipByteBuffer.position() - 1));
+			ipEntity.setRegion(readRegion(ipByteBuffer.position()));
 		}
-		return ipLocation;
+		return ipEntity;
 	}
 	
 	private long locateIP(byte[] ipBytes)
