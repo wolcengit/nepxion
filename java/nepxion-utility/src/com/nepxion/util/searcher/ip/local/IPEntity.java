@@ -70,6 +70,11 @@ public class IPEntity
 		this.region = region;
 	}
 	
+	public String getLocation()
+	{
+		return getCountry() + getRegion();
+	}
+	
 	public IPEntity clone()
 	{
 		IPEntity ipEntity = new IPEntity();
