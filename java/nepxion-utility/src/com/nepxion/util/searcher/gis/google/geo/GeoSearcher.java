@@ -11,11 +11,9 @@ package com.nepxion.util.searcher.gis.google.geo;
  */
 
 import java.net.URI;
-import java.util.ArrayList;
-import java.util.List;
 
 import com.nepxion.util.net.http.apache.ClientInvoker;
-import com.nepxion.util.net.http.apache.ClientParameter;
+import com.nepxion.util.net.http.apache.ClientParameterList;
 import com.nepxion.util.net.http.apache.ClientRequestGet;
 import com.nepxion.util.searcher.gis.google.loc.LocConstants;
 
@@ -40,14 +38,14 @@ public class GeoSearcher
 		ClientRequestGet clientRequestGet = new ClientRequestGet();
 		clientRequestGet.setURI(URI.create(URL));
 		
-		List clientParameters = new ArrayList();
-		clientParameters.add(new ClientParameter("q", "花木"));
-		clientParameters.add(new ClientParameter("output", "json"));
-		clientParameters.add(new ClientParameter("oe", "utf8"));
-		clientParameters.add(new ClientParameter("sensor", "true"));
-		clientParameters.add(new ClientParameter("hl", language));
-		clientParameters.add(new ClientParameter("key", "ABQIAAAAdFLRljp2TovFzTpwXuVkFhQIFToVApsHYtA6KVCnU06oztO8qxSsJArkYIMxAP20jJu9M7nmmAjLQg"));
-		clientRequestGet.setParameterEntity(clientParameters, charset);
+		ClientParameterList clientParameterList = new ClientParameterList();
+		clientParameterList.put("q", "花木");
+		clientParameterList.put("output", "json");
+		clientParameterList.put("oe", "utf8");
+		clientParameterList.put("sensor", "true");
+		clientParameterList.put("hl", language);
+		clientParameterList.put("key", "ABQIAAAAdFLRljp2TovFzTpwXuVkFhQIFToVApsHYtA6KVCnU06oztO8qxSsJArkYIMxAP20jJu9M7nmmAjLQg");
+		clientRequestGet.setParameterEntity(clientParameterList, charset);
 		
 		String responseText = clientInvoker.getResponseText(clientRequestGet, charset);
 		return responseText;

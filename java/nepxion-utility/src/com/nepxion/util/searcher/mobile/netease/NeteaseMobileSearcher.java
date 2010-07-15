@@ -11,15 +11,13 @@ package com.nepxion.util.searcher.mobile.netease;
  */
 
 import java.net.URI;
-import java.util.ArrayList;
-import java.util.List;
 
 import org.dom4j.Document;
 import org.dom4j.DocumentException;
 import org.dom4j.Element;
 
 import com.nepxion.util.net.http.apache.ClientInvoker;
-import com.nepxion.util.net.http.apache.ClientParameter;
+import com.nepxion.util.net.http.apache.ClientParameterList;
 import com.nepxion.util.net.http.apache.ClientRequestGet;
 import com.nepxion.util.xml.dom4j.Dom4JReader;
 
@@ -99,10 +97,10 @@ public class NeteaseMobileSearcher
 		ClientRequestGet clientRequestGet = new ClientRequestGet();
 		clientRequestGet.setURI(URI.create(URL));
 		
-		List clientParameters = new ArrayList();
-		clientParameters.add(new ClientParameter("q", mobile));
-		clientParameters.add(new ClientParameter("type", TYPE));
-		clientRequestGet.setParameterEntity(clientParameters, charset);
+		ClientParameterList clientParameterList = new ClientParameterList();
+		clientParameterList.put("q", mobile);
+		clientParameterList.put("type", TYPE);
+		clientRequestGet.setParameterEntity(clientParameterList, charset);
 		
 		String responseText = clientInvoker.getResponseText(clientRequestGet, charset);
 		return responseText;
