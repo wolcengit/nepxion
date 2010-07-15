@@ -100,11 +100,11 @@ public class DemoDataFactory
 		frameWorkControlElementNode.add(new ElementNode(1, "Dockable", IconFactory.getSwingIcon("component/framework_16.png"), "Dockable FrameWork"));
 		frameWorkControlElementNode.add(new ElementNode(2, "VLDocking", IconFactory.getSwingIcon("component/framework_16.png"), "VLDocking Framework"));		
 		
-		// Advanced Control
-		ElementNode advancedControlElementNode = new ElementNode(11, "Advanced Control", IconFactory.getSwingIcon("component/advanced_16.png"), "Advanced Control Component", false, true);
-		advancedControlElementNode.add(new ElementNode(1, "Google Map", IconFactory.getSwingIcon("component/advanced_16.png"), "Google Map"));		
-		advancedControlElementNode.add(new ElementNode(1, "IP", IconFactory.getSwingIcon("component/advanced_16.png"), "IP"));	
-		advancedControlElementNode.add(new ElementNode(1, "Mobile", IconFactory.getSwingIcon("component/advanced_16.png"), "Mobile"));	
+		// Application Control
+		ElementNode applicationControlElementNode = new ElementNode(11, "Application Control", IconFactory.getSwingIcon("component/application_16.png"), "Application Control Component", false, true);
+		applicationControlElementNode.add(new ElementNode(1, "Google Map", IconFactory.getSwingIcon("component/application_16.png"), "Google Map"));		
+		applicationControlElementNode.add(new ElementNode(1, "IP", IconFactory.getSwingIcon("component/application_16.png"), "IP"));	
+		applicationControlElementNode.add(new ElementNode(1, "Mobile", IconFactory.getSwingIcon("component/application_16.png"), "Mobile"));	
 		
 		List componentElementNodes = new ArrayList();
 		componentElementNodes.add(buttonControlElementNode);
@@ -118,7 +118,7 @@ public class DemoDataFactory
 		componentElementNodes.add(layoutControlElementNode);
 		componentElementNodes.add(uiControlElementNode);
 		componentElementNodes.add(frameWorkControlElementNode);
-		componentElementNodes.add(advancedControlElementNode);
+		componentElementNodes.add(applicationControlElementNode);
 		
 		return componentElementNodes;
 	}
