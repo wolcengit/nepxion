@@ -14,7 +14,7 @@ import java.net.URL;
 
 import com.nepxion.swing.activex.ActiveXContext;
 import com.nepxion.util.encode.EncodeContext;
-import com.nepxion.util.ip.IPContext;
+import com.nepxion.util.searcher.ip.local.IPContext;
 
 public class DemoDataContext
 {	

@@ -10,7 +10,7 @@ package com.nepxion.demo;
  * @version 1.0
  */
 
-import com.nepxion.demo.control.advanced.DemoAdvancedControlOutlook;
+import com.nepxion.demo.control.application.DemoApplicationControlOutlook;
 import com.nepxion.demo.control.bar.DemoBarControlOutlook;
 import com.nepxion.demo.control.border.DemoBorderControlOutlook;
 import com.nepxion.demo.control.button.DemoButtonControlOutlook;
@@ -52,7 +52,7 @@ public class DemoOutlookBar
 		addTab("Layout Control", IconFactory.getSwingIcon("component/layout_16.png"), makeScrollPane(new DemoLayoutControlOutlook()), "Layout Control Component");
 		addTab("UI Control", IconFactory.getSwingIcon("component/ui_16.png"), makeScrollPane(new DemoUIControlOutlook()), "UI Control Component");
 		addTab("FrameWork Control", IconFactory.getSwingIcon("component/framework_16.png"), makeScrollPane(new DemoFrameWorkControlOutlook()), "FrameWork Control Component");
-		addTab("Advanced Control", IconFactory.getSwingIcon("component/advanced_16.png"), makeScrollPane(new DemoAdvancedControlOutlook()), "Advanced Control Component");		
+		addTab("Application Control", IconFactory.getSwingIcon("component/application_16.png"), makeScrollPane(new DemoApplicationControlOutlook()), "Application Control Component");		
         
         setAllTabsAlignment(LEFT, 5);
     }
