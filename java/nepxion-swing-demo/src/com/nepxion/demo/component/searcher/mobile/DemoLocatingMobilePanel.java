@@ -27,16 +27,16 @@ public class DemoLocatingMobilePanel
 		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 		setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
 		
-		add(new CellPanel());
+		add(new LocatingMobilePanel());
 	}
 	
-	public class CellPanel
+	public class LocatingMobilePanel
 		extends JPanel
 	{
-		public CellPanel()
+		public LocatingMobilePanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "根据移动信息查询地理位置"));
+			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "手机归属地查询"));
 			
 			JLocatingMobilePanel mobilePanel = new JLocatingMobilePanel();			
 			add(mobilePanel);
