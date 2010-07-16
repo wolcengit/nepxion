@@ -27,13 +27,13 @@ public class DemoNeteaseIDPanel
 		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 		setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
 		
-		add(new IDPanel());
+		add(new NeteaseIDPanel());
 	}
 	
-	public class IDPanel
+	public class NeteaseIDPanel
 		extends JPanel
 	{
-		public IDPanel()
+		public NeteaseIDPanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
 			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "身份证归属地查询"));
