@@ -16,6 +16,13 @@ import java.io.PrintStream;
 
 public class ExceptionUtil
 {
+	public static String subString(Exception e)
+	{
+		String message = e.getMessage();
+		message = message.substring(message.indexOf(":") + 1).trim();
+		return message;
+	}
+	
 	public static String getText(Exception e)
 	{
 		ByteArrayOutputStream baos = new ByteArrayOutputStream();
