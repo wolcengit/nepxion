@@ -64,24 +64,24 @@ public class LocSearcher
 	public LocEntity search(double latitude, double longitude)
 		throws Exception
 	{
-		String requestText = createCoordinateText(latitude, longitude);
-		String responseText = getResponseText(requestText);
-		return createLocEntity(responseText);
+		String requestJSON = createCoordinateJSON(latitude, longitude);
+		String responseJSON = getJSON(requestJSON);
+		return createEntity(responseJSON);
 	}
 	
 	public LocEntity search(int cellID, int lac, int mcc, int mnc)
 		throws Exception
 	{
-		String requestText = createCellText(cellID, lac, mcc, mnc);
-		String responseText = getResponseText(requestText);
-		return createLocEntity(responseText);
+		String requestJSON = createCellJSON(cellID, lac, mcc, mnc);
+		String responseJSON = getJSON(requestJSON);
+		return createEntity(responseJSON);
 	}
 	
 	/**
 	 * @param latitude  纬度
 	 * @param longitude 经度
 	 */
-	private String createCoordinateText(double latitude, double longitude)
+	public String createCoordinateJSON(double latitude, double longitude)
 	{
 		StringBuffer stringBuffer = new StringBuffer();
 		stringBuffer.append("{\n");
@@ -106,7 +106,7 @@ public class LocSearcher
 	 * @param mcc 移动国家号码，中国为460
 	 * @param mnc 移动网号，中国移动为00，中国中国联通为01
 	 */
-	private String createCellText(int cellID, int lac, int mcc, int mnc)
+	public String createCellJSON(int cellID, int lac, int mcc, int mnc)
 	{
 		StringBuffer stringBuffer = new StringBuffer();
 		stringBuffer.append("{\n");
@@ -129,9 +129,9 @@ public class LocSearcher
 		return stringBuffer.toString();
 	}
 	
-	private LocEntity createLocEntity(String jsonText)
+	private LocEntity createEntity(String requestJSON)
 	{
-		if (jsonText == null || jsonText.equals("") || jsonText.equals("{}"))
+		if (requestJSON == null || requestJSON.equals("") || requestJSON.equals("{}"))
 		{
 			return null;
 		}
@@ -139,7 +139,7 @@ public class LocSearcher
 		LocEntity locEntity = new LocEntity();
 		try
 		{
-			JSONObject jsonObject = new JSONObject(jsonText);
+			JSONObject jsonObject = new JSONObject(requestJSON);
 			
 			String accessToken = jsonObject.getString("access_token");
 			locEntity.setAccessToken(accessToken);
@@ -189,12 +189,12 @@ public class LocSearcher
 		return locEntity;
 	}
 	
-	private String getResponseText(String requestText)
+	public String getJSON(String requestJSON)
 		throws Exception
 	{
 		ClientRequestPost clientRequestPost = new ClientRequestPost();
 		clientRequestPost.setURI(URI.create(URL));
-		clientRequestPost.setStringEntity(requestText);
+		clientRequestPost.setStringEntity(requestJSON);
 		
 		String responseText = clientInvoker.getResponseText(clientRequestPost, charset);
 		return responseText;

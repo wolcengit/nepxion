@@ -42,11 +42,11 @@ public class NeteaseMobileSearcher
 	public NeteaseMobileEntity search(String mobile)
 		throws Exception
 	{
-		String responseText = getResponseText(mobile);
-		return createMobileEntity(responseText);
+		String xml = getXML(mobile);
+		return createEntity(xml);
 	}
 	
-	private NeteaseMobileEntity createMobileEntity(String xml)
+	private NeteaseMobileEntity createEntity(String xml)
 	{
 		if (xml == null || xml.equals(""))
 		{
@@ -91,7 +91,7 @@ public class NeteaseMobileSearcher
 		return mobileEntity;
 	}
 	
-	private String getResponseText(String mobile)
+	public String getXML(String mobile)
 		throws Exception
 	{
 		ClientRequestGet clientRequestGet = new ClientRequestGet();

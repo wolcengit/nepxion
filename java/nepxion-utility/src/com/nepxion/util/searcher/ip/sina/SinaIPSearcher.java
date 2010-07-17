@@ -38,18 +38,18 @@ public class SinaIPSearcher
 	public SinaIPEntity search(String ip)
 		throws Exception
 	{
-		String responseText = getResponseText(ip);
-		return createIPEntity(responseText);
+		String text = getText(ip);
+		return createEntity(text);
 	}
 	
 	public SinaIPEntity search()
 		throws Exception
 	{
-		String responseText = getResponseText(null);
-		return createIPEntity(responseText);
+		String text = getText(null);
+		return createEntity(text);
 	}
 	
-	private SinaIPEntity createIPEntity(String text)
+	private SinaIPEntity createEntity(String text)
 	{
 		if (text == null || text.equals(""))
 		{
@@ -84,7 +84,7 @@ public class SinaIPSearcher
 		return ipEntity;
 	}
 	
-	private String getResponseText(String ip)
+	public String getText(String ip)
 		throws Exception
 	{
 		ClientRequestGet clientRequestGet = new ClientRequestGet();

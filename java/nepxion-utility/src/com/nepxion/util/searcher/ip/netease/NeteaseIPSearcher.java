@@ -42,11 +42,11 @@ public class NeteaseIPSearcher
 	public NeteaseIPEntity search(String ip)
 		throws Exception
 	{
-		String responseText = getResponseText(ip);
-		return createIPEntity(responseText);
+		String xml = getXML(ip);
+		return createEntity(xml);
 	}
 	
-	private NeteaseIPEntity createIPEntity(String xml)
+	private NeteaseIPEntity createEntity(String xml)
 	{
 		if (xml == null || xml.equals(""))
 		{
@@ -91,7 +91,7 @@ public class NeteaseIPSearcher
 		return ipEntity;
 	}
 	
-	private String getResponseText(String ip)
+	public String getXML(String ip)
 		throws Exception
 	{
 		ClientRequestGet clientRequestGet = new ClientRequestGet();

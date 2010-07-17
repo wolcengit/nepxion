@@ -42,11 +42,11 @@ public class LocatingMobileSearcher
 	public LocatingMobileEntity search(String mobile)
 		throws Exception
 	{
-		String responseText = getResponseText(mobile);
-		return createMobileEntity(responseText);
+		String text = getXML(mobile);
+		return createEntity(text);
 	}
 	
-	private LocatingMobileEntity createMobileEntity(String xml)
+	private LocatingMobileEntity createEntity(String xml)
 	{
 		if (xml == null || xml.equals(""))
 		{
@@ -90,7 +90,7 @@ public class LocatingMobileSearcher
 		return moblieEntity;
 	}
 	
-	private String getResponseText(String mobile)
+	public String getXML(String mobile)
 		throws Exception
 	{
 		ClientRequestPost clientRequestPost = new ClientRequestPost();

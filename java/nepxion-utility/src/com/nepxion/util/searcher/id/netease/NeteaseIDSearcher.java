@@ -42,11 +42,11 @@ public class NeteaseIDSearcher
 	public NeteaseIDEntity search(String id)
 		throws Exception
 	{
-		String responseText = getResponseText(id);
-		return createIDEntity(responseText);
+		String xml = getXML(id);
+		return createEntity(xml);
 	}
 	
-	private NeteaseIDEntity createIDEntity(String xml)
+	private NeteaseIDEntity createEntity(String xml)
 	{
 		if (xml == null || xml.equals(""))
 		{
@@ -97,7 +97,7 @@ public class NeteaseIDSearcher
 		return idEntity;
 	}
 	
-	private String getResponseText(String id)
+	public String getXML(String id)
 		throws Exception
 	{
 		ClientRequestGet clientRequestGet = new ClientRequestGet();

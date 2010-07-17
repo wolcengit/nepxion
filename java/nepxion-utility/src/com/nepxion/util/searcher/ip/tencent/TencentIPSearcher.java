@@ -39,11 +39,11 @@ public class TencentIPSearcher
 	public TencentIPEntity search()
 		throws Exception
 	{
-		String responseText = getResponseText();
-		return createIPEntity(responseText);
+		String text = getText();
+		return createEntity(text);
 	}
 	
-	private TencentIPEntity createIPEntity(String text)
+	private TencentIPEntity createEntity(String text)
 	{
 		if (text == null || text.equals(""))
 		{
@@ -73,7 +73,7 @@ public class TencentIPSearcher
 		return ipEntity;
 	}
 	
-	private String getResponseText()
+	public String getText()
 		throws Exception
 	{
 		ClientRequestGet clientRequestGet = new ClientRequestGet();
