@@ -14,6 +14,7 @@ import javax.swing.Icon;
 
 import com.nepxion.demo.common.DemoTogglePanel;
 import com.nepxion.demo.common.DemoToggleTemplate;
+import com.nepxion.demo.component.searcher.gis.google.geo.DemoGeoPanel;
 import com.nepxion.demo.component.searcher.gis.google.loc.DemoCellPanel;
 import com.nepxion.demo.component.searcher.gis.google.loc.DemoCoordinatePanel;
 import com.nepxion.swing.icon.IconFactory;
@@ -25,7 +26,7 @@ public class DemoGisTogglePanel
 	public DemoGisTogglePanel()
 	{
 		JEclipseTabbedPane toggleTabbedPane = getToggleTabbedPane();
-		toggleTabbedPane.addTab("模糊查询 - 谷歌地图接口", IconFactory.getSwingIcon("component/application_16.png"), new DemoToggleTemplate(new DemoCoordinatePanel()), "模糊搜索地理位置 - 谷歌地图接口");
+		toggleTabbedPane.addTab("模糊查询 - 谷歌地图接口", IconFactory.getSwingIcon("component/application_16.png"), new DemoToggleTemplate(new DemoGeoPanel()), "模糊搜索地理位置 - 谷歌地图接口");
 		toggleTabbedPane.addTab("根据经纬度查询 - 谷歌移动接口", IconFactory.getSwingIcon("component/application_16.png"), new DemoToggleTemplate(new DemoCoordinatePanel()), "根据经纬度搜索地理位置 - 谷歌移动接口");				
 		toggleTabbedPane.addTab("根据移动信息查询 - 谷歌移动接口", IconFactory.getSwingIcon("component/application_16.png"), new DemoToggleTemplate(new DemoCellPanel()), "根据移动信息搜索地理位置 - 谷歌移动接口");
 	}
