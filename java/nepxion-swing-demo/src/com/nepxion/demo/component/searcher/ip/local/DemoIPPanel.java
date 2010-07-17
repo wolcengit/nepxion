@@ -36,7 +36,7 @@ public class DemoIPPanel
 		public IPPanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "根据IP地址搜索地理位置"));
+			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "根据IP地址查询地理位置"));
 			
 			JIPPanel ipPanel = new JIPPanel();			
 			add(ipPanel);
