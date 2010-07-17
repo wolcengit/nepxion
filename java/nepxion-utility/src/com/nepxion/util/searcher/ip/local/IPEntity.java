@@ -17,6 +17,7 @@ public class IPEntity
 {
 	private static final long serialVersionUID = 5429316904963543813L;
 
+	private String ip;
 	private String beginIP;
 	private String endIP;
 	private String country;
@@ -24,11 +25,22 @@ public class IPEntity
 	
 	public IPEntity()
 	{
+		ip = "";
 		beginIP = "";
 		endIP = "";
 		country = "";
 		region = "";
 	}
+	
+	public String getIP()
+	{
+		return ip;
+	}
+	
+	public void setIP(String ip)
+	{
+		this.ip = ip;
+	}	
 	
 	public String getBeginIP()
 	{
