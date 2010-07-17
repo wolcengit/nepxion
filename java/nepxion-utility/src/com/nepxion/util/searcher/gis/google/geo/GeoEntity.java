@@ -17,4 +17,81 @@ public class GeoEntity
 {
 	private static final long serialVersionUID = 6363021430950951419L;
 	
+	private String address;
+	private double centerLatitude;
+	private double centerLongitude;
+	private double northLatitude;
+	private double eastLongitude;
+	private double southLatitude;
+	private double westLongitude;
+	
+	public String getAddress()
+	{
+		return address;
+	}
+	
+	public void setAddress(String address)
+	{
+		this.address = address;
+	}
+	
+	public double getCenterLatitude()
+	{
+		return centerLatitude;
+	}
+	
+	public void setCenterLatitude(double centerLatitude)
+	{
+		this.centerLatitude = centerLatitude;
+	}
+	
+	public double getCenterLongitude()
+	{
+		return centerLongitude;
+	}
+	
+	public void setCenterLongitude(double centerLongitude)
+	{
+		this.centerLongitude = centerLongitude;
+	}
+	
+	public double getNorthLatitude()
+	{
+		return northLatitude;
+	}
+	
+	public void setNorthLatitude(double northLatitude)
+	{
+		this.northLatitude = northLatitude;
+	}
+	
+	public double getEastLongitude()
+	{
+		return eastLongitude;
+	}
+	
+	public void setEastLongitude(double eastLongitude)
+	{
+		this.eastLongitude = eastLongitude;
+	}
+	
+	public double getSouthLatitude()
+	{
+		return southLatitude;
+	}
+	
+	public void setSouthLatitude(double southLatitude)
+	{
+		this.southLatitude = southLatitude;
+	}
+	
+	public double getWestLongitude()
+	{
+		return westLongitude;
+	}
+	
+	public void setWestLongitude(double westLongitude)
+	{
+		this.westLongitude = westLongitude;
+	}
 }
