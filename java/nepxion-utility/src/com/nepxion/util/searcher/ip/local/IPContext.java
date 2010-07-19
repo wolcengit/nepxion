@@ -31,9 +31,9 @@ public class IPContext
 		file = new File(filePath);
 	}
 	
-	public static void register(URL codeBaseURL)
+	public static void register(URL codeBase)
 	{				
-		String url = codeBaseURL + DATA_FILE_PATH;
+		String url = codeBase + DATA_FILE_PATH;
 		
 		try
 		{

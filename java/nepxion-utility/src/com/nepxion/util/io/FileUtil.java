@@ -18,6 +18,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
 
@@ -185,6 +186,31 @@ public class FileUtil
 			{
 				e.printStackTrace();
 			}
+		}
+		return inputStream;
+	}
+	
+	/**
+	 * Get InputStream
+	 * @param codeBase  the instance of URL
+	 * @param filePath  the file path
+	 * @return
+	 */
+	public static InputStream getInputStream(URL codeBase, String filePath)
+	{
+		InputStream inputStream = null;
+		try
+		{
+			URL url = new URL(codeBase + filePath);			
+			inputStream = url.openStream();
+		}
+		catch (MalformedURLException e)
+		{
+			e.printStackTrace();
+		}
+		catch (IOException e)
+		{
+			e.printStackTrace();
 		}
 		return inputStream;
 	}

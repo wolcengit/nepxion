@@ -71,7 +71,7 @@ public class HttpContext
 		Logger.info(HttpContext.class, "------ Http Context Initialization End ------");
 	}
 	
-	public static void register(URL codeBaseURL)
+	public static void register(URL codeBase)
 		throws Exception
 	{
 		Logger.info(HttpContext.class, "----- Http Context Initialization Start -----");
@@ -80,7 +80,7 @@ public class HttpContext
 		Properties properties = new Properties();
 		try
 		{
-			URL url = new URL(codeBaseURL + CONFIG_FILE_PATH);
+			URL url = new URL(codeBase + CONFIG_FILE_PATH);
 			properties.load(url.openStream());
 			
 			parseConfig(properties, url);

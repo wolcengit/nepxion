@@ -63,13 +63,13 @@ public class ProxoolContext
 		Logger.info(ProxoolContext.class, "---- Proxool Context Initialization Start ---");
 	}
 	
-	public static void register(URL codeBaseURL)
+	public static void register(URL codeBase)
 		throws Exception
 	{
 		Properties properties = new Properties();
 		try
 		{
-			URL url = new URL(codeBaseURL + CONFIG_FILE_PATH);
+			URL url = new URL(codeBase + CONFIG_FILE_PATH);
 			properties.load(url.openStream());
 			
 			register(properties);

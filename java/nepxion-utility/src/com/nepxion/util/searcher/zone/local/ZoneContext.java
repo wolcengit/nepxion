@@ -10,11 +10,10 @@ package com.nepxion.util.searcher.zone.local;
  * @version 1.0
  */
 
-import java.io.FileInputStream;
 import java.io.InputStream;
 import java.net.URL;
 
-import com.nepxion.util.log.Logger;
+import com.nepxion.util.io.FileUtil;
 
 public class ZoneContext
 	implements ZoneConstants
@@ -32,27 +31,23 @@ public class ZoneContext
 	{
 		try
 		{
-			inputStream = new FileInputStream(filePath);
+			inputStream = FileUtil.getInputStream(filePath, false);
 		}
 		catch (Exception e)
 		{
-			Logger.fatal(ZoneContext.class, e);
 			throw e;
 		}
 	}
 	
-	public static void register(URL codeBaseURL)
+	public static void register(URL codeBase)
 		throws Exception
 	{
 		try
 		{
-			URL url = new URL(codeBaseURL + CONFIG_FILE_PATH);
-			
-			inputStream = url.openStream();
+			inputStream = FileUtil.getInputStream(codeBase, CONFIG_FILE_PATH);
 		}
 		catch (Exception e)
 		{
-			Logger.fatal(ZoneContext.class, e);
 			throw e;
 		}
 	}
