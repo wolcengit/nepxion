@@ -193,10 +193,10 @@ public class PostClientInvoker
 		}
 		EncodeContext.registerHttpCharset("GBK");
 		
-//		PostClientInvoker.invokeParameter();
-//		PostClientInvoker.invokeSerializable();
-//		PostClientInvoker.invokeInputStream();
-//		PostClientInvoker.invokeString();
+		PostClientInvoker.invokeParameter();
+		PostClientInvoker.invokeSerializable();
+		PostClientInvoker.invokeInputStream();
+		PostClientInvoker.invokeString();
 		PostClientInvoker.invokeFile();
 		PostClientInvoker.invokeByteArray();
 		
