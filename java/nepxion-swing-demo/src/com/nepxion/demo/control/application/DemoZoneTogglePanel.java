@@ -14,7 +14,7 @@ import javax.swing.Icon;
 
 import com.nepxion.demo.common.DemoTogglePanel;
 import com.nepxion.demo.common.DemoToggleTemplate;
-import com.nepxion.demo.component.searcher.gis.google.loc.DemoCoordinatePanel;
+import com.nepxion.demo.component.searcher.zone.local.DemoZonePanel;
 import com.nepxion.swing.icon.IconFactory;
 import com.nepxion.swing.tabbedpane.JEclipseTabbedPane;
 
@@ -24,7 +24,7 @@ public class DemoZoneTogglePanel
 	public DemoZoneTogglePanel()
 	{
 		JEclipseTabbedPane toggleTabbedPane = getToggleTabbedPane();
-		toggleTabbedPane.addTab("区号查询  - 本地接口", IconFactory.getSwingIcon("component/application_16.png"), new DemoToggleTemplate(new DemoCoordinatePanel()), "区号查询  - 本地接口");
+		toggleTabbedPane.addTab("区号查询  - 本地接口", IconFactory.getSwingIcon("component/application_16.png"), new DemoToggleTemplate(new DemoZonePanel()), "区号查询  - 本地接口");
 	}
 	
 	public String getToggleName()
