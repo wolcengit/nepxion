@@ -19,12 +19,9 @@ import com.nepxion.util.searcher.zone.local.ZoneContext;
 
 public class DemoDataContext
 {	
-	public DemoDataContext()
-	{
-		
-	}
+	private static URL url;
 	
-	public void initialize()
+	public static void initialize()
 	{
 		try
 		{
@@ -43,7 +40,7 @@ public class DemoDataContext
 		ActiveXContext.registerStrategy(ActiveXContext.STRATEGY_APPLICATION);
 	}
 	
-	public void initialize(URL codeBase)
+	public static void initialize(URL codeBase)
 	{
 		try
 		{
@@ -60,5 +57,17 @@ public class DemoDataContext
 		EncodeContext.registerIOCharset("GBK");
 		EncodeContext.registerHttpCharset("UTF-8");		
 		ActiveXContext.registerStrategy(ActiveXContext.STRATEGY_APPLET);
+		
+		registerURL(codeBase);
+	}
+	
+	public static void registerURL(URL codeBase)
+	{
+		url = codeBase;
+	}
+	
+	public static URL getURL()
+	{
+		return url;
 	}	
 }

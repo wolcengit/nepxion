@@ -24,8 +24,7 @@ public class DemoFrame
 	{
 		super("Nepxion Swing", IconFactory.getSwingIcon("tray_java.png")); // new Dimension(850, 650)
 		
-		DemoDataContext dataContext = new DemoDataContext();
-		dataContext.initialize();
+		DemoDataContext.initialize();
 		
 		DemoHierarchy hierarchy = new DemoHierarchy();
 		setHierarchy(hierarchy);
@@ -33,8 +32,7 @@ public class DemoFrame
 	
 	public static void main(String[] args)
 	{
-		DemoUIContext uiContext = new DemoUIContext();
-		uiContext.initialize();
+		DemoUIContext.initialize();
 		
 		final DemoSplashWindow splashWindow = new DemoSplashWindow();
 		splashWindow.setVisible(true);

@@ -19,12 +19,8 @@ import com.nepxion.swing.style.framework.StyleContext;
 import com.nepxion.swing.topic.TopicContext;
 
 public class DemoUIContext
-{	
-	public DemoUIContext()
-	{
-	}
-	
-	public void initialize()
+{		
+	public static void initialize()
 	{			
 		//注册框架风格，默认由LookAndFeel分配
 		//StyleContext.registerStyle(JLiteStyle.ID);

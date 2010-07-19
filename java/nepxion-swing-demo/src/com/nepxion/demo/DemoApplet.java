@@ -21,8 +21,7 @@ public class DemoApplet
 	{
 		super.init();
 		
-		DemoDataContext dataContext = new DemoDataContext();
-		dataContext.initialize(getCodeBase());
+		DemoDataContext.initialize(getCodeBase());
 		
 		SwingUtilities.invokeLater(new Runnable()
 		{
@@ -37,7 +36,6 @@ public class DemoApplet
 	
 	public void initContext()
 	{
-		DemoUIContext context = new DemoUIContext();
-		context.initialize();
+		DemoDataContext.initialize();
 	}
 }
