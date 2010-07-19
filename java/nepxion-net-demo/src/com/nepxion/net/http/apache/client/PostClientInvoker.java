@@ -11,7 +11,6 @@ package com.nepxion.net.http.apache.client;
  */
 
 import java.io.File;
-import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -81,15 +80,7 @@ public class PostClientInvoker
 		list.add("服务调用");
 		list.add("流");
 		
-		InputStream inputStream = null;
-		try
-		{
-			inputStream = IOUtil.getInputStream(list);
-		}
-		catch (IOException e1)
-		{
-			e1.printStackTrace();
-		}
+		InputStream inputStream = IOUtil.getInputStream(list);
 		
 		HttpConfig httpConfig = HttpContext.getHttpConfig("SerializableServerInvoker");
 		
@@ -158,15 +149,8 @@ public class PostClientInvoker
 		HttpConfig httpConfig = HttpContext.getHttpConfig("SerializableServerInvoker");
 		
 		ClientRequestPost clientRequestPost = new ClientRequestPost(httpConfig);
-		try
-		{
-			clientRequestPost.setByteArrayEntity(IOUtil.write(file).toByteArray());
-		}
-		catch (IOException e)
-		{
-			e.printStackTrace();
-		}
-		
+		clientRequestPost.setByteArrayEntity(IOUtil.write(file).toByteArray());
+
 		Object responseObject = null;
 		try
 		{
