@@ -15,6 +15,7 @@ import java.net.URL;
 import com.nepxion.swing.activex.ActiveXContext;
 import com.nepxion.util.encode.EncodeContext;
 import com.nepxion.util.searcher.ip.local.IPContext;
+import com.nepxion.util.searcher.ip.zone.ZoneContext;
 
 public class DemoDataContext
 {	
@@ -31,6 +32,7 @@ public class DemoDataContext
 			// ProxoolContext.register();
 			// QuartzContext.register();
 			IPContext.register();
+			ZoneContext.register();
 		}
 		catch (Exception e)
 		{
@@ -49,6 +51,7 @@ public class DemoDataContext
 			// ProxoolContext.register(codeBase);
 			// QuartzContext.register(codeBase);
 			IPContext.register(codeBase);
+			ZoneContext.register(codeBase);
 		}
 		catch (Exception e)
 		{
