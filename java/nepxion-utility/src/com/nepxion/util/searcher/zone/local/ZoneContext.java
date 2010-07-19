@@ -10,18 +10,16 @@ package com.nepxion.util.searcher.zone.local;
  * @version 1.0
  */
 
-import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStream;
 import java.net.URL;
 
-import org.dom4j.Document;
-
 import com.nepxion.util.log.Logger;
-import com.nepxion.util.xml.dom4j.Dom4JReader;
 
 public class ZoneContext
 	implements ZoneConstants
 {
-	private static Document document;
+	private static InputStream inputStream;
 	
 	public static void register()
 		throws Exception
@@ -34,7 +32,7 @@ public class ZoneContext
 	{
 		try
 		{
-			document = Dom4JReader.getDocument(new File(filePath));
+			inputStream = new FileInputStream(filePath);
 		}
 		catch (Exception e)
 		{
@@ -50,7 +48,7 @@ public class ZoneContext
 		{
 			URL url = new URL(codeBaseURL + CONFIG_FILE_PATH);
 			
-			document = Dom4JReader.getDocument(url.openStream());
+			inputStream = url.openStream();
 		}
 		catch (Exception e)
 		{
@@ -59,8 +57,8 @@ public class ZoneContext
 		}
 	}
 	
-	public static Document getDocument()
+	public static InputStream getInputStream()
 	{
-		return document;
+		return inputStream;
 	}
 }
