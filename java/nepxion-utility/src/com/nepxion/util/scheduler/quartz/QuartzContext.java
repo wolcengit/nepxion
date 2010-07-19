@@ -75,8 +75,8 @@ public class QuartzContext
 		Properties properties = new Properties();
 		try
 		{
-			codeBaseURL = new URL(codeBaseURL + CONFIG_FILE_PATH);
-			properties.load(codeBaseURL.openStream());
+			URL url = new URL(codeBaseURL + CONFIG_FILE_PATH);
+			properties.load(url.openStream());
 			
 			register(properties);
 		}

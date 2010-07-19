@@ -33,11 +33,11 @@ public class IPContext
 	
 	public static void register(URL codeBaseURL)
 	{				
-		String httpURL = codeBaseURL + DATA_FILE_PATH;
+		String url = codeBaseURL + DATA_FILE_PATH;
 		
 		try
 		{
-			file = FileUtil.download(httpURL, DATA_FILE_TEMP_PATH);
+			file = FileUtil.download(url, DATA_FILE_TEMP_PATH);
 		}
 		catch (IOException e)
 		{

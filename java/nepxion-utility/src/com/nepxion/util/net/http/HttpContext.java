@@ -80,10 +80,10 @@ public class HttpContext
 		Properties properties = new Properties();
 		try
 		{
-			codeBaseURL = new URL(codeBaseURL + CONFIG_FILE_PATH);
-			properties.load(codeBaseURL.openStream());
+			URL url = new URL(codeBaseURL + CONFIG_FILE_PATH);
+			properties.load(url.openStream());
 			
-			parseConfig(properties, codeBaseURL);
+			parseConfig(properties, url);
 		}
 		catch (Exception e)
 		{
@@ -115,7 +115,7 @@ public class HttpContext
 		parseConfig(properties, null);
 	}
 	
-	private static void parseConfig(Properties properties, URL codeBaseURL)
+	private static void parseConfig(Properties properties, URL url)
 		throws Exception
 	{
 		HashMap propertiesMap = new HashMap();
@@ -147,14 +147,14 @@ public class HttpContext
 		{
 			String key = (String) iterator.next();
 			Properties configProperties = (Properties) propertiesMap.get(key);
-			HttpConfig config = createConfig(configProperties, codeBaseURL);
+			HttpConfig config = createConfig(configProperties, url);
 			httpConfigMap.put(config.getAlias(), config);
 		}
 		
 		HttpContextLogger.log(httpConfigMap);
 	}
 	
-	private static HttpConfig createConfig(Properties configProperties, URL codeBaseURL)
+	private static HttpConfig createConfig(Properties configProperties, URL url)
 	{
 		HttpConfig httpConfig = new HttpConfig();
 		
@@ -165,9 +165,9 @@ public class HttpContext
 		}
 		else
 		{
-			if (codeBaseURL != null)
+			if (url != null)
 			{
-				httpConfig.setHost(codeBaseURL.getHost());
+				httpConfig.setHost(url.getHost());
 			}
 		}
 		if (!configProperties.getProperty(PORT).equals(""))
@@ -176,9 +176,9 @@ public class HttpContext
 		}
 		else
 		{
-			if (codeBaseURL != null)
+			if (url != null)
 			{
-				httpConfig.setPort(codeBaseURL.getPort());
+				httpConfig.setPort(url.getPort());
 			}
 		}
 		httpConfig.setPath(configProperties.getProperty(PATH));

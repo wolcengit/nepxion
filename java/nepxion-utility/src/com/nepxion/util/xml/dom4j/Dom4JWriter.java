@@ -48,13 +48,13 @@ public class Dom4JWriter
 	/**
 	 * Get xml text by document
 	 * @param document  the instanceof Document
-	 * @param Charset   the Charset text, example "ISO-8859-1", "UTF-8", "GBK", "GB2312"
+	 * @param charset   the Charset text, example "ISO-8859-1", "UTF-8", "GBK", "GB2312"
 	 * @return          the xml text
-	 * @throws          UnsupportedEncodingException
 	 * @throws          IOException
+	 * @throws          UnsupportedEncodingException
 	 */
 	public static String getText(Document document, String charset)
-		throws UnsupportedEncodingException, IOException
+		throws IOException, UnsupportedEncodingException
 	{
 		ByteArrayOutputStream baos = new ByteArrayOutputStream();
 		OutputFormat outputFormat = new OutputFormat("  ", true, charset);
