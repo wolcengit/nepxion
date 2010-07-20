@@ -21,11 +21,23 @@ public class DemoContainerControlOutlook
 {
 	public DemoContainerControlOutlook()
 	{
+		DemoToggleActionButton windowButton = new DemoToggleActionButton(new DemoWindowTogglePanel());
+        addButton(windowButton);
+        
+		DemoToggleActionButton dialogButton = new DemoToggleActionButton(new DemoDialogTogglePanel());
+        addButton(dialogButton);
+                
 		DemoToggleActionButton panelButton = new DemoToggleActionButton(new DemoPanelTogglePanel());
         addButton(panelButton);
         
 		DemoToggleActionButton scrollPaneButton = new DemoToggleActionButton(new DemoScrollPaneTogglePanel());
         addButton(scrollPaneButton);
+        
+		DemoToggleActionButton splitPaneButton = new DemoToggleActionButton(new DemoSplitPaneTogglePanel());
+        addButton(splitPaneButton);
+        
+		DemoToggleActionButton optionPaneButton = new DemoToggleActionButton(new DemoOptionPaneTogglePanel());
+        addButton(optionPaneButton);
         
 		DemoToggleActionButton tabbedPaneButton = new DemoToggleActionButton(new DemoTabbedPaneTogglePanel());
         addButton(tabbedPaneButton);

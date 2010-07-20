@@ -28,7 +28,13 @@ public class DemoBarControlOutlook
         addButton(outlookBarButton); 
         
 		DemoToggleActionButton buttonBarButton = new DemoToggleActionButton(new DemoButtonBarTogglePanel());
-        addButton(buttonBarButton);         
+        addButton(buttonBarButton); 
+        
+		DemoToggleActionButton toolBarButton = new DemoToggleActionButton(new DemoToolBarTogglePanel());
+        addButton(toolBarButton); 
+        
+		DemoToggleActionButton menuBarButton = new DemoToggleActionButton(new DemoMenuBarTogglePanel());
+        addButton(menuBarButton); 
         
 		DemoToggleActionButton statusBarButton = new DemoToggleActionButton(new DemoStatusBarTogglePanel());
         addButton(statusBarButton); 
