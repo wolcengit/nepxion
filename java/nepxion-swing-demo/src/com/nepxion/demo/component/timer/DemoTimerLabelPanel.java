@@ -81,8 +81,29 @@ public class DemoTimerLabelPanel
 						timerLabel.start(delayTime);
 					}
 				}
-			});
+			}
+			);
 			add(startButton);
+			
+			JBasicButton restartButton = new JBasicButton("Restart", IconFactory.getSwingIcon("solid/control_go_16.png"), "Restart Timer");
+			restartButton.addActionListener(new ActionListener()
+			{
+				public void actionPerformed(ActionEvent e)
+				{
+					String text = textField.getText();
+					if (text.equals(""))
+					{
+						timerLabel.restart();
+					}
+					else
+					{
+						int delayTime = Integer.parseInt(text);
+						timerLabel.restart(delayTime);
+					}
+				}
+			}
+			);
+			add(restartButton);
 			
 			JBasicButton stopButton = new JBasicButton("Stop", IconFactory.getSwingIcon("solid/control_stop_16.png"), "Stop Timer");
 			stopButton.addActionListener(new ActionListener()
@@ -91,7 +112,8 @@ public class DemoTimerLabelPanel
 				{
 					timerLabel.stop();
 				}
-			});
+			}
+			);
 			add(stopButton);
 			
 			JBasicButton resetButton = new JBasicButton("Reset", IconFactory.getSwingIcon("solid/refresh_16.png"), "Reset Timer");
@@ -101,7 +123,8 @@ public class DemoTimerLabelPanel
 				{
 					timerLabel.reset();
 				}
-			});
+			}
+			);
 			add(resetButton);
 			
 			ButtonManager.updateUI(this);
