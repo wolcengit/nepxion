@@ -21,6 +21,7 @@ import com.nepxion.demo.control.layout.DemoLayoutControlOutlook;
 import com.nepxion.demo.control.menu.DemoMenuControlOutlook;
 import com.nepxion.demo.control.selector.DemoSelectorControlOutlook;
 import com.nepxion.demo.control.text.DemoTextControlOutlook;
+import com.nepxion.demo.control.thread.DemoThreadControlOutlook;
 import com.nepxion.demo.control.ui.DemoUIControlOutlook;
 import com.nepxion.swing.icon.IconFactory;
 import com.nepxion.swing.outlookbar.JFlatOutlookBar;
@@ -52,6 +53,7 @@ public class DemoOutlookBar
 		addTab("Layout Control", IconFactory.getSwingIcon("component/layout_16.png"), makeScrollPane(new DemoLayoutControlOutlook()), "Layout Control Component");
 		addTab("UI Control", IconFactory.getSwingIcon("component/ui_16.png"), makeScrollPane(new DemoUIControlOutlook()), "UI Control Component");
 		addTab("FrameWork Control", IconFactory.getSwingIcon("component/framework_16.png"), makeScrollPane(new DemoFrameWorkControlOutlook()), "FrameWork Control Component");
+		addTab("Thread Control", IconFactory.getSwingIcon("component/thread_16.png"), makeScrollPane(new DemoThreadControlOutlook()), "Thread Control Component");
 		addTab("Application Control", IconFactory.getSwingIcon("component/application_16.png"), makeScrollPane(new DemoApplicationControlOutlook()), "Application Control Component");		
         
         setAllTabsAlignment(LEFT, 5);
