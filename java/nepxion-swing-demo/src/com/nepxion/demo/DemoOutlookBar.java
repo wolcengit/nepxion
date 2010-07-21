@@ -54,8 +54,9 @@ public class DemoOutlookBar
 		addTab("Selector Control", IconFactory.getSwingIcon("component/file_chooser_16.png"), makeScrollPane(new DemoSelectorControlOutlook()), "Selector Control Component");
 		addTab("Layout Control", IconFactory.getSwingIcon("component/layout_16.png"), makeScrollPane(new DemoLayoutControlOutlook()), "Layout Control Component");
 		addTab("UI Control", IconFactory.getSwingIcon("component/ui_16.png"), makeScrollPane(new DemoUIControlOutlook()), "UI Control Component");
-		addTab("FrameWork Control", IconFactory.getSwingIcon("component/framework_16.png"), makeScrollPane(new DemoFrameWorkControlOutlook()), "FrameWork Control Component");
 		addTab("Thread Control", IconFactory.getSwingIcon("component/thread_16.png"), makeScrollPane(new DemoThreadControlOutlook()), "Thread Control Component");
+		addTab("FrameWork Control", IconFactory.getSwingIcon("component/framework_16.png"), makeScrollPane(new DemoFrameWorkControlOutlook()), "FrameWork Control Component");		
+		addTab("Advanced Control", IconFactory.getSwingIcon("component/advanced_16.png"), makeScrollPane(new DemoFrameWorkControlOutlook()), "Advanced Control Component");
 		addTab("Application Control", IconFactory.getSwingIcon("component/application_16.png"), makeScrollPane(new DemoApplicationControlOutlook()), "Application Control Component");		
         
         setAllTabsAlignment(LEFT, 5);
