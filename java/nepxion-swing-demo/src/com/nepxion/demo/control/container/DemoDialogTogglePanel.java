@@ -13,6 +13,8 @@ package com.nepxion.demo.control.container;
 import javax.swing.Icon;
 
 import com.nepxion.demo.common.DemoTogglePanel;
+import com.nepxion.demo.common.DemoToggleTemplate;
+import com.nepxion.demo.component.dialog.DemoHintDialogPanel;
 import com.nepxion.swing.icon.IconFactory;
 import com.nepxion.swing.tabbedpane.JEclipseTabbedPane;
 
@@ -22,6 +24,7 @@ public class DemoDialogTogglePanel
 	public DemoDialogTogglePanel()
 	{
 		JEclipseTabbedPane toggleTabbedPane = getToggleTabbedPane();
+		toggleTabbedPane.addTab("Hint Dialog", IconFactory.getSwingIcon("component/dialog_16.png"), new DemoToggleTemplate(new DemoHintDialogPanel()), "Hint Dialog");
 	}
 	
 	public String getToggleName()

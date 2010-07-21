@@ -24,6 +24,9 @@ public class DemoContainerControlOutlook
 		DemoToggleActionButton windowButton = new DemoToggleActionButton(new DemoWindowTogglePanel());
         addButton(windowButton);
         
+		DemoToggleActionButton frameButton = new DemoToggleActionButton(new DemoFrameTogglePanel());
+        addButton(frameButton);
+        
 		DemoToggleActionButton dialogButton = new DemoToggleActionButton(new DemoDialogTogglePanel());
         addButton(dialogButton);
                 
