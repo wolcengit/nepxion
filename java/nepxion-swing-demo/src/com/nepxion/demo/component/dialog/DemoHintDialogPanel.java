@@ -32,7 +32,7 @@ import com.nepxion.swing.layout.filed.FiledLayout;
 public class DemoHintDialogPanel
 	extends JPanel
 {
-	private JBasicDialog dialog;
+	private JBasicDialog hintDialog;
 	
 	public DemoHintDialogPanel()
 	{
@@ -51,22 +51,22 @@ public class DemoHintDialogPanel
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
 			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Hint Dialog"));
 			
-			JBasicButton optionButton = new JBasicButton("Hint Dialog", IconFactory.getSwingIcon("component/dialog_16.png"), "Hint Dialog");
-			optionButton.addActionListener(new ActionListener()
+			JBasicButton hintDialogButton = new JBasicButton("Hint Dialog", IconFactory.getSwingIcon("component/dialog_16.png"), "Hint Dialog");
+			hintDialogButton.addActionListener(new ActionListener()
 			{
 				public void actionPerformed(ActionEvent e)
 				{
-					if (dialog == null)
+					if (hintDialog == null)
 					{	
-						dialog = new JBasicDialog(HandleManager.getFrame(DemoHintDialogPanel.this), "Hint Dialog", new Dimension(300, 300), true, true, true);
-						dialog.setMinimumDimension(new Dimension(200, 200));
-						dialog.setMaximumDimension(new Dimension(400, 400));
+						hintDialog = new JBasicDialog(HandleManager.getFrame(DemoHintDialogPanel.this), "Hint Dialog", new Dimension(300, 300), true, true, true);
+						hintDialog.setMinimumDimension(new Dimension(200, 200));
+						hintDialog.setMaximumDimension(new Dimension(400, 400));
 					}	
-					dialog.setVisible(true);
+					hintDialog.setVisible(true);
 				}
 			}
 			);
-			add(optionButton);
+			add(hintDialogButton);
 			
 			ButtonManager.updateUI(this);
 		}
@@ -85,7 +85,7 @@ public class DemoHintDialogPanel
 			{
 				public void actionPerformed(ActionEvent e)
 				{
-					dialog.setAdaptable(adaptableCheckBox.isSelected());
+					hintDialog.setAdaptable(adaptableCheckBox.isSelected());
 				}				
 			}
 			);	
@@ -96,7 +96,7 @@ public class DemoHintDialogPanel
 			{
 				public void actionPerformed(ActionEvent e)
 				{
-					dialog.setHint(hintCheckBox.isSelected());
+					hintDialog.setHint(hintCheckBox.isSelected());
 				}				
 			}
 			);	
@@ -109,11 +109,11 @@ public class DemoHintDialogPanel
 				{
 					if (minimumDimensionCheckBox.isSelected())
 					{	
-						dialog.setMinimumDimension(new Dimension(200, 200));
+						hintDialog.setMinimumDimension(new Dimension(200, 200));
 					}
 					else
 					{
-						dialog.setMinimumDimension(null);
+						hintDialog.setMinimumDimension(null);
 					}
 				}				
 			}
@@ -127,11 +127,11 @@ public class DemoHintDialogPanel
 				{
 					if (maximumDimensionCheckBox.isSelected())
 					{	
-						dialog.setMaximumDimension(new Dimension(400, 400));
+						hintDialog.setMaximumDimension(new Dimension(400, 400));
 					}
 					else
 					{
-						dialog.setMaximumDimension(null);
+						hintDialog.setMaximumDimension(null);
 					}
 				}				
 			}

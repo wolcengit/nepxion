@@ -50,8 +50,8 @@ public class DemoHintFramePanel
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
 			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Hint Frame"));
 			
-			JBasicButton optionButton = new JBasicButton("Hint Frame", IconFactory.getSwingIcon("component/dialog_16.png"), "Hint Frame");
-			optionButton.addActionListener(new ActionListener()
+			JBasicButton frameButton = new JBasicButton("Hint Frame", IconFactory.getSwingIcon("component/dialog_16.png"), "Hint Frame");
+			frameButton.addActionListener(new ActionListener()
 			{
 				public void actionPerformed(ActionEvent e)
 				{
@@ -63,7 +63,7 @@ public class DemoHintFramePanel
 				}
 			}
 			);
-			add(optionButton);
+			add(frameButton);
 			
 			ButtonManager.updateUI(this);
 		}

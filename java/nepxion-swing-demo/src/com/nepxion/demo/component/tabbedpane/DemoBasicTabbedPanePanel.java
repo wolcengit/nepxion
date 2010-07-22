@@ -124,7 +124,7 @@ public class DemoBasicTabbedPanePanel
 			);				
 			add(drawBorderCheckBox);		
 			
-			final JBasicCheckBox hintCheckBox = new JBasicCheckBox("Show hint before closing", "Show hint before closing", false);
+			final JBasicCheckBox hintCheckBox = new JBasicCheckBox("Show hint while closing the tab", "Show hint while closing the tab", false);
 			hintCheckBox.addActionListener(new ActionListener()
 			{
 				public void actionPerformed(ActionEvent e)

@@ -46,8 +46,8 @@ public class DemoExceptionDialogPanel
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
 			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Exception Dialog"));
 			
-			JBasicButton optionButton = new JBasicButton("Exception Dialog", IconFactory.getSwingIcon("component/dialog_16.png"), "Exception Dialog");
-			optionButton.addActionListener(new ActionListener()
+			JBasicButton exceptionDialogButton = new JBasicButton("Exception Dialog", IconFactory.getSwingIcon("component/dialog_16.png"), "Exception Dialog");
+			exceptionDialogButton.addActionListener(new ActionListener()
 			{
 				public void actionPerformed(ActionEvent e)
 				{
@@ -62,7 +62,7 @@ public class DemoExceptionDialogPanel
 				}
 			}
 			);
-			add(optionButton);
+			add(exceptionDialogButton);
 			
 			ButtonManager.updateUI(this);
 		}

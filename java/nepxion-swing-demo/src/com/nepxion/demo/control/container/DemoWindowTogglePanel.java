@@ -13,6 +13,9 @@ package com.nepxion.demo.control.container;
 import javax.swing.Icon;
 
 import com.nepxion.demo.common.DemoTogglePanel;
+import com.nepxion.demo.common.DemoToggleTemplate;
+import com.nepxion.demo.component.window.DemoCaptionSplashWindowPanel;
+import com.nepxion.demo.component.window.DemoSplashWindowPanel;
 import com.nepxion.swing.icon.IconFactory;
 import com.nepxion.swing.tabbedpane.JEclipseTabbedPane;
 
@@ -22,6 +25,8 @@ public class DemoWindowTogglePanel
 	public DemoWindowTogglePanel()
 	{
 		JEclipseTabbedPane toggleTabbedPane = getToggleTabbedPane();
+		toggleTabbedPane.addTab("Splash Window", IconFactory.getSwingIcon("component/internal_frame_16.png"), new DemoToggleTemplate(new DemoSplashWindowPanel()), "Splash Window");
+		toggleTabbedPane.addTab("Caption Splash Window", IconFactory.getSwingIcon("component/internal_frame_16.png"), new DemoToggleTemplate(new DemoCaptionSplashWindowPanel()), "Caption Splash Window");
 	}
 	
 	public String getToggleName()
