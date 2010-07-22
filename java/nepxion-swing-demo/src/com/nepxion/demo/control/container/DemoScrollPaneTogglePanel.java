@@ -13,6 +13,8 @@ package com.nepxion.demo.control.container;
 import javax.swing.Icon;
 
 import com.nepxion.demo.common.DemoTogglePanel;
+import com.nepxion.demo.common.DemoToggleTemplate;
+import com.nepxion.demo.component.scrollpane.DemoAutoScrollPanePanel;
 import com.nepxion.swing.icon.IconFactory;
 import com.nepxion.swing.tabbedpane.JEclipseTabbedPane;
 
@@ -22,6 +24,7 @@ public class DemoScrollPaneTogglePanel
 	public DemoScrollPaneTogglePanel()
 	{
 		JEclipseTabbedPane toggleTabbedPane = getToggleTabbedPane();
+		toggleTabbedPane.addTab("Auto ScrollPane", IconFactory.getSwingIcon("component/scroll_pane_16.png"), new DemoToggleTemplate(new DemoAutoScrollPanePanel()), "Auto ScrollPane");
 	}
 	
 	public String getToggleName()
