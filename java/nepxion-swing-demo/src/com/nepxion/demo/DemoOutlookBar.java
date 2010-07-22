@@ -17,7 +17,6 @@ import com.nepxion.demo.control.button.DemoButtonControlOutlook;
 import com.nepxion.demo.control.container.DemoContainerControlOutlook;
 import com.nepxion.demo.control.data.DemoDataControlOutlook;
 import com.nepxion.demo.control.framework.DemoFrameWorkControlOutlook;
-import com.nepxion.demo.control.indicator.DemoIndicatorControlOutlook;
 import com.nepxion.demo.control.layout.DemoLayoutControlOutlook;
 import com.nepxion.demo.control.menu.DemoMenuControlOutlook;
 import com.nepxion.demo.control.selector.DemoSelectorControlOutlook;
@@ -46,7 +45,6 @@ public class DemoOutlookBar
 		addTab("Button Control", IconFactory.getSwingIcon("component/button_16.png"), makeScrollPane(new DemoButtonControlOutlook()), "Button Control Component");
 		addTab("Text Control", IconFactory.getSwingIcon("component/label_16.png"), makeScrollPane(new DemoTextControlOutlook()), "Text Control Component");
 		addTab("Menu Control", IconFactory.getSwingIcon("component/menu_16.png"), makeScrollPane(new DemoMenuControlOutlook()), "Menu Control Component");
-		addTab("Indicator Control", IconFactory.getSwingIcon("component/slider_16.png"), makeScrollPane(new DemoIndicatorControlOutlook()), "Indicator Control Component");
 		addTab("Border Control", IconFactory.getSwingIcon("component/border_16.png"), makeScrollPane(new DemoBorderControlOutlook()), "Border Control Component");
 		addTab("Container Control", IconFactory.getSwingIcon("component/internal_frame_16.png"), makeScrollPane(new DemoContainerControlOutlook()), "Container Control Component");
 		addTab("Bar Control", IconFactory.getSwingIcon("component/tool_bar_16.png"), makeScrollPane(new DemoBarControlOutlook()), "Bar Control Component");

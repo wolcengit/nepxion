@@ -31,7 +31,13 @@ public class DemoButtonControlOutlook
         addButton(radioButtonButton);        
         
         DemoToggleActionButton comboBoxButton = new DemoToggleActionButton(new DemoComboBoxTogglePanel());
-        addButton(comboBoxButton);   
+        addButton(comboBoxButton);
+        
+		DemoToggleActionButton spinnerButton = new DemoToggleActionButton(new DemoSpinnerTogglePanel());
+        addButton(spinnerButton);
+        
+		DemoToggleActionButton slideButton = new DemoToggleActionButton(new DemoSlideTogglePanel());
+        addButton(slideButton);        
         
         ButtonManager.updateUI(this, new Dimension(50, 70), VERTICAL);
         

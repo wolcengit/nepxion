@@ -31,7 +31,7 @@ public class DemoTextControlOutlook
         addButton(formattedTextFieldButton);
         
 		DemoToggleActionButton passwordFieldButton = new DemoToggleActionButton(new DemoPasswordFieldTogglePanel());
-        addButton(passwordFieldButton);         
+        addButton(passwordFieldButton);
         
 		DemoToggleActionButton textAreaButton = new DemoToggleActionButton(new DemoTextAreaTogglePanel());
         addButton(textAreaButton);
@@ -39,8 +39,8 @@ public class DemoTextControlOutlook
 		DemoToggleActionButton textPaneButton = new DemoToggleActionButton(new DemoTextPaneTogglePanel());
         addButton(textPaneButton);  
         
-		DemoToggleActionButton editorButton = new DemoToggleActionButton(new DemoEditorPaneTogglePanel());
-        addButton(editorButton);  
+		DemoToggleActionButton editorPaneButton = new DemoToggleActionButton(new DemoEditorPaneTogglePanel());
+        addButton(editorPaneButton);    
         
         ButtonManager.updateUI(this, new Dimension(50, 70), VERTICAL);
 	}

@@ -19,6 +19,7 @@ import javax.swing.JPanel;
 import com.nepxion.swing.border.ComplexEtchedBorder;
 import com.nepxion.swing.border.ComplexSide;
 import com.nepxion.swing.border.ComplexTitleBorder;
+import com.nepxion.swing.layout.filed.FiledLayout;
 import com.nepxion.swing.spinner.JPointSpinner;
 
 public class DemoPointSpinnerPanel
@@ -26,7 +27,7 @@ public class DemoPointSpinnerPanel
 {
 	public DemoPointSpinnerPanel()
 	{
-		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+		setLayout(new FiledLayout(FiledLayout.COLUMN, FiledLayout.FULL, 0));
 		setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
 		
 		add(new PointSpinnerPanel());
@@ -41,7 +42,7 @@ public class DemoPointSpinnerPanel
 			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Point Spinner"));
 			
 			JPointSpinner pointSpinner = new JPointSpinner();
-			pointSpinner.setPreferredSize(new Dimension(100, 30));
+			pointSpinner.setMaximumSize(new Dimension(350, pointSpinner.getPreferredSize().height));
 			
 			add(pointSpinner);
 		}
