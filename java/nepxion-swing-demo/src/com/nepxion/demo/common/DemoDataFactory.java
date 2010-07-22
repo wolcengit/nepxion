@@ -42,7 +42,7 @@ public class DemoDataFactory
 		buttonControlElementNode.add(new ElementNode(4, "ComboBox", IconFactory.getSwingIcon("component/combo_box_16.png"), "Multi-style ComboBox"));
 
 		// Text Control
-		ElementNode textControlElementNode = new ElementNode(2, "Text Control", IconFactory.getSwingIcon("component/text_pane_16.png"), "Text Control Component", false, false);		
+		ElementNode textControlElementNode = new ElementNode(2, "Text Control", IconFactory.getSwingIcon("component/text_field_16"), "Text Control Component", false, false);		
 		textControlElementNode.add(new ElementNode(1, "TextField", IconFactory.getSwingIcon("component/text_field_16.png"), "Multi-style TextField"));
 		textControlElementNode.add(new ElementNode(2, "TextArea", IconFactory.getSwingIcon("component/text_area_16.png"), "Multi-style TextArea"));		
 		

@@ -21,11 +21,26 @@ public class DemoTextControlOutlook
 {
 	public DemoTextControlOutlook()
 	{
+		DemoToggleActionButton labelButton = new DemoToggleActionButton(new DemoLabelTogglePanel());
+        addButton(labelButton);
+        
 		DemoToggleActionButton textFieldButton = new DemoToggleActionButton(new DemoTextFieldTogglePanel());
         addButton(textFieldButton); 
         
+		DemoToggleActionButton formattedTextFieldButton = new DemoToggleActionButton(new DemoFormattedTextFieldTogglePanel());
+        addButton(formattedTextFieldButton);
+        
+		DemoToggleActionButton passwordFieldButton = new DemoToggleActionButton(new DemoPasswordFieldTogglePanel());
+        addButton(passwordFieldButton);         
+        
 		DemoToggleActionButton textAreaButton = new DemoToggleActionButton(new DemoTextAreaTogglePanel());
-        addButton(textAreaButton);  
+        addButton(textAreaButton);
+        
+		DemoToggleActionButton textPaneButton = new DemoToggleActionButton(new DemoTextPaneTogglePanel());
+        addButton(textPaneButton);  
+        
+		DemoToggleActionButton editorButton = new DemoToggleActionButton(new DemoEditorPaneTogglePanel());
+        addButton(editorButton);  
         
         ButtonManager.updateUI(this, new Dimension(50, 70), VERTICAL);
 	}

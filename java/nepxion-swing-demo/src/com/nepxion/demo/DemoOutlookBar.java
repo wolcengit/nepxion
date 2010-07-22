@@ -44,7 +44,7 @@ public class DemoOutlookBar
     private DemoOutlookBar()
     {			
 		addTab("Button Control", IconFactory.getSwingIcon("component/button_16.png"), makeScrollPane(new DemoButtonControlOutlook()), "Button Control Component");
-		addTab("Text Control", IconFactory.getSwingIcon("component/text_pane_16.png"), makeScrollPane(new DemoTextControlOutlook()), "Text Control Component");
+		addTab("Text Control", IconFactory.getSwingIcon("component/label_16.png"), makeScrollPane(new DemoTextControlOutlook()), "Text Control Component");
 		addTab("Menu Control", IconFactory.getSwingIcon("component/menu_16.png"), makeScrollPane(new DemoMenuControlOutlook()), "Menu Control Component");
 		addTab("Indicator Control", IconFactory.getSwingIcon("component/slider_16.png"), makeScrollPane(new DemoIndicatorControlOutlook()), "Indicator Control Component");
 		addTab("Border Control", IconFactory.getSwingIcon("component/border_16.png"), makeScrollPane(new DemoBorderControlOutlook()), "Border Control Component");
