@@ -16,7 +16,7 @@ import com.nepxion.demo.common.DemoTogglePanel;
 import com.nepxion.demo.common.DemoToggleTemplate;
 import com.nepxion.demo.component.dialog.DemoCaptionSplashDialogPanel;
 import com.nepxion.demo.component.dialog.DemoExceptionDialogPanel;
-import com.nepxion.demo.component.dialog.DemoHintDialogPanel;
+import com.nepxion.demo.component.dialog.DemoBasicDialogPanel;
 import com.nepxion.demo.component.dialog.DemoSplashDialogPanel;
 import com.nepxion.swing.icon.IconFactory;
 import com.nepxion.swing.tabbedpane.JEclipseTabbedPane;
@@ -27,7 +27,7 @@ public class DemoDialogTogglePanel
 	public DemoDialogTogglePanel()
 	{
 		JEclipseTabbedPane toggleTabbedPane = getToggleTabbedPane();
-		toggleTabbedPane.addTab("Hint Dialog", IconFactory.getSwingIcon("component/dialog_16.png"), new DemoToggleTemplate(new DemoHintDialogPanel()), "Hint Dialog");
+		toggleTabbedPane.addTab("Basic Dialog", IconFactory.getSwingIcon("component/dialog_16.png"), new DemoToggleTemplate(new DemoBasicDialogPanel()), "Basic Dialog");
 		toggleTabbedPane.addTab("Exception Dialog", IconFactory.getSwingIcon("component/dialog_16.png"), new DemoToggleTemplate(new DemoExceptionDialogPanel()), "Exception Dialog");
 		toggleTabbedPane.addTab("Splash Dialog", IconFactory.getSwingIcon("component/dialog_16.png"), new DemoToggleTemplate(new DemoSplashDialogPanel()), "Splash Dialog");
 		toggleTabbedPane.addTab("Caption Splash Dialog", IconFactory.getSwingIcon("component/dialog_16.png"), new DemoToggleTemplate(new DemoCaptionSplashDialogPanel()), "Caption Splash Dialog");

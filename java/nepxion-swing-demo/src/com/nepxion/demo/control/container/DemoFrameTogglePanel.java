@@ -14,7 +14,7 @@ import javax.swing.Icon;
 
 import com.nepxion.demo.common.DemoTogglePanel;
 import com.nepxion.demo.common.DemoToggleTemplate;
-import com.nepxion.demo.component.frame.DemoHintFramePanel;
+import com.nepxion.demo.component.frame.DemoBasicFramePanel;
 import com.nepxion.swing.icon.IconFactory;
 import com.nepxion.swing.tabbedpane.JEclipseTabbedPane;
 
@@ -24,7 +24,7 @@ public class DemoFrameTogglePanel
 	public DemoFrameTogglePanel()
 	{
 		JEclipseTabbedPane toggleTabbedPane = getToggleTabbedPane();
-		toggleTabbedPane.addTab("Hint Frame", IconFactory.getSwingIcon("component/framework_16.png"), new DemoToggleTemplate(new DemoHintFramePanel()), "Hint Dialog");
+		toggleTabbedPane.addTab("Basic Frame", IconFactory.getSwingIcon("component/framework_16.png"), new DemoToggleTemplate(new DemoBasicFramePanel()), "Basic Dialog");
 	}
 	
 	public String getToggleName()
