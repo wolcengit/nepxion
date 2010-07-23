@@ -68,8 +68,6 @@ public class DemoAutoScrollPanePanel
 			table.setAutoResizeMode(JBasicTable.AUTO_RESIZE_OFF);
 			
 			JAutoRollScrollPane autoRollScrollPane = new JAutoRollScrollPane();
-			autoRollScrollPane.setHorizontalScrollBarPolicy(JAutoRollScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-			autoRollScrollPane.setVerticalScrollBarPolicy(JAutoRollScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
 			autoRollScrollPane.getViewport().add(table);
 			
 			add(autoRollScrollPane, BorderLayout.CENTER);
