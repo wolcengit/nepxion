@@ -19,6 +19,7 @@ import javax.swing.BoxLayout;
 import javax.swing.ButtonGroup;
 import javax.swing.Icon;
 import javax.swing.JPanel;
+import javax.swing.JTree;
 import javax.swing.filechooser.FileSystemView;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
@@ -42,6 +43,7 @@ import com.nepxion.swing.menuitem.JBasicRadioButtonMenuItem;
 import com.nepxion.swing.popupmenu.JDecorationPopupMenu;
 import com.nepxion.swing.renderer.tree.TreeElementCellRenderer;
 import com.nepxion.swing.separator.JBasicSeparator;
+import com.nepxion.swing.tree.ITreeTransactor;
 import com.nepxion.swing.tree.lazyloader.AbstractLazyLoader;
 import com.nepxion.swing.tree.lazyloader.JLazyLoaderCheckBoxTree;
 import com.nepxion.swing.tree.lazyloader.JLazyLoaderContainer;
@@ -51,7 +53,8 @@ import com.nepxion.swing.tree.lazyloader.LazyLoaderTreeController;
 public class DemoLazyLoaderCheckBoxTreePanel
 	extends JPanel
 {
-	private FileSystemView fileSystemView = FileSystemView.getFileSystemView();
+	private FileSystemView fileSystemView;
+	private FileTreeTransactor treeTransactor;
 	
 	public DemoLazyLoaderCheckBoxTreePanel()
 	{
@@ -69,9 +72,11 @@ public class DemoLazyLoaderCheckBoxTreePanel
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
 			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "LazyLoader Tree"));
 			
-			FileTree fileTree = new FileTree();
+			fileSystemView = FileSystemView.getFileSystemView();
+			treeTransactor = new FileTreeTransactor();
 			
-			FileToolBar fileToolBar = new FileToolBar(fileTree);
+			FileTree fileTree = new FileTree();			
+			FileToolBar fileToolBar = new FileToolBar(fileTree);					
 			
 			JLazyLoaderContainer lazyLoaderContainer = new JLazyLoaderContainer(fileTree);
 			lazyLoaderContainer.add(fileToolBar, BorderLayout.NORTH);
@@ -211,6 +216,45 @@ public class DemoLazyLoaderCheckBoxTreePanel
 		}
 	}
 	
+	public class FileTreeTransactor
+		implements ITreeTransactor
+	{
+		public DefaultMutableTreeNode addTreeNode(JTree tree, DefaultMutableTreeNode parentTreeNode)
+		{
+			return new ElementNode("新增节点", IconFactory.getSwingIcon("solid/add_16.png"), "新增节点");
+		}
+		
+		public boolean modifyTreeNode(JTree tree, DefaultMutableTreeNode treeNode)
+		{
+			return true;
+		}
+		
+		public boolean deleteTreeNode(JTree tree, DefaultMutableTreeNode treeNode)
+		{
+			return true;
+		}
+		
+		public boolean deleteTreeNodes(JTree tree, TreeNode[] treeNodes)
+		{
+			return true;
+		}
+		
+		public boolean renameTreeNode(JTree tree, DefaultMutableTreeNode treeNode, String text)
+		{
+			return true;
+		}
+		
+		public boolean moveUpTreeNode(JTree tree, DefaultMutableTreeNode treeNode)
+		{
+			return true;
+		}
+		
+		public boolean moveDownTreeNode(JTree tree, DefaultMutableTreeNode treeNode)
+		{
+			return true;
+		}
+	}
+	
 	public class FileToolBar
 		extends JPanel
 	{
@@ -219,27 +263,17 @@ public class DemoLazyLoaderCheckBoxTreePanel
 			setLayout(new ToolBarLayout());
 			setBorder(BorderFactory.createEmptyBorder(0, 0, 5, 0));
 			
-			JBasicButton newButton = new JBasicButton(LazyLoaderTreeController.getAddAction(lazyLoaderTree, new ElementNode("新增节点", IconFactory.getSwingIcon("solid/add_16.png"), "新增节点")));
+			JBasicButton newButton = new JBasicButton(LazyLoaderTreeController.getAddAction(lazyLoaderTree, treeTransactor));
 			KeyStrokeManager.registerButton(newButton, KeyEvent.VK_N, KeyEvent.CTRL_MASK);
 			add(newButton);
 			
-			JBasicButton deleteButton = new JBasicButton(LazyLoaderTreeController.getDeleteAction(lazyLoaderTree));
+			JBasicButton deleteButton = new JBasicButton(LazyLoaderTreeController.getDeleteAction(lazyLoaderTree, treeTransactor));
 			KeyStrokeManager.registerButton(deleteButton, KeyEvent.VK_DELETE);	
 			add(deleteButton);	
 			
-			JBasicButton renameButton = new JBasicButton(LazyLoaderTreeController.getRenameAction(lazyLoaderTree));
+			JBasicButton renameButton = new JBasicButton(LazyLoaderTreeController.getRenameAction(lazyLoaderTree, treeTransactor));
 			KeyStrokeManager.registerButton(renameButton, KeyEvent.VK_R, KeyEvent.CTRL_MASK);	
 			add(renameButton);						
-			
-			add(new JBasicSeparator());
-			
-			JBasicButton refreshButton = new JBasicButton(LazyLoaderTreeController.getRefreshAction(lazyLoaderTree));
-			KeyStrokeManager.registerButton(refreshButton, KeyEvent.VK_F5);	
-			add(refreshButton);
-
-			JBasicButton searchButton = new JBasicButton(LazyLoaderTreeController.getSearchAction(lazyLoaderTree));
-			KeyStrokeManager.registerButton(searchButton, KeyEvent.VK_F, KeyEvent.CTRL_MASK);	
-			add(searchButton);
 						
 			add(new JBasicSeparator());	
 			
@@ -303,10 +337,20 @@ public class DemoLazyLoaderCheckBoxTreePanel
 			
 			add(new JBasicSeparator());
 			
-			JBasicButton moveUpAction = new JBasicButton(LazyLoaderTreeController.getMoveUpAction(lazyLoaderTree));
+			JBasicButton refreshButton = new JBasicButton(LazyLoaderTreeController.getRefreshAction(lazyLoaderTree));
+			KeyStrokeManager.registerButton(refreshButton, KeyEvent.VK_F5);	
+			add(refreshButton);
+
+			JBasicButton searchButton = new JBasicButton(LazyLoaderTreeController.getSearchAction(lazyLoaderTree));
+			KeyStrokeManager.registerButton(searchButton, KeyEvent.VK_F, KeyEvent.CTRL_MASK);	
+			add(searchButton);
+			
+			add(new JBasicSeparator());
+			
+			JBasicButton moveUpAction = new JBasicButton(LazyLoaderTreeController.getMoveUpAction(lazyLoaderTree, treeTransactor));
 			add(moveUpAction);	
 			
-			JBasicButton moveDownAction = new JBasicButton(LazyLoaderTreeController.getMoveDownAction(lazyLoaderTree));
+			JBasicButton moveDownAction = new JBasicButton(LazyLoaderTreeController.getMoveDownAction(lazyLoaderTree, treeTransactor));
 			add(moveDownAction);
 			
 			add(new JBasicSeparator());
@@ -355,27 +399,17 @@ public class DemoLazyLoaderCheckBoxTreePanel
 	{
 		public FilePopopMenu(JLazyLoaderCheckBoxTree lazyLoaderTree)
 		{		
-			JBasicMenuItem newMenuItem = new JBasicMenuItem(LazyLoaderTreeController.getAddAction(lazyLoaderTree, new ElementNode("新增节点", IconFactory.getSwingIcon("solid/add_16.png"), "新增节点")));
+			JBasicMenuItem newMenuItem = new JBasicMenuItem(LazyLoaderTreeController.getAddAction(lazyLoaderTree, treeTransactor));
 			KeyStrokeManager.registerButton(newMenuItem, KeyEvent.VK_N, KeyEvent.CTRL_MASK);				
 			add(newMenuItem);						
 			
-			JBasicMenuItem deleteMenuItem = new JBasicMenuItem(LazyLoaderTreeController.getDeleteAction(lazyLoaderTree));
+			JBasicMenuItem deleteMenuItem = new JBasicMenuItem(LazyLoaderTreeController.getDeleteAction(lazyLoaderTree, treeTransactor));
 			KeyStrokeManager.registerButton(deleteMenuItem, KeyEvent.VK_DELETE);			
 			add(deleteMenuItem);
 						
-			JBasicMenuItem renameMenuItem = new JBasicMenuItem(LazyLoaderTreeController.getRenameAction(lazyLoaderTree));
+			JBasicMenuItem renameMenuItem = new JBasicMenuItem(LazyLoaderTreeController.getRenameAction(lazyLoaderTree, treeTransactor));
 			KeyStrokeManager.registerButton(renameMenuItem, KeyEvent.VK_R, KeyEvent.CTRL_MASK);				
 			add(renameMenuItem);							
-			
-			addSeparator();
-			
-			JBasicMenuItem refreshMenuItem = new JBasicMenuItem(LazyLoaderTreeController.getRefreshAction(lazyLoaderTree));
-			KeyStrokeManager.registerButton(refreshMenuItem, KeyEvent.VK_F5);				
-			add(refreshMenuItem);		
-
-			JBasicMenuItem searchMenuItem = new JBasicMenuItem(LazyLoaderTreeController.getSearchAction(lazyLoaderTree));
-			KeyStrokeManager.registerButton(searchMenuItem, KeyEvent.VK_F, KeyEvent.CTRL_MASK);				
-			add(searchMenuItem);
 						
 			addSeparator();	    
 			
@@ -401,12 +435,22 @@ public class DemoLazyLoaderCheckBoxTreePanel
 			KeyStrokeManager.registerButton(cancelAllMenuItem, KeyEvent.VK_ESCAPE);	
 			add(cancelAllMenuItem);
 			
+			addSeparator();
+			
+			JBasicMenuItem refreshMenuItem = new JBasicMenuItem(LazyLoaderTreeController.getRefreshAction(lazyLoaderTree));
+			KeyStrokeManager.registerButton(refreshMenuItem, KeyEvent.VK_F5);				
+			add(refreshMenuItem);		
+
+			JBasicMenuItem searchMenuItem = new JBasicMenuItem(LazyLoaderTreeController.getSearchAction(lazyLoaderTree));
+			KeyStrokeManager.registerButton(searchMenuItem, KeyEvent.VK_F, KeyEvent.CTRL_MASK);				
+			add(searchMenuItem);
+			
 			addSeparator();			
 			
-			JBasicMenuItem moveUpAction = new JBasicMenuItem(LazyLoaderTreeController.getMoveUpAction(lazyLoaderTree));
+			JBasicMenuItem moveUpAction = new JBasicMenuItem(LazyLoaderTreeController.getMoveUpAction(lazyLoaderTree, treeTransactor));
 			add(moveUpAction);	
 			
-			JBasicMenuItem moveDownAction = new JBasicMenuItem(LazyLoaderTreeController.getMoveDownAction(lazyLoaderTree));
+			JBasicMenuItem moveDownAction = new JBasicMenuItem(LazyLoaderTreeController.getMoveDownAction(lazyLoaderTree, treeTransactor));
 			add(moveDownAction);
 			
 			addSeparator();
