@@ -39,21 +39,22 @@ public class DemoTimerLabelPanel
 		setLayout(new FiledLayout(FiledLayout.COLUMN, FiledLayout.FULL, 0));
 		setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
 		
-		add(new TimerLabelPanel(JTimerLabel.XP_STYLE, "XP Style"));
-		add(new TimerLabelPanel(JTimerLabel.LUNIX_STYLE, "Lunix Style"));
-		add(new TimerLabelPanel(JTimerLabel.NIMBUS_STYLE, "Nimbus Style"));
-		add(new TimerLabelPanel(JTimerLabel.VISTA_STYLE, "Vista Style"));
+		add(new TimerLabelPanel(JTimerLabel.LOOP_ICON, "Loop Icon"));
+		add(new TimerLabelPanel(JTimerLabel.BALL_ICON, "Ball Icon"));
+		add(new TimerLabelPanel(JTimerLabel.CIRCLE_ICON, "Circle Icon"));
+		add(new TimerLabelPanel(JTimerLabel.COMPASS_ICON, "Compass Icon"));
+		add(new TimerLabelPanel(JTimerLabel.MAGNIFIER_ICON, "Magnifier Icon"));
 	}
 	
 	public class TimerLabelPanel
 		extends JPanel
 	{
-		public TimerLabelPanel(String style, String label)
+		public TimerLabelPanel(String icon, String text)
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), label));
+			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), text));
 			
-			final JTimerLabel timerLabel = new JTimerLabel(style);
+			final JTimerLabel timerLabel = new JTimerLabel(icon);
 			DimensionManager.setDimension(timerLabel, new Dimension(150, timerLabel.getPreferredSize().height));
 			add(timerLabel);
 			
