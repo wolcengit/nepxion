@@ -19,7 +19,6 @@ import javax.swing.BoxLayout;
 import javax.swing.ButtonGroup;
 import javax.swing.Icon;
 import javax.swing.JPanel;
-import javax.swing.JTree;
 import javax.swing.filechooser.FileSystemView;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
@@ -43,7 +42,7 @@ import com.nepxion.swing.menuitem.JBasicRadioButtonMenuItem;
 import com.nepxion.swing.popupmenu.JDecorationPopupMenu;
 import com.nepxion.swing.renderer.tree.TreeElementCellRenderer;
 import com.nepxion.swing.separator.JBasicSeparator;
-import com.nepxion.swing.tree.ITreeTransactor;
+import com.nepxion.swing.tree.ITreeAdapter;
 import com.nepxion.swing.tree.lazyloader.AbstractLazyLoader;
 import com.nepxion.swing.tree.lazyloader.JLazyLoaderCheckBoxTree;
 import com.nepxion.swing.tree.lazyloader.JLazyLoaderContainer;
@@ -73,10 +72,10 @@ public class DemoLazyLoaderCheckBoxTreePanel
 			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "LazyLoader Tree"));
 			
 			fileSystemView = FileSystemView.getFileSystemView();
-			treeTransactor = new FileTreeTransactor();
 			
 			FileTree fileTree = new FileTree();			
 			FileToolBar fileToolBar = new FileToolBar(fileTree);					
+			treeTransactor = new FileTreeTransactor(fileTree);
 			
 			JLazyLoaderContainer lazyLoaderContainer = new JLazyLoaderContainer(fileTree);
 			lazyLoaderContainer.add(fileToolBar, BorderLayout.NORTH);
@@ -217,39 +216,43 @@ public class DemoLazyLoaderCheckBoxTreePanel
 	}
 	
 	public class FileTreeTransactor
-		implements ITreeTransactor
+		implements ITreeAdapter
 	{
-		public DefaultMutableTreeNode addTreeNode(JTree tree, DefaultMutableTreeNode parentTreeNode)
+		public FileTreeTransactor(FileTree fileTree)
+		{
+		}
+		
+		public DefaultMutableTreeNode addTreeNode(DefaultMutableTreeNode parentTreeNode)
 		{
 			return new ElementNode("新增节点", IconFactory.getSwingIcon("solid/add_16.png"), "新增节点");
 		}
 		
-		public boolean modifyTreeNode(JTree tree, DefaultMutableTreeNode treeNode)
+		public boolean modifyTreeNode(DefaultMutableTreeNode treeNode)
 		{
 			return true;
 		}
 		
-		public boolean deleteTreeNode(JTree tree, DefaultMutableTreeNode treeNode)
+		public boolean deleteTreeNode(DefaultMutableTreeNode treeNode)
 		{
 			return true;
 		}
 		
-		public boolean deleteTreeNodes(JTree tree, TreeNode[] treeNodes)
+		public boolean deleteTreeNodes(TreeNode[] treeNodes)
 		{
 			return true;
 		}
 		
-		public boolean renameTreeNode(JTree tree, DefaultMutableTreeNode treeNode, String text)
+		public boolean renameTreeNode(DefaultMutableTreeNode treeNode, String text)
 		{
 			return true;
 		}
 		
-		public boolean moveUpTreeNode(JTree tree, DefaultMutableTreeNode treeNode)
+		public boolean moveUpTreeNode(DefaultMutableTreeNode treeNode)
 		{
 			return true;
 		}
 		
-		public boolean moveDownTreeNode(JTree tree, DefaultMutableTreeNode treeNode)
+		public boolean moveDownTreeNode(DefaultMutableTreeNode treeNode)
 		{
 			return true;
 		}
@@ -261,7 +264,7 @@ public class DemoLazyLoaderCheckBoxTreePanel
 		public FileToolBar(JLazyLoaderCheckBoxTree lazyLoaderTree)
 		{
 			setLayout(new ToolBarLayout());
-			setBorder(BorderFactory.createEmptyBorder(0, 0, 5, 0));
+			setBorder(BorderFactory.createEmptyBorder(0, 0, 2, 0));
 			
 			JBasicButton newButton = new JBasicButton(LazyLoaderTreeController.getAddAction(lazyLoaderTree, treeTransactor));
 			KeyStrokeManager.registerButton(newButton, KeyEvent.VK_N, KeyEvent.CTRL_MASK);

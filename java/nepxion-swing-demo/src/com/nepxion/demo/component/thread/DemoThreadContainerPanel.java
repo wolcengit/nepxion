@@ -82,7 +82,7 @@ public class DemoThreadContainerPanel
 	{
 		public FileTableModel(List rowDatas)
 		{
-			super(rowDatas, new String[] {"File Name", "Last Modified Time", "Directory Or File", "Length", "Can Read", "Can Write", "Can Execute"});
+			super(rowDatas, new String[] {"File Name", "Last Modified Time", "Directory Or File", "Length", "Can Read", "Can Write"});
 		}
 		
 		public Object getValueAt(int row, int column)
@@ -105,8 +105,6 @@ public class DemoThreadContainerPanel
 					return file.canWrite() ? "Yes" : "No";
 				case 6:
 					return file.canWrite() ? "Yes" : "No";
-				case 7:
-					return file.canExecute() ? "Yes" : "No";
 			}
 			return null;
 		}
@@ -179,12 +177,12 @@ public class DemoThreadContainerPanel
 			showInformation();
 		}
 		
-		protected Component getContentPane()
+		public Component getContentPane()
 		{
 			return fileTableScrollPane;
 		}
 		
-		protected boolean isLoadCache()
+		public boolean isLoadCache()
 		{			
 			return false;
 		}

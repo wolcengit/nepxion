@@ -79,7 +79,7 @@ public class DemoThreadDialoglPanel
 	{
 		public FileTableModel(List rowDatas)
 		{
-			super(rowDatas, new String[] {"File Name", "Last Modified Time", "Directory Or File", "Length", "Can Read", "Can Write", "Can Execute"});
+			super(rowDatas, new String[] {"File Name", "Last Modified Time", "Directory Or File", "Length", "Can Read", "Can Write"});
 		}
 		
 		public Object getValueAt(int row, int column)
@@ -101,9 +101,7 @@ public class DemoThreadDialoglPanel
 				case 5:
 					return file.canWrite() ? "Yes" : "No";	
 				case 6:
-					return file.canWrite() ? "Yes" : "No";
-				case 7:
-					return file.canExecute() ? "Yes" : "No";				
+					return file.canWrite() ? "Yes" : "No";			
 			}
 			return null;
 		}

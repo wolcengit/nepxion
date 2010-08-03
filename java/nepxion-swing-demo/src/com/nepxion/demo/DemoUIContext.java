@@ -32,8 +32,8 @@ public class DemoUIContext
 		
 		//注册是否启动装饰器，会稍微影响显示性能。默认为ThemeDecorated启动，FrameDecorated和DialogDecorated关闭
 		//StyleContext.registerThemeDecorated(true);
-		//StyleContext.registerFrameDecorated(true);
-		//StyleContext.registerDialogDecorated(true);
+		StyleContext.registerFrameDecorated(true);
+		StyleContext.registerDialogDecorated(true);
 		//StyleContext.registerTabbedPaneDecorated(false);
 		
 		//注册界面字体, 默认Font("Dialog", Font.PLAIN, 12)

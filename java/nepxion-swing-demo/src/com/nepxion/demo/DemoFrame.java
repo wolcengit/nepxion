@@ -51,7 +51,7 @@ public class DemoFrame
 			public void run()
 			{
 				DemoFrame frame = new DemoFrame();
-				frame.setExtendedState(DemoFrame.MAXIMIZED_BOTH);
+				frame.setExtendedState(MAXIMIZED_BOTH);
 				
 				JTray tray = new JTray(frame);
 				
