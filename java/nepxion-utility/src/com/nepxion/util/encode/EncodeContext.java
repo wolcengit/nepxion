@@ -12,26 +12,26 @@ package com.nepxion.util.encode;
 
 public class EncodeContext
 {
-    private static String ioCharset = "ISO-8859-1";
-    private static String httpCharset = "ISO-8859-1";
-    
-    public static void registerIOCharset(String customIOCharset)
-    {
-    	ioCharset = customIOCharset;
-    } 
-    
-    public static String getIOCharset()
-    {
-    	return ioCharset;
-    }
-    
-    public static void registerHttpCharset(String customHttpCharset)
-    {
-    	httpCharset = customHttpCharset;
-    } 
-    
-    public static String getHttpCharset()
-    {
-    	return httpCharset;
-    }      
+	private static String ioCharset = "ISO-8859-1";
+	private static String httpCharset = "ISO-8859-1";
+	
+	public static void registerIOCharset(String customIOCharset)
+	{
+		ioCharset = customIOCharset;
+	}
+	
+	public static String getIOCharset()
+	{
+		return ioCharset;
+	}
+	
+	public static void registerHttpCharset(String customHttpCharset)
+	{
+		httpCharset = customHttpCharset;
+	}
+	
+	public static String getHttpCharset()
+	{
+		return httpCharset;
+	}
 }

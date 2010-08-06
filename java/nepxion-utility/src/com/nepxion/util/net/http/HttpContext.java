@@ -21,7 +21,7 @@ import com.nepxion.util.log.Logger;
 
 public class HttpContext
 	implements HttpConstants
-{	
+{
 	private static LinkedHashMap httpConfigMap;
 	
 	public static void register()
@@ -95,17 +95,17 @@ public class HttpContext
 	}
 	
 	public static HttpConfig getDefaultHttpConfig()
-	{	
+	{
 		return getHttpConfig(DEFAULT_ALIAS);
 	}
 	
 	public static HttpConfig getHttpConfig(String alias)
-	{		
+	{
 		HttpConfig httpConfig = (HttpConfig) httpConfigMap.get(alias);
 		if (httpConfig == null)
 		{
 			throw new IllegalArgumentException("Http Config for " + alias + " hasn't been found");
-		}	
+		}
 		return httpConfig;
 	}
 	
@@ -131,9 +131,9 @@ public class HttpContext
 				{
 					throw new Exception("Property " + key + " must be of the format " + PREFIX + "*" + DOT + "*");
 				}
-                String prefix = key.substring(0, index);
-                String name = key.substring(index + 1);
-                Properties configProperties = (Properties) propertiesMap.get(prefix);
+				String prefix = key.substring(0, index);
+				String name = key.substring(index + 1);
+				Properties configProperties = (Properties) propertiesMap.get(prefix);
 				if (configProperties == null)
 				{
 					configProperties = new Properties();

@@ -52,24 +52,24 @@ public class TencentIPSearcher
 		
 		TencentIPEntity ipEntity = new TencentIPEntity();
 		
-        StringTokenizer stringTokenizer = new StringTokenizer(text, ",");
-        
-        String ip = stringTokenizer.nextToken();
-        ip = ip.substring(ip.indexOf("\"") + 1, ip.lastIndexOf("\""));
-        ipEntity.setIP(ip);
-        
-        String country = stringTokenizer.nextToken();
-        country = country.substring(country.indexOf("\"") + 1, country.lastIndexOf("\""));
-        ipEntity.setCountry(country);
-        
-        String province = stringTokenizer.nextToken();
-        province = province.substring(province.indexOf("\"") + 1, province.lastIndexOf("\""));
-        ipEntity.setProvince(province);
-        
-        String city = stringTokenizer.nextToken();
-        city = city.substring(city.indexOf("\"") + 1, city.lastIndexOf("\""));
-        ipEntity.setCity(city);
-        
+		StringTokenizer stringTokenizer = new StringTokenizer(text, ",");
+		
+		String ip = stringTokenizer.nextToken();
+		ip = ip.substring(ip.indexOf("\"") + 1, ip.lastIndexOf("\""));
+		ipEntity.setIP(ip);
+		
+		String country = stringTokenizer.nextToken();
+		country = country.substring(country.indexOf("\"") + 1, country.lastIndexOf("\""));
+		ipEntity.setCountry(country);
+		
+		String province = stringTokenizer.nextToken();
+		province = province.substring(province.indexOf("\"") + 1, province.lastIndexOf("\""));
+		ipEntity.setProvince(province);
+		
+		String city = stringTokenizer.nextToken();
+		city = city.substring(city.indexOf("\"") + 1, city.lastIndexOf("\""));
+		ipEntity.setCity(city);
+		
 		return ipEntity;
 	}
 	
