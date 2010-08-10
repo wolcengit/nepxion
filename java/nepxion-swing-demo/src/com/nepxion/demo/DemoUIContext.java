@@ -36,8 +36,16 @@ public class DemoUIContext
 		StyleContext.registerDialogDecorated(true);
 		//StyleContext.registerTabbedPaneDecorated(false);
 		
-		//注册界面字体, 默认Font("Dialog", Font.PLAIN, 12)
-		//FontContext.registerFontName("Dialog", Font.PLAIN, 12);		
+		//注册界面字体
+		//FontContext.registerFont("Dialog", Font.PLAIN, 12);
+		//FontContext.registerChartTitleFont("隶书", Font.PLAIN, 24);
+		//FontContext.registerChartTitleFont("Dialog", Font.PLAIN, 12);
+		//FontContext.registerChartLabelFont("Dialog", Font.PLAIN, 12);
+		//FontContext.registerChartTickLabelFont("SansSerif", Font.PLAIN, 10);
+		
+		//注册JFreeChart导出PDF的参数
+		//ChartContext.registerAuthor("Haojun Ren");
+		//ChartContext.registerSubject("Nepxion");
 		
 		//注册按钮风格，默认由LookAndFeel分配
 		//ButtonContext.registerUI(FlatButtonUI.ID, JFlatButtonStyle.ID);
@@ -71,8 +79,8 @@ public class DemoUIContext
 		//LookAndFeelManager.setMotifLookAndFeel();
 		//LookAndFeelManager.setGTKLookAndFeel();
 		//LookAndFeelManager.setNimbusLookAndFeel();
-		LookAndFeelManager.setAlloyLookAndFeel();
-		//LookAndFeelManager.setAcidLookAndFeel();
+		//LookAndFeelManager.setAlloyLookAndFeel();
+		LookAndFeelManager.setAcidLookAndFeel();
 		//LookAndFeelManager.setBedouinLookAndFeel();
 		//LookAndFeelManager.setGlassLookAndFeel();
 		//LookAndFeelManager.setBorlandLookAndFeel();
