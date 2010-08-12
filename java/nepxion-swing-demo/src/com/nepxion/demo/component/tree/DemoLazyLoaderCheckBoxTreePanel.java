@@ -182,6 +182,7 @@ public class DemoLazyLoaderCheckBoxTreePanel
 		}
 		
 		public void loadForeground(Object data, JLazyLoaderTreeNode lazyLoaderTreeNode)
+			throws Exception
 		{
 			File[] files = (File[]) data;
 			if (files != null && files.length > 0)
@@ -195,6 +196,7 @@ public class DemoLazyLoaderCheckBoxTreePanel
 		}
 		
 		public Object loadBackground(JLazyLoaderTreeNode lazyLoaderTreeNode)
+			throws Exception
 		{
 			FileNode fileNode = (FileNode) lazyLoaderTreeNode;
 			File file = fileNode.getFile();
