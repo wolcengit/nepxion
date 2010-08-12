@@ -93,7 +93,8 @@ public class ServerInvoker
 		}
 		else
 		{
-			ServerInvokerLogger.responseLog("Unknown Entity", "Invoked By Another Course - [OutputStream, PrintWriter ...]");
+			ServerInvokerLogger.responseLog("Illegal Argument Serializable Entity", responseObject);
+			// ServerInvokerLogger.responseLog("Unknown Entity", "Invoked By Another Course - [OutputStream, PrintWriter ...]");
 		}
 	}
 	
