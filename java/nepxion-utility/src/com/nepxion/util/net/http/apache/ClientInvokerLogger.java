@@ -47,4 +47,9 @@ public class ClientInvokerLogger
 		Logger.info(ClientInvokerLogger.class, "Response Data Info :\n" + dataInfo);
 		Logger.info(ClientInvokerLogger.class, "---------- Http Client Invoker End ----------");
 	}
+	
+	public static void exceptionLog(Exception e)
+	{
+		Logger.fatal(ClientInvokerLogger.class, "Http Client Invoker Fatal", e);
+	}
 }

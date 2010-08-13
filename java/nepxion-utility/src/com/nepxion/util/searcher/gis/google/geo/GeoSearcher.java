@@ -142,17 +142,4 @@ public class GeoSearcher
 		String responseText = clientInvoker.getResponseText(clientRequestGet, charset);
 		return responseText;
 	}
-	
-	public static void main(String[] args)
-	{
-		GeoSearcher searcher = new GeoSearcher();
-		try
-		{
-			searcher.search("花木");
-		}
-		catch (Exception e)
-		{
-			e.printStackTrace();
-		}
-	}
 }

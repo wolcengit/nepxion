@@ -87,6 +87,22 @@ public class ClientInvoker
 		
 		ClientInvokerLogger.responseLog("Serializable Entity", object);
 		
+		if (object instanceof Exception)
+		{
+			Exception e = (Exception) object;
+			Exception exception = null;
+			if (e.getCause() != null && e.getCause() instanceof Exception)
+			{
+				exception = (Exception) e.getCause();
+			}
+			else
+			{
+				exception = e;
+			}
+			ClientInvokerLogger.exceptionLog(exception);
+			throw exception;
+		}	
+		
 		return object;
 	}
 	
