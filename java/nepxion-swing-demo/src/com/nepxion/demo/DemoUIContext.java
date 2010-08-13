@@ -14,7 +14,7 @@ import com.nepxion.demo.component.splash.DemoCaptionSplashDialog;
 import com.nepxion.swing.icon.IconContext;
 import com.nepxion.swing.lookandfeel.LookAndFeelManager;
 import com.nepxion.swing.popupmenu.PopupMenuContext;
-import com.nepxion.swing.style.framework.JNimbusStyle;
+import com.nepxion.swing.style.framework.JPlasticStyle;
 import com.nepxion.swing.style.framework.StyleContext;
 import com.nepxion.swing.topic.TopicContext;
 
@@ -26,9 +26,9 @@ public class DemoUIContext
 		//StyleContext.registerStyle(JLiteStyle.ID);
 		//StyleContext.registerStyle(JWindowsStyle.ID);
 		//StyleContext.registerStyle(JEclipseStyle.ID);	
-		//StyleContext.registerStyle(JPlasticStyle.ID);		
+		StyleContext.registerStyle(JPlasticStyle.ID);		
 		//StyleContext.registerStyle(JFervencyStyle.ID);
-		StyleContext.registerStyle(JNimbusStyle.ID);
+		//StyleContext.registerStyle(JNimbusStyle.ID);
 		
 		//注册是否启动装饰器，会稍微影响显示性能。默认为ThemeDecorated启动，FrameDecorated和DialogDecorated关闭
 		//StyleContext.registerThemeDecorated(true);
@@ -79,8 +79,8 @@ public class DemoUIContext
 		//LookAndFeelManager.setMotifLookAndFeel();
 		//LookAndFeelManager.setGTKLookAndFeel();
 		//LookAndFeelManager.setNimbusLookAndFeel();
-		//LookAndFeelManager.setAlloyLookAndFeel();
-		LookAndFeelManager.setAcidLookAndFeel();
+		LookAndFeelManager.setAlloyLookAndFeel();
+		//LookAndFeelManager.setAcidLookAndFeel();
 		//LookAndFeelManager.setBedouinLookAndFeel();
 		//LookAndFeelManager.setGlassLookAndFeel();
 		//LookAndFeelManager.setBorlandLookAndFeel();
