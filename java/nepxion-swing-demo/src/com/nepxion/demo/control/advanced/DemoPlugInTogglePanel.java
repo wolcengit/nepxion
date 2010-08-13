@@ -13,6 +13,8 @@ package com.nepxion.demo.control.advanced;
 import javax.swing.Icon;
 
 import com.nepxion.demo.common.DemoTogglePanel;
+import com.nepxion.demo.common.DemoToggleTemplate;
+import com.nepxion.demo.component.activex.DemoActiveXPanel;
 import com.nepxion.swing.icon.IconFactory;
 import com.nepxion.swing.tabbedpane.JEclipseTabbedPane;
 
@@ -22,6 +24,7 @@ public class DemoPlugInTogglePanel
 	public DemoPlugInTogglePanel()
 	{
 		JEclipseTabbedPane toggleTabbedPane = getToggleTabbedPane();
+		toggleTabbedPane.addTab("ActiveX PlugIn", IconFactory.getSwingIcon("component/advanced_16.png"), new DemoToggleTemplate(new DemoActiveXPanel()), "ActiveX Plug-In");
 	}
 	
 	public String getToggleName()

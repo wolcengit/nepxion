@@ -21,6 +21,9 @@ public class DemoAdvancedControlOutlook
 {
 	public DemoAdvancedControlOutlook()
 	{
+		DemoToggleActionButton plugInButton = new DemoToggleActionButton(new DemoPlugInTogglePanel());
+		addButton(plugInButton);
+		
 		DemoToggleActionButton searchableButton = new DemoToggleActionButton(new DemoSearchableTogglePanel());
 		addButton(searchableButton);
 		
@@ -50,9 +53,6 @@ public class DemoAdvancedControlOutlook
 		
 		DemoToggleActionButton tipButton = new DemoToggleActionButton(new DemoTipTogglePanel());
 		addButton(tipButton);
-		
-		DemoToggleActionButton plugInButton = new DemoToggleActionButton(new DemoPlugInTogglePanel());
-		addButton(plugInButton);
 		
 		ButtonManager.updateUI(this, new Dimension(50, 70), VERTICAL);
 	}

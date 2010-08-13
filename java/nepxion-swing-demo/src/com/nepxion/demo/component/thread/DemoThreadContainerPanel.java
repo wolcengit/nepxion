@@ -61,7 +61,7 @@ public class DemoThreadContainerPanel
 		public ThreadDialoglPanel()
 		{
 			setLayout(new BorderLayout());
-			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "File Load"));
+			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "File Loader"));
 			
 			JBasicTable fileTable = new JBasicTable();
 			fileTable.setModel(new FileTableModel(new ArrayList()));
@@ -119,7 +119,6 @@ public class DemoThreadContainerPanel
 			setBorder(BorderFactory.createEmptyBorder(0, 0, 5, 0));
 			
 			final JBasicTextField textField = new JBasicTextField();
-			textField.setEditable(false);
 			textField.setBackground(Color.white);
 			add(textField);
 			
@@ -140,8 +139,8 @@ public class DemoThreadContainerPanel
 			);
 			add(selectorButton);
 			
-			JBasicButton loadButton = new JBasicButton(IconFactory.getSwingIcon("solid_search.png"), "Load File");
-			loadButton.addActionListener(new ActionListener()
+			JBasicButton loaderButton = new JBasicButton(IconFactory.getSwingIcon("solid_search.png"), "Load File");
+			loaderButton.addActionListener(new ActionListener()
 			{
 				public void actionPerformed(ActionEvent e)
 				{
@@ -149,7 +148,7 @@ public class DemoThreadContainerPanel
 				}
 			}
 			);
-			add(loadButton);
+			add(loaderButton);
 			
 			ButtonManager.updateUI(this);
 		}
