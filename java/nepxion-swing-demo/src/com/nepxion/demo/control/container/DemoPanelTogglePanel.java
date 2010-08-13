@@ -15,7 +15,7 @@ import javax.swing.Icon;
 import com.nepxion.demo.common.DemoTogglePanel;
 import com.nepxion.demo.common.DemoToggleTemplate;
 import com.nepxion.demo.component.panel.DemoBannerPanel;
-import com.nepxion.demo.component.panel.DemoButtonPanel;
+import com.nepxion.demo.component.panel.DemoOptionPanel;
 import com.nepxion.demo.component.panel.DemoDecorationPanel;
 import com.nepxion.demo.component.panel.DemoIPPropertyPanel;
 import com.nepxion.swing.icon.IconFactory;
@@ -28,7 +28,7 @@ public class DemoPanelTogglePanel
 	{
 		JEclipseTabbedPane toggleTabbedPane = getToggleTabbedPane();
 		toggleTabbedPane.addTab("Decoration Panel", IconFactory.getSwingIcon("component/panel_16.png"), new DemoToggleTemplate(new DemoDecorationPanel()), "Decoration Panel");
-		toggleTabbedPane.addTab("Button Panel", IconFactory.getSwingIcon("component/panel_16.png"), new DemoToggleTemplate(new DemoButtonPanel()), "Button Panel");		
+		toggleTabbedPane.addTab("Option Panel", IconFactory.getSwingIcon("component/panel_16.png"), new DemoToggleTemplate(new DemoOptionPanel()), "Option Panel");		
 		toggleTabbedPane.addTab("Banner Panel", IconFactory.getSwingIcon("component/panel_16.png"), new DemoToggleTemplate(new DemoBannerPanel()), "Banner Panel");
 		toggleTabbedPane.addTab("IP Property Panel", IconFactory.getSwingIcon("component/panel_16.png"), new DemoToggleTemplate(new DemoIPPropertyPanel()), "IP Property Panel");
 	}
