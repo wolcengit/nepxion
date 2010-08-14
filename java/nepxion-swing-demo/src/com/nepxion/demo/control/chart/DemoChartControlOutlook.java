@@ -12,6 +12,7 @@ package com.nepxion.demo.control.chart;
 
 import java.awt.Dimension;
 
+import com.nepxion.demo.common.DemoToggleActionButton;
 import com.nepxion.demo.common.DemoToggleOutlook;
 import com.nepxion.swing.button.ButtonManager;
 
@@ -20,6 +21,15 @@ public class DemoChartControlOutlook
 {
 	public DemoChartControlOutlook()
 	{		
+		DemoToggleActionButton pieChartButton = new DemoToggleActionButton(new DemoPieChartTogglePanel());
+        addButton(pieChartButton);
+        
+		DemoToggleActionButton barChartButton = new DemoToggleActionButton(new DemoBarChartTogglePanel());
+        addButton(barChartButton);
+        
+		DemoToggleActionButton lineChartButton = new DemoToggleActionButton(new DemoLineChartTogglePanel());
+        addButton(lineChartButton);
+        
 		ButtonManager.updateUI(this, new Dimension(50, 70), VERTICAL);
 	}
 }
