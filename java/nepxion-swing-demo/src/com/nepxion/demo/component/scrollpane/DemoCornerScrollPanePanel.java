@@ -72,7 +72,7 @@ public class DemoCornerScrollPanePanel
 			JScrollBar verticalScrollBar = cornerScrollPane.getVerticalScrollBar();
 			verticalScrollBar.setPreferredSize(new Dimension(18, verticalScrollBar.getPreferredSize().height));
 			
-			add(cornerScrollPane, BorderLayout.CENTER);
+			add(cornerScrollPane);
 		}
 	}
 }

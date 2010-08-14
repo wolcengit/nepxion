@@ -10,8 +10,6 @@ package com.nepxion.demo.component.scrollpane;
  * @version 1.0
  */
 
-import java.awt.BorderLayout;
-
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.JPanel;
@@ -70,7 +68,7 @@ public class DemoAutoScrollPanePanel
 			JAutoRollScrollPane autoRollScrollPane = new JAutoRollScrollPane();
 			autoRollScrollPane.getViewport().add(table);
 			
-			add(autoRollScrollPane, BorderLayout.CENTER);
+			add(autoRollScrollPane);
 		}
 	}
 }
