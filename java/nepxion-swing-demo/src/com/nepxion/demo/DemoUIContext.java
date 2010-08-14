@@ -11,6 +11,7 @@ package com.nepxion.demo;
  */
 
 import com.nepxion.demo.component.splash.DemoCaptionSplashDialog;
+import com.nepxion.swing.chart.ChartContext;
 import com.nepxion.swing.icon.IconContext;
 import com.nepxion.swing.lookandfeel.LookAndFeelManager;
 import com.nepxion.swing.popupmenu.PopupMenuContext;
@@ -44,8 +45,8 @@ public class DemoUIContext
 		//FontContext.registerChartTickLabelFont("SansSerif", Font.PLAIN, 10);
 		
 		//注册JFreeChart导出PDF的参数
-		//ChartContext.registerAuthor("Haojun Ren");
-		//ChartContext.registerSubject("Nepxion");
+		ChartContext.registerAuthor("Haojun Ren");
+		ChartContext.registerSubject("Nepxion");
 		
 		//注册按钮风格，默认由LookAndFeel分配
 		//ButtonContext.registerUI(FlatButtonUI.ID, JFlatButtonStyle.ID);
