@@ -23,4 +23,15 @@ public class RandomUtil
 		int randomIndex = random.nextInt(chars.length);
 		return chars[randomIndex];
 	}
+	
+	public static int getRandomInt(int min, int max)
+	{
+		Random random = new Random();
+		return random.nextInt(max - min + 1) + min;
+	}
+	
+	public static double getRandomDouble(int min, int max)
+	{
+		return Math.random() * (max - min) + min;
+	}
 }
