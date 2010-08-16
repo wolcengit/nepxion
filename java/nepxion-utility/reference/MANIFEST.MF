@@ -1,2 +1,2 @@
 Manifest-Version: 1.0
-Class-Path: util/commons-logging-1.1.1.jar util/dom4j-1.6.1.jar util/http-client-4.0.1.jar util/http-core-4.0.1.jar util/json.jar util/log4j-1.2.16.jar util/poi-3.6-20091214.jar util/proxool-0.9.1.jar util/proxool-cglib.jar util/quartz-all-1.8.3.jar util/servlet-api.jar util/slf4j-api-1.6.0.jar util/slf4j-log4j12-1.6.0.jar
+Class-Path: util/commons-logging-1.1.1.jar util/dom4j-1.6.1.jar util/http-client-4.0.1.jar util/http-core-4.0.1.jar util/json.jar util/log4j-1.2.16.jar util/poi-3.6-20091214.jar util/proxool-0.9.1.jar util/proxool-cglib.jar util/quartz-all-1.8.3.jar util/servlet-api.jar util/slf4j-api-1.6.1.jar util/slf4j-log4j12-1.6.1.jar
