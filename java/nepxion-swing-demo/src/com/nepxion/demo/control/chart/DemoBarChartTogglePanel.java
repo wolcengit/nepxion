@@ -11,10 +11,12 @@ package com.nepxion.demo.control.chart;
  */
 
 import javax.swing.Icon;
-import javax.swing.JPanel;
 
 import com.nepxion.demo.common.DemoTogglePanel;
 import com.nepxion.demo.common.DemoToggleTemplate;
+import com.nepxion.demo.component.chart.bar.DemoCylinderBarChart3DPanel;
+import com.nepxion.demo.component.chart.bar.DemoRectangleBarChart3DPanel;
+import com.nepxion.demo.component.chart.bar.DemoRectangleBarChartPanel;
 import com.nepxion.swing.icon.IconFactory;
 import com.nepxion.swing.tabbedpane.JEclipseTabbedPane;
 
@@ -24,7 +26,9 @@ public class DemoBarChartTogglePanel
 	public DemoBarChartTogglePanel()
 	{
 		JEclipseTabbedPane toggleTabbedPane = getToggleTabbedPane();
-		toggleTabbedPane.addTab("Bar Chart", IconFactory.getSwingIcon("component/chart_bar_16.png"), new DemoToggleTemplate(new JPanel()), "Bar Chart");
+		toggleTabbedPane.addTab("Rectangle Bar Chart 3D", IconFactory.getSwingIcon("component/chart_bar_16.png"), new DemoToggleTemplate(new DemoRectangleBarChart3DPanel()), "Rectangle Bar Chart 3D");
+		toggleTabbedPane.addTab("Rectangle Bar Chart", IconFactory.getSwingIcon("component/chart_bar_16.png"), new DemoToggleTemplate(new DemoRectangleBarChartPanel()), "Rectangle Bar Chart");
+		toggleTabbedPane.addTab("Cylinder Bar Chart 3D", IconFactory.getSwingIcon("component/chart_bar_16.png"), new DemoToggleTemplate(new DemoCylinderBarChart3DPanel()), "Cylinder Bar Chart 3D");
 	}
 	
 	public String getToggleName()

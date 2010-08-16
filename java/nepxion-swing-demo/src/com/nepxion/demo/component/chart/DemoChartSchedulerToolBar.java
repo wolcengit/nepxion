@@ -13,7 +13,6 @@ package com.nepxion.demo.component.chart;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
 
 import javax.swing.BorderFactory;
 import javax.swing.Box;
@@ -24,7 +23,6 @@ import javax.swing.JPanel;
 import com.nepxion.swing.button.ButtonManager;
 import com.nepxion.swing.button.JBasicButton;
 import com.nepxion.swing.icon.IconFactory;
-import com.nepxion.swing.keystroke.KeyStrokeManager;
 import com.nepxion.swing.panel.JTimePanel;
 import com.nepxion.util.scheduler.quartz.basic.BasicSchedulerExecuter;
 
@@ -63,7 +61,6 @@ public class DemoChartSchedulerToolBar
 			}
 		}
 		);
-		KeyStrokeManager.registerButton(startButton, KeyEvent.VK_R, KeyEvent.CTRL_MASK);
 		timePanel.add(startButton);
 		
 		JBasicButton stopButton = new JBasicButton("停止", IconFactory.getSwingIcon("solid/control_pause_16.png"), "停止定时器");
@@ -75,7 +72,6 @@ public class DemoChartSchedulerToolBar
 			}
 		}
 		);
-		KeyStrokeManager.registerButton(stopButton, KeyEvent.VK_S, KeyEvent.CTRL_MASK);
 		timePanel.add(stopButton);
 		
 		add(new JLabel("定时间隔"));
