@@ -9,5 +9,5 @@ jarsigner -keystore Security.store ../lib/util/proxool-0.9.1.jar Security
 jarsigner -keystore Security.store ../lib/util/proxool-cglib.jar Security
 jarsigner -keystore Security.store ../lib/util/quartz-all-1.8.3.jar Security
 jarsigner -keystore Security.store ../lib/util/servlet-api.jar Security
-jarsigner -keystore Security.store ../lib/util/slf4j-api-1.6.0.jar Security
-jarsigner -keystore Security.store ../lib/util/slf4j-log4j12-1.6.0.jar Security
+jarsigner -keystore Security.store ../lib/util/slf4j-api-1.6.1.jar Security
+jarsigner -keystore Security.store ../lib/util/slf4j-log4j12-1.6.1.jar Security
