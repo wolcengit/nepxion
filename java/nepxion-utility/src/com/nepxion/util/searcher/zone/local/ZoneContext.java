@@ -14,11 +14,12 @@ import java.io.InputStream;
 import java.net.URL;
 
 import com.nepxion.util.io.FileUtil;
+import com.nepxion.util.io.IOUtil;
 
 public class ZoneContext
 	implements ZoneConstants
 {
-	private static InputStream inputStream;
+	private static String content;
 	
 	public static void register()
 		throws Exception
@@ -27,11 +28,12 @@ public class ZoneContext
 	}
 	
 	public static void register(String filePath)
-		throws Exception	
+		throws Exception
 	{
 		try
 		{
-			inputStream = FileUtil.getInputStream(filePath, false);
+			InputStream inputStream = FileUtil.getInputStream(filePath, false);
+			content = IOUtil.getString(inputStream);
 		}
 		catch (Exception e)
 		{
@@ -44,7 +46,8 @@ public class ZoneContext
 	{
 		try
 		{
-			inputStream = FileUtil.getInputStream(codeBase, CONFIG_FILE_PATH);
+			InputStream inputStream = FileUtil.getInputStream(codeBase, CONFIG_FILE_PATH);
+			content = IOUtil.getString(inputStream);
 		}
 		catch (Exception e)
 		{
@@ -52,8 +55,8 @@ public class ZoneContext
 		}
 	}
 	
-	public static InputStream getInputStream()
+	public static String getContent()
 	{
-		return inputStream;
+		return content;
 	}
 }
