@@ -1,8 +1,8 @@
 @echo on
 @echo =============================================================
-@echo $                                                           $ 
-@echo $                     Nepxion Deployment                    $  
-@echo $                                                           $ 
+@echo $                                                           $
+@echo $                     Nepxion Deployment                    $
+@echo $                                                           $
 @echo $                                                           $
 @echo $                                                           $
 @echo $  Nepxion Technologies All Right Reserved                  $
