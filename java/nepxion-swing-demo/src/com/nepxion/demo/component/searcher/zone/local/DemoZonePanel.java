@@ -10,8 +10,6 @@ package com.nepxion.demo.component.searcher.zone.local;
  * @version 1.0
  */
 
-import java.awt.Dimension;
-
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.JPanel;
@@ -19,10 +17,8 @@ import javax.swing.JPanel;
 import com.nepxion.swing.border.ComplexEtchedBorder;
 import com.nepxion.swing.border.ComplexSide;
 import com.nepxion.swing.border.ComplexTitleBorder;
-import com.nepxion.swing.button.ButtonManager;
 import com.nepxion.swing.layout.filed.FiledLayout;
-import com.nepxion.swing.searcher.zone.local.JZoneSelectorButton;
-import com.nepxion.swing.textfield.number.JNumberTextField;
+import com.nepxion.swing.searcher.zone.local.JZoneSelectorPanel;
 
 public class DemoZonePanel
 	extends JPanel
@@ -43,15 +39,8 @@ public class DemoZonePanel
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
 			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "ÇøºÅ²éÑ¯"));
 			
-			JNumberTextField textField = new JNumberTextField(12, 0);
-			JZoneSelectorButton selectorButton = new JZoneSelectorButton(textField);
-			
-			JPanel panel = new JPanel();
-			panel.setLayout(new BoxLayout(panel, BoxLayout.X_AXIS));
-			panel.add(textField);
-			panel.add(selectorButton);
-			ButtonManager.updateUI(panel, new Dimension(26, 22));			
-			add(panel);
+			JZoneSelectorPanel zoneSelectorPanel = new JZoneSelectorPanel();		
+			add(zoneSelectorPanel);
 		}
 	}
 }
