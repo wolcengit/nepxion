@@ -23,7 +23,11 @@ public class DemoDataContext
 	private static URL url;
 	
 	public static void initialize()
-	{
+	{	
+		EncodeContext.registerIOCharset("GBK");
+		EncodeContext.registerHttpCharset("UTF-8");
+		ActiveXContext.registerStrategy(ActiveXContext.STRATEGY_APPLICATION);
+		
 		try
 		{
 			// HttpContext.register();
@@ -35,14 +39,15 @@ public class DemoDataContext
 		catch (Exception e)
 		{
 			e.printStackTrace();
-		}		
-		EncodeContext.registerIOCharset("GBK");
-		EncodeContext.registerHttpCharset("UTF-8");
-		ActiveXContext.registerStrategy(ActiveXContext.STRATEGY_APPLICATION);
+		}	
 	}
 	
 	public static void initialize(URL codeBase)
 	{
+		EncodeContext.registerIOCharset("GBK");
+		EncodeContext.registerHttpCharset("UTF-8");		
+		ActiveXContext.registerStrategy(ActiveXContext.STRATEGY_APPLET);
+		
 		try
 		{
 			// HttpContext.register(codeBase);
@@ -54,10 +59,7 @@ public class DemoDataContext
 		catch (Exception e)
 		{
 			e.printStackTrace();
-		}
-		EncodeContext.registerIOCharset("GBK");
-		EncodeContext.registerHttpCharset("UTF-8");		
-		ActiveXContext.registerStrategy(ActiveXContext.STRATEGY_APPLET);
+		}	
 		
 		registerURL(codeBase);
 	}
