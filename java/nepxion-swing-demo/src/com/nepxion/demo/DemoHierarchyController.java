@@ -21,7 +21,7 @@ public class DemoHierarchyController
 {
     public static JAuthorityAction getAboutAction()
     {
-    	JAuthorityAction action = new JAuthorityAction("About", IconFactory.getSwingIcon("about.png"), "About Nepxion Swing 1.0")
+    	JAuthorityAction action = new JAuthorityAction("¹ØÓÚ", IconFactory.getSwingIcon("about.png"), "About Nepxion Swing 1.0")
         {
             public void execute(ActionEvent e)
             {
