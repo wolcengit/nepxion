@@ -19,6 +19,10 @@ public class ExceptionUtil
 	public static String subString(Exception e)
 	{
 		String message = e.getMessage();
+		if (message == null)
+		{
+			return e.toString();
+		}	
 		message = message.substring(message.indexOf(":") + 1).trim();
 		return message;
 	}
