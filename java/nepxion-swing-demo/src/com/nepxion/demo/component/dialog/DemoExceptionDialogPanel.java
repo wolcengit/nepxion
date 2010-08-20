@@ -24,6 +24,7 @@ import com.nepxion.swing.border.ComplexTitleBorder;
 import com.nepxion.swing.button.ButtonManager;
 import com.nepxion.swing.button.JBasicButton;
 import com.nepxion.swing.dialog.JExceptionDialog;
+import com.nepxion.swing.handle.HandleManager;
 import com.nepxion.swing.icon.IconFactory;
 import com.nepxion.swing.layout.filed.FiledLayout;
 
@@ -57,7 +58,7 @@ public class DemoExceptionDialogPanel
 	                }
 	                catch (NumberFormatException ex)
 	                {
-	                    JExceptionDialog.traceException(Frame.getFrames()[0], "Parse Integer Exception", "Exception Details", ex);
+	                    JExceptionDialog.traceException(HandleManager.getFrame(DemoExceptionDialogPanel.this), "Parse Integer Exception", "Exception Details", ex);
 	                }
 				}
 			}
