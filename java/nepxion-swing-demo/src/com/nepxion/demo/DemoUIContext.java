@@ -10,8 +10,11 @@ package com.nepxion.demo;
  * @version 1.0
  */
 
+import java.awt.Font;
+
 import com.nepxion.demo.component.splash.DemoCaptionSplashDialog;
 import com.nepxion.swing.chart.ChartContext;
+import com.nepxion.swing.font.FontContext;
 import com.nepxion.swing.icon.IconContext;
 import com.nepxion.swing.lookandfeel.LookAndFeelManager;
 import com.nepxion.swing.popupmenu.PopupMenuContext;
@@ -40,13 +43,13 @@ public class DemoUIContext
 		//注册界面字体
 		//FontContext.registerFont("Dialog", Font.PLAIN, 12);
 		//FontContext.registerChartTitleFont("隶书", Font.PLAIN, 24);
-		//FontContext.registerChartTitleFont("Dialog", Font.PLAIN, 12);
+		//FontContext.registerChartSubTitleFont("Dialog", Font.PLAIN, 12);
 		//FontContext.registerChartLabelFont("Dialog", Font.PLAIN, 12);
 		//FontContext.registerChartTickLabelFont("SansSerif", Font.PLAIN, 10);
 		
 		//注册JFreeChart导出PDF的参数
-		ChartContext.registerAuthor("Haojun Ren");
-		ChartContext.registerSubject("Nepxion");
+		ChartContext.registerChartPDFAuthor("Haojun Ren");
+		ChartContext.registerChartPDFSubject("Nepxion");
 		
 		//注册按钮风格，默认由LookAndFeel分配
 		//ButtonContext.registerUI(FlatButtonUI.ID, JFlatButtonStyle.ID);
