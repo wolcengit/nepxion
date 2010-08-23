@@ -38,7 +38,7 @@ public class ProxoolContext
 		}
 		catch (ProxoolException e)
 		{
-			Logger.fatal(ProxoolConnectionPool.class, e);
+			Logger.fatal(ProxoolContext.class, e);
 			throw e;
 		}
 		
@@ -56,7 +56,7 @@ public class ProxoolContext
 		}
 		catch (ProxoolException e)
 		{
-			Logger.fatal(ProxoolConnectionPool.class, e);
+			Logger.fatal(ProxoolContext.class, e);
 			throw e;
 		}
 		
@@ -76,7 +76,7 @@ public class ProxoolContext
 		}
 		catch (Exception e)
 		{
-			Logger.fatal(ProxoolConnectionPool.class, e);
+			Logger.fatal(ProxoolContext.class, e);
 			throw e;
 		}
 	}

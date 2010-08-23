@@ -16,7 +16,6 @@ import java.util.Properties;
 import org.quartz.Scheduler;
 import org.quartz.SchedulerException;
 
-import com.nepxion.util.database.pool.proxool.ProxoolConnectionPool;
 import com.nepxion.util.log.Logger;
 
 public class QuartzContext
@@ -82,7 +81,7 @@ public class QuartzContext
 		}
 		catch (Exception e)
 		{
-			Logger.fatal(ProxoolConnectionPool.class, e);
+			Logger.fatal(QuartzContext.class, e);
 			throw e;
 		}
 	}
