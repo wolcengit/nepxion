@@ -10,11 +10,8 @@ package com.nepxion.demo;
  * @version 1.0
  */
 
-import java.awt.Font;
-
 import com.nepxion.demo.component.splash.DemoCaptionSplashDialog;
 import com.nepxion.swing.chart.ChartContext;
-import com.nepxion.swing.font.FontContext;
 import com.nepxion.swing.icon.IconContext;
 import com.nepxion.swing.lookandfeel.LookAndFeelManager;
 import com.nepxion.swing.popupmenu.PopupMenuContext;
