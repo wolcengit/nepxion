@@ -85,7 +85,6 @@ public class DemoPieChartPanel
 			setLayout(new BorderLayout());
 			
 			DefaultPieDataset cpuPieDataset = new DefaultPieDataset();
-			
 			cpuPieDataset.setValue("ø’œ–", 20D);
 			cpuPieDataset.setValue("’º”√", 80D);
 			
