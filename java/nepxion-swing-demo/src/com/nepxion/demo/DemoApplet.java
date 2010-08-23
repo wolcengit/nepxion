@@ -19,9 +19,9 @@ public class DemoApplet
 {
 	public void init()
 	{
-		super.init();
-		
 		DemoDataContext.initialize(getCodeBase());
+		
+		super.init();		
 		
 		SwingUtilities.invokeLater(new Runnable()
 		{
