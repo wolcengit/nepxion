@@ -41,12 +41,13 @@ public class HttpContext
 		{
 			FileInputStream fis = new FileInputStream(filePath);
 			properties.load(fis);
+			fis.close();
 			
 			parseConfig(properties);
 		}
 		catch (Exception e)
 		{
-			Logger.fatal(HttpConstants.class, e);
+			Logger.fatal(HttpContext.class, e);
 			throw e;
 		}
 		
@@ -64,7 +65,7 @@ public class HttpContext
 		}
 		catch (Exception e)
 		{
-			Logger.fatal(HttpConstants.class, e);
+			Logger.fatal(HttpContext.class, e);
 			throw e;
 		}
 		
@@ -87,7 +88,7 @@ public class HttpContext
 		}
 		catch (Exception e)
 		{
-			Logger.fatal(HttpConstants.class, e);
+			Logger.fatal(HttpContext.class, e);
 			throw e;
 		}
 		
