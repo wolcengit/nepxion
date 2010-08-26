@@ -18,9 +18,7 @@ import javax.swing.BoxLayout;
 import javax.swing.JPanel;
 
 import com.nepxion.demo.common.DemoDataFactory;
-import com.nepxion.swing.border.ComplexEtchedBorder;
-import com.nepxion.swing.border.ComplexSide;
-import com.nepxion.swing.border.ComplexTitleBorder;
+import com.nepxion.swing.border.BorderManager;
 import com.nepxion.swing.combobox.JGroupComboBox;
 import com.nepxion.swing.layout.filed.FiledLayout;
 import com.nepxion.swing.renderer.combobox.ComboBoxGroupCellRenderer;
@@ -43,7 +41,7 @@ public class DemoGroupComboBoxPanel
 		public GroupComboBoxPanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Group ComboBox"));
+			setBorder(BorderManager.createComplexTitleBorder("Group ComboBox"));
 			
 			List componentElementNodes = DemoDataFactory.getComponentElementNodes();
 			componentElementNodes.add(3, ComboBoxGroupCellRenderer.SEPARATOR);

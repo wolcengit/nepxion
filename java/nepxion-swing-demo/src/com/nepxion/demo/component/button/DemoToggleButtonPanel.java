@@ -14,9 +14,7 @@ import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.JPanel;
 
-import com.nepxion.swing.border.ComplexEtchedBorder;
-import com.nepxion.swing.border.ComplexSide;
-import com.nepxion.swing.border.ComplexTitleBorder;
+import com.nepxion.swing.border.BorderManager;
 import com.nepxion.swing.button.JBasicToggleButton;
 import com.nepxion.swing.button.JStyleToggleButton;
 import com.nepxion.swing.icon.IconFactory;
@@ -56,7 +54,7 @@ public class DemoToggleButtonPanel
 		public FlatStyleButtonPanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Flat ButtonUI"));
+			setBorder(BorderManager.createComplexTitleBorder("Flat ButtonUI"));
 			
 			JBasicToggleButton flatStyleButton = new JBasicToggleButton("JFlat Style", IconFactory.getSwingIcon("component/button_16.png"), "JFlat Style");
 			flatStyleButton.setUI(new FlatButtonUI());
@@ -70,7 +68,7 @@ public class DemoToggleButtonPanel
 		public AlloyStyleButtonPanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Alloy ButtonUI"));
+			setBorder(BorderManager.createComplexTitleBorder("Alloy ButtonUI"));
 			
 			JBasicToggleButton alloyStyleButton = new JBasicToggleButton("JAlloy Style", IconFactory.getSwingIcon("component/button_16.png"), "JAlloy Style");
 			alloyStyleButton.setUI(new LiteButtonUI(new JAlloyLiteButtonStyle()));
@@ -96,7 +94,7 @@ public class DemoToggleButtonPanel
 		public EclipseStyleButtonPanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Eclipse ButtonUI"));
+			setBorder(BorderManager.createComplexTitleBorder("Eclipse ButtonUI"));
 			
 			JBasicToggleButton eclipseStyleButton = new JBasicToggleButton("JEclipse Style", IconFactory.getSwingIcon("component/button_16.png"), "JEclipse Style");
 			eclipseStyleButton.setUI(new LiteButtonUI(new JEclipseLiteButtonStyle()));
@@ -110,7 +108,7 @@ public class DemoToggleButtonPanel
 		public BorlandStyleButtonPanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Borland ButtonUI"));
+			setBorder(BorderManager.createComplexTitleBorder("Borland ButtonUI"));
 			
 			JBasicToggleButton borlandStyleButton = new JBasicToggleButton("JBorland Style", IconFactory.getSwingIcon("component/button_16.png"), "JBorland Style");
 			borlandStyleButton.setUI(new LiteButtonUI(new JBorlandLiteButtonStyle()));
@@ -124,7 +122,7 @@ public class DemoToggleButtonPanel
 		public NimbusStyleButtonPanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Nimbus ButtonUI"));
+			setBorder(BorderManager.createComplexTitleBorder("Nimbus ButtonUI"));
 			
 			JBasicToggleButton nimbusStyleButton = new JBasicToggleButton("JNimbus Style", IconFactory.getSwingIcon("component/button_16.png"), "JNimbus Style");
 			nimbusStyleButton.setUI(new LiteButtonUI(new JNimbusLiteButtonStyle()));
@@ -138,7 +136,7 @@ public class DemoToggleButtonPanel
 		public ColorStyleButtonPanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Color ButtonUI"));
+			setBorder(BorderManager.createComplexTitleBorder("Color ButtonUI"));
 			
 			JBasicToggleButton blueStyleButton = new JBasicToggleButton("JBlue Style", IconFactory.getSwingIcon("component/button_16.png"), "JBlue Style");
 			blueStyleButton.setUI(new LiteButtonUI(new JBlueLiteButtonStyle()));
@@ -156,7 +154,7 @@ public class DemoToggleButtonPanel
 		public StyleButtonPanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Style ButtonUI"));
+			setBorder(BorderManager.createComplexTitleBorder("Style ButtonUI"));
 			
 			JStyleToggleButton flatStyleButton = new JStyleToggleButton("Flat Style", IconFactory.getSwingIcon("component/button_16.png"), "Flat Style");
 			flatStyleButton.setButtonStyle(JStyleToggleButton.FLAT_STYLE);

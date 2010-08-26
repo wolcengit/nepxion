@@ -15,9 +15,7 @@ import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.JPanel;
 
-import com.nepxion.swing.border.ComplexEtchedBorder;
-import com.nepxion.swing.border.ComplexSide;
-import com.nepxion.swing.border.ComplexTitleBorder;
+import com.nepxion.swing.border.BorderManager;
 import com.nepxion.swing.layout.filed.FiledLayout;
 import com.nepxion.swing.scrollpane.JBasicScrollPane;
 import com.nepxion.swing.textarea.JBasicTextArea;
@@ -41,7 +39,7 @@ public class DemoBasicTextFieldPanel
 		public BasicTextFieldPanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Basic TextField"));
+			setBorder(BorderManager.createComplexTitleBorder("Basic TextField"));
 
 			JBasicTextField basicTextField = new JBasicTextField();
 			basicTextField.setText("Right-clicked popupMenu to 'Copy' 'Paste' 'Cut' & 'Clean'");

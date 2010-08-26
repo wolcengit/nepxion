@@ -18,9 +18,7 @@ import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.JPanel;
 
-import com.nepxion.swing.border.ComplexEtchedBorder;
-import com.nepxion.swing.border.ComplexSide;
-import com.nepxion.swing.border.ComplexTitleBorder;
+import com.nepxion.swing.border.BorderManager;
 import com.nepxion.swing.button.ButtonManager;
 import com.nepxion.swing.button.JBasicButton;
 import com.nepxion.swing.dialog.JBasicDialog;
@@ -49,7 +47,7 @@ public class DemoDropDownSelectorPanel
 		public TreeDropDownSelectorPanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Tree DropDown Selector"));
+			setBorder(BorderManager.createComplexTitleBorder("Tree DropDown Selector"));
 			
 			JBasicButton popupMenuStyleButton = new JBasicButton("PopupMenu Style", IconFactory.getSwingIcon("component/tree_16.png"), "PopupMenu Style");
 			popupMenuStyleButton.addActionListener(new ActionListener()
@@ -117,7 +115,7 @@ public class DemoDropDownSelectorPanel
 		public TableDropDownSelectorPanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Table DropDown Selector"));
+			setBorder(BorderManager.createComplexTitleBorder("Table DropDown Selector"));
 			
 			JBasicButton popupMenuStyleButton = new JBasicButton("PopupMenu Style", IconFactory.getSwingIcon("component/table_16.png"), "PopupMenu Style");
 			popupMenuStyleButton.addActionListener(new ActionListener()
@@ -185,7 +183,7 @@ public class DemoDropDownSelectorPanel
 		public ListDropDownSelectorPanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "List DropDown Selector"));
+			setBorder(BorderManager.createComplexTitleBorder("List DropDown Selector"));
 			
 			JBasicButton popupMenuStyleButton = new JBasicButton("PopupMenu Style", IconFactory.getSwingIcon("component/list_16.png"), "PopupMenu Style");
 			popupMenuStyleButton.addActionListener(new ActionListener()

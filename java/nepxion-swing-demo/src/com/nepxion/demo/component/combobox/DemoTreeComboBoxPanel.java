@@ -23,9 +23,7 @@ import javax.swing.JList;
 import javax.swing.JPanel;
 
 import com.nepxion.demo.common.DemoDataFactory;
-import com.nepxion.swing.border.ComplexEtchedBorder;
-import com.nepxion.swing.border.ComplexSide;
-import com.nepxion.swing.border.ComplexTitleBorder;
+import com.nepxion.swing.border.BorderManager;
 import com.nepxion.swing.combobox.JBasicComboBox;
 import com.nepxion.swing.element.ElementNode;
 import com.nepxion.swing.layout.filed.FiledLayout;
@@ -49,7 +47,7 @@ public class DemoTreeComboBoxPanel
 		public TreeComboBoxPanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Group ComboBox"));
+			setBorder(BorderManager.createComplexTitleBorder("Group ComboBox"));
 			
 			List comboBoxElementNodes = new ArrayList();
 			

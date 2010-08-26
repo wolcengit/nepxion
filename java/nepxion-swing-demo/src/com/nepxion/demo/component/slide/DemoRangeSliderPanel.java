@@ -10,17 +10,12 @@ package com.nepxion.demo.component.slide;
  * @version 1.0
  */
 
-import java.awt.Dimension;
-
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.JPanel;
 
-import com.nepxion.swing.border.ComplexEtchedBorder;
-import com.nepxion.swing.border.ComplexSide;
-import com.nepxion.swing.border.ComplexTitleBorder;
+import com.nepxion.swing.border.BorderManager;
 import com.nepxion.swing.layout.filed.FiledLayout;
-import com.nepxion.swing.spinner.JPointSpinnerField;
 
 public class DemoRangeSliderPanel
 	extends JPanel
@@ -39,7 +34,7 @@ public class DemoRangeSliderPanel
 		public RangeSliderPanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Point Spinner"));
+			setBorder(BorderManager.createComplexTitleBorder("Point Spinner"));
 			
 
 		}

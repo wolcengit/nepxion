@@ -18,9 +18,7 @@ import javax.swing.JList;
 import javax.swing.JPanel;
 
 import com.nepxion.demo.common.DemoDataFactory;
-import com.nepxion.swing.border.ComplexEtchedBorder;
-import com.nepxion.swing.border.ComplexSide;
-import com.nepxion.swing.border.ComplexTitleBorder;
+import com.nepxion.swing.border.BorderManager;
 import com.nepxion.swing.renderer.list.ListRadioButtonCellRenderer;
 import com.nepxion.swing.scrollpane.JBasicScrollPane;
 import com.nepxion.util.data.CollectionUtil;
@@ -42,7 +40,7 @@ public class DemoRadioButtonListPanel
 		public RadioButtonListPanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "RadioButton List"));
+			setBorder(BorderManager.createComplexTitleBorder("RadioButton List"));
 			
 			List componentElementNodes = DemoDataFactory.getComponentElementNodes();
 			

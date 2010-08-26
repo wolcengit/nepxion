@@ -15,9 +15,7 @@ import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
-import com.nepxion.swing.border.ComplexEtchedBorder;
-import com.nepxion.swing.border.ComplexSide;
-import com.nepxion.swing.border.ComplexTitleBorder;
+import com.nepxion.swing.border.BorderManager;
 import com.nepxion.swing.layout.filed.FiledLayout;
 import com.nepxion.swing.layout.table.TableLayout;
 
@@ -39,7 +37,7 @@ public class DemoAbsoluteTableLayoutPanel
 		public RegularTableLayoutPanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Regular"));
+			setBorder(BorderManager.createComplexTitleBorder("Regular"));
 			
 			double[][] size = 
 			{ 
@@ -92,7 +90,7 @@ public class DemoAbsoluteTableLayoutPanel
 		public ComplexTableLayoutPanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Complex"));			
+			setBorder(BorderManager.createComplexTitleBorder("Complex"));			
 
 			double[][] size = 
 			{ 

@@ -15,9 +15,7 @@ import javax.swing.BoxLayout;
 import javax.swing.JPanel;
 import javax.swing.table.AbstractTableModel;
 
-import com.nepxion.swing.border.ComplexEtchedBorder;
-import com.nepxion.swing.border.ComplexSide;
-import com.nepxion.swing.border.ComplexTitleBorder;
+import com.nepxion.swing.border.BorderManager;
 import com.nepxion.swing.scrollpane.JAutoRollScrollPane;
 import com.nepxion.swing.table.JBasicTable;
 
@@ -38,7 +36,7 @@ public class DemoAutoScrollPanePanel
 		public AutoScrollPanePanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Auto ScrollPane"));
+			setBorder(BorderManager.createComplexTitleBorder("Auto ScrollPane"));
 			
 			JBasicTable table = new JBasicTable(new AbstractTableModel()
 			{

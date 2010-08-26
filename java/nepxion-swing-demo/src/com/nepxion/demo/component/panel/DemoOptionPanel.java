@@ -20,9 +20,7 @@ import javax.swing.BoxLayout;
 import javax.swing.JPanel;
 
 import com.nepxion.demo.common.DemoSelectionValuePanel;
-import com.nepxion.swing.border.ComplexEtchedBorder;
-import com.nepxion.swing.border.ComplexSide;
-import com.nepxion.swing.border.ComplexTitleBorder;
+import com.nepxion.swing.border.BorderManager;
 import com.nepxion.swing.button.ButtonManager;
 import com.nepxion.swing.button.JBasicButton;
 import com.nepxion.swing.dialog.JBasicDialog;
@@ -53,7 +51,7 @@ public class DemoOptionPanel
 		public ButtonPanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Button Panel"));
+			setBorder(BorderManager.createComplexTitleBorder("Button Panel"));
 			
 			JBasicButton yesNoApplyOptionButton = new JBasicButton("Yes & No & Apply Option Panel", IconFactory.getSwingIcon("component/button_16.png"), "Yes & No & Apply Option Panel");
 			yesNoApplyOptionButton.addActionListener(new ActionListener()

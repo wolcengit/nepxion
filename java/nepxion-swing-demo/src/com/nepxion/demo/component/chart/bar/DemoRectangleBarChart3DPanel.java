@@ -58,7 +58,7 @@ public class DemoRectangleBarChart3DPanel
 				{TableLayout.PREFERRED, 500}
 			};
 			setLayout(new TableLayout(size));
-			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "计算机性能实时统计图"));
+			setBorder(BorderManager.createComplexTitleBorder("计算机性能实时统计图"));
 			
 			verticalBarChartPanel = new BarChartPanel(PlotOrientation.VERTICAL);
 			horizontalBarChartPanel = new BarChartPanel(PlotOrientation.HORIZONTAL); 
@@ -108,7 +108,7 @@ public class DemoRectangleBarChart3DPanel
 			JFreeChart chart = JChartFactory.createChart("计算机性能实时统计图", "Nepxion Studio Statistics", categoryPlot);
 			
 			JChartPanel chartPanel = new JChartPanel(chart);
-			chartPanel.setBorder(BorderManager.getScrollPaneBorder());
+			chartPanel.setBorder(BorderManager.createScrollPaneBorder());
 			
 			add(chartPanel, BorderLayout.CENTER);
 		}

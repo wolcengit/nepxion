@@ -16,9 +16,7 @@ import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.JPanel;
 
-import com.nepxion.swing.border.ComplexEtchedBorder;
-import com.nepxion.swing.border.ComplexSide;
-import com.nepxion.swing.border.ComplexTitleBorder;
+import com.nepxion.swing.border.BorderManager;
 import com.nepxion.swing.layout.filed.FiledLayout;
 import com.nepxion.swing.spinner.JNumberSpinnerField;
 
@@ -39,7 +37,7 @@ public class DemoNumberSpinnerFieldPanel
 		public NumberSpinnerFieldPanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Number SpinnerField"));
+			setBorder(BorderManager.createComplexTitleBorder("Number SpinnerField"));
 			
 			JNumberSpinnerField numberSpinnerField = new JNumberSpinnerField();
 			numberSpinnerField.setMaximumSize(new Dimension(350, numberSpinnerField.getPreferredSize().height));

@@ -18,9 +18,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.tree.TreeNode;
 
-import com.nepxion.swing.border.ComplexEtchedBorder;
-import com.nepxion.swing.border.ComplexSide;
-import com.nepxion.swing.border.ComplexTitleBorder;
+import com.nepxion.swing.border.BorderManager;
 import com.nepxion.swing.button.ButtonManager;
 import com.nepxion.swing.button.JBasicSelectorMenuButton;
 import com.nepxion.swing.handle.HandleManager;
@@ -48,7 +46,7 @@ public class DemoSelectorMenuButtonPanel
 		public SelectorMenuButtonPanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Flat ButtonUI"));
+			setBorder(BorderManager.createComplexTitleBorder("Flat ButtonUI"));
 			
 			JBasicTextField textField = new JBasicTextField();
 			SelectorMenuButton selectorButton = new SelectorMenuButton(textField);

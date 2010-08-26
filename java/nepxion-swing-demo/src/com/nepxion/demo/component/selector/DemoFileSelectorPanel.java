@@ -24,9 +24,7 @@ import javax.swing.JPanel;
 import sun.awt.shell.ShellFolder;
 
 import com.nepxion.demo.common.DemoSelectionValuePanel;
-import com.nepxion.swing.border.ComplexEtchedBorder;
-import com.nepxion.swing.border.ComplexSide;
-import com.nepxion.swing.border.ComplexTitleBorder;
+import com.nepxion.swing.border.BorderManager;
 import com.nepxion.swing.button.ButtonManager;
 import com.nepxion.swing.button.JBasicButton;
 import com.nepxion.swing.handle.HandleManager;
@@ -59,7 +57,7 @@ public class DemoFileSelectorPanel
 		public FileSelectorPanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "File Selector"));
+			setBorder(BorderManager.createComplexTitleBorder("File Selector"));
 			
 			JBasicButton openFileButton = new JBasicButton("Open File", IconFactory.getSwingIcon("component/file_chooser_16.png"), "Open File");
 			openFileButton.addActionListener(new ActionListener()
@@ -163,7 +161,7 @@ public class DemoFileSelectorPanel
 		public FolderSelectorPanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Folder Selector"));
+			setBorder(BorderManager.createComplexTitleBorder("Folder Selector"));
 			
 			JBasicButton openFolderButton = new JBasicButton("Open Folder", IconFactory.getSwingIcon("component/file_chooser_16.png"), "Open Folder");
 			openFolderButton.addActionListener(new ActionListener()

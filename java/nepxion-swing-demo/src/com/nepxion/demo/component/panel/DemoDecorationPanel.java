@@ -16,9 +16,7 @@ import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.JPanel;
 
-import com.nepxion.swing.border.ComplexEtchedBorder;
-import com.nepxion.swing.border.ComplexSide;
-import com.nepxion.swing.border.ComplexTitleBorder;
+import com.nepxion.swing.border.BorderManager;
 import com.nepxion.swing.dimension.DimensionManager;
 import com.nepxion.swing.icon.IconFactory;
 import com.nepxion.swing.layout.filed.FiledLayout;
@@ -67,7 +65,7 @@ public class DemoDecorationPanel
 		public WindowsStyleDecorationPanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Windows Style"));
+			setBorder(BorderManager.createComplexTitleBorder("Windows Style"));
 			
 			JDecorationPanel windowsStyleDecorationPanel = new JDecorationPanel("JWindows Style", IconFactory.getSwingIcon("component/internal_frame_16.png"), true, new JBasicScrollPane(new JBasicTextArea()), new JWindowsStyle());			
 			DimensionManager.setDimension(windowsStyleDecorationPanel, new Dimension(150, 48));	
@@ -81,7 +79,7 @@ public class DemoDecorationPanel
 		public LiteStyleDecorationPanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Lite Style"));
+			setBorder(BorderManager.createComplexTitleBorder("Lite Style"));
 			
 			JDecorationPanel liteStyleDecorationPanel = new JDecorationPanel("JLite Style", IconFactory.getSwingIcon("component/internal_frame_16.png"), true, new JBasicScrollPane(new JBasicTextArea()), new JLiteStyle());			
 			DimensionManager.setDimension(liteStyleDecorationPanel, new Dimension(150, 48));	
@@ -95,7 +93,7 @@ public class DemoDecorationPanel
 		public AlloyStyleDecorationPanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Alloy Style"));
+			setBorder(BorderManager.createComplexTitleBorder("Alloy Style"));
 			
 			JDecorationPanel alloyLiteStyleDecorationPanel = new JDecorationPanel("JAlloyLite Style", IconFactory.getSwingIcon("component/internal_frame_16.png"), true, new JBasicScrollPane(new JBasicTextArea()), new JAlloyStyle());			
 			DimensionManager.setDimension(alloyLiteStyleDecorationPanel, new Dimension(150, 48));	
@@ -121,7 +119,7 @@ public class DemoDecorationPanel
 		public EclipseStyleDecorationPanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Eclipse Style"));
+			setBorder(BorderManager.createComplexTitleBorder("Eclipse Style"));
 			
 			JDecorationPanel eclipseStyleDecorationPanel = new JDecorationPanel("JEclipse Style", IconFactory.getSwingIcon("component/internal_frame_16.png"), true, new JBasicScrollPane(new JBasicTextArea()), new JEclipseStyle());			
 			DimensionManager.setDimension(eclipseStyleDecorationPanel, new Dimension(150, 48));	
@@ -135,7 +133,7 @@ public class DemoDecorationPanel
 		public BorlandStyleDecorationPanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Borland Style"));
+			setBorder(BorderManager.createComplexTitleBorder("Borland Style"));
 			
 			JDecorationPanel nimbusStyleDecorationPanel = new JDecorationPanel("JBorland Style", IconFactory.getSwingIcon("component/internal_frame_16.png"), true, new JBasicScrollPane(new JBasicTextArea()), new JBorlandStyle());
 			DimensionManager.setDimension(nimbusStyleDecorationPanel, new Dimension(150, 48));
@@ -149,7 +147,7 @@ public class DemoDecorationPanel
 		public NimbusStyleDecorationPanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Nimbus Style"));
+			setBorder(BorderManager.createComplexTitleBorder("Nimbus Style"));
 			
 			JDecorationPanel nimbusStyleDecorationPanel = new JDecorationPanel("JNimbus Style", IconFactory.getSwingIcon("component/internal_frame_16.png"), true, new JBasicScrollPane(new JBasicTextArea()), new JNimbusStyle());			
 			DimensionManager.setDimension(nimbusStyleDecorationPanel, new Dimension(150, 48));	
@@ -163,7 +161,7 @@ public class DemoDecorationPanel
 		public ColorStyleDecorationPanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Color Style"));
+			setBorder(BorderManager.createComplexTitleBorder("Color Style"));
 			
 			JDecorationPanel blueLiteStyleDecorationPanel = new JDecorationPanel("JBlueLite Style", IconFactory.getSwingIcon("component/internal_frame_16.png"), true, new JBasicScrollPane(new JBasicTextArea()), new JBlueStyle());
 			DimensionManager.setDimension(blueLiteStyleDecorationPanel, new Dimension(150, 48));
@@ -181,7 +179,7 @@ public class DemoDecorationPanel
 		public PlasticStyleDecorationPanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Plastic Style"));
+			setBorder(BorderManager.createComplexTitleBorder("Plastic Style"));
 			
 			JDecorationPanel plasticStyleDecorationPanel = new JDecorationPanel("JPlastic Style", IconFactory.getSwingIcon("component/internal_frame_16.png"), true, new JBasicScrollPane(new JBasicTextArea()), new JPlasticStyle());
 			DimensionManager.setDimension(plasticStyleDecorationPanel, new Dimension(150, 48));
@@ -195,7 +193,7 @@ public class DemoDecorationPanel
 		public FervencyStyleDecorationPanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Fervency Style"));
+			setBorder(BorderManager.createComplexTitleBorder("Fervency Style"));
 			
 			JDecorationPanel fervencyDecorationPanel = new JDecorationPanel("JFervency Style", IconFactory.getSwingIcon("component/internal_frame_16.png"), true, new JBasicScrollPane(new JBasicTextArea()), new JFervencyStyle());			
 			DimensionManager.setDimension(fervencyDecorationPanel, new Dimension(150, 48));	

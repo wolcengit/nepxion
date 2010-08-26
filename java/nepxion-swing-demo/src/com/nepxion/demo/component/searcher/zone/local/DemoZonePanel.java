@@ -14,9 +14,7 @@ import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.JPanel;
 
-import com.nepxion.swing.border.ComplexEtchedBorder;
-import com.nepxion.swing.border.ComplexSide;
-import com.nepxion.swing.border.ComplexTitleBorder;
+import com.nepxion.swing.border.BorderManager;
 import com.nepxion.swing.layout.filed.FiledLayout;
 import com.nepxion.swing.searcher.zone.local.JZoneSelectorPanel;
 
@@ -37,7 +35,7 @@ public class DemoZonePanel
 		public ZonePanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "区号查询"));
+			setBorder(BorderManager.createComplexTitleBorder("区号查询"));
 			
 			JZoneSelectorPanel zoneSelectorPanel = new JZoneSelectorPanel();		
 			add(zoneSelectorPanel);

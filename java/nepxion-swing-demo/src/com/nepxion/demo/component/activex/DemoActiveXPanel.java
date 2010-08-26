@@ -23,9 +23,7 @@ import javax.swing.BoxLayout;
 import javax.swing.JPanel;
 
 import com.nepxion.swing.activex.ActiveXManager;
-import com.nepxion.swing.border.ComplexEtchedBorder;
-import com.nepxion.swing.border.ComplexSide;
-import com.nepxion.swing.border.ComplexTitleBorder;
+import com.nepxion.swing.border.BorderManager;
 import com.nepxion.swing.button.ButtonManager;
 import com.nepxion.swing.button.JBasicButton;
 import com.nepxion.swing.handle.HandleManager;
@@ -55,7 +53,7 @@ public class DemoActiveXPanel
 		public CallInternetExplorerToolBar()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Call Internet Explorer"));
+			setBorder(BorderManager.createComplexTitleBorder("Call Internet Explorer"));
 			
 			final JBasicTextField textField = new JBasicTextField("http://www.google.com");
 			textField.setBackground(Color.white);
@@ -122,7 +120,7 @@ public class DemoActiveXPanel
 		public CallWordToolBar()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Call Word File"));
+			setBorder(BorderManager.createComplexTitleBorder("Call Word File"));
 			
 			final JBasicTextField textField = new JBasicTextField();
 			textField.setBackground(Color.white);
@@ -179,7 +177,7 @@ public class DemoActiveXPanel
 		public CallExcelToolBar()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Call Excel File"));
+			setBorder(BorderManager.createComplexTitleBorder("Call Excel File"));
 			
 			final JBasicTextField textField = new JBasicTextField();
 			textField.setBackground(Color.white);
@@ -246,7 +244,7 @@ public class DemoActiveXPanel
 		public CallPowerPointToolBar()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Call PowerPoint File"));
+			setBorder(BorderManager.createComplexTitleBorder("Call PowerPoint File"));
 			
 			final JBasicTextField textField = new JBasicTextField();
 			textField.setBackground(Color.white);

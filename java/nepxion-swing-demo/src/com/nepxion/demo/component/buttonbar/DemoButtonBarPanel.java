@@ -18,9 +18,7 @@ import javax.swing.ButtonGroup;
 import javax.swing.JPanel;
 
 import com.l2fprod.common.swing.plaf.basic.BasicButtonBarUI;
-import com.nepxion.swing.border.ComplexEtchedBorder;
-import com.nepxion.swing.border.ComplexSide;
-import com.nepxion.swing.border.ComplexTitleBorder;
+import com.nepxion.swing.border.BorderManager;
 import com.nepxion.swing.button.JBasicToggleButton;
 import com.nepxion.swing.buttonbar.JBasicButtonBar;
 import com.nepxion.swing.icon.IconFactory;
@@ -72,7 +70,7 @@ public class DemoButtonBarPanel
 		public ButtonBarPanel(BasicButtonBarUI buttonBarUI, String text)
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), text));						
+			setBorder(BorderManager.createComplexTitleBorder(text));						
 			
 			JBasicButtonBar buttonBar = new JBasicButtonBar(JBasicButtonBar.VERTICAL);	
 			buttonBar.setPreferredSize(new Dimension(75, buttonBar.getPreferredSize().height));

@@ -15,9 +15,7 @@ import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.JPanel;
 
-import com.nepxion.swing.border.ComplexEtchedBorder;
-import com.nepxion.swing.border.ComplexSide;
-import com.nepxion.swing.border.ComplexTitleBorder;
+import com.nepxion.swing.border.BorderManager;
 import com.nepxion.swing.layout.filed.FiledLayout;
 import com.nepxion.swing.scrollpane.JBasicScrollPane;
 import com.nepxion.swing.textarea.JBasicTextArea;
@@ -41,7 +39,7 @@ public class DemoNumberTextFieldPanel
 		public NumberTextFieldPanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Number TextField"));
+			setBorder(BorderManager.createComplexTitleBorder("Number TextField"));
 			
 			JNumberTextField numberTextField = new JNumberTextField(5, 2, -1000.05, 1000.95);
 			numberTextField.setMaximumSize(new Dimension(350, numberTextField.getPreferredSize().height));

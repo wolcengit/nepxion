@@ -17,9 +17,7 @@ import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
-import com.nepxion.swing.border.ComplexEtchedBorder;
-import com.nepxion.swing.border.ComplexSide;
-import com.nepxion.swing.border.ComplexTitleBorder;
+import com.nepxion.swing.border.BorderManager;
 import com.nepxion.swing.layout.box.XBoxLayout;
 import com.nepxion.swing.layout.filed.FiledLayout;
 
@@ -40,7 +38,7 @@ public class DemoRowXBoxLayoutPanel
 		public BoxedLayoutPanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Row"));
+			setBorder(BorderManager.createComplexTitleBorder("Row"));
 			
 			JPanel panel = new JPanel();
 			panel.setLayout(new XBoxLayout(panel, XBoxLayout.X_AXIS, 5));

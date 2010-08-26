@@ -16,6 +16,7 @@ import javax.swing.BoxLayout;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import com.nepxion.swing.border.BorderManager;
 import com.nepxion.swing.border.ComplexEtchedBorder;
 import com.nepxion.swing.border.ComplexSide;
 import com.nepxion.swing.border.ComplexTitleBorder;
@@ -35,7 +36,7 @@ public class DemoSelectionValuePanel
 	public DemoSelectionValuePanel(int textFieldWidth)
 	{
 		setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-		setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Selection Value"));
+		setBorder(BorderManager.createComplexTitleBorder("Selection Value"));
 		
 		textField = new JBasicTextField();
 		textField.setOpaque(false);

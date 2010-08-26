@@ -63,7 +63,7 @@ public class DemoPieChartPanel
 				{TableLayout.PREFERRED, 300, 300}
 			};
 			setLayout(new TableLayout(size));
-			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "计算机性能实时统计图"));
+			setBorder(BorderManager.createComplexTitleBorder("计算机性能实时统计图"));
 
 			add(new DemoChartSchedulerToolBar(DemoPieChartSchedulerJob.class), "0, 0, 2, 0");
 			add(new CPUPieChart3DPanel(), "0, 1");
@@ -95,7 +95,7 @@ public class DemoPieChartPanel
 			JFreeChart chart = JChartFactory.createChart("CPU占用率实时统计图", "Nepxion Studio Statistics", cpuPiePiePlot3D);
 			
 			JChartPanel chartPanel = new JChartPanel(chart);
-			chartPanel.setBorder(BorderManager.getScrollPaneBorder());
+			chartPanel.setBorder(BorderManager.createScrollPaneBorder());
 			
 			PiePlotRotator rotator = new PiePlotRotator(chartPanel);
 			rotator.start();
@@ -126,7 +126,7 @@ public class DemoPieChartPanel
 			PiePlotRotator rotator = new PiePlotRotator(chartPanel);
 			rotator.start();
 			
-			chartPanel.setBorder(BorderManager.getScrollPaneBorder());
+			chartPanel.setBorder(BorderManager.createScrollPaneBorder());
 			add(chartPanel, BorderLayout.CENTER);
 		}
 	}
@@ -161,7 +161,7 @@ public class DemoPieChartPanel
 			PiePlotRotator rotator = new PiePlotRotator(chartPanel);
 			rotator.start();
 			
-			chartPanel.setBorder(BorderManager.getScrollPaneBorder());
+			chartPanel.setBorder(BorderManager.createScrollPaneBorder());
 			add(chartPanel, BorderLayout.CENTER);
 		}
 	}
@@ -185,7 +185,7 @@ public class DemoPieChartPanel
 			JFreeChart chart = JChartFactory.createChart("CPU占用率实时统计图", "Nepxion Studio Statistics", cpuPiePiePlot);
 			
 			JChartPanel chartPanel = new JChartPanel(chart);
-			chartPanel.setBorder(BorderManager.getScrollPaneBorder());
+			chartPanel.setBorder(BorderManager.createScrollPaneBorder());
 			
 			PiePlotRotator rotator = new PiePlotRotator(chartPanel);
 			rotator.start();
@@ -216,7 +216,7 @@ public class DemoPieChartPanel
 			PiePlotRotator rotator = new PiePlotRotator(chartPanel);
 			rotator.start();
 			
-			chartPanel.setBorder(BorderManager.getScrollPaneBorder());
+			chartPanel.setBorder(BorderManager.createScrollPaneBorder());
 			add(chartPanel, BorderLayout.CENTER);
 		}
 	}
@@ -251,7 +251,7 @@ public class DemoPieChartPanel
 			PiePlotRotator rotator = new PiePlotRotator(chartPanel);
 			rotator.start();
 			
-			chartPanel.setBorder(BorderManager.getScrollPaneBorder());
+			chartPanel.setBorder(BorderManager.createScrollPaneBorder());
 			add(chartPanel, BorderLayout.CENTER);
 		}
 	}

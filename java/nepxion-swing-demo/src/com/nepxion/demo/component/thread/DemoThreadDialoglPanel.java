@@ -24,9 +24,7 @@ import javax.swing.BoxLayout;
 import javax.swing.JPanel;
 import javax.swing.filechooser.FileSystemView;
 
-import com.nepxion.swing.border.ComplexEtchedBorder;
-import com.nepxion.swing.border.ComplexSide;
-import com.nepxion.swing.border.ComplexTitleBorder;
+import com.nepxion.swing.border.BorderManager;
 import com.nepxion.swing.button.ButtonManager;
 import com.nepxion.swing.button.JBasicButton;
 import com.nepxion.swing.handle.HandleManager;
@@ -60,7 +58,7 @@ public class DemoThreadDialoglPanel
 		public ThreadDialoglPanel()
 		{
 			setLayout(new BorderLayout());
-			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "File Loader"));
+			setBorder(BorderManager.createComplexTitleBorder("File Loader"));
 			
 			JBasicTable fileTable = new JBasicTable();
 			fileTable.setModel(new FileTableModel(new ArrayList()));

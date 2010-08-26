@@ -16,9 +16,7 @@ import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.JPanel;
 
-import com.nepxion.swing.border.ComplexEtchedBorder;
-import com.nepxion.swing.border.ComplexSide;
-import com.nepxion.swing.border.ComplexTitleBorder;
+import com.nepxion.swing.border.BorderManager;
 import com.nepxion.swing.layout.filed.FiledLayout;
 import com.nepxion.swing.spinner.JPointSpinnerField;
 
@@ -39,7 +37,7 @@ public class DemoPointSpinnerFieldPanel
 		public PointSpinnerFieldPanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Point SpinnerField"));
+			setBorder(BorderManager.createComplexTitleBorder("Point SpinnerField"));
 			
 			JPointSpinnerField pointSpinnerField = new JPointSpinnerField();
 			pointSpinnerField.setMaximumSize(new Dimension(350, pointSpinnerField.getPreferredSize().height));

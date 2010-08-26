@@ -18,9 +18,7 @@ import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.JPanel;
 
-import com.nepxion.swing.border.ComplexEtchedBorder;
-import com.nepxion.swing.border.ComplexSide;
-import com.nepxion.swing.border.ComplexTitleBorder;
+import com.nepxion.swing.border.BorderManager;
 import com.nepxion.swing.button.ButtonManager;
 import com.nepxion.swing.button.JBasicButton;
 import com.nepxion.swing.checkbox.JBasicCheckBox;
@@ -48,7 +46,7 @@ public class DemoBasicFramePanel
 		public BasicFramePanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Basic Frame"));
+			setBorder(BorderManager.createComplexTitleBorder("Basic Frame"));
 			
 			JBasicButton frameButton = new JBasicButton("Basic Frame", IconFactory.getSwingIcon("component/dialog_16.png"), "Basic Frame");
 			frameButton.addActionListener(new ActionListener()
@@ -75,7 +73,7 @@ public class DemoBasicFramePanel
 		public ConfigPanel()
 		{
 			setLayout(new FiledLayout(FiledLayout.COLUMN, FiledLayout.FULL, 0));
-			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Configuration"));
+			setBorder(BorderManager.createComplexTitleBorder("Configuration"));
 	        
 	        final JBasicCheckBox hintCheckBox = new JBasicCheckBox("Show hint while closing the dialog", "Show hint while closing the dialog", true);	
 	        hintCheckBox.addActionListener(new ActionListener()

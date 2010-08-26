@@ -15,9 +15,7 @@ import javax.swing.BoxLayout;
 import javax.swing.JPanel;
 
 import com.nepxion.demo.common.DemoDataFactory;
-import com.nepxion.swing.border.ComplexEtchedBorder;
-import com.nepxion.swing.border.ComplexSide;
-import com.nepxion.swing.border.ComplexTitleBorder;
+import com.nepxion.swing.border.BorderManager;
 import com.nepxion.swing.renderer.tree.TreeElementCellRenderer;
 import com.nepxion.swing.scrollpane.JBasicScrollPane;
 import com.nepxion.swing.tree.JCheckBoxTree;
@@ -39,7 +37,7 @@ public class DemoCheckBoxTreePanel
 		public CheckBoxTreePanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "CheckBox Tree"));
+			setBorder(BorderManager.createComplexTitleBorder("CheckBox Tree"));
 			
 			JCheckBoxTree checkBoxTree = new JCheckBoxTree(DemoDataFactory.getRootElementNode());
 			checkBoxTree.setCellRenderer(new TreeElementCellRenderer(20));

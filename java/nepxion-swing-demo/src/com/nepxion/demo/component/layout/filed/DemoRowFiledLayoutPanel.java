@@ -17,9 +17,7 @@ import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
-import com.nepxion.swing.border.ComplexEtchedBorder;
-import com.nepxion.swing.border.ComplexSide;
-import com.nepxion.swing.border.ComplexTitleBorder;
+import com.nepxion.swing.border.BorderManager;
 import com.nepxion.swing.layout.filed.FiledLayout;
 
 public class DemoRowFiledLayoutPanel
@@ -42,7 +40,7 @@ public class DemoRowFiledLayoutPanel
 		public FiledLayoutPanel(int justification, String text)
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), text));
+			setBorder(BorderManager.createComplexTitleBorder(text));
 			
 			JPanel panel = new JPanel();			
 			panel.setLayout(new FiledLayout(FiledLayout.ROW, justification, 5));

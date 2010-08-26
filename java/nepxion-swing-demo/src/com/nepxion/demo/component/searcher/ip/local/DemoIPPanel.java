@@ -14,9 +14,7 @@ import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.JPanel;
 
-import com.nepxion.swing.border.ComplexEtchedBorder;
-import com.nepxion.swing.border.ComplexSide;
-import com.nepxion.swing.border.ComplexTitleBorder;
+import com.nepxion.swing.border.BorderManager;
 import com.nepxion.swing.searcher.ip.local.JIPPanel;
 
 public class DemoIPPanel
@@ -36,7 +34,7 @@ public class DemoIPPanel
 		public IPPanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "根据IP地址查询地理位置"));
+			setBorder(BorderManager.createComplexTitleBorder("根据IP地址查询地理位置"));
 			
 			JIPPanel ipPanel = new JIPPanel();			
 			add(ipPanel);

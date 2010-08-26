@@ -18,9 +18,7 @@ import javax.swing.BoxLayout;
 import javax.swing.JPanel;
 
 import com.nepxion.demo.common.DemoDataFactory;
-import com.nepxion.swing.border.ComplexEtchedBorder;
-import com.nepxion.swing.border.ComplexSide;
-import com.nepxion.swing.border.ComplexTitleBorder;
+import com.nepxion.swing.border.BorderManager;
 import com.nepxion.swing.combobox.JBasicComboBox;
 import com.nepxion.swing.combobox.JGroupComboBox;
 import com.nepxion.swing.icon.IconFactory;
@@ -46,7 +44,7 @@ public class DemoElementComboBoxPanel
 		public SingleIconElementComboBoxPanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Single Icon Element ComboBox"));
+			setBorder(BorderManager.createComplexTitleBorder("Single Icon Element ComboBox"));
 			
 			String[] componentNameDatas = DemoDataFactory.getComponentNameDatas();
 			
@@ -63,7 +61,7 @@ public class DemoElementComboBoxPanel
 		public MultiIconElementComboBoxPanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Multi Icon Element ComboBox"));
+			setBorder(BorderManager.createComplexTitleBorder("Multi Icon Element ComboBox"));
 			
 			List componentElementNodes = DemoDataFactory.getComponentElementNodes();
 			

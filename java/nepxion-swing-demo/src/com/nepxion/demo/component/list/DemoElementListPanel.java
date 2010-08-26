@@ -18,9 +18,7 @@ import javax.swing.JList;
 import javax.swing.JPanel;
 
 import com.nepxion.demo.common.DemoDataFactory;
-import com.nepxion.swing.border.ComplexEtchedBorder;
-import com.nepxion.swing.border.ComplexSide;
-import com.nepxion.swing.border.ComplexTitleBorder;
+import com.nepxion.swing.border.BorderManager;
 import com.nepxion.swing.icon.IconFactory;
 import com.nepxion.swing.renderer.list.ListElementCellRenderer;
 import com.nepxion.swing.scrollpane.JBasicScrollPane;
@@ -44,7 +42,7 @@ public class DemoElementListPanel
 		public SingleIconElementListPanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Single Icon Element List"));
+			setBorder(BorderManager.createComplexTitleBorder("Single Icon Element List"));
 			
 			String[] componentNameDatas = DemoDataFactory.getComponentNameDatas();
 			
@@ -63,7 +61,7 @@ public class DemoElementListPanel
 		public MultiIconElementListPanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Multi Icon Element List"));
+			setBorder(BorderManager.createComplexTitleBorder("Multi Icon Element List"));
 			
 			List componentElementNodes = DemoDataFactory.getComponentElementNodes();
 			

@@ -20,9 +20,7 @@ import javax.swing.JPanel;
 
 import com.nepxion.demo.common.DemoDataFactory;
 import com.nepxion.demo.common.DemoSelectionValuePanel;
-import com.nepxion.swing.border.ComplexEtchedBorder;
-import com.nepxion.swing.border.ComplexSide;
-import com.nepxion.swing.border.ComplexTitleBorder;
+import com.nepxion.swing.border.BorderManager;
 import com.nepxion.swing.button.ButtonManager;
 import com.nepxion.swing.button.JBasicButton;
 import com.nepxion.swing.handle.HandleManager;
@@ -52,7 +50,7 @@ public class DemoCheckBoxSelectorPanel
 		public CheckBoxSelectorPanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "CheckBox Selector"));
+			setBorder(BorderManager.createComplexTitleBorder("CheckBox Selector"));
 			
 			JBasicButton checkBoxSelectorButton = new JBasicButton("CheckBox Selector", IconFactory.getSwingIcon("component/check_box_16.png"), "CheckBox Selector");
 			checkBoxSelectorButton.addActionListener(new ActionListener()

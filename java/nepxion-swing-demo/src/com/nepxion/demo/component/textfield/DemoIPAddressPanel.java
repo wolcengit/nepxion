@@ -15,9 +15,7 @@ import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.JPanel;
 
-import com.nepxion.swing.border.ComplexEtchedBorder;
-import com.nepxion.swing.border.ComplexSide;
-import com.nepxion.swing.border.ComplexTitleBorder;
+import com.nepxion.swing.border.BorderManager;
 import com.nepxion.swing.layout.filed.FiledLayout;
 import com.nepxion.swing.scrollpane.JBasicScrollPane;
 import com.nepxion.swing.textarea.JBasicTextArea;
@@ -41,7 +39,7 @@ public class DemoIPAddressPanel
 		public IPAddressPanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "IP Address TextField"));
+			setBorder(BorderManager.createComplexTitleBorder("IP Address TextField"));
 			
 			JIPAddressTextField ipAddressTextField = new JIPAddressTextField();
 			ipAddressTextField.setIPAddress("192.168.0.8");

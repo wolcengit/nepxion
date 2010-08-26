@@ -16,9 +16,7 @@ import javax.swing.JCheckBox;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 
-import com.nepxion.swing.border.ComplexEtchedBorder;
-import com.nepxion.swing.border.ComplexSide;
-import com.nepxion.swing.border.ComplexTitleBorder;
+import com.nepxion.swing.border.BorderManager;
 import com.nepxion.swing.checkbox.JLiteCheckBox;
 import com.nepxion.swing.layout.filed.FiledLayout;
 
@@ -39,7 +37,7 @@ public class DemoCheckBoxPanel
 		public StyleCheckBoxPanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Flat ButtonUI"));
+			setBorder(BorderManager.createComplexTitleBorder("Flat ButtonUI"));
 		
 			JLiteCheckBox styleCheckBox = new JLiteCheckBox("Style CheckBox", true);
 			add(styleCheckBox);

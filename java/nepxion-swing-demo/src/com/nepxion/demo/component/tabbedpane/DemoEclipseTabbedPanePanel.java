@@ -25,9 +25,7 @@ import javax.swing.JPanel;
 import javax.swing.plaf.UIResource;
 
 import com.nepxion.demo.common.DemoDataFactory;
-import com.nepxion.swing.border.ComplexEtchedBorder;
-import com.nepxion.swing.border.ComplexSide;
-import com.nepxion.swing.border.ComplexTitleBorder;
+import com.nepxion.swing.border.BorderManager;
 import com.nepxion.swing.checkbox.JBasicCheckBox;
 import com.nepxion.swing.combobox.JBasicComboBox;
 import com.nepxion.swing.element.ElementNode;
@@ -61,7 +59,7 @@ public class DemoEclipseTabbedPanePanel
 		public EclipseTabbedPanePanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Eclipse TabbedPane"));
+			setBorder(BorderManager.createComplexTitleBorder("Eclipse TabbedPane"));
 			
 			eclipseTabbedPane = new JEclipseTabbedPane()
 			{			    
@@ -105,7 +103,7 @@ public class DemoEclipseTabbedPanePanel
 		public PublicConfigPanel()
 		{
 			setLayout(new FiledLayout(FiledLayout.COLUMN, FiledLayout.FULL, 0));
-			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Public Configuration"));
+			setBorder(BorderManager.createComplexTitleBorder("Public Configuration"));
 			
 			List tabShapeElementNodes = DemoDataFactory.getEclipseTabShapeElementNodes();
 			
@@ -243,7 +241,7 @@ public class DemoEclipseTabbedPanePanel
 		public PrivateConfigPanel()
 		{
 			setLayout(new FiledLayout(FiledLayout.COLUMN, FiledLayout.FULL, 0));
-			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Private Configuration"));	
+			setBorder(BorderManager.createComplexTitleBorder("Private Configuration"));	
 	        
 			final JBasicCheckBox showCloseButtonCheckBox = new JBasicCheckBox("Show Close Button", "Show Close Button", true);
 			showCloseButtonCheckBox.addActionListener(new ActionListener()

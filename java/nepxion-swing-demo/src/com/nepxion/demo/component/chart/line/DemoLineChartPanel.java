@@ -49,11 +49,11 @@ public class DemoLineChartPanel
 		public CombinedLineChartPanel()
 		{
 			setLayout(new BorderLayout());
-			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "计算机性能实时统计图"));
+			setBorder(BorderManager.createComplexTitleBorder("计算机性能实时统计图"));
 			
-			XYPlot xyPlot1 = CombinedLineChartFactory.createXYPlot("CPU", "计算机性能指标");
-			XYPlot xyPlot2 = CombinedLineChartFactory.createXYPlot("内存", "计算机性能指标");
-			XYPlot xyPlot3 = CombinedLineChartFactory.createXYPlot("磁盘", "计算机性能指标");
+			XYPlot xyPlot1 = CombinedLineChartFactory.createXYPlot("CPU", "计算机性能指标", true);
+			XYPlot xyPlot2 = CombinedLineChartFactory.createXYPlot("内存", "计算机性能指标", true);
+			XYPlot xyPlot3 = CombinedLineChartFactory.createXYPlot("磁盘", "计算机性能指标", true);
 			
 			combinedDomainXYPlot = CombinedLineChartFactory.createCombinedDomainXYPlot("时间轴");
 			combinedDomainXYPlot.add(xyPlot1);
@@ -63,7 +63,7 @@ public class DemoLineChartPanel
 			JFreeChart chart = JChartFactory.createChart("计算机性能实时统计图", "Nepxion Studio Statistics", combinedDomainXYPlot);
 			
 			JChartPanel chartPanel = new JChartPanel(chart);
-			chartPanel.setBorder(BorderManager.getScrollPaneBorder());
+			chartPanel.setBorder(BorderManager.createScrollPaneBorder());
 			
 			add(chartPanel, BorderLayout.CENTER);
 			add(new DemoChartSchedulerToolBar(DemoLineChartSchedulerJob.class), BorderLayout.NORTH);

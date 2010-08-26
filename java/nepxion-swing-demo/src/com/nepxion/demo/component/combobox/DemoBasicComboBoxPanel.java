@@ -18,9 +18,7 @@ import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.JPanel;
 
-import com.nepxion.swing.border.ComplexEtchedBorder;
-import com.nepxion.swing.border.ComplexSide;
-import com.nepxion.swing.border.ComplexTitleBorder;
+import com.nepxion.swing.border.BorderManager;
 import com.nepxion.swing.checkbox.JBasicCheckBox;
 import com.nepxion.swing.combobox.JBasicComboBox;
 import com.nepxion.swing.layout.filed.FiledLayout;
@@ -45,7 +43,7 @@ public class DemoBasicComboBoxPanel
 		public BasicComboBoxPanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Basic ComboBox"));
+			setBorder(BorderManager.createComplexTitleBorder("Basic ComboBox"));
 			
 			String[] items = new String[] {"The standard JComboBox doesn't support the long width for combobox's popupmenu", "The popupmenu item width is only determinded by combobox width", "The JBasicComboBox will help you to resolve the issue.You can set its length by api"};
 			comboBox = new JBasicComboBox(items);
@@ -62,7 +60,7 @@ public class DemoBasicComboBoxPanel
 		public ConfigPanel()
 		{
 			setLayout(new FiledLayout(FiledLayout.COLUMN, FiledLayout.FULL, 0));
-			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Configuration"));
+			setBorder(BorderManager.createComplexTitleBorder("Configuration"));
 			
 			final JBasicCheckBox popupMenuWithCheckBox = new JBasicCheckBox("Set PopupMenu width (=500)", "Set PopupMenu width (=500)", true);
 			popupMenuWithCheckBox.addActionListener(new ActionListener()

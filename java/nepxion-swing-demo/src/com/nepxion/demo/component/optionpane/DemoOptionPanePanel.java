@@ -17,9 +17,7 @@ import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.JPanel;
 
-import com.nepxion.swing.border.ComplexEtchedBorder;
-import com.nepxion.swing.border.ComplexSide;
-import com.nepxion.swing.border.ComplexTitleBorder;
+import com.nepxion.swing.border.BorderManager;
 import com.nepxion.swing.button.ButtonManager;
 import com.nepxion.swing.button.JBasicButton;
 import com.nepxion.swing.handle.HandleManager;
@@ -45,7 +43,7 @@ public class DemoOptionPanePanel
 		public OptionPanePanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "OptionPane"));
+			setBorder(BorderManager.createComplexTitleBorder("OptionPane"));
 			
 			JBasicButton optionPaneButton = new JBasicButton("OptionPane", IconFactory.getSwingIcon("component/option_pane_16.png"), "OptionPane");
 			optionPaneButton.addActionListener(new ActionListener()

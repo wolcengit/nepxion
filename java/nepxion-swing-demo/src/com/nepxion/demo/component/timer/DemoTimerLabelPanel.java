@@ -20,9 +20,7 @@ import javax.swing.BoxLayout;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import com.nepxion.swing.border.ComplexEtchedBorder;
-import com.nepxion.swing.border.ComplexSide;
-import com.nepxion.swing.border.ComplexTitleBorder;
+import com.nepxion.swing.border.BorderManager;
 import com.nepxion.swing.button.ButtonManager;
 import com.nepxion.swing.button.JBasicButton;
 import com.nepxion.swing.dimension.DimensionManager;
@@ -52,7 +50,7 @@ public class DemoTimerLabelPanel
 		public TimerLabelPanel(String icon, String text)
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), text));
+			setBorder(BorderManager.createComplexTitleBorder(text));
 			
 			final JTimerLabel timerLabel = new JTimerLabel(icon);
 			DimensionManager.setDimension(timerLabel, new Dimension(150, timerLabel.getPreferredSize().height));

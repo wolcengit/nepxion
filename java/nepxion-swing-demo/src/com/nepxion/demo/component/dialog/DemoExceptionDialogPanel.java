@@ -10,7 +10,6 @@ package com.nepxion.demo.component.dialog;
  * @version 1.0
  */
 
-import java.awt.Frame;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -18,9 +17,7 @@ import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.JPanel;
 
-import com.nepxion.swing.border.ComplexEtchedBorder;
-import com.nepxion.swing.border.ComplexSide;
-import com.nepxion.swing.border.ComplexTitleBorder;
+import com.nepxion.swing.border.BorderManager;
 import com.nepxion.swing.button.ButtonManager;
 import com.nepxion.swing.button.JBasicButton;
 import com.nepxion.swing.dialog.JExceptionDialog;
@@ -45,7 +42,7 @@ public class DemoExceptionDialogPanel
 		public ExceptionDialogPanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Exception Dialog"));
+			setBorder(BorderManager.createComplexTitleBorder("Exception Dialog"));
 			
 			JBasicButton exceptionDialogButton = new JBasicButton("Exception Dialog", IconFactory.getSwingIcon("component/dialog_16.png"), "Exception Dialog");
 			exceptionDialogButton.addActionListener(new ActionListener()

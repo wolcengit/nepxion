@@ -10,7 +10,6 @@ package com.nepxion.demo.component.scrollpane;
  * @version 1.0
  */
 
-import java.awt.BorderLayout;
 import java.awt.Dimension;
 
 import javax.swing.BorderFactory;
@@ -18,9 +17,7 @@ import javax.swing.BoxLayout;
 import javax.swing.JPanel;
 import javax.swing.JScrollBar;
 
-import com.nepxion.swing.border.ComplexEtchedBorder;
-import com.nepxion.swing.border.ComplexSide;
-import com.nepxion.swing.border.ComplexTitleBorder;
+import com.nepxion.swing.border.BorderManager;
 import com.nepxion.swing.button.ButtonManager;
 import com.nepxion.swing.button.JBasicButton;
 import com.nepxion.swing.button.JBasicToggleButton;
@@ -44,7 +41,7 @@ public class DemoCornerScrollPanePanel
 		public CornerScrollPanePanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Corner ScrollPane"));
+			setBorder(BorderManager.createComplexTitleBorder("Corner ScrollPane"));
 			
 			JPanel leadingToolBar = new JPanel();
 			leadingToolBar.setLayout(new BoxLayout(leadingToolBar, BoxLayout.X_AXIS));

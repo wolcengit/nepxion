@@ -18,9 +18,7 @@ import javax.swing.BoxLayout;
 import javax.swing.JPanel;
 
 import com.nepxion.demo.component.splash.DemoCaptionSplashWindow;
-import com.nepxion.swing.border.ComplexEtchedBorder;
-import com.nepxion.swing.border.ComplexSide;
-import com.nepxion.swing.border.ComplexTitleBorder;
+import com.nepxion.swing.border.BorderManager;
 import com.nepxion.swing.button.ButtonManager;
 import com.nepxion.swing.button.JBasicButton;
 import com.nepxion.swing.icon.IconFactory;
@@ -43,7 +41,7 @@ public class DemoCaptionSplashWindowPanel
 		public CaptionSplashWindowPanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Caption Splash Window"));
+			setBorder(BorderManager.createComplexTitleBorder("Caption Splash Window"));
 			
 			JBasicButton captionSplashWindowButton = new JBasicButton("Caption Splash Window", IconFactory.getSwingIcon("component/internal_frame_16.png"), "Caption Splash Window");
 			captionSplashWindowButton.addActionListener(new ActionListener()

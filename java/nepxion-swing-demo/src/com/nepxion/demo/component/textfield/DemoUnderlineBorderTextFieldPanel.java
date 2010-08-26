@@ -15,9 +15,7 @@ import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.JPanel;
 
-import com.nepxion.swing.border.ComplexEtchedBorder;
-import com.nepxion.swing.border.ComplexSide;
-import com.nepxion.swing.border.ComplexTitleBorder;
+import com.nepxion.swing.border.BorderManager;
 import com.nepxion.swing.border.UnderlineBorderDecoration;
 import com.nepxion.swing.layout.filed.FiledLayout;
 import com.nepxion.swing.textfield.JBasicTextField;
@@ -39,7 +37,7 @@ public class DemoUnderlineBorderTextFieldPanel
 		public UnderlineBorderTextFieldPanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Underline Border TextField"));
+			setBorder(BorderManager.createComplexTitleBorder("Underline Border TextField"));
 
 			JBasicTextField underlineBorderTextField = new JBasicTextField();
 			new UnderlineBorderDecoration(underlineBorderTextField);

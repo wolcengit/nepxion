@@ -18,9 +18,7 @@ import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.JPanel;
 
-import com.nepxion.swing.border.ComplexEtchedBorder;
-import com.nepxion.swing.border.ComplexSide;
-import com.nepxion.swing.border.ComplexTitleBorder;
+import com.nepxion.swing.border.BorderManager;
 import com.nepxion.swing.button.ButtonManager;
 import com.nepxion.swing.button.JBasicButton;
 import com.nepxion.swing.checkbox.JBasicCheckBox;
@@ -49,7 +47,7 @@ public class DemoBasicDialogPanel
 		public BasicDialogPanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Basic Dialog"));
+			setBorder(BorderManager.createComplexTitleBorder("Basic Dialog"));
 			
 			JBasicButton basicDialogButton = new JBasicButton("Basic Dialog", IconFactory.getSwingIcon("component/dialog_16.png"), "Basic Dialog");
 			basicDialogButton.addActionListener(new ActionListener()
@@ -78,7 +76,7 @@ public class DemoBasicDialogPanel
 		public ConfigPanel()
 		{
 			setLayout(new FiledLayout(FiledLayout.COLUMN, FiledLayout.FULL, 0));
-			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "Configuration"));
+			setBorder(BorderManager.createComplexTitleBorder("Configuration"));
 			
 	        final JBasicCheckBox adaptableCheckBox = new JBasicCheckBox("Adapt the size while resizing the dialog", "Adapt the size while resizing the dialog", true);	
 	        adaptableCheckBox.addActionListener(new ActionListener()

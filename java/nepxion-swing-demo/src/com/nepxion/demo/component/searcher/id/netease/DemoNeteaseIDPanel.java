@@ -14,9 +14,7 @@ import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.JPanel;
 
-import com.nepxion.swing.border.ComplexEtchedBorder;
-import com.nepxion.swing.border.ComplexSide;
-import com.nepxion.swing.border.ComplexTitleBorder;
+import com.nepxion.swing.border.BorderManager;
 import com.nepxion.swing.searcher.id.netease.JNeteaseIDPanel;
 
 public class DemoNeteaseIDPanel
@@ -36,7 +34,7 @@ public class DemoNeteaseIDPanel
 		public NeteaseIDPanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "身份证归属地查询"));
+			setBorder(BorderManager.createComplexTitleBorder("身份证归属地查询"));
 			
 			JNeteaseIDPanel idPanel = new JNeteaseIDPanel();			
 			add(idPanel);
