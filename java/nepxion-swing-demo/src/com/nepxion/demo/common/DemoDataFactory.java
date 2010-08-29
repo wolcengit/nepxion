@@ -92,16 +92,16 @@ public class DemoDataFactory
 		layoutControlElementNode.add(new ElementNode(5, "XBox Layout", IconFactory.getSwingIcon("component/layout_16.png"), "Multi-style XBox Layout"));
 		
 		// UI Control
-		ElementNode uiControlElementNode = new ElementNode(11, "UI Control", IconFactory.getSwingIcon("component/ui_16.png"), "UI Control Component", false, true);
+		ElementNode uiControlElementNode = new ElementNode(10, "UI Control", IconFactory.getSwingIcon("component/ui_16.png"), "UI Control Component", false, true);
 		uiControlElementNode.add(new ElementNode(1, "UI Defaults", IconFactory.getSwingIcon("component/ui_16.png"), "UI Defaults Explorer"));	
 		
 		// FrameWork Control
-		ElementNode frameWorkControlElementNode = new ElementNode(10, "FrameWork Control", IconFactory.getSwingIcon("component/framework_16.png"), "FrameWork Control Component", false, false);
+		ElementNode frameWorkControlElementNode = new ElementNode(11, "FrameWork Control", IconFactory.getSwingIcon("component/framework_16.png"), "FrameWork Control Component", false, false);
 		frameWorkControlElementNode.add(new ElementNode(1, "Dockable", IconFactory.getSwingIcon("component/framework_16.png"), "Dockable FrameWork"));
 		frameWorkControlElementNode.add(new ElementNode(2, "VLDocking", IconFactory.getSwingIcon("component/framework_16.png"), "VLDocking Framework"));		
 		
 		// Application Control
-		ElementNode applicationControlElementNode = new ElementNode(11, "Application Control", IconFactory.getSwingIcon("component/application_16.png"), "Application Control Component", false, true);
+		ElementNode applicationControlElementNode = new ElementNode(12, "Application Control", IconFactory.getSwingIcon("component/application_16.png"), "Application Control Component", false, true);
 		applicationControlElementNode.add(new ElementNode(1, "Google Map", IconFactory.getSwingIcon("component/application_16.png"), "Google Map"));		
 		applicationControlElementNode.add(new ElementNode(1, "IP", IconFactory.getSwingIcon("component/application_16.png"), "IP"));	
 		applicationControlElementNode.add(new ElementNode(1, "Mobile", IconFactory.getSwingIcon("component/application_16.png"), "Mobile"));	

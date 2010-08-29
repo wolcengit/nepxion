@@ -60,6 +60,8 @@ public class DemoCornerScrollPanePanel
 			ButtonManager.updateUI(bottomToolBar, new Dimension(18, 18));
 			
 			JCornerScrollPane cornerScrollPane = new JCornerScrollPane();
+			cornerScrollPane.setHorizontalScrollBarPolicy(JCornerScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+			cornerScrollPane.setVerticalScrollBarPolicy(JCornerScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 			cornerScrollPane.setScrollBarCorner(JCornerScrollPane.HORIZONTAL_LEADING, leadingToolBar);
 			cornerScrollPane.setScrollBarCorner(JCornerScrollPane.VERTICAL_BOTTOM, bottomToolBar);
 			

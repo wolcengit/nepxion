@@ -15,7 +15,6 @@ import java.util.List;
 import javax.swing.BorderFactory;
 import javax.swing.Icon;
 import javax.swing.JList;
-import javax.swing.UIManager;
 
 import com.nepxion.swing.element.ElementNode;
 import com.nepxion.swing.icon.IconFactory;
@@ -28,7 +27,7 @@ import com.nepxion.swing.renderer.tree.TreeElementCellRenderer;
 import com.nepxion.swing.scrollpane.JBasicScrollPane;
 import com.nepxion.swing.tabbedpane.JEclipseTabbedPane;
 import com.nepxion.swing.table.BasicTableModel;
-import com.nepxion.swing.table.JBasicTable;
+import com.nepxion.swing.table.sortable.JSortableTable;
 import com.nepxion.swing.textarea.JBasicTextArea;
 import com.nepxion.swing.tree.JBasicTree;
 import com.nepxion.util.data.CollectionUtil;
@@ -44,11 +43,10 @@ public class DemoComponentFactory
 		return tree;				
 	}
 	
-	public static JBasicTable getTable()
+	public static JSortableTable getTable()
 	{		
-		JBasicTable table = new JBasicTable(new ElementNodeTableModel());
-		table.getTableHeader().setBackground(UIManager.getColor("Panel.background"));
-		table.setAutoResizeMode(JBasicTable.AUTO_RESIZE_OFF);
+		JSortableTable table = new JSortableTable(new ElementNodeTableModel());
+		table.setAutoResizeMode(JSortableTable.AUTO_RESIZE_OFF);
 		table.getColumnModel().getColumn(3).setCellRenderer(new TableElementCellRenderer());
 		return table;
 	}

@@ -11,7 +11,6 @@ package com.nepxion.demo.control.text;
  */
 
 import javax.swing.Icon;
-import javax.swing.JEditorPane;
 
 import com.nepxion.demo.common.DemoTogglePanel;
 import com.nepxion.swing.icon.IconFactory;

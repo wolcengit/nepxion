@@ -17,7 +17,7 @@ import javax.swing.table.AbstractTableModel;
 
 import com.nepxion.swing.border.BorderManager;
 import com.nepxion.swing.scrollpane.JAutoRollScrollPane;
-import com.nepxion.swing.table.JBasicTable;
+import com.nepxion.swing.table.sortable.JSortableTable;
 
 public class DemoAutoScrollPanePanel
 	extends JPanel
@@ -38,21 +38,31 @@ public class DemoAutoScrollPanePanel
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
 			setBorder(BorderManager.createComplexTitleBorder("Auto ScrollPane"));
 			
-			JBasicTable table = new JBasicTable(new AbstractTableModel()
+			JSortableTable table = new JSortableTable(new AbstractTableModel()
 			{
 				public int getRowCount()
 				{
-					return 50;
+					return 100;
 				}
 				
 				public int getColumnCount()
 				{
-					return 50;
+					return 100;
 				}
 				
 				public boolean isCellEditable(int rowIndex, int columnIndex)
 				{
 					return false;
+				}
+				
+				public String getColumnName(int column)
+				{
+					return column + "";
+				}
+				
+				public Class getColumnClass(int column)
+				{
+					return String.class;
 				}
 				
 				public Object getValueAt(int rowIndex, int columnIndex)
@@ -61,7 +71,7 @@ public class DemoAutoScrollPanePanel
 				}
 			}
 			);
-			table.setAutoResizeMode(JBasicTable.AUTO_RESIZE_OFF);
+			table.setAutoResizeMode(JSortableTable.AUTO_RESIZE_OFF);
 			
 			JAutoRollScrollPane autoRollScrollPane = new JAutoRollScrollPane();
 			autoRollScrollPane.getViewport().add(table);

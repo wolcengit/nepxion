@@ -222,12 +222,29 @@ public class DemoLazyLoaderCheckBoxTreePanel
 		{
 		}
 		
+		public boolean isAddTreeNodeValidated(DefaultMutableTreeNode parentTreeNode)
+		{
+			return true;
+		}
+		
 		public DefaultMutableTreeNode addTreeNode(DefaultMutableTreeNode parentTreeNode)
 		{
 			return new ElementNode("新增节点", IconFactory.getSwingIcon("solid/add_16.png"), "新增节点");
 		}
 		
+		
+		public boolean isModifyTreeNodeValidated(DefaultMutableTreeNode treeNode)
+		{
+			return true;
+		}
+		
 		public boolean modifyTreeNode(DefaultMutableTreeNode treeNode)
+		{
+			return true;
+		}
+		
+		
+		public boolean isDeleteTreeNodeValidated(DefaultMutableTreeNode treeNode)
 		{
 			return true;
 		}
@@ -237,7 +254,19 @@ public class DemoLazyLoaderCheckBoxTreePanel
 			return true;
 		}
 		
+		
+		public boolean isDeleteTreeNodesValidated(TreeNode[] treeNodes)
+		{
+			return true;
+		}
+		
 		public boolean deleteTreeNodes(TreeNode[] treeNodes)
+		{
+			return true;
+		}
+		
+		
+		public boolean isRenameTreeNodeValidated(DefaultMutableTreeNode treeNode)
 		{
 			return true;
 		}
