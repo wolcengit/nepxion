@@ -233,4 +233,19 @@ public class BasicSchedulerExecuter
 	{
 		this.repeatInterval = repeatInterval;
 	}
+	
+	public Scheduler getScheduler()
+	{
+		return scheduler;
+	}
+	
+	public QuartzJobDetail getJobDetail()
+	{
+		return jobDetail;
+	}
+	
+	public BasicTrigger getTrigger()
+	{
+		return trigger;
+	}
 }
