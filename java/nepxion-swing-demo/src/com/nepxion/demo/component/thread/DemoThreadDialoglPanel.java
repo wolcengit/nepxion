@@ -22,7 +22,6 @@ import java.util.List;
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.JPanel;
-import javax.swing.JTable;
 import javax.swing.filechooser.FileSystemView;
 
 import com.nepxion.swing.border.BorderManager;
@@ -108,7 +107,7 @@ public class DemoThreadDialoglPanel
 	public class FileToolBar
 		extends JPanel
 	{
-		public FileToolBar(final JTable fileTable)
+		public FileToolBar(final JSortableTable fileTable)
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
 			setBorder(BorderFactory.createEmptyBorder(0, 0, 5, 0));
@@ -146,7 +145,7 @@ public class DemoThreadDialoglPanel
 						{
 							List fileList = (List) data;
 							
-							FileTableModel tableModel = (FileTableModel) fileTable.getModel();
+							FileTableModel tableModel = (FileTableModel) fileTable.getDataModel();
 							tableModel.setRowDatas(fileList);
 						}
 						

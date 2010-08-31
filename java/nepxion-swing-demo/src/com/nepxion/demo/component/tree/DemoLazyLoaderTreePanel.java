@@ -222,7 +222,7 @@ public class DemoLazyLoaderTreePanel
 		{
 		}
 		
-		public boolean isAddTreeNodeValidated(DefaultMutableTreeNode parentTreeNode)
+		public boolean addTreeNodeValidated(DefaultMutableTreeNode parentTreeNode)
 		{
 			return true;
 		}
@@ -233,7 +233,7 @@ public class DemoLazyLoaderTreePanel
 		}
 		
 		
-		public boolean isModifyTreeNodeValidated(DefaultMutableTreeNode treeNode)
+		public boolean modifyTreeNodeValidated(DefaultMutableTreeNode treeNode)
 		{
 			return true;
 		}
@@ -244,7 +244,7 @@ public class DemoLazyLoaderTreePanel
 		}
 		
 		
-		public boolean isDeleteTreeNodeValidated(DefaultMutableTreeNode treeNode)
+		public boolean deleteTreeNodeValidated(DefaultMutableTreeNode treeNode)
 		{
 			return true;
 		}
@@ -255,7 +255,7 @@ public class DemoLazyLoaderTreePanel
 		}
 		
 		
-		public boolean isDeleteTreeNodesValidated(TreeNode[] treeNodes)
+		public boolean deleteTreeNodesValidated(TreeNode[] treeNodes)
 		{
 			return true;
 		}
@@ -266,7 +266,7 @@ public class DemoLazyLoaderTreePanel
 		}
 		
 		
-		public boolean isRenameTreeNodeValidated(DefaultMutableTreeNode treeNode)
+		public boolean renameTreeNodeValidated(DefaultMutableTreeNode treeNode)
 		{
 			return true;
 		}

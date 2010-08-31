@@ -23,7 +23,6 @@ import java.util.List;
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.JPanel;
-import javax.swing.JTable;
 import javax.swing.filechooser.FileSystemView;
 
 import com.nepxion.swing.border.BorderManager;
@@ -155,10 +154,10 @@ public class DemoThreadContainerPanel
 	public class FileThreadContainer
 		extends JThreadContainer
 	{
-		private JTable fileTable;
+		private JSortableTable fileTable;
 		private JBasicScrollPane fileTableScrollPane;
 		
-		public FileThreadContainer(JTable fileTable)
+		public FileThreadContainer(JSortableTable fileTable)
 		{
 			super("Loading, Please wait...");
 			
@@ -189,7 +188,7 @@ public class DemoThreadContainerPanel
 		{
 			List fileList = (List) data;
 			
-			FileTableModel tableModel = (FileTableModel) fileTable.getModel();
+			FileTableModel tableModel = (FileTableModel) fileTable.getDataModel();
 			tableModel.setRowDatas(fileList);
 		}
 		

@@ -27,7 +27,7 @@ import com.nepxion.swing.dialog.JBasicDialog;
 import com.nepxion.swing.handle.HandleManager;
 import com.nepxion.swing.icon.IconFactory;
 import com.nepxion.swing.layout.filed.FiledLayout;
-import com.nepxion.swing.panel.option.JOptionPanel;
+import com.nepxion.swing.panel.option.JOptionButtonPanel;
 
 public class DemoOptionPanel
 	extends JPanel
@@ -58,7 +58,7 @@ public class DemoOptionPanel
 			{
 				public void actionPerformed(ActionEvent e)
 				{		
-	                JOptionPanel optionPanel = new JOptionPanel(JOptionPanel.YES_NO_APPLY_OPTION)
+	                JOptionButtonPanel optionPanel = new JOptionButtonPanel(JOptionButtonPanel.YES_NO_APPLY_OPTION)
 	                {
 	                    public boolean confirm()
 	                    {
@@ -93,7 +93,7 @@ public class DemoOptionPanel
 			{
 				public void actionPerformed(ActionEvent e)
 				{		
-	                JOptionPanel optionPanel = new JOptionPanel(JOptionPanel.YES_NO_OPTION)
+	                JOptionButtonPanel optionPanel = new JOptionButtonPanel(JOptionButtonPanel.YES_NO_OPTION)
 	                {
 	                    public boolean confirm()
 	                    {
@@ -122,7 +122,7 @@ public class DemoOptionPanel
 			{
 				public void actionPerformed(ActionEvent e)
 				{		
-					JOptionPanel optionPanel = new JOptionPanel(JOptionPanel.CLOSE_OPTION)
+					JOptionButtonPanel optionPanel = new JOptionButtonPanel(JOptionButtonPanel.CLOSE_OPTION)
 	                {
 						public boolean close()
 						{

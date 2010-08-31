@@ -12,9 +12,11 @@ package com.nepxion.demo.component.pagination;
 
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
+import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTable;
 
+import com.nepxion.demo.DemoUIContext;
 import com.nepxion.swing.border.BorderManager;
 import com.nepxion.swing.pagination.PaginationBar;
 import com.nepxion.swing.pagination.PaginationContext;
@@ -37,12 +39,11 @@ public class DemoTablePaginationPanel
 		public TablePaginationPanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(BorderManager.createComplexTitleBorder("Auto ScrollPane"));
-			
+			setBorder(BorderManager.createComplexTitleBorder("Table Pagination"));			
 		}
 	}
 	
-	public class DemoPaginationBar
+	public static class DemoPaginationBar
 		extends PaginationBar
 	{
 		public DemoPaginationBar(JBasicTable table)
@@ -59,38 +60,32 @@ public class DemoTablePaginationPanel
 			throws Exception
 		{
 			JBasicTable table = (JBasicTable) getTable();
-//			String sessionID = drTable.getSessionID();
-//			int nodeID = drTable.getNodeID();
-//			
-//			direct(drTable, sessionID, nodeID);
+			
+			direct(table);
 		}
 		
 		public void directRowCount(int rowCount)
 			throws Exception
 		{
 			JBasicTable table = (JBasicTable) getTable();
-//			String sessionID = drTable.getSessionID();
-//			int nodeID = drTable.getNodeID();
-//			
-//			PaginationContext paginationContext = getPaginationContext();
-//			paginationContext.setRowCount(rowCount);
-//			
-//			direct(drTable, sessionID, nodeID);
+			
+			PaginationContext paginationContext = getPaginationContext();
+			paginationContext.setRowCount(rowCount);
+			
+			direct(table);
 		}
 		
 		private void direct(JTable table)
 			throws Exception
 		{
 			PaginationContext paginationContext = getPaginationContext();
-//			paginationContext.setTotalRowCount(drTable.getTotalRowCount());
-//			
-//			int rowIndex = paginationContext.getRowIndex();
-//			int rowCount = paginationContext.getRowCount();
+			paginationContext.setTotalRowCount(10000); // 10000是数据库的总记录数
 			
-//			ClientHandle drQueryHandle = ClientHandleFactory.createDRQueryHandle(sessionID, nodeID, rowIndex, rowCount);
-//			List drList = KPIParser.parseList(drQueryHandle);
-//			
-//			drTable.setRowDatas(drList);
+			int rowIndex = paginationContext.getRowIndex();
+			int rowCount = paginationContext.getRowCount();
+			
+//			List pageList = DataBase.getPageList(rowIndex, rowCount);			
+//			table.setRowDatas(drList);
 			
 			updatePagination();
 		}
@@ -104,8 +99,7 @@ public class DemoTablePaginationPanel
 		public void clearRowData()
 			throws Exception
 		{
-			JBasicTable table = (JBasicTable) getTable();
-			
+			JBasicTable table = (JBasicTable) getTable();			
 		}
 	}
 }
