@@ -26,6 +26,7 @@ import com.nepxion.swing.activex.ActiveXManager;
 import com.nepxion.swing.border.BorderManager;
 import com.nepxion.swing.button.ButtonManager;
 import com.nepxion.swing.button.JBasicButton;
+import com.nepxion.swing.checkbox.JBasicCheckBox;
 import com.nepxion.swing.handle.HandleManager;
 import com.nepxion.swing.icon.IconFactory;
 import com.nepxion.swing.layout.filed.FiledLayout;
@@ -41,19 +42,19 @@ public class DemoActiveXPanel
 		setLayout(new FiledLayout(FiledLayout.COLUMN, FiledLayout.FULL, 0));
 		setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
 		
-		add(new CallInternetExplorerToolBar());
+		add(new CallWebToolBar());
 		add(new CallWordToolBar());
 		add(new CallExcelToolBar());
 		add(new CallPowerPointToolBar());	
 	}
 	
-	public class CallInternetExplorerToolBar
+	public class CallWebToolBar
 		extends JPanel
 	{
-		public CallInternetExplorerToolBar()
+		public CallWebToolBar()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(BorderManager.createComplexTitleBorder("Call Internet Explorer"));
+			setBorder(BorderManager.createComplexTitleBorder("Call Web"));
 			
 			final JBasicTextField textField = new JBasicTextField("http://www.google.com");
 			textField.setBackground(Color.white);
@@ -75,7 +76,7 @@ public class DemoActiveXPanel
 					Collection htmFilterWords = new ArrayList(Arrays.asList(new String[] {"htm"}));
 					String htmFilterDescription = "Web File(*.htm)";
 					JFileFilter htmFileFilter = new JFileFilter(htmFilterWords, htmFilterDescription);
-
+					
 					JFileSelector fileSelector = new JFileSelector(HandleManager.getFrame(DemoActiveXPanel.this), "Open Web File");
 					fileSelector.addChoosableFileFilter(webFileFilter);
 					fileSelector.addChoosableFileFilter(htmlFileFilter);
@@ -88,26 +89,24 @@ public class DemoActiveXPanel
 						textField.setText(file.getAbsolutePath());
 					}
 				}
-			}
-			);
+			});
 			add(selectorButton);
 			
-			JBasicButton callButton = new JBasicButton(IconFactory.getSwingIcon("property.png"), "Call Internet Explorer");
+			JBasicButton callButton = new JBasicButton(IconFactory.getSwingIcon("property.png"), "Call Web");
 			callButton.addActionListener(new ActionListener()
 			{
 				public void actionPerformed(ActionEvent e)
 				{
 					try
 					{
-						ActiveXManager.callInternetExplorer(textField.getText());
+						ActiveXManager.callWeb(DemoActiveXPanel.this, textField.getText());
 					}
 					catch (Exception ex)
 					{
 						ex.printStackTrace();
 					}
 				}
-			}
-			);
+			});
 			add(callButton);
 			
 			ButtonManager.updateUI(this);
@@ -120,11 +119,14 @@ public class DemoActiveXPanel
 		public CallWordToolBar()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(BorderManager.createComplexTitleBorder("Call Word File"));
+			setBorder(BorderManager.createComplexTitleBorder("Call Word File - Only supported in application"));
 			
 			final JBasicTextField textField = new JBasicTextField();
 			textField.setBackground(Color.white);
 			add(textField);
+			
+			final JBasicCheckBox readOnlyCheckBox = new JBasicCheckBox("Read Only");
+			add(readOnlyCheckBox);
 			
 			JBasicButton selectorButton = new JBasicButton(IconFactory.getSwingIcon("theme/filechooser/nimbus/up_folder.png"), "Open Word File");
 			selectorButton.addActionListener(new ActionListener()
@@ -156,7 +158,7 @@ public class DemoActiveXPanel
 				{
 					try
 					{
-						ActiveXManager.callWord(textField.getText());
+						ActiveXManager.callWord(DemoActiveXPanel.this, textField.getText(), readOnlyCheckBox.isSelected());
 					}
 					catch (Exception ex)
 					{
@@ -177,11 +179,14 @@ public class DemoActiveXPanel
 		public CallExcelToolBar()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(BorderManager.createComplexTitleBorder("Call Excel File"));
+			setBorder(BorderManager.createComplexTitleBorder("Call Excel File - Only supported in application"));
 			
 			final JBasicTextField textField = new JBasicTextField();
 			textField.setBackground(Color.white);
 			add(textField);
+			
+			final JBasicCheckBox readOnlyCheckBox = new JBasicCheckBox("Read Only");
+			add(readOnlyCheckBox);
 			
 			JBasicButton selectorButton = new JBasicButton(IconFactory.getSwingIcon("theme/filechooser/nimbus/up_folder.png"), "Open Excel File");
 			selectorButton.addActionListener(new ActionListener()
@@ -223,7 +228,7 @@ public class DemoActiveXPanel
 				{
 					try
 					{
-						ActiveXManager.callExcel(textField.getText());
+						ActiveXManager.callExcel(DemoActiveXPanel.this, textField.getText(), readOnlyCheckBox.isSelected());
 					}
 					catch (Exception ex)
 					{
@@ -244,11 +249,17 @@ public class DemoActiveXPanel
 		public CallPowerPointToolBar()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(BorderManager.createComplexTitleBorder("Call PowerPoint File"));
+			setBorder(BorderManager.createComplexTitleBorder("Call PowerPoint File - Only supported in application"));
 			
 			final JBasicTextField textField = new JBasicTextField();
 			textField.setBackground(Color.white);
 			add(textField);
+
+			final JBasicCheckBox readOnlyCheckBox = new JBasicCheckBox("Read Only");
+			add(readOnlyCheckBox);
+			
+			final JBasicCheckBox fullScreenCheckBox = new JBasicCheckBox("Full Screen");
+			add(fullScreenCheckBox);
 			
 			JBasicButton selectorButton = new JBasicButton(IconFactory.getSwingIcon("theme/filechooser/nimbus/up_folder.png"), "Open PowerPoint File");
 			selectorButton.addActionListener(new ActionListener()
@@ -280,7 +291,7 @@ public class DemoActiveXPanel
 				{
 					try
 					{
-						ActiveXManager.callPowerPoint(textField.getText(), true);
+						ActiveXManager.callPowerPoint(DemoActiveXPanel.this, textField.getText(), readOnlyCheckBox.isSelected(), fullScreenCheckBox.isSelected());
 					}
 					catch (Exception ex)
 					{
