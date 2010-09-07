@@ -30,8 +30,8 @@
       <directory location="./data" failOnError="false" />
     </classPath>
     <nativeLibraryDirectories>
-      <directory name="./lib/swing/native" />
       <directory name="./lib/util/native" />
+      <directory name="./lib/swing/native" />
     </nativeLibraryDirectories>
   </java>
   <includedFiles />
