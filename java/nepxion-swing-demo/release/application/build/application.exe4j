@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <exe4j version="4.3.1" transformSequenceNumber="1">
-  <directoryPresets config="./lib/util/native" />
+  <directoryPresets config="./lib/swing/native" />
   <application name="Nepxion Swing" distributionSourceDir="../">
     <languages>
       <principalLanguage id="en" customLocalizationFile="" />
     </languages>
   </application>
-  <executable name="nepxion" type="1" iconSet="true" iconFile="application.ico" executableDir="." redirectStderr="true" stderrFile="Logger.log" stderrMode="overwrite" redirectStdout="false" stdoutFile="output.log" stdoutMode="overwrite" failOnStderrOutput="true" executableMode="1" changeWorkingDirectory="true" workingDirectory="." singleInstance="true" serviceStartType="2" serviceDependencies="" serviceDescription="" jreLocation="" executionLevel="asInvoker" checkConsoleParameter="false" amd64="false">
+  <executable name="nepxion" type="1" iconSet="true" iconFile="application.ico" executableDir="." redirectStderr="true" stderrFile="logger.log" stderrMode="overwrite" redirectStdout="false" stdoutFile="output.log" stdoutMode="overwrite" failOnStderrOutput="true" executableMode="1" changeWorkingDirectory="true" workingDirectory="." singleInstance="true" serviceStartType="2" serviceDependencies="" serviceDescription="" jreLocation="" executionLevel="asInvoker" checkConsoleParameter="false" amd64="false">
     <messageSet />
     <versionInfo include="true" fileVersion="" fileDescription="Nepxion Swing Repository" legalCopyright="" internalName="任浩军" productName="" companyName="Nepxion" productVersion="1.0" />
   </executable>
