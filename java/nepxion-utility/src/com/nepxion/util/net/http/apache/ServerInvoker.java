@@ -67,19 +67,19 @@ public class ServerInvoker
 					parameters.put(key, value);
 				}
 				requestObject = parameters;
-				ServerInvokerLogger.requestLog(method, charset, "List - [URL Parameter]", requestObject);
+				ServerLogger.requestInfo(method, charset, "List - [URL Parameter]", requestObject);
 				break;
 			}
 			case REQUEST_ENTITY_TYPE_STRING:
 			{
 				requestObject = IOUtil.getString(request.getInputStream(), charset);
-				ServerInvokerLogger.requestLog(method, charset, "String - [Text, XML, JSON, Properties ...]", requestObject);
+				ServerLogger.requestInfo(method, charset, "String - [Text, XML, JSON, Properties ...]", requestObject);
 				break;
 			}
 			case REQUEST_ENTITY_TYPE_SERIALIZABLE:
 			{
 				requestObject = IOUtil.read(request.getInputStream());
-				ServerInvokerLogger.requestLog(method, "Serializable Entity", requestObject);
+				ServerLogger.requestInfo(method, "Serializable Entity", requestObject);
 				break;
 			}
 		}
@@ -87,13 +87,13 @@ public class ServerInvoker
 		Object responseObject = invoke(requestObject, request, response);
 		if (responseObject != null)
 		{
-			ServerInvokerLogger.responseLog("Serializable Entity", responseObject);
+			ServerLogger.responseInfo("Serializable Entity", responseObject);
 			
 			IOUtil.write(response.getOutputStream(), responseObject);
 		}
 		else
 		{
-			ServerInvokerLogger.responseLog("Illegal Argument Serializable Entity", responseObject);
+			ServerLogger.responseInfo("Illegal Argument Serializable Entity", responseObject);
 			// ServerInvokerLogger.responseLog("Unknown Entity", "Invoked By Another Course - [OutputStream, PrintWriter ...]");
 		}
 	}

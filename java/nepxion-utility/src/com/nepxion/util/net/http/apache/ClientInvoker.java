@@ -85,7 +85,7 @@ public class ClientInvoker
 		entity.consumeContent();
 		clientRequest.abort();
 		
-		ClientInvokerLogger.responseLog("Serializable Entity", object);
+		ClientLogger.responseInfo("Serializable Entity", object);
 		
 		if (object instanceof Exception)
 		{
@@ -99,7 +99,7 @@ public class ClientInvoker
 			{
 				exception = e;
 			}
-			ClientInvokerLogger.exceptionLog(exception);
+			ClientLogger.fatal(exception);
 			throw exception;
 		}	
 		
@@ -120,7 +120,7 @@ public class ClientInvoker
 		entity.consumeContent();
 		clientRequest.abort();
 		
-		ClientInvokerLogger.responseLog(charset, "String - [Text, XML, JSON, Properties ...]", text);
+		ClientLogger.responseInfo(charset, "String - [Text, XML, JSON, Properties ...]", text);
 		
 		return text;
 	}	

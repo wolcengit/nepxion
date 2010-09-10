@@ -13,14 +13,16 @@ package com.nepxion.util.database.pool.proxool;
 import java.net.URL;
 import java.util.Properties;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.logicalcobwebs.proxool.ProxoolException;
 import org.logicalcobwebs.proxool.configuration.PropertyConfigurator;
-
-import com.nepxion.util.log.Logger;
 
 public class ProxoolContext
 	implements ProxoolConstants
 {
+	private static Log log = LogFactory.getLog(ProxoolContext.class);
+	
 	public static void register()
 		throws ProxoolException
 	{
@@ -30,7 +32,7 @@ public class ProxoolContext
 	public static void register(String filePath)
 		throws ProxoolException
 	{
-		Logger.info(ProxoolContext.class, "---- Proxool Context Initialization Start ---");
+		log.info("---- Proxool Context Initialization Start ---");
 		
 		try
 		{
@@ -38,17 +40,17 @@ public class ProxoolContext
 		}
 		catch (ProxoolException e)
 		{
-			Logger.fatal(ProxoolContext.class, e);
+			log.fatal(e);
 			throw e;
 		}
 		
-		Logger.info(ProxoolContext.class, "----- Proxool Context Initialization End ----");
+		log.info("----- Proxool Context Initialization End ----");
 	}
 	
 	public static void register(Properties properties)
 		throws ProxoolException
 	{
-		Logger.info(ProxoolContext.class, "---- Proxool Context Initialization Start ---");
+		log.info("---- Proxool Context Initialization Start ---");
 		
 		try
 		{
@@ -56,11 +58,11 @@ public class ProxoolContext
 		}
 		catch (ProxoolException e)
 		{
-			Logger.fatal(ProxoolContext.class, e);
+			log.fatal(e);
 			throw e;
 		}
 		
-		Logger.info(ProxoolContext.class, "---- Proxool Context Initialization Start ---");
+		log.info("---- Proxool Context Initialization Start ---");
 	}
 	
 	public static void register(URL codeBase)
@@ -76,7 +78,7 @@ public class ProxoolContext
 		}
 		catch (Exception e)
 		{
-			Logger.fatal(ProxoolContext.class, e);
+			log.fatal(e);
 			throw e;
 		}
 	}

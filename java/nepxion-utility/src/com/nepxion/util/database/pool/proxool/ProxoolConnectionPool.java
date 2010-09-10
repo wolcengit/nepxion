@@ -14,11 +14,14 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-import com.nepxion.util.log.Logger;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 
 public class ProxoolConnectionPool
 	implements ProxoolConstants
 {
+	private static Log log = LogFactory.getLog(ProxoolConnectionPool.class);
+	
 	public static Connection getDefaultConnection()
 		throws SQLException, ClassNotFoundException
 	{
@@ -36,12 +39,12 @@ public class ProxoolConnectionPool
 		}
 		catch (SQLException e)
 		{
-			Logger.fatal(ProxoolConnectionPool.class, e);
+			log.fatal(e);
 			throw e;
 		}
 		catch (ClassNotFoundException e)
 		{
-			Logger.fatal(ProxoolConnectionPool.class, e);
+			log.fatal(e);
 			throw e;
 		}
 		return connection;

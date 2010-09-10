@@ -13,14 +13,16 @@ package com.nepxion.util.scheduler.quartz;
 import java.net.URL;
 import java.util.Properties;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.quartz.Scheduler;
 import org.quartz.SchedulerException;
-
-import com.nepxion.util.log.Logger;
 
 public class QuartzContext
 	implements QuartzConstants
 {
+	private static Log log = LogFactory.getLog(QuartzContext.class);
+	
 	private static QuartzSchedulerFactory factory;
 	private static Scheduler scheduler;
 	
@@ -33,7 +35,7 @@ public class QuartzContext
 	public static void register(String filePath)
 		throws SchedulerException
 	{
-		Logger.info(QuartzContext.class, "--- Quartz Scheduler Initialization Start ---");
+		log.info("--- Quartz Scheduler Initialization Start ---");
 		
 		try
 		{
@@ -42,17 +44,17 @@ public class QuartzContext
 		}
 		catch (SchedulerException e)
 		{
-			Logger.fatal(QuartzContext.class, e);
+			log.fatal(e);
 			throw e;
 		}
 		
-		Logger.info(QuartzContext.class, "---- Quartz Scheduler Initialization End ----");
+		log.info("---- Quartz Scheduler Initialization End ----");
 	}
 	
 	public static void register(Properties properties)
 		throws SchedulerException
 	{
-		Logger.info(QuartzContext.class, "--- Quartz Scheduler Initialization Start ---");
+		log.info("--- Quartz Scheduler Initialization Start ---");
 		
 		try
 		{
@@ -61,11 +63,11 @@ public class QuartzContext
 		}
 		catch (SchedulerException e)
 		{
-			Logger.fatal(QuartzContext.class, e);
+			log.fatal(e);
 			throw e;
 		}
 		
-		Logger.info(QuartzContext.class, "---- Quartz Scheduler Initialization End ----");
+		log.info("---- Quartz Scheduler Initialization End ----");
 	}
 	
 	public static void register(URL codeBase)
@@ -81,7 +83,7 @@ public class QuartzContext
 		}
 		catch (Exception e)
 		{
-			Logger.fatal(QuartzContext.class, e);
+			log.fatal(e);
 			throw e;
 		}
 	}

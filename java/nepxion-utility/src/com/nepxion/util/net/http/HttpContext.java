@@ -17,11 +17,14 @@ import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Properties;
 
-import com.nepxion.util.log.Logger;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 
 public class HttpContext
 	implements HttpConstants
 {
+	private static Log log = LogFactory.getLog(HttpContext.class);
+	
 	private static LinkedHashMap httpConfigMap;
 	
 	public static void register()
@@ -33,7 +36,7 @@ public class HttpContext
 	public static void register(String filePath)
 		throws Exception
 	{
-		Logger.info(HttpContext.class, "----- Http Context Initialization Start -----");
+		log.info("----- Http Context Initialization Start -----");
 		
 		httpConfigMap = new LinkedHashMap();
 		Properties properties = new Properties();
@@ -47,17 +50,17 @@ public class HttpContext
 		}
 		catch (Exception e)
 		{
-			Logger.fatal(HttpContext.class, e);
+			log.fatal(e);
 			throw e;
 		}
 		
-		Logger.info(HttpContext.class, "------ Http Context Initialization End ------");
+		log.info("------ Http Context Initialization End ------");
 	}
 	
 	public static void register(Properties properties)
 		throws Exception
 	{
-		Logger.info(HttpContext.class, "----- Http Context Initialization Start -----");
+		log.info("----- Http Context Initialization Start -----");
 		
 		try
 		{
@@ -65,17 +68,17 @@ public class HttpContext
 		}
 		catch (Exception e)
 		{
-			Logger.fatal(HttpContext.class, e);
+			log.fatal(e);
 			throw e;
 		}
 		
-		Logger.info(HttpContext.class, "------ Http Context Initialization End ------");
+		log.info("------ Http Context Initialization End ------");
 	}
 	
 	public static void register(URL codeBase)
 		throws Exception
 	{
-		Logger.info(HttpContext.class, "----- Http Context Initialization Start -----");
+		log.info("----- Http Context Initialization Start -----");
 		
 		httpConfigMap = new LinkedHashMap();
 		Properties properties = new Properties();
@@ -88,11 +91,11 @@ public class HttpContext
 		}
 		catch (Exception e)
 		{
-			Logger.fatal(HttpContext.class, e);
+			log.fatal(e);
 			throw e;
 		}
 		
-		Logger.info(HttpContext.class, "------ Http Context Initialization End ------");
+		log.info("------ Http Context Initialization End ------");
 	}
 	
 	public static HttpConfig getDefaultHttpConfig()
@@ -152,7 +155,25 @@ public class HttpContext
 			httpConfigMap.put(config.getAlias(), config);
 		}
 		
-		HttpContextLogger.log(httpConfigMap);
+		int index = 0;
+		int size = httpConfigMap.keySet().size() - 1;
+		for (Iterator iterator = httpConfigMap.keySet().iterator(); iterator.hasNext();)
+		{
+			String alias = (String) iterator.next();			
+			HttpConfig httpConfig = (HttpConfig) httpConfigMap.get(alias);
+			log.info("Alias : " + httpConfig.getAlias());
+			log.info("Host : " + httpConfig.getHost());
+			log.info("Port : " + httpConfig.getPort());
+			log.info("path : " + httpConfig.getPath());
+			log.info("Connection TimeOut : " + httpConfig.getConnectionTimeOut());
+			log.info("Response TimeOut : " + httpConfig.getResponseTimeOut());
+			log.info("Buffer Size : " + httpConfig.getBufferSize());
+			if (index < size)
+			{	
+				log.info("---------------------------------------------");
+			}
+			index++;
+		}	
 	}
 	
 	private static HttpConfig createConfig(Properties configProperties, URL url)
