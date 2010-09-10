@@ -155,25 +155,7 @@ public class HttpContext
 			httpConfigMap.put(config.getAlias(), config);
 		}
 		
-		int index = 0;
-		int size = httpConfigMap.keySet().size() - 1;
-		for (Iterator iterator = httpConfigMap.keySet().iterator(); iterator.hasNext();)
-		{
-			String alias = (String) iterator.next();			
-			HttpConfig httpConfig = (HttpConfig) httpConfigMap.get(alias);
-			log.info("Alias : " + httpConfig.getAlias());
-			log.info("Host : " + httpConfig.getHost());
-			log.info("Port : " + httpConfig.getPort());
-			log.info("path : " + httpConfig.getPath());
-			log.info("Connection TimeOut : " + httpConfig.getConnectionTimeOut());
-			log.info("Response TimeOut : " + httpConfig.getResponseTimeOut());
-			log.info("Buffer Size : " + httpConfig.getBufferSize());
-			if (index < size)
-			{	
-				log.info("---------------------------------------------");
-			}
-			index++;
-		}	
+		HttpLogger.info(httpConfigMap);
 	}
 	
 	private static HttpConfig createConfig(Properties configProperties, URL url)
