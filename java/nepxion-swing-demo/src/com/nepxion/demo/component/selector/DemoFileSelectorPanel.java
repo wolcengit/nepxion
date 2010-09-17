@@ -14,7 +14,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collection;
 
 import javax.swing.BorderFactory;
@@ -33,6 +32,7 @@ import com.nepxion.swing.layout.filed.FiledLayout;
 import com.nepxion.swing.selector.file.JFileFilter;
 import com.nepxion.swing.selector.file.JFileSelector;
 import com.nepxion.swing.selector.file.JFolderSelector;
+import com.nepxion.util.data.CollectionUtil;
 
 public class DemoFileSelectorPanel
 	extends JPanel
@@ -64,19 +64,19 @@ public class DemoFileSelectorPanel
 			{
 				public void actionPerformed(ActionEvent e)
 				{
-					Collection officeFilterWords = new ArrayList(Arrays.asList(new String[] {"doc", "xls", "ppt"}));
+					Collection officeFilterWords = CollectionUtil.parseList(new String[] {"doc", "xls", "ppt"});
 					String officeFilterDescription = "Office File(*.doc, *.xls, *.ppt)";
 					JFileFilter officeFileFilter = new JFileFilter(officeFilterWords, officeFilterDescription);
 					
-					Collection docFilterWords = new ArrayList(Arrays.asList(new String[] {"doc"}));
+					Collection docFilterWords = CollectionUtil.parseList(new String[] {"doc"});
 					String docFilterDescription = "Word File(*.doc)";
 					JFileFilter docFileFilter = new JFileFilter(docFilterWords, docFilterDescription);
 					
-					Collection xlsFilterWords = new ArrayList(Arrays.asList(new String[] {"xls"}));
+					Collection xlsFilterWords = CollectionUtil.parseList(new String[] {"xls"});
 					String xlsFilterDescription = "Excel File(*.xls)";
 					JFileFilter xlsFileFilter = new JFileFilter(xlsFilterWords, xlsFilterDescription);
 					
-					Collection pptFilterWords = new ArrayList(Arrays.asList(new String[] {"ppt"}));
+					Collection pptFilterWords = CollectionUtil.parseList(new String[] {"ppt"});
 					String pptFilterDescription = "PowerPoint File(*.ppt)";
 					JFileFilter pptFileFilter = new JFileFilter(pptFilterWords, pptFilterDescription);
 					
@@ -102,19 +102,19 @@ public class DemoFileSelectorPanel
 			{
 				public void actionPerformed(ActionEvent e)
 				{
-					Collection officeFilterWords = new ArrayList(Arrays.asList(new String[] {"doc", "xls", "ppt"}));
+					Collection officeFilterWords = CollectionUtil.parseList(new String[] {"doc", "xls", "ppt"});
 					String officeFilterDescription = "Office File(*.doc, *.xls, *.ppt)";
 					JFileFilter officeFileFilter = new JFileFilter(officeFilterWords, officeFilterDescription);
 					
-					Collection docFilterWords = new ArrayList(Arrays.asList(new String[] {"doc"}));
+					Collection docFilterWords = CollectionUtil.parseList(new String[] {"doc"});
 					String docFilterDescription = "Word File(*.doc)";
 					JFileFilter docFileFilter = new JFileFilter(docFilterWords, docFilterDescription);
 					
-					Collection xlsFilterWords = new ArrayList(Arrays.asList(new String[] {"xls"}));
+					Collection xlsFilterWords = CollectionUtil.parseList(new String[] {"xls"});
 					String xlsFilterDescription = "Excel File(*.xls)";
 					JFileFilter xlsFileFilter = new JFileFilter(xlsFilterWords, xlsFilterDescription);
 					
-					Collection pptFilterWords = new ArrayList(Arrays.asList(new String[] {"ppt"}));
+					Collection pptFilterWords = CollectionUtil.parseList(new String[] {"ppt"});
 					String pptFilterDescription = "PowerPoint File(*.ppt)";
 					JFileFilter pptFileFilter = new JFileFilter(pptFilterWords, pptFilterDescription);
 					
