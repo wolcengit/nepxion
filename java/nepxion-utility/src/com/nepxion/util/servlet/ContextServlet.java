@@ -62,8 +62,15 @@ public class ContextServlet
 			properties.setProperty("log4j.appender.FileAppender.File", loggerPath + properties.getProperty("log4j.appender.FileAppender.File"));
 			properties.setProperty("log4j.appender.RollingFileAppender.File", loggerPath + properties.getProperty("log4j.appender.RollingFileAppender.File"));
 			
+			initServiceLogger(properties, loggerPath);
+			
 			PropertyConfigurator.configure(properties);
 		}
+	}
+	
+	public void initServiceLogger(Properties properties, String loggerPath)
+	{
+		
 	}
 	
 	private void initProxool()
