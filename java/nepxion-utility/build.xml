@@ -5,6 +5,7 @@
 	<property name="jar" value="nepxion-util.jar"/>
 	<property name="dest.application.path" value="../nepxion-swing-demo/release/application"/>
 	<property name="dest.applet.path" value="../nepxion-swing-demo/release/applet"/>
+	<property name="dest.net.path" value="../nepxion-net-demo/WebContent/WEB-INF"/>
 	<property name="encoding" value="utf-8"/>
 	<property name="alias" value="security"/>
 	<property name="keystore" value="security.store"/>
@@ -40,6 +41,11 @@
 				<include name="*${jar}"/>
 			</fileset>
 		</copy>
+		<copy todir="${dest.net.path}/lib" preservelastmodified="true">
+			<fileset dir="${dest.application.path}/lib">
+				<include name="*${jar}"/>
+			</fileset>
+		</copy>		
 		<signjar alias="${alias}" keystore="${dest.applet.path}/sign/${keystore}" storepass="${storepass}" preservelastmodified="true">
 			<fileset dir="${dest.applet.path}/lib">
 				<include name="*${jar}"/>
