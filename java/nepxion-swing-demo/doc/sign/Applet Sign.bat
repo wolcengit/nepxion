@@ -1,1 +1,0 @@
-jarsigner -keystore Security.store XXX.jar Security
