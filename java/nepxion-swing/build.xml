@@ -49,11 +49,6 @@
 				<include name="*${jar}"/>
 			</fileset>
 		</copy>
-		<copy todir="${release.net.path}/lib" preservelastmodified="true">
-			<fileset dir="${release.application.path}/lib">
-				<include name="*${jar}"/>
-			</fileset>
-		</copy>		
 		<signjar alias="${alias}" keystore="${release.applet.path}/sign/${keystore}" storepass="${storepass}" preservelastmodified="true">
 			<fileset dir="${release.applet.path}/lib">
 				<include name="*${jar}"/>
