@@ -3,16 +3,17 @@
 	<property name="src" value="src"/>
 	<property name="class" value="class"/>
 	<property name="jar" value="nepxion-util.jar"/>
-	<property name="dest.application.path" value="../nepxion-swing-demo/release/application"/>
-	<property name="dest.applet.path" value="../nepxion-swing-demo/release/applet"/>
-	<property name="dest.net.path" value="../nepxion-net-demo/WebContent/WEB-INF"/>
+	<property name="manifest" value="reference/MANIFEST.MF"/>
+	<property name="release.application.path" value="../nepxion-swing-demo/release/application"/>
+	<property name="release.applet.path" value="../nepxion-swing-demo/release/applet"/>
+	<property name="release.net.path" value="../nepxion-net-demo/WebContent/WEB-INF"/>
 	<property name="encoding" value="utf-8"/>
 	<property name="alias" value="security"/>
 	<property name="keystore" value="security.store"/>
 	<property name="storepass" value="888888"/>
 	
 	<path id="classpath">
-		<fileset dir="${dest.application.path}/lib/util">
+		<fileset dir="${release.application.path}/lib/util">
 			<include name="*.jar"/>
 		</fileset>
 	</path>
@@ -21,7 +22,8 @@
 		<echo message="ant [options]"/>
 		<echo message=""/>
 		<echo message="where options include:"/>
-		<echo message="build  - compile java source code and build with jar" />
+		<echo message="build  - compile java source code and build with jar"/>
+		<echo message="clean  - clean all deployment"/>		
 	</target>
 	
 	<target name="build">
@@ -31,26 +33,32 @@
 			<classpath refid="classpath"/>
 			<!-- <compilerarg value="-Xlint:unchecked"/> -->
 		</javac>
-  	<jar jarfile="${dest.application.path}/lib/${jar}">
+  	<jar jarfile="${release.application.path}/lib/${jar}" manifest="${manifest}">
 			<fileset dir="${class}">
 				<include name="**/*.*"/>
 			</fileset>
 		</jar>
-		<copy todir="${dest.applet.path}/lib" preservelastmodified="true">
-			<fileset dir="${dest.application.path}/lib">
+		<copy todir="${release.applet.path}/lib" preservelastmodified="true">
+			<fileset dir="${release.application.path}/lib">
 				<include name="*${jar}"/>
 			</fileset>
 		</copy>
-		<copy todir="${dest.net.path}/lib" preservelastmodified="true">
-			<fileset dir="${dest.application.path}/lib">
+		<copy todir="${release.net.path}/lib" preservelastmodified="true">
+			<fileset dir="${release.application.path}/lib">
 				<include name="*${jar}"/>
 			</fileset>
 		</copy>		
-		<signjar alias="${alias}" keystore="${dest.applet.path}/sign/${keystore}" storepass="${storepass}" preservelastmodified="true">
-			<fileset dir="${dest.applet.path}/lib">
+		<signjar alias="${alias}" keystore="${release.applet.path}/sign/${keystore}" storepass="${storepass}" preservelastmodified="true">
+			<fileset dir="${release.applet.path}/lib">
 				<include name="*${jar}"/>
 			</fileset>
-		</signjar>		
-		<delete dir="${class}"/>		
+		</signjar>
+		<delete dir="${class}"/>
   </target>
+  
+	<target name="clean">
+		<delete file="${release.application.path}/lib/${jar}"/>
+		<delete file="${release.applet.path}/lib/${jar}"/>
+		<delete file="${release.net.path}/lib/${jar}"/>
+	</target>
 </project>
