@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<project name="server" default="usage" basedir=".">
+<project name="nepxion-util" default="usage" basedir=".">
 	<property name="src" value="src"/>
 	<property name="class" value="class"/>
 	<property name="jar" value="nepxion-util.jar"/>
