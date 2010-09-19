@@ -78,8 +78,8 @@ public class LocSearcher
 	}
 	
 	/**
-	 * @param latitude  纬度
-	 * @param longitude 经度
+	 * @param latitude   纬度
+	 * @param longitude  经度
 	 */
 	public String createCoordinateJSON(double latitude, double longitude)
 	{
@@ -101,10 +101,10 @@ public class LocSearcher
 	}
 	
 	/**
-	 * @param cellID 全球唯一的小区ID
-	 * @param lac 全球唯一的位置码
-	 * @param mcc 移动国家号码，中国为460
-	 * @param mnc 移动网号，中国移动为00，中国中国联通为01
+	 * @param cellID  全球唯一的小区ID
+	 * @param lac     全球唯一的位置码
+	 * @param mcc     移动国家号码，中国为460
+	 * @param mnc     移动网号，中国移动为00，中国中国联通为01
 	 */
 	public String createCellJSON(int cellID, int lac, int mcc, int mnc)
 	{

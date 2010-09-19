@@ -16,6 +16,7 @@ import org.dom4j.Document;
 import org.dom4j.DocumentException;
 import org.dom4j.Element;
 
+import com.nepxion.util.locale.UtilityLocale;
 import com.nepxion.util.net.http.apache.ClientInvoker;
 import com.nepxion.util.net.http.apache.ClientParameterList;
 import com.nepxion.util.net.http.apache.ClientRequestGet;
@@ -75,22 +76,22 @@ public class NeteaseIDSearcher
 		
 		Element birthdayElement = productElement.element("birthday");
 		String birthday = birthdayElement.getText();
-		birthday = birthday.substring(0, 4) + "年" + birthday.substring(4, 6) + "月" + birthday.substring(6) + "日";
+		birthday = birthday.substring(0, 4) + "-" + birthday.substring(4, 6) + "-" + birthday.substring(6);
 		idEntity.setBirthday(birthday);
 		
 		Element genderElement = productElement.element("gender");
 		String gender = genderElement.getText();
 		if (gender.equals("m"))
 		{
-			gender = "男";
+			gender = UtilityLocale.getString("gender_male");
 		}
 		else if (gender.equals("f"))
 		{
-			gender = "女";
+			gender = UtilityLocale.getString("gender_femal");
 		}
 		else
 		{
-			gender = "未知";
+			gender = UtilityLocale.getString("gender_gender_unknown");
 		}
 		idEntity.setGender(gender);
 		
