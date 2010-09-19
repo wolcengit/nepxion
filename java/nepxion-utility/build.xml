@@ -8,7 +8,7 @@
 	<property name="release.application.path" value="../nepxion-swing-demo/release/application"/>
 	<property name="release.applet.path" value="../nepxion-swing-demo/release/applet"/>
 	<property name="release.net.path" value="../nepxion-net-demo/WebContent/WEB-INF"/>
-	<property name="encoding" value="utf-8"/>
+	<property name="encoding" value="gbk"/>
 	<property name="alias" value="security"/>
 	<property name="keystore" value="security.store"/>
 	<property name="storepass" value="888888"/>
@@ -40,7 +40,7 @@
 			</fileset>
 			<fileset dir="${locale}">
 				<include name="**/*.*"/>
-			</fileset>			
+			</fileset>
 		</jar>
 		<copy todir="${release.applet.path}/lib" preservelastmodified="true">
 			<fileset dir="${release.application.path}/lib">
