@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 <project name="nepxion-utility" default="usage" basedir=".">
 	<property name="src" value="src"/>
+	<property name="locale" value="locale"/>
 	<property name="class" value="class"/>
 	<property name="jar" value="nepxion-util.jar"/>
 	<property name="manifest" value="reference/MANIFEST.MF"/>
@@ -37,6 +38,9 @@
 			<fileset dir="${class}">
 				<include name="**/*.*"/>
 			</fileset>
+			<fileset dir="${locale}">
+				<include name="**/*.*"/>
+			</fileset>			
 		</jar>
 		<copy todir="${release.applet.path}/lib" preservelastmodified="true">
 			<fileset dir="${release.application.path}/lib">
