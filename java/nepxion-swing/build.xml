@@ -26,7 +26,7 @@
 		<echo message=""/>
 		<echo message="where options include:"/>
 		<echo message="build  - compile java source code and build with jar"/>
-		<echo message="clean  - clean all deployment"/>		
+		<echo message="clean  - clean all deployments"/>		
 	</target>
 	
 	<target name="build">
@@ -34,7 +34,7 @@
 		<mkdir dir="${class}"/>
 		<javac srcdir="${src}" destdir="${class}" encoding="${encoding}" includeantruntime="on" nowarn="true">
 			<classpath refid="classpath"/>
-			<!-- <compilerarg value="-Xlint:unchecked"/> -->
+			<!-- compilerarg value="-Xlint:unchecked"/ -->
 		</javac>
   	<jar jarfile="${release.application.path}/lib/${jar}" manifest="${manifest}">
 			<fileset dir="${class}">
