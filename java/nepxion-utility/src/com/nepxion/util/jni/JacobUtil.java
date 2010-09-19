@@ -111,7 +111,7 @@ public class JacobUtil
 			if (fullScreen)
 			{
 				ActiveXComponent slideShowSettings = presentation.getPropertyAsComponent("SlideShowSettings");
-				slideShowSettings.invoke("Run"); // 调用该对象的run函数实现全屏播放
+				slideShowSettings.invoke("Run");
 			}
 		}
 		catch (Exception e)
