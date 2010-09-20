@@ -14,6 +14,7 @@ import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.JPanel;
 
+import com.nepxion.demo.component.locale.SwingDemoLocale;
 import com.nepxion.swing.border.BorderManager;
 import com.nepxion.swing.searcher.id.netease.JNeteaseIDPanel;
 
@@ -34,7 +35,7 @@ public class DemoNeteaseIDPanel
 		public NeteaseIDPanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(BorderManager.createComplexTitleBorder("身份证归属地查询"));
+			setBorder(BorderManager.createComplexTitleBorder(SwingDemoLocale.getString("label_id_searcher")));
 			
 			JNeteaseIDPanel idPanel = new JNeteaseIDPanel();			
 			add(idPanel);

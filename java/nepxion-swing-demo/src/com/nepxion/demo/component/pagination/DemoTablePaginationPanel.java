@@ -96,7 +96,7 @@ public class DemoTablePaginationPanel
 			
 		}
 		
-		public void clearRowData()
+		public void clearRowDatas()
 			throws Exception
 		{
 			JBasicTable table = (JBasicTable) getTable();			
