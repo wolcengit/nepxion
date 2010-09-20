@@ -23,15 +23,14 @@ public class DemoFrame
 	public DemoFrame()
 	{
 		super("Nepxion Swing", IconFactory.getSwingIcon("tray_java.png")); // new Dimension(850, 650)
-		
-		DemoDataContext.initialize();
-		
+				
 		DemoHierarchy hierarchy = new DemoHierarchy();
 		setHierarchy(hierarchy);
 	}
 	
 	public static void main(String[] args)
 	{
+		DemoDataContext.initialize();
 		DemoUIContext.initialize();
 		
 		final DemoSplashWindow splashWindow = new DemoSplashWindow();
