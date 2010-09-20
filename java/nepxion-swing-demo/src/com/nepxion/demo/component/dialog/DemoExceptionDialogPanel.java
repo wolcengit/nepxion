@@ -55,7 +55,7 @@ public class DemoExceptionDialogPanel
 	                }
 	                catch (NumberFormatException ex)
 	                {
-	                    JExceptionDialog.traceException(HandleManager.getFrame(DemoExceptionDialogPanel.this), "Parse Integer Exception", "Exception Details", ex);
+	                    JExceptionDialog.traceException(HandleManager.getFrame(DemoExceptionDialogPanel.this), "Parse Integer Exception", ex);
 	                }
 				}
 			}

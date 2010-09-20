@@ -39,7 +39,7 @@ public class DemoUIContext
 		
 		//注册界面字体
 		//FontContext.registerFont("Dialog", Font.PLAIN, 12);
-		//FontContext.registerChartTitleFont("隶书", Font.PLAIN, 24);
+		//FontContext.registerChartTitleFont("SimHei", Font.PLAIN, 18);
 		//FontContext.registerChartSubTitleFont("Dialog", Font.PLAIN, 12);
 		//FontContext.registerChartLabelFont("Dialog", Font.PLAIN, 12);
 		//FontContext.registerChartTickLabelFont("SansSerif", Font.PLAIN, 10);
