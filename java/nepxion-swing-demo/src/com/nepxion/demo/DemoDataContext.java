@@ -14,6 +14,7 @@ import java.net.URL;
 
 import com.nepxion.swing.activex.ActiveXContext;
 import com.nepxion.util.encode.EncodeContext;
+import com.nepxion.util.locale.LocaleContext;
 import com.nepxion.util.log.LoggerContext;
 import com.nepxion.util.scheduler.quartz.QuartzContext;
 import com.nepxion.util.searcher.ip.local.IPContext;
@@ -27,7 +28,8 @@ public class DemoDataContext
 	{	
 		EncodeContext.registerIOCharset("GBK");
 		EncodeContext.registerHttpCharset("UTF-8");
-		ActiveXContext.registerStrategy(ActiveXContext.STRATEGY_APPLICATION);
+		LocaleContext.registerLocale(LocaleContext.LOCALE_ZH_CN);
+		ActiveXContext.registerStrategy(ActiveXContext.STRATEGY_APPLICATION);		
 		
 		try
 		{
@@ -47,7 +49,8 @@ public class DemoDataContext
 	public static void initialize(URL codeBase)
 	{
 		EncodeContext.registerIOCharset("GBK");
-		EncodeContext.registerHttpCharset("UTF-8");		
+		EncodeContext.registerHttpCharset("UTF-8");
+		LocaleContext.registerLocale(LocaleContext.LOCALE_ZH_CN);
 		ActiveXContext.registerStrategy(ActiveXContext.STRATEGY_APPLET);
 		
 		try
