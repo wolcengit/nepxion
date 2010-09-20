@@ -83,15 +83,15 @@ public class NeteaseIDSearcher
 		String gender = genderElement.getText();
 		if (gender.equals("m"))
 		{
-			gender = UtilityLocale.getString("gender_male");
+			gender = UtilityLocale.getString("label_gender_male");
 		}
 		else if (gender.equals("f"))
 		{
-			gender = UtilityLocale.getString("gender_femal");
+			gender = UtilityLocale.getString("label_gender_femal");
 		}
 		else
 		{
-			gender = UtilityLocale.getString("gender_gender_unknown");
+			gender = UtilityLocale.getString("label_gender_gender_unknown");
 		}
 		idEntity.setGender(gender);
 		
