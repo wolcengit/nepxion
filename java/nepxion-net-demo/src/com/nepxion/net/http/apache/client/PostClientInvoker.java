@@ -31,8 +31,8 @@ public class PostClientInvoker
 	public static void invokeParameter()
 	{		
 		ClientParameterList clientParameterList = new ClientParameterList();
-		clientParameterList.put("target", "æœåŠ¡è°ƒç”¨");
-		clientParameterList.put("entity", "å‚æ•°");
+		clientParameterList.put("target", "·şÎñµ÷ÓÃ");
+		clientParameterList.put("entity", "²ÎÊı");
 		
 		HttpConfig httpConfig = HttpContext.getHttpConfig("ParameterServerInvoker");
 		
@@ -54,8 +54,8 @@ public class PostClientInvoker
 	public static void invokeSerializable()
 	{
 		HashMap map = new HashMap();
-		map.put("target", "æœåŠ¡è°ƒç”¨");
-		map.put("entity", "åºåˆ—åŒ–");
+		map.put("target", "·şÎñµ÷ÓÃ");
+		map.put("entity", "ĞòÁĞ»¯");
 		
 		HttpConfig httpConfig = HttpContext.getHttpConfig("SerializableServerInvoker");
 		
@@ -77,8 +77,8 @@ public class PostClientInvoker
 	public static void invokeInputStream()
 	{
 		List list = new ArrayList();
-		list.add("æœåŠ¡è°ƒç”¨");
-		list.add("æµ");
+		list.add("·şÎñµ÷ÓÃ");
+		list.add("Á÷");
 		
 		InputStream inputStream = IOUtil.getInputStream(list);
 		
@@ -101,7 +101,7 @@ public class PostClientInvoker
 	
 	public static void invokeString()
 	{
-		String text = "[ç›®æ ‡ä¸ºæœåŠ¡è°ƒç”¨ï¼Œå®ä½“ä¸ºå­—ç¬¦ä¸²]";
+		String text = "[Ä¿±êÎª·şÎñµ÷ÓÃ£¬ÊµÌåÎª×Ö·û´®]";
 		
 		HttpConfig httpConfig = HttpContext.getHttpConfig("StringServerInvoker");
 		
