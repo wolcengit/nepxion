@@ -59,8 +59,6 @@
 	<param name="boxbgcolor" value="white">
 	<param name="boxfgcolor " value="silver">
 	<param name="progresscolor" value="#C86C12">
-
-	<!--Internet Explorer 初始化上下文设置-->
 	<param name="initializer" value="applet"> <!--applet, application-->
 	<param name="lookAndFeel" value="AlloyLookAndFeel"> <!--SystemLookAndFeel, DefaultMetalLookAndFeel, MetalLookAndFeel, WindowsLookAndFeel, MotifLookAndFeel, GTKLookAndFeel, NimbusLookAndFeel, AlloyLookAndFeel, AcidLookAndFeel, BedouinLookAndFeel, GlassLookAndFeel, BorlandLookAndFeel, JGoodiesWindowsLookAndFeel, PlasticLookAndFeel, PlasticXPLookAndFeel, Plastic3DLookAndFeel, XPLookAndFeel, TinyLookAndFeel-->
 	<param name="customLookAndFeel" value="">  
@@ -98,7 +96,6 @@
 	<param name="topicComponent" value="com.nepxion.demo.component.splash.DemoCaptionSplashDialog">
 	<param name="windowTitle" value=""> <!--Only for JFullScreenApplet-->
 	<param name="windowIcon" value=""> <!--Only for JFullScreenApplet-->
-	<!-------------------------------------->
     
 	<comment>
 		<embed
@@ -106,14 +103,14 @@
 			code="com.nepxion.demo.DemoApplet.class" \
 			archive="lib/nepxion-util.jar,lib/nepxion-swing.jar,lib/nepxion-swing-demo.jar" \
 			type="application/x-java-applet;version=1.5" \
+			width = 100% \
+			height = 100% \			
 			scriptable="true" \
 			progressbar="true" \
 			boxmessage="正在初始化界面，请稍候..." \
 			boxbgcolor="white" \
 			boxfgcolor="silver" \
 			progresscolor="#C86C12" \
-
-			<!--FireFox 初始化上下文设置-->
 			initializer="applet" \
 			lookAndFeel="AlloyLookAndFeel" \
 			customLookAndFeel="" \
@@ -151,7 +148,6 @@
 			topicComponent="com.nepxion.demo.component.splash.DemoCaptionSplashDialog" \
 			windowTitle="" \
 			windowIcon="" \
-			<!---------------------------->
 			mayscript>
 			<noembed>
 			</noembed>
