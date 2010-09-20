@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry excluding="**/.svn/**|**/CVS/**|**/Thumbs.db" kind="src" path="src"/>
+	<classpathentry excluding="**/.svn/**|**/CVS/**|**/Thumbs.db" kind="src" path="locale"/>
 	<classpathentry excluding="**/.svn/**|**/CVS/**|**/Thumbs.db" kind="src" path="conf"/>
 	<classpathentry excluding="**/.svn/**|**/CVS/**|**/Thumbs.db" kind="src" path="data"/>
 	<classpathentry excluding="**/.svn/**|**/CVS/**|**/Thumbs.db" kind="src" path="asset"/>
