@@ -35,7 +35,7 @@ public class DemoNeteaseIDPanel
 		public NeteaseIDPanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(BorderManager.createComplexTitleBorder(SwingDemoLocale.getString("label_id_searcher")));
+			setBorder(BorderManager.createComplexTitleBorder(SwingDemoLocale.getString("id_searcher")));
 			
 			JNeteaseIDPanel idPanel = new JNeteaseIDPanel();			
 			add(idPanel);

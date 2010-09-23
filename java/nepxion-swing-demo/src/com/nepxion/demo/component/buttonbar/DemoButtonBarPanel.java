@@ -36,8 +36,8 @@ import com.nepxion.swing.style.button.lite.JNimbusLiteButtonStyle;
 import com.nepxion.swing.style.button.lite.JYellowLiteButtonStyle;
 import com.nepxion.swing.style.button.lite.LiteButtonUI;
 import com.nepxion.swing.style.buttonbar.ButtonBarUI;
-import com.nepxion.swing.style.buttonbar.DustButtonBarUI;
-import com.nepxion.swing.style.buttonbar.SkyButtonBarUI;
+import com.nepxion.swing.style.buttonbar.GrayThemeButtonBarUI;
+import com.nepxion.swing.style.buttonbar.BlueThemeButtonBarUI;
 
 public class DemoButtonBarPanel
 	extends JBasicScrollPane
@@ -58,8 +58,8 @@ public class DemoButtonBarPanel
 		panel.add(new ButtonBarPanel(new ButtonBarUI(new LiteButtonUI(new JNimbusLiteButtonStyle())), "JNimbus Style"));		
 		panel.add(new ButtonBarPanel(new ButtonBarUI(new LiteButtonUI(new JBlueLiteButtonStyle())), "JBlue Style"));
 		panel.add(new ButtonBarPanel(new ButtonBarUI(new LiteButtonUI(new JYellowLiteButtonStyle())), "JYellow Style"));
-		panel.add(new ButtonBarPanel(new SkyButtonBarUI(), "JSky Style"));
-		panel.add(new ButtonBarPanel(new DustButtonBarUI(), "JDust Style"));
+		panel.add(new ButtonBarPanel(new BlueThemeButtonBarUI(), "Blue Theme"));
+		panel.add(new ButtonBarPanel(new GrayThemeButtonBarUI(), "Gray Theme"));
 		
 		getViewport().add(panel);
 	}
