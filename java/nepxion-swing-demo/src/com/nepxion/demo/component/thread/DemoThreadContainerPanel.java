@@ -159,7 +159,7 @@ public class DemoThreadContainerPanel
 		
 		public FileThreadContainer(JSortableTable fileTable)
 		{
-			super("Loading, Please wait...");
+			super("Loading, please wait...");
 			
 			this.fileTable = fileTable;
 			fileTableScrollPane = new JBasicScrollPane(fileTable);

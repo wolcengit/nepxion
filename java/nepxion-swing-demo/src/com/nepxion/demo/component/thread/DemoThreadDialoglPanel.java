@@ -138,7 +138,7 @@ public class DemoThreadDialoglPanel
 			{
 				public void actionPerformed(ActionEvent e)
 				{
-					JThreadDialog dialog = new JThreadDialog(HandleManager.getFrame(DemoThreadDialoglPanel.this), "File Load", "Loading, Please wait...")
+					JThreadDialog dialog = new JThreadDialog(HandleManager.getFrame(DemoThreadDialoglPanel.this), "File Load", "Loading, please wait...")
 					{
 						protected void loadForeground(Object data)
 							throws Exception
