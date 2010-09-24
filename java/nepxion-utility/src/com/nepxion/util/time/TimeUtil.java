@@ -21,6 +21,13 @@ import java.util.TimeZone;
 
 public class TimeUtil
 {
+	private static SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+	private static SimpleDateFormat dateTimeFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+	private static SimpleDateFormat millisecondDateTimeFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss:SSS");
+	private static SimpleDateFormat timeZoneDateTimeFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss zzzz");
+	private static SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm:ss");
+	private static SimpleDateFormat millisecondTimeFormat = new SimpleDateFormat("HH:mm:ss:SSS");
+	
 	/**
 	 * Get the current year
 	 * @return  the current year
@@ -715,59 +722,59 @@ public class TimeUtil
 		}		
 		return hourString + ":" + minuteString + ":" + secondString + ":" + millisecondString;
 	}	
+		
+	/**
+	 * Get the date format
+	 * @return  the instance of DateFormat
+	 */	
+	public synchronized static DateFormat getDateFormat()
+	{
+		return dateFormat;
+	}
 	
 	/**
 	 * Get the date time format
 	 * @return  the instance of DateFormat
 	 */		
-	public static DateFormat getDateTimeFormat()
+	public synchronized static DateFormat getDateTimeFormat()
 	{
-		return new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-	}
-	
-	/**
-	 * Get the time zone date time format
-	 * @return  the instance of DateFormat
-	 */		
-	public static DateFormat getTimeZoneDateTimeFormat()
-	{
-		return new SimpleDateFormat("yyyy-MM-dd HH:mm:ss zzzz");
-	}
-	
-	/**
-	 * Get the date format
-	 * @return  the instance of DateFormat
-	 */	
-	public static DateFormat getDateFormat()
-	{
-		return new SimpleDateFormat("yyyy-MM-dd");
+		return dateTimeFormat;
 	}
 	
 	/**
 	 * Get the millisecond date time format
 	 * @return  the instance of DateFormat
 	 */	
-	public static DateFormat getMillisecondTimeDateFormat()
+	public synchronized static DateFormat getMillisecondDateTimeFormat()
 	{
-		return new SimpleDateFormat("yyyy-MM-dd HH:mm:ss:SSS");
+		return millisecondDateTimeFormat;
+	}	
+	
+	/**
+	 * Get the time zone date time format
+	 * @return  the instance of DateFormat
+	 */		
+	public synchronized static DateFormat getTimeZoneDateTimeFormat()
+	{
+		return timeZoneDateTimeFormat;
 	}
 	
 	/**
 	 * Get the time format
 	 * @return  the instance of DateFormat
 	 */	
-	public static DateFormat getTimeFormat()
+	public synchronized static DateFormat getTimeFormat()
 	{
-		return new SimpleDateFormat("HH:mm:ss");
-	}
+		return timeFormat;
+	}	
 	
 	/**
 	 * Get the millisecond time format
 	 * @return  the instance of DateFormat
 	 */
-	public static DateFormat getMillisecondTimeFormat()
+	public synchronized static DateFormat getMillisecondTimeFormat()
 	{
-		return new SimpleDateFormat("HH:mm:ss:SSS");
+		return millisecondTimeFormat;
 	}
 	
 	public static void main(String[] args)
