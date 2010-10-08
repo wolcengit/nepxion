@@ -18,6 +18,7 @@ import javax.swing.JTable;
 
 import com.nepxion.demo.DemoUIContext;
 import com.nepxion.swing.border.BorderManager;
+import com.nepxion.swing.element.ElementNode;
 import com.nepxion.swing.pagination.PaginationBar;
 import com.nepxion.swing.pagination.PaginationContext;
 import com.nepxion.swing.table.JBasicTable;
@@ -90,7 +91,7 @@ public class DemoTablePaginationPanel
 			updatePagination();
 		}
 		
-		public void sort(String sortName, String sortType)
+		public void sort(ElementNode sortName, ElementNode sortType)
 			throws Exception
 		{
 			

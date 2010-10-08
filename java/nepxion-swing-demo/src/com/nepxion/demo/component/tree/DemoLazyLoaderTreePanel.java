@@ -321,8 +321,8 @@ public class DemoLazyLoaderTreePanel
 			
 			loadPopupMenu.addSeparator();
 			
-			JBasicMenuItem loadChildrenMenuItem = new JBasicMenuItem(LazyLoaderTreeController.getLoadChildrenAction(lazyLoaderTree));
-			loadPopupMenu.add(loadChildrenMenuItem);
+			JBasicMenuItem loadGrandchildrenMenuItem = new JBasicMenuItem(LazyLoaderTreeController.getLoadGrandchildrenAction(lazyLoaderTree));
+			loadPopupMenu.add(loadGrandchildrenMenuItem);
 			
 			JBasicMenuItem loadAllMenuItem = new JBasicMenuItem(LazyLoaderTreeController.getLoadAllAction(lazyLoaderTree));
 			loadPopupMenu.add(loadAllMenuItem);
@@ -339,8 +339,8 @@ public class DemoLazyLoaderTreePanel
 			
 			cancelPopupMenu.addSeparator();
 			
-			JBasicMenuItem cancelChildrenMenuItem = new JBasicMenuItem(LazyLoaderTreeController.getCancelChildrenAction(lazyLoaderTree));
-			cancelPopupMenu.add(cancelChildrenMenuItem);
+			JBasicMenuItem cancelGrandhildrenMenuItem = new JBasicMenuItem(LazyLoaderTreeController.getCancelGrandchildrenAction(lazyLoaderTree));
+			cancelPopupMenu.add(cancelGrandhildrenMenuItem);
 			
 			JBasicMenuItem cancelAllMenuItem = new JBasicMenuItem(LazyLoaderTreeController.getCancelAllAction(lazyLoaderTree));		
 			KeyStrokeManager.registerButton(cancelAllMenuItem, KeyEvent.VK_ESCAPE);	
@@ -348,8 +348,6 @@ public class DemoLazyLoaderTreePanel
 			
 			JBasicMenuButton loadStrategyButton = new JBasicMenuButton("²ßÂÔ", IconFactory.getSwingIcon("solid/application_16.png"), "×°ÔØ²ßÂÔ");
 			add(loadStrategyButton);
-			
-			add(new JBasicSeparator());
 			
 			JDecorationPopupMenu loadStrategyPopupMenu = new JDecorationPopupMenu();
 			loadStrategyButton.setPopupMenu(loadStrategyPopupMenu);
@@ -367,7 +365,9 @@ public class DemoLazyLoaderTreePanel
 			JBasicRadioButtonMenuItem syncLoadStrategyMenuItem = new JBasicRadioButtonMenuItem(LazyLoaderTreeController.getSyncLoadStrategyAction(lazyLoaderTree)); 		
 			syncLoadStrategyMenuItem.setIcon(null);
 			buttonGroup.add(syncLoadStrategyMenuItem);
-			loadStrategyPopupMenu.add(syncLoadStrategyMenuItem);	
+			loadStrategyPopupMenu.add(syncLoadStrategyMenuItem);
+			
+			add(new JBasicSeparator());
 			
 			JBasicButton refreshButton = new JBasicButton(LazyLoaderTreeController.getRefreshAction(lazyLoaderTree));
 			KeyStrokeManager.registerButton(refreshButton, KeyEvent.VK_F5);	
@@ -398,8 +398,8 @@ public class DemoLazyLoaderTreePanel
 			
 			expandPopupMenu.addSeparator();
 			
-			JBasicMenuItem expandChildrenMenuItem = new JBasicMenuItem(LazyLoaderTreeController.getExpandChildrenAction(lazyLoaderTree));
-			expandPopupMenu.add(expandChildrenMenuItem);
+			JBasicMenuItem expandGrandchildrenMenuItem = new JBasicMenuItem(LazyLoaderTreeController.getExpandGrandchildrenAction(lazyLoaderTree));
+			expandPopupMenu.add(expandGrandchildrenMenuItem);
 			
 			JBasicMenuItem expandAllMenuItem = new JBasicMenuItem(LazyLoaderTreeController.getExpandAllAction(lazyLoaderTree));
 			expandPopupMenu.add(expandAllMenuItem);
@@ -416,8 +416,8 @@ public class DemoLazyLoaderTreePanel
 			
 			collapsePopupMenu.addSeparator();
 			
-			JBasicMenuItem collapseChildrenMenuItem = new JBasicMenuItem(LazyLoaderTreeController.getCollapseChildrenAction(lazyLoaderTree));
-			collapsePopupMenu.add(collapseChildrenMenuItem);
+			JBasicMenuItem collapseGrandchildrenMenuItem = new JBasicMenuItem(LazyLoaderTreeController.getCollapseGrandchildrenAction(lazyLoaderTree));
+			collapsePopupMenu.add(collapseGrandchildrenMenuItem);
 			
 			JBasicMenuItem collapseAllMenuItem = new JBasicMenuItem(LazyLoaderTreeController.getCollapseAllAction(lazyLoaderTree));
 			collapsePopupMenu.add(collapseAllMenuItem);
@@ -449,8 +449,8 @@ public class DemoLazyLoaderTreePanel
 			KeyStrokeManager.registerButton(loadMenuItem, KeyEvent.VK_F3);			
 			add(loadMenuItem);
 			
-			JBasicMenuItem loadChildrenMenuItem = new JBasicMenuItem(LazyLoaderTreeController.getLoadChildrenAction(lazyLoaderTree));
-			add(loadChildrenMenuItem);
+			JBasicMenuItem loadGrandchildrenMenuItem = new JBasicMenuItem(LazyLoaderTreeController.getLoadGrandchildrenAction(lazyLoaderTree));
+			add(loadGrandchildrenMenuItem);
 			
 			JBasicMenuItem loadAllMenuItem = new JBasicMenuItem(LazyLoaderTreeController.getLoadAllAction(lazyLoaderTree));
 			add(loadAllMenuItem);
@@ -460,8 +460,8 @@ public class DemoLazyLoaderTreePanel
 			JBasicMenuItem cancelMenuItem = new JBasicMenuItem(LazyLoaderTreeController.getCancelAction(lazyLoaderTree)); 
 			add(cancelMenuItem);
 			
-			JBasicMenuItem cancelChildrenMenuItem = new JBasicMenuItem(LazyLoaderTreeController.getCancelChildrenAction(lazyLoaderTree));
-			add(cancelChildrenMenuItem);
+			JBasicMenuItem cancelGrandchildrenMenuItem = new JBasicMenuItem(LazyLoaderTreeController.getCancelGrandchildrenAction(lazyLoaderTree));
+			add(cancelGrandchildrenMenuItem);
 			
 			JBasicMenuItem cancelAllMenuItem = new JBasicMenuItem(LazyLoaderTreeController.getCancelAllAction(lazyLoaderTree));		
 			KeyStrokeManager.registerButton(cancelAllMenuItem, KeyEvent.VK_ESCAPE);	
@@ -490,8 +490,8 @@ public class DemoLazyLoaderTreePanel
 			JBasicMenuItem expandMenuItem = new JBasicMenuItem(LazyLoaderTreeController.getExpandAction(lazyLoaderTree));
 			add(expandMenuItem);
 			
-			JBasicMenuItem expandChildrenMenuItem = new JBasicMenuItem(LazyLoaderTreeController.getExpandChildrenAction(lazyLoaderTree));
-			add(expandChildrenMenuItem);
+			JBasicMenuItem expandGrandchildrenMenuItem = new JBasicMenuItem(LazyLoaderTreeController.getExpandGrandchildrenAction(lazyLoaderTree));
+			add(expandGrandchildrenMenuItem);
 			
 			JBasicMenuItem expandAllMenuItem = new JBasicMenuItem(LazyLoaderTreeController.getExpandAllAction(lazyLoaderTree));
 			add(expandAllMenuItem);
@@ -501,8 +501,8 @@ public class DemoLazyLoaderTreePanel
 			JBasicMenuItem collapseMenuItem = new JBasicMenuItem(LazyLoaderTreeController.getCollapseAction(lazyLoaderTree));
 			add(collapseMenuItem);
 			
-			JBasicMenuItem collapseChildrenMenuItem = new JBasicMenuItem(LazyLoaderTreeController.getCollapseChildrenAction(lazyLoaderTree));
-			add(collapseChildrenMenuItem);
+			JBasicMenuItem collapseGrandchildrenMenuItem = new JBasicMenuItem(LazyLoaderTreeController.getCollapseGrandchildrenAction(lazyLoaderTree));
+			add(collapseGrandchildrenMenuItem);
 			
 			JBasicMenuItem collapseAllMenuItem = new JBasicMenuItem(LazyLoaderTreeController.getCollapseAllAction(lazyLoaderTree));
 			add(collapseAllMenuItem);

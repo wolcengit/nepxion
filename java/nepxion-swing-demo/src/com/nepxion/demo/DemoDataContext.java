@@ -28,7 +28,8 @@ public class DemoDataContext
 	{	
 		EncodeContext.registerIOCharset("GBK");
 		EncodeContext.registerHttpCharset("UTF-8");
-		LocaleContext.registerLocale(LocaleContext.LOCALE_ZH_CN);
+		LocaleContext.registerLocale(LocaleContext.LOCALE_EN_US);
+		// LocaleContext.registerLocale(LocaleContext.LOCALE_ZH_CN);
 		ActiveXContext.registerStrategy(ActiveXContext.STRATEGY_APPLICATION);		
 		
 		try
@@ -50,7 +51,7 @@ public class DemoDataContext
 	{
 		EncodeContext.registerIOCharset("GBK");
 		EncodeContext.registerHttpCharset("UTF-8");
-		LocaleContext.registerLocale(LocaleContext.LOCALE_ZH_CN);
+		// LocaleContext.registerLocale(LocaleContext.LOCALE_ZH_CN);
 		ActiveXContext.registerStrategy(ActiveXContext.STRATEGY_APPLET);
 		
 		try
