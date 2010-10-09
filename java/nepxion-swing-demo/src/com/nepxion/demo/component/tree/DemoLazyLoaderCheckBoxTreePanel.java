@@ -276,7 +276,18 @@ public class DemoLazyLoaderCheckBoxTreePanel
 			return true;
 		}
 		
+		public boolean moveUpTreeNodeValidated(DefaultMutableTreeNode treeNode)
+		{
+			return true;
+		}
+		
 		public boolean moveUpTreeNode(DefaultMutableTreeNode treeNode)
+		{
+			return true;
+		}
+		
+		
+		public boolean moveDownTreeNodeValidated(DefaultMutableTreeNode treeNode)
 		{
 			return true;
 		}
