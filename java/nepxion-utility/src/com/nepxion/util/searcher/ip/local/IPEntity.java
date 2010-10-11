@@ -18,7 +18,7 @@ public class IPEntity
 	private static final long serialVersionUID = 5429316904963543813L;
 
 	private String ip;
-	private String beginIP;
+	private String startIP;
 	private String endIP;
 	private String country;
 	private String region;
@@ -26,7 +26,7 @@ public class IPEntity
 	public IPEntity()
 	{
 		ip = "";
-		beginIP = "";
+		startIP = "";
 		endIP = "";
 		country = "";
 		region = "";
@@ -42,14 +42,14 @@ public class IPEntity
 		this.ip = ip;
 	}	
 	
-	public String getBeginIP()
+	public String getStartIP()
 	{
-		return beginIP;
+		return startIP;
 	}
 	
-	public void setBeginIP(String beginIP)
+	public void setStartIP(String startIP)
 	{
-		this.beginIP = beginIP;
+		this.startIP = startIP;
 	}
 	
 	public String getEndIP()
@@ -90,7 +90,7 @@ public class IPEntity
 	public IPEntity clone()
 	{
 		IPEntity ipEntity = new IPEntity();
-		ipEntity.beginIP = beginIP;
+		ipEntity.startIP = startIP;
 		ipEntity.endIP = endIP;
 		ipEntity.country = country;
 		ipEntity.region = region;

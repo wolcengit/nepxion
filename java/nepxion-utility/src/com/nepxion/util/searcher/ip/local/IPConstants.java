@@ -19,4 +19,5 @@ public interface IPConstants
 	
 	public static final String VERSION_DATE = "2010-07-10 19:12:10";
 	public static final int TOTAL_COUNT = 379809;
+	public static final int INITIALIZED_COUNT = 0;
 }

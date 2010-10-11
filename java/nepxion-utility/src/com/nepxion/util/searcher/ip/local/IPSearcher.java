@@ -35,7 +35,7 @@ public class IPSearcher
 	private MappedByteBuffer ipByteBuffer;
 	private StringBuffer ipStringBuffer;
 	
-	private long ipBegin;
+	private long ipStart;
 	private long ipEnd;
 	
 	private IPEntity ipEntity;
@@ -96,9 +96,9 @@ public class IPSearcher
 		{
 			try
 			{
-				ipBegin = readLong4(0);
+				ipStart = readLong4(0);
 				ipEnd = readLong4(4);
-				if (ipBegin == -1 || ipEnd == -1)
+				if (ipStart == -1 || ipEnd == -1)
 				{
 					ipFile.close();
 					ipFile = null;
@@ -117,7 +117,7 @@ public class IPSearcher
 	{
 		List list = new ArrayList();
 		long endOffset = ipEnd + 4;
-		for (long offset = ipBegin + 4; offset <= endOffset; offset += IP_RECORD_LENGTH)
+		for (long offset = ipStart + 4; offset <= endOffset; offset += IP_RECORD_LENGTH)
 		{
 			long value = readLong3(offset);
 			if (value != -1)
@@ -129,7 +129,7 @@ public class IPSearcher
 					entity.setCountry(ipEntity.getCountry());
 					entity.setRegion(ipEntity.getRegion());
 					readIP(offset - 4, b4);
-					entity.setBeginIP(getString(b4));
+					entity.setStartIP(getString(b4));
 					readIP(value, b4);
 					entity.setEndIP(getString(b4));
 					list.add(entity);
@@ -152,7 +152,7 @@ public class IPSearcher
 			}
 			
 			int endOffset = (int) ipEnd;
-			for (int offset = (int) ipBegin + 4; offset <= endOffset; offset += IP_RECORD_LENGTH)
+			for (int offset = (int) ipStart + 4; offset <= endOffset; offset += IP_RECORD_LENGTH)
 			{
 				int value = readInt3(offset);
 				if (value != -1)
@@ -164,7 +164,7 @@ public class IPSearcher
 						entity.setCountry(ipEntity.getCountry());
 						entity.setRegion(ipEntity.getRegion());
 						readIP(offset - 4, b4);
-						entity.setBeginIP(getString(b4));
+						entity.setStartIP(getString(b4));
 						readIP(value, b4);
 						entity.setEndIP(getString(b4));
 						list.add(entity);
@@ -368,17 +368,17 @@ public class IPSearcher
 	{
 		long m = 0;
 		int r;
-		readIP(ipBegin, b4);
+		readIP(ipStart, b4);
 		r = compareIP(ipBytes, b4);
 		if (r == 0)
 		{
-			return ipBegin;
+			return ipStart;
 		}
 		else if (r < 0)
 		{
 			return -1;
 		}
-		for (long i = ipBegin, j = ipEnd; i < j;)
+		for (long i = ipStart, j = ipEnd; i < j;)
 		{
 			m = getMiddleOffset(i, j);
 			readIP(m, b4);
@@ -448,11 +448,11 @@ public class IPSearcher
 		ipBytes[2] = value;
 	}
 	
-	private int compareIP(byte[] ipBytes, byte[] beginIp)
+	private int compareIP(byte[] ipBytes, byte[] startIp)
 	{
 		for (int i = 0; i < 4; i++)
 		{
-			int r = compareByte(ipBytes[i], beginIp[i]);
+			int r = compareByte(ipBytes[i], startIp[i]);
 			if (r != 0)
 			{
 				return r;
@@ -541,15 +541,15 @@ public class IPSearcher
 		}
 	}
 	
-	private long getMiddleOffset(long begin, long end)
+	private long getMiddleOffset(long start, long end)
 	{
-		long records = (end - begin) / IP_RECORD_LENGTH;
+		long records = (end - start) / IP_RECORD_LENGTH;
 		records >>= 1;
 		if (records == 0)
 		{
 			records = 1;
 		}
-		return begin + records * IP_RECORD_LENGTH;
+		return start + records * IP_RECORD_LENGTH;
 	}
 	
 	private byte[] getBytes(String ipString)
