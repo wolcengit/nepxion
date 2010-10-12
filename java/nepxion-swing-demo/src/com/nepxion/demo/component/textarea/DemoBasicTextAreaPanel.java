@@ -39,7 +39,7 @@ public class DemoBasicTextAreaPanel
 			
 			JBasicTextArea basicTextArea = new JBasicTextArea();
 			basicTextArea.setText("Right-clicked popupMenu to 'Copy' 'Paste' 'Cut' & 'Clean'");
-			
+
 			JBasicScrollPane basicScrollPane = new JBasicScrollPane();
 			basicScrollPane.getViewport().add(basicTextArea);				
 			add(basicScrollPane);			
