@@ -39,12 +39,12 @@ public class DemoElementTreePanel
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
 			setBorder(BorderManager.createComplexTitleBorder("Element Tree"));
 			
-			JBasicTree decorationTree = new JBasicTree(DemoDataFactory.getRootElementNode());
-			decorationTree.setCellRenderer(new TreeElementCellRenderer(20));
-			decorationTree.expandAll();
+			JBasicTree elementTree = new JBasicTree(DemoDataFactory.getRootElementNode());
+			elementTree.setCellRenderer(new TreeElementCellRenderer(20));
+			elementTree.expandAll();
 			
 			JBasicScrollPane decorationTreeScrollPane = new JBasicScrollPane();
-			decorationTreeScrollPane.getViewport().add(decorationTree);
+			decorationTreeScrollPane.getViewport().add(elementTree);
 			add(decorationTreeScrollPane);			
 		}
 	}
