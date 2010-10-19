@@ -40,8 +40,9 @@ import com.nepxion.swing.menuitem.JBasicRadioButtonMenuItem;
 import com.nepxion.swing.popupmenu.JDecorationPopupMenu;
 import com.nepxion.swing.renderer.tree.TreeElementCellRenderer;
 import com.nepxion.swing.separator.JBasicSeparator;
-import com.nepxion.swing.tree.ITreeAdapter;
+import com.nepxion.swing.tree.AbstractTreeAdapter;
 import com.nepxion.swing.tree.lazyloader.AbstractLazyLoader;
+import com.nepxion.swing.tree.lazyloader.AbstractLazyLoaderAdapter;
 import com.nepxion.swing.tree.lazyloader.JLazyLoaderCheckBoxTree;
 import com.nepxion.swing.tree.lazyloader.JLazyLoaderContainer;
 import com.nepxion.swing.tree.lazyloader.JLazyLoaderTreeNode;
@@ -52,6 +53,7 @@ public class DemoLazyLoaderCheckBoxTreePanel
 {
 	private FileSystemView fileSystemView;
 	private FileTreeAdapter treeAdapter;
+	private FileLazyLoaderAdapter lazyLoaderAdapter;
 	
 	public DemoLazyLoaderCheckBoxTreePanel()
 	{
@@ -67,13 +69,16 @@ public class DemoLazyLoaderCheckBoxTreePanel
 		public LazyLoaderTreePanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(BorderManager.createComplexTitleBorder("LazyLoader Tree"));
+			setBorder(BorderManager.createComplexTitleBorder("LazyLoader CheckBox Tree"));
 			
 			fileSystemView = FileSystemView.getFileSystemView();
 			
-			FileTree fileTree = new FileTree();			
+			FileTree fileTree = new FileTree();
+			
 			treeAdapter = new FileTreeAdapter(fileTree);
-			FileToolBar fileToolBar = new FileToolBar(fileTree);					
+			FileToolBar fileToolBar = new FileToolBar(fileTree);	
+			
+			lazyLoaderAdapter = new FileLazyLoaderAdapter(fileTree);
 			
 			JLazyLoaderContainer lazyLoaderContainer = new JLazyLoaderContainer(fileTree);
 			lazyLoaderContainer.add(fileToolBar, BorderLayout.NORTH);
@@ -216,7 +221,7 @@ public class DemoLazyLoaderCheckBoxTreePanel
 	}
 	
 	public class FileTreeAdapter
-		implements ITreeAdapter
+		extends AbstractTreeAdapter
 	{
 		public FileTreeAdapter(FileTree fileTree)
 		{
@@ -298,6 +303,66 @@ public class DemoLazyLoaderCheckBoxTreePanel
 		}
 	}
 	
+	public class FileLazyLoaderAdapter
+		extends AbstractLazyLoaderAdapter
+	{
+		public FileLazyLoaderAdapter(FileTree fileTree)
+		{
+		}
+		
+		public boolean loadPermitted(TreeNode[] treeNodes)
+		{
+			return true;
+		}
+		
+		public boolean load(TreeNode[] treeNodes)
+		{
+			return true;
+		}
+		
+		public boolean loadGrandchildren(TreeNode[] treeNodes)
+		{
+			return true;
+		}	
+		
+		public boolean loadAll()
+		{
+			return true;
+		}	
+		
+		
+		public boolean cancelPermitted(TreeNode[] treeNodes)
+		{
+			return true;
+		}	
+		
+		public boolean cancel(TreeNode[] treeNodes)
+		{
+			return true;
+		}	
+		
+		public boolean cancelGrandchildren(TreeNode[] treeNodes)
+		{
+			return true;
+		}	
+		
+		public boolean cancelAll()
+		{
+			return true;
+		}	
+		
+		
+		public boolean refreshPermitted(TreeNode treeNode)
+		{
+			return true;
+		}	
+		
+		public boolean refresh(TreeNode treeNode)
+		{
+			return true;
+		}
+	}
+	
 	public class FileToolBar
 		extends JPanel
 	{
@@ -320,40 +385,40 @@ public class DemoLazyLoaderCheckBoxTreePanel
 						
 			add(new JBasicSeparator());	
 			
-			JBasicSplitButton loadButton = new JBasicSplitButton(LazyLoaderTreeController.getLoadAction(lazyLoaderTree));
+			JBasicSplitButton loadButton = new JBasicSplitButton(LazyLoaderTreeController.getLoadAction(lazyLoaderTree, lazyLoaderAdapter));
 			add(loadButton);
 			
 			JDecorationPopupMenu loadPopupMenu = new JDecorationPopupMenu();
 			loadButton.setPopupMenu(loadPopupMenu);
 			
-			JBasicMenuItem loadMenuItem = new JBasicMenuItem(LazyLoaderTreeController.getLoadAction(lazyLoaderTree));
+			JBasicMenuItem loadMenuItem = new JBasicMenuItem(LazyLoaderTreeController.getLoadAction(lazyLoaderTree, lazyLoaderAdapter));
 			KeyStrokeManager.registerButton(loadMenuItem, KeyEvent.VK_F3);
 			loadPopupMenu.add(loadMenuItem);
 			
 			loadPopupMenu.addSeparator();
 			
-			JBasicMenuItem loadGrandchildrenMenuItem = new JBasicMenuItem(LazyLoaderTreeController.getLoadGrandchildrenAction(lazyLoaderTree));
+			JBasicMenuItem loadGrandchildrenMenuItem = new JBasicMenuItem(LazyLoaderTreeController.getLoadGrandchildrenAction(lazyLoaderTree, lazyLoaderAdapter));
 			loadPopupMenu.add(loadGrandchildrenMenuItem);
 			
-			JBasicMenuItem loadAllMenuItem = new JBasicMenuItem(LazyLoaderTreeController.getLoadAllAction(lazyLoaderTree));
+			JBasicMenuItem loadAllMenuItem = new JBasicMenuItem(LazyLoaderTreeController.getLoadAllAction(lazyLoaderTree, lazyLoaderAdapter));
 			loadPopupMenu.add(loadAllMenuItem);
 			
-			JBasicSplitButton cancelButton = new JBasicSplitButton(LazyLoaderTreeController.getCancelAllAction(lazyLoaderTree));
+			JBasicSplitButton cancelButton = new JBasicSplitButton(LazyLoaderTreeController.getCancelAllAction(lazyLoaderTree, lazyLoaderAdapter));
 			cancelButton.setText("È¡Ïû");
 			add(cancelButton);
 			
 			JDecorationPopupMenu cancelPopupMenu = new JDecorationPopupMenu();
 			cancelButton.setPopupMenu(cancelPopupMenu);			
 			
-			JBasicMenuItem cancelMenuItem = new JBasicMenuItem(LazyLoaderTreeController.getCancelAction(lazyLoaderTree)); 
+			JBasicMenuItem cancelMenuItem = new JBasicMenuItem(LazyLoaderTreeController.getCancelAction(lazyLoaderTree, lazyLoaderAdapter)); 
 			cancelPopupMenu.add(cancelMenuItem);
 			
 			cancelPopupMenu.addSeparator();
 			
-			JBasicMenuItem cancelGrandchildrenMenuItem = new JBasicMenuItem(LazyLoaderTreeController.getCancelGrandchildrenAction(lazyLoaderTree));
+			JBasicMenuItem cancelGrandchildrenMenuItem = new JBasicMenuItem(LazyLoaderTreeController.getCancelGrandchildrenAction(lazyLoaderTree, lazyLoaderAdapter));
 			cancelPopupMenu.add(cancelGrandchildrenMenuItem);
 			
-			JBasicMenuItem cancelAllMenuItem = new JBasicMenuItem(LazyLoaderTreeController.getCancelAllAction(lazyLoaderTree));		
+			JBasicMenuItem cancelAllMenuItem = new JBasicMenuItem(LazyLoaderTreeController.getCancelAllAction(lazyLoaderTree, lazyLoaderAdapter));		
 			KeyStrokeManager.registerButton(cancelAllMenuItem, KeyEvent.VK_ESCAPE);	
 			cancelPopupMenu.add(cancelAllMenuItem);
 			
@@ -380,7 +445,7 @@ public class DemoLazyLoaderCheckBoxTreePanel
 			
 			add(new JBasicSeparator());
 			
-			JBasicButton refreshButton = new JBasicButton(LazyLoaderTreeController.getRefreshAction(lazyLoaderTree));
+			JBasicButton refreshButton = new JBasicButton(LazyLoaderTreeController.getRefreshAction(lazyLoaderTree, lazyLoaderAdapter));
 			KeyStrokeManager.registerButton(refreshButton, KeyEvent.VK_F5);	
 			add(refreshButton);
 
@@ -456,31 +521,31 @@ public class DemoLazyLoaderCheckBoxTreePanel
 						
 			addSeparator();	    
 			
-			JBasicMenuItem loadMenuItem = new JBasicMenuItem(LazyLoaderTreeController.getLoadAction(lazyLoaderTree));
+			JBasicMenuItem loadMenuItem = new JBasicMenuItem(LazyLoaderTreeController.getLoadAction(lazyLoaderTree, lazyLoaderAdapter));
 			KeyStrokeManager.registerButton(loadMenuItem, KeyEvent.VK_F3);			
 			add(loadMenuItem);
 			
-			JBasicMenuItem loadGrandchildrenMenuItem = new JBasicMenuItem(LazyLoaderTreeController.getLoadGrandchildrenAction(lazyLoaderTree));
+			JBasicMenuItem loadGrandchildrenMenuItem = new JBasicMenuItem(LazyLoaderTreeController.getLoadGrandchildrenAction(lazyLoaderTree, lazyLoaderAdapter));
 			add(loadGrandchildrenMenuItem);
 			
-			JBasicMenuItem loadAllMenuItem = new JBasicMenuItem(LazyLoaderTreeController.getLoadAllAction(lazyLoaderTree));
+			JBasicMenuItem loadAllMenuItem = new JBasicMenuItem(LazyLoaderTreeController.getLoadAllAction(lazyLoaderTree, lazyLoaderAdapter));
 			add(loadAllMenuItem);
 			
 			addSeparator();
 			
-			JBasicMenuItem cancelMenuItem = new JBasicMenuItem(LazyLoaderTreeController.getCancelAction(lazyLoaderTree)); 
+			JBasicMenuItem cancelMenuItem = new JBasicMenuItem(LazyLoaderTreeController.getCancelAction(lazyLoaderTree, lazyLoaderAdapter)); 
 			add(cancelMenuItem);
 			
-			JBasicMenuItem cancelGrapndchildrenMenuItem = new JBasicMenuItem(LazyLoaderTreeController.getCancelGrandchildrenAction(lazyLoaderTree));
+			JBasicMenuItem cancelGrapndchildrenMenuItem = new JBasicMenuItem(LazyLoaderTreeController.getCancelGrandchildrenAction(lazyLoaderTree, lazyLoaderAdapter));
 			add(cancelGrapndchildrenMenuItem);
 			
-			JBasicMenuItem cancelAllMenuItem = new JBasicMenuItem(LazyLoaderTreeController.getCancelAllAction(lazyLoaderTree));		
+			JBasicMenuItem cancelAllMenuItem = new JBasicMenuItem(LazyLoaderTreeController.getCancelAllAction(lazyLoaderTree, lazyLoaderAdapter));		
 			KeyStrokeManager.registerButton(cancelAllMenuItem, KeyEvent.VK_ESCAPE);	
 			add(cancelAllMenuItem);
 			
 			addSeparator();
 			
-			JBasicMenuItem refreshMenuItem = new JBasicMenuItem(LazyLoaderTreeController.getRefreshAction(lazyLoaderTree));
+			JBasicMenuItem refreshMenuItem = new JBasicMenuItem(LazyLoaderTreeController.getRefreshAction(lazyLoaderTree, lazyLoaderAdapter));
 			KeyStrokeManager.registerButton(refreshMenuItem, KeyEvent.VK_F5);				
 			add(refreshMenuItem);		
 
