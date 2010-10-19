@@ -222,7 +222,7 @@ public class DemoLazyLoaderCheckBoxTreePanel
 		{
 		}
 		
-		public boolean addTreeNodeValidated(DefaultMutableTreeNode parentTreeNode)
+		public boolean addTreeNodePermitted(DefaultMutableTreeNode parentTreeNode)
 		{
 			return true;
 		}
@@ -233,7 +233,7 @@ public class DemoLazyLoaderCheckBoxTreePanel
 		}
 		
 		
-		public boolean modifyTreeNodeValidated(DefaultMutableTreeNode treeNode)
+		public boolean modifyTreeNodePermitted(DefaultMutableTreeNode treeNode)
 		{
 			return true;
 		}
@@ -244,7 +244,7 @@ public class DemoLazyLoaderCheckBoxTreePanel
 		}
 		
 		
-		public boolean deleteTreeNodeValidated(DefaultMutableTreeNode treeNode)
+		public boolean deleteTreeNodePermitted(DefaultMutableTreeNode treeNode)
 		{
 			return true;
 		}
@@ -255,7 +255,7 @@ public class DemoLazyLoaderCheckBoxTreePanel
 		}
 		
 		
-		public boolean deleteTreeNodesValidated(TreeNode[] treeNodes)
+		public boolean deleteTreeNodesPermitted(TreeNode[] treeNodes)
 		{
 			return true;
 		}
@@ -266,7 +266,7 @@ public class DemoLazyLoaderCheckBoxTreePanel
 		}
 		
 		
-		public boolean renameTreeNodeValidated(DefaultMutableTreeNode treeNode)
+		public boolean renameTreeNodePermitted(DefaultMutableTreeNode treeNode)
 		{
 			return true;
 		}
@@ -276,7 +276,7 @@ public class DemoLazyLoaderCheckBoxTreePanel
 			return true;
 		}
 		
-		public boolean moveUpTreeNodeValidated(DefaultMutableTreeNode treeNode)
+		public boolean moveUpTreeNodePermitted(DefaultMutableTreeNode treeNode)
 		{
 			return true;
 		}
@@ -287,7 +287,7 @@ public class DemoLazyLoaderCheckBoxTreePanel
 		}
 		
 		
-		public boolean moveDownTreeNodeValidated(DefaultMutableTreeNode treeNode)
+		public boolean moveDownTreeNodePermitted(DefaultMutableTreeNode treeNode)
 		{
 			return true;
 		}
