@@ -31,7 +31,7 @@ public class HttpLogger
 			log.info("Alias : " + httpConfig.getAlias());
 			log.info("Host : " + httpConfig.getHost());
 			log.info("Port : " + httpConfig.getPort());
-			log.info("path : " + httpConfig.getPath());
+			log.info("Path : " + httpConfig.getPath());
 			log.info("Connection TimeOut : " + httpConfig.getConnectionTimeOut());
 			log.info("Response TimeOut : " + httpConfig.getResponseTimeOut());
 			log.info("Buffer Size : " + httpConfig.getBufferSize());
