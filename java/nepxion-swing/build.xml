@@ -33,7 +33,7 @@
 	<target name="build">
 		<delete dir="${class}"/>
 		<mkdir dir="${class}"/>
-		<javac srcdir="${src}" destdir="${class}" target="1.5" encoding="${encoding}" includeantruntime="on" nowarn="true">
+		<javac srcdir="${src}" destdir="${class}" target="1.5" encoding="${encoding}" debug="true" debuglevel="source,lines,vars" includeantruntime="on" nowarn="true">
 			<classpath refid="classpath"/>
 			<!-- compilerarg value="-Xlint:unchecked"/ -->
 		</javac>
