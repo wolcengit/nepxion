@@ -31,7 +31,7 @@ public class DemoUIContext
 		//StyleContext.registerStyle(JFervencyStyle.ID);
 		//StyleContext.registerStyle(JNimbusStyle.ID);
 		
-		//注册是否启动装饰器，会稍微影响显示性能。默认为ThemeDecorated启动，FrameDecorated和DialogDecorated关闭
+		//注册是否启动装饰器，会稍微影响显示性能。默认为ThemeDecorated和TabbedPaneDecorated启动，FrameDecorated和DialogDecorated关闭
 		//StyleContext.registerThemeDecorated(true);
 		StyleContext.registerFrameDecorated(true);
 		StyleContext.registerDialogDecorated(true);

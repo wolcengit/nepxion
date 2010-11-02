@@ -10,8 +10,12 @@ package com.nepxion.demo;
  * @version 1.0
  */
 
+import java.net.URL;
+
 import javax.swing.SwingUtilities;
 
+import com.nepxion.swing.context.DataContextManager;
+import com.nepxion.swing.context.UIContextManager;
 import com.nepxion.swing.framework.dockable.JFrameWorkApplet;
 
 public class DemoApplet
@@ -19,8 +23,6 @@ public class DemoApplet
 {
 	public void init()
 	{
-		DemoDataContext.initialize(getCodeBase());
-		
 		super.init();		
 		
 		SwingUtilities.invokeLater(new Runnable()
@@ -35,7 +37,13 @@ public class DemoApplet
 	}
 	
 	public void initContext()
-	{
-		DemoDataContext.initialize();
+	{		
+		URL codeBase = getCodeBase();
+		
+		DataContextManager.initialize(codeBase);
+		UIContextManager.initialize(codeBase);	
+		
+		// DemoDataContext.initialize(codeBase);
+		// DemoUIContext.initialize();	
 	}
 }

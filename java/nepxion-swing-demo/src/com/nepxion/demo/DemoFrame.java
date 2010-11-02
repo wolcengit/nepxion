@@ -13,6 +13,8 @@ package com.nepxion.demo;
 import javax.swing.SwingUtilities;
 
 import com.nepxion.demo.component.splash.DemoSplashWindow;
+import com.nepxion.swing.context.DataContextManager;
+import com.nepxion.swing.context.UIContextManager;
 import com.nepxion.swing.framework.dockable.JFrameWorkFrame;
 import com.nepxion.swing.icon.IconFactory;
 import com.nepxion.swing.tray.JTray;
@@ -30,8 +32,11 @@ public class DemoFrame
 	
 	public static void main(String[] args)
 	{
-		DemoDataContext.initialize();
-		DemoUIContext.initialize();
+		DataContextManager.initialize();
+		UIContextManager.initialize();	
+		
+		// DemoDataContext.initialize();
+		// DemoUIContext.initialize();
 		
 		final DemoSplashWindow splashWindow = new DemoSplashWindow();
 		splashWindow.setVisible(true);

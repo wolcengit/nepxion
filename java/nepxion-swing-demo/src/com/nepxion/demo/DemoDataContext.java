@@ -12,8 +12,10 @@ package com.nepxion.demo;
 
 import java.net.URL;
 
+import com.nepxion.swing.activex.ActiveXConstants;
 import com.nepxion.swing.activex.ActiveXContext;
 import com.nepxion.util.encode.EncodeContext;
+import com.nepxion.util.locale.LocaleConstants;
 import com.nepxion.util.locale.LocaleContext;
 import com.nepxion.util.log.LoggerContext;
 import com.nepxion.util.scheduler.quartz.QuartzContext;
@@ -28,9 +30,9 @@ public class DemoDataContext
 	{	
 		EncodeContext.registerIOCharset("GBK");
 		EncodeContext.registerHttpCharset("UTF-8");
-		LocaleContext.registerLocale(LocaleContext.LOCALE_EN_US);
-		// LocaleContext.registerLocale(LocaleContext.LOCALE_ZH_CN);
-		ActiveXContext.registerStrategy(ActiveXContext.STRATEGY_APPLICATION);		
+		LocaleContext.registerLocale(LocaleConstants.LOCALE_EN_US);
+		// LocaleContext.registerLocale(LocaleConstants.LOCALE_ZH_CN);
+		ActiveXContext.registerStrategy(ActiveXConstants.STRATEGY_APPLICATION);		
 		
 		try
 		{
@@ -51,8 +53,9 @@ public class DemoDataContext
 	{
 		EncodeContext.registerIOCharset("GBK");
 		EncodeContext.registerHttpCharset("UTF-8");
-		// LocaleContext.registerLocale(LocaleContext.LOCALE_ZH_CN);
-		ActiveXContext.registerStrategy(ActiveXContext.STRATEGY_APPLET);
+		LocaleContext.registerLocale(LocaleConstants.LOCALE_EN_US);
+		// LocaleContext.registerLocale(LocaleConstants.LOCALE_ZH_CN);
+		ActiveXContext.registerStrategy(ActiveXConstants.STRATEGY_APPLET);
 		
 		try
 		{
