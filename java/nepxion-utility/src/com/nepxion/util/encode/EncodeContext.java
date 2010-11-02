@@ -11,9 +11,10 @@ package com.nepxion.util.encode;
  */
 
 public class EncodeContext
-{
-	private static String ioCharset = "ISO-8859-1";
-	private static String httpCharset = "ISO-8859-1";
+	implements EncodeConstants
+{	
+	private static String ioCharset = DEFAULT_CHARSET;
+	private static String httpCharset = DEFAULT_CHARSET;
 	
 	public static void registerIOCharset(String customIOCharset)
 	{
