@@ -75,10 +75,7 @@ public class DemoLazyLoaderCheckBoxTreePanel
 			
 			FileTree fileTree = new FileTree();
 			
-			treeAdapter = new FileTreeAdapter(fileTree);
 			FileToolBar fileToolBar = new FileToolBar(fileTree);	
-			
-			lazyLoaderAdapter = new FileLazyLoaderAdapter(fileTree);
 			
 			JLazyLoaderContainer lazyLoaderContainer = new JLazyLoaderContainer(fileTree);
 			lazyLoaderContainer.add(fileToolBar, BorderLayout.NORTH);
@@ -140,6 +137,9 @@ public class DemoLazyLoaderCheckBoxTreePanel
 			// setSelectionMode(SINGLE_TREE_SELECTION);
 			setCellRenderer(new TreeElementCellRenderer(20));
 			setLazyLoader(new FileLazyLoader(false));
+			
+			lazyLoaderAdapter = new FileLazyLoaderAdapter(this);
+			treeAdapter = new FileTreeAdapter(this);
 			
 			popupMenu = new FilePopopMenu(this);
 		}
