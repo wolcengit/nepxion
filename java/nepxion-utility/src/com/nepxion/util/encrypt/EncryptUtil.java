@@ -96,4 +96,17 @@ public class EncryptUtil
 		
 		return base64Decoder.decodeBuffer(text);
 	}
+	
+	public static void main(String[] args)
+	{
+		try
+		{
+			String password = EncryptUtil.encryptMD5("admin");
+			System.out.println(password);
+		}
+		catch (Exception e)
+		{
+			e.printStackTrace();
+		}
+	}
 }
