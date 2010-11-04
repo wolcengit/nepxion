@@ -10,79 +10,42 @@ package com.nepxion.util.encrypt;
  * @version 1.0
  */
 
-import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 
+import sun.misc.BASE64Decoder;
 import sun.misc.BASE64Encoder;
 
 public class EncryptUtil
 	implements EncryptConstants
 {
-	public static String encryptMD5(String content)
+	public static String encrypt(String text, String algorithm)
+		throws Exception
 	{
-		return encrypt(content, ALGORITHM_MD5);
+		return encrypt(text, algorithm, "UTF-8");
 	}
 	
-	public static String encryptSHA(String content, String charset)
+	public static String encrypt(String text, String algorithm, String charset)
+		throws Exception
 	{
-		return encrypt(content, ALGORITHM_MD5, charset);
-	}
-	
-	public static String encryptSHA(String content)
-	{
-		return encrypt(content, ALGORITHM_SHA);
-	}
-	
-	public static String encryptMD5(String content, String charset)
-	{
-		return encrypt(content, ALGORITHM_SHA, charset);
-	}
-	
-	public static String encryptSHA256(String content)
-	{
-		return encrypt(content, ALGORITHM_SHA_256);
-	}
-	
-	public static String encryptSHA256(String content, String charset)
-	{
-		return encrypt(content, ALGORITHM_SHA_256, charset);
-	}
-	
-	public static String encryptSHA512(String content)
-	{
-		return encrypt(content, ALGORITHM_SHA_512);
-	}
-	
-	public static String encryptSHA512(String content, String charset)
-	{
-		return encrypt(content, ALGORITHM_SHA_512, charset);
-	}
-	
-	public static String encrypt(String content, String algorithm)
-	{
-		return encrypt(content, algorithm, "UTF-8");
-	}
-	
-	public static String encrypt(String content, String algorithm, String charset)
-	{
-		try
-		{
-			MessageDigest messageDigest = MessageDigest.getInstance(algorithm);
-			byte[] bytes = messageDigest.digest(content.getBytes(charset));
-			
-			BASE64Encoder base64Encoder = new BASE64Encoder();
-			content = base64Encoder.encode(bytes);
-		}
-		catch (NoSuchAlgorithmException e)
-		{
-			e.printStackTrace();
-		}
-		catch (UnsupportedEncodingException e)
-		{
-			e.printStackTrace();
-		}
+		MessageDigest messageDigest = MessageDigest.getInstance(algorithm);
+		byte[] bytes = messageDigest.digest(text.getBytes(charset));
 		
-		return content;
+		return encryptBASE64(bytes);
+	}
+	
+	public static String encryptBASE64(byte[] bytes)
+		throws Exception
+	{
+		BASE64Encoder base64Encoder = new BASE64Encoder();
+		
+		return base64Encoder.encodeBuffer(bytes);
+	}
+	
+	public static byte[] decryptBASE64(String text)
+		throws Exception
+	{
+		BASE64Decoder base64Decoder = new BASE64Decoder();
+		
+		return base64Decoder.decodeBuffer(text);
 	}
 }
