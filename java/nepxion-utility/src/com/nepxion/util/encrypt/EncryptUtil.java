@@ -18,6 +18,54 @@ import sun.misc.BASE64Encoder;
 public class EncryptUtil
 	implements EncryptConstants
 {
+	public static String encryptMD5(String text)
+		throws Exception
+	{
+		return encrypt(text, ALGORITHM_MD5);
+	}
+	
+	public static String encryptMD5(String text, String charset)
+		throws Exception
+	{
+		return encrypt(text, ALGORITHM_MD5, charset);
+	}
+	
+	public static String encryptSHA(String text)
+		throws Exception
+	{
+		return encrypt(text, ALGORITHM_SHA);
+	}
+	
+	public static String encryptSHA(String text, String charset)
+		throws Exception
+	{
+		return encrypt(text, ALGORITHM_SHA, charset);
+	}
+	
+	public static String encryptSHA256(String text)
+		throws Exception
+	{
+		return encrypt(text, ALGORITHM_SHA_256);
+	}
+	
+	public static String encryptSHA256(String text, String charset)
+		throws Exception
+	{
+		return encrypt(text, ALGORITHM_SHA_256, charset);
+	}
+	
+	public static String encryptSHA512(String text)
+		throws Exception
+	{
+		return encrypt(text, ALGORITHM_SHA_512);
+	}
+	
+	public static String encryptSHA512(String text, String charset)
+		throws Exception
+	{
+		return encrypt(text, ALGORITHM_SHA_512, charset);
+	}
+	
 	public static String encrypt(String text, String algorithm)
 		throws Exception
 	{
