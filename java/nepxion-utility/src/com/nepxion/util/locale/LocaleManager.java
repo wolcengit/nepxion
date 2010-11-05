@@ -11,6 +11,7 @@ package com.nepxion.util.locale;
  */
 
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 import java.util.ResourceBundle;
 
@@ -25,9 +26,21 @@ public class LocaleManager
 		return resourceBundle.getString(key);
 	}
 	
+	public static String getString(Class bundleClazz, String key, Locale locale)
+	{
+		ResourceBundle resourceBundle = getResourceBundle(bundleClazz, locale);
+		return resourceBundle.getString(key);
+	}
+	
 	public static String getString(String bundleName, String key)
 	{
 		ResourceBundle resourceBundle = getResourceBundle(bundleName);
+		return resourceBundle.getString(key);
+	}
+	
+	public static String getString(String bundleName, String key, Locale locale)
+	{
+		ResourceBundle resourceBundle = getResourceBundle(bundleName, locale);
 		return resourceBundle.getString(key);
 	}
 	
@@ -37,7 +50,18 @@ public class LocaleManager
 		return getResourceBundle(bundleName);
 	}
 	
+	public static ResourceBundle getResourceBundle(Class bundleClazz, Locale locale)
+	{
+		String bundleName = getBundleName(bundleClazz);
+		return getResourceBundle(bundleName, locale);
+	}
+	
 	public static ResourceBundle getResourceBundle(String bundleName)
+	{
+		return getResourceBundle(bundleName, LocaleContext.getLocale());
+	}
+	
+	public static ResourceBundle getResourceBundle(String bundleName, Locale locale)
 	{
 		if (resourceBundleMap == null)
 		{
@@ -47,7 +71,7 @@ public class LocaleManager
 		ResourceBundle resourceBundle = (ResourceBundle) resourceBundleMap.get(bundleName);
 		if (resourceBundle == null)
 		{
-			resourceBundle = ResourceBundle.getBundle(bundleName, LocaleContext.getLocale());
+			resourceBundle = ResourceBundle.getBundle(bundleName, locale);
 			resourceBundleMap.put(bundleName, resourceBundle);
 		}
 		return resourceBundle;
