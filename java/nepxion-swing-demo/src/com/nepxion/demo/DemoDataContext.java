@@ -14,7 +14,7 @@ import java.net.URL;
 
 import com.nepxion.swing.activex.ActiveXConstants;
 import com.nepxion.swing.activex.ActiveXContext;
-import com.nepxion.util.encode.EncodeContext;
+import com.nepxion.util.encoder.EncoderContext;
 import com.nepxion.util.locale.LocaleConstants;
 import com.nepxion.util.locale.LocaleContext;
 import com.nepxion.util.log.LoggerContext;
@@ -28,8 +28,8 @@ public class DemoDataContext
 	
 	public static void initialize()
 	{	
-		EncodeContext.registerIOCharset("GBK");
-		EncodeContext.registerHttpCharset("UTF-8");
+		EncoderContext.registerIOCharset("GBK");
+		EncoderContext.registerHttpCharset("UTF-8");
 		LocaleContext.registerLocale(LocaleConstants.LOCALE_EN_US);
 		// LocaleContext.registerLocale(LocaleConstants.LOCALE_ZH_CN);
 		ActiveXContext.registerStrategy(ActiveXConstants.STRATEGY_APPLICATION);		
@@ -51,8 +51,8 @@ public class DemoDataContext
 	
 	public static void initialize(URL codeBase)
 	{
-		EncodeContext.registerIOCharset("GBK");
-		EncodeContext.registerHttpCharset("UTF-8");
+		EncoderContext.registerIOCharset("GBK");
+		EncoderContext.registerHttpCharset("UTF-8");
 		LocaleContext.registerLocale(LocaleConstants.LOCALE_EN_US);
 		// LocaleContext.registerLocale(LocaleConstants.LOCALE_ZH_CN);
 		ActiveXContext.registerStrategy(ActiveXConstants.STRATEGY_APPLET);
