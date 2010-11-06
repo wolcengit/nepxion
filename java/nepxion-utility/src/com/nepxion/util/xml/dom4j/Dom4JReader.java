@@ -25,8 +25,8 @@ import org.dom4j.DocumentHelper;
 import org.dom4j.io.SAXReader;
 import org.xml.sax.InputSource;
 
-import com.nepxion.util.encoding.EncodingContext;
-import com.nepxion.util.encoding.EncodingUtil;
+import com.nepxion.util.encoder.EncoderContext;
+import com.nepxion.util.encoder.EncoderUtil;
 
 public class Dom4JReader
 {
@@ -52,7 +52,7 @@ public class Dom4JReader
 	public static Document getFormatDocument(String text) 
 		throws DocumentException, UnsupportedEncodingException
 	{
-		return getFormatDocument(text, EncodingContext.getIOCharset());
+		return getFormatDocument(text, EncoderContext.getIOCharset());
 	}
 	
 	/**
@@ -66,7 +66,7 @@ public class Dom4JReader
 	public static Document getFormatDocument(String text, String charset) 
 		throws DocumentException, UnsupportedEncodingException
 	{
-		String formatText = EncodingUtil.format(text, charset);
+		String formatText = EncoderUtil.format(text, charset);
 		return getDocument(formatText);
 	}
 	
@@ -95,7 +95,7 @@ public class Dom4JReader
 	public static Document getFormatDocument(File file)
 		throws DocumentException, FileNotFoundException, UnsupportedEncodingException
 	{
-		return getFormatDocument(file, EncodingContext.getIOCharset());
+		return getFormatDocument(file, EncoderContext.getIOCharset());
 	}
 	
 	/**
@@ -136,7 +136,7 @@ public class Dom4JReader
 	public static Document getFormatDocument(InputSource inputSource)
 		throws DocumentException
 	{
-		return getFormatDocument(inputSource, EncodingContext.getIOCharset());
+		return getFormatDocument(inputSource, EncoderContext.getIOCharset());
 	}
 	
 	/**
@@ -176,7 +176,7 @@ public class Dom4JReader
 	public static Document getFormatDocument(InputStream inputStream)
 		throws DocumentException, UnsupportedEncodingException
 	{
-		return getFormatDocument(inputStream, EncodingContext.getIOCharset());
+		return getFormatDocument(inputStream, EncoderContext.getIOCharset());
 	}
 	
 	/**

@@ -21,7 +21,7 @@ import java.io.ObjectOutputStream;
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
 
-import com.nepxion.util.encoding.EncodingContext;
+import com.nepxion.util.encoder.EncoderContext;
 
 public class IOUtil
 {
@@ -152,7 +152,7 @@ public class IOUtil
 	 */
 	public static String getString(InputStream inputStream)
 	{
-		return getString(inputStream, EncodingContext.getIOCharset());
+		return getString(inputStream, EncoderContext.getIOCharset());
 	}
 	
 	/**
@@ -194,7 +194,7 @@ public class IOUtil
 	 */
 	public static String readString(InputStream inputStream)	
 	{
-		return readString(inputStream, EncodingContext.getIOCharset());
+		return readString(inputStream, EncoderContext.getIOCharset());
 	}
 	
 	/**
