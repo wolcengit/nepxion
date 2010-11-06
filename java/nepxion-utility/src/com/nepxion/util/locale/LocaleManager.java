@@ -68,14 +68,22 @@ public class LocaleManager
 			resourceBundleMap = new HashMap();
 		}
 		
-		ResourceBundle resourceBundle = (ResourceBundle) resourceBundleMap.get(bundleName);
+		String key = locale + "_" + bundleName;
+		
+		ResourceBundle resourceBundle = (ResourceBundle) resourceBundleMap.get(key);
 		if (resourceBundle == null)
 		{
 			resourceBundle = ResourceBundle.getBundle(bundleName, locale);
-			resourceBundleMap.put(bundleName, resourceBundle);
+			resourceBundleMap.put(key, resourceBundle);
 		}
+
 		return resourceBundle;
 	}
+	
+	/*public static ResourceBundle getResourceBundle(String bundleName, Locale locale)
+	{		
+		return ResourceBundle.getBundle(bundleName, locale);
+	}*/
 	
 	public static String getBundleName(Class bundleClazz)
 	{
