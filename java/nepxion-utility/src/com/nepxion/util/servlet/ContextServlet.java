@@ -17,11 +17,8 @@ import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 
-import org.apache.log4j.PropertyConfigurator;
-import org.logicalcobwebs.proxool.ProxoolException;
-import org.quartz.SchedulerException;
-
 import com.nepxion.util.database.pool.proxool.ProxoolContext;
+import com.nepxion.util.log.LoggerContext;
 import com.nepxion.util.scheduler.quartz.QuartzContext;
 
 public class ContextServlet
@@ -64,7 +61,14 @@ public class ContextServlet
 			
 			initServiceLogger(properties, loggerPath);
 			
-			PropertyConfigurator.configure(properties);
+			try
+			{
+				LoggerContext.register(properties);
+			}
+			catch (Exception e)
+			{
+				e.printStackTrace();
+			}
 		}
 	}
 	
@@ -83,7 +87,7 @@ public class ContextServlet
 			{
 				ProxoolContext.register(proxoolPath);
 			}
-			catch (ProxoolException e)
+			catch (Exception e)
 			{
 				e.printStackTrace();
 			}
@@ -100,7 +104,7 @@ public class ContextServlet
 			{
 				QuartzContext.register(quartzPath);
 			}
-			catch (SchedulerException e)
+			catch (Exception e)
 			{
 				e.printStackTrace();
 			}

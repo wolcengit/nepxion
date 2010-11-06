@@ -13,15 +13,11 @@ package com.nepxion.util.log;
 import java.net.URL;
 import java.util.Properties;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.apache.log4j.PropertyConfigurator;
 
 public class LoggerContext
 	implements LoggerConstants
-{
-	private static Log log = LogFactory.getLog(LoggerContext.class);
-	
+{	
 	public static void register()
 		throws Exception
 	{
@@ -37,7 +33,6 @@ public class LoggerContext
 		}
 		catch (Exception e)
 		{
-			log.fatal(e);
 			throw e;
 		}
 	}
@@ -51,7 +46,6 @@ public class LoggerContext
 		}
 		catch (Exception e)
 		{
-			log.fatal(e);
 			throw e;
 		}
 	}
@@ -69,7 +63,6 @@ public class LoggerContext
 		}
 		catch (Exception e)
 		{
-			log.fatal(e);
 			throw e;
 		}
 	}
