@@ -86,8 +86,8 @@ public class DemoComponentFactory
 				case 2: return elementNode.getText();						
 				case 3: return elementNode.getIcon();
 				case 4: return elementNode.getToolTipText();
-				case 5: return new Boolean(elementNode.isSelected());
-				case 6: return new Boolean(elementNode.isEnabled());
+				case 5: return Boolean.valueOf(elementNode.isSelected());
+				case 6: return Boolean.valueOf(elementNode.isEnabled());
 				case 7: return elementNode.getUserObject();				
 			}
 			return null;
