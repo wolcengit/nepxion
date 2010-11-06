@@ -10,6 +10,8 @@ package com.nepxion.util.locale;
  * @version 1.0
  */
 
+import java.util.Locale;
+
 public class UtilityLocale
 {
 	public static final Class BUNDLE_CLASS = UtilityLocale.class;
@@ -17,5 +19,10 @@ public class UtilityLocale
 	public static String getString(String key)
 	{
 		return LocaleManager.getString(BUNDLE_CLASS, key);
+	}
+	
+	public static String getString(String key, Locale locale)
+	{
+		return LocaleManager.getString(BUNDLE_CLASS, key, locale);
 	}
 }
