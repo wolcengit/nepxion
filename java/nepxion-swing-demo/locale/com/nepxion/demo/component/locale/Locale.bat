@@ -5,13 +5,13 @@
 @echo $                                                           $
 @echo $                                                           $
 @echo $                                                           $
-@echo $  Tektronix Technologies All Right Reserved                $
+@echo $  Nepxion Technologies All Right Reserved                  $
 @echo $  Copyright(C) 2010                                        $
 @echo $                                                           $
 @echo =============================================================
 @echo.
- 
 @echo off
+
 @rem ======================================
 @rem DOS Batch file to invoke the Swing UI
 @rem ======================================
