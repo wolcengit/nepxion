@@ -27,17 +27,17 @@ public class StringServerInvoker
 		setCharset("GBK");
 	}
 	
-    public Object invoke(Object requestObject, HttpServletRequest request, HttpServletResponse response)
-		throws ServletException, IOException    
-    {		
-    	if (requestObject instanceof String) // String entity
-    	{
-    		request.setCharacterEncoding("GBK");		
-    		response.setCharacterEncoding("GBK");
-    		
-    		String reponseObject = requestObject.toString();  		
-    		return reponseObject + "ÂìçÂ∫î";
-    	}	
+	public Object invoke(Object requestObject, HttpServletRequest request, HttpServletResponse response)
+		throws ServletException, IOException
+	{
+		if (requestObject instanceof String) // String entity
+		{
+			request.setCharacterEncoding("GBK");
+			response.setCharacterEncoding("GBK");
+			
+			String reponseObject = requestObject.toString();
+			return reponseObject + "œÏ”¶";
+		}
 		return null;
-    }
+	}
 }

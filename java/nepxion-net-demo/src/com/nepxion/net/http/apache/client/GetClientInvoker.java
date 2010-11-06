@@ -10,7 +10,7 @@ package com.nepxion.net.http.apache.client;
  * @version 1.0
  */
 
-import com.nepxion.util.encode.EncodeContext;
+import com.nepxion.util.encoder.EncoderContext;
 import com.nepxion.util.net.http.HttpConfig;
 import com.nepxion.util.net.http.HttpContext;
 import com.nepxion.util.net.http.apache.ClientInvoker;
@@ -24,8 +24,8 @@ public class GetClientInvoker
 	public static void invokeParameter()
 	{
 		ClientParameterList clientParameterList = new ClientParameterList();
-		clientParameterList.put("target", "鏈嶅姟璋冪敤");
-		clientParameterList.put("entity", "鍙傛暟");
+		clientParameterList.put("target", "服务调用");
+		clientParameterList.put("entity", "参数");
 		
 		HttpConfig httpConfig = HttpContext.getHttpConfig("ParameterServerInvoker");
 		
@@ -54,7 +54,7 @@ public class GetClientInvoker
 		{
 			e.printStackTrace();
 		}
-		EncodeContext.registerHttpCharset("GBK");
+		EncoderContext.registerHttpCharset("GBK");
 		
 		GetClientInvoker.invokeParameter();
 		

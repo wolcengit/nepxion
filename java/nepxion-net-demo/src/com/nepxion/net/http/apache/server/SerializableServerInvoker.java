@@ -26,38 +26,38 @@ public class SerializableServerInvoker
 	extends ServerInvoker
 {
 	public SerializableServerInvoker()
-	{		
+	{
 		setRequestEntityType(REQUEST_ENTITY_TYPE_SERIALIZABLE);
 	}
 	
-    public Object invoke(Object requestObject, HttpServletRequest request, HttpServletResponse response)
-		throws ServletException, IOException    
-    {
-    	if (requestObject instanceof HashMap) // Serializable Entity
-    	{	    		
-	    	HashMap requestMap = (HashMap) requestObject;
+	public Object invoke(Object requestObject, HttpServletRequest request, HttpServletResponse response)
+		throws ServletException, IOException
+	{
+		if (requestObject instanceof HashMap) // Serializable Entity
+		{
+			HashMap requestMap = (HashMap) requestObject;
 			String target = (String) requestMap.get("target");
 			String entity = (String) requestMap.get("entity");
 			
 			HashMap responseMap = new HashMap();
-			responseMap.put("target", target + "鍝嶅簲");
-			responseMap.put("entity", entity + "鍝嶅簲");
+			responseMap.put("target", target + "响应");
+			responseMap.put("entity", entity + "响应");
 			return responseMap;
-    	}
-    	else if (requestObject instanceof List) // InputStream Entity
-    	{
-    		List requestList = (List) requestObject;
-    		
+		}
+		else if (requestObject instanceof List) // InputStream Entity
+		{
+			List requestList = (List) requestObject;
+			
 			List responseList = new ArrayList();
-			responseList.add(requestList.get(0) + "鍝嶅簲");
-			responseList.add(requestList.get(1) + "鍝嶅簲");			
-			return responseList;    		
-    	}
-    	else if (requestObject instanceof File) // File Entity
-    	{    		
-    		File requestFile = (File) requestObject;    		
-    		return requestFile;
-    	}	
+			responseList.add(requestList.get(0) + "响应");
+			responseList.add(requestList.get(1) + "响应");
+			return responseList;
+		}
+		else if (requestObject instanceof File) // File Entity
+		{
+			File requestFile = (File) requestObject;
+			return requestFile;
+		}
 		return null;
-    }
+	}
 }

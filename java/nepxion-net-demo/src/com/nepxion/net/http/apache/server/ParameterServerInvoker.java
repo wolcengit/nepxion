@@ -30,30 +30,30 @@ public class ParameterServerInvoker
 	}
 	
 	/*
-	 * 1. response.getWriter()å’Œresponse.getOutputStream()æ–¹æ³•åªå…è®¸é€‰æ‹©å…¶ä¸€è¢«è°ƒç”¨ï¼Œä¸èƒ½åŒæ—¶è¢«è°ƒç”¨ï¼Œå¦åˆ™æŠ›é”™;
-	 * 2. invokeæ–¹æ³•è¿”å›çš„å¯¹è±¡æ˜¯é€šè¿‡çˆ¶ç±»ServerInvokerçš„outputStreamæ–¹å¼å›å†™åˆ°å®¢æˆ·ç«¯ï¼Œå½“è°ƒç”¨outè¾“å‡ºæ–¹å¼ï¼Œåˆ™éœ€è¦æŠŠè¿”å›å¯¹è±¡ç½®ä¸ºnullï¼›
-	 * 3. outè¾“å‡ºæ–¹å¼çš„å­—ç¬¦ä¸²ï¼Œåœ¨å®¢æˆ·ç«¯éœ€è¦é€šè¿‡clientInvoker.getResponseTextè·å¾—ï¼Œå¦åˆ™å‡ºç°ä¹±ç ï¼›
+	 * 1. response.getWriter()ºÍresponse.getOutputStream()·½·¨Ö»ÔÊĞíÑ¡ÔñÆäÒ»±»µ÷ÓÃ£¬²»ÄÜÍ¬Ê±±»µ÷ÓÃ£¬·ñÔòÅ×´í;
+	 * 2. invoke·½·¨·µ»ØµÄ¶ÔÏóÊÇÍ¨¹ı¸¸ÀàServerInvokerµÄoutputStream·½Ê½»ØĞ´µ½¿Í»§¶Ë£¬µ±µ÷ÓÃoutÊä³ö·½Ê½£¬ÔòĞèÒª°Ñ·µ»Ø¶ÔÏóÖÃÎªnull£»
+	 * 3. outÊä³ö·½Ê½µÄ×Ö·û´®£¬ÔÚ¿Í»§¶ËĞèÒªÍ¨¹ıclientInvoker.getResponseText»ñµÃ£¬·ñÔò³öÏÖÂÒÂë£»
 	 */
     public Object invoke(Object requestObject, HttpServletRequest request, HttpServletResponse response)
-		throws ServletException, IOException    
-    {		
-    	if (requestObject instanceof Map) // Parameter entity
-    	{    		
-    		request.setCharacterEncoding("GBK");		
-    		response.setCharacterEncoding("GBK");		
-    		response.setContentType("text/xml");
-    	
-    		Map requestMap = (Map) requestObject;   
-    		
-    		String target = requestMap.get("target").toString();
-    		String entity = requestMap.get("entity").toString();
-    		
-    		PrintWriter out = response.getWriter();
-    		out.println("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
-    		out.println("<records>");
-    		out.println("<record index=\"" + 1 + "\" target=\"" + target + "å“åº”" + "\" entity=\"" + entity + "å“åº”" + "\"/>");
-    		out.println("</records>");	
-    	}	
+		throws ServletException, IOException
+	{
+		if (requestObject instanceof Map) // Parameter entity
+		{
+			request.setCharacterEncoding("GBK");
+			response.setCharacterEncoding("GBK");
+			response.setContentType("text/xml");
+			
+			Map requestMap = (Map) requestObject;
+			
+			String target = requestMap.get("target").toString();
+			String entity = requestMap.get("entity").toString();
+			
+			PrintWriter out = response.getWriter();
+			out.println("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
+			out.println("<records>");
+			out.println("<record index=\"" + 1 + "\" target=\"" + target + "ÏìÓ¦" + "\" entity=\"" + entity + "ÏìÓ¦" + "\"/>");
+			out.println("</records>");
+		}
 		return null;
-    }
+	}
 }

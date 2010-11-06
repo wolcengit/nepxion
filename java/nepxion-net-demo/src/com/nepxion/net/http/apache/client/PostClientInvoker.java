@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import com.nepxion.util.encode.EncodeContext;
+import com.nepxion.util.encoder.EncoderContext;
 import com.nepxion.util.io.IOUtil;
 import com.nepxion.util.net.http.HttpConfig;
 import com.nepxion.util.net.http.HttpContext;
@@ -150,7 +150,7 @@ public class PostClientInvoker
 		
 		ClientRequestPost clientRequestPost = new ClientRequestPost(httpConfig);
 		clientRequestPost.setByteArrayEntity(IOUtil.write(file).toByteArray());
-
+		
 		Object responseObject = null;
 		try
 		{
@@ -175,7 +175,7 @@ public class PostClientInvoker
 		{
 			e.printStackTrace();
 		}
-		EncodeContext.registerHttpCharset("GBK");
+		EncoderContext.registerHttpCharset("GBK");
 		
 		PostClientInvoker.invokeParameter();
 		PostClientInvoker.invokeSerializable();
