@@ -8,14 +8,6 @@
 			<param-name>loggerPath</param-name>
 			<param-value>/WEB-INF/log4j.properties</param-value>
 		</init-param>
-		<init-param>
-			<param-name>proxoolPath</param-name>
-			<param-value>/WEB-INF/proxool.properties</param-value>
-		</init-param>
-		<init-param>
-			<param-name>quartzPath</param-name>
-			<param-value>/WEB-INF/quartz.properties</param-value>
-		</init-param>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
 	<servlet>
