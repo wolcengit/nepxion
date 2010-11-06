@@ -19,7 +19,7 @@ import org.dom4j.DocumentHelper;
 import org.dom4j.io.OutputFormat;
 import org.dom4j.io.XMLWriter;
 
-import com.nepxion.util.encode.EncodeContext;
+import com.nepxion.util.encoding.EncodingContext;
 
 public class Dom4JWriter
 {
@@ -42,7 +42,7 @@ public class Dom4JWriter
 	public static String getText(Document document)
 		throws UnsupportedEncodingException, IOException
 	{
-		return getText(document, EncodeContext.getIOCharset());
+		return getText(document, EncodingContext.getIOCharset());
 	}
 	
 	/**

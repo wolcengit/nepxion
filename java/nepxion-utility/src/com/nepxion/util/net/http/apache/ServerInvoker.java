@@ -20,8 +20,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.nepxion.util.encode.EncodeContext;
-import com.nepxion.util.encode.EncodeUtil;
+import com.nepxion.util.encoding.EncodingContext;
+import com.nepxion.util.encoding.EncodingUtil;
 import com.nepxion.util.io.IOUtil;
 
 public class ServerInvoker
@@ -32,7 +32,7 @@ public class ServerInvoker
 	public static final int REQUEST_ENTITY_TYPE_SERIALIZABLE = 2;
 	
 	private int requestEntityType = REQUEST_ENTITY_TYPE_SERIALIZABLE;
-	private String charset = EncodeContext.getHttpCharset();
+	private String charset = EncodingContext.getHttpCharset();
 	
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 		throws ServletException, IOException
@@ -62,7 +62,7 @@ public class ServerInvoker
 					
 					if (method.equals("Get"))
 					{
-						value = EncodeUtil.format(value, charset);
+						value = EncodingUtil.format(value, charset);
 					}
 					parameters.put(key, value);
 				}

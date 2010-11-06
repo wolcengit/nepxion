@@ -29,7 +29,7 @@ import org.apache.http.entity.InputStreamEntity;
 import org.apache.http.entity.SerializableEntity;
 import org.apache.http.entity.StringEntity;
 
-import com.nepxion.util.encode.EncodeContext;
+import com.nepxion.util.encoding.EncodingContext;
 import com.nepxion.util.net.http.HttpConfig;
 import com.nepxion.util.net.http.IClientRequest;
 
@@ -69,7 +69,7 @@ public class ClientRequestPost
 	
 	public UrlEncodedFormEntity setParameterEntity(List parameterEntity)
 	{
-		return setParameterEntity(parameterEntity, EncodeContext.getHttpCharset());
+		return setParameterEntity(parameterEntity, EncodingContext.getHttpCharset());
 	}
 	
 	public UrlEncodedFormEntity setParameterEntity(List parameterEntity, String charset)
@@ -126,7 +126,7 @@ public class ClientRequestPost
 	
 	public StringEntity setStringEntity(String text)
 	{
-		return setStringEntity(text, EncodeContext.getHttpCharset());
+		return setStringEntity(text, EncodingContext.getHttpCharset());
 	}
 	
 	public StringEntity setStringEntity(String text, String charset)

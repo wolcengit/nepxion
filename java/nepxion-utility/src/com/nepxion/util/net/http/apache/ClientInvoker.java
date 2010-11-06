@@ -20,7 +20,7 @@ import org.apache.http.client.methods.HttpUriRequest;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.params.HttpConnectionParams;
 
-import com.nepxion.util.encode.EncodeContext;
+import com.nepxion.util.encoding.EncodingContext;
 import com.nepxion.util.io.IOUtil;
 import com.nepxion.util.net.http.HttpConfig;
 import com.nepxion.util.net.http.IClientInvoker;
@@ -109,7 +109,7 @@ public class ClientInvoker
 	public String getResponseText(IClientRequest clientRequest)
 		throws Exception
 	{
-		return getResponseText(clientRequest, EncodeContext.getHttpCharset());
+		return getResponseText(clientRequest, EncodingContext.getHttpCharset());
 	}
 	
 	public String getResponseText(IClientRequest clientRequest, String charset)

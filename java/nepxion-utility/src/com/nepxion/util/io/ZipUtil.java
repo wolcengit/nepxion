@@ -20,7 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.zip.GZIPInputStream;
 
-import com.nepxion.util.encode.EncodeContext;
+import com.nepxion.util.encoding.EncodingContext;
 
 public class ZipUtil
 {	
@@ -32,7 +32,7 @@ public class ZipUtil
 	 */	
 	public static List getZipFileList(String filePath, boolean classLoader)
 	{
-		return getZipFileList(filePath, EncodeContext.getIOCharset(), classLoader);
+		return getZipFileList(filePath, EncodingContext.getIOCharset(), classLoader);
 	}
 	
 	/**
@@ -79,7 +79,7 @@ public class ZipUtil
 	 */	
 	public static BufferedReader getZipReader(String filePath, boolean classLoader)
 	{
-		return getZipReader(filePath, EncodeContext.getIOCharset(), classLoader);
+		return getZipReader(filePath, EncodingContext.getIOCharset(), classLoader);
 	}
 	
 	/**

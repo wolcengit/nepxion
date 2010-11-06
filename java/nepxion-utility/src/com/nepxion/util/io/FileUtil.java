@@ -22,7 +22,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
 
-import com.nepxion.util.encode.EncodeContext;
+import com.nepxion.util.encoding.EncodingContext;
 
 public class FileUtil
 {	
@@ -34,7 +34,7 @@ public class FileUtil
 	 */
 	public static String readString(String filePath, boolean classLoader)
 	{
-		return readString(filePath, EncodeContext.getIOCharset(), classLoader);
+		return readString(filePath, EncodingContext.getIOCharset(), classLoader);
 	}
 	
 	/**

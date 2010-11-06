@@ -15,7 +15,7 @@ import java.util.List;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.utils.URLEncodedUtils;
 
-import com.nepxion.util.encode.EncodeContext;
+import com.nepxion.util.encoding.EncodingContext;
 import com.nepxion.util.net.http.HttpConfig;
 import com.nepxion.util.net.http.IClientRequest;
 
@@ -56,7 +56,7 @@ public class ClientRequestGet
 	
 	public void setParameterEntity(List parameterEntity)
 	{
-		setParameterEntity(parameterEntity, EncodeContext.getHttpCharset());
+		setParameterEntity(parameterEntity, EncodingContext.getHttpCharset());
 	}
 	
 	public void setParameterEntity(List parameterEntity, String charset)
