@@ -10,6 +10,10 @@
 @echo $                                                           $
 @echo =============================================================
 @echo.
+@echo off
+
+@title Nepxion Deployment 
+@color 0a
 
 copy ..\..\application\lib\nepxion-util.jar ..\lib\
 copy ..\..\application\lib\nepxion-swing.jar ..\lib\

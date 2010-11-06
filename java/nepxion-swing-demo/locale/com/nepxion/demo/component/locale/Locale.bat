@@ -17,7 +17,8 @@
 @rem ======================================
 
 @title Encoding localizer
-@color 0a  	 			
+@color 0a
+	
 rem if "%JAVA_HOME%"=="" goto noJava
 
 if "%JAVA_HOME%"=="" set JAVA_HOME=D:\JDK1.5.0

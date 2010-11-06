@@ -1,3 +1,20 @@
+@echo on
+@echo =============================================================
+@echo $                                                           $
+@echo $                     Nepxion Signature                     $
+@echo $                                                           $
+@echo $                                                           $
+@echo $                                                           $
+@echo $  Nepxion Technologies All Right Reserved                  $
+@echo $  Copyright(C) 2010                                        $
+@echo $                                                           $
+@echo =============================================================
+@echo.
+@echo off
+
+@title Nepxion Signature
+@color 0a
+
 jarsigner -keystore security.store ../lib/swing/alloy-skin-1.4.4.jar security
 jarsigner -keystore security.store ../lib/swing/borland-skin-2006.jar security
 jarsigner -keystore security.store ../lib/swing/itext-2.1.7.jar security
