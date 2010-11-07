@@ -68,7 +68,7 @@ public class LocaleManager
 			resourceBundleMap = new HashMap();
 		}
 		
-		String key = locale + "_" + bundleName;
+		String key = bundleName + "_" + locale;
 		
 		ResourceBundle resourceBundle = (ResourceBundle) resourceBundleMap.get(key);
 		if (resourceBundle == null)
