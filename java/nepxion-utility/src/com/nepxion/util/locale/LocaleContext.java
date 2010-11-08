@@ -24,4 +24,17 @@ public class LocaleContext
 	{
 		return Locale.getDefault();
 	}
+	
+	public static Locale getLocale(String localeName)
+	{
+		for (int i = 0; i < LOCALE_LIST.length; i++)
+		{
+			Locale locale = LOCALE_LIST[i];
+			if (locale.toString().equals(localeName))
+			{
+				return locale;
+			}	
+		}	
+		return LOCALE_EN_US;
+	}
 }
