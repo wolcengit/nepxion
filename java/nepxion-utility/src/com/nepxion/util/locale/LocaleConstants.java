@@ -16,6 +16,7 @@ public interface LocaleConstants
 {
 	public static final String LOCALE_ZH_CN_NAME = "zh_CN";
 	public static final String LOCALE_EN_US_NAME = "en_US";
+	public static final String[] LOCALE_NANME_LIST = {LOCALE_ZH_CN_NAME, LOCALE_EN_US_NAME};
 	
 	public static final Locale LOCALE_ZH_CN = new Locale("zh", "CN");
 	public static final Locale LOCALE_EN_US = new Locale("en", "US");
