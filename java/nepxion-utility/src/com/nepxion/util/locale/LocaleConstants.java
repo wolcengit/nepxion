@@ -20,6 +20,7 @@ public interface LocaleConstants
 	
 	public static final Locale LOCALE_ZH_CN = new Locale("zh", "CN");
 	public static final Locale LOCALE_EN_US = new Locale("en", "US");
+	public static final Locale[] LOCALE_LIST = {LOCALE_ZH_CN, LOCALE_EN_US};
 	
 	public static final String BASE_BUNDLE = "Locale";
 }
