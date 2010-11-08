@@ -20,6 +20,12 @@ public class LocaleContext
 		Locale.setDefault(locale);
 	}
 	
+	public static void registerLocale(String localeName)
+	{
+		Locale locale = getLocale(localeName);
+		Locale.setDefault(locale);
+	}
+	
 	public static Locale getLocale()
 	{
 		return Locale.getDefault();
