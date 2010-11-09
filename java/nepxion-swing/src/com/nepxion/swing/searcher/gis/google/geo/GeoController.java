@@ -1,0 +1,81 @@
+package com.nepxion.swing.searcher.gis.google.geo;
+
+/**
+ * <p>Title: Nepxion Swing</p>
+ * <p>Description: Nepxion Swing Repository</p>
+ * <p>Copyright: Copyright (c) 2010</p>
+ * <p>Company: Nepxion</p>
+ * @author Neptune
+ * @email hj_ren@msn.com
+ * @version 1.0
+ */
+
+import java.awt.event.ActionEvent;
+import java.util.List;
+
+import com.nepxion.swing.action.JAuthorityAction;
+import com.nepxion.swing.handle.HandleManager;
+import com.nepxion.swing.icon.IconFactory;
+import com.nepxion.swing.locale.SwingLocale;
+import com.nepxion.swing.optionpane.JBasicOptionPane;
+import com.nepxion.swing.thread.dialog.JThreadDialog;
+import com.nepxion.util.searcher.gis.google.geo.GeoSearcher;
+
+public class GeoController
+{
+	public static JAuthorityAction getSearchAction(final JGeoPanel panel)
+	{
+		JAuthorityAction action = new JAuthorityAction(SwingLocale.getString("query"), IconFactory.getSwingIcon("solid_search.png"), SwingLocale.getString("address_to_geo"))
+		{
+			public void execute(ActionEvent e)
+			{
+				JThreadDialog dialog = new JThreadDialog(HandleManager.getFrame(panel), SwingLocale.getString("address_to_geo"), SwingLocale.getString("query_and_wait"))
+				{
+					protected void loadForeground(Object data)
+						throws Exception
+					{
+						List entityList = (List) data;
+						
+						GeoTableModel tableModel = (GeoTableModel) panel.getGeoTable().getDataModel();
+						tableModel.setRowDatas(entityList);
+					}
+					
+					protected Object loadBackground()
+						throws Exception
+					{
+						String address = panel.getAddress();
+						if (address.equals(""))
+						{
+							throw new IllegalArgumentException(SwingLocale.getString("address_description"));
+						}
+						
+						GeoSearcher searcher = new GeoSearcher();
+						List entityList = searcher.search(address);
+						
+						return entityList;
+					}
+				};
+				dialog.execute();
+			}
+		};
+		return action;
+	}
+	
+	public static JAuthorityAction getClearAction(final JGeoTable table)
+	{
+		JAuthorityAction action = new JAuthorityAction(SwingLocale.getString("clear"), IconFactory.getSwingIcon("solid/delete_16.png"), SwingLocale.getString("clear_query_result"))
+		{
+			public void execute(ActionEvent e)
+			{
+				int selectedValue = JBasicOptionPane.showConfirmDialog(HandleManager.getFrame(table), SwingLocale.getString("confirm_to_clear_query_result"), SwingLocale.getString("confirm"), JBasicOptionPane.YES_NO_OPTION);
+				if (selectedValue != JBasicOptionPane.YES_OPTION)
+				{
+					return;
+				}
+				GeoTableModel tableModel = (GeoTableModel) table.getDataModel();
+				tableModel.clearRows();
+			}
+		};
+		return action;
+	}
+}
