@@ -21,22 +21,23 @@ import org.dom4j.Document;
 import org.dom4j.DocumentException;
 import org.dom4j.Element;
 
+import com.nepxion.util.locale.LocaleConstants;
 import com.nepxion.util.net.http.apache.ClientInvoker;
 import com.nepxion.util.net.http.apache.ClientParameterList;
 import com.nepxion.util.net.http.apache.ClientRequestGet;
 import com.nepxion.util.xml.dom4j.Dom4JReader;
 
 public class GeoSearcher
-	implements GeoConstants
+	implements GeoConstants, LocaleConstants
 {
-	private String language = LANGUAGE_ZH_CN;
+	private String language = ZH_CN;
 	private String charset = "UTF-8";
 	
 	private ClientInvoker clientInvoker;
 	
 	public GeoSearcher()
 	{
-		this(LANGUAGE_ZH_CN);
+		this(ZH_CN);
 	}
 	
 	public GeoSearcher(String language)

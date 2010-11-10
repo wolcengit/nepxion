@@ -15,13 +15,14 @@ import java.net.URI;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import com.nepxion.util.locale.LocaleConstants;
 import com.nepxion.util.net.http.apache.ClientInvoker;
 import com.nepxion.util.net.http.apache.ClientRequestPost;
 
 public class LocSearcher
-	implements LocConstants
+	implements LocConstants, LocaleConstants
 {	
-	private String language = LANGUAGE_ZH_CN;
+	private String language = ZH_CN;
 	private String charset = "UTF-8";
 	private boolean requestAddress = true;
 	
@@ -34,7 +35,7 @@ public class LocSearcher
 	
 	public LocSearcher(boolean requestAddress)
 	{
-		this(LANGUAGE_ZH_CN, requestAddress);
+		this(ZH_CN, requestAddress);
 	}
 	
 	public LocSearcher(String language)
