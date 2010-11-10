@@ -13,13 +13,13 @@ package com.nepxion.util.locale;
 import java.util.Locale;
 
 public interface LocaleConstants
-{
-	public static final String ZH_CN = Locale.CHINA.toString();
-	public static final String EN_US = Locale.US.toString();
-	
+{	
 	public static final Locale LOCALE_ZH_CN = Locale.CHINA;
 	public static final Locale LOCALE_EN_US = Locale.US;
 	public static final Locale[] LOCALE_LIST = {LOCALE_ZH_CN, LOCALE_EN_US};
+
+	public static final String ZH_CN = LOCALE_ZH_CN.toString();
+	public static final String EN_US = LOCALE_EN_US.toString();
 	
 	public static final String BASE_BUNDLE = "Locale";
 }
