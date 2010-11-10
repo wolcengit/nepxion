@@ -12,6 +12,7 @@ package com.nepxion.swing.searcher.gis.google.loc;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
+import java.util.Locale;
 
 import javax.swing.BorderFactory;
 import javax.swing.Box;
@@ -22,11 +23,12 @@ import com.nepxion.swing.button.ButtonManager;
 import com.nepxion.swing.button.JBasicButton;
 import com.nepxion.swing.combobox.JBasicComboBox;
 import com.nepxion.swing.dimension.DimensionManager;
+import com.nepxion.swing.element.ElementNode;
 import com.nepxion.swing.layout.toolbar.ToolBarLayout;
 import com.nepxion.swing.locale.SwingLocale;
 import com.nepxion.swing.scrollpane.JBasicScrollPane;
 import com.nepxion.swing.textfield.number.JNumberTextField;
-import com.nepxion.util.searcher.gis.google.loc.LocConstants;
+import com.nepxion.util.locale.LocaleConstants;
 
 public class JCoordinatePanel
 	extends JPanel
@@ -60,7 +62,16 @@ public class JCoordinatePanel
 			longitudeTextField = new JNumberTextField(11, 7, -215D, 215D);
 			DimensionManager.setDimension(longitudeTextField, new Dimension(100, 23));
 			
-			languageComboBox = new JBasicComboBox(new String[] {LocConstants.LANGUAGE_ZH_CN, LocConstants.LANGUAGE_EN_GB});
+			Locale[] locales = LocaleConstants.LOCALE_LIST;
+			ElementNode[] elementNodes = new ElementNode[locales.length];
+			for (int i = 0; i < locales.length; i++)
+			{
+				Locale locale = locales[i];
+				String text = SwingLocale.getString(locale.toString().toLowerCase());
+				elementNodes[i] = new ElementNode(text, null, text, locale);
+			}
+			
+			languageComboBox = new JBasicComboBox(locales);
 			DimensionManager.setDimension(languageComboBox, new Dimension(70, 23));
 			
 			JBasicButton searchButton = new JBasicButton(LocController.getSearchAction(JCoordinatePanel.this));
@@ -113,11 +124,22 @@ public class JCoordinatePanel
 	
 	public String getLanguage()
 	{
-		return languageComboBox.getSelectedItem().toString();
+		ElementNode selectedElementNode = (ElementNode) languageComboBox.getSelectedItem();
+		Locale locale = (Locale) selectedElementNode.getUserObject();
+		return locale.toString();
 	}
 	
 	public void setLanguage(String language)
 	{
-		languageComboBox.setSelectedItem(language);
+		for (int i = 0; i < languageComboBox.getItemCount(); i++)
+		{
+			ElementNode selectedElementNode = (ElementNode) languageComboBox.getItemAt(i);
+			Locale locale = (Locale) selectedElementNode.getUserObject();
+			if (locale.toString().equals(language))
+			{
+				languageComboBox.setSelectedIndex(i);
+				return;
+			}	
+		}
 	}
 }
