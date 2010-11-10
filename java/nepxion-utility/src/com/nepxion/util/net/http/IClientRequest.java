@@ -10,11 +10,10 @@ package com.nepxion.util.net.http;
  * @version 1.0
  */
 
-import java.io.Serializable;
 import java.net.URI;
 
 public interface IClientRequest
-	extends Serializable
+	extends HttpConstants
 {					
 	public HttpConfig getHttpConfig();
 	

@@ -23,9 +23,10 @@ import javax.servlet.http.HttpServletResponse;
 import com.nepxion.util.encoder.EncoderContext;
 import com.nepxion.util.encoder.EncoderUtil;
 import com.nepxion.util.io.IOUtil;
+import com.nepxion.util.net.http.HttpConstants;
 
 public class ServerInvoker
-	extends HttpServlet
+	extends HttpServlet implements HttpConstants
 {
 	public static final int REQUEST_ENTITY_TYPE_PARAMETER = 0;
 	public static final int REQUEST_ENTITY_TYPE_STRING = 1;
@@ -37,13 +38,13 @@ public class ServerInvoker
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 		throws ServletException, IOException
 	{
-		doExecute(request, response, "Get");
+		doExecute(request, response, GET);
 	}
 	
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 		throws ServletException, IOException
 	{
-		doExecute(request, response, "Post");
+		doExecute(request, response, POST);
 	}
 	
 	public void doExecute(HttpServletRequest request, HttpServletResponse response, String method)
@@ -60,7 +61,7 @@ public class ServerInvoker
 					String key = (String) enumeration.nextElement();
 					String value = request.getParameter(key);
 					
-					if (method.equals("Get"))
+					if (method.equals(GET))
 					{
 						value = EncoderUtil.format(value, charset);
 					}

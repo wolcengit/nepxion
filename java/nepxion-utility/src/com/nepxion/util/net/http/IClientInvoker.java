@@ -11,6 +11,7 @@ package com.nepxion.util.net.http;
  */
 
 public interface IClientInvoker
+	extends HttpConstants
 {		
 	public Object invoke(IClientRequest clientRequest) 
 		throws Exception;

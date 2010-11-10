@@ -10,10 +10,10 @@ package com.nepxion.util.net.http;
  * @version 1.0
  */
 
-import java.io.Serializable;
+import com.nepxion.util.servlet.ServletConstants;
 
 public interface HttpConstants
-	extends Serializable
+	extends ServletConstants
 {
 	public static final String CONFIG_FILE_PATH = "conf/http.properties";
 	
