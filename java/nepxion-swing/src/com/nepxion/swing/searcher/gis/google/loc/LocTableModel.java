@@ -34,7 +34,6 @@ public class LocTableModel
 	public Object getValueAt(int row, int column)
 	{
 		LocEntity entity = (LocEntity) rowDatas.get(row);
-		System.out.println(entity + " -------------------------- ");
 		switch (column)
 		{
 			case 0:
