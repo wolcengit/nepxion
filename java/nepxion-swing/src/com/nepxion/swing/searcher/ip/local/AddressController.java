@@ -35,6 +35,11 @@ public class AddressController
 						throws Exception
 					{
 						List entityList = (List) data;
+						if (entityList == null || entityList.isEmpty())
+						{
+							JBasicOptionPane.showMessageDialog(HandleManager.getFrame(panel), SwingLocale.getString("no_records"), SwingLocale.getString("warning"), JBasicOptionPane.WARNING_MESSAGE);
+							return;
+						}
 						
 						AddressTableModel tableModel = (AddressTableModel) panel.getIPTable().getDataModel();
 						tableModel.setRowDatas(entityList);

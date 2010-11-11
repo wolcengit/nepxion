@@ -35,6 +35,11 @@ public class LocatingMobileController
 						throws Exception
 					{
 						LocatingMobileEntity entity = (LocatingMobileEntity) data;
+						if (entity == null)
+						{
+							JBasicOptionPane.showMessageDialog(HandleManager.getFrame(panel), SwingLocale.getString("no_records"), SwingLocale.getString("warning"), JBasicOptionPane.WARNING_MESSAGE);
+							return;
+						}
 						
 						LocatingMobileTableModel tableModel = (LocatingMobileTableModel) panel.getMobileTable().getDataModel();
 						tableModel.addRow(entity);

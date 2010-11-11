@@ -34,7 +34,12 @@ public class NeteaseIDController
 					protected void loadForeground(Object data)
 						throws Exception
 					{
-						NeteaseIDEntity entity = (NeteaseIDEntity) data;
+						NeteaseIDEntity entity = (NeteaseIDEntity) data;						
+						if (entity == null)
+						{
+							JBasicOptionPane.showMessageDialog(HandleManager.getFrame(panel), SwingLocale.getString("no_records"), SwingLocale.getString("warning"), JBasicOptionPane.WARNING_MESSAGE);
+							return;
+						}
 						
 						NeteaseIDTableModel tableModel = (NeteaseIDTableModel) panel.getIDTable().getDataModel();
 						tableModel.addRow(entity);

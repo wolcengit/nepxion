@@ -35,6 +35,11 @@ public class TencentIPController
 						throws Exception
 					{
 						TencentIPEntity entity = (TencentIPEntity) data;
+						if (entity == null)
+						{
+							JBasicOptionPane.showMessageDialog(HandleManager.getFrame(panel), SwingLocale.getString("no_records"), SwingLocale.getString("warning"), JBasicOptionPane.WARNING_MESSAGE);
+							return;
+						}
 						
 						TencentIPTableModel tableModel = (TencentIPTableModel) panel.getIPTable().getDataModel();
 						tableModel.addRow(entity);

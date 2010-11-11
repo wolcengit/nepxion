@@ -35,6 +35,11 @@ public class SinaIPController
 						throws Exception
 					{
 						SinaIPEntity entity = (SinaIPEntity) data;
+						if (entity == null)
+						{
+							JBasicOptionPane.showMessageDialog(HandleManager.getFrame(panel), SwingLocale.getString("no_records"), SwingLocale.getString("warning"), JBasicOptionPane.WARNING_MESSAGE);
+							return;
+						}						
 						
 						SinaIPTableModel tableModel = (SinaIPTableModel) panel.getIPTable().getDataModel();
 						tableModel.addRow(entity);

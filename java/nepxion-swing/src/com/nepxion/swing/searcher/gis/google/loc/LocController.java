@@ -34,7 +34,12 @@ public class LocController
 					protected void loadForeground(Object data)
 						throws Exception
 					{
-						LocEntity entity = (LocEntity) data;
+						LocEntity entity = (LocEntity) data;						
+						if (entity == null)
+						{
+							JBasicOptionPane.showMessageDialog(HandleManager.getFrame(panel), SwingLocale.getString("no_records"), SwingLocale.getString("warning"), JBasicOptionPane.WARNING_MESSAGE);
+							return;
+						}	
 						
 						LocTableModel tableModel = (LocTableModel) panel.getLocTable().getDataModel();
 						tableModel.addRow(entity);
@@ -79,6 +84,11 @@ public class LocController
 						throws Exception
 					{
 						LocEntity entity = (LocEntity) data;
+						if (entity == null)
+						{
+							JBasicOptionPane.showMessageDialog(HandleManager.getFrame(panel), SwingLocale.getString("no_records"), SwingLocale.getString("warning"), JBasicOptionPane.WARNING_MESSAGE);
+							return;
+						}						
 						
 						LocTableModel tableModel = (LocTableModel) panel.getLocTable().getDataModel();
 						tableModel.addRow(entity);

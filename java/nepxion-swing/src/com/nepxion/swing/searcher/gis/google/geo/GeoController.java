@@ -34,7 +34,12 @@ public class GeoController
 					protected void loadForeground(Object data)
 						throws Exception
 					{
-						List entityList = (List) data;
+						List entityList = (List) data;						
+						if (entityList == null || entityList.isEmpty())
+						{
+							JBasicOptionPane.showMessageDialog(HandleManager.getFrame(panel), SwingLocale.getString("no_records"), SwingLocale.getString("warning"), JBasicOptionPane.WARNING_MESSAGE);
+							return;
+						}	
 						
 						GeoTableModel tableModel = (GeoTableModel) panel.getGeoTable().getDataModel();
 						tableModel.setRowDatas(entityList);

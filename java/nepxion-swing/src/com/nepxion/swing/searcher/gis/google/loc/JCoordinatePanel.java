@@ -71,8 +71,8 @@ public class JCoordinatePanel
 				elementNodes[i] = new ElementNode(text, null, text, locale);
 			}
 			
-			languageComboBox = new JBasicComboBox(locales);
-			DimensionManager.setDimension(languageComboBox, new Dimension(70, 23));
+			languageComboBox = new JBasicComboBox(elementNodes);
+			DimensionManager.setDimension(languageComboBox, new Dimension(90, 23));
 			
 			JBasicButton searchButton = new JBasicButton(LocController.getSearchAction(JCoordinatePanel.this));
 			JBasicButton clearButton = new JBasicButton(LocController.getClearAction(table));

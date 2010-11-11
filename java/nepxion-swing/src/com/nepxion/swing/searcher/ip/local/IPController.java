@@ -35,6 +35,11 @@ public class IPController
 						throws Exception
 					{
 						IPEntity entity = (IPEntity) data;
+						if (entity == null)
+						{
+							JBasicOptionPane.showMessageDialog(HandleManager.getFrame(panel), SwingLocale.getString("no_records"), SwingLocale.getString("warning"), JBasicOptionPane.WARNING_MESSAGE);
+							return;
+						}
 						
 						IPTableModel tableModel = (IPTableModel) panel.getAddressTable().getDataModel();
 						tableModel.addRow(entity);

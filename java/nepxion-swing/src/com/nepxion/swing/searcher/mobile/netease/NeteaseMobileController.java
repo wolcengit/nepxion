@@ -35,6 +35,11 @@ public class NeteaseMobileController
 						throws Exception
 					{
 						NeteaseMobileEntity entity = (NeteaseMobileEntity) data;
+						if (entity == null)
+						{
+							JBasicOptionPane.showMessageDialog(HandleManager.getFrame(panel), SwingLocale.getString("no_records"), SwingLocale.getString("warning"), JBasicOptionPane.WARNING_MESSAGE);
+							return;
+						}
 						
 						NeteaseMobileTableModel tableModel = (NeteaseMobileTableModel) panel.getMobileTable().getDataModel();
 						tableModel.addRow(entity);

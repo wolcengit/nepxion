@@ -35,6 +35,11 @@ public class NeteaseIPController
 						throws Exception
 					{
 						NeteaseIPEntity entity = (NeteaseIPEntity) data;
+						if (entity == null)
+						{
+							JBasicOptionPane.showMessageDialog(HandleManager.getFrame(panel), SwingLocale.getString("no_records"), SwingLocale.getString("warning"), JBasicOptionPane.WARNING_MESSAGE);
+							return;
+						}						
 						
 						NeteaseIPTableModel tableModel = (NeteaseIPTableModel) panel.getIPTable().getDataModel();
 						tableModel.addRow(entity);

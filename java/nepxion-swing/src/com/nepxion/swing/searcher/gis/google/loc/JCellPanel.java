@@ -75,12 +75,12 @@ public class JCellPanel
 			for (int i = 0; i < locales.length; i++)
 			{
 				Locale locale = locales[i];
-				String text = SwingLocale.getString(locale.toString().toLowerCase());
+				String text = SwingLocale.getString(locale.toString().toLowerCase());				
 				elementNodes[i] = new ElementNode(text, null, text, locale);
 			}
 			
 			languageComboBox = new JBasicComboBox(elementNodes);			
-			DimensionManager.setDimension(languageComboBox, new Dimension(70, 23));
+			DimensionManager.setDimension(languageComboBox, new Dimension(90, 23));
 			
 			JBasicButton searchButton = new JBasicButton(LocController.getSearchAction(JCellPanel.this));
 			JBasicButton clearButton = new JBasicButton(LocController.getClearAction(table));
