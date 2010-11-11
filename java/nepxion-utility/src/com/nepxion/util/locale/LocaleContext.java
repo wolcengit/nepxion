@@ -20,9 +20,9 @@ public class LocaleContext
 		Locale.setDefault(locale);
 	}
 	
-	public static void registerLocale(String localeName)
+	public static void registerLocale(String language)
 	{
-		Locale locale = getLocale(localeName);
+		Locale locale = getLocale(language);
 		Locale.setDefault(locale);
 	}
 	
@@ -31,12 +31,12 @@ public class LocaleContext
 		return Locale.getDefault();
 	}
 	
-	public static Locale getLocale(String localeName)
+	public static Locale getLocale(String language)
 	{
 		for (int i = 0; i < LOCALE_LIST.length; i++)
 		{
 			Locale locale = LOCALE_LIST[i];
-			if (locale.toString().equals(localeName))
+			if (locale.toString().equals(language))
 			{
 				return locale;
 			}	
