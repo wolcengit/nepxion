@@ -133,20 +133,33 @@ public abstract class JLoginDialog
 				String account = accountTextField.getText().trim();
 				String password = passwordField.getPasswordText().trim();
 				
+				ElementNode selectedElementNode = (ElementNode) localeComboBox.getSelectedItem();
+				Locale locale = (Locale) selectedElementNode.getUserObject();
+				
 				if (account.equals("") || password.equals(""))
 				{
 					JBasicOptionPane.showMessageDialog(JLoginDialog.this, SwingLocale.getString("login_not_null"), SwingLocale.getString("error"), JBasicOptionPane.ERROR_MESSAGE);
 					return;
 				}
 				
-				boolean flag = login(account, password);
+				boolean flag = true;
+				try
+				{
+					flag = login(account, password, locale);
+				}
+				catch (Exception ex)
+				{
+					JExceptionDialog.traceException(JLoginDialog.this, SwingLocale.getString("login_failure_service"), ex);
+					return;
+				}
+				
 				if (flag)
 				{
 					setVisible(false);
 				}	
 				else
 				{
-					JBasicOptionPane.showMessageDialog(JLoginDialog.this, SwingLocale.getString("login_failure"), SwingLocale.getString("error"), JBasicOptionPane.ERROR_MESSAGE);
+					JBasicOptionPane.showMessageDialog(JLoginDialog.this, SwingLocale.getString("login_failure_validation"), SwingLocale.getString("error"), JBasicOptionPane.ERROR_MESSAGE);
 				}
 			}
 		}
@@ -306,5 +319,6 @@ public abstract class JLoginDialog
 		return exitButton;
 	}
 	
-	public abstract boolean login(String account, String password);
+	public abstract boolean login(String account, String password, Locale locale)
+		throws Exception;
 }
