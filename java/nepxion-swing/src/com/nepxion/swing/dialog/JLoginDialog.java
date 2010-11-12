@@ -42,6 +42,7 @@ import com.nepxion.swing.renderer.combobox.ComboBoxElementCellRenderer;
 import com.nepxion.swing.textfield.JBasicPasswordField;
 import com.nepxion.swing.textfield.JBasicTextField;
 import com.nepxion.util.locale.LocaleConstants;
+import com.nepxion.util.locale.LocaleContext;
 
 public abstract class JLoginDialog
 	extends JBasicDialog
@@ -91,8 +92,9 @@ public abstract class JLoginDialog
 			public void actionPerformed(ActionEvent e)
 			{
 				int selectedIndex = localeComboBox.getSelectedIndex();
+				Locale locale = getSelectedLocale();
 				
-				initLocale();
+				initLocale(locale);
 				
 				localeComboBox.setSelectedIndex(selectedIndex);
 			}
@@ -128,8 +130,7 @@ public abstract class JLoginDialog
 				String account = accountTextField.getText().trim();
 				String password = passwordField.getPasswordText().trim();
 				
-				ElementNode selectedElementNode = (ElementNode) localeComboBox.getSelectedItem();
-				Locale locale = (Locale) selectedElementNode.getUserObject();
+				Locale locale = getSelectedLocale();
 				
 				if (account.equals("") || password.equals(""))
 				{
@@ -227,7 +228,7 @@ public abstract class JLoginDialog
 		setResizable(false);
 		pack();
 		
-		initLocale();
+		initLocale(LocaleContext.getLocale());
 	}
 	
 	protected void initContentPanel()
@@ -240,28 +241,28 @@ public abstract class JLoginDialog
 		contentPanel.add(buttonPanel);
 	}
 	
-	protected void initLocale()
+	protected void initLocale(Locale locale)
 	{
-		accountLabel.setText(SwingLocale.getString("account") + SwingLocale.getString("colon"));
-		passwordLabel.setText(SwingLocale.getString("password") + SwingLocale.getString("colon"));
-		localeLabel.setText(SwingLocale.getString("locale") + SwingLocale.getString("colon"));
+		accountLabel.setText(SwingLocale.getString("account", locale) + SwingLocale.getString("colon", locale));
+		passwordLabel.setText(SwingLocale.getString("password", locale) + SwingLocale.getString("colon", locale));
+		localeLabel.setText(SwingLocale.getString("locale", locale) + SwingLocale.getString("colon", locale));
 		
 		Locale[] locales = LocaleConstants.LOCALE_LIST;
 		ElementNode[] elementNodes = new ElementNode[locales.length];
 		for (int i = 0; i < locales.length; i++)
 		{
-			Locale locale = locales[i];
-			String text = SwingLocale.getString(locale.toString().toLowerCase());
-			elementNodes[i] = new ElementNode(text, null, text, locale);
+			Locale l = locales[i];
+			String text = SwingLocale.getString(l.toString().toLowerCase(), locale);
+			elementNodes[i] = new ElementNode(text, null, text, l);
 		}
 		localeComboBox.setModel(new DefaultComboBoxModel(elementNodes));
 		
-		loginButton.setText(SwingLocale.getString("login"));
-		loginButton.setToolTipText(SwingLocale.getString("login"));
-		resetButton.setText(SwingLocale.getString("reset"));
-		resetButton.setToolTipText(SwingLocale.getString("reset"));
-		exitButton.setText(SwingLocale.getString("exit"));
-		exitButton.setToolTipText(SwingLocale.getString("exit"));
+		loginButton.setText(SwingLocale.getString("login", locale));
+		loginButton.setToolTipText(SwingLocale.getString("login", locale));
+		resetButton.setText(SwingLocale.getString("reset", locale));
+		resetButton.setToolTipText(SwingLocale.getString("reset", locale));
+		exitButton.setText(SwingLocale.getString("exit", locale));
+		exitButton.setToolTipText(SwingLocale.getString("exit", locale));
 	}
 	
 	public String getAccount()
@@ -297,6 +298,19 @@ public abstract class JLoginDialog
 	public JBasicPasswordField getPasswordField()
 	{
 		return passwordField;
+	}
+	
+	public JBasicComboBox getLocaleComboBox()
+	{
+		return localeComboBox;
+	}
+	
+	public Locale getSelectedLocale()
+	{
+		ElementNode selectedElementNode = (ElementNode) localeComboBox.getSelectedItem();
+		Locale locale = (Locale) selectedElementNode.getUserObject();
+		
+		return locale;
 	}
 	
 	public JClassicButton getLoginButton()
