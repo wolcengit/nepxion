@@ -33,9 +33,7 @@ public class JUserPreference
 	public JUserPreference()
 	{		
 		oldPasswordTextField = new JBasicPasswordField();
-		
 		newPasswordTextField = new JBasicPasswordField();
-		
 		newPasswordConfirmTextField = new JBasicPasswordField();
 		
 		double[][] size = 
