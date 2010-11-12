@@ -42,7 +42,6 @@ import com.nepxion.swing.renderer.combobox.ComboBoxElementCellRenderer;
 import com.nepxion.swing.textfield.JBasicPasswordField;
 import com.nepxion.swing.textfield.JBasicTextField;
 import com.nepxion.util.locale.LocaleConstants;
-import com.nepxion.util.locale.LocaleContext;
 
 public abstract class JLoginDialog
 	extends JBasicDialog
@@ -92,10 +91,6 @@ public abstract class JLoginDialog
 			public void actionPerformed(ActionEvent e)
 			{
 				int selectedIndex = localeComboBox.getSelectedIndex();
-				ElementNode selectedElementNode = (ElementNode) localeComboBox.getSelectedItem();
-				Locale locale = (Locale) selectedElementNode.getUserObject();
-				
-				LocaleContext.registerLocale(locale);
 				
 				initLocale();
 				
