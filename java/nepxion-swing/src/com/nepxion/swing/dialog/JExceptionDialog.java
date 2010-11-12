@@ -71,6 +71,10 @@ public class JExceptionDialog
 				exceptionDialog = new JExceptionDialog((Frame) owner);
 			}
 		}
+		if (exceptionDialog == null)
+		{
+			return;
+		}	
 		if (!exceptionDialog.isVisible())
 		{
 			exceptionDialog.setException(hint, summary, e);

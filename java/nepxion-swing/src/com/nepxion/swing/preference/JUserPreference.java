@@ -20,15 +20,16 @@ import com.nepxion.swing.layout.filed.FiledLayout;
 import com.nepxion.swing.layout.table.TableLayout;
 import com.nepxion.swing.locale.SwingLocale;
 import com.nepxion.swing.optionpane.IValidation;
+import com.nepxion.swing.optionpane.JBasicOptionPane;
 import com.nepxion.swing.textfield.JBasicPasswordField;
 import com.nepxion.swing.toggle.ITogglePanel;
 
 public class JUserPreference
 	extends JPanel implements ITogglePanel, IValidation
 {	
-	private JBasicPasswordField oldPasswordTextField;
-	private JBasicPasswordField newPasswordTextField;
-	private JBasicPasswordField newPasswordConfirmTextField;
+	protected JBasicPasswordField oldPasswordTextField;
+	protected JBasicPasswordField newPasswordTextField;
+	protected JBasicPasswordField newPasswordConfirmTextField;
 	
 	public JUserPreference()
 	{		
@@ -64,8 +65,50 @@ public class JUserPreference
 		add(userPanel);
 	}
 	
+	public JBasicPasswordField getOldPasswordTextField()
+	{
+		return oldPasswordTextField;
+	}
+
+	public JBasicPasswordField getNewPasswordTextField()
+	{
+		return newPasswordTextField;
+	}
+
+	public JBasicPasswordField getNewPasswordConfirmTextField()
+	{
+		return newPasswordConfirmTextField;
+	}
+	
 	public boolean verify()
 	{
+		String oldPassword = oldPasswordTextField.getPasswordText().toString();
+		if (oldPassword.equals(""))
+		{
+			JBasicOptionPane.showMessageDialog(this, SwingLocale.getString("old_password_not_null"), SwingLocale.getString("error"), JBasicOptionPane.ERROR_MESSAGE);
+			return false;
+		}	
+		
+		String newPassword = newPasswordTextField.getPasswordText().toString();
+		if (newPassword.equals(""))
+		{
+			JBasicOptionPane.showMessageDialog(this, SwingLocale.getString("new_password_not_null"), SwingLocale.getString("error"), JBasicOptionPane.ERROR_MESSAGE);
+			return false;
+		}
+		
+		String newPasswordConfirm = newPasswordConfirmTextField.getPasswordText().toString();
+		if (newPasswordConfirm.equals(""))
+		{
+			JBasicOptionPane.showMessageDialog(this, SwingLocale.getString("new_password_confirm_not_null"), SwingLocale.getString("error"), JBasicOptionPane.ERROR_MESSAGE);
+			return false;
+		}
+		
+		if (!newPassword.equals(newPasswordConfirm))
+		{
+			JBasicOptionPane.showMessageDialog(this, SwingLocale.getString("new_password_not_matched"), SwingLocale.getString("error"), JBasicOptionPane.ERROR_MESSAGE);
+			return false;
+		}
+		
 		return true;
 	}
 	
