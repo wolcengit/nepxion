@@ -156,7 +156,27 @@ public abstract class JTreeDropDownSelector
 	public void setDelimiter(String delimiter)
 	{
 		this.delimiter = delimiter;
-	}	
+	}
+	
+	public boolean isShowRoot()
+	{
+		return showRootMenuItem.isSelected();
+	}
+	
+	public void setShowRoot(boolean isShowRoot)
+	{
+		showRootMenuItem.setSelected(isShowRoot);
+	}
+	
+	public boolean isShowPath()
+	{
+		return showPathMenuItem.isSelected();
+	}
+	
+	public void setShowPath(boolean isShowPath)
+	{
+		showPathMenuItem.setSelected(isShowPath);
+	}
 	
 	public boolean doConfirm()
 	{
