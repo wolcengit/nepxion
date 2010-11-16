@@ -22,6 +22,7 @@ public class NumberDocument
 	extends PlainDocument
 {
 	public static final int MAXIMUM_LENGTH = 16;
+	public static final int DECIMAL_LENGTH = 0;
 	
 	private int maximumLength;
 	private int decimalLength;
@@ -46,14 +47,14 @@ public class NumberDocument
 	
 	public NumberDocument(double minimumValue, double maximumValue)
 	{
-		this(MAXIMUM_LENGTH, 0, minimumValue, maximumValue);
+		this(MAXIMUM_LENGTH, DECIMAL_LENGTH, minimumValue, maximumValue);
 	}
 	
 	/**
-	 * @param maximumLength int 最大长度(含小数位和小数点)
-	 * @param decimalLength int 小数位长度
-	 * @param minimumValue double 最小值
-	 * @param maximumValue double 最大值
+	 * @param maximumLength int    最大长度(含小数位和小数点)
+	 * @param decimalLength int    小数位长度
+	 * @param minimumValue double  最小值
+	 * @param maximumValue double  最大值
 	 */
 	public NumberDocument(int maximumLength, int decimalLength, double minimumValue, double maximumValue)
 	{

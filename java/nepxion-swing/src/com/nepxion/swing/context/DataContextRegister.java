@@ -260,7 +260,7 @@ public class DataContextRegister
 	
 	private void initZone()
 	{
-		String zoneEnabled = properties.getProperty("ip-3rd-enabled");
+		String zoneEnabled = properties.getProperty("zone-3rd-enabled");
 		
 		boolean isZoneEnabled = false;
 		
