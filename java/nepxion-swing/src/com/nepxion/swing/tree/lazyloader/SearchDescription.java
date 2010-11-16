@@ -15,7 +15,6 @@ import java.util.Vector;
 import javax.swing.tree.TreeNode;
 
 import com.nepxion.swing.locale.SwingLocale;
-import com.nepxion.util.locale.UtilityLocale;
 
 public class SearchDescription
 {
@@ -128,6 +127,6 @@ public class SearchDescription
 	
 	public String toString()
 	{
-		return SwingLocale.getString("search") + " " + UtilityLocale.getString("quotation_left") + searchText + UtilityLocale.getString("quotation_right") + " " + SwingLocale.getString("at") + SwingLocale.getString("node") + " " + UtilityLocale.getString("quotation_left") + treeNode.toString() + UtilityLocale.getString("quotation_right");
+		return SwingLocale.getString("search") + " " + SwingLocale.getString("quotation_left") + searchText + SwingLocale.getString("quotation_right") + " " + SwingLocale.getString("at") + SwingLocale.getString("node") + " " + SwingLocale.getString("quotation_left") + treeNode.toString() + SwingLocale.getString("quotation_right");
 	}
 }

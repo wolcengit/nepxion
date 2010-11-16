@@ -27,7 +27,6 @@ import com.nepxion.swing.locale.SwingLocale;
 import com.nepxion.swing.menuitem.JBasicMenuItem;
 import com.nepxion.swing.optionpane.JBasicOptionPane;
 import com.nepxion.swing.selector.checkbox.JCheckBoxSelector;
-import com.nepxion.util.locale.UtilityLocale;
 
 public class PopupMenuAdapter
 {
@@ -133,9 +132,9 @@ public class PopupMenuAdapter
 		boolean isTabClosable = tabbedPane.isTabClosableAt(selectedIndex);
 		closeMenuItem.setEnabled(isTabClosable);
 		
-		closeMenuItem.setText(SwingLocale.getString("close") + " " + UtilityLocale.getString("quotation_left") + text + UtilityLocale.getString("quotation_right"));
-		closeMenuItem.setToolTipText(SwingLocale.getString("close") + " " + UtilityLocale.getString("quotation_left") + text + UtilityLocale.getString("quotation_right"));
-		closeOthersMenuItem.setText(SwingLocale.getString("close_all_except") + " " + UtilityLocale.getString("quotation_left") + text + UtilityLocale.getString("quotation_right"));
-		closeOthersMenuItem.setToolTipText(SwingLocale.getString("close_all_except") + " " + UtilityLocale.getString("quotation_left") + text + UtilityLocale.getString("quotation_right"));
+		closeMenuItem.setText(SwingLocale.getString("close") + " " + SwingLocale.getString("quotation_left") + text + SwingLocale.getString("quotation_right"));
+		closeMenuItem.setToolTipText(SwingLocale.getString("close") + " " + SwingLocale.getString("quotation_left") + text + SwingLocale.getString("quotation_right"));
+		closeOthersMenuItem.setText(SwingLocale.getString("close_all_except") + " " + SwingLocale.getString("quotation_left") + text + SwingLocale.getString("quotation_right"));
+		closeOthersMenuItem.setToolTipText(SwingLocale.getString("close_all_except") + " " + SwingLocale.getString("quotation_left") + text + SwingLocale.getString("quotation_right"));
 	}
 }

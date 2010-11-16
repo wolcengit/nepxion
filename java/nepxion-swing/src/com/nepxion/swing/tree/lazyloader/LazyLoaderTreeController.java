@@ -23,7 +23,6 @@ import com.nepxion.swing.keystroke.KeyStrokeManager;
 import com.nepxion.swing.locale.SwingLocale;
 import com.nepxion.swing.optionpane.JBasicOptionPane;
 import com.nepxion.swing.tree.TreeController;
-import com.nepxion.util.locale.UtilityLocale;
 
 public class LazyLoaderTreeController
 	extends TreeController
@@ -229,7 +228,7 @@ public class LazyLoaderTreeController
 				TreeNode treeNode = lazyLoaderTree.getSelectionTreeNode();
 				if (!lazyLoaderAdapter.refreshPermitted(treeNode))
 				{
-					JBasicOptionPane.showMessageDialog(HandleManager.getFrame((JTree) lazyLoaderTree), SwingLocale.getString("node") + " " + UtilityLocale.getString("quotation_left") + treeNode.toString() + UtilityLocale.getString("quotation_right") + " " +  SwingLocale.getString("refresh_no_permission"), SwingLocale.getString("warning"), JBasicOptionPane.WARNING_MESSAGE);
+					JBasicOptionPane.showMessageDialog(HandleManager.getFrame((JTree) lazyLoaderTree), SwingLocale.getString("node") + " " + SwingLocale.getString("quotation_left") + treeNode.toString() + SwingLocale.getString("quotation_right") + " " +  SwingLocale.getString("refresh_no_permission"), SwingLocale.getString("warning"), JBasicOptionPane.WARNING_MESSAGE);
 					return;
 				}
 				
@@ -269,7 +268,7 @@ public class LazyLoaderTreeController
 		TreeNode treeNode = lazyLoaderTree.getSelectionTreeNode();
 		if (!(treeNode instanceof JLazyLoaderTreeNode))
 		{
-			JBasicOptionPane.showMessageDialog(HandleManager.getFrame((JTree) lazyLoaderTree), SwingLocale.getString("node") + " " + UtilityLocale.getString("quotation_left") + treeNode.toString() + UtilityLocale.getString("quotation_right") + " " + SwingLocale.getString("load_forbidden"), SwingLocale.getString("warning"), JBasicOptionPane.WARNING_MESSAGE);
+			JBasicOptionPane.showMessageDialog(HandleManager.getFrame((JTree) lazyLoaderTree), SwingLocale.getString("node") + " " + SwingLocale.getString("quotation_left") + treeNode.toString() + SwingLocale.getString("quotation_right") + " " + SwingLocale.getString("load_forbidden"), SwingLocale.getString("warning"), JBasicOptionPane.WARNING_MESSAGE);
 			return false;
 		}
 		return true;
@@ -289,7 +288,7 @@ public class LazyLoaderTreeController
 			TreeNode treeNode = treeNodes[i];
 			if (!(treeNode instanceof JLazyLoaderTreeNode))
 			{
-				JBasicOptionPane.showMessageDialog(HandleManager.getFrame((JTree) lazyLoaderTree), SwingLocale.getString("node") + " " + UtilityLocale.getString("quotation_left") + treeNode.toString() + UtilityLocale.getString("quotation_right") + " " + SwingLocale.getString("load_forbidden"), SwingLocale.getString("warning"), JBasicOptionPane.WARNING_MESSAGE);
+				JBasicOptionPane.showMessageDialog(HandleManager.getFrame((JTree) lazyLoaderTree), SwingLocale.getString("node") + " " + SwingLocale.getString("quotation_left") + treeNode.toString() + SwingLocale.getString("quotation_right") + " " + SwingLocale.getString("load_forbidden"), SwingLocale.getString("warning"), JBasicOptionPane.WARNING_MESSAGE);
 				return false;
 			}
 		}
@@ -307,7 +306,7 @@ public class LazyLoaderTreeController
 		TreeNode treeNode = lazyLoaderTree.getSelectionTreeNode();
 		if (!(treeNode instanceof JLazyLoaderTreeNode) && !(treeNode instanceof LoadingTreeNode))
 		{
-			JBasicOptionPane.showMessageDialog(HandleManager.getFrame((JTree) lazyLoaderTree), SwingLocale.getString("node") + " " + UtilityLocale.getString("quotation_left") + treeNode.toString() + UtilityLocale.getString("quotation_right") + " " + SwingLocale.getString("cancel_load_forbidden"), SwingLocale.getString("warning"), JBasicOptionPane.WARNING_MESSAGE);
+			JBasicOptionPane.showMessageDialog(HandleManager.getFrame((JTree) lazyLoaderTree), SwingLocale.getString("node") + " " + SwingLocale.getString("quotation_left") + treeNode.toString() + SwingLocale.getString("quotation_right") + " " + SwingLocale.getString("cancel_load_forbidden"), SwingLocale.getString("warning"), JBasicOptionPane.WARNING_MESSAGE);
 			return false;
 		}
 		return true;
@@ -327,7 +326,7 @@ public class LazyLoaderTreeController
 			TreeNode treeNode = treeNodes[i];
 			if (!(treeNode instanceof JLazyLoaderTreeNode) && !(treeNode instanceof LoadingTreeNode))
 			{
-				JBasicOptionPane.showMessageDialog(HandleManager.getFrame((JTree) lazyLoaderTree), SwingLocale.getString("node") + " " + UtilityLocale.getString("quotation_left") + treeNode.toString() + UtilityLocale.getString("quotation_right") + " " + SwingLocale.getString("cancel_load_forbidden"), SwingLocale.getString("warning"), JBasicOptionPane.WARNING_MESSAGE);
+				JBasicOptionPane.showMessageDialog(HandleManager.getFrame((JTree) lazyLoaderTree), SwingLocale.getString("node") + " " + SwingLocale.getString("quotation_left") + treeNode.toString() + SwingLocale.getString("quotation_right") + " " + SwingLocale.getString("cancel_load_forbidden"), SwingLocale.getString("warning"), JBasicOptionPane.WARNING_MESSAGE);
 				return false;
 			}
 		}

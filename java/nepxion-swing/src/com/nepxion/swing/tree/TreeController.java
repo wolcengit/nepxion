@@ -25,7 +25,6 @@ import com.nepxion.swing.icon.IconFactory;
 import com.nepxion.swing.keystroke.KeyStrokeManager;
 import com.nepxion.swing.locale.SwingLocale;
 import com.nepxion.swing.optionpane.JBasicOptionPane;
-import com.nepxion.util.locale.UtilityLocale;
 
 public class TreeController
 {
@@ -40,7 +39,7 @@ public class TreeController
 		DefaultMutableTreeNode treeNode = (DefaultMutableTreeNode) TreeManager.getSelectionTreeNode(tree);
 		if (!treeAdapter.addTreeNodePermitted(treeNode))
 		{
-			JBasicOptionPane.showMessageDialog(HandleManager.getFrame(tree), SwingLocale.getString("node") + " " + UtilityLocale.getString("quotation_left") + treeNode.toString() + UtilityLocale.getString("quotation_right") + " " + SwingLocale.getString("add_node_no_permission"), SwingLocale.getString("warning"), JBasicOptionPane.WARNING_MESSAGE);
+			JBasicOptionPane.showMessageDialog(HandleManager.getFrame(tree), SwingLocale.getString("node") + " " + SwingLocale.getString("quotation_left") + treeNode.toString() + SwingLocale.getString("quotation_right") + " " + SwingLocale.getString("add_node_no_permission"), SwingLocale.getString("warning"), JBasicOptionPane.WARNING_MESSAGE);
 			return;
 		}	
 		
@@ -63,7 +62,7 @@ public class TreeController
 		
 		if (!treeAdapter.modifyTreeNodePermitted(treeNode))
 		{
-			JBasicOptionPane.showMessageDialog(HandleManager.getFrame(tree), SwingLocale.getString("node") + " " + UtilityLocale.getString("quotation_left") + treeNode.toString() + UtilityLocale.getString("quotation_right") + " " + SwingLocale.getString("modify_no_permission"), SwingLocale.getString("warning"), JBasicOptionPane.WARNING_MESSAGE);
+			JBasicOptionPane.showMessageDialog(HandleManager.getFrame(tree), SwingLocale.getString("node") + " " + SwingLocale.getString("quotation_left") + treeNode.toString() + SwingLocale.getString("quotation_right") + " " + SwingLocale.getString("modify_no_permission"), SwingLocale.getString("warning"), JBasicOptionPane.WARNING_MESSAGE);
 			return;
 		}
 		
@@ -84,11 +83,11 @@ public class TreeController
 			DefaultMutableTreeNode treeNode = (DefaultMutableTreeNode) TreeManager.getSelectionTreeNode(tree);
 			if (!treeAdapter.deleteTreeNodePermitted(treeNode))
 			{
-				JBasicOptionPane.showMessageDialog(HandleManager.getFrame(tree), SwingLocale.getString("node") + " " + UtilityLocale.getString("quotation_left") + treeNode.toString() + UtilityLocale.getString("quotation_right") + " " + SwingLocale.getString("delete_no_permission"), SwingLocale.getString("warning"), JBasicOptionPane.WARNING_MESSAGE);
+				JBasicOptionPane.showMessageDialog(HandleManager.getFrame(tree), SwingLocale.getString("node") + " " + SwingLocale.getString("quotation_left") + treeNode.toString() + SwingLocale.getString("quotation_right") + " " + SwingLocale.getString("delete_no_permission"), SwingLocale.getString("warning"), JBasicOptionPane.WARNING_MESSAGE);
 				return;
 			}
 			
-			int selectedValue = JBasicOptionPane.showConfirmDialog(HandleManager.getFrame(tree), SwingLocale.getString("confirm_to_delete_node") + " " + UtilityLocale.getString("quotation_left") + treeNode.toString() + UtilityLocale.getString("quotation_right") + " " + SwingLocale.getString("interrogation"), SwingLocale.getString("confirm"), JBasicOptionPane.YES_NO_OPTION);
+			int selectedValue = JBasicOptionPane.showConfirmDialog(HandleManager.getFrame(tree), SwingLocale.getString("confirm_to_delete_node") + " " + SwingLocale.getString("quotation_left") + treeNode.toString() + SwingLocale.getString("quotation_right") + " " + SwingLocale.getString("interrogation"), SwingLocale.getString("confirm"), JBasicOptionPane.YES_NO_OPTION);
 			if (selectedValue != JBasicOptionPane.YES_OPTION)
 			{
 				return;
@@ -135,7 +134,7 @@ public class TreeController
 		ElementNode treeNode = (ElementNode) TreeManager.getSelectionTreeNode(tree);
 		if (!treeAdapter.renameTreeNodePermitted(treeNode))
 		{
-			JBasicOptionPane.showMessageDialog(HandleManager.getFrame(tree), SwingLocale.getString("node") + " " + UtilityLocale.getString("quotation_left") + treeNode.toString() + UtilityLocale.getString("quotation_right") + " " + SwingLocale.getString("rename_no_permission"), SwingLocale.getString("warning"), JBasicOptionPane.WARNING_MESSAGE);
+			JBasicOptionPane.showMessageDialog(HandleManager.getFrame(tree), SwingLocale.getString("node") + " " + SwingLocale.getString("quotation_left") + treeNode.toString() + SwingLocale.getString("quotation_right") + " " + SwingLocale.getString("rename_no_permission"), SwingLocale.getString("warning"), JBasicOptionPane.WARNING_MESSAGE);
 			return;
 		}		
 		
@@ -165,7 +164,7 @@ public class TreeController
 		
 		if (!treeAdapter.moveUpTreeNodePermitted(treeNode))
 		{
-			JBasicOptionPane.showMessageDialog(HandleManager.getFrame(tree), SwingLocale.getString("node") + " " + UtilityLocale.getString("quotation_left") + treeNode.toString() + UtilityLocale.getString("quotation_right") + " " + SwingLocale.getString("move_up_no_permission"), SwingLocale.getString("warning"), JBasicOptionPane.WARNING_MESSAGE);
+			JBasicOptionPane.showMessageDialog(HandleManager.getFrame(tree), SwingLocale.getString("node") + " " + SwingLocale.getString("quotation_left") + treeNode.toString() + SwingLocale.getString("quotation_right") + " " + SwingLocale.getString("move_up_no_permission"), SwingLocale.getString("warning"), JBasicOptionPane.WARNING_MESSAGE);
 			return;
 		}
 		
@@ -189,7 +188,7 @@ public class TreeController
 		
 		if (!treeAdapter.moveDownTreeNodePermitted(treeNode))
 		{
-			JBasicOptionPane.showMessageDialog(HandleManager.getFrame(tree), SwingLocale.getString("node") + " " + UtilityLocale.getString("quotation_left") + treeNode.toString() + UtilityLocale.getString("quotation_right") + " " + SwingLocale.getString("move_down_no_permission"), SwingLocale.getString("warning"), JBasicOptionPane.WARNING_MESSAGE);
+			JBasicOptionPane.showMessageDialog(HandleManager.getFrame(tree), SwingLocale.getString("node") + " " + SwingLocale.getString("quotation_left") + treeNode.toString() + SwingLocale.getString("quotation_right") + " " + SwingLocale.getString("move_down_no_permission"), SwingLocale.getString("warning"), JBasicOptionPane.WARNING_MESSAGE);
 			return;
 		}
 		
@@ -268,12 +267,12 @@ public class TreeController
 		TreePath[] treePaths = tree.getSelectionPaths();
 		if (treePaths == null)
 		{
-			JBasicOptionPane.showMessageDialog(HandleManager.getFrame(tree), SwingLocale.getString("select_nodes_to") + " " + UtilityLocale.getString("quotation_left") + operationName + UtilityLocale.getString("quotation_right"), SwingLocale.getString("warning"), JBasicOptionPane.WARNING_MESSAGE);
+			JBasicOptionPane.showMessageDialog(HandleManager.getFrame(tree), SwingLocale.getString("select_nodes_to") + " " + SwingLocale.getString("quotation_left") + operationName + SwingLocale.getString("quotation_right"), SwingLocale.getString("warning"), JBasicOptionPane.WARNING_MESSAGE);
 			return false;
 		}
 		if (treePaths.length != 1)
 		{
-			JBasicOptionPane.showMessageDialog(HandleManager.getFrame(tree), SwingLocale.getString("select_one_node_to") + " " + UtilityLocale.getString("quotation_left") + operationName + UtilityLocale.getString("quotation_right"), SwingLocale.getString("warning"), JBasicOptionPane.WARNING_MESSAGE);
+			JBasicOptionPane.showMessageDialog(HandleManager.getFrame(tree), SwingLocale.getString("select_one_node_to") + " " + SwingLocale.getString("quotation_left") + operationName + SwingLocale.getString("quotation_right"), SwingLocale.getString("warning"), JBasicOptionPane.WARNING_MESSAGE);
 			return false;
 		}
 		return true;
@@ -284,7 +283,7 @@ public class TreeController
 		TreePath[] treePaths = tree.getSelectionPaths();
 		if (treePaths == null)
 		{
-			JBasicOptionPane.showMessageDialog(HandleManager.getFrame(tree), SwingLocale.getString("select_nodes_to") + " " + UtilityLocale.getString("quotation_left") + operationName + UtilityLocale.getString("quotation_right"), SwingLocale.getString("warning"), JBasicOptionPane.WARNING_MESSAGE);
+			JBasicOptionPane.showMessageDialog(HandleManager.getFrame(tree), SwingLocale.getString("select_nodes_to") + " " + SwingLocale.getString("quotation_left") + operationName + SwingLocale.getString("quotation_right"), SwingLocale.getString("warning"), JBasicOptionPane.WARNING_MESSAGE);
 			return false;
 		}
 		return true;

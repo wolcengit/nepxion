@@ -24,7 +24,6 @@ import com.nepxion.swing.keystroke.KeyStrokeManager;
 import com.nepxion.swing.locale.SwingLocale;
 import com.nepxion.swing.optionpane.JBasicOptionPane;
 import com.nepxion.swing.table.sortable.SortableTableModel;
-import com.nepxion.util.locale.UtilityLocale;
 
 public class TableController
 {
@@ -258,12 +257,12 @@ public class TableController
 		int[] selectedRows = table.getSelectedRows();
 		if (selectedRows == null || selectedRows.length == 0)
 		{
-			JBasicOptionPane.showMessageDialog(HandleManager.getFrame(table), SwingLocale.getString("select_records_to") + " " + UtilityLocale.getString("quotation_left") + operationName + UtilityLocale.getString("quotation_right"), SwingLocale.getString("warning"), JBasicOptionPane.WARNING_MESSAGE);
+			JBasicOptionPane.showMessageDialog(HandleManager.getFrame(table), SwingLocale.getString("select_records_to") + " " + SwingLocale.getString("quotation_left") + operationName + SwingLocale.getString("quotation_right"), SwingLocale.getString("warning"), JBasicOptionPane.WARNING_MESSAGE);
 			return false;
 		}
 		if (selectedRows.length != 1)
 		{
-			JBasicOptionPane.showMessageDialog(HandleManager.getFrame(table), SwingLocale.getString("select_one_node_to") + " " + UtilityLocale.getString("quotation_left") + operationName + UtilityLocale.getString("quotation_right"), SwingLocale.getString("warning"), JBasicOptionPane.WARNING_MESSAGE);
+			JBasicOptionPane.showMessageDialog(HandleManager.getFrame(table), SwingLocale.getString("select_one_node_to") + " " + SwingLocale.getString("quotation_left") + operationName + SwingLocale.getString("quotation_right"), SwingLocale.getString("warning"), JBasicOptionPane.WARNING_MESSAGE);
 			return false;
 		}
 		return true;
@@ -274,7 +273,7 @@ public class TableController
 		int[] selectedRows = table.getSelectedRows();
 		if (selectedRows == null || selectedRows.length == 0)
 		{
-			JBasicOptionPane.showMessageDialog(HandleManager.getFrame(table), SwingLocale.getString("select_records_to") + " " + UtilityLocale.getString("quotation_left") + operationName + UtilityLocale.getString("quotation_right"), SwingLocale.getString("warning"), JBasicOptionPane.WARNING_MESSAGE);
+			JBasicOptionPane.showMessageDialog(HandleManager.getFrame(table), SwingLocale.getString("select_records_to") + " " + SwingLocale.getString("quotation_left") + operationName + SwingLocale.getString("quotation_right"), SwingLocale.getString("warning"), JBasicOptionPane.WARNING_MESSAGE);
 			return false;
 		}
 		return true;

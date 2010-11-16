@@ -16,7 +16,6 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableCellRenderer;
 
 import com.nepxion.swing.locale.SwingLocale;
-import com.nepxion.util.locale.UtilityLocale;
 
 public class TableBooleanCellRenderer
 	extends DefaultTableCellRenderer
@@ -47,7 +46,7 @@ public class TableBooleanCellRenderer
 			}
 			else
 			{
-				text = UtilityLocale.getString("unknown");
+				text = SwingLocale.getString("unknown");
 			}
 			setText(text);
 		}
