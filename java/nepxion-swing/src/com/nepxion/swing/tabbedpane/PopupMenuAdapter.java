@@ -61,10 +61,12 @@ public class PopupMenuAdapter
 			public void actionPerformed(ActionEvent e)
 			{
 				int selectedValue = JBasicOptionPane.showConfirmDialog(HandleManager.getFrame((Component) tabbedPane), SwingLocale.getString("confirm_to_close_all_tabs"), SwingLocale.getString("confirm"), JBasicOptionPane.YES_NO_OPTION);
-				if (selectedValue == JBasicOptionPane.YES_OPTION)
+				if (selectedValue != JBasicOptionPane.YES_OPTION)
 				{
-					tabbedPane.removeAllTabs();
+					return;
 				}
+				
+				tabbedPane.removeAllTabs();
 			}
 		}
 		);
@@ -76,11 +78,13 @@ public class PopupMenuAdapter
 			public void actionPerformed(ActionEvent e)
 			{
 				int selectedValue = JBasicOptionPane.showConfirmDialog(HandleManager.getFrame((Component) tabbedPane), SwingLocale.getString("confirm_to_close_others_tabs"), SwingLocale.getString("confirm"), JBasicOptionPane.YES_NO_OPTION);
-				if (selectedValue == JBasicOptionPane.YES_OPTION)
+				if (selectedValue != JBasicOptionPane.YES_OPTION)
 				{
-					int selectedIndex = tabbedPane.getSelectedIndex();
-					tabbedPane.removeReverseTabsAt(selectedIndex);
+					return;
 				}
+				
+				int selectedIndex = tabbedPane.getSelectedIndex();
+				tabbedPane.removeReverseTabsAt(selectedIndex);
 			}
 		}
 		);
