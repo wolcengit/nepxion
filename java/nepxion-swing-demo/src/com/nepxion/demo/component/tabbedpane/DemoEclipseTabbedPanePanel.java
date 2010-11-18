@@ -67,10 +67,12 @@ public class DemoEclipseTabbedPanePanel
 			    {
 			        String title = getTitleAt(index);
 			        int selectedValue = JBasicOptionPane.showConfirmDialog(HandleManager.getFrame(DemoEclipseTabbedPanePanel.this), "'" + title + "' is modified, sure to close it?", "Close", JBasicOptionPane.YES_NO_OPTION);
-			        if (selectedValue == JBasicOptionPane.YES_OPTION)
+			        if (selectedValue != JBasicOptionPane.YES_OPTION)
 			        {
-			            super.removeTabAt(index);
+			            return;
 			        }
+			        
+			        super.removeTabAt(index);
 			    }			    
 			};	
 			
