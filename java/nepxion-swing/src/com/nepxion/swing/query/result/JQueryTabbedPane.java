@@ -10,6 +10,8 @@ package com.nepxion.swing.query.result;
  * @version 1.0
  */
 
+import java.awt.Component;
+
 import com.nepxion.swing.handle.HandleManager;
 import com.nepxion.swing.icon.IconFactory;
 import com.nepxion.swing.locale.SwingLocale;
@@ -38,5 +40,41 @@ public class JQueryTabbedPane
 		}
 		
 		super.removeTabAt(index);
+	}
+	
+	public JQueryThreadContainer getQueryThreadContainer(int index)
+	{
+		Component component = getComponentAt(index);
+		if (component != null && component instanceof JQueryThreadContainer)
+		{
+			return (JQueryThreadContainer) component;
+		}
+		
+		return null;
+	}
+	
+	public JQueryThreadContainer getLastQueryThreadContainer()
+	{
+		int index = getTabCount() - 1;
+		
+		return getQueryThreadContainer(index);
+	}
+	
+	public int getQueryThreadContainerIndex(int index)
+	{
+		JQueryThreadContainer queryThreadContainer = getQueryThreadContainer(index);
+		if (queryThreadContainer != null)
+		{
+			return queryThreadContainer.getIndex();
+		}	
+		
+		return 0;
+	}
+	
+	public int getLastQueryThreadContainerIndex()
+	{
+		int index = getTabCount() - 1;
+		
+		return getQueryThreadContainerIndex(index);
 	}
 }

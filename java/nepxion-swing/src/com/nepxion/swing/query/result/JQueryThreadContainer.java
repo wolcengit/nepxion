@@ -17,6 +17,8 @@ import com.nepxion.swing.thread.container.JThreadContainer;
 public abstract class JQueryThreadContainer
 	extends JThreadContainer
 {
+	private int index = 0;
+	
 	public JQueryThreadContainer(String queryTarget)
 	{
 		super(SwingLocale.getString("query_and_wait"));
@@ -28,6 +30,16 @@ public abstract class JQueryThreadContainer
 		setWidth(300);
 		
 		showInformation();
+	}
+	
+	public int getIndex()
+	{
+		return index;
+	}
+	
+	public void setIndex(int index)
+	{
+		this.index = index;
 	}
 	
 	public boolean isLoadCache()
