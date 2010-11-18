@@ -59,22 +59,4 @@ public class JQueryTabbedPane
 		
 		return getQueryThreadContainer(index);
 	}
-	
-	public int getQueryThreadContainerIndex(int index)
-	{
-		JQueryThreadContainer queryThreadContainer = getQueryThreadContainer(index);
-		if (queryThreadContainer != null)
-		{
-			return queryThreadContainer.getIndex();
-		}	
-		
-		return 0;
-	}
-	
-	public int getLastQueryThreadContainerIndex()
-	{
-		int index = getTabCount() - 1;
-		
-		return getQueryThreadContainerIndex(index);
-	}
 }

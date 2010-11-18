@@ -10,6 +10,7 @@ package com.nepxion.swing.query.result;
  * @version 1.0
  */
 
+import com.nepxion.swing.element.ElementNode;
 import com.nepxion.swing.icon.IconFactory;
 import com.nepxion.swing.locale.SwingLocale;
 import com.nepxion.swing.thread.container.JThreadContainer;
@@ -17,11 +18,13 @@ import com.nepxion.swing.thread.container.JThreadContainer;
 public abstract class JQueryThreadContainer
 	extends JThreadContainer
 {
-	private int index = 0;
+	private ElementNode elementNode;
 	
 	public JQueryThreadContainer(String queryTarget)
 	{
 		super(SwingLocale.getString("query_and_wait"));
+		
+		elementNode = new ElementNode();
 		
 		setInformationText(SwingLocale.getString("query") + " " + SwingLocale.getString("quotation_left") + queryTarget + SwingLocale.getString("quotation_right") + " " + SwingLocale.getString("relative_data"));
 		setInformationIcon(IconFactory.getSwingIcon("banner/query_128.png"));
@@ -32,14 +35,14 @@ public abstract class JQueryThreadContainer
 		showInformation();
 	}
 	
-	public int getIndex()
+	public ElementNode getElementNode()
 	{
-		return index;
+		return elementNode;
 	}
 	
-	public void setIndex(int index)
+	public void setElementNode(ElementNode elementNode)
 	{
-		this.index = index;
+		this.elementNode = elementNode;
 	}
 	
 	public boolean isLoadCache()
