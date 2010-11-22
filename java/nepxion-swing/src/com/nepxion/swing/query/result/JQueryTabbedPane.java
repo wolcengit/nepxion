@@ -44,6 +44,12 @@ public class JQueryTabbedPane
 	
 	public JQueryThreadContainer getQueryThreadContainer(int index)
 	{
+		int tabCount = getTabCount();
+		if (tabCount == 0)
+		{
+			return null;			
+		}	
+		
 		Component component = getComponentAt(index);
 		if (component != null && component instanceof JQueryThreadContainer)
 		{
