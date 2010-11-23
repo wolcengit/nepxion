@@ -12,10 +12,8 @@ package com.nepxion.swing.query.result;
 
 import java.awt.Component;
 
-import com.nepxion.swing.handle.HandleManager;
 import com.nepxion.swing.icon.IconFactory;
 import com.nepxion.swing.locale.SwingLocale;
-import com.nepxion.swing.optionpane.JBasicOptionPane;
 import com.nepxion.swing.panel.JInformationPanel;
 import com.nepxion.swing.popupmenu.JDecorationPopupMenu;
 import com.nepxion.swing.tabbedpane.JEclipseTabbedPane;
@@ -31,7 +29,7 @@ public class JQueryTabbedPane
 		setPopupMenu(new JDecorationPopupMenu(), true);
 	}
 	
-	public void removeTabAt(int index)
+	/*public void removeTabAt(int index)
 	{
 		int selectedValue = JBasicOptionPane.showConfirmDialog(HandleManager.getFrame(this), SwingLocale.getString("confirm_to_close_selected_tab"), SwingLocale.getString("confirm"), JBasicOptionPane.YES_NO_OPTION);
 		if (selectedValue != JBasicOptionPane.YES_OPTION)
@@ -40,7 +38,7 @@ public class JQueryTabbedPane
 		}
 		
 		super.removeTabAt(index);
-	}
+	}*/
 	
 	public JQueryThreadContainer getQueryThreadContainer(int index)
 	{
