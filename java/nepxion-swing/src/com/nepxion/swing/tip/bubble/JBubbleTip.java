@@ -159,7 +159,7 @@ public abstract class JBubbleTip
 			iconPanel.setLayout(new BorderLayout());
 			iconPanel.setBackground(background);
 			iconPanel.setBorder(BorderFactory.createEmptyBorder(5, 0, 0, 0));
-			iconPanel.add(new JLabel(IconFactory.getSwingIcon("alarm.png")), BorderLayout.NORTH);
+			iconPanel.add(new JLabel(IconFactory.getSwingIcon("tip.png")), BorderLayout.NORTH);
 			
 			messageTextArea = new JBasicTextArea();
 			messageTextArea.setBackground(background);
