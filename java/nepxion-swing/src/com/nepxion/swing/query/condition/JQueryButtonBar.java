@@ -33,9 +33,9 @@ public class JQueryButtonBar
 		setBorder(BorderFactory.createEmptyBorder(5, 0, 5, 0));
 		setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
 		add(Box.createHorizontalGlue());
-		add(resetButton);
+		add(queryButton);		
 		add(Box.createHorizontalStrut(10));
-		add(queryButton);
+		add(resetButton);
 		add(Box.createHorizontalGlue());
 	}
 	
