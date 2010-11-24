@@ -23,29 +23,21 @@ public class JQueryButtonBar
 	extends JPanel
 {
 	private JClassicButton queryButton;
-	private JClassicButton resetButton;
 	
 	public JQueryButtonBar()
 	{
 		queryButton = new JClassicButton(SwingLocale.getString("query"), IconFactory.getSwingIcon("query.png"), SwingLocale.getString("query"));
-		resetButton = new JClassicButton(SwingLocale.getString("reset"), IconFactory.getSwingIcon("edit.png"), SwingLocale.getString("reset"));
+		// resetButton = new JClassicButton(SwingLocale.getString("reset"), IconFactory.getSwingIcon("edit.png"), SwingLocale.getString("reset"));
 		
 		setBorder(BorderFactory.createEmptyBorder(5, 0, 5, 0));
 		setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
 		add(Box.createHorizontalGlue());
-		add(queryButton);		
-		add(Box.createHorizontalStrut(10));
-		add(resetButton);
+		add(queryButton);
 		add(Box.createHorizontalGlue());
 	}
 	
 	public JClassicButton getQueryButton()
 	{
 		return queryButton;
-	}
-	
-	public JClassicButton getResetButton()
-	{
-		return resetButton;
 	}
 }
