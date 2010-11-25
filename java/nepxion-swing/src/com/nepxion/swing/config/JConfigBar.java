@@ -10,11 +10,13 @@ package com.nepxion.swing.config;
  * @version 1.0
  */
 
+import java.awt.BorderLayout;
+import java.awt.Container;
+import java.awt.Dimension;
 import java.util.Enumeration;
 
 import javax.swing.JPanel;
 
-import com.nepxion.swing.layout.table.TableLayout;
 import com.nepxion.swing.scrollpane.JBasicScrollPane;
 import com.nepxion.swing.toggle.ITogglePanel;
 import com.nepxion.swing.toggle.JToggleActionButton;
@@ -30,32 +32,29 @@ public class JConfigBar
 		configButtonBar = new JConfigButtonBar();
 		configContentPanel = new JConfigContentPanel();
 		
-		double[][] size = 
-		{
-			{100, 10, 420}, 
-			{470}
-		};
-		setLayout(new TableLayout(size));
-		add(new JBasicScrollPane(configButtonBar), "0, 0");
-		add(configContentPanel, "2, 0");
+		setLayout(new BorderLayout(10, 0));
+		add(new JBasicScrollPane(configButtonBar), BorderLayout.WEST);
+		add(configContentPanel, BorderLayout.CENTER);
+		
+		setConfigButtonBarWidth(80);
+		setConfigContentPanelWidth(450);
+		setHeight(480);
 	}
 	
-	public void setConfigButtonBarWidth(int width)
+	public void setConfigButtonBarWidth(int configButtonBarWidth)
 	{
-		TableLayout tableLayout = (TableLayout) getLayout();
-		tableLayout.setColumn(0, width);
+		Container configButtonBarContainer = configButtonBar.getParent();
+		configButtonBarContainer.setPreferredSize(new Dimension(configButtonBarWidth, configButtonBarContainer.getPreferredSize().height));
 	}
 	
-	public void setConfigContentPanelWidth(int width)
+	public void setConfigContentPanelWidth(int configContentPanelWidth)
 	{
-		TableLayout tableLayout = (TableLayout) getLayout();
-		tableLayout.setColumn(2, width);
+		configContentPanel.setPreferredSize(new Dimension(configContentPanelWidth, configContentPanel.getPreferredSize().height));
 	}
 	
 	public void setHeight(int height)
 	{
-		TableLayout tableLayout = (TableLayout) getLayout();
-		tableLayout.setRow(0, height);
+		setPreferredSize(new Dimension(getPreferredSize().width, height));
 	}
 	
 	public JConfigButtonBar getConfigButtonBar()
