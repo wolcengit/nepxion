@@ -34,6 +34,7 @@ import javax.swing.border.Border;
 import com.nepxion.swing.button.JClassicButton;
 import com.nepxion.swing.combobox.JBasicComboBox;
 import com.nepxion.swing.element.ElementNode;
+import com.nepxion.swing.icon.IconFactory;
 import com.nepxion.swing.layout.filed.FiledLayout;
 import com.nepxion.swing.layout.table.TableLayout;
 import com.nepxion.swing.locale.SwingLocale;
@@ -248,12 +249,14 @@ public abstract class JLoginDialog
 		localeLabel.setText(SwingLocale.getString("locale", locale) + SwingLocale.getString("colon", locale));
 		
 		Locale[] locales = LocaleConstants.LOCALE_LIST;
+		String[] icons = {"flag_cn.png", "flag_us.png"};
 		ElementNode[] elementNodes = new ElementNode[locales.length];
 		for (int i = 0; i < locales.length; i++)
 		{
 			Locale l = locales[i];
+			String icon = icons[i];
 			String text = SwingLocale.getString(l.toString().toLowerCase(), locale);
-			elementNodes[i] = new ElementNode(text, null, text, l);
+			elementNodes[i] = new ElementNode(text, IconFactory.getSwingIcon(icon), text, l);
 		}
 		localeComboBox.setModel(new DefaultComboBoxModel(elementNodes));
 		

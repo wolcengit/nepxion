@@ -10,17 +10,14 @@ package com.nepxion.swing.table;
  * @version 1.0
  */
 
-import java.awt.Dimension;
-
 import javax.swing.JTable;
-import javax.swing.table.JTableHeader;
 
 public class TableManager
 {
 	public static void setPreferenceStyle(JTable table)
 	{
-		JTableHeader tableHeader = table.getTableHeader();
-		tableHeader.setPreferredSize(new Dimension(tableHeader.getPreferredSize().width, 18));
+		// JTableHeader tableHeader = table.getTableHeader();
+		// tableHeader.setPreferredSize(new Dimension(tableHeader.getPreferredSize().width, 18));
 		// tableHeader.setBackground(UIManager.getColor("Panel.background"));
 		// tableHeader.setReorderingAllowed(false);
 	}
