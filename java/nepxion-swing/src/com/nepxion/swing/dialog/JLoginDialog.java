@@ -249,14 +249,14 @@ public abstract class JLoginDialog
 		localeLabel.setText(SwingLocale.getString("language", locale) + SwingLocale.getString("colon", locale));
 		
 		Locale[] locales = LocaleConstants.LOCALE_LIST;
-		String[] icons = {"flag_cn.png", "flag_us.png"};
 		ElementNode[] elementNodes = new ElementNode[locales.length];
 		for (int i = 0; i < locales.length; i++)
 		{
-			Locale l = locales[i];
-			String icon = icons[i];
-			String text = SwingLocale.getString(l.toString().toLowerCase(), locale);
-			elementNodes[i] = new ElementNode(text, IconFactory.getSwingIcon(icon), text, l);
+			Locale localeEntity = locales[i];
+			String localeName = localeEntity.toString().toLowerCase();
+			String icon = "flag_" + localeName + ".png";
+			String text = SwingLocale.getString(localeName, locale);
+			elementNodes[i] = new ElementNode(text, IconFactory.getSwingIcon(icon), text, localeEntity);
 		}
 		localeComboBox.setModel(new DefaultComboBoxModel(elementNodes));
 		
