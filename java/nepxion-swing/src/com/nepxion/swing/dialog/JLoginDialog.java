@@ -246,7 +246,7 @@ public abstract class JLoginDialog
 	{
 		accountLabel.setText(SwingLocale.getString("account", locale) + SwingLocale.getString("colon", locale));
 		passwordLabel.setText(SwingLocale.getString("password", locale) + SwingLocale.getString("colon", locale));
-		localeLabel.setText(SwingLocale.getString("locale", locale) + SwingLocale.getString("colon", locale));
+		localeLabel.setText(SwingLocale.getString("language", locale) + SwingLocale.getString("colon", locale));
 		
 		Locale[] locales = LocaleConstants.LOCALE_LIST;
 		String[] icons = {"flag_cn.png", "flag_us.png"};
