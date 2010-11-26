@@ -253,10 +253,10 @@ public abstract class JLoginDialog
 		for (int i = 0; i < locales.length; i++)
 		{
 			Locale localeEntity = locales[i];
-			String localeName = localeEntity.toString().toLowerCase();
-			String icon = "flag_" + localeName + ".png";
+			String localeName = localeEntity.toString().toLowerCase();			
 			String text = SwingLocale.getString(localeName, locale);
-			elementNodes[i] = new ElementNode(text, IconFactory.getSwingIcon(icon), text, localeEntity);
+			Icon icon = IconFactory.getSwingIcon("flag_" + localeName + ".png");
+			elementNodes[i] = new ElementNode(text, icon, text, localeEntity);
 		}
 		localeComboBox.setModel(new DefaultComboBoxModel(elementNodes));
 		
