@@ -40,10 +40,6 @@ public class JPreferenceButtonBar
 		}
 		);
 		
-		setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-		setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
-		add(saveButton);
-		
 		refreshButton = new JBasicButton(SwingLocale.getString("refresh"), IconFactory.getSwingIcon("solid/refresh_16.png"), SwingLocale.getString("refresh"));
 		refreshButton.addActionListener(new ActionListener()
 		{
