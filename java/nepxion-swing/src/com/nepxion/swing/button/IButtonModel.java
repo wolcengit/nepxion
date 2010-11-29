@@ -10,28 +10,11 @@ package com.nepxion.swing.button;
  * @version 1.0
  */
 
+import javax.swing.ButtonModel;
+
 public abstract interface IButtonModel
-{
-	public boolean isRollover();
-	
-	public void setRollover(boolean isRollover);
-	
-	public boolean isArmed();
-	
-	public void setArmed(boolean isArmed);
-	
-	public boolean isPressed();
-	
-	public void setPressed(boolean isPressed);
-	
-	public boolean isSelected();
-	
-	public void setSelected(boolean isSelected);
-	
-	public boolean isEnabled();
-	
-	public void setEnabled(boolean isEnabled);
-	
+	extends ButtonModel
+{	
 	public boolean isMenuDropDown();
 	
 	public void setMenuDropDown(boolean isMenuDropDown);

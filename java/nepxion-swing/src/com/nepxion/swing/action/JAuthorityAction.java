@@ -23,7 +23,7 @@ import com.nepxion.swing.optionpane.JBasicOptionPane;
 public abstract class JAuthorityAction
 	extends JAction
 {
-	private boolean isAllowed = true;
+	private boolean isPermitted = true;
 	
 	public JAuthorityAction()
 	{
@@ -50,19 +50,19 @@ public abstract class JAuthorityAction
 		super(name, icon, toolTipText);
 	}
 	
-	public boolean isAllowed()
+	public boolean isPermitted()
 	{
-		return isAllowed;
+		return isPermitted;
 	}
 	
-	public void setAllowed(boolean isAllowed)
+	public void setPermitted(boolean isPermitted)
 	{
-		this.isAllowed = isAllowed;
+		this.isPermitted = isPermitted;
 	}
 	
 	public void actionPerformed(ActionEvent e)
 	{
-		if (isAllowed())
+		if (isPermitted())
 		{
 			execute(e);
 		}

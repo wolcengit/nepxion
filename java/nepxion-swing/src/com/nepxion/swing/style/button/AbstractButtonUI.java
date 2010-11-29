@@ -14,6 +14,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 
 import javax.swing.AbstractButton;
+import javax.swing.Action;
 import javax.swing.BorderFactory;
 import javax.swing.JComponent;
 import javax.swing.UIManager;
@@ -60,6 +61,16 @@ public abstract class AbstractButtonUI
 	{
 		AbstractButton button = (AbstractButton) c;
 		IButtonModel buttonModel = (IButtonModel) button.getModel();
+		
+		Action action = button.getAction();
+		if (action != null)
+		{
+			if (!action.isEnabled())
+			{
+				buttonModel.setEnabled(false);
+			}
+		}	
+		
 		Color background = g.getColor();
 		if (buttonModel.isMenuDropDown())
 		{
