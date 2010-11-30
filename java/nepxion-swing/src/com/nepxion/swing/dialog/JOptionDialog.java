@@ -41,105 +41,105 @@ public class JOptionDialog
 	{
 		super(owner, title);
 		
-		initComponents();		
-	}	
+		initComponents();
+	}
 	
 	public JOptionDialog(Frame owner, String title, Dimension dimension)
 	{
 		super(owner, title, dimension);
 		
-		initComponents();		
+		initComponents();
 	}
 	
 	public JOptionDialog(Dialog owner, String title, Dimension dimension)
 	{
 		super(owner, title, dimension);
 		
-		initComponents();		
+		initComponents();
 	}
 	
 	public JOptionDialog(Frame owner, String title, boolean modal)
 	{
 		super(owner, title, modal);
 		
-		initComponents();		
+		initComponents();
 	}
 	
 	public JOptionDialog(Dialog owner, String title, boolean modal)
 	{
 		super(owner, title, modal);
 		
-		initComponents();		
-	}	
+		initComponents();
+	}
 	
 	public JOptionDialog(Frame owner, String title, Dimension dimension, boolean modal)
 	{
 		super(owner, title, dimension, modal);
 		
-		initComponents();		
+		initComponents();
 	}
 	
 	public JOptionDialog(Dialog owner, String title, Dimension dimension, boolean modal)
 	{
 		super(owner, title, dimension, modal);
 		
-		initComponents();		
+		initComponents();
 	}
 	
 	public JOptionDialog(Frame owner, String title, boolean modal, boolean isHint)
 	{
 		super(owner, title, modal, isHint);
 		
-		initComponents();		
+		initComponents();
 	}
 	
 	public JOptionDialog(Dialog owner, String title, boolean modal, boolean isHint)
 	{
 		super(owner, title, modal, isHint);
 		
-		initComponents();		
-	}	
+		initComponents();
+	}
 	
 	public JOptionDialog(Frame owner, String title, Dimension dimension, boolean modal, boolean isHint)
 	{
 		super(owner, title, dimension, modal, isHint);
 		
-		initComponents();		
+		initComponents();
 	}
 	
 	public JOptionDialog(Dialog owner, String title, Dimension dimension, boolean modal, boolean isHint)
 	{
 		super(owner, title, dimension, modal, isHint);
 		
-		initComponents();		
+		initComponents();
 	}
 	
 	public JOptionDialog(Frame owner, String title, boolean modal, boolean isHint, boolean isAdaptable)
 	{
 		super(owner, title, modal, isHint, isAdaptable);
 		
-		initComponents();		
+		initComponents();
 	}
 	
 	public JOptionDialog(Dialog owner, String title, boolean modal, boolean isHint, boolean isAdaptable)
 	{
 		super(owner, title, modal, isHint, isAdaptable);
 		
-		initComponents();		
-	}	
+		initComponents();
+	}
 	
 	public JOptionDialog(Frame owner, String title, Dimension dimension, boolean modal, boolean isHint, boolean isAdaptable)
 	{
 		super(owner, title, dimension, modal, isHint, isAdaptable);
 		
-		initComponents();		
+		initComponents();
 	}
 	
 	public JOptionDialog(Dialog owner, String title, Dimension dimension, boolean modal, boolean isHint, boolean isAdaptable)
 	{
 		super(owner, title, dimension, modal, isHint, isAdaptable);
 		
-		initComponents();		
+		initComponents();
 	}
 	
 	private void initComponents()
@@ -197,7 +197,7 @@ public class JOptionDialog
 	
 	public void setComponent(JComponent component)
 	{
-		optionPanel.setComponent(component);		
+		optionPanel.setComponent(component);
 	}
 	
 	public String getValue()
@@ -223,5 +223,49 @@ public class JOptionDialog
 	public boolean close()
 	{
 		return true;
+	}
+	
+	public boolean isConfirmed()
+	{
+		String value = getValue();
+		if (value != null && value.equals(COMFIRM))
+		{
+			return true;
+		}
+		
+		return false;
+	}
+	
+	public boolean isCancelled()
+	{
+		String value = getValue();
+		if (value != null && value.equals(CANCEL))
+		{
+			return true;
+		}
+		
+		return false;
+	}
+	
+	public boolean isApplied()
+	{
+		String value = getValue();
+		if (value != null && value.equals(APPLY))
+		{
+			return true;
+		}
+		
+		return false;
+	}
+	
+	public boolean isClosed()
+	{
+		String value = getValue();
+		if (value != null && value.equals(CLOSE))
+		{
+			return true;
+		}
+		
+		return false;
 	}
 }
