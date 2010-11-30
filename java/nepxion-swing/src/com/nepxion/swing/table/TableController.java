@@ -17,7 +17,7 @@ import java.util.List;
 import javax.swing.JTable;
 import javax.swing.table.TableModel;
 
-import com.nepxion.swing.action.JAuthorityAction;
+import com.nepxion.swing.action.JSecurityAction;
 import com.nepxion.swing.handle.HandleManager;
 import com.nepxion.swing.icon.IconFactory;
 import com.nepxion.swing.keystroke.KeyStrokeManager;
@@ -279,9 +279,9 @@ public class TableController
 		return true;
 	}
 	
-	public static JAuthorityAction getAddAction(final JTable table, final ITableAdapter tableAdapter)
+	public static JSecurityAction getAddAction(final JTable table, final ITableAdapter tableAdapter)
 	{
-		JAuthorityAction action = new JAuthorityAction(SwingLocale.getString("add"), IconFactory.getSwingIcon("solid/add_16.png"), SwingLocale.getString("add") + SwingLocale.getString("record"))
+		JSecurityAction action = new JSecurityAction(SwingLocale.getString("add"), IconFactory.getSwingIcon("solid/add_16.png"), SwingLocale.getString("add") + SwingLocale.getString("record"))
 		{
 			public void execute(ActionEvent e)
 			{
@@ -292,9 +292,9 @@ public class TableController
 		return action;
 	}
 	
-	public static JAuthorityAction getModifyAction(final JTable table, final ITableAdapter tableAdapter)
+	public static JSecurityAction getModifyAction(final JTable table, final ITableAdapter tableAdapter)
 	{
-		JAuthorityAction action = new JAuthorityAction(SwingLocale.getString("modify"), IconFactory.getSwingIcon("solid/confirm_16.png"), SwingLocale.getString("modify") + SwingLocale.getString("record"))
+		JSecurityAction action = new JSecurityAction(SwingLocale.getString("modify"), IconFactory.getSwingIcon("solid/confirm_16.png"), SwingLocale.getString("modify") + SwingLocale.getString("record"))
 		{
 			public void execute(ActionEvent e)
 			{
@@ -305,9 +305,9 @@ public class TableController
 		return action;
 	}
 	
-	public static JAuthorityAction getDeleteAction(final JTable table, final ITableAdapter tableAdapter)
+	public static JSecurityAction getDeleteAction(final JTable table, final ITableAdapter tableAdapter)
 	{
-		JAuthorityAction action = new JAuthorityAction(SwingLocale.getString("delete"), IconFactory.getSwingIcon("solid/delete_16.png"), SwingLocale.getString("delete") + SwingLocale.getString("record"))
+		JSecurityAction action = new JSecurityAction(SwingLocale.getString("delete"), IconFactory.getSwingIcon("solid/delete_16.png"), SwingLocale.getString("delete") + SwingLocale.getString("record"))
 		{
 			public void execute(ActionEvent e)
 			{
@@ -318,9 +318,9 @@ public class TableController
 		return action;
 	}
 	
-	public static JAuthorityAction getClearAction(final JTable table, final ITableAdapter tableAdapter)
+	public static JSecurityAction getClearAction(final JTable table, final ITableAdapter tableAdapter)
 	{
-		JAuthorityAction action = new JAuthorityAction(SwingLocale.getString("clear"), IconFactory.getSwingIcon("solid/delete_16.png"), SwingLocale.getString("clear") + SwingLocale.getString("record"))
+		JSecurityAction action = new JSecurityAction(SwingLocale.getString("clear"), IconFactory.getSwingIcon("solid/delete_16.png"), SwingLocale.getString("clear") + SwingLocale.getString("record"))
 		{
 			public void execute(ActionEvent e)
 			{

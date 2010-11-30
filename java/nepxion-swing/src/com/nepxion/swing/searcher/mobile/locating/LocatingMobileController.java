@@ -12,7 +12,7 @@ package com.nepxion.swing.searcher.mobile.locating;
 
 import java.awt.event.ActionEvent;
 
-import com.nepxion.swing.action.JAuthorityAction;
+import com.nepxion.swing.action.JSecurityAction;
 import com.nepxion.swing.handle.HandleManager;
 import com.nepxion.swing.icon.IconFactory;
 import com.nepxion.swing.locale.SwingLocale;
@@ -23,9 +23,9 @@ import com.nepxion.util.searcher.mobile.locating.LocatingMobileSearcher;
 
 public class LocatingMobileController
 {
-	public static JAuthorityAction getSearchAction(final JLocatingMobilePanel panel)
+	public static JSecurityAction getSearchAction(final JLocatingMobilePanel panel)
 	{
-		JAuthorityAction action = new JAuthorityAction(SwingLocale.getString("query"), IconFactory.getSwingIcon("solid_search.png"), SwingLocale.getString("mobile_to_address"))
+		JSecurityAction action = new JSecurityAction(SwingLocale.getString("query"), IconFactory.getSwingIcon("solid_search.png"), SwingLocale.getString("mobile_to_address"))
 		{
 			public void execute(ActionEvent e)
 			{
@@ -70,9 +70,9 @@ public class LocatingMobileController
 		return action;
 	}
 	
-	public static JAuthorityAction getClearAction(final JLocatingMobileTable table)
+	public static JSecurityAction getClearAction(final JLocatingMobileTable table)
 	{
-		JAuthorityAction action = new JAuthorityAction(SwingLocale.getString("clear"), IconFactory.getSwingIcon("solid/delete_16.png"), SwingLocale.getString("clear_query_result"))
+		JSecurityAction action = new JSecurityAction(SwingLocale.getString("clear"), IconFactory.getSwingIcon("solid/delete_16.png"), SwingLocale.getString("clear_query_result"))
 		{
 			public void execute(ActionEvent e)
 			{

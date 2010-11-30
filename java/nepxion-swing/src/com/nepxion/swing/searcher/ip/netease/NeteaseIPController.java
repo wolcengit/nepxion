@@ -12,7 +12,7 @@ package com.nepxion.swing.searcher.ip.netease;
 
 import java.awt.event.ActionEvent;
 
-import com.nepxion.swing.action.JAuthorityAction;
+import com.nepxion.swing.action.JSecurityAction;
 import com.nepxion.swing.handle.HandleManager;
 import com.nepxion.swing.icon.IconFactory;
 import com.nepxion.swing.locale.SwingLocale;
@@ -23,9 +23,9 @@ import com.nepxion.util.searcher.ip.netease.NeteaseIPSearcher;
 
 public class NeteaseIPController
 {
-	public static JAuthorityAction getSearchAction(final JNeteaseIPPanel panel)
+	public static JSecurityAction getSearchAction(final JNeteaseIPPanel panel)
 	{
-		JAuthorityAction action = new JAuthorityAction(SwingLocale.getString("query"), IconFactory.getSwingIcon("solid_search.png"), SwingLocale.getString("ip_to_address"))
+		JSecurityAction action = new JSecurityAction(SwingLocale.getString("query"), IconFactory.getSwingIcon("solid_search.png"), SwingLocale.getString("ip_to_address"))
 		{
 			public void execute(ActionEvent e)
 			{
@@ -65,9 +65,9 @@ public class NeteaseIPController
 		return action;
 	}
 	
-	public static JAuthorityAction getClearAction(final JNeteaseIPTable table)
+	public static JSecurityAction getClearAction(final JNeteaseIPTable table)
 	{
-		JAuthorityAction action = new JAuthorityAction(SwingLocale.getString("clear"), IconFactory.getSwingIcon("solid/delete_16.png"), SwingLocale.getString("clear_query_result"))
+		JSecurityAction action = new JSecurityAction(SwingLocale.getString("clear"), IconFactory.getSwingIcon("solid/delete_16.png"), SwingLocale.getString("clear_query_result"))
 		{
 			public void execute(ActionEvent e)
 			{

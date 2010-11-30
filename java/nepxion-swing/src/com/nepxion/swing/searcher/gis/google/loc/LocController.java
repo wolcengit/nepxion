@@ -12,7 +12,7 @@ package com.nepxion.swing.searcher.gis.google.loc;
 
 import java.awt.event.ActionEvent;
 
-import com.nepxion.swing.action.JAuthorityAction;
+import com.nepxion.swing.action.JSecurityAction;
 import com.nepxion.swing.handle.HandleManager;
 import com.nepxion.swing.icon.IconFactory;
 import com.nepxion.swing.locale.SwingLocale;
@@ -23,9 +23,9 @@ import com.nepxion.util.searcher.gis.google.loc.LocSearcher;
 
 public class LocController
 {
-	public static JAuthorityAction getSearchAction(final JCoordinatePanel panel)
+	public static JSecurityAction getSearchAction(final JCoordinatePanel panel)
 	{
-		JAuthorityAction action = new JAuthorityAction(SwingLocale.getString("query"), IconFactory.getSwingIcon("solid_search.png"), SwingLocale.getString("geo_to_address"))
+		JSecurityAction action = new JSecurityAction(SwingLocale.getString("query"), IconFactory.getSwingIcon("solid_search.png"), SwingLocale.getString("geo_to_address"))
 		{
 			public void execute(ActionEvent e)
 			{
@@ -72,9 +72,9 @@ public class LocController
 		return action;
 	}
 	
-	public static JAuthorityAction getSearchAction(final JCellPanel panel)
+	public static JSecurityAction getSearchAction(final JCellPanel panel)
 	{
-		JAuthorityAction action = new JAuthorityAction(SwingLocale.getString("query"), IconFactory.getSwingIcon("solid_search.png"), SwingLocale.getString("mobile_to_address"))
+		JSecurityAction action = new JSecurityAction(SwingLocale.getString("query"), IconFactory.getSwingIcon("solid_search.png"), SwingLocale.getString("mobile_to_address"))
 		{
 			public void execute(ActionEvent e)
 			{
@@ -125,9 +125,9 @@ public class LocController
 		return action;
 	}
 	
-	public static JAuthorityAction getClearAction(final JLocTable table)
+	public static JSecurityAction getClearAction(final JLocTable table)
 	{
-		JAuthorityAction action = new JAuthorityAction(SwingLocale.getString("clear"), IconFactory.getSwingIcon("solid/delete_16.png"), SwingLocale.getString("clear_query_result"))
+		JSecurityAction action = new JSecurityAction(SwingLocale.getString("clear"), IconFactory.getSwingIcon("solid/delete_16.png"), SwingLocale.getString("clear_query_result"))
 		{
 			public void execute(ActionEvent e)
 			{
