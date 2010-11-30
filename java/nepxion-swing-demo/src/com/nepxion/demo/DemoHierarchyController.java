@@ -13,15 +13,15 @@ package com.nepxion.demo;
 import java.awt.Component;
 import java.awt.event.ActionEvent;
 
-import com.nepxion.swing.action.JAuthorityAction;
+import com.nepxion.swing.action.JSecurityAction;
 import com.nepxion.swing.icon.IconFactory;
 import com.nepxion.swing.topic.TopicContext;
 
 public class DemoHierarchyController
 {
-    public static JAuthorityAction getAboutAction()
+    public static JSecurityAction getAboutAction()
     {
-    	JAuthorityAction action = new JAuthorityAction("关于", IconFactory.getSwingIcon("about.png"), "About Nepxion Swing 1.0")
+    	JSecurityAction action = new JSecurityAction("关于", IconFactory.getSwingIcon("about.png"), "About Nepxion Swing 1.0")
         {
             public void execute(ActionEvent e)
             {
