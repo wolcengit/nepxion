@@ -11,6 +11,9 @@ package com.nepxion.swing.table;
  */
 
 import javax.swing.JTable;
+import javax.swing.table.TableModel;
+
+import com.nepxion.swing.table.sortable.SortableTableModel;
 
 public class TableManager
 {
@@ -30,5 +33,27 @@ public class TableManager
 	public static void setSelectionMode(JTable table, int mode)
 	{
 		table.getSelectionModel().setSelectionMode(mode);
+	}
+	
+	public static ITableModel getModel(JTable table)
+	{
+		ITableModel model = null;
+		
+		TableModel tableModel = table.getModel();
+		if (tableModel instanceof ITableModel)
+		{
+			model = (ITableModel) tableModel;
+		}
+		else if (tableModel instanceof SortableTableModel)
+		{
+			SortableTableModel sortableTableModel = (SortableTableModel) tableModel;
+			TableModel dataModel = sortableTableModel.getDataModel();
+			if (dataModel instanceof ITableModel)
+			{
+				model = (ITableModel) dataModel;
+			}
+		}
+		
+		return model;
 	}
 }

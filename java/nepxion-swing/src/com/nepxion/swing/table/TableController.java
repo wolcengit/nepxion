@@ -40,22 +40,8 @@ public class TableController
 			return;
 		}
 		
-		TableModel tableModel = table.getModel();
-		if (tableModel instanceof ITableModel)
-		{
-			ITableModel model = (ITableModel) tableModel;
-			model.addRow(rowData);
-		}
-		else if (tableModel instanceof SortableTableModel)
-		{
-			SortableTableModel sortableTableModel = (SortableTableModel) tableModel;
-			TableModel dataModel = sortableTableModel.getDataModel();
-			if (dataModel instanceof ITableModel)
-			{
-				ITableModel model = (ITableModel) dataModel;
-				model.addRow(rowData);
-			}
-		}
+		ITableModel tableModel = TableManager.getModel(table);
+		tableModel.addRow(rowData);
 	}
 	
 	public static void modify(JTable table, ITableAdapter tableAdapter)
@@ -78,22 +64,8 @@ public class TableController
 			return;
 		}
 		
-		TableModel tableModel = table.getModel();
-		if (tableModel instanceof ITableModel)
-		{
-			ITableModel model = (ITableModel) tableModel;
-			model.updateRow(selectedRow, rowData);
-		}
-		else if (tableModel instanceof SortableTableModel)
-		{
-			SortableTableModel sortableTableModel = (SortableTableModel) tableModel;
-			TableModel dataModel = sortableTableModel.getDataModel();
-			if (dataModel instanceof ITableModel)
-			{
-				ITableModel model = (ITableModel) dataModel;
-				model.updateRow(selectedRow, rowData);
-			}
-		}
+		ITableModel tableModel = TableManager.getModel(table);
+		tableModel.updateRow(selectedRow, rowData);
 	}
 	
 	public static void delete(JTable table, ITableAdapter tableAdapter)
@@ -138,8 +110,8 @@ public class TableController
 				TableModel dataModel = sortableTableModel.getDataModel();
 				if (dataModel instanceof ITableModel)
 				{
-					int row = sortableTableModel.getIndexes()[selectedRow];
 					ITableModel model = (ITableModel) dataModel;
+					int row = sortableTableModel.getIndexes()[selectedRow];
 					model.deleteRow(row);
 				}
 			}
@@ -176,13 +148,14 @@ public class TableController
 				TableModel dataModel = sortableTableModel.getDataModel();
 				if (dataModel instanceof ITableModel)
 				{
+					ITableModel model = (ITableModel) dataModel;
+					
 					int[] rows = new int[selectedRows.length];
 					for (int i = 0; i < selectedRows.length; i++)
 					{
 						int row = sortableTableModel.getIndexes()[selectedRows[i]];
 						rows[i] = row;
 					}
-					ITableModel model = (ITableModel) dataModel;
 					model.deleteRows(rows);
 				}
 			}
@@ -190,23 +163,9 @@ public class TableController
 	}
 	
 	public static void setRowDatas(JTable table, List rowDatas)
-	{
-		TableModel tableModel = table.getModel();
-		if (tableModel instanceof ITableModel)
-		{
-			ITableModel model = (ITableModel) tableModel;
-			model.setRowDatas(rowDatas);
-		}
-		else if (tableModel instanceof SortableTableModel)
-		{
-			SortableTableModel sortableTableModel = (SortableTableModel) tableModel;
-			TableModel dataModel = sortableTableModel.getDataModel();
-			if (dataModel instanceof ITableModel)
-			{
-				ITableModel model = (ITableModel) dataModel;
-				model.setRowDatas(rowDatas);
-			}
-		}
+	{		
+		ITableModel tableModel = TableManager.getModel(table);
+		tableModel.setRowDatas(rowDatas);
 	}
 	
 	public static void clear(JTable table, ITableAdapter tableAdapter)
@@ -234,22 +193,8 @@ public class TableController
 			return;
 		}
 		
-		TableModel tableModel = table.getModel();
-		if (tableModel instanceof ITableModel)
-		{
-			ITableModel model = (ITableModel) tableModel;
-			model.clearRows();
-		}
-		else if (tableModel instanceof SortableTableModel)
-		{
-			SortableTableModel sortableTableModel = (SortableTableModel) tableModel;
-			TableModel dataModel = sortableTableModel.getDataModel();
-			if (dataModel instanceof ITableModel)
-			{
-				ITableModel model = (ITableModel) dataModel;
-				model.clearRows();
-			}
-		}
+		ITableModel tableModel = TableManager.getModel(table);
+		tableModel.clearRows();
 	}
 	
 	public static boolean isSingleSelection(JTable table, String operationName)
