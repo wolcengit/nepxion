@@ -19,10 +19,9 @@ import com.nepxion.swing.icon.IconFactory;
 import com.nepxion.swing.layout.filed.FiledLayout;
 import com.nepxion.swing.locale.SwingLocale;
 import com.nepxion.swing.radiobutton.JBasicRadioButton;
-import com.nepxion.swing.toggle.ITogglePanel;
 
 public class JLazyLoaderPreference
-	extends JPanel implements ITogglePanel
+	extends JPreference
 {
 	private JBasicRadioButton syncLoadStrategyRadioButton;
 	private JBasicRadioButton asynLoadStrategyRadioButton;
@@ -89,5 +88,10 @@ public class JLazyLoaderPreference
 	public void setToggleDescription(String toggleDescription)
 	{
 		
+	}
+
+	public boolean verify()
+	{
+		return true;
 	}
 }

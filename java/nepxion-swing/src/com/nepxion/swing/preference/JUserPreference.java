@@ -19,13 +19,11 @@ import com.nepxion.swing.icon.IconFactory;
 import com.nepxion.swing.layout.filed.FiledLayout;
 import com.nepxion.swing.layout.table.TableLayout;
 import com.nepxion.swing.locale.SwingLocale;
-import com.nepxion.swing.optionpane.IValidation;
 import com.nepxion.swing.optionpane.JBasicOptionPane;
 import com.nepxion.swing.textfield.JBasicPasswordField;
-import com.nepxion.swing.toggle.ITogglePanel;
 
 public class JUserPreference
-	extends JPanel implements ITogglePanel, IValidation
+	extends JPreference
 {	
 	protected JBasicPasswordField oldPasswordTextField;
 	protected JBasicPasswordField newPasswordTextField;

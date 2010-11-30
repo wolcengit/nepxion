@@ -42,6 +42,7 @@ public class JToggleActionButton
 		);
 		
 		setTogglePanel(togglePanel);
+		setEnabled(togglePanel.isEnabled());
 	}
 	
 	public JToggleContentPanel getToggleContentPanel()

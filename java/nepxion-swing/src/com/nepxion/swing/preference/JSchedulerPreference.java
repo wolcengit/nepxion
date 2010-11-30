@@ -19,12 +19,10 @@ import com.nepxion.swing.checkbox.JBasicCheckBox;
 import com.nepxion.swing.icon.IconFactory;
 import com.nepxion.swing.layout.filed.FiledLayout;
 import com.nepxion.swing.locale.SwingLocale;
-import com.nepxion.swing.optionpane.IValidation;
 import com.nepxion.swing.panel.JTimePanel;
-import com.nepxion.swing.toggle.ITogglePanel;
 
 public class JSchedulerPreference
-	extends JPanel implements ITogglePanel, IValidation
+	extends JPreference
 {
 	private JTimePanel timePanel;
 	
