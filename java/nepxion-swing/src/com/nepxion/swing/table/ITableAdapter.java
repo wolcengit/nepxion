@@ -1,5 +1,7 @@
 package com.nepxion.swing.table;
 
+import java.util.List;
+
 /**
  * <p>Title: Nepxion Swing</p>
  * <p>Description: Nepxion Swing Repository</p>
@@ -30,6 +32,11 @@ public interface ITableAdapter
 	public boolean deleteRowsPermitted(int[] selectedRows);
 	
 	public boolean deleteRows(int[] selectedRows);
+	
+	
+	public boolean refreshPermitted();
+	
+	public List refresh();
 	
 	
 	public boolean clearPermitted();

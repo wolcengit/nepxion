@@ -134,6 +134,35 @@ public class TableController
 		tableModel.setRowDatas(rowDatas);
 	}
 	
+	public static void refresh(JTable table, ITableAdapter tableAdapter)
+	{
+		if (!tableAdapter.refreshPermitted())
+		{
+			JBasicOptionPane.showMessageDialog(HandleManager.getFrame(table), SwingLocale.getString("table") + SwingLocale.getString("refresh_no_permission"), SwingLocale.getString("warning"), JBasicOptionPane.WARNING_MESSAGE);
+			return;
+		}
+		
+		if (table.getRowCount() == 0)
+		{
+			JBasicOptionPane.showMessageDialog(HandleManager.getFrame(table), SwingLocale.getString("not_refresh_record"), SwingLocale.getString("warning"), JBasicOptionPane.WARNING_MESSAGE);
+			return;
+		}
+		
+		int selectedValue = JBasicOptionPane.showConfirmDialog(HandleManager.getFrame(table), SwingLocale.getString("confirm_to_refresh"), SwingLocale.getString("confirm"), JBasicOptionPane.YES_NO_OPTION);
+		if (selectedValue != JBasicOptionPane.YES_OPTION)
+		{
+			return;
+		}
+		
+		List rowDatas = tableAdapter.refresh();
+		if (rowDatas == null)
+		{
+			return;
+		}
+		
+		setRowDatas(table, rowDatas);
+	}
+	
 	public static void clear(JTable table, ITableAdapter tableAdapter)
 	{
 		if (!tableAdapter.clearPermitted())
@@ -228,6 +257,18 @@ public class TableController
 			}
 		};
 		KeyStrokeManager.registerComponent(table, action, KeyEvent.VK_DELETE);
+		return action;
+	}
+	
+	public static JSecurityAction getRefreshAction(final JTable table, final ITableAdapter tableAdapter)
+	{
+		JSecurityAction action = new JSecurityAction(SwingLocale.getString("refresh"), IconFactory.getSwingIcon("solid/refresh_16.png"), SwingLocale.getString("refresh") + SwingLocale.getString("record"))
+		{
+			public void execute(ActionEvent e)
+			{
+				refresh(table, tableAdapter);
+			}
+		};
 		return action;
 	}
 	

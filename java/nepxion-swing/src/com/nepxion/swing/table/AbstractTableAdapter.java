@@ -1,5 +1,7 @@
 package com.nepxion.swing.table;
 
+import java.util.List;
+
 /**
  * <p>Title: Nepxion Swing</p>
  * <p>Description: Nepxion Swing Repository</p>
@@ -59,6 +61,17 @@ public abstract class AbstractTableAdapter
 	public boolean deleteRows(int[] selectedRows)
 	{
 		return true;
+	}
+	
+	
+	public boolean refreshPermitted()
+	{
+		return true;
+	}
+	
+	public List refresh()
+	{
+		return null;
 	}
 	
 	
