@@ -15,7 +15,6 @@ import java.awt.event.KeyEvent;
 import java.util.List;
 
 import javax.swing.JTable;
-import javax.swing.table.TableModel;
 
 import com.nepxion.swing.action.JSecurityAction;
 import com.nepxion.swing.handle.HandleManager;
@@ -23,7 +22,6 @@ import com.nepxion.swing.icon.IconFactory;
 import com.nepxion.swing.keystroke.KeyStrokeManager;
 import com.nepxion.swing.locale.SwingLocale;
 import com.nepxion.swing.optionpane.JBasicOptionPane;
-import com.nepxion.swing.table.sortable.SortableTableModel;
 
 public class TableController
 {
@@ -34,6 +32,7 @@ public class TableController
 			JBasicOptionPane.showMessageDialog(HandleManager.getFrame(table), SwingLocale.getString("table") + SwingLocale.getString("add_record_no_permission"), SwingLocale.getString("warning"), JBasicOptionPane.WARNING_MESSAGE);
 			return;
 		}	
+		
 		Object rowData = tableAdapter.addRow();
 		if (rowData == null)
 		{
@@ -57,15 +56,17 @@ public class TableController
 		{
 			JBasicOptionPane.showMessageDialog(HandleManager.getFrame(table), SwingLocale.getString("table_row_selection") + SwingLocale.getString("modify_no_permission"), SwingLocale.getString("warning"), JBasicOptionPane.WARNING_MESSAGE);
 			return;
-		}	
-		Object rowData = tableAdapter.modifyRow(selectedRow);
+		}
+		
+		int selectedRowIndex = TableManager.getRowIndex(table, selectedRow);
+		Object rowData = tableAdapter.modifyRow(selectedRowIndex);
 		if (rowData == null)
 		{
 			return;
 		}
 		
-		ITableModel tableModel = TableManager.getModel(table);
-		tableModel.updateRow(selectedRow, rowData);
+		ITableModel tableModel = TableManager.getModel(table);		
+		tableModel.updateRow(selectedRowIndex, rowData);
 	}
 	
 	public static void delete(JTable table, ITableAdapter tableAdapter)
@@ -91,30 +92,15 @@ public class TableController
 			{
 				return;
 			}
-			
-			boolean flag = tableAdapter.deleteRow(selectedRow);
+			int selectedRowIndex = TableManager.getRowIndex(table, selectedRow);
+			boolean flag = tableAdapter.deleteRow(selectedRowIndex);
 			if (!flag)
 			{
 				return;
 			}
 			
-			TableModel tableModel = table.getModel();
-			if (tableModel instanceof ITableModel)
-			{
-				ITableModel model = (ITableModel) tableModel;
-				model.deleteRow(selectedRow);
-			}
-			else if (tableModel instanceof SortableTableModel)
-			{
-				SortableTableModel sortableTableModel = (SortableTableModel) tableModel;
-				TableModel dataModel = sortableTableModel.getDataModel();
-				if (dataModel instanceof ITableModel)
-				{
-					ITableModel model = (ITableModel) dataModel;
-					int row = sortableTableModel.getIndexes()[selectedRow];
-					model.deleteRow(row);
-				}
-			}
+			ITableModel tableModel = TableManager.getModel(table);
+			tableModel.deleteRow(selectedRowIndex);
 		}
 		else
 		{
@@ -130,35 +116,15 @@ public class TableController
 				return;
 			}
 			
-			boolean flag = tableAdapter.deleteRows(selectedRows);
+			int[] selectedRowIndexes = TableManager.getRowIndexes(table, selectedRows);
+			boolean flag = tableAdapter.deleteRows(selectedRowIndexes);
 			if (!flag)
 			{
 				return;
 			}
 			
-			TableModel tableModel = table.getModel();
-			if (tableModel instanceof ITableModel)
-			{
-				ITableModel model = (ITableModel) tableModel;
-				model.deleteRows(selectedRows);
-			}
-			else if (tableModel instanceof SortableTableModel)
-			{
-				SortableTableModel sortableTableModel = (SortableTableModel) tableModel;
-				TableModel dataModel = sortableTableModel.getDataModel();
-				if (dataModel instanceof ITableModel)
-				{
-					ITableModel model = (ITableModel) dataModel;
-					
-					int[] rows = new int[selectedRows.length];
-					for (int i = 0; i < selectedRows.length; i++)
-					{
-						int row = sortableTableModel.getIndexes()[selectedRows[i]];
-						rows[i] = row;
-					}
-					model.deleteRows(rows);
-				}
-			}
+			ITableModel tableModel = TableManager.getModel(table);			
+			tableModel.deleteRows(selectedRowIndexes);
 		}
 	}
 	
@@ -181,6 +147,7 @@ public class TableController
 			JBasicOptionPane.showMessageDialog(HandleManager.getFrame(table), SwingLocale.getString("not_clear_record"), SwingLocale.getString("warning"), JBasicOptionPane.WARNING_MESSAGE);
 			return;
 		}
+		
 		int selectedValue = JBasicOptionPane.showConfirmDialog(HandleManager.getFrame(table), SwingLocale.getString("confirm_to_clear"), SwingLocale.getString("confirm"), JBasicOptionPane.YES_NO_OPTION);
 		if (selectedValue != JBasicOptionPane.YES_OPTION)
 		{
@@ -205,11 +172,12 @@ public class TableController
 			JBasicOptionPane.showMessageDialog(HandleManager.getFrame(table), SwingLocale.getString("select_records_to") + " " + SwingLocale.getString("quotation_left") + operationName + SwingLocale.getString("quotation_right"), SwingLocale.getString("warning"), JBasicOptionPane.WARNING_MESSAGE);
 			return false;
 		}
+		
 		if (selectedRows.length != 1)
 		{
 			JBasicOptionPane.showMessageDialog(HandleManager.getFrame(table), SwingLocale.getString("select_one_node_to") + " " + SwingLocale.getString("quotation_left") + operationName + SwingLocale.getString("quotation_right"), SwingLocale.getString("warning"), JBasicOptionPane.WARNING_MESSAGE);
 			return false;
-		}
+		}	
 		return true;
 	}
 	

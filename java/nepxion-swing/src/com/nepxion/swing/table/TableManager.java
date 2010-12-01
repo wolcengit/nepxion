@@ -56,4 +56,39 @@ public class TableManager
 		
 		return model;
 	}
+	
+	public static int getRowIndex(JTable table, int row)
+	{		
+		TableModel tableModel = table.getModel();
+		if (tableModel instanceof SortableTableModel)
+		{
+			SortableTableModel sortableTableModel = (SortableTableModel) tableModel;
+			
+			int rowIndex = sortableTableModel.getIndexes()[row];
+			
+			return rowIndex;
+		}
+		
+		return row;
+	}
+	
+	public static int[] getRowIndexes(JTable table, int[] rows)
+	{		
+		TableModel tableModel = table.getModel();
+		if (tableModel instanceof SortableTableModel)
+		{
+			SortableTableModel sortableTableModel = (SortableTableModel) tableModel;
+			
+			int[] rowIndexes = new int[rows.length];
+			for (int i = 0; i < rows.length; i++)
+			{
+				int rowIndex = sortableTableModel.getIndexes()[rows[i]];
+				rowIndexes[i] = rowIndex;
+			}
+			
+			return rowIndexes;
+		}
+		
+		return rows;
+	}	
 }
