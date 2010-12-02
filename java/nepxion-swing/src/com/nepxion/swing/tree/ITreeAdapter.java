@@ -22,7 +22,7 @@ public interface ITreeAdapter
 	
 	public boolean modifyTreeNodePermitted(DefaultMutableTreeNode treeNode);
 	
-	public boolean modifyTreeNode(DefaultMutableTreeNode treeNode);
+	public Object modifyTreeNode(DefaultMutableTreeNode treeNode);
 	
 	
 	public boolean deleteTreeNodePermitted(DefaultMutableTreeNode treeNode);
