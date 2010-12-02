@@ -47,11 +47,13 @@ import com.nepxion.swing.tree.lazyloader.JLazyLoaderCheckBoxTree;
 import com.nepxion.swing.tree.lazyloader.JLazyLoaderContainer;
 import com.nepxion.swing.tree.lazyloader.JLazyLoaderTreeNode;
 import com.nepxion.swing.tree.lazyloader.LazyLoaderTreeController;
+import com.nepxion.swing.tree.lazyloader.LazyLoaderTreeManager;
 
 public class DemoLazyLoaderCheckBoxTreePanel
 	extends JPanel
 {
 	private FileSystemView fileSystemView;
+	private FileTree fileTree;
 	private FileTreeAdapter treeAdapter;
 	private FileLazyLoaderAdapter lazyLoaderAdapter;
 	
@@ -73,7 +75,7 @@ public class DemoLazyLoaderCheckBoxTreePanel
 			
 			fileSystemView = FileSystemView.getFileSystemView();
 			
-			FileTree fileTree = new FileTree();
+			fileTree = new FileTree();
 			
 			FileToolBar fileToolBar = new FileToolBar(fileTree);	
 			
@@ -234,6 +236,8 @@ public class DemoLazyLoaderCheckBoxTreePanel
 		
 		public DefaultMutableTreeNode addTreeNode(DefaultMutableTreeNode parentTreeNode)
 		{
+			LazyLoaderTreeManager.validate(fileTree, parentTreeNode);
+			
 			return new ElementNode("新增节点", IconFactory.getSwingIcon("solid/add_16.png"), "新增节点");
 		}
 		
