@@ -12,6 +12,7 @@ package com.nepxion.swing.preference;
 
 import javax.swing.Icon;
 
+import com.nepxion.swing.border.BorderManager;
 import com.nepxion.swing.icon.IconFactory;
 import com.nepxion.swing.layout.filed.FiledLayout;
 import com.nepxion.swing.locale.SwingLocale;
@@ -25,6 +26,7 @@ public class JUserPreference
 	public JUserPreference()
 	{		
 		passwordPanel = new JPasswordPanel();
+		passwordPanel.setBorder(BorderManager.createComplexTitleBorder(SwingLocale.getString("modify_password")));
 
 		setLayout(new FiledLayout(FiledLayout.COLUMN, FiledLayout.FULL, 5));
 		add(passwordPanel);
