@@ -11,103 +11,33 @@ package com.nepxion.swing.preference;
  */
 
 import javax.swing.Icon;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
 
-import com.nepxion.swing.border.BorderManager;
 import com.nepxion.swing.icon.IconFactory;
 import com.nepxion.swing.layout.filed.FiledLayout;
-import com.nepxion.swing.layout.table.TableLayout;
 import com.nepxion.swing.locale.SwingLocale;
-import com.nepxion.swing.optionpane.JBasicOptionPane;
-import com.nepxion.swing.textfield.JBasicPasswordField;
+import com.nepxion.swing.panel.JPasswordPanel;
 
 public class JUserPreference
 	extends JPreference
 {	
-	protected JBasicPasswordField oldPasswordTextField;
-	protected JBasicPasswordField newPasswordTextField;
-	protected JBasicPasswordField newPasswordConfirmTextField;
+	private JPasswordPanel passwordPanel;
 	
 	public JUserPreference()
 	{		
-		oldPasswordTextField = new JBasicPasswordField();
-		newPasswordTextField = new JBasicPasswordField();
-		newPasswordConfirmTextField = new JBasicPasswordField();
-		
-		double[][] size = 
-		{ 
-			{TableLayout.PREFERRED, 160}, 
-			{22, 22, 22}
-		};
-		
-		TableLayout tableLayout = new TableLayout(size);
-		tableLayout.setVGap(10);
-		tableLayout.setHGap(10);
-		
-		JPanel passwordPanel = new JPanel();
-		passwordPanel.setLayout(tableLayout);
-		passwordPanel.add(new JLabel(SwingLocale.getString("old_password")), "0, 0");
-		passwordPanel.add(oldPasswordTextField, "1, 0");
-		passwordPanel.add(new JLabel(SwingLocale.getString("new_password")), "0, 1");
-		passwordPanel.add(newPasswordTextField, "1, 1");
-		passwordPanel.add(new JLabel(SwingLocale.getString("new_password_confirm")), "0, 2");
-		passwordPanel.add(newPasswordConfirmTextField, "1, 2");
-		
-		JPanel userPanel = new JPanel();
-		userPanel.setLayout(new FiledLayout(FiledLayout.COLUMN, FiledLayout.LEFT, 5));
-		userPanel.setBorder(BorderManager.createComplexTitleBorder(SwingLocale.getString("modify_password")));
-		userPanel.add(passwordPanel);
+		passwordPanel = new JPasswordPanel();
 
 		setLayout(new FiledLayout(FiledLayout.COLUMN, FiledLayout.FULL, 5));
-		add(userPanel);
+		add(passwordPanel);
 	}
 	
-	public JBasicPasswordField getOldPasswordTextField()
+	public JPasswordPanel getPasswordPanel()
 	{
-		return oldPasswordTextField;
-	}
-
-	public JBasicPasswordField getNewPasswordTextField()
-	{
-		return newPasswordTextField;
-	}
-
-	public JBasicPasswordField getNewPasswordConfirmTextField()
-	{
-		return newPasswordConfirmTextField;
+		return passwordPanel;
 	}
 	
 	public boolean verify()
 	{
-		String oldPassword = oldPasswordTextField.getPasswordText().toString();
-		if (oldPassword.equals(""))
-		{
-			JBasicOptionPane.showMessageDialog(this, SwingLocale.getString("old_password_not_null"), SwingLocale.getString("error"), JBasicOptionPane.ERROR_MESSAGE);
-			return false;
-		}	
-		
-		String newPassword = newPasswordTextField.getPasswordText().toString();
-		if (newPassword.equals(""))
-		{
-			JBasicOptionPane.showMessageDialog(this, SwingLocale.getString("new_password_not_null"), SwingLocale.getString("error"), JBasicOptionPane.ERROR_MESSAGE);
-			return false;
-		}
-		
-		String newPasswordConfirm = newPasswordConfirmTextField.getPasswordText().toString();
-		if (newPasswordConfirm.equals(""))
-		{
-			JBasicOptionPane.showMessageDialog(this, SwingLocale.getString("new_password_confirm_not_null"), SwingLocale.getString("error"), JBasicOptionPane.ERROR_MESSAGE);
-			return false;
-		}
-		
-		if (!newPassword.equals(newPasswordConfirm))
-		{
-			JBasicOptionPane.showMessageDialog(this, SwingLocale.getString("new_password_not_matched"), SwingLocale.getString("error"), JBasicOptionPane.ERROR_MESSAGE);
-			return false;
-		}
-		
-		return true;
+		return passwordPanel.verify();
 	}
 	
 	public String getToggleName()
