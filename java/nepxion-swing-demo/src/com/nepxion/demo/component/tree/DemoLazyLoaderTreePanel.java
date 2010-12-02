@@ -243,9 +243,9 @@ public class DemoLazyLoaderTreePanel
 			return true;
 		}
 		
-		public boolean modifyTreeNode(DefaultMutableTreeNode treeNode)
+		public Object modifyTreeNode(DefaultMutableTreeNode treeNode)
 		{
-			return true;
+			return null;
 		}
 		
 		
