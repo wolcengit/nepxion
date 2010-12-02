@@ -13,7 +13,6 @@ package com.nepxion.swing.panel;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import com.nepxion.swing.border.BorderManager;
 import com.nepxion.swing.layout.filed.FiledLayout;
 import com.nepxion.swing.layout.table.TableLayout;
 import com.nepxion.swing.locale.SwingLocale;
@@ -54,7 +53,6 @@ public class JPasswordPanel
 		passwordPanel.add(newPasswordConfirmTextField, "1, 2");
 		
 		setLayout(new FiledLayout(FiledLayout.COLUMN, FiledLayout.LEFT, 5));
-		setBorder(BorderManager.createComplexTitleBorder(SwingLocale.getString("modify_password")));
 		add(passwordPanel);
 	}
 	
