@@ -41,6 +41,10 @@ public class JIPAddressTextField
 		ipAddressTextField3 = createTextField();
 		ipAddressTextField4 = createTextField();
 		
+		setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
+		// setLayout(new GridLayout(1, 9, 0, 0));
+		setFocusable(false);
+		setRequestFocusEnabled(false);
 		add(Box.createHorizontalStrut(20));
 		add(createSeparator(""));
 		add(ipAddressTextField1);
@@ -53,10 +57,6 @@ public class JIPAddressTextField
 		add(createSeparator(""));
 		add(Box.createHorizontalStrut(20));
 		
-		setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-		// setLayout(new GridLayout(1, 9, 0, 0));
-		setFocusable(false);
-		setRequestFocusEnabled(false);
 		removeMouseListener(getPopupMenuAdapter());
 		
 		setIPAddress(ipAddress);
