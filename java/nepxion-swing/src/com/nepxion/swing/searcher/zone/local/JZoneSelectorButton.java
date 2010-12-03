@@ -37,13 +37,13 @@ public class JZoneSelectorButton
 		
 		tree = new JZoneTree()
 		{
-			public void executeDoubleClicked(TreeNode treeNode)
+			/*public void executeDoubleClicked(TreeNode treeNode)
 			{
 				if (treeNode.isLeaf())
 				{
 					doConfirm();
 				}
-			}
+			}*/
 		};
 		
 		JBasicScrollPane scrollPane = new JBasicScrollPane(tree);
