@@ -46,15 +46,13 @@ public class JIPAddressTextField
 		setFocusable(false);
 		setRequestFocusEnabled(false);
 		add(Box.createHorizontalStrut(20));
-		add(createSeparator(""));
 		add(ipAddressTextField1);
-		add(createSeparator("."));
+		add(createDot());
 		add(ipAddressTextField2);
-		add(createSeparator("."));
+		add(createDot());
 		add(ipAddressTextField3);
-		add(createSeparator("."));
+		add(createDot());
 		add(ipAddressTextField4);
-		add(createSeparator(""));
 		add(Box.createHorizontalStrut(20));
 		
 		removeMouseListener(getPopupMenuAdapter());
@@ -73,9 +71,9 @@ public class JIPAddressTextField
 		return ipAddressTextField;
 	}
 	
-	private JLabel createSeparator(String dot)
+	private JLabel createDot()
 	{
-		JLabel label = new JLabel(dot);
+		JLabel label = new JLabel(".");
 		label.setPreferredSize(new Dimension(2, 20));
 		return label;
 	}
