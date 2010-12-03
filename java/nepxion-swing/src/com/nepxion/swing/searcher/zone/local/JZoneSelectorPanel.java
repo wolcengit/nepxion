@@ -33,6 +33,16 @@ public class JZoneSelectorPanel
 	
 	public JZoneSelectorPanel(String value)
 	{
+		this(value, 12);
+	}
+	
+	public JZoneSelectorPanel(int maximumLength)
+	{
+		this("", maximumLength);
+	}
+	
+	public JZoneSelectorPanel(String value, int maximumLength)
+	{
 		zoneTextField = new JNumberTextField(maximumLength, 0);
 		
 		zoneSelectorButton = new JZoneSelectorButton(zoneTextField);
