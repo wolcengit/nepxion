@@ -22,6 +22,7 @@ public class JZoneSelectorPanel
 	extends JPanel
 {
 	private JNumberTextField zoneTextField;
+	private JZoneSelectorButton zoneSelectorButton;
 	
 	private int maximumLength = 12;
 	
@@ -34,7 +35,7 @@ public class JZoneSelectorPanel
 	{
 		zoneTextField = new JNumberTextField(maximumLength, 0);
 		
-		JZoneSelectorButton zoneSelectorButton = new JZoneSelectorButton(zoneTextField);
+		zoneSelectorButton = new JZoneSelectorButton(zoneTextField);
 		
 		setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
 		add(zoneTextField);
@@ -73,5 +74,11 @@ public class JZoneSelectorPanel
 			}
 		}
 		zoneTextField.setText(value);
+	}
+	
+	public void setEnabled(boolean enabled)
+	{
+		zoneTextField.setEditable(enabled);
+		zoneSelectorButton.setEnabled(enabled);
 	}
 }

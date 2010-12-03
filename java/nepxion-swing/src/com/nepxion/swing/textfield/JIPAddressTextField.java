@@ -83,16 +83,26 @@ public class JIPAddressTextField
 	public void setEnabled(boolean enabled)
 	{
 		super.setEnabled(enabled);
-		ipAddressTextField1.setEnabled(enabled);
-		ipAddressTextField2.setEnabled(enabled);
-		ipAddressTextField3.setEnabled(enabled);
-		ipAddressTextField4.setEnabled(enabled);
-		if (!enabled)
+		
+		if (ipAddressTextField1 != null && ipAddressTextField2 != null && ipAddressTextField3 != null && ipAddressTextField4 != null)
+		{	
+			ipAddressTextField1.setEnabled(enabled);
+			ipAddressTextField2.setEnabled(enabled);
+			ipAddressTextField3.setEnabled(enabled);
+			ipAddressTextField4.setEnabled(enabled);
+		}
+	}
+	
+	public void setEditable(boolean editable)
+	{
+		super.setEditable(editable);
+		
+		if (ipAddressTextField1 != null && ipAddressTextField2 != null && ipAddressTextField3 != null && ipAddressTextField4 != null)
 		{
-			ipAddressTextField1.setText("");
-			ipAddressTextField2.setText("");
-			ipAddressTextField3.setText("");
-			ipAddressTextField4.setText("");
+			ipAddressTextField1.setEditable(editable);
+			ipAddressTextField2.setEditable(editable);
+			ipAddressTextField3.setEditable(editable);
+			ipAddressTextField4.setEditable(editable);
 		}
 	}
 	
