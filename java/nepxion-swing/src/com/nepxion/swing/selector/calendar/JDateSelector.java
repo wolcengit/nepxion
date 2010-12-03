@@ -390,5 +390,13 @@ public class JDateSelector
     {
     	Dimension preferredSize = super.getPreferredSize();
     	return new Dimension(preferredSize.width + 5, preferredSize.height);
-    }      
+    }  
+    
+    public void setEnabled(boolean enabled)
+    {
+    	super.setEnabled(enabled);
+    	
+    	dateSpinner.setEnabled(enabled);
+    	calendarButton.setEnabled(enabled);
+    }
 }

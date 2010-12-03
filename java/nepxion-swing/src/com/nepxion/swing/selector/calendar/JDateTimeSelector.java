@@ -71,4 +71,12 @@ public class JDateTimeSelector
 		dateSelector.setFormat(dateFormat);
 		timeSelector.setFormat(timeFormat);
 	}
+	
+	public void setEnabled(boolean enabled)
+	{
+		super.setEnabled(enabled);
+		
+		dateSelector.setEnabled(enabled);
+		timeSelector.setEnabled(enabled);
+	}
 }
