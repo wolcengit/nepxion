@@ -16,6 +16,7 @@ import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JLabel;
 
+import com.nepxion.swing.dimension.DimensionManager;
 import com.nepxion.swing.locale.SwingLocale;
 import com.nepxion.swing.textfield.number.JNumberTextField;
 
@@ -27,33 +28,55 @@ public class JIPAddressTextField
 	private JNumberTextField ipAddressTextField3;
 	private JNumberTextField ipAddressTextField4;
 	
+	private int align = LEFT;
+	
 	public JIPAddressTextField()
 	{
-		this(null);
+		this(LEFT);
+	}
+	
+	public JIPAddressTextField(int align)
+	{
+		this(null, align);
 	}
 	
 	public JIPAddressTextField(String ipAddress)
 	{
+		this(ipAddress, LEFT);
+	}
+	
+	public JIPAddressTextField(String ipAddress, int align)
+	{
 		super();
 		
+		this.align = align;
+		
 		ipAddressTextField1 = createTextField();
+		JLabel dotLabel1 = createLabel();
 		ipAddressTextField2 = createTextField();
+		JLabel dotLabel2 = createLabel();
 		ipAddressTextField3 = createTextField();
+		JLabel dotLabel3 = createLabel();
 		ipAddressTextField4 = createTextField();
 		
 		setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-		// setLayout(new GridLayout(1, 9, 0, 0));
 		setFocusable(false);
 		setRequestFocusEnabled(false);
-		add(Box.createHorizontalStrut(20));
+		if (align != LEFT)
+		{
+			add(Box.createHorizontalStrut(20));
+		}
 		add(ipAddressTextField1);
-		add(createDot());
+		add(dotLabel1);
 		add(ipAddressTextField2);
-		add(createDot());
+		add(dotLabel2);
 		add(ipAddressTextField3);
-		add(createDot());
+		add(dotLabel3);
 		add(ipAddressTextField4);
-		add(Box.createHorizontalStrut(20));
+		if (align != LEFT)
+		{
+			add(Box.createHorizontalStrut(20));
+		}
 		
 		removeMouseListener(getPopupMenuAdapter());
 		
@@ -63,18 +86,23 @@ public class JIPAddressTextField
 	private JNumberTextField createTextField()
 	{
 		JNumberTextField ipAddressTextField = new JNumberTextField(3, 0, 0, 255);
-		ipAddressTextField.setPreferredSize(new Dimension(20, 20));
 		ipAddressTextField.setHorizontalAlignment(RIGHT);
 		ipAddressTextField.setBorder(null);
 		ipAddressTextField.supportSelectionAll(true);
 		
+		if (align == LEFT)
+		{	
+			DimensionManager.setDimension(ipAddressTextField, new Dimension(30, getPreferredSize().height));
+		}
+		
 		return ipAddressTextField;
 	}
 	
-	private JLabel createDot()
+	private JLabel createLabel()
 	{
 		JLabel label = new JLabel(".");
-		label.setPreferredSize(new Dimension(2, 20));
+		label.setPreferredSize(new Dimension(2, getPreferredSize().height));
+		
 		return label;
 	}
 	
