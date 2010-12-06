@@ -155,7 +155,7 @@ public class TableController
 			return;
 		}
 		
-		JThreadDialog dialog = new JThreadDialog(HandleManager.getFrame(table), SwingLocale.getString("query"), SwingLocale.getString("query_and_wait"))
+		JThreadDialog dialog = new JThreadDialog(HandleManager.getFrame(table), SwingLocale.getString("refresh"), SwingLocale.getString("refresh_and_wait"))
 		{
 			protected void loadForeground(Object data)
 				throws Exception
