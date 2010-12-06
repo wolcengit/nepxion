@@ -22,6 +22,7 @@ import com.nepxion.swing.icon.IconFactory;
 import com.nepxion.swing.keystroke.KeyStrokeManager;
 import com.nepxion.swing.locale.SwingLocale;
 import com.nepxion.swing.optionpane.JBasicOptionPane;
+import com.nepxion.swing.thread.dialog.JThreadDialog;
 
 public class TableController
 {
@@ -134,7 +135,7 @@ public class TableController
 		tableModel.setRowDatas(rowDatas);
 	}
 	
-	public static void refresh(JTable table, ITableAdapter tableAdapter)
+	public static void refresh(final JTable table, final ITableAdapter tableAdapter)
 	{
 		if (!tableAdapter.refreshPermitted())
 		{
@@ -154,13 +155,25 @@ public class TableController
 			return;
 		}
 		
-		List rowDatas = tableAdapter.refresh();
-		if (rowDatas == null)
+		JThreadDialog dialog = new JThreadDialog(HandleManager.getFrame(table), SwingLocale.getString("query"), SwingLocale.getString("query_and_wait"))
 		{
-			return;
-		}
-		
-		setRowDatas(table, rowDatas);
+			protected void loadForeground(Object data)
+				throws Exception
+			{
+				List rowDatas = (List) data;
+				
+				setRowDatas(table, rowDatas);
+			}
+			
+			protected Object loadBackground()
+				throws Exception
+			{
+				List rowDatas = tableAdapter.refresh();
+
+				return rowDatas;
+			}
+		};
+		dialog.execute();
 	}
 	
 	public static void clear(JTable table, ITableAdapter tableAdapter)

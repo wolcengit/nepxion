@@ -27,7 +27,7 @@ public abstract class JThreadDialog
 {
 	private SwingWorker swingWorker;
 	private int delayTime = 200;
-	
+
 	public JThreadDialog(Frame owner, String title)
 	{
 		this(owner, title, SwingLocale.getString("transact_and_wait"));
