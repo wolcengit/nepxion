@@ -11,6 +11,8 @@ package com.nepxion.swing.textfield;
  */
 
 import java.awt.Dimension;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;
@@ -19,6 +21,7 @@ import javax.swing.JLabel;
 import com.nepxion.swing.dimension.DimensionManager;
 import com.nepxion.swing.locale.SwingLocale;
 import com.nepxion.swing.textfield.number.JNumberTextField;
+import com.nepxion.swing.tip.balloon.JBalloonTip;
 
 public class JIPAddressTextField
 	extends JBasicTextField
@@ -85,10 +88,23 @@ public class JIPAddressTextField
 	
 	private JNumberTextField createTextField()
 	{
-		JNumberTextField ipAddressTextField = new JNumberTextField(3, 0, 0, 255);
+		final JNumberTextField ipAddressTextField = new JNumberTextField(3, 0, 0, 255);
 		ipAddressTextField.setHorizontalAlignment(RIGHT);
 		ipAddressTextField.setBorder(null);
-		ipAddressTextField.supportSelectionAll(true);
+		ipAddressTextField.addKeyListener(new KeyAdapter()
+		{
+			public void keyReleased(KeyEvent e)
+			{				
+				boolean isDigit = Character.isDigit(e.getKeyChar());
+				JBalloonTip balloonTip = ipAddressTextField.getBalloonTip();
+				int length = ipAddressTextField.getText().length();
+				if (!balloonTip.isVisible() && isDigit && length == 3)
+				{	
+					ipAddressTextField.transferFocus();
+				}
+			}
+		}
+		);
 		
 		if (align == LEFT)
 		{	
