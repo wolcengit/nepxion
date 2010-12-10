@@ -89,6 +89,7 @@ public class JDecorationPopupMenu
 	public void paintComponent(Graphics g)
 	{
 		super.paintComponent(g);
+		
 		if (painter != null)
 		{
 			painter.paintComponent(g);
