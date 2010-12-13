@@ -44,12 +44,12 @@ public class JRadioButtonPanel
 		add(falseRadioButton);
 	}
 	
-	public boolean getValue()
+	public boolean isTrue()
 	{
 		return trueRadioButton.isSelected();
 	}
 	
-	public void setValue(boolean flag)
+	public void setTrue(boolean flag)
 	{
 		trueRadioButton.setSelected(flag);
 	}

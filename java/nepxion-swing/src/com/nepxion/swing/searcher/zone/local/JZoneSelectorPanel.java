@@ -53,15 +53,15 @@ public class JZoneSelectorPanel
 		
 		ButtonManager.updateUI(this, new Dimension(26, 22));
 		
-		setValue(value);
+		setZone(value);
 	}
 	
-	public String getValue()
+	public String getZone()
 	{
 		return zoneTextField.getText();
 	}
 	
-	public void setValue(String value)
+	public void setZone(String value)
 	{
 		if (value == null)
 		{
