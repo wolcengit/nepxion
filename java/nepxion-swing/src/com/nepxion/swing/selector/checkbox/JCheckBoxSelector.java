@@ -91,7 +91,7 @@ public class JCheckBoxSelector
 	{
 		checkBoxPanel = new JCheckBoxPanel(allElementNodes);
 		
-		JClassicButton selectAllButton = new JClassicButton(SwingLocale.getString("select_all"), IconFactory.getSwingIcon("solid/redo_16.png"), SwingLocale.getString("select_all"));
+		JClassicButton selectAllButton = new JClassicButton(SwingLocale.getString("select_all"), IconFactory.getSwingIcon("stereo/redo_16.png"), SwingLocale.getString("select_all"));
 		selectAllButton.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent e)
@@ -101,7 +101,7 @@ public class JCheckBoxSelector
 		}
 		);
 		
-		JClassicButton selectReverseButton = new JClassicButton(SwingLocale.getString("select_reverse"), IconFactory.getSwingIcon("solid/undo_16.png"), SwingLocale.getString("select_reverse"));
+		JClassicButton selectReverseButton = new JClassicButton(SwingLocale.getString("select_reverse"), IconFactory.getSwingIcon("stereo/undo_16.png"), SwingLocale.getString("select_reverse"));
 		selectReverseButton.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent e)
@@ -111,7 +111,7 @@ public class JCheckBoxSelector
 		}
 		);
 		
-		final JClassicButton confirmButton = new JClassicButton(SwingLocale.getString("yes"), IconFactory.getSwingIcon("solid/confirm_16.png"), SwingLocale.getString("yes"));
+		final JClassicButton confirmButton = new JClassicButton(SwingLocale.getString("yes"), IconFactory.getSwingIcon("stereo/confirm_16.png"), SwingLocale.getString("yes"));
 		ActionListener confirmActionListener = new ActionListener()
 		{
 			public void actionPerformed(ActionEvent e)
@@ -124,7 +124,7 @@ public class JCheckBoxSelector
 		confirmButton.addActionListener(confirmActionListener);
 		KeyStrokeManager.registerButtonToEnterKey(confirmButton, confirmActionListener);
 		
-		final JClassicButton cancelButton = new JClassicButton(SwingLocale.getString("no"), IconFactory.getSwingIcon("solid/cancel_16.png"), SwingLocale.getString("no"));
+		final JClassicButton cancelButton = new JClassicButton(SwingLocale.getString("no"), IconFactory.getSwingIcon("stereo/cancel_16.png"), SwingLocale.getString("no"));
 		ActionListener cancelActionListener = new ActionListener()
 		{
 			public void actionPerformed(ActionEvent e)
