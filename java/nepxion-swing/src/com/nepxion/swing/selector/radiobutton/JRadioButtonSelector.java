@@ -92,7 +92,7 @@ public class JRadioButtonSelector
 	{
 		radioButtonPanel = new JRadioButtonPanel(allElementNodes);
 		
-		final JClassicButton confirmButton = new JClassicButton(SwingLocale.getString("yes"), IconFactory.getSwingIcon("solid/confirm_16.png"), SwingLocale.getString("yes"));
+		final JClassicButton confirmButton = new JClassicButton(SwingLocale.getString("yes"), IconFactory.getSwingIcon("stereo/confirm_16.png"), SwingLocale.getString("yes"));
 		ActionListener confirmActionListener = new ActionListener()
 		{
 			public void actionPerformed(ActionEvent e)
@@ -105,7 +105,7 @@ public class JRadioButtonSelector
 		confirmButton.addActionListener(confirmActionListener);
 		KeyStrokeManager.registerButtonToEnterKey(confirmButton, confirmActionListener);
 		
-		final JClassicButton cancelButton = new JClassicButton(SwingLocale.getString("no"), IconFactory.getSwingIcon("solid/cancel_16.png"), SwingLocale.getString("no"));
+		final JClassicButton cancelButton = new JClassicButton(SwingLocale.getString("no"), IconFactory.getSwingIcon("stereo/cancel_16.png"), SwingLocale.getString("no"));
 		ActionListener cancelActionListener = new ActionListener()
 		{
 			public void actionPerformed(ActionEvent e)
