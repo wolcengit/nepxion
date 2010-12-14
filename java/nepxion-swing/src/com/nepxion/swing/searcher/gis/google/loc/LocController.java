@@ -25,7 +25,7 @@ public class LocController
 {
 	public static JSecurityAction getSearchAction(final JCoordinatePanel panel)
 	{
-		JSecurityAction action = new JSecurityAction(SwingLocale.getString("query"), IconFactory.getSwingIcon("solid_search.png"), SwingLocale.getString("geo_to_address"))
+		JSecurityAction action = new JSecurityAction(SwingLocale.getString("query"), IconFactory.getSwingIcon("stereo_search.png"), SwingLocale.getString("geo_to_address"))
 		{
 			public void execute(ActionEvent e)
 			{
@@ -74,7 +74,7 @@ public class LocController
 	
 	public static JSecurityAction getSearchAction(final JCellPanel panel)
 	{
-		JSecurityAction action = new JSecurityAction(SwingLocale.getString("query"), IconFactory.getSwingIcon("solid_search.png"), SwingLocale.getString("mobile_to_address"))
+		JSecurityAction action = new JSecurityAction(SwingLocale.getString("query"), IconFactory.getSwingIcon("stereo_search.png"), SwingLocale.getString("mobile_to_address"))
 		{
 			public void execute(ActionEvent e)
 			{
@@ -127,7 +127,7 @@ public class LocController
 	
 	public static JSecurityAction getClearAction(final JLocTable table)
 	{
-		JSecurityAction action = new JSecurityAction(SwingLocale.getString("clear"), IconFactory.getSwingIcon("solid/delete_16.png"), SwingLocale.getString("clear_query_result"))
+		JSecurityAction action = new JSecurityAction(SwingLocale.getString("clear"), IconFactory.getSwingIcon("stereo/delete_16.png"), SwingLocale.getString("clear_query_result"))
 		{
 			public void execute(ActionEvent e)
 			{
