@@ -291,7 +291,7 @@ public class JWizard
 		{
 			add(Box.createHorizontalGlue());
 			
-			cancelButton = new JClassicButton("撤销", IconFactory.getSwingIcon("solid/cancel_16.png"), "撤销");
+			cancelButton = new JClassicButton("撤销", IconFactory.getSwingIcon("stereo/cancel_16.png"), "撤销");
 			ActionListener cancelActionListener = new ActionListener()
 			{
 				public void actionPerformed(ActionEvent e)
@@ -305,7 +305,7 @@ public class JWizard
 			
 			add(Box.createHorizontalStrut(10));
 			
-			previousButton = new JClassicButton("上一步", IconFactory.getSwingIcon("solid/arrow_backward_16.png"), "上一步");
+			previousButton = new JClassicButton("上一步", IconFactory.getSwingIcon("stereo/arrow_backward_16.png"), "上一步");
 			previousButton.addActionListener(new ActionListener()
 			{
 				public void actionPerformed(ActionEvent e)
@@ -318,7 +318,7 @@ public class JWizard
 			
 			add(Box.createHorizontalStrut(5));
 			
-			nextButton = new JClassicButton("下一步", IconFactory.getSwingIcon("solid/arrow_forward_16.png"), "下一步");
+			nextButton = new JClassicButton("下一步", IconFactory.getSwingIcon("stereo/arrow_forward_16.png"), "下一步");
 			nextButton.addActionListener(new ActionListener()
 			{
 				public void actionPerformed(ActionEvent e)
@@ -331,7 +331,7 @@ public class JWizard
 			
 			add(Box.createHorizontalStrut(10));
 			
-			confirmButton = new JClassicButton("完成", IconFactory.getSwingIcon("solid/confirm_16.png"), "完成");
+			confirmButton = new JClassicButton("完成", IconFactory.getSwingIcon("stereo/confirm_16.png"), "完成");
 			ActionListener confirmActionListener = new ActionListener()
 			{
 				public void actionPerformed(ActionEvent e)
