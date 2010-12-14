@@ -29,7 +29,7 @@ public class LazyLoaderTreeController
 {
 	public static JSecurityAction getLoadAction(final ILazyLoaderTree lazyLoaderTree, final ILazyLoaderAdapter lazyLoaderAdapter)
 	{
-		JSecurityAction action = new JSecurityAction(SwingLocale.getString("load"), IconFactory.getSwingIcon("solid/control_play_16.png"), SwingLocale.getString("load") + SwingLocale.getString("children_nodes"))
+		JSecurityAction action = new JSecurityAction(SwingLocale.getString("load"), IconFactory.getSwingIcon("stereo/control_play_16.png"), SwingLocale.getString("load") + SwingLocale.getString("children_nodes"))
 		{
 			public void execute(ActionEvent e)
 			{
@@ -58,7 +58,7 @@ public class LazyLoaderTreeController
 	
 	public static JSecurityAction getLoadGrandchildrenAction(final ILazyLoaderTree lazyLoaderTree, final ILazyLoaderAdapter lazyLoaderAdapter)
 	{
-		JSecurityAction action = new JSecurityAction(SwingLocale.getString("load") + SwingLocale.getString("grandchildren_nodes"), IconFactory.getSwingIcon("solid/control_play_16.png"), SwingLocale.getString("load") + SwingLocale.getString("grandchildren_nodes"))
+		JSecurityAction action = new JSecurityAction(SwingLocale.getString("load") + SwingLocale.getString("grandchildren_nodes"), IconFactory.getSwingIcon("stereo/control_play_16.png"), SwingLocale.getString("load") + SwingLocale.getString("grandchildren_nodes"))
 		{
 			public void execute(ActionEvent e)
 			{
@@ -86,7 +86,7 @@ public class LazyLoaderTreeController
 	
 	public static JSecurityAction getLoadAllAction(final ILazyLoaderTree lazyLoaderTree, final ILazyLoaderAdapter lazyLoaderAdapter)
 	{
-		JSecurityAction action = new JSecurityAction(SwingLocale.getString("load") + SwingLocale.getString("all_nodes"), IconFactory.getSwingIcon("solid/control_play_16.png"), SwingLocale.getString("load") + SwingLocale.getString("all_nodes"))
+		JSecurityAction action = new JSecurityAction(SwingLocale.getString("load") + SwingLocale.getString("all_nodes"), IconFactory.getSwingIcon("stereo/control_play_16.png"), SwingLocale.getString("load") + SwingLocale.getString("all_nodes"))
 		{
 			public void execute(ActionEvent e)
 			{
@@ -107,7 +107,7 @@ public class LazyLoaderTreeController
 	
 	public static JSecurityAction getCancelAction(final ILazyLoaderTree lazyLoaderTree, final ILazyLoaderAdapter lazyLoaderAdapter)
 	{
-		JSecurityAction action = new JSecurityAction(SwingLocale.getString("cancel_load"), IconFactory.getSwingIcon("solid/cancel_16.png"), SwingLocale.getString("cancel_load") + SwingLocale.getString("children_nodes"))
+		JSecurityAction action = new JSecurityAction(SwingLocale.getString("cancel_load"), IconFactory.getSwingIcon("stereo/cancel_16.png"), SwingLocale.getString("cancel_load") + SwingLocale.getString("children_nodes"))
 		{
 			public void execute(ActionEvent e)
 			{
@@ -135,7 +135,7 @@ public class LazyLoaderTreeController
 	
 	public static JSecurityAction getCancelGrandchildrenAction(final ILazyLoaderTree lazyLoaderTree, final ILazyLoaderAdapter lazyLoaderAdapter)
 	{
-		JSecurityAction action = new JSecurityAction(SwingLocale.getString("cancel_load") + SwingLocale.getString("grandchildren_nodes"), IconFactory.getSwingIcon("solid/cancel_16.png"), SwingLocale.getString("cancel_load") + SwingLocale.getString("grandchildren_nodes"))
+		JSecurityAction action = new JSecurityAction(SwingLocale.getString("cancel_load") + SwingLocale.getString("grandchildren_nodes"), IconFactory.getSwingIcon("stereo/cancel_16.png"), SwingLocale.getString("cancel_load") + SwingLocale.getString("grandchildren_nodes"))
 		{
 			public void execute(ActionEvent e)
 			{
@@ -163,7 +163,7 @@ public class LazyLoaderTreeController
 	
 	public static JSecurityAction getCancelAllAction(final ILazyLoaderTree lazyLoaderTree, final ILazyLoaderAdapter lazyLoaderAdapter)
 	{
-		JSecurityAction action = new JSecurityAction(SwingLocale.getString("cancel_load") + SwingLocale.getString("all_nodes"), IconFactory.getSwingIcon("solid/cancel_16.png"), SwingLocale.getString("cancel_load") + SwingLocale.getString("all_nodes"))
+		JSecurityAction action = new JSecurityAction(SwingLocale.getString("cancel_load") + SwingLocale.getString("all_nodes"), IconFactory.getSwingIcon("stereo/cancel_16.png"), SwingLocale.getString("cancel_load") + SwingLocale.getString("all_nodes"))
 		{
 			public void execute(ActionEvent e)
 			{
@@ -185,7 +185,7 @@ public class LazyLoaderTreeController
 	
 	public static JSecurityAction getSyncLoadStrategyAction(final ILazyLoaderTree lazyLoaderTree)
 	{
-		final JSecurityAction action = new JSecurityAction(SwingLocale.getString("sync_loader_strategy"), IconFactory.getSwingIcon("solid/application_16.png"), SwingLocale.getString("sync_loader_strategy"))
+		final JSecurityAction action = new JSecurityAction(SwingLocale.getString("sync_loader_strategy"), IconFactory.getSwingIcon("stereo/application_16.png"), SwingLocale.getString("sync_loader_strategy"))
 		{
 			public void execute(ActionEvent e)
 			{
@@ -197,7 +197,7 @@ public class LazyLoaderTreeController
 	
 	public static JSecurityAction getAsynLoadStrategyAction(final ILazyLoaderTree lazyLoaderTree)
 	{
-		final JSecurityAction action = new JSecurityAction(SwingLocale.getString("asyn_loader_strategy"), IconFactory.getSwingIcon("solid/application_16.png"), SwingLocale.getString("asyn_loader_strategy"))
+		final JSecurityAction action = new JSecurityAction(SwingLocale.getString("asyn_loader_strategy"), IconFactory.getSwingIcon("stereo/application_16.png"), SwingLocale.getString("asyn_loader_strategy"))
 		{
 			public void execute(ActionEvent e)
 			{
@@ -209,7 +209,7 @@ public class LazyLoaderTreeController
 	
 	public static JSecurityAction getRefreshAction(final ILazyLoaderTree lazyLoaderTree, final ILazyLoaderAdapter lazyLoaderAdapter)
 	{
-		JSecurityAction action = new JSecurityAction(SwingLocale.getString("refresh"), IconFactory.getSwingIcon("solid/refresh_16.png"), SwingLocale.getString("refresh") + SwingLocale.getString("children_nodes"))
+		JSecurityAction action = new JSecurityAction(SwingLocale.getString("refresh"), IconFactory.getSwingIcon("stereo/refresh_16.png"), SwingLocale.getString("refresh") + SwingLocale.getString("children_nodes"))
 		{
 			public void execute(ActionEvent e)
 			{
@@ -244,7 +244,7 @@ public class LazyLoaderTreeController
 	
 	public static JSecurityAction getSearchAction(final ILazyLoaderTree lazyLoaderTree)
 	{
-		JSecurityAction action = new JSecurityAction(SwingLocale.getString("search"), IconFactory.getSwingIcon("solid_search.png"), SwingLocale.getString("search_recursion"))
+		JSecurityAction action = new JSecurityAction(SwingLocale.getString("search"), IconFactory.getSwingIcon("stereo_search.png"), SwingLocale.getString("search_recursion"))
 		{
 			public void execute(ActionEvent e)
 			{

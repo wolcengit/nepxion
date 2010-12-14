@@ -122,7 +122,7 @@ public class JLazyLoaderContainer
 		{
 			setLayout(new ToolBarLayout());
 			
-			closeButton = new JBasicButton(IconFactory.getSwingIcon("solid/close_16.png"), SwingLocale.getString("close"));
+			closeButton = new JBasicButton(IconFactory.getSwingIcon("stereo/close_16.png"), SwingLocale.getString("close"));
 			closeButton.setDimension(new Dimension(26, 26));
 			closeButton.addActionListener(new ActionListener()
 			{
@@ -136,7 +136,7 @@ public class JLazyLoaderContainer
 			searchTextField = new JBasicTextField();
 			DimensionManager.setDimension(searchTextField, new Dimension(70, 24));
 			
-			searchButton = new JBasicButton(IconFactory.getSwingIcon("solid_search.png"), SwingLocale.getString("search"));
+			searchButton = new JBasicButton(IconFactory.getSwingIcon("stereo_search.png"), SwingLocale.getString("search"));
 			searchButton.setDimension(new Dimension(26, 26));
 			ActionListener searchActionListener = new ActionListener()
 			{
@@ -176,7 +176,7 @@ public class JLazyLoaderContainer
 			searchButton.addActionListener(searchActionListener);
 			KeyStrokeManager.registerButton(searchButton, searchActionListener, KeyEvent.VK_ENTER);
 			
-			forwardButton = new JBasicButton(IconFactory.getSwingIcon("solid/arrow_down_16.png"), SwingLocale.getString("search_forward"));
+			forwardButton = new JBasicButton(IconFactory.getSwingIcon("stereo/arrow_down_16.png"), SwingLocale.getString("search_forward"));
 			forwardButton.setDimension(new Dimension(26, 26));
 			ActionListener forwardActionListener = new ActionListener()
 			{
@@ -198,7 +198,7 @@ public class JLazyLoaderContainer
 			forwardButton.addActionListener(forwardActionListener);
 			KeyStrokeManager.registerButton(forwardButton, forwardActionListener, KeyEvent.VK_D, KeyEvent.CTRL_MASK);
 			
-			backwardButton = new JBasicButton(IconFactory.getSwingIcon("solid/arrow_up_16.png"), SwingLocale.getString("search_backward"));
+			backwardButton = new JBasicButton(IconFactory.getSwingIcon("stereo/arrow_up_16.png"), SwingLocale.getString("search_backward"));
 			backwardButton.setDimension(new Dimension(26, 26));
 			ActionListener backwardActionListener = new ActionListener()
 			{
@@ -220,7 +220,7 @@ public class JLazyLoaderContainer
 			backwardButton.addActionListener(backwardActionListener);
 			KeyStrokeManager.registerButton(backwardButton, backwardActionListener, KeyEvent.VK_U, KeyEvent.CTRL_MASK);
 			
-			preferenceMenuButton = new JBasicMenuButton(IconFactory.getSwingIcon("solid/favorite_16.png"), SwingLocale.getString("preference"));
+			preferenceMenuButton = new JBasicMenuButton(IconFactory.getSwingIcon("stereo/favorite_16.png"), SwingLocale.getString("preference"));
 			preferenceMenuButton.setDimension(new Dimension(31, 26));
 			
 			JDecorationPopupMenu preferencePopupMenu = new JDecorationPopupMenu();
@@ -264,7 +264,7 @@ public class JLazyLoaderContainer
 			
 			historyButtonGroup = new ButtonGroup();
 			
-			historyMenuButton = new JBasicMenuButton(IconFactory.getSwingIcon("solid/history_16.png"), SwingLocale.getString("history_record"));
+			historyMenuButton = new JBasicMenuButton(IconFactory.getSwingIcon("stereo/history_16.png"), SwingLocale.getString("history_record"));
 			historyMenuButton.setDimension(new Dimension(31, 26));
 			
 			JDecorationPopupMenu historyPopupMenu = new JDecorationPopupMenu();
