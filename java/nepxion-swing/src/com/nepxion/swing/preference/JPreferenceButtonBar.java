@@ -30,7 +30,7 @@ public class JPreferenceButtonBar
 	
 	public JPreferenceButtonBar()
 	{
-		saveButton = new JBasicButton(SwingLocale.getString("save"), IconFactory.getSwingIcon("solid/confirm_16.png"), SwingLocale.getString("save"));
+		saveButton = new JBasicButton(SwingLocale.getString("save"), IconFactory.getSwingIcon("stereo/confirm_16.png"), SwingLocale.getString("save"));
 		saveButton.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent e)
@@ -40,7 +40,7 @@ public class JPreferenceButtonBar
 		}
 		);
 		
-		refreshButton = new JBasicButton(SwingLocale.getString("refresh"), IconFactory.getSwingIcon("solid/refresh_16.png"), SwingLocale.getString("refresh"));
+		refreshButton = new JBasicButton(SwingLocale.getString("refresh"), IconFactory.getSwingIcon("stereo/refresh_16.png"), SwingLocale.getString("refresh"));
 		refreshButton.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent e)
