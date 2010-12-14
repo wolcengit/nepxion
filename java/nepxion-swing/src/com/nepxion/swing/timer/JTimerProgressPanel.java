@@ -94,7 +94,7 @@ public abstract class JTimerProgressPanel
 	{
 		public ButtonPanel()
 		{
-			hideButton = new JClassicButton(SwingLocale.getString("hide"), IconFactory.getSwingIcon("solid/confirm_16.png"), SwingLocale.getString("hide"));
+			hideButton = new JClassicButton(SwingLocale.getString("hide"), IconFactory.getSwingIcon("stereo/confirm_16.png"), SwingLocale.getString("hide"));
 			ActionListener hideActionListener = new ActionListener()
 			{
 				public void actionPerformed(ActionEvent e)
@@ -111,7 +111,7 @@ public abstract class JTimerProgressPanel
 			hideButton.addActionListener(hideActionListener);
 			KeyStrokeManager.registerButtonToEnterKey(hideButton, hideActionListener);
 			
-			cancelButton = new JClassicButton(SwingLocale.getString("cancel"), IconFactory.getSwingIcon("solid/cancel_16.png"), SwingLocale.getString("cancel"));
+			cancelButton = new JClassicButton(SwingLocale.getString("cancel"), IconFactory.getSwingIcon("stereo/cancel_16.png"), SwingLocale.getString("cancel"));
 			cancelButton.setFocusPainted(false);
 			cancelButton.setMargin(new Insets(3, 9, 3, 9));
 			ActionListener cancelActionListener = new ActionListener()
