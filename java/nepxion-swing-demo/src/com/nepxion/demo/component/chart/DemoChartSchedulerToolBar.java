@@ -47,7 +47,7 @@ public class DemoChartSchedulerToolBar
 		final JTimePanel timePanel = new JTimePanel(JTimePanel.HORIZONTAL);
 		timePanel.setInterval(new int[] {0, 0, 0, 1, 0});
 		
-		JBasicButton startButton = new JBasicButton("启动", IconFactory.getSwingIcon("solid/control_forward_16.png"), "启动定时器");
+		JBasicButton startButton = new JBasicButton("启动", IconFactory.getSwingIcon("stereo/control_forward_16.png"), "启动定时器");
 		startButton.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent e)
@@ -63,7 +63,7 @@ public class DemoChartSchedulerToolBar
 		);
 		timePanel.add(startButton);
 		
-		JBasicButton stopButton = new JBasicButton("停止", IconFactory.getSwingIcon("solid/control_pause_16.png"), "停止定时器");
+		JBasicButton stopButton = new JBasicButton("停止", IconFactory.getSwingIcon("stereo/control_pause_16.png"), "停止定时器");
 		stopButton.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent e)

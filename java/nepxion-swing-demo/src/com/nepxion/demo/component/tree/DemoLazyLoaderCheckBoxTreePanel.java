@@ -238,7 +238,7 @@ public class DemoLazyLoaderCheckBoxTreePanel
 		{
 			LazyLoaderTreeManager.validate(fileTree, parentTreeNode);
 			
-			return new ElementNode("新增节点", IconFactory.getSwingIcon("solid/add_16.png"), "新增节点");
+			return new ElementNode("新增节点", IconFactory.getSwingIcon("stereo/add_16.png"), "新增节点");
 		}
 		
 		
@@ -426,7 +426,7 @@ public class DemoLazyLoaderCheckBoxTreePanel
 			KeyStrokeManager.registerButton(cancelAllMenuItem, KeyEvent.VK_ESCAPE);	
 			cancelPopupMenu.add(cancelAllMenuItem);
 			
-			JBasicMenuButton loadStrategyButton = new JBasicMenuButton("策略", IconFactory.getSwingIcon("solid/application_16.png"), "装载策略");
+			JBasicMenuButton loadStrategyButton = new JBasicMenuButton("策略", IconFactory.getSwingIcon("stereo/application_16.png"), "装载策略");
 			add(loadStrategyButton);
 			
 			JDecorationPopupMenu loadStrategyPopupMenu = new JDecorationPopupMenu();

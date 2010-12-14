@@ -136,7 +136,7 @@ public class DemoThreadContainerPanel
 			);
 			add(selectorButton);
 			
-			JBasicButton loaderButton = new JBasicButton(IconFactory.getSwingIcon("solid_search.png"), "Load File");
+			JBasicButton loaderButton = new JBasicButton(IconFactory.getSwingIcon("stereo_search.png"), "Load File");
 			loaderButton.addActionListener(new ActionListener()
 			{
 				public void actionPerformed(ActionEvent e)

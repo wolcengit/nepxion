@@ -64,7 +64,7 @@ public class DemoTimerLabelPanel
 			DimensionManager.setDimension(textField, new Dimension(100, 23));
 			add(textField);
 			
-			JBasicButton startButton = new JBasicButton("Start", IconFactory.getSwingIcon("solid/control_play_16.png"), "Start Timer");
+			JBasicButton startButton = new JBasicButton("Start", IconFactory.getSwingIcon("stereo/control_play_16.png"), "Start Timer");
 			startButton.addActionListener(new ActionListener()
 			{
 				public void actionPerformed(ActionEvent e)
@@ -84,7 +84,7 @@ public class DemoTimerLabelPanel
 			);
 			add(startButton);
 			
-			JBasicButton restartButton = new JBasicButton("Restart", IconFactory.getSwingIcon("solid/control_go_16.png"), "Restart Timer");
+			JBasicButton restartButton = new JBasicButton("Restart", IconFactory.getSwingIcon("stereo/control_go_16.png"), "Restart Timer");
 			restartButton.addActionListener(new ActionListener()
 			{
 				public void actionPerformed(ActionEvent e)
@@ -104,7 +104,7 @@ public class DemoTimerLabelPanel
 			);
 			add(restartButton);
 			
-			JBasicButton stopButton = new JBasicButton("Stop", IconFactory.getSwingIcon("solid/control_stop_16.png"), "Stop Timer");
+			JBasicButton stopButton = new JBasicButton("Stop", IconFactory.getSwingIcon("stereo/control_stop_16.png"), "Stop Timer");
 			stopButton.addActionListener(new ActionListener()
 			{
 				public void actionPerformed(ActionEvent e)
@@ -115,7 +115,7 @@ public class DemoTimerLabelPanel
 			);
 			add(stopButton);
 			
-			JBasicButton resetButton = new JBasicButton("Reset", IconFactory.getSwingIcon("solid/refresh_16.png"), "Reset Timer");
+			JBasicButton resetButton = new JBasicButton("Reset", IconFactory.getSwingIcon("stereo/refresh_16.png"), "Reset Timer");
 			resetButton.addActionListener(new ActionListener()
 			{
 				public void actionPerformed(ActionEvent e)
