@@ -109,7 +109,7 @@ public abstract class PaginationBar
 		
 		maxPageRowCountLabel = createLabel("");
 		
-		firstPageButton = new JBasicButton(IconFactory.getSwingIcon("solid/control_top_16.png"), SwingLocale.getString("first_page"));
+		firstPageButton = new JBasicButton(IconFactory.getSwingIcon("stereo/control_top_16.png"), SwingLocale.getString("first_page"));
 		firstPageButton.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent e)
@@ -135,7 +135,7 @@ public abstract class PaginationBar
 		}
 		);
 		
-		backwardPageButton = new JBasicButton(IconFactory.getSwingIcon("solid/arrow_backward_16.png"), SwingLocale.getString("backward_page"));
+		backwardPageButton = new JBasicButton(IconFactory.getSwingIcon("stereo/arrow_backward_16.png"), SwingLocale.getString("backward_page"));
 		backwardPageButton.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent e)
@@ -161,7 +161,7 @@ public abstract class PaginationBar
 		}
 		);
 		
-		forwardPageButton = new JBasicButton(IconFactory.getSwingIcon("solid/arrow_forward_16.png"), SwingLocale.getString("forward_page"));
+		forwardPageButton = new JBasicButton(IconFactory.getSwingIcon("stereo/arrow_forward_16.png"), SwingLocale.getString("forward_page"));
 		forwardPageButton.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent e)
@@ -188,7 +188,7 @@ public abstract class PaginationBar
 		}
 		);
 		
-		lastPageButton = new JBasicButton(IconFactory.getSwingIcon("solid/control_bottom_16.png"), SwingLocale.getString("last_page"));
+		lastPageButton = new JBasicButton(IconFactory.getSwingIcon("stereo/control_bottom_16.png"), SwingLocale.getString("last_page"));
 		lastPageButton.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent e)
@@ -217,7 +217,7 @@ public abstract class PaginationBar
 		
 		pageIndexDirectTextField = new JNumberTextField(1);
 		setPageIndexDirectTextFieldWidth(35);
-		pageIndexDirectButton = new JBasicButton(IconFactory.getSwingIcon("solid/control_go_16.png"), SwingLocale.getString("submit"));
+		pageIndexDirectButton = new JBasicButton(IconFactory.getSwingIcon("stereo/control_go_16.png"), SwingLocale.getString("submit"));
 		pageIndexDirectButton.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent e)
@@ -263,7 +263,7 @@ public abstract class PaginationBar
 		
 		maxPageRowCountDirectTextField = new JNumberTextField(1);
 		setMaxPageRowCountDirectTextFieldWidth(35);
-		maxPageRowCountDirectButton = new JBasicButton(IconFactory.getSwingIcon("solid/control_go_16.png"), SwingLocale.getString("submit"));
+		maxPageRowCountDirectButton = new JBasicButton(IconFactory.getSwingIcon("stereo/control_go_16.png"), SwingLocale.getString("submit"));
 		maxPageRowCountDirectButton.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent e)
@@ -321,7 +321,7 @@ public abstract class PaginationBar
 		sortTypeComboBox = new JBasicComboBox(sortTypeList.toArray());
 		setSortTypeComboBoxWidth(60);
 		
-		submitSortButton = new JBasicButton(IconFactory.getSwingIcon("solid/control_go_16.png"), SwingLocale.getString("submit"));
+		submitSortButton = new JBasicButton(IconFactory.getSwingIcon("stereo/control_go_16.png"), SwingLocale.getString("submit"));
 		submitSortButton.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent e)
