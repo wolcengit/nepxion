@@ -112,7 +112,7 @@ public class JExceptionDialog
 		toggleTextField.setPreferredSize(new Dimension(250, toggleTextField.getPreferredSize().height));
 		toggleTextField.setLabelStyle();
 		
-		closeButton = new JClassicButton(SwingLocale.getString("exception_close"), IconFactory.getSwingIcon("solid/close_16.png"), SwingLocale.getString("exception_close_tooltip"));
+		closeButton = new JClassicButton(SwingLocale.getString("exception_close"), IconFactory.getSwingIcon("stereo/close_16.png"), SwingLocale.getString("exception_close_tooltip"));
 		DimensionManager.setDimension(closeButton, new Dimension(91, 29));
 		ActionListener closeActionListener = new ActionListener()
 		{
@@ -125,7 +125,7 @@ public class JExceptionDialog
 		KeyStrokeManager.registerButtonToEscapeKey(closeButton, closeActionListener);
 		KeyStrokeManager.registerButtonToEnterKey(closeButton, closeActionListener);
 		
-		detailButton = new JClassicButton(SwingLocale.getString("exception_view"), IconFactory.getSwingIcon("solid/info_16.png"), SwingLocale.getString("exception_view_tooltip"));
+		detailButton = new JClassicButton(SwingLocale.getString("exception_view"), IconFactory.getSwingIcon("stereo/info_16.png"), SwingLocale.getString("exception_view_tooltip"));
 		DimensionManager.setDimension(detailButton, new Dimension(91, 29));
 		ActionListener detailActionListener = new ActionListener()
 		{
