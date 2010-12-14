@@ -291,7 +291,7 @@ public class TreeController
 	
 	public static JSecurityAction getAddAction(final JTree tree, final ITreeAdapter treeAdapter)
 	{
-		JSecurityAction action = new JSecurityAction(SwingLocale.getString("add"), IconFactory.getSwingIcon("solid/add_16.png"), SwingLocale.getString("add") + SwingLocale.getString("node"))
+		JSecurityAction action = new JSecurityAction(SwingLocale.getString("add"), IconFactory.getSwingIcon("stereo/add_16.png"), SwingLocale.getString("add") + SwingLocale.getString("node"))
 		{
 			public void execute(ActionEvent e)
 			{
@@ -304,7 +304,7 @@ public class TreeController
 	
 	public static JSecurityAction getModifyAction(final JTree tree, final ITreeAdapter treeAdapter)
 	{
-		JSecurityAction action = new JSecurityAction(SwingLocale.getString("modify"), IconFactory.getSwingIcon("solid/confirm_16.png"), SwingLocale.getString("modify") + SwingLocale.getString("node"))
+		JSecurityAction action = new JSecurityAction(SwingLocale.getString("modify"), IconFactory.getSwingIcon("stereo/confirm_16.png"), SwingLocale.getString("modify") + SwingLocale.getString("node"))
 		{
 			public void execute(ActionEvent e)
 			{
@@ -317,7 +317,7 @@ public class TreeController
 	
 	public static JSecurityAction getDeleteAction(final JTree tree, final ITreeAdapter treeAdapter)
 	{
-		JSecurityAction action = new JSecurityAction(SwingLocale.getString("delete"), IconFactory.getSwingIcon("solid/delete_16.png"), SwingLocale.getString("delete") + SwingLocale.getString("node"))
+		JSecurityAction action = new JSecurityAction(SwingLocale.getString("delete"), IconFactory.getSwingIcon("stereo/delete_16.png"), SwingLocale.getString("delete") + SwingLocale.getString("node"))
 		{
 			public void execute(ActionEvent e)
 			{
@@ -330,7 +330,7 @@ public class TreeController
 	
 	public static JSecurityAction getRenameAction(final JTree tree, final ITreeAdapter treeAdapter)
 	{
-		JSecurityAction action = new JSecurityAction(SwingLocale.getString("rename"), IconFactory.getSwingIcon("solid/calendar_16.png"), SwingLocale.getString("rename") + SwingLocale.getString("node"))
+		JSecurityAction action = new JSecurityAction(SwingLocale.getString("rename"), IconFactory.getSwingIcon("stereo/calendar_16.png"), SwingLocale.getString("rename") + SwingLocale.getString("node"))
 		{
 			public void execute(ActionEvent e)
 			{
@@ -343,7 +343,7 @@ public class TreeController
 	
 	public static JSecurityAction getMoveUpAction(final JTree tree, final ITreeAdapter treeAdapter)
 	{
-		JSecurityAction action = new JSecurityAction(SwingLocale.getString("move_up"), IconFactory.getSwingIcon("solid/arrow_up_16.png"), SwingLocale.getString("move_up") + SwingLocale.getString("node"))
+		JSecurityAction action = new JSecurityAction(SwingLocale.getString("move_up"), IconFactory.getSwingIcon("stereo/arrow_up_16.png"), SwingLocale.getString("move_up") + SwingLocale.getString("node"))
 		{
 			public void execute(ActionEvent e)
 			{
@@ -355,7 +355,7 @@ public class TreeController
 	
 	public static JSecurityAction getMoveDownAction(final JTree tree, final ITreeAdapter treeAdapter)
 	{
-		JSecurityAction action = new JSecurityAction(SwingLocale.getString("move_down"), IconFactory.getSwingIcon("solid/arrow_down_16.png"), SwingLocale.getString("move_down") + SwingLocale.getString("node"))
+		JSecurityAction action = new JSecurityAction(SwingLocale.getString("move_down"), IconFactory.getSwingIcon("stereo/arrow_down_16.png"), SwingLocale.getString("move_down") + SwingLocale.getString("node"))
 		{
 			public void execute(ActionEvent e)
 			{
@@ -367,7 +367,7 @@ public class TreeController
 	
 	public static JSecurityAction getExpandAction(final JTree tree)
 	{
-		JSecurityAction action = new JSecurityAction(SwingLocale.getString("expand"), IconFactory.getSwingIcon("solid/arrow_down_16.png"), SwingLocale.getString("expand") + SwingLocale.getString("children_nodes"))
+		JSecurityAction action = new JSecurityAction(SwingLocale.getString("expand"), IconFactory.getSwingIcon("stereo/arrow_down_16.png"), SwingLocale.getString("expand") + SwingLocale.getString("children_nodes"))
 		{
 			public void execute(ActionEvent e)
 			{
@@ -403,7 +403,7 @@ public class TreeController
 	
 	public static JSecurityAction getCollapseAction(final JTree tree)
 	{
-		JSecurityAction action = new JSecurityAction(SwingLocale.getString("collapse"), IconFactory.getSwingIcon("solid/arrow_up_16.png"), SwingLocale.getString("collapse") + SwingLocale.getString("children_nodes"))
+		JSecurityAction action = new JSecurityAction(SwingLocale.getString("collapse"), IconFactory.getSwingIcon("stereo/arrow_up_16.png"), SwingLocale.getString("collapse") + SwingLocale.getString("children_nodes"))
 		{
 			public void execute(ActionEvent e)
 			{
