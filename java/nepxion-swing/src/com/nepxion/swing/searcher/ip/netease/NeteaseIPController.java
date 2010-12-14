@@ -25,7 +25,7 @@ public class NeteaseIPController
 {
 	public static JSecurityAction getSearchAction(final JNeteaseIPPanel panel)
 	{
-		JSecurityAction action = new JSecurityAction(SwingLocale.getString("query"), IconFactory.getSwingIcon("solid_search.png"), SwingLocale.getString("ip_to_address"))
+		JSecurityAction action = new JSecurityAction(SwingLocale.getString("query"), IconFactory.getSwingIcon("stereo_search.png"), SwingLocale.getString("ip_to_address"))
 		{
 			public void execute(ActionEvent e)
 			{
@@ -67,7 +67,7 @@ public class NeteaseIPController
 	
 	public static JSecurityAction getClearAction(final JNeteaseIPTable table)
 	{
-		JSecurityAction action = new JSecurityAction(SwingLocale.getString("clear"), IconFactory.getSwingIcon("solid/delete_16.png"), SwingLocale.getString("clear_query_result"))
+		JSecurityAction action = new JSecurityAction(SwingLocale.getString("clear"), IconFactory.getSwingIcon("stereo/delete_16.png"), SwingLocale.getString("clear_query_result"))
 		{
 			public void execute(ActionEvent e)
 			{

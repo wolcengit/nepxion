@@ -25,7 +25,7 @@ public class TencentIPController
 {
 	public static JSecurityAction getSearchAction(final JTencentIPPanel panel)
 	{
-		JSecurityAction action = new JSecurityAction(SwingLocale.getString("query"), IconFactory.getSwingIcon("solid_search.png"), SwingLocale.getString("ip_to_native_address"))
+		JSecurityAction action = new JSecurityAction(SwingLocale.getString("query"), IconFactory.getSwingIcon("stereo_search.png"), SwingLocale.getString("ip_to_native_address"))
 		{
 			public void execute(ActionEvent e)
 			{
@@ -61,7 +61,7 @@ public class TencentIPController
 	
 	public static JSecurityAction getClearAction(final JTencentIPTable table)
 	{
-		JSecurityAction action = new JSecurityAction(SwingLocale.getString("clear"), IconFactory.getSwingIcon("solid/delete_16.png"), SwingLocale.getString("clear_query_result"))
+		JSecurityAction action = new JSecurityAction(SwingLocale.getString("clear"), IconFactory.getSwingIcon("stereo/delete_16.png"), SwingLocale.getString("clear_query_result"))
 		{
 			public void execute(ActionEvent e)
 			{
