@@ -87,7 +87,7 @@ public class JOptionButtonPanel
 	{
 		initYesNoOption();
 		
-		applyButton = new JClassicButton(SwingLocale.getString("apply"), IconFactory.getSwingIcon("solid/application_16.png"), SwingLocale.getString("apply"));
+		applyButton = new JClassicButton(SwingLocale.getString("apply"), IconFactory.getSwingIcon("stereo/application_16.png"), SwingLocale.getString("apply"));
 		ActionListener applyActionListener = new ActionListener()
 		{
 			public void actionPerformed(ActionEvent e)
@@ -102,7 +102,7 @@ public class JOptionButtonPanel
 	
 	private void initYesNoOption()
 	{
-		confirmButton = new JClassicButton(SwingLocale.getString("yes"), IconFactory.getSwingIcon("solid/confirm_16.png"), SwingLocale.getString("yes"));
+		confirmButton = new JClassicButton(SwingLocale.getString("yes"), IconFactory.getSwingIcon("stereo/confirm_16.png"), SwingLocale.getString("yes"));
 		ActionListener confirmActionListener = new ActionListener()
 		{
 			public void actionPerformed(ActionEvent e)
@@ -115,7 +115,7 @@ public class JOptionButtonPanel
 		KeyStrokeManager.registerButtonToEnterKey(confirmButton, confirmActionListener);
 		container.add(confirmButton);
 		
-		cancelButton = new JClassicButton(SwingLocale.getString("no"), IconFactory.getSwingIcon("solid/cancel_16.png"), SwingLocale.getString("no"));
+		cancelButton = new JClassicButton(SwingLocale.getString("no"), IconFactory.getSwingIcon("stereo/cancel_16.png"), SwingLocale.getString("no"));
 		ActionListener cancelActionListener = new ActionListener()
 		{
 			public void actionPerformed(ActionEvent e)
@@ -131,7 +131,7 @@ public class JOptionButtonPanel
 	
 	private void initCloseOption()
 	{
-		closeButton = new JClassicButton(SwingLocale.getString("close"), IconFactory.getSwingIcon("solid/close_16.png"), SwingLocale.getString("close"));
+		closeButton = new JClassicButton(SwingLocale.getString("close"), IconFactory.getSwingIcon("stereo/close_16.png"), SwingLocale.getString("close"));
 		closeButton.addFocusListener(new ButtonFocusListener(this));
 		ActionListener closeActionListener = new ActionListener()
 		{
