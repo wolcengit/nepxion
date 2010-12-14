@@ -236,7 +236,7 @@ public class TableController
 	
 	public static JSecurityAction getAddAction(final JTable table, final ITableAdapter tableAdapter)
 	{
-		JSecurityAction action = new JSecurityAction(SwingLocale.getString("add"), IconFactory.getSwingIcon("solid/add_16.png"), SwingLocale.getString("add") + SwingLocale.getString("record"))
+		JSecurityAction action = new JSecurityAction(SwingLocale.getString("add"), IconFactory.getSwingIcon("stereo/add_16.png"), SwingLocale.getString("add") + SwingLocale.getString("record"))
 		{
 			public void execute(ActionEvent e)
 			{
@@ -249,7 +249,7 @@ public class TableController
 	
 	public static JSecurityAction getModifyAction(final JTable table, final ITableAdapter tableAdapter)
 	{
-		JSecurityAction action = new JSecurityAction(SwingLocale.getString("modify"), IconFactory.getSwingIcon("solid/confirm_16.png"), SwingLocale.getString("modify") + SwingLocale.getString("record"))
+		JSecurityAction action = new JSecurityAction(SwingLocale.getString("modify"), IconFactory.getSwingIcon("stereo/confirm_16.png"), SwingLocale.getString("modify") + SwingLocale.getString("record"))
 		{
 			public void execute(ActionEvent e)
 			{
@@ -262,7 +262,7 @@ public class TableController
 	
 	public static JSecurityAction getDeleteAction(final JTable table, final ITableAdapter tableAdapter)
 	{
-		JSecurityAction action = new JSecurityAction(SwingLocale.getString("delete"), IconFactory.getSwingIcon("solid/delete_16.png"), SwingLocale.getString("delete") + SwingLocale.getString("record"))
+		JSecurityAction action = new JSecurityAction(SwingLocale.getString("delete"), IconFactory.getSwingIcon("stereo/delete_16.png"), SwingLocale.getString("delete") + SwingLocale.getString("record"))
 		{
 			public void execute(ActionEvent e)
 			{
@@ -275,7 +275,7 @@ public class TableController
 	
 	public static JSecurityAction getRefreshAction(final JTable table, final ITableAdapter tableAdapter)
 	{
-		JSecurityAction action = new JSecurityAction(SwingLocale.getString("refresh"), IconFactory.getSwingIcon("solid/refresh_16.png"), SwingLocale.getString("refresh") + SwingLocale.getString("record"))
+		JSecurityAction action = new JSecurityAction(SwingLocale.getString("refresh"), IconFactory.getSwingIcon("stereo/refresh_16.png"), SwingLocale.getString("refresh") + SwingLocale.getString("record"))
 		{
 			public void execute(ActionEvent e)
 			{
@@ -287,7 +287,7 @@ public class TableController
 	
 	public static JSecurityAction getClearAction(final JTable table, final ITableAdapter tableAdapter)
 	{
-		JSecurityAction action = new JSecurityAction(SwingLocale.getString("clear"), IconFactory.getSwingIcon("solid/delete_16.png"), SwingLocale.getString("clear") + SwingLocale.getString("record"))
+		JSecurityAction action = new JSecurityAction(SwingLocale.getString("clear"), IconFactory.getSwingIcon("stereo/delete_16.png"), SwingLocale.getString("clear") + SwingLocale.getString("record"))
 		{
 			public void execute(ActionEvent e)
 			{
