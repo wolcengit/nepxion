@@ -156,6 +156,28 @@ public abstract class BasicTableModel
 		fireTableDataChanged();
 	}
 	
+	public void fixRows(int fixedRowCount, boolean isFromTop)
+	{
+		int rowCount = getRowCount();
+		if (rowCount > fixedRowCount)
+		{
+			int deletedCount = rowCount - fixedRowCount;
+			int[] deleteRows = new int[deletedCount];
+			for (int i = 0; i < deletedCount; i++)
+			{
+				if (isFromTop)
+				{	
+					deleteRows[i] = i;					
+				}
+				else
+				{
+					deleteRows[i] = rowCount - i - 1;
+				}
+			}
+			deleteRows(deleteRows);
+		}
+	}
+	
 	public void clearRows()
 	{
 		rowDatas.clear();
