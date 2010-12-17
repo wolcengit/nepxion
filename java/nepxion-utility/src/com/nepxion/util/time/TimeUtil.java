@@ -777,6 +777,21 @@ public class TimeUtil
 		return millisecondTimeFormat;
 	}
 	
+	/**
+	 * Calculate date
+	 * @param date    the src date
+	 * @param field   the calendar field
+	 * @param amount  the amount of date or time to be added to the field
+	 * @return        the dest date
+	 */
+	public static Date calculateDate(Date date, int field, int amount)
+	{
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
+        calendar.add(field, amount);
+        return calendar.getTime();
+	}
+	
 	public static void main(String[] args)
 	{
 //		System.out.println("getCurrentYear() : " + getCurrentYear());
