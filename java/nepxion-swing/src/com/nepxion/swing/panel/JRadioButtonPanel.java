@@ -44,6 +44,16 @@ public class JRadioButtonPanel
 		add(falseRadioButton);
 	}
 	
+	public JBasicRadioButton getTrueRadioButton()
+	{
+		return trueRadioButton;
+	}
+	
+	public JBasicRadioButton getFalseRadioButton()
+	{
+		return falseRadioButton;
+	}	
+	
 	public boolean isTrue()
 	{
 		return trueRadioButton.isSelected();

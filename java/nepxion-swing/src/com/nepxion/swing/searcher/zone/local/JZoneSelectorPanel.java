@@ -56,6 +56,11 @@ public class JZoneSelectorPanel
 		setZone(value);
 	}
 	
+	public JNumberTextField getZoneTextField()
+	{
+		return zoneTextField;
+	}
+	
 	public String getZone()
 	{
 		return zoneTextField.getText();

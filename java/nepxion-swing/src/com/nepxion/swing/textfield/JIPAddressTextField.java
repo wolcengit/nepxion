@@ -10,7 +10,9 @@ package com.nepxion.swing.textfield;
  * @version 1.0
  */
 
+import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
@@ -145,6 +147,58 @@ public class JIPAddressTextField
 			ipAddressTextField2.setEditable(editable);
 			ipAddressTextField3.setEditable(editable);
 			ipAddressTextField4.setEditable(editable);
+		}
+	}
+	
+	public void setBackground(Color bg)
+	{
+		super.setBackground(bg);
+		
+		if (ipAddressTextField1 != null && ipAddressTextField2 != null && ipAddressTextField3 != null && ipAddressTextField4 != null)
+		{
+			ipAddressTextField1.setBackground(bg);
+			ipAddressTextField2.setBackground(bg);
+			ipAddressTextField3.setBackground(bg);
+			ipAddressTextField4.setBackground(bg);
+		}
+	}
+	
+	public void setForeground(Color fg)
+	{
+		super.setForeground(fg);
+		
+		if (ipAddressTextField1 != null && ipAddressTextField2 != null && ipAddressTextField3 != null && ipAddressTextField4 != null)
+		{
+			ipAddressTextField1.setForeground(fg);
+			ipAddressTextField2.setForeground(fg);
+			ipAddressTextField3.setForeground(fg);
+			ipAddressTextField4.setForeground(fg);
+		}
+	}
+	
+	public void setFont(Font f)
+	{
+		super.setFont(f);
+		
+		if (ipAddressTextField1 != null && ipAddressTextField2 != null && ipAddressTextField3 != null && ipAddressTextField4 != null)
+		{
+			ipAddressTextField1.setFont(f);
+			ipAddressTextField2.setFont(f);
+			ipAddressTextField3.setFont(f);
+			ipAddressTextField4.setFont(f);
+		}
+	}
+	
+	public void setOpaque(boolean isOpaque)
+	{
+		super.setOpaque(isOpaque);
+		
+		if (ipAddressTextField1 != null && ipAddressTextField2 != null && ipAddressTextField3 != null && ipAddressTextField4 != null)
+		{
+			ipAddressTextField1.setOpaque(isOpaque);
+			ipAddressTextField2.setOpaque(isOpaque);
+			ipAddressTextField3.setOpaque(isOpaque);
+			ipAddressTextField4.setOpaque(isOpaque);
 		}
 	}
 	

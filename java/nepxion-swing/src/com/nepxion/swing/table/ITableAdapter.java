@@ -1,7 +1,5 @@
 package com.nepxion.swing.table;
 
-import java.util.List;
-
 /**
  * <p>Title: Nepxion Swing</p>
  * <p>Description: Nepxion Swing Repository</p>
@@ -11,6 +9,8 @@ import java.util.List;
  * @email hj_ren@msn.com
  * @version 1.0
  */
+
+import java.util.List;
 
 public interface ITableAdapter
 {
