@@ -76,6 +76,7 @@ public class JQueryDateTimeBar
 				
 				add(endDateTimeLabel, "0, 1");
 				add(endDateTimeSelector, "1, 1");
+				break;
 			}
 			case HORIZONTAL:
 			{
@@ -91,7 +92,8 @@ public class JQueryDateTimeBar
 				add(Box.createHorizontalStrut(5));
 				
 				add(endDateTimeLabel);
-				add(endDateTimeSelector);				
+				add(endDateTimeSelector);
+				break;
 			}	
 		}		
 	}
