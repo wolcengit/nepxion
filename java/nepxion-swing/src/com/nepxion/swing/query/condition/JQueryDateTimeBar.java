@@ -14,7 +14,6 @@ import java.awt.Dimension;
 import java.util.Calendar;
 import java.util.Date;
 
-import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JLabel;
@@ -84,7 +83,6 @@ public class JQueryDateTimeBar
 				DimensionManager.setDimension(endDateTimeSelector, new Dimension(194, endDateTimeSelector.getPreferredSize().height));
 				
 				setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-				setBorder(BorderFactory.createEmptyBorder(2, 0, 2, 0));
 				
 				add(startDateTimeLabel);
 				add(startDateTimeSelector);
