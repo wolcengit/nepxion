@@ -27,11 +27,11 @@ import com.nepxion.swing.locale.SwingLocale;
 
 public class PieChartFactory
 {
-	public static PiePlot createPiePlot(PieDataset pieDataset, boolean is3D, String toolTip)
+	public static PiePlot createPiePlot(PieDataset pieDataset, boolean is3D, String toolTipText)
 	{
 		PiePlot piePlot = createPiePlot(pieDataset, is3D, false, false, false);
 		
-		setPiePlotPreference(piePlot, toolTip);
+		setPiePlotPreference(piePlot, toolTipText);
 		
 		return piePlot;
 	}
