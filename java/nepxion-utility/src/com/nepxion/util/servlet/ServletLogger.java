@@ -43,18 +43,21 @@ public class ServletLogger
 			List list = (List) dataInfo;
 			int size = list.size();
 			
-			String classInfo = "List";
-			String containClassInfo = "";
-			if (size > 0)
-			{
-				containClassInfo = "[" + list.get(0).getClass().getName() + "]";
-			}	
-
-			String sizeInfo = ", Size is " + size;
-			
-			return  classInfo + containClassInfo + sizeInfo;
+			if (size > 10)
+			{	
+				String classInfo = "List";
+				String containClassInfo = "";
+				if (size > 0)
+				{
+					containClassInfo = "[" + list.get(0).getClass().getName() + "]";
+				}	
+	
+				String sizeInfo = ", Size is " + size;
+				
+				return  classInfo + containClassInfo + sizeInfo;
+			}
 		}
 		
 		return dataInfo.toString();
-	}	
+	}
 }
