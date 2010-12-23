@@ -24,7 +24,7 @@ import com.nepxion.demo.component.chart.DemoChartSchedulerToolBar;
 import com.nepxion.swing.border.BorderManager;
 import com.nepxion.swing.chart.JChartFactory;
 import com.nepxion.swing.chart.JChartPanel;
-import com.nepxion.swing.chart.line.CombinedLineChartFactory;
+import com.nepxion.swing.chart.line.LineChartFactory;
 import com.nepxion.swing.layout.filed.FiledLayout;
 
 public class DemoLineChartPanel
@@ -48,11 +48,11 @@ public class DemoLineChartPanel
 			setLayout(new BorderLayout());
 			setBorder(BorderManager.createComplexTitleBorder("计算机性能实时统计图"));
 			
-			XYPlot xyPlot1 = CombinedLineChartFactory.createXYPlot("CPU", "计算机性能指标", true);
-			XYPlot xyPlot2 = CombinedLineChartFactory.createXYPlot("内存", "计算机性能指标", true);
-			XYPlot xyPlot3 = CombinedLineChartFactory.createXYPlot("磁盘", "计算机性能指标", true);
+			XYPlot xyPlot1 = LineChartFactory.createTimeXYPlot("CPU", "计算机性能指标", true);
+			XYPlot xyPlot2 = LineChartFactory.createTimeXYPlot("内存", "计算机性能指标", true);
+			XYPlot xyPlot3 = LineChartFactory.createTimeXYPlot("磁盘", "计算机性能指标", true);
 			
-			combinedDomainXYPlot = CombinedLineChartFactory.createCombinedDomainXYPlot("时间轴");
+			combinedDomainXYPlot = LineChartFactory.createCombinedDomainXYPlot("时间轴");
 			combinedDomainXYPlot.add(xyPlot1);
 			combinedDomainXYPlot.add(xyPlot2);
 			combinedDomainXYPlot.add(xyPlot3);
