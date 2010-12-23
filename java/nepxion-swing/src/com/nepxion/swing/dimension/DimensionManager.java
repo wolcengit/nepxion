@@ -15,6 +15,11 @@ import java.awt.Dimension;
 
 public class DimensionManager
 {
+	public static void adaptDimension(Component component)
+	{
+		setDimension(component, component.getPreferredSize());
+	}
+	
 	public static void setDimension(Component component, Dimension dimension)
 	{
 		component.setPreferredSize(dimension);
