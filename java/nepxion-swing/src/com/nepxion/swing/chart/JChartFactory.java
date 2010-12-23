@@ -23,6 +23,7 @@ import org.jfree.chart.plot.XYPlot;
 import org.jfree.chart.title.LegendTitle;
 import org.jfree.chart.title.TextTitle;
 import org.jfree.chart.title.Title;
+import org.jfree.data.Range;
 import org.jfree.ui.RectangleEdge;
 import org.jfree.ui.RectangleInsets;
 import org.jfree.util.UnitType;
@@ -132,5 +133,15 @@ public class JChartFactory
 				}
 			}
 		}
+	}
+	
+	public static void fixRange(ValueAxis rangeAxis, double lowerFixedPercent, double upperFixedPercent)
+	{
+		Range range = rangeAxis.getRange();
+		
+		double lowerFixedValue = range.getLowerBound() * (1 + lowerFixedPercent);
+		double upperFixedValue = range.getUpperBound() * (1 + upperFixedPercent);
+		
+		rangeAxis.setRange(new Range(lowerFixedValue, upperFixedValue));
 	}
 }
