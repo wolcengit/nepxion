@@ -11,8 +11,10 @@ package com.nepxion.swing.chart;
  */
 
 import java.awt.Color;
+import java.awt.Paint;
 import java.awt.RenderingHints;
 
+import org.jfree.chart.ChartColor;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.axis.CategoryAxis;
 import org.jfree.chart.axis.ValueAxis;
@@ -28,10 +30,13 @@ import org.jfree.ui.RectangleEdge;
 import org.jfree.ui.RectangleInsets;
 import org.jfree.util.UnitType;
 
+import com.nepxion.swing.color.ColorUtil;
 import com.nepxion.swing.font.FontContext;
 
 public class JChartFactory
 {
+	public static final Paint[] CHART_PAINT_LIST = ChartColor.createDefaultPaintArray();
+	
 	public static JFreeChart createChart(String title, String subTitle, Plot plot)
 	{
 		JFreeChart chart = new JFreeChart(plot);
@@ -143,5 +148,22 @@ public class JChartFactory
 		double upperFixedValue = range.getUpperBound() * (1 + upperFixedPercent);
 		
 		rangeAxis.setRange(new Range(lowerFixedValue, upperFixedValue));
+	}
+	
+	public static Color getPreferenceColor(int index)
+	{
+		Paint[] chartPaintList = CHART_PAINT_LIST;
+		
+		Color color = null;
+		if (index < chartPaintList.length)
+		{
+			color = (Color) chartPaintList[index];
+		}
+		else
+		{
+			color = ColorUtil.getRandomColor();
+		}
+		
+		return color;
 	}
 }
