@@ -182,6 +182,7 @@ public class RectangleBarChartFactory
 		// numberAxis.setUpperMargin(0.1D);
 		// numberAxis.setNumberFormatOverride(NumberFormat.getPercentInstance());
 
+		categoryPlot.getRangeAxis().setUpperMargin(0.10000000000000001D);
 		categoryPlot.setForegroundAlpha(foregroundAlpha);
 		categoryPlot.setRangePannable(true);
 		categoryPlot.setDomainGridlinesVisible(true);
