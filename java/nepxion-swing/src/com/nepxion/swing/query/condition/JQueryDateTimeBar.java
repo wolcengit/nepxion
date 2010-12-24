@@ -42,7 +42,7 @@ public class JQueryDateTimeBar
 	public JQueryDateTimeBar(int direction)
 	{
         Date endDateTime = new Date();
-        Date startDateTime = TimeUtil.calculateDate(endDateTime, Calendar.HOUR, -24);
+        Date startDateTime = TimeUtil.calculateDateTime(endDateTime, Calendar.HOUR, -24);
         
         JLabel startDateTimeLabel = new JLabel(SwingLocale.getString("start_time"));
         
