@@ -30,7 +30,7 @@ import com.nepxion.swing.locale.SwingLocale;
 
 public class LineChartFactory
 {
-	public static XYPlot createTimeXYPlot(String title, String toolTipText, boolean isShapesVisible)
+	public static XYPlot createTimeXYPlot(String title, String toolTipTextKeyLabel, boolean isShapesVisible)
 	{
 		TimeSeries timeSeries = new TimeSeries(title);
 		TimeSeriesCollection timeSeriesCollection = new TimeSeriesCollection(timeSeries);
@@ -41,7 +41,7 @@ public class LineChartFactory
 		
 		XYPlot xyPlot = new XYPlot(timeSeriesCollection, null, numberAxis, xyLineAndShapeRenderer);
 		
-		setXYPlotPreference(xyPlot, toolTipText, isShapesVisible);
+		setXYPlotPreference(xyPlot, toolTipTextKeyLabel, isShapesVisible);
 		
 		return xyPlot;
 	}
@@ -54,7 +54,7 @@ public class LineChartFactory
 		return combinedDomainXYPlot;
 	}
 	
-	public static void setXYPlotPreference(XYPlot xyPlot, String toolTipText, boolean isShapesVisible)
+	public static void setXYPlotPreference(XYPlot xyPlot, String toolTipTextKeyLabel, boolean isShapesVisible)
 	{
 		xyPlot.setBackgroundPaint(new GradientPaint(0.0F, 0.0F, new Color(128, 128, 128), 0.0F, 0.0F, new Color(251, 251, 251), true));
 		xyPlot.setDomainGridlinePaint(Color.white);
@@ -68,7 +68,7 @@ public class LineChartFactory
 		xyLineAndShapeRenderer.setBaseShapesVisible(isShapesVisible);
 		xyLineAndShapeRenderer.setSeriesFillPaint(0, Color.white);
 		xyLineAndShapeRenderer.setUseFillPaint(true);
-		xyLineAndShapeRenderer.setLegendItemToolTipGenerator(new StandardXYSeriesLabelGenerator(toolTipText + " - {0}"));
+		xyLineAndShapeRenderer.setLegendItemToolTipGenerator(new StandardXYSeriesLabelGenerator(toolTipTextKeyLabel + " - {0}"));
 		xyLineAndShapeRenderer.setBaseToolTipGenerator(new StandardXYToolTipGenerator("{0} : " + SwingLocale.getString("time") + " [{1}], " + SwingLocale.getString("value") + " [{2}]", DateFormat.getDateTimeInstance(), NumberFormat.getNumberInstance()));
 	}
 }
