@@ -14,7 +14,6 @@ import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.GradientPaint;
 import java.awt.Paint;
-import java.text.DateFormat;
 import java.text.NumberFormat;
 
 import org.jfree.chart.annotations.CategoryTextAnnotation;
@@ -41,15 +40,14 @@ import org.jfree.ui.TextAnchor;
 import org.jfree.util.SortOrder;
 
 import com.nepxion.swing.font.FontContext;
-import com.nepxion.swing.locale.SwingLocale;
 
 public class RectangleBarChartFactory
 {
-	public static CategoryPlot createCategoryPlot(CategoryDataset categoryDataset, PlotOrientation orientation, String categoryAxisLabel, String valueAxisLabel, String toolTipTextKeyLabel, String toolTipTextValueLabel, String legendToolTipText, boolean dateFormat)
+	public static CategoryPlot createCategoryPlot(CategoryDataset categoryDataset, PlotOrientation orientation, String categoryAxisLabel, String valueAxisLabel, String toolTipText, String legendToolTipText)
 	{
 		CategoryPlot categoryPlot = createCategoryPlot(categoryDataset, orientation, categoryAxisLabel, valueAxisLabel, true, true, false);
 		
-		setCategoryPlotPreference(categoryPlot, orientation, toolTipTextKeyLabel, toolTipTextValueLabel, legendToolTipText, dateFormat, 1.0F);
+		setCategoryPlotPreference(categoryPlot, orientation, toolTipText, legendToolTipText, 1.0F);
 		
 		return categoryPlot;
 	}
@@ -95,11 +93,11 @@ public class RectangleBarChartFactory
 		return categoryPlot;
 	}
 	
-	public static CategoryPlot createCategoryPlot3D(CategoryDataset categoryDataset, PlotOrientation orientation, String categoryAxisLabel, String valueAxisLabel, String toolTipTextKeyLabel, String toolTipTextValueLabel, String legendToolTipText, boolean dateFormat)
+	public static CategoryPlot createCategoryPlot3D(CategoryDataset categoryDataset, PlotOrientation orientation, String categoryAxisLabel, String valueAxisLabel, String toolTipText, String legendToolTipText)
 	{	
 		CategoryPlot categoryPlot = createCategoryPlot3D(categoryDataset, orientation, categoryAxisLabel, valueAxisLabel, true, true, false);
 	
-		setCategoryPlotPreference(categoryPlot, orientation, toolTipTextKeyLabel, toolTipTextValueLabel, legendToolTipText, dateFormat, 0.75F);
+		setCategoryPlotPreference(categoryPlot, orientation, toolTipText, legendToolTipText, 0.75F);
 		
 		return categoryPlot;
 	}
@@ -146,7 +144,7 @@ public class RectangleBarChartFactory
 		return categoryPlot;
 	}
 	
-	public static void setCategoryPlotPreference(CategoryPlot categoryPlot, PlotOrientation orientation, String toolTipTextKeyLabel, String toolTipTextValueLabel, String legendToolTipText, boolean dateFormat, float foregroundAlpha)
+	public static void setCategoryPlotPreference(CategoryPlot categoryPlot, PlotOrientation orientation, String toolTipText, String legendToolTipText, float foregroundAlpha)
 	{
 		// CategoryAxis categoryAxis = (CategoryAxis) categoryPlot.getDomainAxis();
 		// CategoryLabelPositions categoryLabelPositions = categoryAxis.getCategoryLabelPositions();
@@ -162,14 +160,7 @@ public class RectangleBarChartFactory
 		barRenderer.setDrawBarOutline(true);
 		// barRenderer3D.setBaseOutlineStroke(new BasicStroke(0.3F));
 		barRenderer.setBaseToolTipGenerator(new StandardCategoryToolTipGenerator());		
-		if (dateFormat)
-		{	
-			barRenderer.setBaseToolTipGenerator(new StandardCategoryToolTipGenerator("{0} : " + SwingLocale.getString("time") + " [{1}], " +  toolTipTextValueLabel + "  [{2}]", DateFormat.getDateTimeInstance()));
-		}
-		else
-		{
-			barRenderer.setBaseToolTipGenerator(new StandardCategoryToolTipGenerator("{0} : " + toolTipTextKeyLabel + " [{1}], " +  toolTipTextValueLabel + " [{2}]", NumberFormat.getNumberInstance()));
-		}
+		barRenderer.setBaseToolTipGenerator(new StandardCategoryToolTipGenerator("{1} : " + toolTipText + " [{2}]", NumberFormat.getNumberInstance()));
 		barRenderer.setLegendItemToolTipGenerator(new StandardCategorySeriesLabelGenerator(legendToolTipText + " - {0}"));
 		
 		// if (orientation == PlotOrientation.HORIZONTAL)
