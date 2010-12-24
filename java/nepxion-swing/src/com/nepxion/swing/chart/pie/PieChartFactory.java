@@ -27,11 +27,11 @@ import com.nepxion.swing.locale.SwingLocale;
 
 public class PieChartFactory
 {
-	public static PiePlot createPiePlot(PieDataset pieDataset, boolean is3D, String toolTipTextKeyLabel, String toolTipTextValueLabel)
+	public static PiePlot createPiePlot(PieDataset pieDataset, boolean is3D, String toolTipTextKeyLabel, String toolTipTextValueLabel, String legendToolTipText)
 	{
 		PiePlot piePlot = createPiePlot(pieDataset, is3D, false, false, false);
 		
-		setPiePlotPreference(piePlot, toolTipTextKeyLabel, toolTipTextValueLabel);
+		setPiePlotPreference(piePlot, toolTipTextKeyLabel, toolTipTextValueLabel, legendToolTipText);
 		
 		return piePlot;
 	}
@@ -64,11 +64,11 @@ public class PieChartFactory
 		return piePlot;
 	}
 	
-	public static void setPiePlotPreference(PiePlot piePlot, String toolTipTextKeyLabel, String toolTipTextValueLabel)
+	public static void setPiePlotPreference(PiePlot piePlot, String toolTipTextKeyLabel, String toolTipTextValueLabel, String legendToolTipText)
 	{
 		piePlot.setLabelGenerator(new StandardPieSectionLabelGenerator("{0} : {2}", NumberFormat.getNumberInstance(), NumberFormat.getPercentInstance()));
 		piePlot.setToolTipGenerator(new StandardPieToolTipGenerator("{0} : " + toolTipTextValueLabel + " [{1}], " + SwingLocale.getString("percent") + " [{2}], " + SwingLocale.getString("total") + " [{3}]"));
-		piePlot.setLegendLabelToolTipGenerator(new StandardPieSectionLabelGenerator(toolTipTextKeyLabel + " - {0}"));
+		piePlot.setLegendLabelToolTipGenerator(new StandardPieSectionLabelGenerator(legendToolTipText + " - {0}"));
 				
 		piePlot.setInsets(new RectangleInsets(4.0, 8.0, 0.0, 8.0)); // 4.0, 8.0, 4.0, 8.0
 		piePlot.setDirection(Rotation.ANTICLOCKWISE);

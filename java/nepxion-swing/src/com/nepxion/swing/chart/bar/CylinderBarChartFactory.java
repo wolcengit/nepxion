@@ -44,11 +44,11 @@ import org.jfree.ui.TextAnchor;
 public class CylinderBarChartFactory
 	extends RectangleBarChartFactory
 {
-	public static CategoryPlot createCategoryPlot3D(CategoryDataset categoryDataset, PlotOrientation orientation, String categoryAxisLabel, String valueAxisLabel, String toolTipTextKeyLabel, String toolTipTextValueLabel, boolean dateFormat)
+	public static CategoryPlot createCategoryPlot3D(CategoryDataset categoryDataset, PlotOrientation orientation, String categoryAxisLabel, String valueAxisLabel, String toolTipTextKeyLabel, String toolTipTextValueLabel, String legendToolTipText, boolean dateFormat)
 	{
 		CategoryPlot categoryPlot = createCategoryPlot3D(categoryDataset, orientation, categoryAxisLabel, valueAxisLabel, true, true, false);
 		
-		setCategoryPlotPreference(categoryPlot, orientation, toolTipTextKeyLabel, toolTipTextValueLabel, dateFormat, 0.75F);
+		setCategoryPlotPreference(categoryPlot, orientation, toolTipTextKeyLabel, toolTipTextValueLabel, legendToolTipText, dateFormat, 0.75F);
 		
 		return categoryPlot;
 	}
