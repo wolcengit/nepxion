@@ -169,10 +169,11 @@ public class JColorPane
 			JBasicToggleButton toggleButton = (JBasicToggleButton) e.getSource();
 			selectedColor = toggleButton.getForeground();
 			
-			/*
-			 * Window window = HandleFactory.getWindow(JColorPane.this); if
-			 * (window != null) { window.setVisible(false); }
-			 */
+			/*Window window = HandleFactory.getWindow(JColorPane.this);
+			if (window != null)
+			{
+				window.setVisible(false);
+			}*/			 
 		}
 	}
 	
