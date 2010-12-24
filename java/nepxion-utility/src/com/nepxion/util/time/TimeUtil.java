@@ -13,9 +13,11 @@ package com.nepxion.util.time;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.List;
 import java.util.StringTokenizer;
 import java.util.TimeZone;
 
@@ -778,18 +780,86 @@ public class TimeUtil
 	}
 	
 	/**
-	 * Calculate date
-	 * @param date    the src date
+	 * Calculate date time
+	 * @param date    the src date time
 	 * @param field   the calendar field
 	 * @param amount  the amount of date or time to be added to the field
 	 * @return        the dest date
 	 */
-	public static Date calculateDate(Date date, int field, int amount)
+	public static Date calculateDateTime(Date dateTime, int field, int amount)
 	{
         Calendar calendar = Calendar.getInstance();
-        calendar.setTime(date);
+        calendar.setTime(dateTime);
         calendar.add(field, amount);
         return calendar.getTime();
+	}
+	
+	/**
+	 * Delimit date time
+	 * @param startDateTime    the start date time
+	 * @param endDateTime      the end date time
+	 * @param delimitedSecond  the delimited second
+	 * @return                 the instance of List
+	 * @throws IllegalArgumentException
+	 */
+	public static List delimitDateTime(Date startDateTime, Date endDateTime, int delimitedSecond)
+		throws IllegalArgumentException
+	{
+		long interval = endDateTime.getTime() - startDateTime.getTime();
+		long delimitedMillisecond = delimitedSecond * 1000;
+		
+		if (interval < delimitedMillisecond)
+		{
+			throw new IllegalArgumentException("The interval can't be less than the delimited time");
+		}
+		
+		int splitCount = (int) (interval / delimitedMillisecond);
+		
+		List dateTimes = new ArrayList();
+		dateTimes.add(startDateTime);
+		
+		for (int i = 0; i < splitCount; i++)
+		{
+			Date lastDateTime = (Date) dateTimes.get(dateTimes.size() - 1);
+			Date dateTime = new Date(lastDateTime.getTime() + delimitedMillisecond);
+			dateTimes.add(dateTime);
+		}
+		
+		Date lastDateTime = (Date) dateTimes.get(dateTimes.size() - 1);
+		
+		if (lastDateTime.getTime() < endDateTime.getTime())
+		{
+			Date dateTime = new Date(lastDateTime.getTime() + delimitedMillisecond);
+			dateTimes.add(dateTime);
+		}
+		
+		return dateTimes;
+	}
+	
+	/**
+	 * Get the rang date times
+	 * @param dateTimes  the all range date time list
+	 * @param dateTime   the date time
+	 * @return           the range date time list
+	 */
+	public static Date[] getRangeDateTimes(List dateTimes, Date dateTime)
+	{
+		for (int i = 0; i < dateTimes.size() - 1; i++)
+		{
+			Date dateTime1 = (Date) dateTimes.get(i);
+			Date dateTime2 = (Date) dateTimes.get(i + 1);
+			
+			long time = dateTime.getTime();
+			long time1 = dateTime1.getTime();
+			long time2 = dateTime2.getTime();
+			
+			if (time >= time1 && time <= time2)
+			{
+				return new Date[] {dateTime1, dateTime2};
+			}	
+		}
+		
+		return null;
 	}
 	
 	public static void main(String[] args)
