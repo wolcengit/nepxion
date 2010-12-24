@@ -19,7 +19,7 @@ import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;
 
 import com.nepxion.demo.component.chart.DemoChartContext;
-import com.nepxion.swing.chart.bar.RectangleBarChartFactory;
+import com.nepxion.swing.chart.bar.CylinderBarChartFactory;
 import com.nepxion.swing.color.ColorUtil;
 import com.nepxion.util.data.RandomUtil;
 import com.nepxion.util.scheduler.quartz.QuartzJob;
@@ -56,7 +56,7 @@ public class DemoCylinderBarChart3DSchedulerJob
 		{
 			categoryDataset.setValue(RandomUtil.getRandomDouble(-100, 100), comparable, comparable1);
 	
-			RectangleBarChartFactory.setSectionPaint(categoryPlot, i, categoryPlot.getOrientation() == PlotOrientation.VERTICAL ? ColorUtil.getRandomColor() : Color.white, categoryPlot.getOrientation() == PlotOrientation.VERTICAL ? Color.white : ColorUtil.getRandomColor());
+			CylinderBarChartFactory.setSectionPaint(categoryPlot, i, categoryPlot.getOrientation() == PlotOrientation.VERTICAL ? ColorUtil.getRandomColor() : Color.white, categoryPlot.getOrientation() == PlotOrientation.VERTICAL ? Color.white : ColorUtil.getRandomColor());
 		}
 	}
 }
