@@ -20,6 +20,7 @@ import org.jfree.chart.annotations.CategoryTextAnnotation;
 import org.jfree.chart.axis.CategoryAnchor;
 import org.jfree.chart.axis.CategoryAxis;
 import org.jfree.chart.axis.CategoryAxis3D;
+import org.jfree.chart.axis.CategoryLabelPositions;
 import org.jfree.chart.axis.NumberAxis;
 import org.jfree.chart.axis.NumberAxis3D;
 import org.jfree.chart.axis.ValueAxis;
@@ -43,11 +44,11 @@ import com.nepxion.swing.font.FontContext;
 
 public class RectangleBarChartFactory
 {
-	public static CategoryPlot createCategoryPlot(CategoryDataset categoryDataset, PlotOrientation orientation, String categoryAxisLabel, String valueAxisLabel, String toolTipText, String legendToolTipText)
+	public static CategoryPlot createCategoryPlot(CategoryDataset categoryDataset, PlotOrientation orientation, String categoryAxisLabel, String valueAxisLabel, String toolTipText, String legendToolTipText, boolean isCategoryLabelRotated)
 	{
 		CategoryPlot categoryPlot = createCategoryPlot(categoryDataset, orientation, categoryAxisLabel, valueAxisLabel, true, true, false);
 		
-		setCategoryPlotPreference(categoryPlot, orientation, toolTipText, legendToolTipText, 1.0F);
+		setCategoryPlotPreference(categoryPlot, orientation, toolTipText, legendToolTipText, isCategoryLabelRotated, 1.0F);
 		
 		return categoryPlot;
 	}
@@ -93,11 +94,11 @@ public class RectangleBarChartFactory
 		return categoryPlot;
 	}
 	
-	public static CategoryPlot createCategoryPlot3D(CategoryDataset categoryDataset, PlotOrientation orientation, String categoryAxisLabel, String valueAxisLabel, String toolTipText, String legendToolTipText)
+	public static CategoryPlot createCategoryPlot3D(CategoryDataset categoryDataset, PlotOrientation orientation, String categoryAxisLabel, String valueAxisLabel, String toolTipText, String legendToolTipText, boolean isCategoryLabelRotated)
 	{	
 		CategoryPlot categoryPlot = createCategoryPlot3D(categoryDataset, orientation, categoryAxisLabel, valueAxisLabel, true, true, false);
 	
-		setCategoryPlotPreference(categoryPlot, orientation, toolTipText, legendToolTipText, 0.75F);
+		setCategoryPlotPreference(categoryPlot, orientation, toolTipText, legendToolTipText, isCategoryLabelRotated, 0.75F);
 		
 		return categoryPlot;
 	}
@@ -144,7 +145,7 @@ public class RectangleBarChartFactory
 		return categoryPlot;
 	}
 	
-	public static void setCategoryPlotPreference(CategoryPlot categoryPlot, PlotOrientation orientation, String toolTipText, String legendToolTipText, float foregroundAlpha)
+	public static void setCategoryPlotPreference(CategoryPlot categoryPlot, PlotOrientation orientation, String toolTipText, String legendToolTipText, boolean isCategoryLabelRotated, float foregroundAlpha)
 	{
 		// CategoryAxis categoryAxis = (CategoryAxis) categoryPlot.getDomainAxis();
 		// CategoryLabelPositions categoryLabelPositions = categoryAxis.getCategoryLabelPositions();
@@ -173,6 +174,12 @@ public class RectangleBarChartFactory
 		// numberAxis.setUpperMargin(0.1D);
 		// numberAxis.setNumberFormatOverride(NumberFormat.getPercentInstance());
 
+		if (isCategoryLabelRotated)
+		{	
+			categoryPlot.getDomainAxis().setCategoryLabelPositions(CategoryLabelPositions.createUpRotationLabelPositions(Math.toRadians(30D)));
+		}
+		categoryPlot.getDomainAxis().setUpperMargin(0.03D);
+		categoryPlot.getDomainAxis().setLowerMargin(0.03D);
 		categoryPlot.getRangeAxis().setUpperMargin(0.10000000000000001D);
 		categoryPlot.setForegroundAlpha(foregroundAlpha);
 		categoryPlot.setRangePannable(true);
