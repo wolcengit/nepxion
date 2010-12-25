@@ -92,7 +92,7 @@ public class DemoRectangleBarChart3DPanel
 			categoryDataset.addValue(25D, "计算机 C", "磁盘");
 			categoryDataset.addValue(-15D, "计算机 D", "磁盘");
 			
-			categoryPlot = RectangleBarChartFactory.createCategoryPlot3D(categoryDataset, plotOrientation, "目录", "值", "计算机性能指标", false);
+			categoryPlot = RectangleBarChartFactory.createCategoryPlot3D(categoryDataset, plotOrientation, "目录", "值", "计算机性能指标", "目录");
 			RectangleBarChartFactory.setSectionPaint(categoryPlot, 0, Color.red);
 			RectangleBarChartFactory.setSectionPaint(categoryPlot, 1, Color.green);
 			RectangleBarChartFactory.setSectionPaint(categoryPlot, 2, Color.yellow);

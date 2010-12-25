@@ -92,7 +92,7 @@ public class DemoCylinderBarChart3DPanel
 			categoryDataset.addValue(25D, "计算机 C", "磁盘");
 			categoryDataset.addValue(-15D, "计算机 D", "磁盘");
 			
-			categoryPlot = CylinderBarChartFactory.createCategoryPlot3D(categoryDataset, plotOrientation, "目录", "值", "计算机性能指标", false);
+			categoryPlot = CylinderBarChartFactory.createCategoryPlot3D(categoryDataset, plotOrientation, "目录", "值", "计算机性能指标", "目录");
 			CylinderBarChartFactory.setSectionPaint(categoryPlot, 0, plotOrientation == PlotOrientation.VERTICAL ? Color.red : Color.white, plotOrientation == PlotOrientation.VERTICAL ? Color.white : Color.red);
 			CylinderBarChartFactory.setSectionPaint(categoryPlot, 1, plotOrientation == PlotOrientation.VERTICAL ? Color.green : Color.white, plotOrientation == PlotOrientation.VERTICAL ? Color.white : Color.green);
 			CylinderBarChartFactory.setSectionPaint(categoryPlot, 2, plotOrientation == PlotOrientation.VERTICAL ? Color.yellow : Color.white, plotOrientation == PlotOrientation.VERTICAL ? Color.white : Color.yellow);
