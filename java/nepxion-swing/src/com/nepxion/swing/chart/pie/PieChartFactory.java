@@ -12,6 +12,7 @@ package com.nepxion.swing.chart.pie;
 
 import java.awt.Color;
 import java.awt.GradientPaint;
+import java.text.DecimalFormat;
 import java.text.NumberFormat;
 
 import org.jfree.chart.labels.StandardPieSectionLabelGenerator;
@@ -66,10 +67,10 @@ public class PieChartFactory
 	
 	public static void setPiePlotPreference(PiePlot piePlot, String toolTipText, String legendToolTipText)
 	{
-		piePlot.setLabelGenerator(new StandardPieSectionLabelGenerator("{0} : {2}", NumberFormat.getNumberInstance(), NumberFormat.getPercentInstance()));
-		piePlot.setToolTipGenerator(new StandardPieToolTipGenerator("{0} : " + toolTipText + " [{1}], " + SwingLocale.getString("percent") + " [{2}], " + SwingLocale.getString("total") + " [{3}]"));
+		piePlot.setLabelGenerator(new StandardPieSectionLabelGenerator("{0} : {2}", NumberFormat.getNumberInstance(), new DecimalFormat("0.00%")));
+		piePlot.setToolTipGenerator(new StandardPieToolTipGenerator("{0} : " + toolTipText + " [{1}], " + SwingLocale.getString("percent") + " [{2}], " + SwingLocale.getString("total") + " [{3}]", NumberFormat.getNumberInstance(), new DecimalFormat("0.00%")));
 		piePlot.setLegendLabelToolTipGenerator(new StandardPieSectionLabelGenerator(legendToolTipText + " - {0}"));
-				
+		
 		piePlot.setInsets(new RectangleInsets(4.0, 8.0, 0.0, 8.0)); // 4.0, 8.0, 4.0, 8.0
 		piePlot.setDirection(Rotation.ANTICLOCKWISE);
 		piePlot.setStartAngle(270D);
