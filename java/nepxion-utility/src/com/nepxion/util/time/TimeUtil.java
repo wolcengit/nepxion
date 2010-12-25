@@ -21,6 +21,8 @@ import java.util.List;
 import java.util.StringTokenizer;
 import java.util.TimeZone;
 
+import com.nepxion.util.locale.UtilityLocale;
+
 public class TimeUtil
 {
 	private static SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
@@ -810,7 +812,7 @@ public class TimeUtil
 		
 		if (interval < delimitedMillisecond)
 		{
-			throw new IllegalArgumentException("The interval can't be less than the delimited time");
+			throw new IllegalArgumentException(UtilityLocale.getString("interval_not_less_than_delimited_time"));
 		}
 		
 		int splitCount = (int) (interval / delimitedMillisecond);
