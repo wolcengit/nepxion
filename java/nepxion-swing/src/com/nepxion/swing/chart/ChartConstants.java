@@ -12,6 +12,10 @@ package com.nepxion.swing.chart;
 
 public interface ChartConstants
 {
+	public final static String CHART_TYPE_BAR = "BarChart";
+	public final static String CHART_TYPE_PIE = "PieChart";
+	public final static String CHART_TYPE_LINE = "LineChart";
+	
 	public static final String DEFAULT_CHART_PDF_AUTHOR = "Haojun Ren";
 	public static final String DEFAULT_CHART_PDF_SUBJECT = "Nepxion";
 }
