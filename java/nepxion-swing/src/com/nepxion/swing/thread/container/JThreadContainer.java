@@ -71,7 +71,11 @@ public abstract class JThreadContainer
 	
 	protected void fireHidden()
 	{
-		addComponent(getContentPane(), BorderLayout.CENTER);
+		Component contentPane = getContentPane();
+		if (contentPane != null)
+		{	
+			addComponent(contentPane, BorderLayout.CENTER);
+		}
 	}
 	
 	protected void fireCancelled()
