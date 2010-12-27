@@ -12,6 +12,7 @@ package com.nepxion.swing.chart;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 
 import javax.swing.JPopupMenu;
 
@@ -74,11 +75,7 @@ public class JChartPanel
 		{
 			public void actionPerformed(ActionEvent e)
 			{
-				if (chartPDFWriter == null)
-				{
-					chartPDFWriter = new ChartPDFWriter(JChartPanel.this);
-				}
-				chartPDFWriter.write(ChartContext.getChartPDFAuthor(), ChartContext.getChartPDFSubject());
+				exportPDF();
 			}
 		}
 		);
@@ -94,5 +91,26 @@ public class JChartPanel
 	private void initMouse()
 	{
 		setMouseWheelEnabled(true);
+	}
+	
+	public void exportPDF()
+	{
+		if (chartPDFWriter == null)
+		{
+			chartPDFWriter = new ChartPDFWriter(JChartPanel.this);
+		}
+		chartPDFWriter.write(ChartContext.getChartPDFAuthor(), ChartContext.getChartPDFSubject());
+	}
+	
+	public void exportPNG()
+	{
+		try
+		{
+			doSaveAs();
+		}
+		catch (IOException e)
+		{
+			e.printStackTrace();
+		}
 	}
 }
