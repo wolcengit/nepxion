@@ -11,6 +11,7 @@ package com.nepxion.swing.chart;
  */
 
 import java.awt.Color;
+import java.awt.GradientPaint;
 import java.awt.Paint;
 import java.awt.RenderingHints;
 
@@ -150,20 +151,52 @@ public class JChartFactory
 		rangeAxis.setRange(new Range(lowerFixedValue, upperFixedValue));
 	}
 	
-	public static Color getPreferenceColor(int index)
+	public static Paint getPaint(int index)
 	{
 		Paint[] chartPaintList = CHART_PAINT_LIST;
 		
-		Color color = null;
+		Paint paint = null;
 		if (index < chartPaintList.length)
 		{
-			color = (Color) chartPaintList[index];
+			paint = (Paint) chartPaintList[index];
 		}
 		else
 		{
-			color = ColorUtil.getRandomColor();
+			paint = ColorUtil.getRandomColor();
 		}
 		
-		return color;
+		return paint;
+	}
+	
+	public static Paint getGradientPaint(int index)
+	{
+		return getGradientPaint(index, true);
+	}
+	
+	public static Paint getGradientPaint(int index, boolean isAsc)
+	{
+		Color color1 = (Color) getPaint(index);
+		
+		Color color2 = null;
+		if (color1 == Color.red)
+		{
+			color2 = new Color(64, 0, 0);
+		}	
+		else if (color1 == Color.green)
+		{
+			color2 = new Color(0, 64, 0);
+		}
+		else if (color1 == Color.blue)
+		{
+			color2 = new Color(0, 0, 64);
+		}
+		else
+		{
+			color2 = new Color(0, 0, 0);
+		}
+		
+		GradientPaint paint = new GradientPaint(0.0F, 0.0F, isAsc ? color1 : color2, 0.0F, 0.0F, isAsc ? color2 : color1);
+		
+		return paint;
 	}
 }

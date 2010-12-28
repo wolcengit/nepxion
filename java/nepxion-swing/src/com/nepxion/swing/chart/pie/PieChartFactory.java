@@ -28,27 +28,48 @@ import com.nepxion.swing.locale.SwingLocale;
 
 public class PieChartFactory
 {
-	public static PiePlot createPiePlot(PieDataset pieDataset, boolean is3D, String toolTipText, String legendToolTipText)
+	public static PiePlot createPiePlot(PieDataset pieDataset, String toolTipText, String legendToolTipText)
 	{
-		PiePlot piePlot = createPiePlot(pieDataset, is3D, false, false, false);
+		PiePlot piePlot = createPiePlot(pieDataset, false, false, false);
 		
 		setPiePlotPreference(piePlot, toolTipText, legendToolTipText);
 		
 		return piePlot;
 	}
 	
-	public static PiePlot createPiePlot(PieDataset pieDataset, boolean is3D, boolean labels, boolean tooltips, boolean urls)
+	public static PiePlot createPiePlot(PieDataset pieDataset, boolean labels, boolean tooltips, boolean urls)
 	{
-		PiePlot piePlot = null;
-		if (is3D)
+		PiePlot piePlot = new PiePlot(pieDataset);
+		
+		if (labels)
 		{
-			piePlot = new PiePlot3D(pieDataset);
+			piePlot.setLabelGenerator(new StandardPieSectionLabelGenerator());
 		}
-		else
+		if (tooltips)
 		{
-			piePlot = new PiePlot(pieDataset);
+			piePlot.setToolTipGenerator(new StandardPieToolTipGenerator());
+		}
+		if (urls)
+		{
+			piePlot.setURLGenerator(new StandardPieURLGenerator());
 		}
 		
+		return piePlot;
+	}
+	
+	public static PiePlot createPiePlot3D(PieDataset pieDataset, String toolTipText, String legendToolTipText)
+	{
+		PiePlot piePlot = createPiePlot3D(pieDataset, false, false, false);
+		
+		setPiePlotPreference(piePlot, toolTipText, legendToolTipText);
+		
+		return piePlot;
+	}
+	
+	public static PiePlot createPiePlot3D(PieDataset pieDataset, boolean labels, boolean tooltips, boolean urls)
+	{
+		PiePlot piePlot = new PiePlot3D(pieDataset);
+
 		if (labels)
 		{
 			piePlot.setLabelGenerator(new StandardPieSectionLabelGenerator());
