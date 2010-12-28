@@ -33,7 +33,6 @@ import org.jfree.chart.plot.CategoryPlot;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.chart.plot.ValueMarker;
 import org.jfree.chart.renderer.category.BarRenderer;
-import org.jfree.chart.renderer.category.BarRenderer3D;
 import org.jfree.chart.urls.StandardCategoryURLGenerator;
 import org.jfree.data.category.CategoryDataset;
 import org.jfree.ui.Layer;
@@ -63,7 +62,7 @@ public class RectangleBarChartFactory
 		CategoryAxis categoryAxis = new CategoryAxis(categoryAxisLabel);
 		ValueAxis valueAxis = new NumberAxis(valueAxisLabel);
 		
-		BarRenderer barRenderer = new BarRenderer();
+		RectangleBarRenderer barRenderer = new RectangleBarRenderer();
 		if (orientation == PlotOrientation.HORIZONTAL)
 		{
 			barRenderer.setBasePositiveItemLabelPosition(new ItemLabelPosition(ItemLabelAnchor.OUTSIDE3, TextAnchor.CENTER_LEFT));
@@ -112,7 +111,7 @@ public class RectangleBarChartFactory
 		CategoryAxis categoryAxis = new CategoryAxis3D(categoryAxisLabel);
 		ValueAxis valueAxis = new NumberAxis3D(valueAxisLabel);
 		
-		BarRenderer3D barRenderer3D = new BarRenderer3D();
+		RectangleBarRenderer3D barRenderer3D = new RectangleBarRenderer3D();
 		if (orientation == PlotOrientation.HORIZONTAL)
 		{
 			barRenderer3D.setBasePositiveItemLabelPosition(new ItemLabelPosition(ItemLabelAnchor.OUTSIDE3, TextAnchor.BOTTOM_LEFT));
