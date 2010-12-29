@@ -96,14 +96,20 @@ public class PieChartPlot3D
 	{
 		adapter.dispatchMouseOver(key);
 		
-		updateSelectionUI();
+		if (key != null)
+		{	
+			updateSelectionUI();
+		}
 	}
 	
 	public void dispatchMouseDown(Comparable key)
 	{
 		adapter.dispatchMouseDown(key);
 		
-		updateSelectionUI();
+		if (key != null)
+		{	
+			updateSelectionUI();
+		}
 	}
 	
 	public void setSectionOutlineStroke(Comparable key, Stroke stroke)

@@ -51,7 +51,7 @@ public class PieChartPlot
 		sectionOutlineStrokeMap.clear();
 		sectionOutlinePaintMap.clear();
 		explodePercentMap.clear();
-		
+
 		for (Iterator iterator = getDataset().getKeys().iterator(); iterator.hasNext();)
 		{
 			Comparable key = (Comparable) iterator.next();
@@ -112,14 +112,20 @@ public class PieChartPlot
 	{
 		adapter.dispatchMouseOver(key);
 		
-		updateSelectionUI();
+		if (key != null)
+		{	
+			updateSelectionUI();
+		}
 	}
 	
 	public void dispatchMouseDown(Comparable key)
 	{
 		adapter.dispatchMouseDown(key);
 		
-		updateSelectionUI();
+		if (key != null)
+		{	
+			updateSelectionUI();
+		}
 	}
 	
 	public void setSectionOutlineStroke(Comparable key, Stroke stroke)
