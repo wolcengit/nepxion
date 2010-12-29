@@ -27,6 +27,7 @@ import com.nepxion.swing.chart.JChartFactory;
 import com.nepxion.swing.chart.JChartPanel;
 import com.nepxion.swing.chart.pie.PieChartFactory;
 import com.nepxion.swing.chart.pie.PiePlotRotator;
+import com.nepxion.swing.chart.pie.PieSelectionAdapter;
 import com.nepxion.swing.layout.filed.FiledLayout;
 import com.nepxion.swing.layout.table.TableLayout;
 
@@ -92,6 +93,7 @@ public class DemoPieChartPanel
 			JFreeChart chart = JChartFactory.createChart("CPUﾕｼﾓﾃﾂﾊﾊｵﾊｱﾍｳｼﾆﾍｼ", "Nepxion Studio Statistics", cpuPiePiePlot3D);
 			
 			JChartPanel chartPanel = new JChartPanel(chart);
+			chartPanel.addChartMouseListener(new PieSelectionAdapter());
 			chartPanel.setBorder(BorderManager.createScrollPaneBorder());
 			
 			PiePlotRotator rotator = new PiePlotRotator(chartPanel);
@@ -120,6 +122,9 @@ public class DemoPieChartPanel
 			JFreeChart chart = JChartFactory.createChart("ﾄﾚｴ贏ｼﾓﾃﾂﾊﾊｵﾊｱﾍｳｼﾆﾍｼ", "Nepxion Studio Statistics", memoryPiePlot3D);
 			
 			JChartPanel chartPanel = new JChartPanel(chart);
+			chartPanel.addChartMouseListener(new PieSelectionAdapter());
+			chartPanel.setBorder(BorderManager.createScrollPaneBorder());
+			
 			PiePlotRotator rotator = new PiePlotRotator(chartPanel);
 			rotator.start();
 			
@@ -155,6 +160,9 @@ public class DemoPieChartPanel
 			JFreeChart chart = JChartFactory.createChart("ｴﾅﾅﾌﾕｼﾓﾃﾂﾊﾊｵﾊｱﾍｳｼﾆﾍｼ", "Nepxion Studio Statistics", diskPiePlot3D);
 			
 			JChartPanel chartPanel = new JChartPanel(chart);
+			chartPanel.addChartMouseListener(new PieSelectionAdapter());
+			chartPanel.setBorder(BorderManager.createScrollPaneBorder());
+			
 			PiePlotRotator rotator = new PiePlotRotator(chartPanel);
 			rotator.start();
 			
@@ -182,6 +190,7 @@ public class DemoPieChartPanel
 			JFreeChart chart = JChartFactory.createChart("CPUﾕｼﾓﾃﾂﾊﾊｵﾊｱﾍｳｼﾆﾍｼ", "Nepxion Studio Statistics", cpuPiePiePlot);
 			
 			JChartPanel chartPanel = new JChartPanel(chart);
+			chartPanel.addChartMouseListener(new PieSelectionAdapter());
 			chartPanel.setBorder(BorderManager.createScrollPaneBorder());
 			
 			PiePlotRotator rotator = new PiePlotRotator(chartPanel);
@@ -210,6 +219,9 @@ public class DemoPieChartPanel
 			JFreeChart chart = JChartFactory.createChart("ﾄﾚｴ贏ｼﾓﾃﾂﾊﾊｵﾊｱﾍｳｼﾆﾍｼ", "Nepxion Studio Statistics", memoryPiePlot);
 			
 			JChartPanel chartPanel = new JChartPanel(chart);
+			chartPanel.addChartMouseListener(new PieSelectionAdapter());
+			chartPanel.setBorder(BorderManager.createScrollPaneBorder());
+			
 			PiePlotRotator rotator = new PiePlotRotator(chartPanel);
 			rotator.start();
 			
@@ -245,6 +257,9 @@ public class DemoPieChartPanel
 			JFreeChart chart = JChartFactory.createChart("ｴﾅﾅﾌﾕｼﾓﾃﾂﾊﾊｵﾊｱﾍｳｼﾆﾍｼ", "Nepxion Studio Statistics", diskPiePlot);
 			
 			JChartPanel chartPanel = new JChartPanel(chart);
+			chartPanel.addChartMouseListener(new PieSelectionAdapter());
+			chartPanel.setBorder(BorderManager.createScrollPaneBorder());
+			
 			PiePlotRotator rotator = new PiePlotRotator(chartPanel);
 			rotator.start();
 			
