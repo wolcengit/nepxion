@@ -38,6 +38,13 @@ public class JChartFactory
 {
 	public static final Paint[] CHART_PAINT_LIST = ChartColor.createDefaultPaintArray();
 	
+	public static JChartPanel createChartPanel(JFreeChart chart)
+	{
+		JChartPanel chartPanel = new JChartPanel(chart);
+		
+		return chartPanel;
+	}
+	
 	public static JFreeChart createChart(String title, String subTitle, Plot plot)
 	{
 		JFreeChart chart = new JFreeChart(plot);
