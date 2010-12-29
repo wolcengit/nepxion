@@ -29,4 +29,7 @@ public interface ChartConstants
 	
 	public static final Stroke MOUSE_OVER_STROKE = new BasicStroke(2F);
 	public static final Stroke MOUSE_DOWN_STROKE = new BasicStroke(2F);
+	
+	public static final Double MOUSE_OVER_EXPLODE_PERCENT = Double.valueOf(0.00D);
+	public static final Double MOUSE_DOWN_EXPLODE_PERCENT = Double.valueOf(0.05D);
 }
