@@ -23,8 +23,6 @@ import org.jfree.chart.plot.CategoryPlot;
 import org.jfree.chart.plot.PiePlot;
 import org.jfree.chart.plot.Plot;
 import org.jfree.chart.plot.XYPlot;
-import org.jfree.chart.renderer.category.CategoryItemRenderer;
-import org.jfree.chart.renderer.xy.XYItemRenderer;
 import org.jfree.chart.title.LegendTitle;
 import org.jfree.chart.title.TextTitle;
 import org.jfree.chart.title.Title;
@@ -200,53 +198,5 @@ public class JChartFactory
 		GradientPaint paint = new GradientPaint(0.0F, 0.0F, isAsc ? color1 : color2, 0.0F, 0.0F, isAsc ? color2 : color1);
 		
 		return paint;
-	}
-	
-	public static int[] getCategoryPlotSelectionIndexes(JChartPanel chartPanel)
-	{
-		JFreeChart chart = chartPanel.getChart();	
-	
-		return getCategoryPlotSelectionIndexes(chart);
-	}
-	
-	public static int[] getCategoryPlotSelectionIndexes(JFreeChart chart)
-	{
-		CategoryItemRenderer itemRenderer = chart.getCategoryPlot().getRenderer();
-		
-		if (itemRenderer instanceof IChartRenderer)
-		{
-			IChartRenderer chartRenderer = (IChartRenderer) itemRenderer;
-			
-			int selectedRow = chartRenderer.getSelectedRow();
-			int selectedColumn = chartRenderer.getSelectedColumn();
-			
-			return new int[] {selectedRow, selectedColumn};
-		}	
-		
-		return null;
-	}
-	
-	public static int[] getXYPlotSelectionIndexes(JChartPanel chartPanel)
-	{
-		JFreeChart chart = chartPanel.getChart();
-		
-		return getXYPlotSelectionIndexes(chart);
-	}
-	
-	public static int[] getXYPlotSelectionIndexes(JFreeChart chart)
-	{
-		XYItemRenderer itemRenderer = chart.getXYPlot().getRenderer();
-		
-		if (itemRenderer instanceof IChartRenderer)
-		{
-			IChartRenderer chartRenderer = (IChartRenderer) itemRenderer;
-			
-			int selectedRow = chartRenderer.getSelectedRow();
-			int selectedColumn = chartRenderer.getSelectedColumn();
-			
-			return new int[] {selectedRow, selectedColumn};
-		}	
-		
-		return null;
 	}
 }
