@@ -1,5 +1,10 @@
 package com.nepxion.swing.chart;
 
+import java.awt.BasicStroke;
+import java.awt.Color;
+import java.awt.Paint;
+import java.awt.Stroke;
+
 /**
  * <p>Title: Nepxion Swing</p>
  * <p>Description: Nepxion Swing Repository</p>
@@ -18,4 +23,10 @@ public interface ChartConstants
 	
 	public static final String DEFAULT_CHART_PDF_AUTHOR = "Haojun Ren";
 	public static final String DEFAULT_CHART_PDF_SUBJECT = "Nepxion";
+	
+	public static final Paint MOUSE_OVER_PAINT = Color.green;
+	public static final Paint MOUSE_DOWN_PAINT = Color.yellow;
+	
+	public static final Stroke MOUSE_OVER_STROKE = new BasicStroke(2);
+	public static final Stroke MOUSE_DOWN_STROKE = new BasicStroke(2);
 }
