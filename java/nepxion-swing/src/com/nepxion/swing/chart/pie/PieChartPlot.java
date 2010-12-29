@@ -26,7 +26,7 @@ public class PieChartPlot
 	
 	private Map sectionOutlineStrokeMap = new HashMap();
 	private Map sectionOutlinePaintMap = new HashMap();
-	private Map sectionExplodePercentMap = new HashMap();
+	private Map explodePercentMap = new HashMap();
 	
 	public PieChartPlot()
 	{
@@ -34,7 +34,7 @@ public class PieChartPlot
 		
 		adapter = new PieChartPlotAdapter();
 		
-		nofityData();
+		updateSelectionData();
 	}
 	
 	public PieChartPlot(PieDataset dataset)
@@ -43,10 +43,10 @@ public class PieChartPlot
 		
 		adapter = new PieChartPlotAdapter();
 		
-		nofityData();
+		updateSelectionData();
 	}
 	
-	private void nofityData()
+	public void updateSelectionData()
 	{
 		for (Iterator iterator = getDataset().getKeys().iterator(); iterator.hasNext();)
 		{
@@ -70,12 +70,12 @@ public class PieChartPlot
 			if (explodePercent == null)
 			{
 				explodePercent = Double.valueOf(0.00D);
-			}	
-			sectionExplodePercentMap.put(key, Double.valueOf(explodePercent));
+			}
+			explodePercentMap.put(key, explodePercent);
 		}
 	}
 	
-	private void nodifyUI()
+	public void updateSelectionUI()
 	{
 		for (Iterator iterator = getDataset().getKeys().iterator(); iterator.hasNext();)
 		{
@@ -98,7 +98,7 @@ public class PieChartPlot
 			Double explodePercent = adapter.getExplodePercent(key);
 			if (explodePercent == null)
 			{
-				explodePercent = (Double) sectionExplodePercentMap.get(key);
+				explodePercent = (Double) explodePercentMap.get(key);
 			}
 			super.setExplodePercent(key, explodePercent.doubleValue());
 		}
@@ -108,14 +108,14 @@ public class PieChartPlot
 	{
 		adapter.dispatchMouseOver(key);
 		
-		nodifyUI();
+		updateSelectionUI();
 	}
 	
 	public void dispatchMouseDown(Comparable key)
 	{
 		adapter.dispatchMouseDown(key);
 		
-		nodifyUI();
+		updateSelectionUI();
 	}
 	
 	public void setSectionOutlineStroke(Comparable key, Stroke stroke)
@@ -133,7 +133,7 @@ public class PieChartPlot
 	public void setExplodePercent(Comparable key, double explodePercent)
 	{
 		super.setExplodePercent(key, explodePercent);
-		sectionExplodePercentMap.put(key, Double.valueOf(explodePercent));
+		explodePercentMap.put(key, Double.valueOf(explodePercent));
 	}
 	
 	public Comparable getSelectedKey()

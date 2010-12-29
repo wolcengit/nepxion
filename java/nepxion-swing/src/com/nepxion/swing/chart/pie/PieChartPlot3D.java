@@ -33,7 +33,7 @@ public class PieChartPlot3D
 		
 		adapter = new PieChartPlotAdapter();
 		
-		nofityData();
+		updateSelectionData();
 	}
 	
 	public PieChartPlot3D(PieDataset dataset)
@@ -42,10 +42,10 @@ public class PieChartPlot3D
 		
 		adapter = new PieChartPlotAdapter();
 		
-		nofityData();
+		updateSelectionData();
 	}
 	
-	private void nofityData()
+	private void updateSelectionData()
 	{
 		for (Iterator iterator = getDataset().getKeys().iterator(); iterator.hasNext();)
 		{
@@ -67,7 +67,7 @@ public class PieChartPlot3D
 		}
 	}
 	
-	private void nodifyUI()
+	private void updateSelectionUI()
 	{
 		for (Iterator iterator = getDataset().getKeys().iterator(); iterator.hasNext();)
 		{
@@ -93,14 +93,14 @@ public class PieChartPlot3D
 	{
 		adapter.dispatchMouseOver(key);
 		
-		nodifyUI();
+		updateSelectionUI();
 	}
 	
 	public void dispatchMouseDown(Comparable key)
 	{
 		adapter.dispatchMouseDown(key);
 		
-		nodifyUI();
+		updateSelectionUI();
 	}
 	
 	public void setSectionOutlineStroke(Comparable key, Stroke stroke)
