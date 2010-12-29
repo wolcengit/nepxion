@@ -18,7 +18,6 @@ import java.text.NumberFormat;
 import org.jfree.chart.labels.StandardPieSectionLabelGenerator;
 import org.jfree.chart.labels.StandardPieToolTipGenerator;
 import org.jfree.chart.plot.PiePlot;
-import org.jfree.chart.plot.PiePlot3D;
 import org.jfree.chart.urls.StandardPieURLGenerator;
 import org.jfree.data.general.PieDataset;
 import org.jfree.ui.RectangleInsets;
@@ -39,7 +38,7 @@ public class PieChartFactory
 	
 	public static PiePlot createPiePlot(PieDataset pieDataset, boolean labels, boolean tooltips, boolean urls)
 	{
-		PiePlot piePlot = new PiePlot(pieDataset);
+		PiePlot piePlot = new PieChartPlot(pieDataset);
 		
 		if (labels)
 		{
@@ -68,7 +67,7 @@ public class PieChartFactory
 	
 	public static PiePlot createPiePlot3D(PieDataset pieDataset, boolean labels, boolean tooltips, boolean urls)
 	{
-		PiePlot piePlot = new PiePlot3D(pieDataset);
+		PiePlot piePlot = new PieChartPlot3D(pieDataset);
 
 		if (labels)
 		{
