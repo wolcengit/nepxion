@@ -112,20 +112,14 @@ public class PieChartPlot
 	{
 		adapter.dispatchMouseOver(key);
 		
-		if (key != null)
-		{	
-			updateSelectionUI();
-		}
+		updateSelectionUI();
 	}
 	
 	public void dispatchMouseDown(Comparable key)
 	{
 		adapter.dispatchMouseDown(key);
 		
-		if (key != null)
-		{	
-			updateSelectionUI();
-		}
+		updateSelectionUI();
 	}
 	
 	public void setSectionOutlineStroke(Comparable key, Stroke stroke)
