@@ -26,6 +26,7 @@ import com.nepxion.demo.component.chart.DemoChartSchedulerToolBar;
 import com.nepxion.swing.border.BorderManager;
 import com.nepxion.swing.chart.JChartFactory;
 import com.nepxion.swing.chart.JChartPanel;
+import com.nepxion.swing.chart.bar.BarSelectionAdapter;
 import com.nepxion.swing.chart.bar.RectangleBarChartFactory;
 import com.nepxion.swing.layout.filed.FiledLayout;
 import com.nepxion.swing.layout.table.TableLayout;
@@ -105,6 +106,7 @@ public class DemoRectangleBarChart3DPanel
 			JFreeChart chart = JChartFactory.createChart("计算机性能实时统计图", "Nepxion Studio Statistics", categoryPlot);
 			
 			JChartPanel chartPanel = new JChartPanel(chart);
+			chartPanel.addChartMouseListener(new BarSelectionAdapter());
 			chartPanel.setBorder(BorderManager.createScrollPaneBorder());
 			
 			add(chartPanel, BorderLayout.CENTER);
