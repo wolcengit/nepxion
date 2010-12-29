@@ -16,26 +16,23 @@ import java.awt.Stroke;
 import org.jfree.chart.event.RendererChangeEvent;
 import org.jfree.chart.renderer.category.BarRenderer3D;
 
-import com.nepxion.swing.chart.ChartRendererAdapter;
-import com.nepxion.swing.chart.IChartRenderer;
-
 public class RectangleBarRenderer3D
-	extends BarRenderer3D implements IChartRenderer
+	extends BarRenderer3D implements IBarRenderer
 {
-	private ChartRendererAdapter adapter;
+	private BarRendererAdapter adapter;
 	
 	public RectangleBarRenderer3D()
 	{
 		super();
 		
-		adapter = new ChartRendererAdapter();
+		adapter = new BarRendererAdapter();
 	}
 	
 	public RectangleBarRenderer3D(double xOffset, double yOffset)
 	{
 		super(xOffset, yOffset);
 		
-		adapter = new ChartRendererAdapter();
+		adapter = new BarRendererAdapter();
 	}
 	
 	public void dispatchMouseOver(int row, int column)
@@ -84,7 +81,7 @@ public class RectangleBarRenderer3D
 		return adapter.getSelectedColumn();
 	}
 	
-	public ChartRendererAdapter getAdapter()
+	public BarRendererAdapter getAdapter()
 	{
 		return adapter;
 	}
