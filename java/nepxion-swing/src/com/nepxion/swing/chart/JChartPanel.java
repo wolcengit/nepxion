@@ -79,13 +79,9 @@ public class JChartPanel
 			}
 		}
 		);
+		
 		JPopupMenu popupMenu = getPopupMenu();
-		int index = 0;
-		if (popupMenu.getComponentCount() > 3)
-		{
-			index = 3;
-		}
-		popupMenu.add(pdfWriterMenuItem, index);
+		popupMenu.add(pdfWriterMenuItem, 3);
 	}
 	
 	private void initMouse()

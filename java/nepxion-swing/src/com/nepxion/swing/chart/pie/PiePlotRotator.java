@@ -28,35 +28,31 @@ public class PiePlotRotator
 	private PiePlot piePlot;
 	private int angle;
 	
-	public PiePlotRotator(JChartPanel chartPanel)
+	public PiePlotRotator(JChartPanel chartPanel, boolean isClickingStarted)
 	{
-		this(100, chartPanel);
+		this(100, chartPanel, isClickingStarted);
 	}
 	
-	public PiePlotRotator(int delay, JChartPanel chartPanel)
+	public PiePlotRotator(int delay, JChartPanel chartPanel, boolean isClickingStarted)
 	{
 		super(delay, null);
 		
 		this.angle = 270;
 		this.piePlot = (PiePlot) chartPanel.getChart().getPlot();
-		chartPanel.addMouseListener(new MouseAdapter()
-		{
-			public void mouseClicked(MouseEvent e)
+		if (isClickingStarted)
+		{	
+			chartPanel.addMouseListener(new MouseAdapter()
 			{
-				if (SwingUtilities.isLeftMouseButton(e) && e.getClickCount() == 1)
+				public void mouseClicked(MouseEvent e)
 				{
-					if (!isRunning())
+					if (SwingUtilities.isLeftMouseButton(e) && e.getClickCount() == 1)
 					{
-						start();
-					}
-					else
-					{
-						stop();
+						execute();
 					}
 				}
 			}
+			);
 		}
-		);
 		addActionListener(this);
 	}
 	
@@ -67,6 +63,18 @@ public class PiePlotRotator
 		if (angle == 360)
 		{
 			angle = 0;
+		}
+	}
+	
+	public void execute()
+	{
+		if (!isRunning())
+		{
+			start();
+		}
+		else
+		{
+			stop();
 		}
 	}
 }
