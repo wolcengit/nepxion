@@ -96,7 +96,7 @@ public class DemoPieChartPanel
 			chartPanel.addChartMouseListener(new PieSelectionAdapter());
 			chartPanel.setBorder(BorderManager.createScrollPaneBorder());
 			
-			PiePlotRotator rotator = new PiePlotRotator(chartPanel);
+			PiePlotRotator rotator = new PiePlotRotator(chartPanel, true);
 			rotator.start();
 			
 			add(chartPanel, BorderLayout.CENTER);
@@ -125,7 +125,7 @@ public class DemoPieChartPanel
 			chartPanel.addChartMouseListener(new PieSelectionAdapter());
 			chartPanel.setBorder(BorderManager.createScrollPaneBorder());
 			
-			PiePlotRotator rotator = new PiePlotRotator(chartPanel);
+			PiePlotRotator rotator = new PiePlotRotator(chartPanel, true);
 			rotator.start();
 			
 			chartPanel.setBorder(BorderManager.createScrollPaneBorder());
@@ -163,7 +163,7 @@ public class DemoPieChartPanel
 			chartPanel.addChartMouseListener(new PieSelectionAdapter());
 			chartPanel.setBorder(BorderManager.createScrollPaneBorder());
 			
-			PiePlotRotator rotator = new PiePlotRotator(chartPanel);
+			PiePlotRotator rotator = new PiePlotRotator(chartPanel, true);
 			rotator.start();
 			
 			chartPanel.setBorder(BorderManager.createScrollPaneBorder());
@@ -193,7 +193,7 @@ public class DemoPieChartPanel
 			chartPanel.addChartMouseListener(new PieSelectionAdapter());
 			chartPanel.setBorder(BorderManager.createScrollPaneBorder());
 			
-			PiePlotRotator rotator = new PiePlotRotator(chartPanel);
+			PiePlotRotator rotator = new PiePlotRotator(chartPanel, true);
 			rotator.start();
 			
 			add(chartPanel, BorderLayout.CENTER);
@@ -222,7 +222,7 @@ public class DemoPieChartPanel
 			chartPanel.addChartMouseListener(new PieSelectionAdapter());
 			chartPanel.setBorder(BorderManager.createScrollPaneBorder());
 			
-			PiePlotRotator rotator = new PiePlotRotator(chartPanel);
+			PiePlotRotator rotator = new PiePlotRotator(chartPanel, true);
 			rotator.start();
 			
 			chartPanel.setBorder(BorderManager.createScrollPaneBorder());
@@ -260,7 +260,7 @@ public class DemoPieChartPanel
 			chartPanel.addChartMouseListener(new PieSelectionAdapter());
 			chartPanel.setBorder(BorderManager.createScrollPaneBorder());
 			
-			PiePlotRotator rotator = new PiePlotRotator(chartPanel);
+			PiePlotRotator rotator = new PiePlotRotator(chartPanel, true);
 			rotator.start();
 			
 			chartPanel.setBorder(BorderManager.createScrollPaneBorder());
