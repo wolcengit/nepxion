@@ -19,10 +19,8 @@ import java.util.Map;
 import org.jfree.chart.plot.PiePlot3D;
 import org.jfree.data.general.PieDataset;
 
-import com.nepxion.swing.chart.ChartConstants;
-
 public class PieChartPlot3D
-	extends PiePlot3D implements IPieChartPlot, ChartConstants
+	extends PiePlot3D implements IPieChartPlot
 {
 	private PieChartPlotAdapter adapter;
 	
@@ -35,7 +33,7 @@ public class PieChartPlot3D
 		
 		adapter = new PieChartPlotAdapter();
 		
-		nofityData();	
+		nofityData();
 	}
 	
 	public PieChartPlot3D(PieDataset dataset)
@@ -52,21 +50,21 @@ public class PieChartPlot3D
 		for (Iterator iterator = getDataset().getKeys().iterator(); iterator.hasNext();)
 		{
 			Comparable key = (Comparable) iterator.next();
-
+			
 			Stroke stroke = super.getSectionOutlineStroke(key);
 			if (stroke == null)
 			{
 				stroke = DEFAULT_OUTLINE_STROKE;
-			}	
+			}
 			sectionOutlineStrokeMap.put(key, stroke);
 			
 			Paint paint = super.getSectionOutlinePaint(key);
 			if (paint == null)
 			{
 				paint = DEFAULT_OUTLINE_PAINT;
-			}	
+			}
 			sectionOutlinePaintMap.put(key, paint);
-		}	
+		}
 	}
 	
 	private void nodifyUI()
@@ -74,7 +72,7 @@ public class PieChartPlot3D
 		for (Iterator iterator = getDataset().getKeys().iterator(); iterator.hasNext();)
 		{
 			Comparable key = (Comparable) iterator.next();
-
+			
 			Stroke stroke = adapter.getSectionOutlineStroke(key);
 			if (stroke == null)
 			{
