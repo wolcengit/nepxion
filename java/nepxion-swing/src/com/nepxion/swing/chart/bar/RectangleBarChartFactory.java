@@ -16,6 +16,7 @@ import java.awt.GradientPaint;
 import java.awt.Paint;
 import java.text.NumberFormat;
 
+import org.jfree.chart.JFreeChart;
 import org.jfree.chart.annotations.CategoryTextAnnotation;
 import org.jfree.chart.axis.CategoryAnchor;
 import org.jfree.chart.axis.CategoryAxis;
@@ -33,12 +34,14 @@ import org.jfree.chart.plot.CategoryPlot;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.chart.plot.ValueMarker;
 import org.jfree.chart.renderer.category.BarRenderer;
+import org.jfree.chart.renderer.category.CategoryItemRenderer;
 import org.jfree.chart.urls.StandardCategoryURLGenerator;
 import org.jfree.data.category.CategoryDataset;
 import org.jfree.ui.Layer;
 import org.jfree.ui.TextAnchor;
 import org.jfree.util.SortOrder;
 
+import com.nepxion.swing.chart.JChartPanel;
 import com.nepxion.swing.font.FontContext;
 
 public class RectangleBarChartFactory
@@ -225,4 +228,28 @@ public class RectangleBarChartFactory
 		categoryTextAnnotation.setTextAnchor(TextAnchor.BOTTOM_LEFT);
 		categoryPlot.addAnnotation(categoryTextAnnotation);
 	}
+	
+	public static int[] getCategoryPlotSelectionIndexes(JChartPanel chartPanel)
+	{
+		JFreeChart chart = chartPanel.getChart();	
+	
+		return getCategoryPlotSelectionIndexes(chart);
+	}
+	
+	public static int[] getCategoryPlotSelectionIndexes(JFreeChart chart)
+	{
+		CategoryItemRenderer itemRenderer = chart.getCategoryPlot().getRenderer();
+		
+		if (itemRenderer instanceof IBarRenderer)
+		{
+			IBarRenderer chartRenderer = (IBarRenderer) itemRenderer;
+			
+			int selectedRow = chartRenderer.getSelectedRow();
+			int selectedColumn = chartRenderer.getSelectedColumn();
+			
+			return new int[] {selectedRow, selectedColumn};
+		}	
+		
+		return null;
+	}	
 }
