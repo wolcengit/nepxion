@@ -45,7 +45,7 @@ public class PieChartPlot3D
 		updateSelectionData();
 	}
 	
-	private void updateSelectionData()
+	public void updateSelectionData()
 	{
 		sectionOutlineStrokeMap.clear();
 		sectionOutlinePaintMap.clear();
@@ -70,7 +70,7 @@ public class PieChartPlot3D
 		}
 	}
 	
-	private void updateSelectionUI()
+	public void updateSelectionUI()
 	{
 		for (Iterator iterator = getDataset().getKeys().iterator(); iterator.hasNext();)
 		{

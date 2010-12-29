@@ -16,6 +16,10 @@ public interface IPieChartPlot
 	
 	public void dispatchMouseDown(Comparable key);
 	
+	public void updateSelectionData();
+	
+	public void updateSelectionUI();
+	
 	public Comparable getSelectedKey();
 	
 	public PieChartPlotAdapter getAdapter();
