@@ -76,6 +76,21 @@ public class PieChartPlotAdapter
 		return null;
 	}
 	
+	public Double getExplodePercent(Comparable key)
+	{
+		if (mouseDownKey != null && mouseDownKey.equals(key))
+		{
+			return MOUSE_DOWN_EXPLODE_PERCENT;
+		}
+		
+		if (mouserOverKey != null && mouserOverKey.equals(key))
+		{
+			return MOUSE_OVER_EXPLODE_PERCENT;
+		}
+		
+		return null;
+	}
+	
 	public Comparable getSelectedKey()
 	{
 		return mouseDownKey;

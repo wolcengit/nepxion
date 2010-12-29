@@ -26,6 +26,7 @@ public class PieChartPlot
 	
 	private Map sectionOutlineStrokeMap = new HashMap();
 	private Map sectionOutlinePaintMap = new HashMap();
+	private Map sectionExplodePercentMap = new HashMap();
 	
 	public PieChartPlot()
 	{
@@ -64,6 +65,13 @@ public class PieChartPlot
 				paint = DEFAULT_OUTLINE_PAINT;
 			}
 			sectionOutlinePaintMap.put(key, paint);
+			
+			Double explodePercent = super.getExplodePercent(key);
+			if (explodePercent == null)
+			{
+				explodePercent = Double.valueOf(0.00D);
+			}	
+			sectionExplodePercentMap.put(key, Double.valueOf(explodePercent));
 		}
 	}
 	
@@ -86,6 +94,13 @@ public class PieChartPlot
 				paint = (Paint) sectionOutlinePaintMap.get(key);
 			}
 			super.setSectionOutlinePaint(key, paint);
+			
+			Double explodePercent = adapter.getExplodePercent(key);
+			if (explodePercent == null)
+			{
+				explodePercent = (Double) sectionExplodePercentMap.get(key);
+			}
+			super.setExplodePercent(key, explodePercent.doubleValue());
 		}
 	}
 	
@@ -113,6 +128,12 @@ public class PieChartPlot
 	{
 		super.setSectionOutlinePaint(key, paint);
 		sectionOutlinePaintMap.put(key, paint);
+	}
+	
+	public void setExplodePercent(Comparable key, double explodePercent)
+	{
+		super.setExplodePercent(key, explodePercent);
+		sectionExplodePercentMap.put(key, Double.valueOf(explodePercent));
 	}
 	
 	public Comparable getSelectedKey()
