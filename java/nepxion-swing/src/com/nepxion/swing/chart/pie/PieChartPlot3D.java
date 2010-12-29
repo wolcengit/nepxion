@@ -47,6 +47,9 @@ public class PieChartPlot3D
 	
 	private void updateSelectionData()
 	{
+		sectionOutlineStrokeMap.clear();
+		sectionOutlinePaintMap.clear();
+		
 		for (Iterator iterator = getDataset().getKeys().iterator(); iterator.hasNext();)
 		{
 			Comparable key = (Comparable) iterator.next();

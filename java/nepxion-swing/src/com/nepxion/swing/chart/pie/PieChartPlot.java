@@ -48,6 +48,10 @@ public class PieChartPlot
 	
 	public void updateSelectionData()
 	{
+		sectionOutlineStrokeMap.clear();
+		sectionOutlinePaintMap.clear();
+		explodePercentMap.clear();
+		
 		for (Iterator iterator = getDataset().getKeys().iterator(); iterator.hasNext();)
 		{
 			Comparable key = (Comparable) iterator.next();
