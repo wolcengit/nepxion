@@ -12,8 +12,10 @@ package com.nepxion.swing.chart.pie;
 
 import java.awt.Color;
 import java.awt.GradientPaint;
+import java.awt.Paint;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
+import java.util.Iterator;
 
 import org.jfree.chart.labels.StandardPieSectionLabelGenerator;
 import org.jfree.chart.labels.StandardPieToolTipGenerator;
@@ -23,6 +25,7 @@ import org.jfree.data.general.PieDataset;
 import org.jfree.ui.RectangleInsets;
 import org.jfree.util.Rotation;
 
+import com.nepxion.swing.chart.JChartFactory;
 import com.nepxion.swing.locale.SwingLocale;
 
 public class PieChartFactory
@@ -97,5 +100,26 @@ public class PieChartFactory
 		piePlot.setForegroundAlpha(0.75F);
 		piePlot.setSimpleLabels(false);
 		piePlot.setBackgroundPaint(new GradientPaint(0.0F, 0.0F, new Color(128, 128, 128), 0.0F, 0.0F, new Color(251, 251, 251), true));
+	}
+	
+	public static void setSectionPaint(PiePlot piePlot)
+	{	
+		int colorIndex = 0;
+		
+		for (Iterator iterator = piePlot.getDataset().getKeys().iterator(); iterator.hasNext();)
+		{
+			Comparable key = (Comparable) iterator.next();
+			
+			setSectionPaint(piePlot, key, colorIndex);
+		
+			colorIndex++;
+		}	
+	}
+	
+	public static void setSectionPaint(PiePlot piePlot, Comparable key, int colorIndex)
+	{				
+		Paint paint = JChartFactory.getPaint(colorIndex);
+
+		piePlot.setSectionPaint(key, paint);
 	}
 }

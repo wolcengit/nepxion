@@ -27,8 +27,8 @@ public interface ChartConstants
 	public static final Paint MOUSE_OVER_PAINT = Color.green;
 	public static final Paint MOUSE_DOWN_PAINT = Color.yellow;
 	
-	public static final Stroke MOUSE_OVER_STROKE = new BasicStroke(2F);
-	public static final Stroke MOUSE_DOWN_STROKE = new BasicStroke(2F);
+	public static final Stroke MOUSE_OVER_STROKE = new BasicStroke(2.00F);
+	public static final Stroke MOUSE_DOWN_STROKE = new BasicStroke(2.00F);
 	
 	public static final Double MOUSE_OVER_EXPLODE_PERCENT = Double.valueOf(0.00D);
 	public static final Double MOUSE_DOWN_EXPLODE_PERCENT = Double.valueOf(0.05D);

@@ -41,6 +41,7 @@ import org.jfree.ui.Layer;
 import org.jfree.ui.TextAnchor;
 import org.jfree.util.SortOrder;
 
+import com.nepxion.swing.chart.JChartFactory;
 import com.nepxion.swing.chart.JChartPanel;
 import com.nepxion.swing.font.FontContext;
 
@@ -187,6 +188,28 @@ public class RectangleBarChartFactory
 		categoryPlot.setRangePannable(true);
 		categoryPlot.setDomainGridlinesVisible(true);
 		categoryPlot.setBackgroundPaint(new Color(128, 128, 128, 30));
+	}
+	
+	public static void setSectionPaint(CategoryPlot categoryPlot, boolean is3D)
+	{	
+		for (int i = 0; i < categoryPlot.getDataset().getRowCount(); i++)
+		{
+			setSectionPaint(categoryPlot, is3D, i, i);
+		}	
+	}
+	
+	public static void setSectionPaint(CategoryPlot categoryPlot, boolean is3D, int seriesIndex, int colorIndex)
+	{				
+		Paint paint = null;
+		if (is3D)
+		{	
+			paint = JChartFactory.getPaint(colorIndex);
+		}
+		else
+		{
+			paint = JChartFactory.getGradientPaint(colorIndex);
+		}
+		setSectionPaint(categoryPlot, seriesIndex, paint);
 	}
 		
 	public static Paint getSectionPaint(CategoryPlot categoryPlot, int index)

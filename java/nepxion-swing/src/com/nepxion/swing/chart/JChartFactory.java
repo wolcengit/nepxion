@@ -163,13 +163,31 @@ public class JChartFactory
 		Paint[] chartPaintList = CHART_PAINT_LIST;
 		
 		Paint paint = null;
-		if (index < chartPaintList.length)
+		switch (index)
 		{
-			paint = (Paint) chartPaintList[index];
-		}
-		else
-		{
-			paint = ColorUtil.getRandomColor();
+			case 0 : 
+			{
+				paint = Color.red; break;
+			}
+			case 1 : 
+			{
+				paint = Color.green; break;
+			}
+			case 2 :
+			{
+				paint = Color.blue; break;			
+			}
+			default :
+			{
+				if (index < chartPaintList.length)
+				{
+					paint = (Paint) chartPaintList[index];
+				}
+				else
+				{
+					paint = ColorUtil.getRandomColor();
+				}
+			}	
 		}
 		
 		return paint;
@@ -202,7 +220,7 @@ public class JChartFactory
 			color2 = new Color(0, 0, 0);
 		}
 		
-		GradientPaint paint = new GradientPaint(0.0F, 0.0F, isAsc ? color1 : color2, 0.0F, 0.0F, isAsc ? color2 : color1);
+		GradientPaint paint = new GradientPaint(0.0F, 0.0F, isAsc ? color2 : color1, 0.0F, 0.0F, isAsc ? color1 : color2);
 		
 		return paint;
 	}
