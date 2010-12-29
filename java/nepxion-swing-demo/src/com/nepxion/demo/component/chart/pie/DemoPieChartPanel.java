@@ -92,7 +92,7 @@ public class DemoPieChartPanel
 			
 			JFreeChart chart = JChartFactory.createChart("CPUﾕｼﾓﾃﾂﾊﾊｵﾊｱﾍｳｼﾆﾍｼ", "Nepxion Studio Statistics", cpuPiePiePlot3D);
 			
-			JChartPanel chartPanel = new JChartPanel(chart);
+			JChartPanel chartPanel = JChartFactory.createChartPanel(chart);
 			chartPanel.addChartMouseListener(new PieSelectionAdapter());
 			chartPanel.setBorder(BorderManager.createScrollPaneBorder());
 			
@@ -121,7 +121,7 @@ public class DemoPieChartPanel
 			
 			JFreeChart chart = JChartFactory.createChart("ﾄﾚｴ贏ｼﾓﾃﾂﾊﾊｵﾊｱﾍｳｼﾆﾍｼ", "Nepxion Studio Statistics", memoryPiePlot3D);
 			
-			JChartPanel chartPanel = new JChartPanel(chart);
+			JChartPanel chartPanel = JChartFactory.createChartPanel(chart);
 			chartPanel.addChartMouseListener(new PieSelectionAdapter());
 			chartPanel.setBorder(BorderManager.createScrollPaneBorder());
 			
@@ -159,7 +159,7 @@ public class DemoPieChartPanel
 			
 			JFreeChart chart = JChartFactory.createChart("ｴﾅﾅﾌﾕｼﾓﾃﾂﾊﾊｵﾊｱﾍｳｼﾆﾍｼ", "Nepxion Studio Statistics", diskPiePlot3D);
 			
-			JChartPanel chartPanel = new JChartPanel(chart);
+			JChartPanel chartPanel = JChartFactory.createChartPanel(chart);
 			chartPanel.addChartMouseListener(new PieSelectionAdapter());
 			chartPanel.setBorder(BorderManager.createScrollPaneBorder());
 			
@@ -189,7 +189,7 @@ public class DemoPieChartPanel
 			
 			JFreeChart chart = JChartFactory.createChart("CPUﾕｼﾓﾃﾂﾊﾊｵﾊｱﾍｳｼﾆﾍｼ", "Nepxion Studio Statistics", cpuPiePiePlot);
 			
-			JChartPanel chartPanel = new JChartPanel(chart);
+			JChartPanel chartPanel = JChartFactory.createChartPanel(chart);
 			chartPanel.addChartMouseListener(new PieSelectionAdapter());
 			chartPanel.setBorder(BorderManager.createScrollPaneBorder());
 			
@@ -218,7 +218,7 @@ public class DemoPieChartPanel
 			
 			JFreeChart chart = JChartFactory.createChart("ﾄﾚｴ贏ｼﾓﾃﾂﾊﾊｵﾊｱﾍｳｼﾆﾍｼ", "Nepxion Studio Statistics", memoryPiePlot);
 			
-			JChartPanel chartPanel = new JChartPanel(chart);
+			JChartPanel chartPanel = JChartFactory.createChartPanel(chart);
 			chartPanel.addChartMouseListener(new PieSelectionAdapter());
 			chartPanel.setBorder(BorderManager.createScrollPaneBorder());
 			
@@ -256,7 +256,7 @@ public class DemoPieChartPanel
 			
 			JFreeChart chart = JChartFactory.createChart("ｴﾅﾅﾌﾕｼﾓﾃﾂﾊﾊｵﾊｱﾍｳｼﾆﾍｼ", "Nepxion Studio Statistics", diskPiePlot);
 			
-			JChartPanel chartPanel = new JChartPanel(chart);
+			JChartPanel chartPanel = JChartFactory.createChartPanel(chart);
 			chartPanel.addChartMouseListener(new PieSelectionAdapter());
 			chartPanel.setBorder(BorderManager.createScrollPaneBorder());
 			

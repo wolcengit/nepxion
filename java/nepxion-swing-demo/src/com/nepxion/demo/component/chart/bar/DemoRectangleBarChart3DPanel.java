@@ -105,7 +105,7 @@ public class DemoRectangleBarChart3DPanel
 			
 			JFreeChart chart = JChartFactory.createChart("计算机性能实时统计图", "Nepxion Studio Statistics", categoryPlot);
 			
-			JChartPanel chartPanel = new JChartPanel(chart);
+			JChartPanel chartPanel = JChartFactory.createChartPanel(chart);
 			chartPanel.addChartMouseListener(new BarSelectionAdapter());
 			chartPanel.setBorder(BorderManager.createScrollPaneBorder());
 			

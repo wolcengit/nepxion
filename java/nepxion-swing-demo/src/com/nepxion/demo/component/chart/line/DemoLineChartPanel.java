@@ -59,7 +59,7 @@ public class DemoLineChartPanel
 			
 			JFreeChart chart = JChartFactory.createChart("计算机性能实时统计图", "Nepxion Studio Statistics", combinedDomainXYPlot);
 			
-			JChartPanel chartPanel = new JChartPanel(chart);
+			JChartPanel chartPanel = JChartFactory.createChartPanel(chart);
 			chartPanel.setBorder(BorderManager.createScrollPaneBorder());
 			
 			add(chartPanel, BorderLayout.CENTER);
