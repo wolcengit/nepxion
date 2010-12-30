@@ -162,8 +162,7 @@ public class RectangleBarChartFactory
 		barRenderer.setBaseItemLabelsVisible(true);
 		barRenderer.setMaximumBarWidth(0.05D);
 		barRenderer.setDrawBarOutline(true);
-		// barRenderer3D.setBaseOutlineStroke(new BasicStroke(0.3F));
-		barRenderer.setBaseToolTipGenerator(new StandardCategoryToolTipGenerator());		
+		// barRenderer3D.setBaseOutlineStroke(new BasicStroke(0.3F));	
 		barRenderer.setBaseToolTipGenerator(new StandardCategoryToolTipGenerator("{1} : " + toolTipText + " [{2}]", NumberFormat.getNumberInstance()));
 		barRenderer.setLegendItemToolTipGenerator(new StandardCategorySeriesLabelGenerator(legendToolTipText + " - {0}"));
 		
