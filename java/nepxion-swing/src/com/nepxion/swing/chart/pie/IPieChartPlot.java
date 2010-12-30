@@ -20,7 +20,7 @@ public interface IPieChartPlot
 	
 	public void updateSelectionUI();
 	
-	public Comparable getSelectedKey();
+	public Comparable getSelectionKey();
 	
 	public PieChartPlotAdapter getAdapter();
 }

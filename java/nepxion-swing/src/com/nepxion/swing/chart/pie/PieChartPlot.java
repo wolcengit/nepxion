@@ -140,9 +140,9 @@ public class PieChartPlot
 		explodePercentMap.put(key, Double.valueOf(explodePercent));
 	}
 	
-	public Comparable getSelectedKey()
+	public Comparable getSelectionKey()
 	{
-		return adapter.getSelectedKey();
+		return adapter.getSelectionKey();
 	}
 	
 	public PieChartPlotAdapter getAdapter()

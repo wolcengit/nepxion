@@ -17,15 +17,18 @@ import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.Iterator;
 
+import org.jfree.chart.JFreeChart;
 import org.jfree.chart.labels.StandardPieSectionLabelGenerator;
 import org.jfree.chart.labels.StandardPieToolTipGenerator;
 import org.jfree.chart.plot.PiePlot;
+import org.jfree.chart.plot.Plot;
 import org.jfree.chart.urls.StandardPieURLGenerator;
 import org.jfree.data.general.PieDataset;
 import org.jfree.ui.RectangleInsets;
 import org.jfree.util.Rotation;
 
 import com.nepxion.swing.chart.JChartFactory;
+import com.nepxion.swing.chart.JChartPanel;
 import com.nepxion.swing.locale.SwingLocale;
 
 public class PieChartFactory
@@ -100,6 +103,29 @@ public class PieChartFactory
 		piePlot.setForegroundAlpha(0.75F);
 		piePlot.setSimpleLabels(false);
 		piePlot.setBackgroundPaint(new GradientPaint(0.0F, 0.0F, new Color(128, 128, 128), 0.0F, 0.0F, new Color(251, 251, 251), true));
+	}
+	
+	public static Comparable getPiePlotSelectionkey(JChartPanel chartPanel)
+	{
+		JFreeChart chart = chartPanel.getChart();	
+	
+		return getPiePlotSelectionkey(chart);
+	}
+	
+	public static Comparable getPiePlotSelectionkey(JFreeChart chart)
+	{
+		Plot plot = chart.getPlot();
+		
+		if (plot instanceof IPieChartPlot)
+		{
+			IPieChartPlot pieChartPlot = (IPieChartPlot) plot;
+			
+			Comparable key = pieChartPlot.getSelectionKey();
+			
+			return key;
+		}	
+		
+		return null;
 	}
 	
 	public static void setSectionPaint(PiePlot piePlot)

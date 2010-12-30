@@ -91,7 +91,7 @@ public class PieChartPlotAdapter
 		return null;
 	}
 	
-	public Comparable getSelectedKey()
+	public Comparable getSelectionKey()
 	{
 		return mouseDownKey;
 	}

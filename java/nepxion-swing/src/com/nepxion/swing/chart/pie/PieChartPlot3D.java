@@ -118,9 +118,9 @@ public class PieChartPlot3D
 		sectionOutlinePaintMap.put(key, paint);
 	}
 	
-	public Comparable getSelectedKey()
+	public Comparable getSelectionKey()
 	{
-		return adapter.getSelectedKey();
+		return adapter.getSelectionKey();
 	}
 	
 	public PieChartPlotAdapter getAdapter()
