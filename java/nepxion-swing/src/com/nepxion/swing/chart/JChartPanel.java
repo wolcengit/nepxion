@@ -24,6 +24,7 @@ import org.jfree.chart.JFreeChart;
 
 import com.nepxion.swing.icon.IconFactory;
 import com.nepxion.swing.locale.SwingLocale;
+import com.nepxion.swing.popupmenu.JDecorationPopupMenu;
 
 public class JChartPanel
 	extends ChartPanel
@@ -141,32 +142,34 @@ public class JChartPanel
     	
 		popupMenu.removeAll();
 		
+		JDecorationPopupMenu decorationPopupMenu = new JDecorationPopupMenu();
+		
 		if (properties)
 		{	
-			popupMenu.add(propertiesMenuItem);
+			decorationPopupMenu.add(propertiesMenuItem);
 		}
 		if (copy)
 		{	
-			popupMenu.add(copyMenuItem);
+			decorationPopupMenu.add(copyMenuItem);
 		}
 		if (save)
 		{	
-			popupMenu.add(exportMenu);
+			decorationPopupMenu.add(exportMenu);
 		}
 		if(zoom)
 		{	
-			popupMenu.addSeparator();
-			popupMenu.add(zoomInMenu);
-			popupMenu.add(zoomOutMenu);
-			popupMenu.add(zoomResetMenu);			
+			decorationPopupMenu.addSeparator();
+			decorationPopupMenu.add(zoomInMenu);
+			decorationPopupMenu.add(zoomOutMenu);
+			decorationPopupMenu.add(zoomResetMenu);			
 		}
 		if (print)
 		{	
-			popupMenu.addSeparator();
-			popupMenu.add(printMenuItem);
+			decorationPopupMenu.addSeparator();
+			decorationPopupMenu.add(printMenuItem);
 		}
 		
-		return popupMenu;
+		return decorationPopupMenu;
 	}
 	
 	public void exportPDF()
