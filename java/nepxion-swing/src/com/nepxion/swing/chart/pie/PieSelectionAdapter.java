@@ -15,7 +15,6 @@ import org.jfree.chart.ChartMouseListener;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.entity.ChartEntity;
 import org.jfree.chart.entity.PieSectionEntity;
-import org.jfree.data.general.PieDataset;
 
 import com.nepxion.swing.chart.ChartConstants;
 
@@ -49,10 +48,8 @@ public class PieSelectionAdapter
 			piePlot = (IPieChartPlot) chart.getPlot();
 			
 			PieSectionEntity pieSectionEntity = (PieSectionEntity) chartEntity;
-			PieDataset pieDateset = pieSectionEntity.getDataset();
 			
-			int sectionIndex = pieSectionEntity.getSectionIndex();
-			Comparable key = pieDateset.getKey(sectionIndex);
+			Comparable key = pieSectionEntity.getSectionKey();
 			
 			if (isMouseOver)
 			{
