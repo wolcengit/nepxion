@@ -55,6 +55,7 @@ public class SwingTrayIconPopupMenu
 	public Insets getInsets()
 	{
 		Insets insets = super.getInsets();
+		
 		if (painter != null)
 		{
 			return painter.getInsets((Insets) insets.clone());
@@ -68,6 +69,7 @@ public class SwingTrayIconPopupMenu
 	public void paintComponent(Graphics g)
 	{
 		super.paintComponent(g);
+		
 		if (painter != null)
 		{
 			painter.paintComponent(g);
