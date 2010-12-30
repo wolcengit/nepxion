@@ -24,13 +24,14 @@ import java.util.TimeZone;
 import com.nepxion.util.locale.UtilityLocale;
 
 public class TimeUtil
+	implements TimeConstants
 {
-	private static SimpleDateFormat dateTimeFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-	private static SimpleDateFormat millisecondDateTimeFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss:SSS");
-	private static SimpleDateFormat timeZoneDateTimeFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss zzzz");
-	private static SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-	private static SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm:ss");
-	private static SimpleDateFormat millisecondTimeFormat = new SimpleDateFormat("HH:mm:ss:SSS");
+	private static SimpleDateFormat dateTimeFormat = new SimpleDateFormat(DATE_TIME_FORMAT);
+	private static SimpleDateFormat millisecondDateTimeFormat = new SimpleDateFormat(MILLISECOND_DATE_TIME_FORMAT);
+	private static SimpleDateFormat timeZoneDateTimeFormat = new SimpleDateFormat(TIME_ZONE_DATE_TIME_FORMAT);
+	private static SimpleDateFormat dateFormat = new SimpleDateFormat(DATE_FORMAT);
+	private static SimpleDateFormat timeFormat = new SimpleDateFormat(TIME_FORMAT);
+	private static SimpleDateFormat millisecondTimeFormat = new SimpleDateFormat(MILLISECOND_TIME_FORMAT);
 	
 	/**
 	 * Get the current year
