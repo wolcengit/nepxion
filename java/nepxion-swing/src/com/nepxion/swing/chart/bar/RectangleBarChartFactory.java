@@ -267,10 +267,10 @@ public class RectangleBarChartFactory
 		{
 			IBarRenderer chartRenderer = (IBarRenderer) itemRenderer;
 			
-			int selectedRow = chartRenderer.getSelectedRow();
-			int selectedColumn = chartRenderer.getSelectedColumn();
+			int selectionRow = chartRenderer.getSelectionRow();
+			int selectionColumn = chartRenderer.getSelectionColumn();
 			
-			return new int[] {selectedRow, selectedColumn};
+			return new int[] {selectionRow, selectionColumn};
 		}	
 		
 		return null;

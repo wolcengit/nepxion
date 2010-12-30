@@ -81,12 +81,12 @@ public class BarRendererAdapter
 		return null;
 	}
 	
-	public int getSelectedRow()
+	public int getSelectionRow()
 	{
 		return mouseDownRow;
 	}
 	
-	public int getSelectedColumn()
+	public int getSelectionColumn()
 	{
 		return mouseDownColumn;
 	}

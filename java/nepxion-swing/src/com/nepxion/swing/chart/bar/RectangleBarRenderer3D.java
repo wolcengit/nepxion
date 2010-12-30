@@ -71,14 +71,14 @@ public class RectangleBarRenderer3D
 		return super.getItemOutlinePaint(row, column);
 	}
 	
-	public int getSelectedRow()
+	public int getSelectionRow()
 	{
-		return adapter.getSelectedRow();
+		return adapter.getSelectionRow();
 	}
 	
-	public int getSelectedColumn()
+	public int getSelectionColumn()
 	{
-		return adapter.getSelectedColumn();
+		return adapter.getSelectionColumn();
 	}
 	
 	public BarRendererAdapter getAdapter()

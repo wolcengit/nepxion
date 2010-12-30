@@ -20,9 +20,9 @@ public interface IBarRenderer
 	
 	public void notifyListeners(RendererChangeEvent rendererChangeEvent);
 	
-	public int getSelectedRow();
+	public int getSelectionRow();
 	
-	public int getSelectedColumn();
+	public int getSelectionColumn();
 	
 	public BarRendererAdapter getAdapter();
 }
