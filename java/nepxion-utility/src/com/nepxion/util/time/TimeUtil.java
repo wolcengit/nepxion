@@ -25,10 +25,10 @@ import com.nepxion.util.locale.UtilityLocale;
 
 public class TimeUtil
 {
-	private static SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 	private static SimpleDateFormat dateTimeFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 	private static SimpleDateFormat millisecondDateTimeFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss:SSS");
 	private static SimpleDateFormat timeZoneDateTimeFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss zzzz");
+	private static SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 	private static SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm:ss");
 	private static SimpleDateFormat millisecondTimeFormat = new SimpleDateFormat("HH:mm:ss:SSS");
 	
@@ -112,6 +112,26 @@ public class TimeUtil
 	public static String getDateTime(Date date)
 	{
 		return getFormatString(date, getDateTimeFormat());
+	}
+	
+	/**
+	 * Get a date and time string.Its format string is yyyy-MM-dd HH:mm:ss:SSS
+	 * @param date  the instance of Date
+	 * @return      a date and time string 
+	 */
+	public static String getMillisecondDateTime(Date date)
+	{
+		return getFormatString(date, getMillisecondDateTimeFormat());
+	}
+	
+	/**
+	 * Get a date and time string.Its format string is yyyy-MM-dd HH:mm:ss zzzz
+	 * @param date  the instance of Date
+	 * @return      a date and time string 
+	 */
+	public static String getTimeZoneDateTime(Date date)
+	{
+		return getFormatString(date, getTimeZoneDateTimeFormat());
 	}
 	
 	/**
@@ -726,15 +746,6 @@ public class TimeUtil
 		}		
 		return hourString + ":" + minuteString + ":" + secondString + ":" + millisecondString;
 	}	
-		
-	/**
-	 * Get the date format
-	 * @return  the instance of DateFormat
-	 */	
-	public synchronized static DateFormat getDateFormat()
-	{
-		return dateFormat;
-	}
 	
 	/**
 	 * Get the date time format
@@ -752,7 +763,7 @@ public class TimeUtil
 	public synchronized static DateFormat getMillisecondDateTimeFormat()
 	{
 		return millisecondDateTimeFormat;
-	}	
+	}
 	
 	/**
 	 * Get the time zone date time format
@@ -761,6 +772,15 @@ public class TimeUtil
 	public synchronized static DateFormat getTimeZoneDateTimeFormat()
 	{
 		return timeZoneDateTimeFormat;
+	}
+		
+	/**
+	 * Get the date format
+	 * @return  the instance of DateFormat
+	 */	
+	public synchronized static DateFormat getDateFormat()
+	{
+		return dateFormat;
 	}
 	
 	/**
