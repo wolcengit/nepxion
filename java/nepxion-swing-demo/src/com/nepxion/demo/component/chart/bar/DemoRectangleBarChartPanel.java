@@ -94,7 +94,7 @@ public class DemoRectangleBarChartPanel
 			categoryDataset.addValue(25D, "计算机 C", "磁盘");
 			categoryDataset.addValue(-15D, "计算机 D", "磁盘");
 			
-			categoryPlot = RectangleBarChartFactory.createCategoryPlot(categoryDataset, plotOrientation, "目录", "值", "计算机性能指标", "目录", false);
+			categoryPlot = RectangleBarChartFactory.createCategoryPlot(categoryDataset, plotOrientation, "目录", "值", "计算机性能指标", "目录", false, false);
 			RectangleBarChartFactory.setSectionPaint(categoryPlot, 0, new GradientPaint(0.0F, 0.0F, new Color(64, 0, 0), 0.0F, 0.0F, Color.red));
 			RectangleBarChartFactory.setSectionPaint(categoryPlot, 1, new GradientPaint(0.0F, 0.0F, new Color(64, 0, 0), 0.0F, 0.0F, Color.green));
 			RectangleBarChartFactory.setSectionPaint(categoryPlot, 2, new GradientPaint(0.0F, 0.0F, new Color(64, 0, 0), 0.0F, 0.0F, Color.yellow));
