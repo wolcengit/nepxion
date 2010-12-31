@@ -13,6 +13,7 @@ package com.nepxion.swing.chart;
 import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
 import java.io.IOException;
 
 import javax.swing.JMenu;
@@ -69,6 +70,17 @@ public class JChartPanel
 	private void initComponents()
 	{
 		setMouseWheelEnabled(true);
+	}
+	
+	public void mouseReleased(MouseEvent e)
+	{
+		super.mouseReleased(e);
+		
+		JPopupMenu popupMenu = getPopupMenu();
+		if (popupMenu != null && popupMenu.isShowing())
+		{
+			super.mouseClicked(e);
+		}	
 	}
 	
     protected JPopupMenu createPopupMenu(boolean properties, boolean copy, boolean save, boolean print, boolean zoom)
