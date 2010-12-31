@@ -48,9 +48,9 @@ import com.nepxion.swing.font.FontContext;
 
 public class RectangleBarChartFactory
 {
-	public static CategoryPlot createCategoryPlot(CategoryDataset categoryDataset, PlotOrientation orientation, String categoryAxisLabel, String valueAxisLabel, String toolTipText, String legendToolTipText, boolean stacked, boolean isCategoryLabelRotated)
+	public static CategoryPlot createCategoryPlot(CategoryDataset categoryDataset, PlotOrientation orientation, String categoryAxisLabel, String valueAxisLabel, String toolTipText, String legendToolTipText, boolean isStacked, boolean isCategoryLabelRotated)
 	{
-		CategoryPlot categoryPlot = createCategoryPlot(categoryDataset, orientation, categoryAxisLabel, valueAxisLabel, stacked, true, true, false);
+		CategoryPlot categoryPlot = createCategoryPlot(categoryDataset, orientation, categoryAxisLabel, valueAxisLabel, isStacked, true, true, false);
 		
 		setCategoryPlotPreference(categoryPlot, orientation, toolTipText, legendToolTipText, isCategoryLabelRotated, 1.0F);
 		
@@ -115,16 +115,16 @@ public class RectangleBarChartFactory
 		return categoryPlot;
 	}
 	
-	public static CategoryPlot createCategoryPlot3D(CategoryDataset categoryDataset, PlotOrientation orientation, String categoryAxisLabel, String valueAxisLabel, String toolTipText, String legendToolTipText, boolean stacked, boolean isCategoryLabelRotated)
+	public static CategoryPlot createCategoryPlot3D(CategoryDataset categoryDataset, PlotOrientation orientation, String categoryAxisLabel, String valueAxisLabel, String toolTipText, String legendToolTipText, boolean isStacked, boolean isCategoryLabelRotated)
 	{	
-		CategoryPlot categoryPlot = createCategoryPlot3D(categoryDataset, orientation, categoryAxisLabel, valueAxisLabel, stacked, true, true, false);
+		CategoryPlot categoryPlot = createCategoryPlot3D(categoryDataset, orientation, categoryAxisLabel, valueAxisLabel, isStacked, true, true, false);
 	
 		setCategoryPlotPreference(categoryPlot, orientation, toolTipText, legendToolTipText, isCategoryLabelRotated, 0.75F);
 		
 		return categoryPlot;
 	}
 	
-	public static CategoryPlot createCategoryPlot3D(CategoryDataset categoryDataset, PlotOrientation orientation, String categoryAxisLabel, String valueAxisLabel, boolean stacked, boolean labels, boolean tooltips, boolean urls)
+	public static CategoryPlot createCategoryPlot3D(CategoryDataset categoryDataset, PlotOrientation orientation, String categoryAxisLabel, String valueAxisLabel, boolean isStacked, boolean labels, boolean tooltips, boolean urls)
 	{
 		if (orientation == null)
 		{
@@ -134,7 +134,7 @@ public class RectangleBarChartFactory
 		ValueAxis valueAxis = new NumberAxis3D(valueAxisLabel);
 		
 		BarRenderer3D barRenderer3D = null;
-		if (stacked)
+		if (isStacked)
 		{	
 			barRenderer3D = new StackedRectangleBarRenderer3D();
 		}
@@ -143,7 +143,7 @@ public class RectangleBarChartFactory
 			barRenderer3D = new RectangleBarRenderer3D();
 		}
 		
-		if (stacked)
+		if (isStacked)
 		{	
 			barRenderer3D.setBasePositiveItemLabelPosition(new ItemLabelPosition(ItemLabelAnchor.CENTER, TextAnchor.CENTER));
 			barRenderer3D.setBaseNegativeItemLabelPosition(new ItemLabelPosition(ItemLabelAnchor.CENTER, TextAnchor.CENTER));
