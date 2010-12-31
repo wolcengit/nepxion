@@ -20,6 +20,7 @@ import org.jfree.chart.labels.StandardCategoryItemLabelGenerator;
 import org.jfree.chart.labels.StandardCategoryToolTipGenerator;
 import org.jfree.chart.plot.CategoryPlot;
 import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.chart.renderer.category.BarRenderer3D;
 import org.jfree.chart.urls.StandardCategoryURLGenerator;
 import org.jfree.data.category.CategoryDataset;
 import org.jfree.ui.GradientPaintTransformType;
@@ -47,7 +48,7 @@ public class CylinderBarChartFactory
 		CategoryAxis categoryAxis = new CategoryAxis3D(categoryAxisLabel);
 		ValueAxis valueAxis = new NumberAxis3D(valueAxisLabel);
 		
-		CylinderRenderer3D cylinderBarRenderer3D = new CylinderRenderer3D();
+		BarRenderer3D cylinderBarRenderer3D = new CylinderBarRenderer3D();
 		if (orientation == PlotOrientation.HORIZONTAL)
 		{
 			cylinderBarRenderer3D.setBasePositiveItemLabelPosition(new ItemLabelPosition(ItemLabelAnchor.OUTSIDE3, TextAnchor.CENTER));

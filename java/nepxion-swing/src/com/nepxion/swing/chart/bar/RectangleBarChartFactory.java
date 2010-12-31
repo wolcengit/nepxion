@@ -34,6 +34,7 @@ import org.jfree.chart.plot.CategoryPlot;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.chart.plot.ValueMarker;
 import org.jfree.chart.renderer.category.BarRenderer;
+import org.jfree.chart.renderer.category.BarRenderer3D;
 import org.jfree.chart.renderer.category.CategoryItemRenderer;
 import org.jfree.chart.urls.StandardCategoryURLGenerator;
 import org.jfree.data.category.CategoryDataset;
@@ -47,16 +48,16 @@ import com.nepxion.swing.font.FontContext;
 
 public class RectangleBarChartFactory
 {
-	public static CategoryPlot createCategoryPlot(CategoryDataset categoryDataset, PlotOrientation orientation, String categoryAxisLabel, String valueAxisLabel, String toolTipText, String legendToolTipText, boolean isCategoryLabelRotated)
+	public static CategoryPlot createCategoryPlot(CategoryDataset categoryDataset, PlotOrientation orientation, String categoryAxisLabel, String valueAxisLabel, String toolTipText, String legendToolTipText, boolean stacked, boolean isCategoryLabelRotated)
 	{
-		CategoryPlot categoryPlot = createCategoryPlot(categoryDataset, orientation, categoryAxisLabel, valueAxisLabel, true, true, false);
+		CategoryPlot categoryPlot = createCategoryPlot(categoryDataset, orientation, categoryAxisLabel, valueAxisLabel, stacked, true, true, false);
 		
 		setCategoryPlotPreference(categoryPlot, orientation, toolTipText, legendToolTipText, isCategoryLabelRotated, 1.0F);
 		
 		return categoryPlot;
 	}
 	
-	public static CategoryPlot createCategoryPlot(CategoryDataset dataset, PlotOrientation orientation, String categoryAxisLabel, String valueAxisLabel, boolean labels, boolean tooltips, boolean urls)
+	public static CategoryPlot createCategoryPlot(CategoryDataset dataset, PlotOrientation orientation, String categoryAxisLabel, String valueAxisLabel, boolean stacked, boolean labels, boolean tooltips, boolean urls)
 	{
 		if (orientation == null)
 		{
@@ -66,16 +67,33 @@ public class RectangleBarChartFactory
 		CategoryAxis categoryAxis = new CategoryAxis(categoryAxisLabel);
 		ValueAxis valueAxis = new NumberAxis(valueAxisLabel);
 		
-		RectangleBarRenderer barRenderer = new RectangleBarRenderer();
-		if (orientation == PlotOrientation.HORIZONTAL)
+		BarRenderer barRenderer = null;
+		if (stacked)
 		{
-			barRenderer.setBasePositiveItemLabelPosition(new ItemLabelPosition(ItemLabelAnchor.OUTSIDE3, TextAnchor.CENTER_LEFT));
-			barRenderer.setBaseNegativeItemLabelPosition(new ItemLabelPosition(ItemLabelAnchor.OUTSIDE9, TextAnchor.CENTER_RIGHT));
+			barRenderer = new StackedRectangleBarRenderer();
+		}	
+		else
+		{
+			barRenderer = new RectangleBarRenderer();
 		}
-		else if (orientation == PlotOrientation.VERTICAL)
+		
+		if (stacked)
+		{	
+			barRenderer.setBasePositiveItemLabelPosition(new ItemLabelPosition(ItemLabelAnchor.CENTER, TextAnchor.CENTER));
+			barRenderer.setBaseNegativeItemLabelPosition(new ItemLabelPosition(ItemLabelAnchor.CENTER, TextAnchor.CENTER));
+		}
+		else
 		{
-			barRenderer.setBasePositiveItemLabelPosition(new ItemLabelPosition(ItemLabelAnchor.OUTSIDE12, TextAnchor.BOTTOM_CENTER));
-			barRenderer.setBaseNegativeItemLabelPosition(new ItemLabelPosition(ItemLabelAnchor.OUTSIDE6, TextAnchor.TOP_CENTER));
+			if (orientation == PlotOrientation.HORIZONTAL)
+			{
+				barRenderer.setBasePositiveItemLabelPosition(new ItemLabelPosition(ItemLabelAnchor.OUTSIDE3, TextAnchor.CENTER_LEFT));
+				barRenderer.setBaseNegativeItemLabelPosition(new ItemLabelPosition(ItemLabelAnchor.OUTSIDE9, TextAnchor.CENTER_RIGHT));
+			}
+			else if (orientation == PlotOrientation.VERTICAL)
+			{
+				barRenderer.setBasePositiveItemLabelPosition(new ItemLabelPosition(ItemLabelAnchor.OUTSIDE12, TextAnchor.BOTTOM_CENTER));
+				barRenderer.setBaseNegativeItemLabelPosition(new ItemLabelPosition(ItemLabelAnchor.OUTSIDE6, TextAnchor.TOP_CENTER));
+			}
 		}
 		
 		if (labels)
@@ -97,16 +115,16 @@ public class RectangleBarChartFactory
 		return categoryPlot;
 	}
 	
-	public static CategoryPlot createCategoryPlot3D(CategoryDataset categoryDataset, PlotOrientation orientation, String categoryAxisLabel, String valueAxisLabel, String toolTipText, String legendToolTipText, boolean isCategoryLabelRotated)
+	public static CategoryPlot createCategoryPlot3D(CategoryDataset categoryDataset, PlotOrientation orientation, String categoryAxisLabel, String valueAxisLabel, String toolTipText, String legendToolTipText, boolean stacked, boolean isCategoryLabelRotated)
 	{	
-		CategoryPlot categoryPlot = createCategoryPlot3D(categoryDataset, orientation, categoryAxisLabel, valueAxisLabel, true, true, false);
+		CategoryPlot categoryPlot = createCategoryPlot3D(categoryDataset, orientation, categoryAxisLabel, valueAxisLabel, stacked, true, true, false);
 	
 		setCategoryPlotPreference(categoryPlot, orientation, toolTipText, legendToolTipText, isCategoryLabelRotated, 0.75F);
 		
 		return categoryPlot;
 	}
 	
-	public static CategoryPlot createCategoryPlot3D(CategoryDataset categoryDataset, PlotOrientation orientation, String categoryAxisLabel, String valueAxisLabel, boolean labels, boolean tooltips, boolean urls)
+	public static CategoryPlot createCategoryPlot3D(CategoryDataset categoryDataset, PlotOrientation orientation, String categoryAxisLabel, String valueAxisLabel, boolean stacked, boolean labels, boolean tooltips, boolean urls)
 	{
 		if (orientation == null)
 		{
@@ -115,18 +133,35 @@ public class RectangleBarChartFactory
 		CategoryAxis categoryAxis = new CategoryAxis3D(categoryAxisLabel);
 		ValueAxis valueAxis = new NumberAxis3D(valueAxisLabel);
 		
-		RectangleBarRenderer3D barRenderer3D = new RectangleBarRenderer3D();
-		if (orientation == PlotOrientation.HORIZONTAL)
-		{
-			barRenderer3D.setBasePositiveItemLabelPosition(new ItemLabelPosition(ItemLabelAnchor.OUTSIDE3, TextAnchor.BOTTOM_LEFT));
-			barRenderer3D.setBaseNegativeItemLabelPosition(new ItemLabelPosition(ItemLabelAnchor.OUTSIDE9, TextAnchor.CENTER_LEFT));
-			barRenderer3D.setItemLabelAnchorOffset(20D);
+		BarRenderer3D barRenderer3D = null;
+		if (stacked)
+		{	
+			barRenderer3D = new StackedRectangleBarRenderer3D();
 		}
-		else if (orientation == PlotOrientation.VERTICAL)
+		else
 		{
-			barRenderer3D.setBasePositiveItemLabelPosition(new ItemLabelPosition(ItemLabelAnchor.OUTSIDE12, TextAnchor.BASELINE_LEFT));
-			barRenderer3D.setBaseNegativeItemLabelPosition(new ItemLabelPosition(ItemLabelAnchor.OUTSIDE6, TextAnchor.BASELINE_CENTER));
-			barRenderer3D.setItemLabelAnchorOffset(12D);
+			barRenderer3D = new RectangleBarRenderer3D();
+		}
+		
+		if (stacked)
+		{	
+			barRenderer3D.setBasePositiveItemLabelPosition(new ItemLabelPosition(ItemLabelAnchor.CENTER, TextAnchor.CENTER));
+			barRenderer3D.setBaseNegativeItemLabelPosition(new ItemLabelPosition(ItemLabelAnchor.CENTER, TextAnchor.CENTER));
+		}
+		else
+		{
+			if (orientation == PlotOrientation.HORIZONTAL)
+			{
+				barRenderer3D.setBasePositiveItemLabelPosition(new ItemLabelPosition(ItemLabelAnchor.OUTSIDE3, TextAnchor.BOTTOM_LEFT));
+				barRenderer3D.setBaseNegativeItemLabelPosition(new ItemLabelPosition(ItemLabelAnchor.OUTSIDE9, TextAnchor.CENTER_LEFT));
+				barRenderer3D.setItemLabelAnchorOffset(20D);
+			}
+			else if (orientation == PlotOrientation.VERTICAL)
+			{
+				barRenderer3D.setBasePositiveItemLabelPosition(new ItemLabelPosition(ItemLabelAnchor.OUTSIDE12, TextAnchor.BASELINE_LEFT));
+				barRenderer3D.setBaseNegativeItemLabelPosition(new ItemLabelPosition(ItemLabelAnchor.OUTSIDE6, TextAnchor.BASELINE_CENTER));
+				barRenderer3D.setItemLabelAnchorOffset(12D);
+			}
 		}
 		
 		if (labels)
