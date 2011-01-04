@@ -93,7 +93,7 @@ public class PieChartFactory
 	
 	public static void setPiePlotPreference(PiePlot piePlot, String toolTipText, String legendToolTipText, boolean isParticularLabel)
 	{
-		piePlot.setLabelGenerator(new StandardPieSectionLabelGenerator(isParticularLabel ? "{0} : {1}, {2}" : "{1}", NumberFormat.getNumberInstance(), new DecimalFormat("0.00%")));
+		piePlot.setLabelGenerator(new StandardPieSectionLabelGenerator(isParticularLabel ? "{0} : {2}, {1}" : "{1}", NumberFormat.getNumberInstance(), new DecimalFormat("0.00%")));
 		piePlot.setToolTipGenerator(new StandardPieToolTipGenerator("{0} : " + toolTipText + " [{1}], " + SwingLocale.getString("percent") + " [{2}], " + SwingLocale.getString("total") + " [{3}]", NumberFormat.getNumberInstance(), new DecimalFormat("0.00%")));
 		piePlot.setLegendLabelToolTipGenerator(new StandardPieSectionLabelGenerator(legendToolTipText + " - {0}"));
 		
