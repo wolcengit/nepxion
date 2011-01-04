@@ -33,11 +33,11 @@ import com.nepxion.swing.locale.SwingLocale;
 
 public class PieChartFactory
 {
-	public static PiePlot createPiePlot(PieDataset pieDataset, String toolTipText, String legendToolTipText)
+	public static PiePlot createPiePlot(PieDataset pieDataset, String toolTipText, String legendToolTipText, boolean isParticularLabel)
 	{
 		PiePlot piePlot = createPiePlot(pieDataset, false, false, false);
 		
-		setPiePlotPreference(piePlot, toolTipText, legendToolTipText);
+		setPiePlotPreference(piePlot, toolTipText, legendToolTipText, isParticularLabel);
 		
 		return piePlot;
 	}
@@ -62,11 +62,11 @@ public class PieChartFactory
 		return piePlot;
 	}
 	
-	public static PiePlot createPiePlot3D(PieDataset pieDataset, String toolTipText, String legendToolTipText)
+	public static PiePlot createPiePlot3D(PieDataset pieDataset, String toolTipText, String legendToolTipText, boolean isParticularLabel)
 	{
 		PiePlot piePlot = createPiePlot3D(pieDataset, false, false, false);
 		
-		setPiePlotPreference(piePlot, toolTipText, legendToolTipText);
+		setPiePlotPreference(piePlot, toolTipText, legendToolTipText, isParticularLabel);
 		
 		return piePlot;
 	}
@@ -91,9 +91,9 @@ public class PieChartFactory
 		return piePlot;
 	}
 	
-	public static void setPiePlotPreference(PiePlot piePlot, String toolTipText, String legendToolTipText)
+	public static void setPiePlotPreference(PiePlot piePlot, String toolTipText, String legendToolTipText, boolean isParticularLabel)
 	{
-		piePlot.setLabelGenerator(new StandardPieSectionLabelGenerator("{0} : {2}", NumberFormat.getNumberInstance(), new DecimalFormat("0.00%")));
+		piePlot.setLabelGenerator(new StandardPieSectionLabelGenerator(isParticularLabel ? "{0} : {1}, {2}" : "{1}", NumberFormat.getNumberInstance(), new DecimalFormat("0.00%")));
 		piePlot.setToolTipGenerator(new StandardPieToolTipGenerator("{0} : " + toolTipText + " [{1}], " + SwingLocale.getString("percent") + " [{2}], " + SwingLocale.getString("total") + " [{3}]", NumberFormat.getNumberInstance(), new DecimalFormat("0.00%")));
 		piePlot.setLegendLabelToolTipGenerator(new StandardPieSectionLabelGenerator(legendToolTipText + " - {0}"));
 		
