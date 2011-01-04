@@ -86,7 +86,7 @@ public class DemoPieChartPanel
 			cpuPieDataset.setValue("空闲", 20D);
 			cpuPieDataset.setValue("占用", 80D);
 			
-			cpuPiePiePlot3D = PieChartFactory.createPiePlot3D(cpuPieDataset, "计算机性能指标", "目录");
+			cpuPiePiePlot3D = PieChartFactory.createPiePlot3D(cpuPieDataset, "计算机性能指标", "目录", true);
 			cpuPiePiePlot3D.setSectionPaint("空闲", Color.green);
 			cpuPiePiePlot3D.setSectionPaint("占用", Color.red);
 			
@@ -115,7 +115,7 @@ public class DemoPieChartPanel
 			memoryPieDataset.setValue("空闲", 60D);
 			memoryPieDataset.setValue("占用", 40D);
 			
-			memoryPiePlot3D = PieChartFactory.createPiePlot3D(memoryPieDataset, "内存占用率实时统计图", "目录");
+			memoryPiePlot3D = PieChartFactory.createPiePlot3D(memoryPieDataset, "内存占用率实时统计图", "目录", true);
 			memoryPiePlot3D.setSectionPaint("空闲", Color.green);
 			memoryPiePlot3D.setSectionPaint("占用", Color.red);
 			
@@ -149,7 +149,7 @@ public class DemoPieChartPanel
 			diskPieDataset.setValue("已坏", 7D);
 			diskPieDataset.setValue("其他", 3D);
 	        
-			diskPiePlot3D = PieChartFactory.createPiePlot3D(diskPieDataset, "磁盘占用率实时统计图", "目录");
+			diskPiePlot3D = PieChartFactory.createPiePlot3D(diskPieDataset, "磁盘占用率实时统计图", "目录", true);
 			diskPiePlot3D.setSectionPaint("空闲", Color.green);
 			diskPiePlot3D.setSectionPaint("占用", Color.red);
 			diskPiePlot3D.setSectionPaint("预占", Color.pink);
@@ -183,7 +183,7 @@ public class DemoPieChartPanel
 			cpuPieDataset.setValue("空闲", 20D);
 			cpuPieDataset.setValue("占用", 80D);
 			
-			cpuPiePiePlot = PieChartFactory.createPiePlot(cpuPieDataset, "CPU占用率实时统计图", "目录");
+			cpuPiePiePlot = PieChartFactory.createPiePlot(cpuPieDataset, "CPU占用率实时统计图", "目录", true);
 			cpuPiePiePlot.setSectionPaint("空闲", Color.green);
 			cpuPiePiePlot.setSectionPaint("占用", Color.red);
 			
@@ -212,7 +212,7 @@ public class DemoPieChartPanel
 			memoryPieDataset.setValue("空闲", 60D);
 			memoryPieDataset.setValue("占用", 40D);
 			
-			memoryPiePlot = PieChartFactory.createPiePlot(memoryPieDataset, "内存占用率实时统计图", "目录");
+			memoryPiePlot = PieChartFactory.createPiePlot(memoryPieDataset, "内存占用率实时统计图", "目录", true);
 			memoryPiePlot.setSectionPaint("空闲", Color.green);
 			memoryPiePlot.setSectionPaint("占用", Color.red);
 			
@@ -246,7 +246,7 @@ public class DemoPieChartPanel
 			diskPieDataset.setValue("已坏", 7D);
 			diskPieDataset.setValue("其他", 3D);
 			
-			diskPiePlot = PieChartFactory.createPiePlot(diskPieDataset, "磁盘占用率实时统计图", "目录");
+			diskPiePlot = PieChartFactory.createPiePlot(diskPieDataset, "磁盘占用率实时统计图", "目录", true);
 			diskPiePlot.setSectionPaint("空闲", Color.green);
 			diskPiePlot.setSectionPaint("占用", Color.red);
 			diskPiePlot.setSectionPaint("预占", Color.pink);
