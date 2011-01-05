@@ -64,9 +64,7 @@ public class TableManager
 		{
 			SortableTableModel sortableTableModel = (SortableTableModel) tableModel;
 			
-			int rowIndex = sortableTableModel.getIndexes()[row];
-			
-			return rowIndex;
+			return sortableTableModel.getRowIndex(row);
 		}
 		
 		return row;
@@ -79,14 +77,7 @@ public class TableManager
 		{
 			SortableTableModel sortableTableModel = (SortableTableModel) tableModel;
 			
-			int[] rowIndexes = new int[rows.length];
-			for (int i = 0; i < rows.length; i++)
-			{
-				int rowIndex = sortableTableModel.getIndexes()[rows[i]];
-				rowIndexes[i] = rowIndex;
-			}
-			
-			return rowIndexes;
+			return sortableTableModel.getRowIndexes(rows);
 		}
 		
 		return rows;

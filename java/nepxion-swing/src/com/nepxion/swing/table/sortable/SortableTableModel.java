@@ -186,6 +186,24 @@ public class SortableTableModel
 		{
 			indexes[i] = i;
 		}
+		
 		return indexes;
 	}
+	
+	public int getRowIndex(int row)
+	{				
+		return getIndexes()[row];
+	}
+	
+	public int[] getRowIndexes(int[] rows)
+	{
+		int[] rowIndexes = new int[rows.length];
+		for (int i = 0; i < rows.length; i++)
+		{
+			int rowIndex = getRowIndex(rows[i]);
+			rowIndexes[i] = rowIndex;
+		}
+		
+		return rowIndexes;
+	}	
 }
