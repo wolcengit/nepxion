@@ -41,7 +41,7 @@ public class JFullScreenApplet
 	private void initWindowTitle()
 	{
 		windowTitle = getParameter("windowTitle");
-		if (windowTitle == null)
+		if (windowTitle == null || windowTitle.equals(""))
 		{
 			windowTitle = WINDOW_TITLE;
 		}
@@ -50,7 +50,7 @@ public class JFullScreenApplet
 	private void initWindowIcon()
 	{
 		String windowIconName = getParameter("windowIcon");
-		if (windowIconName == null)
+		if (windowIconName == null || windowIconName.equals(""))
 		{
 			windowIcon = IconFactory.getSwingIcon(WINDOW_ICON);
 		}
