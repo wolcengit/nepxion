@@ -20,6 +20,8 @@ import java.util.Iterator;
 import java.util.List;
 
 import javax.swing.AbstractButton;
+import javax.swing.Icon;
+import javax.swing.JMenuItem;
 
 public class FullScreenRegister
 	extends MouseAdapter implements ActionListener
@@ -62,32 +64,39 @@ public class FullScreenRegister
 
 	private void adaptButtonUI(AbstractButton button)
 	{
-		/*String text = null;
-		Icon icon = null;*/
+		String text = null;
+		Icon icon = null;
 		boolean selected = false;
 
 		if (fullScreenSupport.isFullScreen())
 		{
-			/*text = FullScreenConstants.TEXT_MAXIMIZE;
-			icon = FullScreenConstants.ICON_MAXIMIZE;*/
+			text = FullScreenConstants.TEXT_MAXIMIZE;
+			icon = FullScreenConstants.ICON_MAXIMIZE;
 			selected = false;
 		}
 		else
 		{
-			/*text = FullScreenConstants.TEXT_RESTORE;
-			icon = FullScreenConstants.ICON_MAXIMIZE_RESTORE;*/
+			text = FullScreenConstants.TEXT_RESTORE;
+			icon = FullScreenConstants.ICON_MAXIMIZE_RESTORE;
 			selected = true;
 		}
-		/*if (!button.getText().equals(""))
+		
+		if (button instanceof JMenuItem)
 		{
-			button.setText(text);
-		}
-		if (button.getIcon() != null)
+			button.setSelected(selected);
+		}	
+		else
 		{
-			button.setIcon(icon);
-		}
-		button.setToolTipText(text);*/
-		button.setSelected(selected);
+			if (!button.getText().equals(""))
+			{
+				button.setText(text);
+			}
+			if (button.getIcon() != null)
+			{
+				button.setIcon(icon);
+			}
+			button.setToolTipText(text);
+		}		
 	}
     
 	public void mouseClicked(MouseEvent e)
