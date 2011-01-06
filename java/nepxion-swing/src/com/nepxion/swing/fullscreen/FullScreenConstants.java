@@ -28,6 +28,6 @@ public interface FullScreenConstants
 	public static final Icon ICON_MINIMIZE_RESTORE = IconFactory.getSwingIcon("minimize_restore.png");
 	public static final Icon ICON_CLOSE = IconFactory.getSwingIcon("close.png");
 	
-	public static final String DEFAULT_WINDOW_TITLE = "Application";
-	public static final String DEFAULT_WINDOW_ICON = "view.png";
+	public static final String WINDOW_TITLE = "Application";
+	public static final String WINDOW_ICON = "view.png";
 }
