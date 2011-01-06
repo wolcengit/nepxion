@@ -18,11 +18,8 @@ import com.nepxion.swing.applet.JBasicApplet;
 import com.nepxion.swing.icon.IconFactory;
 
 public class JFullScreenApplet
-	extends JBasicApplet
-{
-	public static final String DEFAULT_WINDOW_TITLE = "Application";
-	public static final String DEFAULT_WINDOW_ICON = "view.png";
-	
+	extends JBasicApplet implements FullScreenConstants
+{	
 	private String windowTitle;
 	private Icon windowIcon;
 	
@@ -37,6 +34,7 @@ public class JFullScreenApplet
 		
 		decorationPanel = new JFullScreenDecorationPanel(windowTitle, windowIcon);
 		decorationPanel.setBackground(Color.white);
+		
 		getContentPane().add(decorationPanel);
 	}
 	

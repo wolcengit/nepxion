@@ -12,12 +12,10 @@ package com.nepxion.swing.fullscreen;
 
 import javax.swing.Icon;
 
-import com.nepxion.swing.button.JBasicButton;
 import com.nepxion.swing.icon.IconFactory;
 import com.nepxion.swing.locale.SwingLocale;
-import com.nepxion.swing.menuitem.JBasicMenuItem;
 
-public class FullScreenConstants
+public interface FullScreenConstants
 {
 	public static final String TEXT_MAXIMIZE = SwingLocale.getString("maximize");
 	public static final String TEXT_MINIMIZE = SwingLocale.getString("minimize");
@@ -30,63 +28,6 @@ public class FullScreenConstants
 	public static final Icon ICON_MINIMIZE_RESTORE = IconFactory.getSwingIcon("minimize_restore.png");
 	public static final Icon ICON_CLOSE = IconFactory.getSwingIcon("close.png");
 	
-	public static JBasicButton createMaximizeButton(boolean isTextVisible)
-	{
-		JBasicButton button = null;
-		if (isTextVisible)
-		{
-			button = new JBasicButton(TEXT_MAXIMIZE, ICON_MAXIMIZE, TEXT_MAXIMIZE);
-		}
-		else
-		{
-			button = new JBasicButton(ICON_MAXIMIZE, TEXT_MAXIMIZE);
-		}
-		return button;
-	}
-	
-	public static JBasicButton createMinimizeButton(boolean isTextVisible)
-	{
-		JBasicButton button = null;
-		if (isTextVisible)
-		{
-			button = new JBasicButton(TEXT_MINIMIZE, ICON_MINIMIZE, TEXT_MINIMIZE);
-		}
-		else
-		{
-			button = new JBasicButton(ICON_MINIMIZE, TEXT_MINIMIZE);
-		}
-		return button;
-	}
-	
-	public static JBasicButton createCloseButton(boolean isTextVisible)
-	{
-		JBasicButton button = null;
-		if (isTextVisible)
-		{
-			button = new JBasicButton(TEXT_CLOSE, ICON_CLOSE, TEXT_CLOSE);
-		}
-		else
-		{
-			button = new JBasicButton(ICON_CLOSE, TEXT_CLOSE);
-		}
-		return button;
-	}
-	
-	public static JBasicMenuItem createMaximizeMenuItem()
-	{
-		JBasicMenuItem menuItem = new JBasicMenuItem(TEXT_MAXIMIZE, ICON_MAXIMIZE, TEXT_MAXIMIZE);
-		return menuItem;
-	}
-	
-	public static JBasicMenuItem createMinimizeMenuItem()
-	{
-		JBasicMenuItem menuItem = new JBasicMenuItem(TEXT_MINIMIZE, ICON_MINIMIZE, TEXT_MINIMIZE);
-		return menuItem;
-	}
-	
-	public static JBasicMenuItem createCloseMenuItem()
-	{
-		JBasicMenuItem menuItem = new JBasicMenuItem(TEXT_CLOSE, ICON_CLOSE, TEXT_CLOSE);
-		return menuItem;
-	}
+	public static final String DEFAULT_WINDOW_TITLE = "Application";
+	public static final String DEFAULT_WINDOW_ICON = "view.png";
 }

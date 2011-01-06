@@ -75,7 +75,7 @@ public class JFullScreenDecorationPanel
 		
 		public ToolBar()
 		{
-			maximizeButton = FullScreenConstants.createMaximizeButton(false);
+			maximizeButton = FullScreenManager.createMaximizeButton(false);
 			add(maximizeButton);
 			
 			add(Box.createHorizontalStrut(1));
