@@ -29,7 +29,7 @@ import javax.swing.JWindow;
 import com.nepxion.swing.button.ButtonManager;
 import com.nepxion.swing.button.JBasicButton;
 import com.nepxion.swing.button.JStyleButton;
-import com.nepxion.swing.fullscreen.FullScreenConstants;
+import com.nepxion.swing.fullscreen.FullScreenManager;
 import com.nepxion.swing.icon.IconFactory;
 import com.nepxion.swing.layout.table.TableLayout;
 import com.nepxion.swing.locale.SwingLocale;
@@ -198,7 +198,7 @@ public abstract class JBubbleTip
 			panel.add(messageScrollPane, "1, 0, 2, 0");
 			panel.add(viewDetailButton, "2, 1");
 			
-			JBasicButton closeButton = FullScreenConstants.createCloseButton(false);
+			JBasicButton closeButton = FullScreenManager.createCloseButton(false);
 			closeButton.addActionListener(new ActionListener()
 			{
 				public void actionPerformed(ActionEvent e)
