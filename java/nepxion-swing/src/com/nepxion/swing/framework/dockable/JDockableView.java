@@ -28,6 +28,7 @@ import javax.swing.JPopupMenu;
 import com.nepxion.swing.button.ButtonManager;
 import com.nepxion.swing.button.JBasicButton;
 import com.nepxion.swing.fullscreen.FullScreenConstants;
+import com.nepxion.swing.fullscreen.FullScreenManager;
 import com.nepxion.swing.menuitem.JBasicMenuItem;
 import com.nepxion.swing.panel.decoration.JDecorationHeader;
 import com.nepxion.swing.panel.decoration.JDecorationPanel;
@@ -36,7 +37,7 @@ import com.nepxion.swing.style.framework.IStyle;
 import com.nepxion.swing.style.framework.StyleManager;
 
 public class JDockableView
-	extends JDecorationPanel
+	extends JDecorationPanel implements FullScreenConstants
 {
 	private boolean isMaximize = false;
 	private boolean isClosable = true;
@@ -201,14 +202,14 @@ public class JDockableView
 		if (isMaximize)
 		{
 			maximizeToRestore();
-			text = FullScreenConstants.TEXT_MAXIMIZE;
-			icon = FullScreenConstants.ICON_MAXIMIZE;
+			text = TEXT_MAXIMIZE;
+			icon = ICON_MAXIMIZE;
 		}
 		else
 		{
 			restoreToMaximize();
-			text = FullScreenConstants.TEXT_RESTORE;
-			icon = FullScreenConstants.ICON_MAXIMIZE_RESTORE;
+			text = TEXT_RESTORE;
+			icon = ICON_MAXIMIZE_RESTORE;
 		}
 		isMaximize = !isMaximize;
 		
@@ -302,7 +303,7 @@ public class JDockableView
 		
 		public PopupMenu()
 		{
-			maximizeMenuItem = FullScreenConstants.createMaximizeMenuItem();
+			maximizeMenuItem = FullScreenManager.createMaximizeMenuItem();
 			maximizeMenuItem.addActionListener(new ActionListener()
 			{
 				public void actionPerformed(ActionEvent e)
@@ -313,7 +314,7 @@ public class JDockableView
 			);
 			add(maximizeMenuItem);
 			
-			closeMenuItem = FullScreenConstants.createCloseMenuItem();
+			closeMenuItem = FullScreenManager.createCloseMenuItem();
 			closeMenuItem.addActionListener(new ActionListener()
 			{
 				public void actionPerformed(ActionEvent e)
@@ -348,7 +349,7 @@ public class JDockableView
 		
 		public ToolBar()
 		{
-			maximizeButton = FullScreenConstants.createMaximizeButton(false);
+			maximizeButton = FullScreenManager.createMaximizeButton(false);
 			maximizeButton.addActionListener(new ActionListener()
 			{
 				public void actionPerformed(ActionEvent e)
@@ -359,7 +360,7 @@ public class JDockableView
 			);
 			add(maximizeButton);
 			
-			closeButton = FullScreenConstants.createCloseButton(false);
+			closeButton = FullScreenManager.createCloseButton(false);
 			closeButton.addActionListener(new ActionListener()
 			{
 				public void actionPerformed(ActionEvent e)
