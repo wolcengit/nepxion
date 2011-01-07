@@ -32,6 +32,7 @@ public class FullScreenRegister
 	public FullScreenRegister(FullScreenSupport fullScreenSupport)
 	{
 		this.fullScreenSupport = fullScreenSupport;
+		
 		buttons = new ArrayList();
 	}
 	

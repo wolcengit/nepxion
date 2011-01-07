@@ -39,6 +39,7 @@ public class JGradientPanel
 	public JGradientPanel(Color background, Color gradientColor)
 	{
 		setBackground(background);
+		
 		this.gradientColor = gradientColor;
 	}
 	
@@ -47,6 +48,7 @@ public class JGradientPanel
 		super(layoutManager);
 		
 		setBackground(background);
+		
 		this.gradientColor = gradientColor;
 	}
 	

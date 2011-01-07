@@ -50,6 +50,7 @@ public class JLocaleSelector
         super();
         
         this.component = component;
+        
         addItemListener(this);
         locales = Calendar.getAvailableLocales();
         localeCount = locales.length;

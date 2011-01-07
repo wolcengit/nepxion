@@ -37,6 +37,7 @@ public class HoverBorder
 			this.color = color = Color.gray;
 		}
 		color2 = new Color(210, 210, 210, 0);
+		
 		this.thickness = thickness;
 	}
 	

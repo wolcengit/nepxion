@@ -55,6 +55,7 @@ public class FullScreenSupport
 	{
 		this.fullScreenComponent = fullScreenComponent;
 		this.layoutConstraints = layoutConstraints;
+		
 		if (fullScreenComponent instanceof JComponent)
 		{
 			JComponent component = (JComponent) fullScreenComponent;

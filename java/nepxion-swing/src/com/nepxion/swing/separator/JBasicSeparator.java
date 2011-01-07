@@ -62,6 +62,7 @@ public class JBasicSeparator
 	public void setOrientation(int orientation)
 	{
 		this.orientation = orientation;
+		
 		repaint();
 	}
 	
@@ -73,6 +74,7 @@ public class JBasicSeparator
 	public void setLength(int length)
 	{
 		this.length = length;
+		
 		Dimension dimension = new Dimension();
 		if (orientation == VERTICAL)
 		{
@@ -84,6 +86,7 @@ public class JBasicSeparator
 			dimension.width = length;
 			dimension.height = DEFAULT_THICKNESS;
 		}
+		
 		DimensionManager.setDimension(this, dimension);
 	}
 	

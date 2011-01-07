@@ -50,6 +50,7 @@ public class CloseTabIcon
 	{
 		this.x = x;
 		this.y = y;
+		
 		if (closeIcon != null)
 		{
 			closeIcon.paintIcon(c, g, x - gap, y);

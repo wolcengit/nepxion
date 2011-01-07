@@ -32,6 +32,7 @@ public class JBasicToolBar
 	public void setBorderVisible(boolean isBorderVisible)
 	{
 		this.isBorderVisible = isBorderVisible;
+		
 		if (isBorderVisible)
 		{
 			setBorder(BorderFactory.createEmptyBorder(0, 5, 1, 0));
@@ -40,6 +41,7 @@ public class JBasicToolBar
 		{
 			setBorder(BorderFactory.createEmptyBorder(0, 0, 1, 0));
 		}
+		
 		repaint();
 	}
 	

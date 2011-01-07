@@ -352,6 +352,7 @@ public class JBasicTabbedPane
 	public void setPopupMenu(JPopupMenu popupMenu, boolean isClosable)
 	{
 		this.popupMenu = popupMenu;
+		
 		if (isClosable)
 		{
 			popupMenuAdapter = new PopupMenuAdapter(this, popupMenu);

@@ -162,6 +162,7 @@ public class ListElementCellRenderer
 	public void setCellHeight(int cellHeight)
 	{
 		this.cellHeight = cellHeight;
+		
 		if (list != null && cellHeight > 0)
 		{
 			list.setFixedCellHeight(cellHeight);

@@ -71,6 +71,7 @@ public class ListCheckBoxCellRenderer
 	public void setFixedCellHeight(int fixedCellHeight)
 	{
 		this.fixedCellHeight = fixedCellHeight;
+		
 		if (list != null && fixedCellHeight > 0)
 		{
 			list.setFixedCellHeight(fixedCellHeight);

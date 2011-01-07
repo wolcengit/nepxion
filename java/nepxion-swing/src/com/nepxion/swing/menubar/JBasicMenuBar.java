@@ -31,6 +31,7 @@ public class JBasicMenuBar
 	public void setBorderVisible(boolean isBorderVisible)
 	{
 		this.isBorderVisible = isBorderVisible;
+		
 		if (isBorderVisible)
 		{
 			setBorder(BorderFactory.createEmptyBorder(0, 5, 0, 0));
@@ -39,6 +40,7 @@ public class JBasicMenuBar
 		{
 			setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
 		}
+		
 		repaint();
 	}
 	

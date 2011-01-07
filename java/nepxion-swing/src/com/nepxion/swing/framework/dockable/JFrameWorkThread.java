@@ -34,6 +34,7 @@ public abstract class JFrameWorkThread
 	public JFrameWorkThread(JFrameWorkHierarchy frameWorkHierarchy, ActionEvent actionEvent)
 	{
 		this.frameWorkHierarchy = frameWorkHierarchy;
+		
 		if (actionEvent != null)
 		{
 			Object object = actionEvent.getSource();

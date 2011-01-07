@@ -30,6 +30,7 @@ public class BlankIcon
 	public BlankIcon(Color color, int size)
 	{
 		fillColor = color;
+		
 		this.size = size;
 	}
 	

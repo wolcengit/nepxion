@@ -165,7 +165,9 @@ public class SortableTableModel
 				}
 				this.sortingColumn = sortingColumn;
 				this.ascending = ascending;
+				
 				sorter.sort(sortingColumn, ascending);
+				
 				fireTableDataChanged();
 			}
 		}

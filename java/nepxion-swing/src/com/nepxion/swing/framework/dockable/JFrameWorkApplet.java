@@ -37,6 +37,7 @@ public class JFrameWorkApplet
 	public void setHierarchy(JFrameWorkHierarchy frameWorkHierarchy)
 	{
 		this.frameWorkHierarchy = frameWorkHierarchy;
+		
 		if (getContentPane().getComponentCount() > 0)
 		{
 			getContentPane().removeAll();

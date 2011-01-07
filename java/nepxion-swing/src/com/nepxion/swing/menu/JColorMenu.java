@@ -154,6 +154,7 @@ public class JColorMenu
 		public ColorPanel(Color color)
 		{
 			this.color = color;
+			
 			setBackground(color);
 			setBorder(unselectedBorder);
 			setToolTipText("R " + color.getRed() + ", G " + color.getGreen() + ", B " + color.getBlue());
@@ -183,6 +184,7 @@ public class JColorMenu
 		public void setSelected(boolean selected)
 		{
 			this.selected = selected;
+			
 			if (selected)
 			{
 				setBorder(selectedBorder);

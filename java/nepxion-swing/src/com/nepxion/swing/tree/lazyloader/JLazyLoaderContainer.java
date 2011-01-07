@@ -81,6 +81,7 @@ public class JLazyLoaderContainer
 	{
 		this.lazyLoaderTree = lazyLoaderTree;
 		this.lazyLoaderTree.setLazyLoaderContainer(this);
+		
 		add(new JBasicScrollPane((JTree) lazyLoaderTree), BorderLayout.CENTER);
 	}
 	

@@ -70,8 +70,10 @@ public class JDaySelector
      */
     public JDaySelector(boolean weekOfYearVisible)
     {
+    	this.weekOfYearVisible = weekOfYearVisible;
+    	
         setBackground(Color.blue);
-        this.weekOfYearVisible = weekOfYearVisible;
+
         locale = Locale.getDefault();
         days = new JButton[49];
         selectedDay = null;
@@ -504,6 +506,7 @@ public class JDaySelector
     public void setCalendar(Calendar calendar)
     {
         this.calendar = calendar;
+        
         drawDays();
     }
 
@@ -697,6 +700,7 @@ public class JDaySelector
         }
 
         this.weekOfYearVisible = weekOfYearVisible;
+        
         validate();
         dayPanel.validate();
     }
@@ -775,6 +779,7 @@ public class JDaySelector
     public void setSundayForeground(Color sundayForeground)
     {
         this.sundayForeground = sundayForeground;
+        
         drawDayNames();
         drawDays();
     }
@@ -787,6 +792,7 @@ public class JDaySelector
     public void setWeekdayForeground(Color weekdayForeground)
     {
         this.weekdayForeground = weekdayForeground;
+        
         drawDayNames();
         drawDays();
     }
@@ -824,6 +830,7 @@ public class JDaySelector
         boolean decorationBackgroundVisible)
     {
         this.decorationBackgroundVisible = decorationBackgroundVisible;
+        
         initDecorations();
     }
 
@@ -848,6 +855,7 @@ public class JDaySelector
     public void setDecorationBordersVisible(boolean decorationBordersVisible)
     {
         this.decorationBordersVisible = decorationBordersVisible;
+        
         initDecorations();
     }
 }

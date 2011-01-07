@@ -60,6 +60,7 @@ public abstract class BasicTableModel
 	public synchronized void setColumnNames(String[] columnNames)
 	{
 		this.columnNames = columnNames;
+		
 		fireTableStructureChanged();
 	}
 	

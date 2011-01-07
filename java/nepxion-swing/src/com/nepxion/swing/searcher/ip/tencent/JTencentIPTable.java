@@ -30,7 +30,7 @@ public class JTencentIPTable
 		
 		setRowHeight(20);
 		JBasicTextField textField = new JBasicTextField();
-		for (int i = 0; i < this.getColumnCount(); i++)
+		for (int i = 0; i < getColumnCount(); i++)
 		{
 			getColumnModel().getColumn(i).setCellEditor(new DefaultCellEditor(textField));
 		}

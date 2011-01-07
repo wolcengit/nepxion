@@ -46,6 +46,7 @@ public class ComponentTitledBorder
 		super(border, null, titleJustification, titlePosition, null, null);
 		
 		this.component = component;
+		
 		if (border == null)
 		{
 			this.border = super.getBorder();

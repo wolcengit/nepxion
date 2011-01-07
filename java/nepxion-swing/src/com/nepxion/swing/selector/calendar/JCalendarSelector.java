@@ -131,10 +131,10 @@ public class JCalendarSelector
         daySelector = null;
         monthSelector = null;
         yearSelector = null;
+        
         this.weekOfYearVisible = weekOfYearVisible;
-
         this.locale = locale;
-
+        
         if (locale == null)
         {
             this.locale = Locale.getDefault();

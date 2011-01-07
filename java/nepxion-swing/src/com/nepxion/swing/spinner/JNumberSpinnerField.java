@@ -59,11 +59,14 @@ public class JNumberSpinnerField
         super();
         
         this.min = min;
+        
         if (max < min)
         {
             max = min;
         }
+        
         this.max = max;
+        
         value = 0;
         if (value < min)
         {

@@ -248,6 +248,7 @@ public class JDockableView
 	public void setClosable(boolean isClosable)
 	{
 		this.isClosable = isClosable;
+		
 		toolBar.getCloseButton().setVisible(isClosable);
 		if (popupMenu instanceof PopupMenu)
 		{
@@ -263,6 +264,7 @@ public class JDockableView
 	public void setMaximizable(boolean isMaximizable)
 	{
 		this.isMaximizable = isMaximizable;
+		
 		toolBar.getMaximizeButton().setVisible(isMaximizable);
 		if (popupMenu instanceof PopupMenu)
 		{
@@ -320,6 +322,7 @@ public class JDockableView
 				public void actionPerformed(ActionEvent e)
 				{
 					JDockableView.this.setVisible(false);
+					
 					if (foreignButton != null)
 					{
 						foreignButton.setSelected(false);
@@ -366,6 +369,7 @@ public class JDockableView
 				public void actionPerformed(ActionEvent e)
 				{
 					JDockableView.this.setVisible(false);
+					
 					if (foreignButton != null)
 					{
 						foreignButton.setSelected(false);

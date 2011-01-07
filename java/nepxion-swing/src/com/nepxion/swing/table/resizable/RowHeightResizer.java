@@ -57,6 +57,7 @@ public class RowHeightResizer
 		{	
 			throw new IllegalArgumentException(SwingLocale.getString("maximum_height_not_less_than_minimum_height"));
 		}
+		
 		this.minimumHeight = minimumHeight;
 		this.maximumHeight = maximumHeight;
 	}

@@ -39,6 +39,7 @@ public class PiePlotRotator
 		
 		this.angle = 270;
 		this.piePlot = (PiePlot) chartPanel.getChart().getPlot();
+		
 		if (isClickingStarted)
 		{	
 			chartPanel.addMouseListener(new MouseAdapter()

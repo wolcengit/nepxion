@@ -27,6 +27,7 @@ public class JDockableContainer
 	public void setContentPane(Component dockComponent)
 	{
 		this.dockComponent = dockComponent;
+		
 		setLayout(new BorderLayout());
 		setDockComponent(dockComponent);
 	}
