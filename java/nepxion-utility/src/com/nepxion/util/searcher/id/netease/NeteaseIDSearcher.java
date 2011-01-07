@@ -44,6 +44,7 @@ public class NeteaseIDSearcher
 		throws Exception
 	{
 		String xml = getXML(id);
+		
 		return createEntity(xml);
 	}
 	
@@ -110,6 +111,7 @@ public class NeteaseIDSearcher
 		clientRequestGet.setParameterEntity(clientParameterList, charset);
 		
 		String responseText = clientInvoker.getResponseText(clientRequestGet, charset);
+		
 		return responseText;
 	}
 }

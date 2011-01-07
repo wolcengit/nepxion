@@ -43,6 +43,7 @@ public class LocatingMobileSearcher
 		throws Exception
 	{
 		String text = getXML(mobile);
+		
 		return createEntity(text);
 	}
 	
@@ -102,6 +103,7 @@ public class LocatingMobileSearcher
 		clientRequestPost.setParameterEntity(clientParameterList, charset);
 		
 		String responseText = clientInvoker.getResponseText(clientRequestPost, charset);
+		
 		return responseText;
 	}
 }

@@ -87,6 +87,7 @@ public class ClientRequestPost
 		}
 		entity.setChunked(true);
 		setEntity(entity);
+		
 		return entity;
 	}
 		
@@ -105,6 +106,7 @@ public class ClientRequestPost
 		}
 		entity.setChunked(true);
 		setEntity(entity);
+		
 		return entity;
 	}
 	
@@ -121,6 +123,7 @@ public class ClientRequestPost
 		entity.setContentType("binary/octet-stream");
 		entity.setChunked(true);
 		setEntity(entity);
+		
 		return entity;
 	}
 	
@@ -144,6 +147,7 @@ public class ClientRequestPost
 		}
 		entity.setChunked(true);
 		setEntity(entity);
+		
 		return entity;
 	}
 	
@@ -154,6 +158,7 @@ public class ClientRequestPost
 		FileEntity entity = new FileEntity(file, "binary/octet-stream");
 		entity.setChunked(true);
 		setEntity(entity);
+		
 		return entity;
 	}
 	
@@ -164,6 +169,7 @@ public class ClientRequestPost
 		FileEntity entity = new FileEntity(file, contentType);
 		entity.setChunked(true);
 		setEntity(entity);
+		
 		return entity;
 	}	
 	
@@ -181,6 +187,7 @@ public class ClientRequestPost
 			e.printStackTrace();
 		}
 		setEntity(entity);
+		
 		return entity;
 	}
 	
@@ -191,12 +198,14 @@ public class ClientRequestPost
 		ByteArrayEntity entity = new ByteArrayEntity(bytes);
 		entity.setChunked(true);
 		setEntity(entity);
+		
 		return entity;
 	}
 	
 	public EntityTemplate setEntityTemplate(ContentProducer contentProducer)
 	{
 		EntityTemplate entityTemplate = new EntityTemplate(contentProducer);
+		
 		return entityTemplate;
 	}
 }

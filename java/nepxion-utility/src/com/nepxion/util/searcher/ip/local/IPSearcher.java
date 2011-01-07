@@ -58,6 +58,7 @@ public class IPSearcher
 				e.printStackTrace();
 			}
 		}	
+		
 		return ipSearcher;
 	}
 	
@@ -136,6 +137,7 @@ public class IPSearcher
 				}
 			}
 		}
+		
 		return list;
 	}
 	
@@ -176,6 +178,7 @@ public class IPSearcher
 		{
 			e.printStackTrace();
 		}
+		
 		return list;
 	}
 	
@@ -185,16 +188,19 @@ public class IPSearcher
 		{
 			return "Invalid IP data file path";
 		}
+		
 		String ipString = getString(ipBytes);
 		if (ipCache.containsKey(ipString))
 		{
 			IPEntity ipEntity = (IPEntity) ipCache.get(ipString);
+			
 			return ipEntity.getCountry();
 		}
 		else
 		{
 			IPEntity ipEntity = getIPEntity(ipBytes);
 			ipCache.put(ipString, ipEntity.clone());
+			
 			return ipEntity.getCountry();
 		}
 	}
@@ -210,16 +216,19 @@ public class IPSearcher
 		{
 			return "Invalid IP data file path";
 		}
+		
 		String ipString = getString(ipBytes);
 		if (ipCache.containsKey(ipString))
 		{
 			IPEntity ipEntity = (IPEntity) ipCache.get(ipString);
+			
 			return ipEntity.getRegion();
 		}
 		else
 		{
 			IPEntity ipEntity = getIPEntity(ipBytes);
 			ipCache.put(ipString, ipEntity.clone());
+			
 			return ipEntity.getRegion();
 		}
 	}
@@ -288,6 +297,7 @@ public class IPSearcher
 			ipEntity.setCountry("Unknown Country");
 			ipEntity.setRegion("Unknown Region");
 		}
+		
 		return ipEntity;
 	}
 	
@@ -323,6 +333,7 @@ public class IPSearcher
 				ipEntity.setCountry(readString(ipFile.getFilePointer() - 1));
 				ipEntity.setRegion(readRegion(ipFile.getFilePointer()));
 			}
+			
 			return ipEntity;
 		}
 		catch (IOException e)
@@ -361,6 +372,7 @@ public class IPSearcher
 			ipEntity.setCountry(readString(ipByteBuffer.position() - 1));
 			ipEntity.setRegion(readRegion(ipByteBuffer.position()));
 		}
+		
 		return ipEntity;
 	}
 	
@@ -458,6 +470,7 @@ public class IPSearcher
 				return r;
 			}
 		}
+		
 		return 0;
 	}
 	
@@ -480,6 +493,7 @@ public class IPSearcher
 	private int readInt3(int offset)
 	{
 		ipByteBuffer.position(offset);
+		
 		return ipByteBuffer.getInt() & 0x00FFFFFF;
 	}
 	
@@ -498,6 +512,7 @@ public class IPSearcher
 			value |= ((ipFile.readByte() << 8) & 0xFF00);
 			value |= ((ipFile.readByte() << 16) & 0xFF0000);
 			value |= ((ipFile.readByte() << 24) & 0xFF000000);
+			
 			return value;
 		}
 		catch (IOException e)
@@ -516,6 +531,7 @@ public class IPSearcher
 			value |= (b3[0] & 0xFF);
 			value |= ((b3[1] << 8) & 0xFF00);
 			value |= ((b3[2] << 16) & 0xFF0000);
+			
 			return value;
 		}
 		catch (IOException e)
@@ -533,6 +549,7 @@ public class IPSearcher
 			value |= (b3[0] & 0xFF);
 			value |= ((b3[1] << 8) & 0xFF00);
 			value |= ((b3[2] << 16) & 0xFF0000);
+			
 			return value;
 		}
 		catch (IOException e)
@@ -549,6 +566,7 @@ public class IPSearcher
 		{
 			records = 1;
 		}
+		
 		return start + records * IP_RECORD_LENGTH;
 	}
 	
@@ -567,6 +585,7 @@ public class IPSearcher
 		{
 			e.printStackTrace();
 		}
+		
 		return ipBytes;
 	}
 	
@@ -590,6 +609,7 @@ public class IPSearcher
 		{
 			e.printStackTrace();
 		}
+		
 		return "";
 	}
 	
@@ -613,6 +633,7 @@ public class IPSearcher
 		{
 			e.printStackTrace();
 		}
+		
 		return "";
 	}
 	
@@ -626,6 +647,7 @@ public class IPSearcher
 		ipStringBuffer.append(ipBytes[2] & 0xFF);
 		ipStringBuffer.append('.');
 		ipStringBuffer.append(ipBytes[3] & 0xFF);
+		
 		return ipStringBuffer.toString();
 	}
 	

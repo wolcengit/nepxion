@@ -57,6 +57,7 @@ public class GeoSearcher
 		throws Exception
 	{
 		String xml = getXML(address);
+		
 		return createEntityList(xml);
 	}
 	
@@ -67,6 +68,7 @@ public class GeoSearcher
 		{
 			return list;
 		}
+		
 		Document document = null;
 		try
 		{
@@ -122,6 +124,7 @@ public class GeoSearcher
 				}
 			}
 		}
+		
 		return list;
 	}
 	
@@ -141,6 +144,7 @@ public class GeoSearcher
 		clientRequestGet.setParameterEntity(clientParameterList, charset);
 		
 		String responseText = clientInvoker.getResponseText(clientRequestGet, charset);
+		
 		return responseText;
 	}
 }

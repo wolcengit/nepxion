@@ -40,7 +40,8 @@ public class LocaleContext
 			{
 				return locale;
 			}	
-		}	
+		}
+		
 		return LOCALE_EN_US;
 	}
 }

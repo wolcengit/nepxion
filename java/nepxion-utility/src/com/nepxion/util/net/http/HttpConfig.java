@@ -106,6 +106,7 @@ public class HttpConfig
 		{
 			return "http://" + host + ":" + port + path;
 		}
+		
 		return null;
 	}
 	
@@ -116,6 +117,7 @@ public class HttpConfig
 		{
 			return URI.create(url);
 		}
+		
 		return null;
 	}
 }

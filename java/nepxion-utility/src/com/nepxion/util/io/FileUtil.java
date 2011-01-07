@@ -46,7 +46,8 @@ public class FileUtil
 	 */
 	public static String readString(String filePath, String charset, boolean classLoader)
 	{
-		InputStream inputStream = getInputStream(filePath, classLoader);	
+		InputStream inputStream = getInputStream(filePath, classLoader);
+		
 		return IOUtil.getString(inputStream, charset);
 	}
 	
@@ -81,6 +82,7 @@ public class FileUtil
 		{
 			throw new IOException("Only " + offset + " bytes read, " + bytesLength + " bytes expected");
 		}
+		
 		return bytes;
 	}
 	
@@ -187,6 +189,7 @@ public class FileUtil
 				e.printStackTrace();
 			}
 		}
+		
 		return inputStream;
 	}
 	
@@ -212,6 +215,7 @@ public class FileUtil
 		{
 			e.printStackTrace();
 		}
+		
 		return inputStream;
 	}
 	
@@ -233,6 +237,7 @@ public class FileUtil
 		{
 			inputStream = getInputStream(filePath, classLoader);
 		}
+		
 		return inputStream;
 	}
 	
@@ -299,6 +304,7 @@ public class FileUtil
 		try
 		{
 			InputStream inputStream = new FileInputStream(file);
+			
 			return inputStream.available();
 		}
 		catch (FileNotFoundException e)
@@ -308,7 +314,8 @@ public class FileUtil
 		catch (IOException e)
 		{
 			e.printStackTrace();
-		}		
+		}
+		
 		return -1;
 	}
 	
@@ -323,6 +330,7 @@ public class FileUtil
 		String resourcePath = clazz.getClassLoader().getResource("").getPath();
 		resourcePath = resourcePath.substring(1);
 		resourcePath = resourcePath.substring(0, resourcePath.indexOf(projectFolderName) + projectFolderName.length());
+		
 		return resourcePath;
 	}	
 	
@@ -355,6 +363,7 @@ public class FileUtil
 		resourcePath = resourcePath + "/" + resourceFolderName + "/";
 		
 		String codePath = resourcePath + classPath;
+		
 		return codePath;
 	}
 }

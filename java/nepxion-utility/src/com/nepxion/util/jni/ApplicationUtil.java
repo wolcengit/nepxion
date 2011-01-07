@@ -62,6 +62,7 @@ public class ApplicationUtil
 		{
 			return true;
 		}
+		
 		return false;
 	}
 }

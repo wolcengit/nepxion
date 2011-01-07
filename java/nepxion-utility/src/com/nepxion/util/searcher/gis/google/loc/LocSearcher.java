@@ -67,6 +67,7 @@ public class LocSearcher
 	{
 		String requestJSON = createCoordinateJSON(latitude, longitude);
 		String responseJSON = getJSON(requestJSON);
+		
 		return createEntity(responseJSON);
 	}
 	
@@ -75,6 +76,7 @@ public class LocSearcher
 	{
 		String requestJSON = createCellJSON(cellID, lac, mcc, mnc);
 		String responseJSON = getJSON(requestJSON);
+		
 		return createEntity(responseJSON);
 	}
 	
@@ -98,6 +100,7 @@ public class LocSearcher
 		stringBuffer.append("    \"longitude\": " + longitude + "\n");
 		stringBuffer.append("  }\n");
 		stringBuffer.append("}");
+		
 		return stringBuffer.toString();
 	}
 	
@@ -127,6 +130,7 @@ public class LocSearcher
 		stringBuffer.append("    }\n");
 		stringBuffer.append("  ]\n");
 		stringBuffer.append("}");
+		
 		return stringBuffer.toString();
 	}
 	
@@ -187,6 +191,7 @@ public class LocSearcher
 		{
 			
 		}
+		
 		return locEntity;
 	}
 	
@@ -198,6 +203,7 @@ public class LocSearcher
 		clientRequestPost.setStringEntity(requestJSON);
 		
 		String responseText = clientInvoker.getResponseText(clientRequestPost, charset);
+		
 		return responseText;
 	}
 }

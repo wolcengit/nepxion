@@ -62,6 +62,7 @@ public class Dom4JWriter
 		writer.write(document);
 		baos.flush();
 		baos.close();
+		
 		return baos.toString(charset);
 	}
 }

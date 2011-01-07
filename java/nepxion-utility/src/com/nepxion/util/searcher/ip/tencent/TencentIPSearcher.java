@@ -40,6 +40,7 @@ public class TencentIPSearcher
 		throws Exception
 	{
 		String text = getText();
+		
 		return createEntity(text);
 	}
 	
@@ -83,6 +84,7 @@ public class TencentIPSearcher
 		clientRequestGet.setParameterEntity(clientParameters, charset);
 		
 		String responseText = clientInvoker.getResponseText(clientRequestGet, charset);
+		
 		return responseText;
 	}
 }

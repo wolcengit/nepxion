@@ -67,6 +67,7 @@ public class Dom4JReader
 		throws DocumentException, UnsupportedEncodingException
 	{
 		String formatText = EncoderUtil.format(text, charset);
+		
 		return getDocument(formatText);
 	}
 	
@@ -81,6 +82,7 @@ public class Dom4JReader
 		throws DocumentException, FileNotFoundException
 	{
 		InputStream inputStream = new FileInputStream(file);
+		
 		return getDocument(inputStream);
 	}
 	
@@ -111,6 +113,7 @@ public class Dom4JReader
 		throws DocumentException, FileNotFoundException, UnsupportedEncodingException
 	{
 		InputStream inputStream = new FileInputStream(file);
+		
 		return getFormatDocument(inputStream, charset);
 	}
 	
@@ -124,6 +127,7 @@ public class Dom4JReader
 		throws DocumentException
 	{
 		SAXReader saxReader = new SAXReader();
+		
 		return saxReader.read(inputSource);
 	}
 	
@@ -150,6 +154,7 @@ public class Dom4JReader
 		throws DocumentException
 	{
 		inputSource.setEncoding(charset);
+		
 		return getDocument(inputSource);
 	}
 	
@@ -163,6 +168,7 @@ public class Dom4JReader
 		throws DocumentException
 	{
 		SAXReader saxReader = new SAXReader();
+		
 		return saxReader.read(inputStream);
 	}
 	
@@ -191,6 +197,7 @@ public class Dom4JReader
 		throws DocumentException, UnsupportedEncodingException
 	{
 		Reader inputStreamReader = new InputStreamReader(inputStream, charset);
+		
 		return getDocument(inputStreamReader);
 	}
 	
@@ -204,6 +211,7 @@ public class Dom4JReader
 		throws DocumentException
 	{
 		SAXReader saxReader = new SAXReader();
+		
 		return saxReader.read(reader);
 	}
 	
@@ -217,6 +225,7 @@ public class Dom4JReader
 		throws DocumentException
 	{
 		SAXReader saxReader = new SAXReader();
+		
 		return saxReader.read(url);
 	}
 }

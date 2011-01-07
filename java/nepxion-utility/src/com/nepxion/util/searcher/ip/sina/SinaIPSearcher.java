@@ -39,6 +39,7 @@ public class SinaIPSearcher
 		throws Exception
 	{
 		String text = getText(ip);
+		
 		return createEntity(text);
 	}
 	
@@ -46,6 +47,7 @@ public class SinaIPSearcher
 		throws Exception
 	{
 		String text = getText(null);
+		
 		return createEntity(text);
 	}
 	
@@ -98,6 +100,7 @@ public class SinaIPSearcher
 		}
 		
 		String responseText = clientInvoker.getResponseText(clientRequestGet, charset);
+		
 		return responseText;
 	}
 }

@@ -65,7 +65,8 @@ public class ClientInvoker
 			request.abort();
 			e.printStackTrace();
 			throw e;			
-		}		
+		}
+		
 		return response;
 	}
 	
@@ -74,6 +75,7 @@ public class ClientInvoker
 	{
 		HttpResponse response = (HttpResponse) invoke(clientRequest);
 		HttpEntity entity = response.getEntity();
+		
 		return entity;
 	}
 	

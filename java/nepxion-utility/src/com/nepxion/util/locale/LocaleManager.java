@@ -23,36 +23,42 @@ public class LocaleManager
 	public static String getString(Class bundleClazz, String key)
 	{
 		ResourceBundle resourceBundle = getResourceBundle(bundleClazz);
+		
 		return resourceBundle.getString(key);
 	}
 	
 	public static String getString(Class bundleClazz, String key, Locale locale)
 	{
 		ResourceBundle resourceBundle = getResourceBundle(bundleClazz, locale);
+		
 		return resourceBundle.getString(key);
 	}
 	
 	public static String getString(String bundleName, String key)
 	{
 		ResourceBundle resourceBundle = getResourceBundle(bundleName);
+		
 		return resourceBundle.getString(key);
 	}
 	
 	public static String getString(String bundleName, String key, Locale locale)
 	{
 		ResourceBundle resourceBundle = getResourceBundle(bundleName, locale);
+		
 		return resourceBundle.getString(key);
 	}
 	
 	public static ResourceBundle getResourceBundle(Class bundleClazz)
 	{
 		String bundleName = getBundleName(bundleClazz);
+		
 		return getResourceBundle(bundleName);
 	}
 	
 	public static ResourceBundle getResourceBundle(Class bundleClazz, Locale locale)
 	{
 		String bundleName = getBundleName(bundleClazz);
+		
 		return getResourceBundle(bundleName, locale);
 	}
 	
@@ -97,6 +103,7 @@ public class LocaleManager
 		{
 			bundleName = BASE_BUNDLE;
 		}
+		
 		return bundleName;
 	}
 }

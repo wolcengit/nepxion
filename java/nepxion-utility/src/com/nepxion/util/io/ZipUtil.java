@@ -62,12 +62,14 @@ public class ZipUtil
 				}
 				list.add(line);
 			}
+			
 			return list;
 		}
 		catch (IOException e)
 		{
 			e.printStackTrace();
 		}
+		
 		return null;
 	}
 	
@@ -95,6 +97,7 @@ public class ZipUtil
 		{
 			InputStream inputStream = FileUtil.getInputStream(filePath, classLoader);			
 			InputStream zipInputStream = new GZIPInputStream(inputStream);
+			
 			return new BufferedReader(new InputStreamReader(zipInputStream, charset));
 		}
 		catch (FileNotFoundException e)
@@ -109,6 +112,7 @@ public class ZipUtil
 		{
 			e.printStackTrace();
 		}
+		
 		return null;
 	}
 }

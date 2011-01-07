@@ -43,6 +43,7 @@ public class NeteaseMobileSearcher
 		throws Exception
 	{
 		String xml = getXML(mobile);
+		
 		return createEntity(xml);
 	}
 	
@@ -103,6 +104,7 @@ public class NeteaseMobileSearcher
 		clientRequestGet.setParameterEntity(clientParameterList, charset);
 		
 		String responseText = clientInvoker.getResponseText(clientRequestGet, charset);
+		
 		return responseText;
 	}
 }

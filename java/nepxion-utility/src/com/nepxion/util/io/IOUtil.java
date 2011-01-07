@@ -67,6 +67,7 @@ public class IOUtil
 		{
 			e.printStackTrace();
 		}
+		
 		return object;
 	}
 	
@@ -88,6 +89,7 @@ public class IOUtil
 		{
 			e.printStackTrace();
 		}
+		
 		return baos;
 	}
 	
@@ -108,6 +110,7 @@ public class IOUtil
 		{
 			e.printStackTrace();
 		}
+		
 		return object;
 	}
 	
@@ -121,6 +124,7 @@ public class IOUtil
 		ByteArrayOutputStream baos = write(object);
 		
 		ByteArrayInputStream bais = new ByteArrayInputStream(baos.toByteArray());
+		
 		return bais;
 	}
 	
@@ -142,6 +146,7 @@ public class IOUtil
 	public static ByteArrayInputStream getInputStream(String text)
 	{
 		ByteArrayInputStream bais = new ByteArrayInputStream(text.getBytes());
+		
 		return bais;
 	}
 	
@@ -184,6 +189,7 @@ public class IOUtil
 		{
 			e.printStackTrace();
 		}
+		
 		return stringBuffer.toString().trim();
 	}
 	
@@ -225,6 +231,7 @@ public class IOUtil
 		{
 			e.printStackTrace();
 		}
+		
 		return stringBuffer.toString().trim();
 	}
 	
@@ -251,6 +258,7 @@ public class IOUtil
 		
 		ByteArrayOutputStream baos = write(object);
 		Object cloneObject = read(baos);
+		
 		return cloneObject;
 	}
 	

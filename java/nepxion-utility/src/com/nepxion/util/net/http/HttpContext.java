@@ -110,6 +110,7 @@ public class HttpContext
 		{
 			throw new IllegalArgumentException("Http Config for " + alias + " hasn't been found");
 		}
+		
 		return httpConfig;
 	}
 	

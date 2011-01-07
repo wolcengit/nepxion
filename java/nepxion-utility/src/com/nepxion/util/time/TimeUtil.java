@@ -222,6 +222,7 @@ public class TimeUtil
 	public static int getDayOfWeek(int year, int month, int day)
 	{
 		Calendar calendar = new GregorianCalendar(year, month - 1, day);
+		
 		return calendar.get(Calendar.DAY_OF_WEEK);
 	}
 	
@@ -244,6 +245,7 @@ public class TimeUtil
 	public static int getWeekOfMonth(int year, int month, int day)
 	{
 		Calendar calendar = new GregorianCalendar(year, month - 1, day);
+		
 		return calendar.get(Calendar.WEEK_OF_MONTH);
 	}
 	
@@ -266,6 +268,7 @@ public class TimeUtil
 	public static int getWeekOfYear(int year, int month, int day)
 	{
 		Calendar calendar = new GregorianCalendar(year, month - 1, day);
+		
 		return calendar.get(Calendar.WEEK_OF_YEAR);
 	}
 	
@@ -327,6 +330,7 @@ public class TimeUtil
 		{
 			e.printStackTrace();
 		}
+		
 		return date;
 	}
 		
@@ -340,6 +344,7 @@ public class TimeUtil
 		GregorianCalendar gc = new GregorianCalendar();
 		Date date = parseDateTime(dateTime);
 		gc.setTime(date);
+		
 		return gc;
 	}
 
@@ -364,8 +369,10 @@ public class TimeUtil
 		if (timeZone.inDaylightTime(date))
 		{
 			int offset = timeZone.getOffset(date.getTime()) - timeZone.getRawOffset();
+			
 			return offset;
 		}
+		
 		return 0;
 	}	
 	
@@ -439,6 +446,7 @@ public class TimeUtil
 		catch (ParseException e)
 		{
 			e.printStackTrace();
+			
 			return false;
 		}
 	}
@@ -465,11 +473,13 @@ public class TimeUtil
 		try
 		{
 			Date currentTime = new Date();
+			
 			return dateFormat.parse(time).before(currentTime);
 		}
 		catch (ParseException e)
 		{
 			e.printStackTrace();
+			
 			return false;
 		}
 	}
@@ -503,6 +513,7 @@ public class TimeUtil
 		catch (ParseException e)
 		{
 			e.printStackTrace();
+			
 			return false;
 		}
 	}
@@ -529,11 +540,13 @@ public class TimeUtil
 		try
 		{
 			Date currentTime = new Date();
+			
 			return dateFormat.parse(time).after(currentTime);
 		}
 		catch (ParseException e)
 		{
 			e.printStackTrace();
+			
 			return false;
 		}
 	}	
@@ -594,6 +607,7 @@ public class TimeUtil
 			timeArray[i] = Integer.parseInt(st.nextToken());
 			i++;
 		}
+		
 		return timeArray;
 	}		
 	
@@ -613,6 +627,7 @@ public class TimeUtil
 			timeArray[i] = Integer.parseInt(st.nextToken());
 			i++;
 		}
+		
 		return timeArray;
 	}	
 	
@@ -646,6 +661,7 @@ public class TimeUtil
 		{
 			dayString = "" + day;
 		}
+		
 		return yearString + "-" + monthString + "-" + dayString;
 	}
 	
@@ -688,6 +704,7 @@ public class TimeUtil
 		{
 			secondString = "" + second;
 		}
+		
 		return hourString + ":" + minuteString + ":" + secondString;
 	}
 	
@@ -744,7 +761,8 @@ public class TimeUtil
 		else 
 		{
 			millisecondString = "" + millisecond;
-		}		
+		}
+		
 		return hourString + ":" + minuteString + ":" + secondString + ":" + millisecondString;
 	}	
 	
@@ -814,6 +832,7 @@ public class TimeUtil
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(dateTime);
         calendar.add(field, amount);
+        
         return calendar.getTime();
 	}
 	

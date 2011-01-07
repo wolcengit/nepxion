@@ -43,6 +43,7 @@ public class NeteaseIPSearcher
 		throws Exception
 	{
 		String xml = getXML(ip);
+		
 		return createEntity(xml);
 	}
 	
@@ -103,6 +104,7 @@ public class NeteaseIPSearcher
 		clientRequestGet.setParameterEntity(clientParameterList, charset);
 		
 		String responseText = clientInvoker.getResponseText(clientRequestGet, charset);
+		
 		return responseText;
 	}
 }

@@ -47,6 +47,7 @@ public class ProxoolConnectionPool
 			log.fatal(e);
 			throw e;
 		}
+		
 		return connection;
 	}
 }

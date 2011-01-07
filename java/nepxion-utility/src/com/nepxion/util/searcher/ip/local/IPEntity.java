@@ -94,6 +94,7 @@ public class IPEntity
 		ipEntity.endIP = endIP;
 		ipEntity.country = country;
 		ipEntity.region = region;
+		
 		return ipEntity;
 	}
 }

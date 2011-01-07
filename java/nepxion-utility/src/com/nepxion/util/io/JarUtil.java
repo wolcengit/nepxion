@@ -20,6 +20,7 @@ public class JarUtil
 		throws IOException
 	{
 		JarURLConnection connection = (JarURLConnection) url.openConnection();
+		
 		return connection;
 	}
 }

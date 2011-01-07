@@ -21,12 +21,14 @@ public class RandomUtil
 		char[] chars = CHART_LIST.toCharArray();
 		Random random = new Random();
 		int randomIndex = random.nextInt(chars.length);
+		
 		return chars[randomIndex];
 	}
 	
 	public static int getRandomInt(int min, int max)
 	{
 		Random random = new Random();
+		
 		return random.nextInt(max - min + 1) + min;
 	}
 	

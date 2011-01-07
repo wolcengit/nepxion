@@ -23,7 +23,9 @@ public class ExceptionUtil
 		{
 			return e.toString();
 		}	
+		
 		message = message.substring(message.indexOf(":") + 1).trim();
+		
 		return message;
 	}
 	
@@ -39,7 +41,8 @@ public class ExceptionUtil
 		catch (IOException ex)
 		{
 			ex.printStackTrace();
-		}		
+		}
+		
 		return new String(baos.toByteArray()).trim();
 	}
 }
