@@ -163,6 +163,7 @@ public class DemoThreadContainerPanel
 			super("Loading, please wait...");
 			
 			this.fileTable = fileTable;
+			
 			fileTableScrollPane = new JBasicScrollPane(fileTable);
 			
 			setInformationText("The demo for loading files from the disk");
