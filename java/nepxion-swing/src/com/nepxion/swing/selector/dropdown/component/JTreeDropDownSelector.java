@@ -190,6 +190,12 @@ public abstract class JTreeDropDownSelector
 		{
 			return false;
 		}
+		
+		if (treeNode == selectedComponent)
+		{
+			return true;
+		}	
+		
 		treeNode = (TreeNode) selectedComponent;
 		
 		boolean returnValue = confirm();
@@ -197,6 +203,7 @@ public abstract class JTreeDropDownSelector
 		{
 			adaptText();
 		}
+		
 		return returnValue;
 	}
 	
@@ -215,8 +222,7 @@ public abstract class JTreeDropDownSelector
 	}
 	
 	public boolean doCancel()
-	{
-		treeNode = null;
+	{		
 		return cancel();
 	}
 	
