@@ -55,7 +55,7 @@ public class DemoNumberTextFieldPanel
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
 			
 			StringBuffer stringBuffer = new StringBuffer();
-			stringBuffer.append("Support features as follows:\n");
+			stringBuffer.append("Support functions as follows:\n");
 			stringBuffer.append("1. Copy, paste, cut & clean the specified text contents\n");
 			stringBuffer.append("2. Enter key accelerator to transfer focus\n");
 			stringBuffer.append("3. Selection all text contents once focus is gained\n");
