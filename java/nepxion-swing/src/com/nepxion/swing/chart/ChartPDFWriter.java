@@ -37,7 +37,7 @@ public class ChartPDFWriter
 		String filterDescription = "PDF " + SwingLocale.getString("document") + " (*.pdf)";
 		JFileFilter filterFilter = new JFileFilter(filterWords, filterDescription);
 		
-		fileSelector = new JFileSelector(chartPanel, SwingLocale.getString("export") + " PDF " + SwingLocale.getString("document"));
+		fileSelector = new JFileSelector(chartPanel, SwingLocale.getString("export") + " PDF " + SwingLocale.getString("file"));
 		fileSelector.addChoosableFileFilter(filterFilter);
 		fileSelector.setFileFilter(filterFilter);
 	}
