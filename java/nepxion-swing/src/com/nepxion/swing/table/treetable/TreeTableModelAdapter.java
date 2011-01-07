@@ -125,6 +125,7 @@ public class TreeTableModelAdapter
     protected Object nodeForRow(int row)
     {
         TreePath treePath = tree.getPathForRow(row);
+        
         return treePath.getLastPathComponent();
     }
 

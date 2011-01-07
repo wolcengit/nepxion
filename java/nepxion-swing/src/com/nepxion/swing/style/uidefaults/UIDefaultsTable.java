@@ -31,6 +31,7 @@ public class UIDefaultsTable
 	public void setDataModel(TableModel model)
 	{
 		super.setDataModel(model);
+		
 		if (model instanceof UIDefaultsTableModel)
 		{
 			JBasicTextField textField = new JBasicTextField();

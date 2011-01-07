@@ -58,6 +58,7 @@ public class JDropDownSelector
 		{
 			return;
 		}
+		
 		this.dropDownPane = dropDownPane;
 		
 		IDropDownPopupMenu popupMenu = this.dropDownPane.getPopupMenu();

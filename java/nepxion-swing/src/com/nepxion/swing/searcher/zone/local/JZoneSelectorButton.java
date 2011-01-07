@@ -58,6 +58,7 @@ public class JZoneSelectorButton
 		if (treeNode == null || !treeNode.isLeaf())
 		{
 			JBasicOptionPane.showMessageDialog(HandleManager.getFrame(this), SwingLocale.getString("select_city_node"), SwingLocale.getString("warning"), JBasicOptionPane.WARNING_MESSAGE);		
+			
 			return false;
 		}
 		

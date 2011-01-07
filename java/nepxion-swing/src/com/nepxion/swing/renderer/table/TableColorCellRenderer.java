@@ -34,6 +34,7 @@ public class TableColorCellRenderer
 		setBackground(color);
 		setFont(table.getFont());
 		setForeground(isSelected ? table.getSelectionForeground() : table.getForeground());
+		
 		return this;
 	}
 }

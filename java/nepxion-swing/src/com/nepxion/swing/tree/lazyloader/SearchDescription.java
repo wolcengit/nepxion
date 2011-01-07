@@ -99,6 +99,7 @@ public class SearchDescription
 		{
 			return;
 		}
+		
 		if (resultIndex >= result.size() - 1)
 		{
 			resultIndex = 0;

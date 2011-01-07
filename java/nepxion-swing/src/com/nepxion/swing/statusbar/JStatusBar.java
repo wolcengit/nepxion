@@ -125,6 +125,7 @@ public class JStatusBar
 		{
 			return getItem(index, rightPanel);
 		}
+		
 		return null;
 	}
 	
@@ -142,12 +143,14 @@ public class JStatusBar
 				}
 			}
 		}
+		
 		return null;
 	}
 	
 	public void paintChildren(Graphics g)
 	{
 		super.paintChildren(g);
+		
 		if (isCornerVisible)
 		{
 			int w = getWidth();

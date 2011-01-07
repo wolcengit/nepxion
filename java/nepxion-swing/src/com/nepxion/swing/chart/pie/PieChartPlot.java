@@ -57,6 +57,7 @@ public class PieChartPlot
 			Comparable key = (Comparable) iterator.next();
 			
 			Stroke stroke = super.getSectionOutlineStroke(key);
+			
 			if (stroke == null)
 			{
 				stroke = DEFAULT_OUTLINE_STROKE;
@@ -64,6 +65,7 @@ public class PieChartPlot
 			sectionOutlineStrokeMap.put(key, stroke);
 			
 			Paint paint = super.getSectionOutlinePaint(key);
+			
 			if (paint == null)
 			{
 				paint = DEFAULT_OUTLINE_PAINT;
@@ -90,6 +92,7 @@ public class PieChartPlot
 			{
 				stroke = (Stroke) sectionOutlineStrokeMap.get(key);
 			}
+			
 			super.setSectionOutlineStroke(key, stroke);
 			
 			Paint paint = adapter.getSectionOutlinePaint(key);
@@ -97,6 +100,7 @@ public class PieChartPlot
 			{
 				paint = (Paint) sectionOutlinePaintMap.get(key);
 			}
+			
 			super.setSectionOutlinePaint(key, paint);
 			
 			Double explodePercent = adapter.getExplodePercent(key);
@@ -104,6 +108,7 @@ public class PieChartPlot
 			{
 				explodePercent = (Double) explodePercentMap.get(key);
 			}
+			
 			super.setExplodePercent(key, explodePercent.doubleValue());
 		}
 	}
@@ -125,18 +130,21 @@ public class PieChartPlot
 	public void setSectionOutlineStroke(Comparable key, Stroke stroke)
 	{
 		super.setSectionOutlineStroke(key, stroke);
+		
 		sectionOutlineStrokeMap.put(key, stroke);
 	}
 	
 	public void setSectionOutlinePaint(Comparable key, Paint paint)
 	{
 		super.setSectionOutlinePaint(key, paint);
+		
 		sectionOutlinePaintMap.put(key, paint);
 	}
 	
 	public void setExplodePercent(Comparable key, double explodePercent)
 	{
 		super.setExplodePercent(key, explodePercent);
+		
 		explodePercentMap.put(key, Double.valueOf(explodePercent));
 	}
 	

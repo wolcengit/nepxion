@@ -38,6 +38,7 @@ public class NeteaseMobileController
 						if (entity == null)
 						{
 							JBasicOptionPane.showMessageDialog(HandleManager.getFrame(panel), SwingLocale.getString("no_records"), SwingLocale.getString("warning"), JBasicOptionPane.WARNING_MESSAGE);
+							
 							return;
 						}
 						
@@ -61,12 +62,14 @@ public class NeteaseMobileController
 						
 						NeteaseMobileSearcher searcher = new NeteaseMobileSearcher();
 						NeteaseMobileEntity entity = searcher.search(mobile);
+						
 						return entity;
 					}
 				};
 				dialog.execute();
 			}
 		};
+		
 		return action;
 	}
 	
@@ -81,10 +84,12 @@ public class NeteaseMobileController
 				{
 					return;
 				}
+				
 				NeteaseMobileTableModel tableModel = (NeteaseMobileTableModel) table.getDataModel();
 				tableModel.clearRows();
 			}
 		};
+		
 		return action;
 	}
 }

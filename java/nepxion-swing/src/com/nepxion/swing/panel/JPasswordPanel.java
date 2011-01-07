@@ -77,6 +77,7 @@ public class JPasswordPanel
 		if (oldPassword.equals(""))
 		{
 			JBasicOptionPane.showMessageDialog(this, SwingLocale.getString("old_password_not_null"), SwingLocale.getString("error"), JBasicOptionPane.ERROR_MESSAGE);
+			
 			return false;
 		}	
 		
@@ -84,6 +85,7 @@ public class JPasswordPanel
 		if (newPassword.equals(""))
 		{
 			JBasicOptionPane.showMessageDialog(this, SwingLocale.getString("new_password_not_null"), SwingLocale.getString("error"), JBasicOptionPane.ERROR_MESSAGE);
+			
 			return false;
 		}
 		
@@ -91,12 +93,14 @@ public class JPasswordPanel
 		if (newPasswordConfirm.equals(""))
 		{
 			JBasicOptionPane.showMessageDialog(this, SwingLocale.getString("new_password_confirm_not_null"), SwingLocale.getString("error"), JBasicOptionPane.ERROR_MESSAGE);
+			
 			return false;
 		}
 		
 		if (!newPassword.equals(newPasswordConfirm))
 		{
 			JBasicOptionPane.showMessageDialog(this, SwingLocale.getString("new_password_not_matched"), SwingLocale.getString("error"), JBasicOptionPane.ERROR_MESSAGE);
+			
 			return false;
 		}
 		

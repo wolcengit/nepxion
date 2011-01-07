@@ -22,6 +22,7 @@ public class JArrowButton
 	public JArrowButton()
 	{
 		super(new ArrowIcon(5, ArrowIcon.SOUTH));
+		
 		setPreferredSize(new Dimension(17, getPreferredSize().height));
 		setFocusPainted(false);
 	}

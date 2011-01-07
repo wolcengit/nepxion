@@ -42,6 +42,7 @@ public class SelectionIcon
 		{
 			return;
 		}
+		
 		g.setColor(Color.black);
 		
 		g.drawLine(x + 4, y + 6, x + 4, y + 8);

@@ -99,6 +99,7 @@ public class FullScreenSupport
 		{
 			return;
 		}
+		
 		Window parentWindow = HandleManager.getWindow(fullScreenComponent);
 		if (parentWindow == null)
 		{
@@ -108,6 +109,7 @@ public class FullScreenSupport
 		{
 			fullScreenWindow = new JWindow(parentWindow, parentWindow.getGraphicsConfiguration());
 		}
+		
 		container = fullScreenComponent.getParent();
 		if (container != null)
 		{
@@ -121,6 +123,7 @@ public class FullScreenSupport
 				container.invalidate();
 			}
 		}
+		
 		fullScreenWindow.getContentPane().setLayout(new BorderLayout());
 		fullScreenWindow.getContentPane().add(fullScreenComponent, BorderLayout.CENTER);
 		
@@ -144,6 +147,7 @@ public class FullScreenSupport
 		{
 			return;
 		}
+		
 		fullScreenWindow.getContentPane().removeAll();
 		fullScreenWindow.setVisible(false);
 		fullScreenWindow.dispose();

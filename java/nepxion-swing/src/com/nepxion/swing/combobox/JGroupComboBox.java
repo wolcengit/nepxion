@@ -71,12 +71,14 @@ public class JGroupComboBox
 				if (!elementNode.isEnabled())
 				{
 					setSelectedItem(currentItem);
+					
 					return;
 				}
 			}
 			if (selectedItem.toString().equals(ComboBoxGroupCellRenderer.SEPARATOR))
 			{
 				setSelectedItem(currentItem);
+				
 				return;
 			}
 			

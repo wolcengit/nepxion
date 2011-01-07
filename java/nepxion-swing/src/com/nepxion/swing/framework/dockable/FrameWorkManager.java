@@ -50,6 +50,7 @@ public class FrameWorkManager
 			}
 			parent = parent.getParent();
 		}
+		
 		return null;
 	}
 	
@@ -74,6 +75,7 @@ public class FrameWorkManager
 			}
 			parent = parent.getParent();
 		}
+		
 		return null;
 	}
 	
@@ -83,7 +85,9 @@ public class FrameWorkManager
 		{
 			return null;
 		}
+		
 		JFrameWorkHierarchy frameWorkHierarchy = frameWorkWindow.getHierarchy();
+		
 		return getDockableView(frameWorkHierarchy, title);
 	}
 	
@@ -93,13 +97,17 @@ public class FrameWorkManager
 		{
 			return null;
 		}
+		
 		JDockableContainer dockableContainer = frameWorkHierarchy.getDockableContainer();
 		Component component = dockableContainer.getContentPane();
+		
 		if (component instanceof JDockable)
 		{
 			JDockable dockable = (JDockable) component;
+			
 			return DockableManager.getDockableView(dockable, title);
 		}
+		
 		return null;
 	}
 	

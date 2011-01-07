@@ -37,6 +37,7 @@ public class UIDefaultsParser
 				allMap.put(key.toString(), value);
 			}
 		}
+		
 		return allMap;
 	}
 	
@@ -97,6 +98,7 @@ public class UIDefaultsParser
 				}
 			}
 		}
+		
 		return typeMap;
 	}
 	
@@ -120,6 +122,7 @@ public class UIDefaultsParser
 		{
 			componentName = key.substring(0, index);
 		}
+		
 		return componentName;
 	}
 	
@@ -143,6 +146,7 @@ public class UIDefaultsParser
 				}
 			}
 		}
+		
 		return SwingLocale.getString("others");
 	}
 }

@@ -33,6 +33,7 @@ public abstract class AbstractToggleAdapter
 		{
 			return;
 		}
+		
 		JToggleContentPanel toggleContentPanel = toggleTree.getToggleContentPanel();
 		if (toggleContentPanel == null)
 		{

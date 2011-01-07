@@ -78,11 +78,13 @@ public abstract class JFrameWorkThread
 		{
 			return;
 		}
+		
 		JFrameWorkStatusBar frameWorkStatusBar = frameWorkHierarchy.getStatusBar();
 		if (frameWorkStatusBar == null)
 		{
 			return;
 		}
+		
 		if (frameWorkStatusBar.isVisible())
 		{
 			if (isStarted)

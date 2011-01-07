@@ -84,6 +84,7 @@ public class TreeElementCellRenderer
 		{
 			adaptIcon(treeNode, expanded);
 		}
+		
 		return this;
 	}
 	

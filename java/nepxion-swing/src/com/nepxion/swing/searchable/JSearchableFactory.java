@@ -30,6 +30,7 @@ public class JSearchableFactory
 		JTreeSearchable treeSearchable = new JTreeSearchable(tree);
 		treeSearchable.setRepeats(true);
 		treeSearchable.setRecursive(true);
+		
 		return treeSearchable;
 	}
 	
@@ -37,6 +38,7 @@ public class JSearchableFactory
 	{
 		JTableSearchable tableSearchable = new JTableSearchable(table);
 		tableSearchable.setRepeats(true);
+		
 		return tableSearchable;
 	}
 	
@@ -44,6 +46,7 @@ public class JSearchableFactory
 	{
 		JListSearchable listSearchable = new JListSearchable(list);
 		listSearchable.setRepeats(true);
+		
 		return listSearchable;
 	}
 	
@@ -51,6 +54,7 @@ public class JSearchableFactory
 	{
 		JComboBoxSearchable comboBoxSearchable = new JComboBoxSearchable(comboBox);
 		comboBoxSearchable.setRepeats(true);
+		
 		return comboBoxSearchable;
 	}
 	
@@ -58,6 +62,7 @@ public class JSearchableFactory
 	{
 		JTextComponentSearchable textComponentSearchable = new JTextComponentSearchable(textComponent);
 		textComponentSearchable.setRepeats(true);
+		
 		return textComponentSearchable;
 	}
 	

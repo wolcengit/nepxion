@@ -253,6 +253,7 @@ public class JIPAddressTextField
 		{
 			return "";
 		}
+		
 		return (ipAddress1.equals("") ? "0" : ipAddress1) + "." + (ipAddress2.equals("") ? "0" : ipAddress2) + "." + (ipAddress3.equals("") ? "0" : ipAddress3) + "." + (ipAddress4.equals("") ? "0" : ipAddress4);
 	}
 	

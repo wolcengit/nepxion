@@ -42,6 +42,7 @@ public class SinaIPTableModel
 			case 1:
 				return entity.getCountry();
 		}
+		
 		return null;
 	}
 }

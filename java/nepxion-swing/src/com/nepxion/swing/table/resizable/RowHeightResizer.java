@@ -70,6 +70,7 @@ public class RowHeightResizer
 		{	
 			return;
 		}
+		
 		this.table.removeMouseListener(this);
 		this.table.removeMouseMotionListener(this);
 	}
@@ -184,6 +185,7 @@ public class RowHeightResizer
 		{
 			return true;
 		}
+		
 		return false;
 	}
 }

@@ -31,6 +31,7 @@ public class TableController
 		if (!tableAdapter.addRowPermitted())
 		{
 			JBasicOptionPane.showMessageDialog(HandleManager.getFrame(table), SwingLocale.getString("table") + SwingLocale.getString("add_record_no_permission"), SwingLocale.getString("warning"), JBasicOptionPane.WARNING_MESSAGE);
+			
 			return;
 		}	
 		
@@ -56,6 +57,7 @@ public class TableController
 		if (!tableAdapter.modifyRowPermitted(selectedRow))
 		{
 			JBasicOptionPane.showMessageDialog(HandleManager.getFrame(table), SwingLocale.getString("table_row_selection") + SwingLocale.getString("modify_no_permission"), SwingLocale.getString("warning"), JBasicOptionPane.WARNING_MESSAGE);
+			
 			return;
 		}
 		
@@ -85,6 +87,7 @@ public class TableController
 			if (!tableAdapter.deleteRowPermitted(selectedRow))
 			{
 				JBasicOptionPane.showMessageDialog(HandleManager.getFrame(table), SwingLocale.getString("table_row_selection") + SwingLocale.getString("delete_no_permission"), SwingLocale.getString("warning"), JBasicOptionPane.WARNING_MESSAGE);
+				
 				return;
 			}
 			
@@ -93,6 +96,7 @@ public class TableController
 			{
 				return;
 			}
+			
 			int selectedRowIndex = TableManager.getRowIndex(table, selectedRow);
 			boolean flag = tableAdapter.deleteRow(selectedRowIndex);
 			if (!flag)
@@ -108,6 +112,7 @@ public class TableController
 			if (!tableAdapter.deleteRowsPermitted(selectedRows))
 			{
 				JBasicOptionPane.showMessageDialog(HandleManager.getFrame(table), SwingLocale.getString("table_row_selection") + SwingLocale.getString("delete_no_permission"), SwingLocale.getString("warning"), JBasicOptionPane.WARNING_MESSAGE);
+				
 				return;
 			}
 			
@@ -140,12 +145,14 @@ public class TableController
 		if (!tableAdapter.refreshPermitted())
 		{
 			JBasicOptionPane.showMessageDialog(HandleManager.getFrame(table), SwingLocale.getString("table") + SwingLocale.getString("refresh_no_permission"), SwingLocale.getString("warning"), JBasicOptionPane.WARNING_MESSAGE);
+			
 			return;
 		}
 		
 		if (table.getRowCount() == 0)
 		{
 			JBasicOptionPane.showMessageDialog(HandleManager.getFrame(table), SwingLocale.getString("not_refresh_record"), SwingLocale.getString("warning"), JBasicOptionPane.WARNING_MESSAGE);
+			
 			return;
 		}
 		
@@ -181,12 +188,14 @@ public class TableController
 		if (!tableAdapter.clearPermitted())
 		{
 			JBasicOptionPane.showMessageDialog(HandleManager.getFrame(table), SwingLocale.getString("table") + SwingLocale.getString("clear_no_permission"), SwingLocale.getString("warning"), JBasicOptionPane.WARNING_MESSAGE);
+			
 			return;
 		}
 		
 		if (table.getRowCount() == 0)
 		{
 			JBasicOptionPane.showMessageDialog(HandleManager.getFrame(table), SwingLocale.getString("not_clear_record"), SwingLocale.getString("warning"), JBasicOptionPane.WARNING_MESSAGE);
+			
 			return;
 		}
 		
@@ -212,14 +221,17 @@ public class TableController
 		if (selectedRows == null || selectedRows.length == 0)
 		{
 			JBasicOptionPane.showMessageDialog(HandleManager.getFrame(table), SwingLocale.getString("select_records_to") + " " + SwingLocale.getString("quotation_left") + operationName + SwingLocale.getString("quotation_right"), SwingLocale.getString("warning"), JBasicOptionPane.WARNING_MESSAGE);
+			
 			return false;
 		}
 		
 		if (selectedRows.length != 1)
 		{
 			JBasicOptionPane.showMessageDialog(HandleManager.getFrame(table), SwingLocale.getString("select_one_node_to") + " " + SwingLocale.getString("quotation_left") + operationName + SwingLocale.getString("quotation_right"), SwingLocale.getString("warning"), JBasicOptionPane.WARNING_MESSAGE);
+			
 			return false;
-		}	
+		}
+		
 		return true;
 	}
 	
@@ -229,8 +241,10 @@ public class TableController
 		if (selectedRows == null || selectedRows.length == 0)
 		{
 			JBasicOptionPane.showMessageDialog(HandleManager.getFrame(table), SwingLocale.getString("select_records_to") + " " + SwingLocale.getString("quotation_left") + operationName + SwingLocale.getString("quotation_right"), SwingLocale.getString("warning"), JBasicOptionPane.WARNING_MESSAGE);
+			
 			return false;
 		}
+		
 		return true;
 	}
 	
@@ -244,6 +258,7 @@ public class TableController
 			}
 		};
 		KeyStrokeManager.registerComponent(table, action, KeyEvent.VK_N, KeyEvent.CTRL_MASK);
+		
 		return action;
 	}
 	
@@ -257,6 +272,7 @@ public class TableController
 			}
 		};
 		KeyStrokeManager.registerComponent(table, action, KeyEvent.VK_I, KeyEvent.CTRL_MASK);
+		
 		return action;
 	}
 	
@@ -270,6 +286,7 @@ public class TableController
 			}
 		};
 		KeyStrokeManager.registerComponent(table, action, KeyEvent.VK_DELETE);
+		
 		return action;
 	}
 	
@@ -282,6 +299,7 @@ public class TableController
 				refresh(table, tableAdapter);
 			}
 		};
+		
 		return action;
 	}
 	
@@ -294,6 +312,7 @@ public class TableController
 				clear(table, tableAdapter);
 			}
 		};
+		
 		return action;
 	}
 }

@@ -52,6 +52,7 @@ public class GeoTableModel
 			case 6:
 				return entity.getEastLongitude() + "";
 		}
+		
 		return null;
 	}
 	

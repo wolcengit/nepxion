@@ -58,6 +58,7 @@ public class Dom4JTreeParser
 		throws DocumentException
 	{
 		Document document = Dom4JReader.getDocument(text);
+		
 		return parse(document);
 	}
 	
@@ -65,6 +66,7 @@ public class Dom4JTreeParser
 		throws DocumentException, UnsupportedEncodingException
 	{
 		Document document = Dom4JReader.getFormatDocument(text);
+		
 		return parse(document);
 	}
 	
@@ -72,6 +74,7 @@ public class Dom4JTreeParser
 		throws DocumentException, FileNotFoundException
 	{
 		Document document = Dom4JReader.getDocument(file);
+		
 		return parse(document);
 	}
 	
@@ -79,6 +82,7 @@ public class Dom4JTreeParser
 		throws DocumentException, FileNotFoundException, UnsupportedEncodingException
 	{
 		Document document = Dom4JReader.getFormatDocument(file);
+		
 		return parse(document);
 	}
 	
@@ -86,6 +90,7 @@ public class Dom4JTreeParser
 		throws DocumentException
 	{
 		Document document = Dom4JReader.getDocument(inputStream);
+		
 		return parse(document);
 	}
 	
@@ -93,6 +98,7 @@ public class Dom4JTreeParser
 		throws DocumentException, UnsupportedEncodingException
 	{
 		Document document = Dom4JReader.getFormatDocument(inputStream);
+		
 		return parse(document);
 	}
 	
@@ -103,6 +109,7 @@ public class Dom4JTreeParser
 		
 		parseAttribute(rootElement, rootTreeNode);
 		parseElement(rootElement, rootTreeNode);
+		
 		return rootTreeNode;
 	}
 	

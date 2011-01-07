@@ -108,6 +108,7 @@ public class JBasicComboBox
 				comboPopup.setLocation(getLocationOnScreen().x, getLocationOnScreen().y - height);
 			}
 		}
+		
 		super.firePopupMenuWillBecomeVisible();
 	}
 }

@@ -55,6 +55,7 @@ public class LocTableModel
 			case 8:
 				return entity.getPostalCode();
 		}
+		
 		return null;
 	}
 	

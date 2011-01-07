@@ -48,6 +48,7 @@ public class JLocaleSelector
     public JLocaleSelector(JComponent component)
     {
         super();
+        
         this.component = component;
         addItemListener(this);
         locales = Calendar.getAvailableLocales();

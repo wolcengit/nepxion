@@ -35,6 +35,7 @@ public class ButtonContext
 		{
 			return buttonUI.substring(0, buttonUI.indexOf("ButtonUI"));
 		}
+		
 		return "";
 	}
 	
@@ -98,8 +99,10 @@ public class ButtonContext
 		if (buttonUIClass != null && menuButtonUIClass != null && splitButtonUIClass != null && buttonStyleClass != null)
 		{
 			ButtonManager.setUI(buttonUIClass, menuButtonUIClass, splitButtonUIClass, buttonStyleClass);
+			
 			return true;
 		}
+		
 		return false;
 	}
 }

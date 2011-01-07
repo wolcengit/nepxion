@@ -58,8 +58,10 @@ public class JSortableTable
 		if (tableModel instanceof SortableTableModel)
 		{
 			SortableTableModel sortableTableModel = (SortableTableModel) tableModel;
+			
 			return sortableTableModel.getDataModel();
 		}
+		
 		return null;
 	}
 	

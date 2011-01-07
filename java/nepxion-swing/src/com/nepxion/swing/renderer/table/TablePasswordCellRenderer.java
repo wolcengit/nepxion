@@ -31,6 +31,7 @@ public class TablePasswordCellRenderer
 			}
 			setText(stringBuffer.toString());
 		}
+		
 		return this;
 	}
 }

@@ -30,6 +30,7 @@ public class JTaskBar
 				return taskGroup;
 			}
 		}
+		
 		return null;
 	}
 	

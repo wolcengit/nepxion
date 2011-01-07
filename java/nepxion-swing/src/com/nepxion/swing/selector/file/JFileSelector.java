@@ -133,6 +133,7 @@ public class JFileSelector
 				selectedFilePath = fileChooser.getSelectedFile().getAbsolutePath();
 			}
 		}
+		
 		return selectedFilePath;
 	}
 	
@@ -160,6 +161,7 @@ public class JFileSelector
 				}
 			}
 		}
+		
 		return selectedFile;
 	}
 	
@@ -172,6 +174,7 @@ public class JFileSelector
 		{
 			selectedFile = fileChooser.getSelectedFile();
 		}
+		
 		return selectedFile;
 	}
 }

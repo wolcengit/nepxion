@@ -224,6 +224,7 @@ public class JBasicToggleButton
 	public void setUI(ButtonUI buttonUI)
 	{
 		super.setUI(buttonUI);
+		
 		setOpaque(false);
 	}
 	

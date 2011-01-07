@@ -242,6 +242,7 @@ public class JTreeTable
 
             }
             visibleRow = row;
+            
             return this;
         }
     }
@@ -295,6 +296,7 @@ public class JTreeTable
                     }
                 }
             }
+            
             return false;
         }
     }

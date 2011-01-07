@@ -131,6 +131,7 @@ public class JDecorationPopupMenuPainter
 	{
 		// Insets insets = (Insets) super.getInsets().clone();
 		insets.left += width;
+		
 		return insets;
 	}
 	
@@ -172,6 +173,7 @@ public class JDecorationPopupMenuPainter
 		int i = (int) font.getStringBounds(text, fontRenderContext).getWidth();
 		int j = (int) font.getStringBounds(text, fontRenderContext).getHeight();
 		graphics2D.setFont(graphics2DFont);
+		
 		return new Dimension(i, j);
 	}
 	
@@ -184,6 +186,7 @@ public class JDecorationPopupMenuPainter
 		LineMetrics linemetrics = font.getLineMetrics(text, fontRenderContext);
 		int j = (int) linemetrics.getDescent();
 		graphics2D.setFont(graphics2DFont);
+		
 		return i - j;
 	}
 	

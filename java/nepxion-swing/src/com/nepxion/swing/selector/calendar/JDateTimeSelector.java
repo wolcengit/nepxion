@@ -55,6 +55,7 @@ public class JDateTimeSelector
 		String dateString = TimeUtil.getFormatString(dateSelector.getDate(), new SimpleDateFormat(dateSelector.getFormat()));
 		String timeString = TimeUtil.getFormatString(timeSelector.getTime(), new SimpleDateFormat(timeSelector.getFormat()));
 		Date date = TimeUtil.parseFormatDate(dateString + " " + timeString, new SimpleDateFormat(dateSelector.getFormat() + " " + timeSelector.getFormat()));
+		
 		return date;
 	}
 	

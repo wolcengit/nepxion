@@ -135,6 +135,7 @@ public class JTimerLabel
 		public UpdateTimer()
 		{
 			super(delayTime, null);
+			
 			addActionListener(this);
 		}
 		

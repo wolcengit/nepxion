@@ -37,10 +37,12 @@ public class TableRowHeaderCellRenderer
 	public Component getListCellRendererComponent(JList list, Object value, int index, boolean isSelected, boolean cellHasFocus)
 	{
 		super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
+		
 		IElementNode elementNode = (IElementNode) value;
 		setText(elementNode.getText());
 		setIcon(elementNode.getIcon());
 		setToolTipText(elementNode.getToolTipText());
+		
 		return this;
 	}
 }

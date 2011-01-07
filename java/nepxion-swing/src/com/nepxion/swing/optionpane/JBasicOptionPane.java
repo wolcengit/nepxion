@@ -96,6 +96,7 @@ public class JBasicOptionPane
 	public static int showDialog(Component parentComponent, Object message, String title, int optionType, int messageType, Icon icon, Object[] options, Object initialValue, boolean isResizable)
 	{
 		int selectedValue = showOptionDialog(parentComponent, message, title, optionType, messageType, icon, options, initialValue, isResizable);
+		
 		return showDialog(selectedValue, parentComponent, message, title, optionType, messageType, icon, options, initialValue, isResizable);
 	}
 	
@@ -105,15 +106,18 @@ public class JBasicOptionPane
 		{
 			return selectedValue;
 		}
+		
 		if (message instanceof IValidation)
 		{
 			IValidation validation = (IValidation) message;
 			if (!validation.verify())
 			{
 				selectedValue = showOptionDialog(parentComponent, message, title, optionType, messageType, icon, options, initialValue, isResizable);
+				
 				return showDialog(selectedValue, parentComponent, message, title, optionType, messageType, icon, options, initialValue, isResizable);
 			}
 		}
+		
 		return selectedValue;
 	}
 	
@@ -137,14 +141,17 @@ public class JBasicOptionPane
 		{
 			return CLOSED_OPTION;
 		}
+		
 		if (options == null)
 		{
 			if (selectedValue instanceof Integer)
 			{
 				return ((Integer) selectedValue).intValue();
 			}
+			
 			return CLOSED_OPTION;
 		}
+		
 		for (int counter = 0, maxCounter = options.length; counter < maxCounter; counter++)
 		{
 			if (options[counter].equals(selectedValue))
@@ -152,6 +159,7 @@ public class JBasicOptionPane
 				return counter;
 			}
 		}
+		
 		return CLOSED_OPTION;
 	}
 	
@@ -211,6 +219,7 @@ public class JBasicOptionPane
 		{
 			return null;
 		}
+		
 		return value;
 	}
 	
@@ -286,12 +295,14 @@ public class JBasicOptionPane
 				button.addFocusListener(new ButtonFocusListener(this));
 			}
 		}
+		
 		return dialog;
 	}
 	
 	public static String getString(Object key, Component c)
 	{
 		Locale l = (c == null) ? Locale.getDefault() : c.getLocale();
+		
 		return UIManager.getString(key, l);
 	}
 }

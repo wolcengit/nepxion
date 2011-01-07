@@ -58,6 +58,7 @@ public abstract class JDropDownButton
 		{
 			return;
 		}
+		
 		IDropDownPopupMenu popupMenu = dropDownPane.getPopupMenu();
 		popupMenu.registerOwner(this);
 		popupMenu.registerRenderer(this);

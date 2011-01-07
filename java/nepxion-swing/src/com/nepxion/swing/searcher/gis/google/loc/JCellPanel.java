@@ -162,6 +162,7 @@ public class JCellPanel
 	{
 		ElementNode selectedElementNode = (ElementNode) languageComboBox.getSelectedItem();
 		Locale locale = (Locale) selectedElementNode.getUserObject();
+		
 		return locale.toString();
 	}
 	
@@ -174,6 +175,7 @@ public class JCellPanel
 			if (locale.toString().equals(language))
 			{
 				languageComboBox.setSelectedIndex(i);
+				
 				return;
 			}	
 		}

@@ -147,6 +147,7 @@ public abstract class JTableDropDownSelector
 		{
 			adaptText();
 		}
+		
 		return returnValue;
 	}
 	

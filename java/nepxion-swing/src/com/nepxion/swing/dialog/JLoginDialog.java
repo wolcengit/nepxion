@@ -136,6 +136,7 @@ public abstract class JLoginDialog
 				if (account.equals("") || password.equals(""))
 				{
 					JBasicOptionPane.showMessageDialog(JLoginDialog.this, SwingLocale.getString("login_not_null"), SwingLocale.getString("error"), JBasicOptionPane.ERROR_MESSAGE);
+					
 					return;
 				}
 				
@@ -147,6 +148,7 @@ public abstract class JLoginDialog
 				catch (Exception ex)
 				{
 					JExceptionDialog.traceException(JLoginDialog.this, SwingLocale.getString("login_failure_service"), ex);
+					
 					return;
 				}
 				

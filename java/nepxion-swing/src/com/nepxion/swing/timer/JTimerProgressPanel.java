@@ -104,6 +104,7 @@ public abstract class JTimerProgressPanel
 					{
 						return;
 					}
+					
 					stop();
 					fireHidden();
 				}
@@ -123,6 +124,7 @@ public abstract class JTimerProgressPanel
 					{
 						return;
 					}
+					
 					stop();
 					fireCancelled();
 				}

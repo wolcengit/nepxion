@@ -82,6 +82,7 @@ public class JDockableTabbedPane
 	public void mouseClicked(MouseEvent e)
 	{
 		super.mouseClicked(e);
+		
 		// 假如右键菜单屏蔽，那么同时也屏蔽双击功能
 		if (getPopupMenu() != null && e.getClickCount() > 1)
 		{

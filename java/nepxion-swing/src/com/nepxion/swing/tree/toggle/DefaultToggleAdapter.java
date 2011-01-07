@@ -33,6 +33,7 @@ public class DefaultToggleAdapter
 		{
 			return null;
 		}
+		
 		if (userObject instanceof ITogglePanel)
 		{
 			return (ITogglePanel) userObject;
@@ -40,8 +41,10 @@ public class DefaultToggleAdapter
 		else if (userObject instanceof HashMap)
 		{
 			HashMap map = (HashMap) userObject;
+			
 			return (ITogglePanel) map.get(Dom4JConstants.TAG_CLASS);
 		}
+		
 		return null;
 	}
 }

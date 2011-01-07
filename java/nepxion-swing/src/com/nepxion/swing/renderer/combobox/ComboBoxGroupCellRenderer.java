@@ -96,10 +96,12 @@ public class ComboBoxGroupCellRenderer
 			
 			setEnabled(elementNode.isEnabled());
 		}
+		
 		if (value.toString().equals(SEPARATOR))
 		{
 			return separator;
 		}
+		
 		return this;
 	}
 }

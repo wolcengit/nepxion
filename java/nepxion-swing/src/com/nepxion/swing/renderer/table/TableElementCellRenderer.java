@@ -87,6 +87,7 @@ public class TableElementCellRenderer
 				setIcon(cellIcon);
 			}
 		}
+		
 		return this;
 	}
 }

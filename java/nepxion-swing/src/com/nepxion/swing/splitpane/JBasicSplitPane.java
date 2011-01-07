@@ -74,6 +74,7 @@ public class JBasicSplitPane
 				int location = ((Integer) dividerLocations.get(key)).intValue();
 				
 				JBasicSplitPane.super.setDividerLocation(index, location);
+				
 				setComponentSize(index, location);
 			}
 			dividerLocations = null;

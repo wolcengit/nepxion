@@ -126,6 +126,7 @@ public class JCoordinatePanel
 	{
 		ElementNode selectedElementNode = (ElementNode) languageComboBox.getSelectedItem();
 		Locale locale = (Locale) selectedElementNode.getUserObject();
+		
 		return locale.toString();
 	}
 	
@@ -138,6 +139,7 @@ public class JCoordinatePanel
 			if (locale.toString().equals(language))
 			{
 				languageComboBox.setSelectedIndex(i);
+				
 				return;
 			}	
 		}

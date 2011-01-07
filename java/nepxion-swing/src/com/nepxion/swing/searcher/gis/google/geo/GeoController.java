@@ -38,6 +38,7 @@ public class GeoController
 						if (entityList == null || entityList.isEmpty())
 						{
 							JBasicOptionPane.showMessageDialog(HandleManager.getFrame(panel), SwingLocale.getString("no_records"), SwingLocale.getString("warning"), JBasicOptionPane.WARNING_MESSAGE);
+							
 							return;
 						}	
 						
@@ -63,6 +64,7 @@ public class GeoController
 				dialog.execute();
 			}
 		};
+		
 		return action;
 	}
 	
@@ -77,10 +79,12 @@ public class GeoController
 				{
 					return;
 				}
+				
 				GeoTableModel tableModel = (GeoTableModel) table.getDataModel();
 				tableModel.clearRows();
 			}
 		};
+		
 		return action;
 	}
 }

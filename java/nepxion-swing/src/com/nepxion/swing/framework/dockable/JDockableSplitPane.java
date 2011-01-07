@@ -161,6 +161,7 @@ public class JDockableSplitPane
 				tabbedPanes.add(component);
 			}
 		}
+		
 		return tabbedPanes;
 	}
 }

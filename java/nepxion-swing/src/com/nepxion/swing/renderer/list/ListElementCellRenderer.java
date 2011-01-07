@@ -200,6 +200,7 @@ public class ListElementCellRenderer
 		{
 			adaptBorder(isSelected, cellHasFocus);
 		}
+		
 		return this;
 	}
 	

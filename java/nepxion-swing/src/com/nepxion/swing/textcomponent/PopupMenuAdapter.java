@@ -129,6 +129,7 @@ public class PopupMenuAdapter
 		{
 			
 		}
+		
 		return hasContent;
 	}
 	
@@ -178,6 +179,7 @@ public class PopupMenuAdapter
 		{
 			return;
 		}
+		
 		if (!textComponent.isEnabled())
 		{
 			return;

@@ -51,6 +51,7 @@ public class HoverBorder
 		
 		insets = new Insets(thickness, thickness, thickness, thickness);
 		lastComponentSize = currentComponent;
+		
 		return insets;
 	}
 	

@@ -38,6 +38,7 @@ public class UIDefaultsTableCellRenderer
 	public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column)
 	{
 		super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
+		
 		setText("");
 		setIcon(null);
 		setBorder(null);
@@ -76,6 +77,7 @@ public class UIDefaultsTableCellRenderer
 		else
 		{
 		}
+		
 		return this;
 	}
 	
@@ -176,6 +178,7 @@ public class UIDefaultsTableCellRenderer
 			{
 				c = component;
 			}
+			
 			return border.getBorderInsets(c);
 		}
 		

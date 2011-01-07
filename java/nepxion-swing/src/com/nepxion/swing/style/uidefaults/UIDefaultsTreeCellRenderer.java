@@ -83,6 +83,7 @@ public class UIDefaultsTreeCellRenderer
 		
 		setIcon(IconFactory.getSwingIcon(iconName));
 		tree.setRowHeight(20);
+		
 		return this;
 	}
 }

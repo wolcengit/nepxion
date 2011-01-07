@@ -43,6 +43,7 @@ public class JTimeSelector
 		{
 			return (Date) value;
 		}
+		
 		return null;
 	}
 	
@@ -55,6 +56,7 @@ public class JTimeSelector
 	public Dimension getPreferredSize()
 	{
 		Dimension preferredSize = super.getPreferredSize();
+		
 		return new Dimension(preferredSize.width + 5, preferredSize.height);
 	}
 }

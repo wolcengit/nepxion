@@ -167,6 +167,7 @@ public class JBasicButton
 	public void setUI(ButtonUI buttonUI)
 	{
 		super.setUI(buttonUI);
+		
 		setOpaque(false);
 	}
 	

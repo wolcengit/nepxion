@@ -5,7 +5,7 @@ package com.nepxion.swing.style.outlookbar;
  * <p>Description: Nepxion Swing Repository</p>
  * <p>Copyright: Copyright (c) 2010</p>
  * <p>Company: Nepxion</p>
- * @author Neptune хн╨ф╬Э
+ * @author Neptune
  * @email hj_ren@msn.com
  * @version 1.0
  */
@@ -39,12 +39,14 @@ public class JFlatOutlookBarButtonUI
 	protected void paintText(Graphics g, JComponent c, Rectangle textRect, String text)
 	{
 		Rectangle rect = new Rectangle(textRect.x + indent, textRect.y, textRect.width, textRect.height);
+		
 		super.paintText(g, c, rect, text);
 	}
 	
 	protected void paintIcon(Graphics g, JComponent c, Rectangle iconRect)
 	{
 		Rectangle rect = new Rectangle(iconRect.x + indent, iconRect.y, iconRect.width, iconRect.height);
+		
 		super.paintIcon(g, c, rect);
 	}
 }

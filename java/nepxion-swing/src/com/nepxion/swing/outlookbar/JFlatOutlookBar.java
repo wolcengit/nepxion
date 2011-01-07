@@ -5,7 +5,7 @@ package com.nepxion.swing.outlookbar;
  * <p>Description: Nepxion Swing Repository</p>
  * <p>Copyright: Copyright (c) 2010</p>
  * <p>Company: Nepxion</p>
- * @author Neptune хн╨ф╬Э
+ * @author Neptune
  * @email hj_ren@msn.com
  * @version 1.0
  */
@@ -49,11 +49,13 @@ public class JFlatOutlookBar
 	public JScrollPane makeScrollPane(Component component)
 	{
 		JScrollPane scrollPane = super.makeScrollPane(component);
+		
 		scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 		scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
 		
 		scrollPane.getHorizontalScrollBar().setUI(ScrollPaneUIManager.getScrollBarUI());
 		scrollPane.getVerticalScrollBar().setUI(ScrollPaneUIManager.getScrollBarUI());
+		
 		return scrollPane;
 	}
 	
@@ -77,6 +79,7 @@ public class JFlatOutlookBar
 				break;
 		}
 		outlookBarUI.getButtonUI().setIndent(indent);
+		
 		super.setAllTabsAlignment(alignment);
 	}
 }

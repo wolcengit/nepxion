@@ -38,6 +38,7 @@ public class LocController
 						if (entity == null)
 						{
 							JBasicOptionPane.showMessageDialog(HandleManager.getFrame(panel), SwingLocale.getString("no_records"), SwingLocale.getString("warning"), JBasicOptionPane.WARNING_MESSAGE);
+							
 							return;
 						}	
 						
@@ -63,12 +64,14 @@ public class LocController
 						
 						LocSearcher searcher = new LocSearcher(language);
 						LocEntity entity = searcher.search(latitude, longitude);
+						
 						return entity;
 					}
 				};
 				dialog.execute();
 			}
 		};
+		
 		return action;
 	}
 	
@@ -87,6 +90,7 @@ public class LocController
 						if (entity == null)
 						{
 							JBasicOptionPane.showMessageDialog(HandleManager.getFrame(panel), SwingLocale.getString("no_records"), SwingLocale.getString("warning"), JBasicOptionPane.WARNING_MESSAGE);
+							
 							return;
 						}						
 						
@@ -116,12 +120,14 @@ public class LocController
 						
 						LocSearcher searcher = new LocSearcher(language);
 						LocEntity entity = searcher.search(cellID, lac, mcc, mnc);
+						
 						return entity;
 					}
 				};
 				dialog.execute();
 			}
 		};
+		
 		return action;
 	}
 	
@@ -136,10 +142,12 @@ public class LocController
 				{
 					return;
 				}
+				
 				LocTableModel tableModel = (LocTableModel) table.getDataModel();
 				tableModel.clearRows();
 			}
 		};
+		
 		return action;
 	}
 }

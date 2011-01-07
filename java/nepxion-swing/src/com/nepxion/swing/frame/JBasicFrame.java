@@ -135,7 +135,9 @@ public class JBasicFrame
 				}
 			}
 		}
+		
 		super.processWindowEvent(e);
+		
 		if (isDestroy)
 		{
 			if (e.getID() == WindowEvent.WINDOW_CLOSING)
@@ -160,8 +162,10 @@ public class JBasicFrame
 			{
 				maxBounds = null;
 			}
+			
 			super.setMaximizedBounds(maxBounds);
 		}
+		
 		super.setExtendedState(state);
 	}
 }

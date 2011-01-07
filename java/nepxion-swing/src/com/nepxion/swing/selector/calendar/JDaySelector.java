@@ -376,7 +376,9 @@ public class JDaySelector
         else
         {
             this.locale = locale;
+            
             super.setLocale(locale);
+            
             init();
         }
     }

@@ -106,12 +106,14 @@ public class JCheckBoxPanel
 	public List getSelections()
 	{
 		setSelections();
+		
 		return selectedElementNodes;
 	}
 	
 	public List getSelectedUserObjects()
 	{
 		setSelections();
+		
 		return selectedUserObjects;
 	}
 }

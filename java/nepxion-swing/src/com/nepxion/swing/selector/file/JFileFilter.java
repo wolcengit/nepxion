@@ -38,6 +38,7 @@ public class JFileFilter
 				accept = filterWords.contains(suffix);
 			}
 		}
+		
 		return accept;
 	}
 	
@@ -60,6 +61,7 @@ public class JFileFilter
 		{
 			suffix = path.substring(index + 1).toLowerCase();
 		}
+		
 		return suffix;
 	}
 }

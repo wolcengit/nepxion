@@ -145,6 +145,7 @@ public class JDateSelector
 			public void setEnabled(boolean enabled)
             {
                 super.setEnabled(enabled);
+                
                 calendarButton.setEnabled(enabled);
             }
         };
@@ -389,6 +390,7 @@ public class JDateSelector
     public Dimension getPreferredSize()
     {
     	Dimension preferredSize = super.getPreferredSize();
+    	
     	return new Dimension(preferredSize.width + 5, preferredSize.height);
     }  
     

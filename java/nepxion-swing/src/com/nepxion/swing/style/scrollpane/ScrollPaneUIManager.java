@@ -36,6 +36,7 @@ public class ScrollPaneUIManager
 		catch (InstantiationException e)
 		{
 		}
+		
 		return outlookScrollBarUI;
 	}
 }

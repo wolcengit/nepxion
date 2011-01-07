@@ -59,6 +59,7 @@ public class IconFactory
 				}
 			}
 			iconPool.put(iconFullPath, icon);
+			
 			return icon;
 		}
 	}
@@ -70,6 +71,7 @@ public class IconFactory
 		{
 			return new ImageIcon(iconURL);
 		}
+		
 		return null;
 	}
 }

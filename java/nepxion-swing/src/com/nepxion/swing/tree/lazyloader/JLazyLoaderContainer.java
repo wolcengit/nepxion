@@ -152,6 +152,7 @@ public class JLazyLoaderContainer
 					if (searchText.equals(""))
 					{
 						searchTextField.showTip(SwingLocale.getString("input_not_null"), JBalloonTip.TIP_ICON_ERROR_MESSAGE, 1, 7);
+						
 						return;
 					}
 					
@@ -183,11 +184,13 @@ public class JLazyLoaderContainer
 				public void actionPerformed(ActionEvent e)
 				{
 					SearchDescription searchDescription = getSearchDescription();
+					
 					boolean hasResult = hasResult(searchDescription);
 					if (!hasResult)
 					{
 						return;
 					}
+					
 					int resultIndex = searchDescription.getResultIndex();
 					TreeNode treeNode = (TreeNode) searchDescription.getResult().get(resultIndex);
 					lazyLoaderTree.setSelectionTreeNode(treeNode);
@@ -205,11 +208,13 @@ public class JLazyLoaderContainer
 				public void actionPerformed(ActionEvent e)
 				{
 					SearchDescription searchDescription = getSearchDescription();
+					
 					boolean hasResult = hasResult(searchDescription);
 					if (!hasResult)
 					{
 						return;
 					}
+					
 					int resultIndex = searchDescription.getResultIndex();
 					TreeNode treeNode = (TreeNode) searchDescription.getResult().get(resultIndex);
 					lazyLoaderTree.setSelectionTreeNode(treeNode);
@@ -235,6 +240,7 @@ public class JLazyLoaderContainer
 				public void actionPerformed(ActionEvent e)
 				{
 					SearchDescription searchDescription = getSearchDescription();
+					
 					boolean hasResult = hasResult(searchDescription);
 					if (!hasResult)
 					{
@@ -389,13 +395,17 @@ public class JLazyLoaderContainer
 			if (searchDescription == null)
 			{
 				JBasicOptionPane.showMessageDialog(HandleManager.getFrame((JTree) lazyLoaderTree), SwingLocale.getString("search_result_empty"), SwingLocale.getString("information"), JBasicOptionPane.INFORMATION_MESSAGE);
+				
 				return false;
 			}
+			
 			if (searchDescription.getResult() == null || searchDescription.getResult().isEmpty())
 			{
 				JBasicOptionPane.showMessageDialog(HandleManager.getFrame((JTree) lazyLoaderTree), SwingLocale.getString("search_result_empty"), SwingLocale.getString("information"), JBasicOptionPane.INFORMATION_MESSAGE);
+			
 				return false;
 			}
+			
 			return true;
 		}
 	}

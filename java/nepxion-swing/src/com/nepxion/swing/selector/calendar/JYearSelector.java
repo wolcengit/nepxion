@@ -43,6 +43,7 @@ public class JYearSelector
     public void setYear(int y)
     {
         int oldYear = getValue();
+        
         super.setValue(y, true, false);
 
         if (daySelector != null)

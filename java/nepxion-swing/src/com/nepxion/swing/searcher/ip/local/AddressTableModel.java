@@ -44,6 +44,7 @@ public class AddressTableModel
 			case 2:
 				return entity.getLocation();
 		}
+		
 		return null;
 	}
 }

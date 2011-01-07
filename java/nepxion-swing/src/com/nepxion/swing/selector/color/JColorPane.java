@@ -150,6 +150,7 @@ public class JColorPane
 				if (buttonColor.toString().equals(color.toString()))
 				{
 					button.setSelected(true);
+					
 					return;
 				}
 			}

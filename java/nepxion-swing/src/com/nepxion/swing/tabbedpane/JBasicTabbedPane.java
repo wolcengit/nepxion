@@ -116,6 +116,7 @@ public class JBasicTabbedPane
 		{
 			return closeTabIcon.getCloseIcon();
 		}
+		
 		return null;
 	}
 	
@@ -126,6 +127,7 @@ public class JBasicTabbedPane
 		{
 			return ((CloseTabIcon) icon);
 		}
+		
 		return null;
 	}
 	
@@ -136,6 +138,7 @@ public class JBasicTabbedPane
 		{
 			return closeIcon.isDrawBorder();
 		}
+		
 		return false;
 	}
 	
@@ -156,6 +159,7 @@ public class JBasicTabbedPane
 		{
 			return closeIcon.isDrawCenter();
 		}
+		
 		return false;
 	}
 	
@@ -176,6 +180,7 @@ public class JBasicTabbedPane
 		{
 			return closeTabIcon.isHint();
 		}
+		
 		return false;
 	}
 	
@@ -196,6 +201,7 @@ public class JBasicTabbedPane
 		{
 			return closeTabIcon.getGap();
 		}
+		
 		return 0;
 	}
 	
@@ -216,6 +222,7 @@ public class JBasicTabbedPane
 		{
 			return null;
 		}
+		
 		return getTitleAt(index);
 	}
 	
@@ -235,6 +242,7 @@ public class JBasicTabbedPane
 	public boolean isTabClosableAt(int index)
 	{
 		CloseIcon closeIcon = getCloseIcon(index);
+		
 		return closeIcon != null;
 	}
 	
@@ -267,6 +275,7 @@ public class JBasicTabbedPane
 				return getComponentAt(i);
 			}
 		}
+		
 		return null;
 	}
 	
@@ -281,6 +290,7 @@ public class JBasicTabbedPane
 				components.add(component);
 			}
 		}
+		
 		return components;
 	}
 	
@@ -301,6 +311,7 @@ public class JBasicTabbedPane
 		for (int i = 0; i < closedComponents.size(); i++)
 		{
 			Component closedComponent = (Component) closedComponents.get(i);
+			
 			super.removeTabAt(indexOfComponent(closedComponent));
 		}
 	}

@@ -45,6 +45,7 @@ public class JBasicMenuBar
 	public void paint(Graphics g)
 	{
 		super.paint(g);
+		
 		if (isBorderVisible)
 		{
 			int h = getHeight();

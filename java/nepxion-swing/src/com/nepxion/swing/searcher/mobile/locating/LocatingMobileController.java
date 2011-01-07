@@ -38,6 +38,7 @@ public class LocatingMobileController
 						if (entity == null)
 						{
 							JBasicOptionPane.showMessageDialog(HandleManager.getFrame(panel), SwingLocale.getString("no_records"), SwingLocale.getString("warning"), JBasicOptionPane.WARNING_MESSAGE);
+							
 							return;
 						}
 						
@@ -61,12 +62,14 @@ public class LocatingMobileController
 						
 						LocatingMobileSearcher searcher = new LocatingMobileSearcher();
 						LocatingMobileEntity entity = searcher.search(mobile);
+						
 						return entity;
 					}
 				};
 				dialog.execute();
 			}
 		};
+		
 		return action;
 	}
 	
@@ -81,10 +84,12 @@ public class LocatingMobileController
 				{
 					return;
 				}
+				
 				LocatingMobileTableModel tableModel = (LocatingMobileTableModel) table.getDataModel();
 				tableModel.clearRows();
 			}
 		};
+		
 		return action;
 	}
 }

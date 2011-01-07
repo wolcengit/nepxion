@@ -200,6 +200,7 @@ public class SortButtonRenderer
 			component.setBackground(header.getBackground());
 			component.setFont(header.getFont());
 		}
+		
 		return component;
 	}
 	

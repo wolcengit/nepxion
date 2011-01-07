@@ -57,6 +57,7 @@ public class JNumberSpinnerField
     public JNumberSpinnerField(int min, int max)
     {
         super();
+        
         this.min = min;
         if (max < min)
         {
@@ -316,6 +317,7 @@ public class JNumberSpinnerField
     public void setEnabled(boolean enabled)
     {
         super.setEnabled(enabled);
+        
         textField.setEnabled(enabled);
         spinner.setEnabled(enabled);
     }

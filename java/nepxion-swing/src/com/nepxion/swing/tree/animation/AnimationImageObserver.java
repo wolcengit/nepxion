@@ -44,6 +44,7 @@ public class AnimationImageObserver
 				tree.repaint(rectangle);
 			}
 		}
+		
 		return (flags & (ALLBITS | ABORT)) == 0;
 	}
 }

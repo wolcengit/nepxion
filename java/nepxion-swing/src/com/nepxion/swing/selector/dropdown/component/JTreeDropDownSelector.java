@@ -116,6 +116,7 @@ public abstract class JTreeDropDownSelector
 		if (treeNode == null)
 		{
 			text = null;
+			
 			return;
 		}
 		
@@ -185,6 +186,7 @@ public abstract class JTreeDropDownSelector
 		{
 			return false;
 		}
+		
 		Object selectedComponent = treePath.getLastPathComponent();
 		if (selectedComponent == null)
 		{

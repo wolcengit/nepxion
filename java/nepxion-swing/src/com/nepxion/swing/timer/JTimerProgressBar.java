@@ -165,6 +165,7 @@ public class JTimerProgressBar
 		public UpdateTimer()
 		{
 			super(delayTime, null);
+			
 			addActionListener(this);
 		}
 		

@@ -78,6 +78,7 @@ public class JConfigBar
 				return togglePanel;
 			}
 		}
+		
 		return null;
 	}
 	
@@ -91,6 +92,7 @@ public class JConfigBar
 				return toggleActionButton;
 			}
 		}
+		
 		return null;
 	}
 	
@@ -114,6 +116,7 @@ public class JConfigBar
 			if (toggleActionButton.getTogglePanel() == togglePanel)
 			{
 				toggleActionButton.doClick();
+				
 				return;
 			}
 		}
@@ -125,6 +128,7 @@ public class JConfigBar
 		{
 			return;
 		}
+		
 		int togglePanelIndex = 0;
 		for (Enumeration enumeration = configButtonBar.getButtonGroup().getElements(); enumeration.hasMoreElements();)
 		{
@@ -132,6 +136,7 @@ public class JConfigBar
 			if (togglePanelIndex == index)
 			{
 				toggleActionButton.doClick();
+				
 				return;
 			}
 			togglePanelIndex++;

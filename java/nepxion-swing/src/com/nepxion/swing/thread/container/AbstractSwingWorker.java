@@ -52,6 +52,7 @@ public abstract class AbstractSwingWorker
 		Object data = super.doInBackground();
 		
 		threadContainer.finish();
+		
 		return data;
 	}
 	

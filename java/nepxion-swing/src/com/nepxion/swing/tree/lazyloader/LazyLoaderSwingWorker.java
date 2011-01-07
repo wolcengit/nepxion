@@ -102,6 +102,7 @@ public class LazyLoaderSwingWorker
 					}
 					
 					JExceptionDialog.traceException(HandleManager.getFrame(LazyLoaderSwingWorker.this.getComponent()), ExceptionUtil.subString(e), exception);
+					
 					return;
 				}
 				
@@ -122,6 +123,7 @@ public class LazyLoaderSwingWorker
 		if (lazyLoaderTree.getLazyLoader().isSynchronized())
 		{
 			loadingTreeNode.setAction(LoadingTreeNode.ACTION_LOADING);
+			
 			return lazyLoaderTree.getLazyLoader().loadBackground(lazyLoaderTreeNode);
 		}
 		else
@@ -129,6 +131,7 @@ public class LazyLoaderSwingWorker
 			synchronized (lazyLoaderTree.getLazyLoaderLock())
 			{
 				loadingTreeNode.setAction(LoadingTreeNode.ACTION_LOADING);
+				
 				return lazyLoaderTree.getLazyLoader().loadBackground(lazyLoaderTreeNode);
 			}
 		}
@@ -140,6 +143,7 @@ public class LazyLoaderSwingWorker
 		{
 			return;
 		}
+		
 		for (Enumeration enumeration = lazyLoaderTreeNode.children(); enumeration.hasMoreElements();)
 		{
 			Object childTreeNode = enumeration.nextElement();

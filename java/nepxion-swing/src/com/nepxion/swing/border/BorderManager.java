@@ -31,6 +31,7 @@ public class BorderManager
 				scrollPaneBorder = BorderFactory.createEtchedBorder();
 			}
 		}
+		
 		return scrollPaneBorder;
 	}
 	

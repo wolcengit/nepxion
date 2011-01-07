@@ -55,6 +55,7 @@ public class PieChartPlot3D
 			Comparable key = (Comparable) iterator.next();
 			
 			Stroke stroke = super.getSectionOutlineStroke(key);
+			
 			if (stroke == null)
 			{
 				stroke = DEFAULT_OUTLINE_STROKE;
@@ -62,6 +63,7 @@ public class PieChartPlot3D
 			sectionOutlineStrokeMap.put(key, stroke);
 			
 			Paint paint = super.getSectionOutlinePaint(key);
+			
 			if (paint == null)
 			{
 				paint = DEFAULT_OUTLINE_PAINT;
@@ -81,6 +83,7 @@ public class PieChartPlot3D
 			{
 				stroke = (Stroke) sectionOutlineStrokeMap.get(key);
 			}
+			
 			super.setSectionOutlineStroke(key, stroke);
 			
 			Paint paint = adapter.getSectionOutlinePaint(key);
@@ -88,6 +91,7 @@ public class PieChartPlot3D
 			{
 				paint = (Paint) sectionOutlinePaintMap.get(key);
 			}
+			
 			super.setSectionOutlinePaint(key, paint);
 		}
 	}
@@ -109,12 +113,14 @@ public class PieChartPlot3D
 	public void setSectionOutlineStroke(Comparable key, Stroke stroke)
 	{
 		super.setSectionOutlineStroke(key, stroke);
+		
 		sectionOutlineStrokeMap.put(key, stroke);
 	}
 	
 	public void setSectionOutlinePaint(Comparable key, Paint paint)
 	{
 		super.setSectionOutlinePaint(key, paint);
+		
 		sectionOutlinePaintMap.put(key, paint);
 	}
 	

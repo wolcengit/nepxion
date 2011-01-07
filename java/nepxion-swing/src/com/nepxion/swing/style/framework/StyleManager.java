@@ -81,6 +81,7 @@ public class StyleManager
 		{
 			style = new JLiteStyle();
 		}
+		
 		return style;
 	}
 }

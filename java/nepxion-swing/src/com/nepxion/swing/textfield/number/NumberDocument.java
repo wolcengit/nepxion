@@ -111,6 +111,7 @@ public class NumberDocument
 			Toolkit.getDefaultToolkit().beep();
 			throw new NumberFormatException(SwingLocale.getString("invalid_data_format"));
 		}
+		
 		super.insertString(offset, value, attributeSet);
 	}
 }

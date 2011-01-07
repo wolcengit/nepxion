@@ -151,6 +151,7 @@ public class PaginationContext
 		{
 			return totalRowCount - (currentPageIndex - 1) * rowCount;
 		}
+		
 		return rowCount;
 	}
 	
@@ -171,6 +172,7 @@ public class PaginationContext
 		{
 			totalPageCount = 1;
 		}
+		
 		return totalPageCount;
 	}
 	

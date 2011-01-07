@@ -67,6 +67,7 @@ public class AnimationInvoker
 		{
 			return;
 		}
+		
 		new AnimationInvoker(component, frameInterval, frames, isHorizontalExtending, isVerticalExtending).invoke();
 	}
 	

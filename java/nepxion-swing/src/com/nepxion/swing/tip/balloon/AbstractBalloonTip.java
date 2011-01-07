@@ -117,6 +117,7 @@ public abstract class AbstractBalloonTip
 			validateBounds();
 			validateLayeredPane();
 		}
+		
 		super.setVisible(visible);
 	}
 	
@@ -139,6 +140,7 @@ public abstract class AbstractBalloonTip
 			{
 				return;
 			}
+			
 			if (parent instanceof JFrame)
 			{
 				layeredPane = ((JFrame) parent).getLayeredPane();
@@ -164,6 +166,7 @@ public abstract class AbstractBalloonTip
 		{
 			return;
 		}
+		
 		layeredPane.add(this, JLayeredPane.POPUP_LAYER);
 		parentLayeredPane = layeredPane;
 	}
@@ -186,6 +189,7 @@ public abstract class AbstractBalloonTip
 			{
 				return new Point(x, y);
 			}
+			
 			if (parent instanceof JLayeredPane)
 			{
 				break;

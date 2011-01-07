@@ -32,10 +32,12 @@ public class ListCellLabel
 	public Dimension getPreferredSize()
 	{
 		Dimension dimension = super.getPreferredSize();
+		
 		if (dimension != null)
 		{
 			dimension.width += 2;
 		}
+		
 		return dimension;
 	}
 	
@@ -89,6 +91,7 @@ public class ListCellLabel
 				}
 			}
 		}
+		
 		super.paint(g);
 	}
 }

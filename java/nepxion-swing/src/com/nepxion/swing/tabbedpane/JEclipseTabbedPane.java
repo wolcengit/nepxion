@@ -103,6 +103,7 @@ public class JEclipseTabbedPane
 	public void addTab(String title, Icon icon, Component component, String toolTipText, boolean isClosable)
 	{
 		super.addTab(title, icon, component, toolTipText);
+		
 		setTabClosableAt(indexOfComponent(component), isClosable);
 	}
 	
@@ -110,6 +111,7 @@ public class JEclipseTabbedPane
 	{
 		JideTabbedPaneUI tabbedPaneUI = (JideTabbedPaneUI) getUI();
 		int tabIndex = tabbedPaneUI.tabForCoordinate(this, e.getX(), e.getY());
+		
 		return tabIndex;
 	}
 	
@@ -120,6 +122,7 @@ public class JEclipseTabbedPane
 		{
 			return null;
 		}
+		
 		return getTitleAt(index);
 	}
 	
@@ -137,6 +140,7 @@ public class JEclipseTabbedPane
 				return getComponentAt(i);
 			}
 		}
+		
 		return null;
 	}
 	
@@ -151,6 +155,7 @@ public class JEclipseTabbedPane
 				components.add(component);
 			}
 		}
+		
 		return components;
 	}
 	
@@ -211,6 +216,7 @@ public class JEclipseTabbedPane
 	public void setPopupMenu(JPopupMenu popupMenu, boolean isClosable)
 	{
 		this.popupMenu = popupMenu;
+		
 		if (isClosable)
 		{
 			popupMenuAdapter = new PopupMenuAdapter(this, popupMenu);

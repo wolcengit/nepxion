@@ -153,6 +153,7 @@ public class ListTabbedCellRenderer
 	public Dimension getPreferredSize()
 	{
 		Dimension preferredSize = super.getPreferredSize();
+		
 		return new Dimension(width > 0 ? width : preferredSize.width, preferredSize.height);
 	}
 	

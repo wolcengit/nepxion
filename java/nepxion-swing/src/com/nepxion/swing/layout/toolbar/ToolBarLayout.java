@@ -83,6 +83,7 @@ public class ToolBarLayout
 		{
 			size.width += insets.left + insets.right;
 		}
+		
 		return size;
 	}
 	
@@ -187,6 +188,7 @@ public class ToolBarLayout
 				size.height = dimension.height;
 			}
 		}
+		
 		return size;
 	}
 }

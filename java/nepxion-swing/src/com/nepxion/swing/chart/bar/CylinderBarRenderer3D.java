@@ -49,6 +49,7 @@ public class CylinderBarRenderer3D
 		{
 			return;
 		}
+		
 		double d = number.doubleValue();
 		Rectangle2D.Double double1 = new Rectangle2D.Double(rectangle2D.getX(), rectangle2D.getY() + getYOffset(), rectangle2D.getWidth() - getXOffset(), rectangle2D.getHeight() - getYOffset());
 		PlotOrientation plotOrientation = categoryPlot.getOrientation();
@@ -58,6 +59,7 @@ public class CylinderBarRenderer3D
 		{
 			return;
 		}
+		
 		RectangleEdge rectangleEdge = categoryPlot.getRangeAxisEdge();
 		float f = (float) valueAxis.valueToJava2D(ad[0], double1, rectangleEdge);
 		float f1 = (float) valueAxis.valueToJava2D(ad[1], double1, rectangleEdge);

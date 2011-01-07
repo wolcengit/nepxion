@@ -249,6 +249,7 @@ public class RectangleBarChartFactory
 	public static Paint getSectionPaint(CategoryPlot categoryPlot, int index)
 	{
 		BarRenderer barRenderer = (BarRenderer) categoryPlot.getRenderer();
+		
 		return barRenderer.getSeriesPaint(index);
 	}
 	

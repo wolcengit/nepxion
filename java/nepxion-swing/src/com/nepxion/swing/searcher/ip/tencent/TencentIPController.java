@@ -38,6 +38,7 @@ public class TencentIPController
 						if (entity == null)
 						{
 							JBasicOptionPane.showMessageDialog(HandleManager.getFrame(panel), SwingLocale.getString("no_records"), SwingLocale.getString("warning"), JBasicOptionPane.WARNING_MESSAGE);
+							
 							return;
 						}
 						
@@ -50,12 +51,14 @@ public class TencentIPController
 					{
 						TencentIPSearcher searcher = new TencentIPSearcher();
 						TencentIPEntity entity = searcher.search();
+						
 						return entity;
 					}
 				};
 				dialog.execute();
 			}
 		};
+		
 		return action;
 	}
 	
@@ -70,10 +73,12 @@ public class TencentIPController
 				{
 					return;
 				}
+				
 				TencentIPTableModel tableModel = (TencentIPTableModel) table.getDataModel();
 				tableModel.clearRows();
 			}
 		};
+		
 		return action;
 	}
 }

@@ -157,11 +157,13 @@ public class JWizard
 		{
 			return;
 		}
+		
 		JStep currentStep = wizardModel.getStepAt(currentStepIndex);
 		if (!currentStep.cancel())
 		{
 			return;
 		}
+		
 		HandleManager.getWindow(this).setVisible(false);
 	}
 	
@@ -178,6 +180,7 @@ public class JWizard
 		{
 			return;
 		}
+		
 		int nextStepIndex = currentStepIndex + 1;
 		if (nextStepIndex >= stepCount)
 		{
@@ -203,6 +206,7 @@ public class JWizard
 		{
 			return;
 		}
+		
 		int previousStepIndex = currentStepIndex - 1;
 		if (previousStepIndex < 0)
 		{
@@ -370,6 +374,7 @@ public class JWizard
 			}
 			parent = parent.getParent();
 		}
+		
 		return null;
 	}
 }

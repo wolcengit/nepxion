@@ -119,6 +119,7 @@ public abstract class PaginationBar
 				if (isValidation && currentPageIndex == 1)
 				{					
 					JBasicOptionPane.showMessageDialog(HandleManager.getFrame(PaginationBar.this), SwingLocale.getString("first_page_description"), SwingLocale.getString("warning"), JBasicOptionPane.WARNING_MESSAGE);
+					
 					return;
 				}
 				try
@@ -145,6 +146,7 @@ public abstract class PaginationBar
 				if (isValidation && currentPageIndex == 1)
 				{
 					JBasicOptionPane.showMessageDialog(HandleManager.getFrame(PaginationBar.this), SwingLocale.getString("first_page_description"), SwingLocale.getString("warning"), JBasicOptionPane.WARNING_MESSAGE);
+					
 					return;
 				}
 				try
@@ -172,6 +174,7 @@ public abstract class PaginationBar
 				if (isValidation && currentPageIndex == totalPageCount)
 				{
 					JBasicOptionPane.showMessageDialog(HandleManager.getFrame(PaginationBar.this), SwingLocale.getString("last_page_description"), SwingLocale.getString("warning"), JBasicOptionPane.WARNING_MESSAGE);
+					
 					return;
 				}
 				try
@@ -199,6 +202,7 @@ public abstract class PaginationBar
 				if (isValidation && currentPageIndex == totalPageCount)
 				{
 					JBasicOptionPane.showMessageDialog(HandleManager.getFrame(PaginationBar.this), SwingLocale.getString("last_page_description"), SwingLocale.getString("warning"), JBasicOptionPane.WARNING_MESSAGE);
+					
 					return;
 				}
 				try
@@ -230,6 +234,7 @@ public abstract class PaginationBar
 				catch (NumberFormatException ex)
 				{
 					pageIndexDirectTextField.showTip(SwingLocale.getString("invalid_page_count"), JBalloonTip.TIP_ICON_ERROR_MESSAGE, 1, 9);
+					
 					return;
 				}
 				
@@ -240,6 +245,7 @@ public abstract class PaginationBar
 				if (pageIndexDirect > totalPageCount)
 				{
 					pageIndexDirectTextField.showTip(SwingLocale.getString("page_count_not_more_than") + totalPageCount, JBalloonTip.TIP_ICON_ERROR_MESSAGE, 2, 12);
+					
 					return;
 				}
 				
@@ -276,6 +282,7 @@ public abstract class PaginationBar
 				catch (NumberFormatException e1)
 				{
 					maxPageRowCountDirectTextField.showTip(SwingLocale.getString("item_count_not_null"));
+					
 					return;
 				}
 				
@@ -285,6 +292,7 @@ public abstract class PaginationBar
 				if (maxPageRowCountDirect > totalRowCount)
 				{
 					maxPageRowCountDirectTextField.showTip(SwingLocale.getString("item_count_not_more_than") + totalRowCount);
+					
 					return;
 				}
 				
@@ -489,6 +497,7 @@ public abstract class PaginationBar
 	{
 		JLabel label = new JLabel(text);
 		label.setUI(new BasicLabelUI());
+		
 		return label;
 	}
 	
@@ -496,6 +505,7 @@ public abstract class PaginationBar
 	{
 		JLabel label = new JLabel(icon);
 		label.setUI(new BasicLabelUI());
+		
 		return label;
 	}
 	

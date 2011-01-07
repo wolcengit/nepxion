@@ -38,6 +38,7 @@ public class SinaIPController
 						if (entity == null)
 						{
 							JBasicOptionPane.showMessageDialog(HandleManager.getFrame(panel), SwingLocale.getString("no_records"), SwingLocale.getString("warning"), JBasicOptionPane.WARNING_MESSAGE);
+							
 							return;
 						}						
 						
@@ -60,12 +61,14 @@ public class SinaIPController
 						{
 							entity = searcher.search(ip);
 						}
+						
 						return entity;
 					}
 				};
 				dialog.execute();
 			}
 		};
+		
 		return action;
 	}
 	
@@ -80,10 +83,12 @@ public class SinaIPController
 				{
 					return;
 				}
+				
 				SinaIPTableModel tableModel = (SinaIPTableModel) table.getDataModel();
 				tableModel.clearRows();
 			}
 		};
+		
 		return action;
 	}
 }

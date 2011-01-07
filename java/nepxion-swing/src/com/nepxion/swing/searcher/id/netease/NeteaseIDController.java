@@ -38,6 +38,7 @@ public class NeteaseIDController
 						if (entity == null)
 						{
 							JBasicOptionPane.showMessageDialog(HandleManager.getFrame(panel), SwingLocale.getString("no_records"), SwingLocale.getString("warning"), JBasicOptionPane.WARNING_MESSAGE);
+							
 							return;
 						}
 						
@@ -61,12 +62,14 @@ public class NeteaseIDController
 						
 						NeteaseIDSearcher searcher = new NeteaseIDSearcher();
 						NeteaseIDEntity entity = searcher.search(id);
+						
 						return entity;
 					}
 				};
 				dialog.execute();
 			}
 		};
+		
 		return action;
 	}
 	
@@ -81,10 +84,12 @@ public class NeteaseIDController
 				{
 					return;
 				}
+				
 				NeteaseIDTableModel tableModel = (NeteaseIDTableModel) table.getDataModel();
 				tableModel.clearRows();
 			}
 		};
+		
 		return action;
 	}
 }

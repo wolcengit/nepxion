@@ -38,6 +38,7 @@ public class IPController
 						if (entity == null)
 						{
 							JBasicOptionPane.showMessageDialog(HandleManager.getFrame(panel), SwingLocale.getString("no_records"), SwingLocale.getString("warning"), JBasicOptionPane.WARNING_MESSAGE);
+							
 							return;
 						}
 						
@@ -69,6 +70,7 @@ public class IPController
 				dialog.execute();
 			}
 		};
+		
 		return action;
 	}
 	
@@ -83,10 +85,12 @@ public class IPController
 				{
 					return;
 				}
+				
 				IPTableModel tableModel = (IPTableModel) table.getDataModel();
 				tableModel.clearRows();
 			}
 		};
+		
 		return action;
 	}
 }

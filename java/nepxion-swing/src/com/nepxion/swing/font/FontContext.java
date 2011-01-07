@@ -161,6 +161,7 @@ public class FontContext
 		{
 			font = new Font(fontName, fontStyle, fontSize);
 		}
+		
 		return font;
 	}
 	
@@ -170,6 +171,7 @@ public class FontContext
 		{
 			chartTitleFont = new Font(chartTitleFontName, chartTitleFontStyle, chartTitleFontSize);
 		}
+		
 		return chartTitleFont;
 	}
 	
@@ -179,6 +181,7 @@ public class FontContext
 		{
 			chartSubTitleFont = new Font(chartSubTitleFontName, chartSubTitleFontStyle, chartSubTitleFontSize);
 		}
+		
 		return chartSubTitleFont;
 	}
 	
@@ -188,6 +191,7 @@ public class FontContext
 		{
 			chartLabelFont = new Font(chartLabelFontName, chartLabelFontStyle, chartLabelFontSize);
 		}
+		
 		return chartLabelFont;
 	}
 	
@@ -197,6 +201,7 @@ public class FontContext
 		{
 			chartTickLabelFont = new Font(chartTickLabelFontName, chartTickLabelFontStyle, chartTickLabelFontSize);
 		}
+		
 		return chartTickLabelFont;
 	}
 }

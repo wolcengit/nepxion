@@ -103,6 +103,7 @@ public abstract class AbstractCheckBoxUI
 				checkBox.setIcon(disableIcon);
 			}
 		}
+		
 		super.paint(g, c);
 	}
 }

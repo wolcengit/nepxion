@@ -194,6 +194,7 @@ public class JTray
 		{
 			return;
 		}
+		
 		topicComponent.setVisible(true);
 	}
 	

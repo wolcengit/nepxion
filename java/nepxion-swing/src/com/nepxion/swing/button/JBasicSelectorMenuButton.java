@@ -117,6 +117,7 @@ public abstract class JBasicSelectorMenuButton
 		{
 			popupMenu.setVisible(false);
 		}
+		
 		return false;
 	}
 	
@@ -126,6 +127,7 @@ public abstract class JBasicSelectorMenuButton
 		{
 			popupMenu.setVisible(false);
 		}
+		
 		return false;
 	}
 	

@@ -5,7 +5,7 @@ package com.nepxion.swing.style.outlookbar;
  * <p>Description: Nepxion Swing Repository</p>
  * <p>Copyright: Copyright (c) 2010</p>
  * <p>Company: Nepxion</p>
- * @author Neptune хн╨ф╬Э
+ * @author Neptune
  * @email hj_ren@msn.com
  * @version 1.0
  */
@@ -27,6 +27,7 @@ public class JFlatOutlookBarUI
 	protected void updateTabButtonAt(int index)
 	{
 		super.updateTabButtonAt(index);
+		
 		TabButton button = buttonForTab(index);
 		button.setIconTextGap(5);
 		button.setUI(buttonUI);

@@ -161,6 +161,7 @@ public class ComponentTitledBorder
 				insets.bottom += height + TEXT_SPACING;
 				break;
 		}
+		
 		return insets;
 	}
 	
@@ -203,6 +204,7 @@ public class ComponentTitledBorder
 				rectangle.x = (rect.width - rectangle.width) / 2;
 				break;
 		}
+		
 		return rectangle;
 	}
 }

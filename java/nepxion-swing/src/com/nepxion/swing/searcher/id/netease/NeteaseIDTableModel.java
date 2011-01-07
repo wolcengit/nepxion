@@ -46,6 +46,7 @@ public class NeteaseIDTableModel
 			case 3:
 				return entity.getGender();
 		}
+		
 		return null;
 	}
 	

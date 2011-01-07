@@ -121,6 +121,7 @@ public class JColorMenu
 		{
 			return;
 		}
+		
 		if (selectedColorPanel != null)
 		{
 			selectedColorPanel.setSelected(false);
@@ -135,6 +136,7 @@ public class JColorMenu
 		{
 			return null;
 		}
+		
 		return selectedColorPanel.getColor();
 	}
 	

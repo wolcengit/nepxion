@@ -103,6 +103,7 @@ public class AbstractCheckBoxMenuItemUI
 				checkBoxMenuItem.setIcon(disableIcon);
 			}
 		}
+		
 		super.paint(g, c);
 	}
 }

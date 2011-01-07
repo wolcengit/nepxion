@@ -62,6 +62,7 @@ public class UIDefaultsTableModel
 		{
 			return false;
 		}
+		
 		return true;
 	}
 	
@@ -101,12 +102,15 @@ public class UIDefaultsTableModel
 				if (value instanceof Color)
 				{
 					Color color = (Color) value;
+					
 					return color.toString().substring(0, color.toString().length() - 1) + ",a=" + color.getAlpha() + "]";
 				}
+				
 				return value;
 			case 2:
 				return value;
 		}
+		
 		return null;
 	}
 }

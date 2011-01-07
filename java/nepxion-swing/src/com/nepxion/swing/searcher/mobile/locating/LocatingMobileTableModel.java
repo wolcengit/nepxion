@@ -52,6 +52,7 @@ public class LocatingMobileTableModel
 			case 6:
 				return entity.getCard();
 		}
+		
 		return null;
 	}
 	

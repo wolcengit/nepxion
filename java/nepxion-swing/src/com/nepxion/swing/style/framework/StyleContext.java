@@ -73,8 +73,10 @@ public class StyleContext
 		if (styleClass != null)
 		{
 			StyleManager.setStyle(styleClass);
+			
 			return true;
 		}
+		
 		return false;
 	}
 }

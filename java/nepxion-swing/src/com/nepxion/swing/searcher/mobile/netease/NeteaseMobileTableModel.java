@@ -44,6 +44,7 @@ public class NeteaseMobileTableModel
 			case 2:
 				return entity.getCity();
 		}
+		
 		return null;
 	}
 	

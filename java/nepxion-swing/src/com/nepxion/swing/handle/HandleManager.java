@@ -40,6 +40,7 @@ public class HandleManager
 			}
 			parent = parent.getParent();
 		}
+		
 		return null;
 	}
 	
@@ -64,6 +65,7 @@ public class HandleManager
 			}
 			parent = parent.getParent();
 		}
+		
 		return null;
 	}
 	
@@ -88,6 +90,7 @@ public class HandleManager
 			}
 			parent = parent.getParent();
 		}
+		
 		return null;
 	}
 	
@@ -112,6 +115,7 @@ public class HandleManager
 			}
 			parent = parent.getParent();
 		}
+		
 		return null;
 	}
 	
@@ -136,6 +140,7 @@ public class HandleManager
 			}
 			parent = parent.getParent();
 		}
+		
 		return null;
 	}
 	
@@ -149,6 +154,7 @@ public class HandleManager
 				return (getModalDialog(windows[i]));
 			}
 		}
+		
 		return window;
 	}
 	
@@ -162,6 +168,7 @@ public class HandleManager
 				return (getModalDialog(windows[i]));
 			}
 		}
+		
 		return window;
 	}
 }

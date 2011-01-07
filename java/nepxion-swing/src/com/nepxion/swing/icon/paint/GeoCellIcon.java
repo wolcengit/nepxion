@@ -62,6 +62,7 @@ public class GeoCellIcon
 			case POLYGON:
 				return 10;
 		}
+		
 		return 0;
 	}
 	
@@ -76,6 +77,7 @@ public class GeoCellIcon
 			case POLYGON:
 				return 10;
 		}
+		
 		return 0;
 	}
 	

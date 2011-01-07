@@ -48,8 +48,10 @@ public class JBasicPasswordField
 		{
 			return "";
 		}
+		
 		StringBuffer stringBuffer = new StringBuffer();
 		stringBuffer.append(password);
+		
 		return stringBuffer.toString();
 	}
 }

@@ -110,6 +110,7 @@ public class JComplexTable
 			{
 				return;
 			}
+			
 			selectedRow = getSelectedRow();
 			
 			executeSelection(selectedRow);

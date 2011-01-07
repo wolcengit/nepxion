@@ -72,6 +72,7 @@ public abstract class JSwingWorker
 		if (isCancelled())
 		{
 			fireCancelledStatusChanged();
+			
 			return;
 		}
 		
@@ -125,6 +126,7 @@ public abstract class JSwingWorker
 				throw e;
 			}
 		}
+		
 		return data;
 	}
 	

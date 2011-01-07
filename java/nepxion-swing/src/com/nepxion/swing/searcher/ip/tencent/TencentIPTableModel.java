@@ -42,6 +42,7 @@ public class TencentIPTableModel
 			case 1:
 				return entity.getLocation();
 		}
+		
 		return null;
 	}
 }

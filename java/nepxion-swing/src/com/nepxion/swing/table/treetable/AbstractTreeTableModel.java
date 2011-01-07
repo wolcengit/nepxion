@@ -53,6 +53,7 @@ public abstract class AbstractTreeTableModel
                 return i;
             }
         }
+        
         return -1;
     }
 

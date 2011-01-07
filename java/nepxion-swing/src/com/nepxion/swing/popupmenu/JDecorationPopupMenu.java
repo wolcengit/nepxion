@@ -76,6 +76,7 @@ public class JDecorationPopupMenu
 	public Insets getInsets()
 	{
 		Insets insets = super.getInsets();
+		
 		if (painter != null)
 		{
 			return painter.getInsets((Insets) insets.clone());

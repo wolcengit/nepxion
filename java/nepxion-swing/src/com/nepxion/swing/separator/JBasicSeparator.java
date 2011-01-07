@@ -90,6 +90,7 @@ public class JBasicSeparator
 	public void paint(Graphics g)
 	{
 		super.paint(g);
+		
 		int w = getWidth();
 		int h = getHeight();
 		

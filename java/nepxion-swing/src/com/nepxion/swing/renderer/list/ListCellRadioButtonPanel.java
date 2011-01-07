@@ -50,6 +50,7 @@ public class ListCellRadioButtonPanel
 	{
 		Dimension radioDimension = radioButton.getPreferredSize();
 		Dimension lableDimension = label.getPreferredSize();
+		
 		return new Dimension(radioDimension.width + lableDimension.width, (radioDimension.height < lableDimension.height ? lableDimension.height : radioDimension.height));
 	}
 	

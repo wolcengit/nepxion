@@ -50,6 +50,7 @@ public class ListCellCheckBoxPanel
 	{
 		Dimension checkBoxDimension = checkBox.getPreferredSize();
 		Dimension labelDimension = label.getPreferredSize();
+		
 		return new Dimension(checkBoxDimension.width + labelDimension.width, (checkBoxDimension.height < labelDimension.height ? labelDimension.height : checkBoxDimension.height));
 	}
 	
@@ -59,6 +60,7 @@ public class ListCellCheckBoxPanel
 		{
 			color = null;
 		}
+		
 		super.setBackground(color);
 	}
 	

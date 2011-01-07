@@ -239,6 +239,7 @@ public class JBasicDialog
 				}
 			}
 		}
+		
 		super.processWindowEvent(e);
 	}
 }

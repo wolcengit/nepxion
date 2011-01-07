@@ -52,8 +52,10 @@ public class EditableHeaderUI
 			{
 				return false;
 			}
+			
 			MouseEvent e2 = SwingUtilities.convertMouseEvent(header, e, dispatchComponent);
 			dispatchComponent.dispatchEvent(e2);
+			
 			return true;
 		}
 		
@@ -63,6 +65,7 @@ public class EditableHeaderUI
 			{
 				return;
 			}
+			
 			super.mousePressed(e);
 			
 			if (header.getResizingColumn() == null)
@@ -84,6 +87,7 @@ public class EditableHeaderUI
 		public void mouseReleased(MouseEvent e)
 		{
 			super.mouseReleased(e);
+			
 			if (!SwingUtilities.isLeftMouseButton(e))
 			{
 				return;

@@ -78,10 +78,12 @@ public class EditableHeader
 		{
 			return false;
 		}
+		
 		if (!isCellEditable(index))
 		{
 			return false;
 		}
+		
 		TableCellEditor editor = getCellEditor(index);
 		
 		if (editor != null && editor.isCellEditable(e))
@@ -96,6 +98,7 @@ public class EditableHeader
 			
 			return true;
 		}
+		
 		return false;
 	}
 	
@@ -105,8 +108,10 @@ public class EditableHeader
 		{
 			return false;
 		}
+		
 		int columnIndex = columnModel.getColumn(index).getModelIndex();
 		EditableHeaderTableColumn col = (EditableHeaderTableColumn) columnModel.getColumn(columnIndex);
+		
 		return col.isHeaderEditable();
 	}
 	
@@ -114,6 +119,7 @@ public class EditableHeader
 	{
 		int columnIndex = columnModel.getColumn(index).getModelIndex();
 		EditableHeaderTableColumn col = (EditableHeaderTableColumn) columnModel.getColumn(columnIndex);
+		
 		return col.getHeaderEditor();
 	}
 	
@@ -144,6 +150,7 @@ public class EditableHeader
 		{
 			((JComponent) comp).setNextFocusableComponent(this);
 		}*/
+		
 		return comp;
 	}
 	

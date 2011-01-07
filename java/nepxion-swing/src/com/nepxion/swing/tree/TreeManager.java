@@ -48,6 +48,7 @@ public class TreeManager
 	public static TreeNode getSelectionTreeNode(JTree tree)
 	{
 		TreePath treePath = tree.getSelectionPath();
+		
 		return getTreeNode(treePath);
 	}
 	
@@ -80,11 +81,13 @@ public class TreeManager
 		{
 			return null;
 		}
+		
 		TreeNode[] treeNodes = new TreeNode[treePaths.length];
 		for (int i = 0; i < treePaths.length; i++)
 		{
 			treeNodes[i] = getTreeNode(treePaths[i]);
 		}
+		
 		return treeNodes;
 	}
 	
@@ -109,12 +112,14 @@ public class TreeManager
 	public static int getTreeNodePathCount(TreeNode treeNode)
 	{
 		TreePath treePath = getTreePath(treeNode);
+		
 		return getTreeNodePathCount(treePath);
 	}
 	
 	public static int getTreeNodePathCount(TreePath treePath)
 	{
 		int pathCount = treePath.getPathCount();
+		
 		return pathCount;
 	}
 	
@@ -137,6 +142,7 @@ public class TreeManager
 	public static TreePath getTreePath(TreeNode treeNode)
 	{
 		TreeNode[] treeNodes = getTreeNodes(treeNode, 0);
+		
 		return new TreePath(treeNodes);
 	}
 	
@@ -161,6 +167,7 @@ public class TreeManager
 			treeNodes = getTreeNodes(treeNode.getParent(), depth);
 			treeNodes[treeNodes.length - depth] = treeNode;
 		}
+		
 		return treeNodes;
 	}
 	
@@ -171,6 +178,7 @@ public class TreeManager
 		{
 			treeNodes[i] = getTreeNode(treePaths[i]);
 		}
+		
 		return treeNodes;
 	}
 	
@@ -184,6 +192,7 @@ public class TreeManager
 				return childTreeNode;
 			}
 		}
+		
 		return null;
 	}
 	
@@ -194,6 +203,7 @@ public class TreeManager
 		{
 			treeNodes[i] = treeNode.getChildAt(i);
 		}
+		
 		return treeNodes;
 	}
 	
@@ -210,6 +220,7 @@ public class TreeManager
 				return i;
 			}
 		}
+		
 		return -1;
 	}
 	

@@ -71,6 +71,7 @@ public abstract class BasicTableModel
 	public synchronized void setRowDatas(List rowDatas)
 	{
 		this.rowDatas = rowDatas;
+		
 		fireTableDataChanged();
 	}
 	
@@ -85,6 +86,7 @@ public abstract class BasicTableModel
 		{
 			return null;
 		}
+		
 		List rowDatas = new ArrayList();
 		for (int i = 0; i < rows.length; i++)
 		{
@@ -92,6 +94,7 @@ public abstract class BasicTableModel
 			Object rowData = getRow(row);
 			rowDatas.add(rowData);
 		}
+		
 		return rowDatas;
 	}
 	

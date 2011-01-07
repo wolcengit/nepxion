@@ -90,6 +90,7 @@ public abstract class AbstractStyle
 		{
 			return tabbedPaneBackground;
 		}
+		
 		return tabbedPaneNoDecoratedBackground;
 	}
 	

@@ -103,6 +103,7 @@ public class JBasicTable
 			{
 				return;
 			}
+			
 			selectedRow = getSelectedRow();
 			
 			executeSelection(selectedRow);

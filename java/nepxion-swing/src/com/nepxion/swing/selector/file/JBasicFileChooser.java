@@ -80,7 +80,9 @@ public class JBasicFileChooser
 		throws HeadlessException
 	{
 		dialog = super.createDialog(parent);
+		
 		verifyApprovalButton();
+		
 		return dialog;
 	}
 	
@@ -160,6 +162,7 @@ public class JBasicFileChooser
 				type = SwingLocale.getString("file_or_directory");
 				break;
 		}
+		
 		return type;
 	}
 }

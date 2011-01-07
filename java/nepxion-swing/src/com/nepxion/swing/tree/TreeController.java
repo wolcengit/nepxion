@@ -40,6 +40,7 @@ public class TreeController
 		if (!treeAdapter.addTreeNodePermitted(treeNode))
 		{
 			JBasicOptionPane.showMessageDialog(HandleManager.getFrame(tree), SwingLocale.getString("node") + " " + SwingLocale.getString("quotation_left") + treeNode.toString() + SwingLocale.getString("quotation_right") + " " + SwingLocale.getString("add_node_no_permission"), SwingLocale.getString("warning"), JBasicOptionPane.WARNING_MESSAGE);
+			
 			return;
 		}	
 		
@@ -63,6 +64,7 @@ public class TreeController
 		if (!treeAdapter.modifyTreeNodePermitted(treeNode))
 		{
 			JBasicOptionPane.showMessageDialog(HandleManager.getFrame(tree), SwingLocale.getString("node") + " " + SwingLocale.getString("quotation_left") + treeNode.toString() + SwingLocale.getString("quotation_right") + " " + SwingLocale.getString("modify_no_permission"), SwingLocale.getString("warning"), JBasicOptionPane.WARNING_MESSAGE);
+			
 			return;
 		}
 		
@@ -84,6 +86,7 @@ public class TreeController
 			if (!treeAdapter.deleteTreeNodePermitted(treeNode))
 			{
 				JBasicOptionPane.showMessageDialog(HandleManager.getFrame(tree), SwingLocale.getString("node") + " " + SwingLocale.getString("quotation_left") + treeNode.toString() + SwingLocale.getString("quotation_right") + " " + SwingLocale.getString("delete_no_permission"), SwingLocale.getString("warning"), JBasicOptionPane.WARNING_MESSAGE);
+				
 				return;
 			}
 			
@@ -105,6 +108,7 @@ public class TreeController
 			if (!treeAdapter.deleteTreeNodesPermitted(treeNodes))
 			{
 				JBasicOptionPane.showMessageDialog(HandleManager.getFrame(tree), SwingLocale.getString("node_selection") + SwingLocale.getString("delete_no_permission"), SwingLocale.getString("warning"), JBasicOptionPane.WARNING_MESSAGE);
+				
 				return;
 			}
 			
@@ -135,6 +139,7 @@ public class TreeController
 		if (!treeAdapter.renameTreeNodePermitted(treeNode))
 		{
 			JBasicOptionPane.showMessageDialog(HandleManager.getFrame(tree), SwingLocale.getString("node") + " " + SwingLocale.getString("quotation_left") + treeNode.toString() + SwingLocale.getString("quotation_right") + " " + SwingLocale.getString("rename_no_permission"), SwingLocale.getString("warning"), JBasicOptionPane.WARNING_MESSAGE);
+			
 			return;
 		}		
 		
@@ -165,6 +170,7 @@ public class TreeController
 		if (!treeAdapter.moveUpTreeNodePermitted(treeNode))
 		{
 			JBasicOptionPane.showMessageDialog(HandleManager.getFrame(tree), SwingLocale.getString("node") + " " + SwingLocale.getString("quotation_left") + treeNode.toString() + SwingLocale.getString("quotation_right") + " " + SwingLocale.getString("move_up_no_permission"), SwingLocale.getString("warning"), JBasicOptionPane.WARNING_MESSAGE);
+			
 			return;
 		}
 		
@@ -189,6 +195,7 @@ public class TreeController
 		if (!treeAdapter.moveDownTreeNodePermitted(treeNode))
 		{
 			JBasicOptionPane.showMessageDialog(HandleManager.getFrame(tree), SwingLocale.getString("node") + " " + SwingLocale.getString("quotation_left") + treeNode.toString() + SwingLocale.getString("quotation_right") + " " + SwingLocale.getString("move_down_no_permission"), SwingLocale.getString("warning"), JBasicOptionPane.WARNING_MESSAGE);
+			
 			return;
 		}
 		
@@ -268,13 +275,17 @@ public class TreeController
 		if (treePaths == null)
 		{
 			JBasicOptionPane.showMessageDialog(HandleManager.getFrame(tree), SwingLocale.getString("select_nodes_to") + " " + SwingLocale.getString("quotation_left") + operationName + SwingLocale.getString("quotation_right"), SwingLocale.getString("warning"), JBasicOptionPane.WARNING_MESSAGE);
+			
 			return false;
 		}
+		
 		if (treePaths.length != 1)
 		{
 			JBasicOptionPane.showMessageDialog(HandleManager.getFrame(tree), SwingLocale.getString("select_one_node_to") + " " + SwingLocale.getString("quotation_left") + operationName + SwingLocale.getString("quotation_right"), SwingLocale.getString("warning"), JBasicOptionPane.WARNING_MESSAGE);
+			
 			return false;
 		}
+		
 		return true;
 	}
 	
@@ -284,8 +295,10 @@ public class TreeController
 		if (treePaths == null)
 		{
 			JBasicOptionPane.showMessageDialog(HandleManager.getFrame(tree), SwingLocale.getString("select_nodes_to") + " " + SwingLocale.getString("quotation_left") + operationName + SwingLocale.getString("quotation_right"), SwingLocale.getString("warning"), JBasicOptionPane.WARNING_MESSAGE);
+			
 			return false;
 		}
+		
 		return true;
 	}
 	
@@ -299,6 +312,7 @@ public class TreeController
 			}
 		};
 		KeyStrokeManager.registerComponent(tree, action, KeyEvent.VK_N, KeyEvent.CTRL_MASK);
+		
 		return action;
 	}
 	
@@ -312,6 +326,7 @@ public class TreeController
 			}
 		};
 		KeyStrokeManager.registerComponent(tree, action, KeyEvent.VK_I, KeyEvent.CTRL_MASK);
+		
 		return action;
 	}
 	
@@ -325,6 +340,7 @@ public class TreeController
 			}
 		};
 		KeyStrokeManager.registerComponent(tree, action, KeyEvent.VK_DELETE);
+		
 		return action;
 	}
 	
@@ -338,6 +354,7 @@ public class TreeController
 			}
 		};
 		KeyStrokeManager.registerComponent(tree, action, KeyEvent.VK_R, KeyEvent.CTRL_MASK);
+		
 		return action;
 	}
 	
@@ -350,6 +367,7 @@ public class TreeController
 				moveUp(tree, treeAdapter);
 			}
 		};
+		
 		return action;
 	}
 	
@@ -362,6 +380,7 @@ public class TreeController
 				moveDown(tree, treeAdapter);
 			}
 		};
+		
 		return action;
 	}
 	
@@ -374,6 +393,7 @@ public class TreeController
 				expand(tree);
 			}
 		};
+		
 		return action;
 	}
 	
@@ -386,6 +406,7 @@ public class TreeController
 				expandGrandchildren(tree);
 			}
 		};
+		
 		return action;
 	}
 	
@@ -398,6 +419,7 @@ public class TreeController
 				expandAll(tree);
 			}
 		};
+		
 		return action;
 	}
 	
@@ -410,6 +432,7 @@ public class TreeController
 				collapse(tree);
 			}
 		};
+		
 		return action;
 	}
 	
@@ -422,6 +445,7 @@ public class TreeController
 				collapseGrandchildren(tree);
 			}
 		};
+		
 		return action;
 	}
 	
@@ -434,6 +458,7 @@ public class TreeController
 				collapseAll(tree);
 			}
 		};
+		
 		return action;
 	}
 }

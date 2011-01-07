@@ -147,6 +147,7 @@ public abstract class JThreadContainer
 						}
 						
 						JExceptionDialog.traceException(HandleManager.getFrame(SwingWorker.this.getComponent()), ExceptionUtil.subString(e), exception);
+						
 						return;
 					}
 					

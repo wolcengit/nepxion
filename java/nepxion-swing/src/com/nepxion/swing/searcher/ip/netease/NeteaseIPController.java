@@ -38,6 +38,7 @@ public class NeteaseIPController
 						if (entity == null)
 						{
 							JBasicOptionPane.showMessageDialog(HandleManager.getFrame(panel), SwingLocale.getString("no_records"), SwingLocale.getString("warning"), JBasicOptionPane.WARNING_MESSAGE);
+							
 							return;
 						}						
 						
@@ -56,12 +57,14 @@ public class NeteaseIPController
 						
 						NeteaseIPSearcher searcher = new NeteaseIPSearcher();
 						NeteaseIPEntity entity = searcher.search(ip);
+						
 						return entity;
 					}
 				};
 				dialog.execute();
 			}
 		};
+		
 		return action;
 	}
 	
@@ -76,10 +79,12 @@ public class NeteaseIPController
 				{
 					return;
 				}
+				
 				NeteaseIPTableModel tableModel = (NeteaseIPTableModel) table.getDataModel();
 				tableModel.clearRows();
 			}
 		};
+		
 		return action;
 	}
 }

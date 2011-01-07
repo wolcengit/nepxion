@@ -69,6 +69,7 @@ public class ComboBoxElementCellRenderer
 		{
 			list.setToolTipText(value.toString());
 		}
+		
 		return this;
 	}
 }

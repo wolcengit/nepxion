@@ -81,6 +81,7 @@ public class Sorter
 			{
 				CollationKey key1 = Collator.getInstance().getCollationKey(object1.toString());
 				CollationKey key2 = Collator.getInstance().getCollationKey(object2.toString());
+				
 				return (key1).compareTo(key2);
 			}
 			else if (clazz == Date.class)

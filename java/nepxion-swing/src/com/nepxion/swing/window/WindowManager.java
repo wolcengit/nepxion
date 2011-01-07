@@ -51,6 +51,7 @@ public class WindowManager
 		Rectangle bounds = configuration.getBounds();
 		Insets screenInsets = window.getToolkit().getScreenInsets(configuration);
 		bounds = new Rectangle(screenInsets.left, screenInsets.top, bounds.width - screenInsets.right - screenInsets.left, bounds.height - screenInsets.bottom - screenInsets.top);
+		
 		return bounds;
 	}
 }

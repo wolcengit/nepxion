@@ -70,6 +70,7 @@ public class JRadioButtonPanel
 			{
 				selectedElementNode = elementNode;
 				selectedUserObject = elementNode.getUserObject();
+				
 				return;
 			}
 		}
@@ -78,12 +79,14 @@ public class JRadioButtonPanel
 	public IElementNode getSelection()
 	{
 		setSelection();
+		
 		return selectedElementNode;
 	}
 	
 	public Object getSelectedUserObject()
 	{
 		setSelection();
+		
 		return selectedUserObject;
 	}
 }

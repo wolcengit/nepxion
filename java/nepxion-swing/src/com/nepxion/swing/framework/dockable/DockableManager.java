@@ -33,6 +33,7 @@ public class DockableManager
 				return tabbedPane;
 			}
 		}
+		
 		return null;
 	}
 	
@@ -50,12 +51,14 @@ public class DockableManager
 		if (content instanceof JDockableSplitPane)
 		{
 			JDockableSplitPane dockableSplitPane = (JDockableSplitPane) content;
+			
 			return dockableSplitPane.getTabbedPanes();
 		}
 		else if (content instanceof JDockableTabbedPane)
 		{
 			List tabbedPanes = new ArrayList();
 			tabbedPanes.add(content);
+			
 			return tabbedPanes;
 		}
 		else
@@ -71,6 +74,7 @@ public class DockableManager
 		if (component instanceof JDockable) // 最大化状态下，Dockable句柄为空
 		{
 			JDockable dockable = (JDockable) component;
+			
 			return DockableManager.getDockableView(dockable, title);
 		}
 		else if (component instanceof JDockableView)
@@ -81,6 +85,7 @@ public class DockableManager
 				return dockableView;
 			}
 		}
+		
 		return null;
 	}
 	
@@ -112,6 +117,7 @@ public class DockableManager
 				}
 			}
 		}
+		
 		return null;
 	}
 	
@@ -129,6 +135,7 @@ public class DockableManager
 			JDockableView dockableView = (JDockableView) component;
 			dockableViews.add(dockableView);
 		}
+		
 		return dockableViews;
 	}
 	
@@ -137,6 +144,7 @@ public class DockableManager
 	{
 		List dockableViews = new ArrayList();
 		getDockableViews(dockable, dockableViews);
+		
 		return dockableViews;
 	}
 	

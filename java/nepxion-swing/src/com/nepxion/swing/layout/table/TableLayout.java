@@ -1809,6 +1809,7 @@ public class TableLayout
         int value[] =
                       {
                       offset, size};
+        
         return value;
     }
 

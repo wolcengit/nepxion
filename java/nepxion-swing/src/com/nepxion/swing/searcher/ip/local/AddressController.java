@@ -38,6 +38,7 @@ public class AddressController
 						if (entityList == null || entityList.isEmpty())
 						{
 							JBasicOptionPane.showMessageDialog(HandleManager.getFrame(panel), SwingLocale.getString("no_records"), SwingLocale.getString("warning"), JBasicOptionPane.WARNING_MESSAGE);
+							
 							return;
 						}
 						
@@ -61,6 +62,7 @@ public class AddressController
 				dialog.execute();
 			}
 		};
+		
 		return action;
 	}
 	
@@ -75,10 +77,12 @@ public class AddressController
 				{
 					return;
 				}
+				
 				AddressTableModel tableModel = (AddressTableModel) table.getDataModel();
 				tableModel.clearRows();
 			}
 		};
+		
 		return action;
 	}
 }

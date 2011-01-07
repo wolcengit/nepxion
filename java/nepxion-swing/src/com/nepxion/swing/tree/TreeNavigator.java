@@ -51,6 +51,7 @@ public class TreeNavigator
 	{
 		url = treeNode.toString();
 		recursion(treeNode);
+		
 		return url;
 	}
 	

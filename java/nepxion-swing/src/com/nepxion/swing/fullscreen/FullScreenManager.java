@@ -27,6 +27,7 @@ public class FullScreenManager
 		{
 			button = new JBasicButton(ICON_MAXIMIZE, TEXT_MAXIMIZE);
 		}
+		
 		return button;
 	}
 	
@@ -41,6 +42,7 @@ public class FullScreenManager
 		{
 			button = new JBasicButton(ICON_MINIMIZE, TEXT_MINIMIZE);
 		}
+		
 		return button;
 	}
 	
@@ -55,24 +57,28 @@ public class FullScreenManager
 		{
 			button = new JBasicButton(ICON_CLOSE, TEXT_CLOSE);
 		}
+		
 		return button;
 	}
 	
 	public static JBasicMenuItem createMaximizeMenuItem()
 	{
 		JBasicMenuItem menuItem = new JBasicMenuItem(TEXT_MAXIMIZE, ICON_MAXIMIZE, TEXT_MAXIMIZE);
+		
 		return menuItem;
 	}
 	
 	public static JBasicMenuItem createMinimizeMenuItem()
 	{
 		JBasicMenuItem menuItem = new JBasicMenuItem(TEXT_MINIMIZE, ICON_MINIMIZE, TEXT_MINIMIZE);
+		
 		return menuItem;
 	}
 	
 	public static JBasicMenuItem createCloseMenuItem()
 	{
 		JBasicMenuItem menuItem = new JBasicMenuItem(TEXT_CLOSE, ICON_CLOSE, TEXT_CLOSE);
+		
 		return menuItem;
 	}
 }

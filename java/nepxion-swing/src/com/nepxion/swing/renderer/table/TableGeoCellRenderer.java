@@ -36,6 +36,7 @@ public class TableGeoCellRenderer
 		setFont(table.getFont());
 		setBackground(isSelected ? table.getSelectionBackground() : table.getBackground());
 		setForeground(isSelected ? table.getSelectionForeground() : table.getForeground());
+		
 		return this;
 	}
 }
