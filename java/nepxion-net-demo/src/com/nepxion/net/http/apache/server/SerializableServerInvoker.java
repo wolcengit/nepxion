@@ -42,6 +42,7 @@ public class SerializableServerInvoker
 			HashMap responseMap = new HashMap();
 			responseMap.put("target", target + "响应");
 			responseMap.put("entity", entity + "响应");
+			
 			return responseMap;
 		}
 		else if (requestObject instanceof List) // InputStream Entity
@@ -51,13 +52,16 @@ public class SerializableServerInvoker
 			List responseList = new ArrayList();
 			responseList.add(requestList.get(0) + "响应");
 			responseList.add(requestList.get(1) + "响应");
+			
 			return responseList;
 		}
 		else if (requestObject instanceof File) // File Entity
 		{
 			File requestFile = (File) requestObject;
+			
 			return requestFile;
 		}
+		
 		return null;
 	}
 }

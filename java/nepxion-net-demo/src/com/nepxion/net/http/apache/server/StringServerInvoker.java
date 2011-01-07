@@ -36,8 +36,10 @@ public class StringServerInvoker
 			response.setCharacterEncoding("GBK");
 			
 			String reponseObject = requestObject.toString();
+			
 			return reponseObject + "œÏ”¶";
 		}
+		
 		return null;
 	}
 }

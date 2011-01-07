@@ -54,6 +54,7 @@ public class ParameterServerInvoker
 			out.println("<record index=\"" + 1 + "\" target=\"" + target + "ÏìÓ¦" + "\" entity=\"" + entity + "ÏìÓ¦" + "\"/>");
 			out.println("</records>");
 		}
+		
 		return null;
 	}
 }
