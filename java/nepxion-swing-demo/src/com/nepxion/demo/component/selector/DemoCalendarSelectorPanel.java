@@ -95,7 +95,9 @@ public class DemoCalendarSelectorPanel
 							{
 								return false;
 							}	
+							
 							selectionValuePanel.setValue(date.toString());
+							
 							return true;
 						}
 						
@@ -142,7 +144,9 @@ public class DemoCalendarSelectorPanel
 					{
 						return false;
 					}	
+					
 					selectionValuePanel.setValue(date.toString());
+					
 					return true;
 				}
 				
@@ -179,7 +183,9 @@ public class DemoCalendarSelectorPanel
 							{
 								return false;
 							}
+							
 							selectionValuePanel.setValue(date.toString());
+							
 							return true;
 						}
 						
@@ -210,6 +216,7 @@ public class DemoCalendarSelectorPanel
 						{
 							return;
 						}	
+						
 						selectionValuePanel.setValue(date.toString());
 					}
 				}
@@ -227,7 +234,9 @@ public class DemoCalendarSelectorPanel
 					{
 						return false;
 					}	
+					
 					selectionValuePanel.setValue(date.toString());
+					
 					return true;
 				}
 				
@@ -239,6 +248,7 @@ public class DemoCalendarSelectorPanel
 				public void showPopupMenu()
 				{
 					super.showPopupMenu();
+					
 					getDateTimeSelector().setFormat(getDateFormat(), getTimeFormat());
 				}				
 			};			
@@ -276,7 +286,9 @@ public class DemoCalendarSelectorPanel
 							{
 								return false;
 							}	
+							
 							selectionValuePanel.setValue(date.toString());
+							
 							return true;
 						}
 						
@@ -308,6 +320,7 @@ public class DemoCalendarSelectorPanel
 						{
 							return;
 						}	
+						
 						selectionValuePanel.setValue(date.toString());
 					}
 				}
@@ -325,7 +338,9 @@ public class DemoCalendarSelectorPanel
 					{
 						return false;
 					}	
+					
 					selectionValuePanel.setValue(date.toString());
+					
 					return true;
 				}
 				
@@ -337,6 +352,7 @@ public class DemoCalendarSelectorPanel
 				public void showPopupMenu()
 				{
 					super.showPopupMenu();
+					
 					getDateSelector().setFormat(getDateFormat());
 				}				
 			};			
@@ -368,6 +384,7 @@ public class DemoCalendarSelectorPanel
 						{
 							int year = getYearSelector().getYear();
 							selectionValuePanel.setValue(year + "");
+							
 							return true;
 						}
 						
@@ -407,6 +424,7 @@ public class DemoCalendarSelectorPanel
 				{
 					int year = getYearSelector().getYear();
 					selectionValuePanel.setValue(year + "");
+					
 					return true;
 				}
 				
@@ -440,6 +458,7 @@ public class DemoCalendarSelectorPanel
 						{
 							int month = getMonthSelector().getMonth();
 							selectionValuePanel.setValue(month + "");
+							
 							return true;
 						}
 						
@@ -479,6 +498,7 @@ public class DemoCalendarSelectorPanel
 				{
 					int month = getMonthSelector().getMonth();
 					selectionValuePanel.setValue(month + "");
+					
 					return true;
 				}
 				
@@ -512,6 +532,7 @@ public class DemoCalendarSelectorPanel
 						{
 							int day = getDaySelector().getDay();
 							selectionValuePanel.setValue(day + "");
+							
 							return true;
 						}
 						
@@ -551,6 +572,7 @@ public class DemoCalendarSelectorPanel
 				{
 					int day = getDaySelector().getDay();
 					selectionValuePanel.setValue(day + "");
+					
 					return true;
 				}
 				
@@ -587,7 +609,9 @@ public class DemoCalendarSelectorPanel
 							{
 								return false;
 							}	
+							
 							selectionValuePanel.setValue(time.toString());
+							
 							return true;
 						}
 						
@@ -618,7 +642,8 @@ public class DemoCalendarSelectorPanel
 						if (time == null)
 						{
 							return;
-						}							
+						}
+						
 						selectionValuePanel.setValue(time.toString());
 					}
 				}
@@ -636,7 +661,9 @@ public class DemoCalendarSelectorPanel
 					{
 						return false;
 					}	
+					
 					selectionValuePanel.setValue(time.toString());
+					
 					return true;
 				}
 				
@@ -648,6 +675,7 @@ public class DemoCalendarSelectorPanel
 				public void showPopupMenu()
 				{
 					super.showPopupMenu();
+					
 					getTimeSelector().setFormat(getDateFormat().equals("Null") ? "" : getDateFormat() + " " + getTimeFormat());
 				}					
 			};
@@ -666,18 +694,21 @@ public class DemoCalendarSelectorPanel
 	private JBasicButton createDialogStyleButton()
 	{
 		JBasicButton button = new JBasicButton("Dialog Style", IconFactory.getSwingIcon("component/dialog_16.png"), "Dialog Style");
+		
 		return button;
 	}
 	
 	private JBasicButton createOptionPaneStyleButton()
 	{
 		JBasicButton button = new JBasicButton("OptionPane Style", IconFactory.getSwingIcon("component/option_pane_16.png"), "OptionPane Style");
+		
 		return button;
 	}
 	
 	private JBasicButton createPopupMenuStyleButton()
 	{
 		JBasicButton button = new JBasicButton("PopupMenu Style", IconFactory.getSwingIcon("component/popup_menu_16.png"));
+		
 		return button;
 	}	
 	
@@ -713,6 +744,7 @@ public class DemoCalendarSelectorPanel
 			}
 		}		
 		button.setPopupMenu(popupMenu);	
+		
 		return button;
 	}
 	

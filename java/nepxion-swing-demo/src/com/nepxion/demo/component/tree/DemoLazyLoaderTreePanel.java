@@ -113,6 +113,7 @@ public class DemoLazyLoaderTreePanel
 		fileNode.setText(name);
 		fileNode.setIcon(icon);
 		fileNode.setToolTipText(name);
+		
 		return fileNode;
 	}
 	

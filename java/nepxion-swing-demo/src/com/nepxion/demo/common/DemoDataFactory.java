@@ -29,6 +29,7 @@ public class DemoDataFactory
 			ElementNode childElementNode = (ElementNode) childIterator.next();
 			root.add(childElementNode);
 		}
+		
 		return root;
 	}
 	
@@ -126,6 +127,7 @@ public class DemoDataFactory
 	public static String[] getComponentNameColumns()
 	{
 		String[] columns = {"Index", "Name", "Text", "Icon", "ToolTipText", "Selected", "Enabled", "UserObject"};
+		
 		return columns;
 	}
 	
@@ -139,6 +141,7 @@ public class DemoDataFactory
 			componentNameDatas[index] = iterator.next().toString();
 			index++;
 		}	
+		
 		return componentNameDatas;
 	}
 	

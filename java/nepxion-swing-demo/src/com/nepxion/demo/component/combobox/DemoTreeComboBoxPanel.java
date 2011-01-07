@@ -81,11 +81,13 @@ public class DemoTreeComboBoxPanel
 		public Component getListCellRendererComponent(JList list, Object value, int index, boolean isSelected, boolean cellHasFocus)
 		{
 			super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
+			
 			ElementNode elementNode = (ElementNode) value;
 			if (elementNode.getChildCount() == 0)
 			{
 				setBorder(BorderFactory.createEmptyBorder(0, 18, 0, 0));
-			}	
+			}
+			
 			return this;
 		}		
 	}	

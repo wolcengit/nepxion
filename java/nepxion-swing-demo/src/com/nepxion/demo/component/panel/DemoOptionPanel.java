@@ -63,18 +63,21 @@ public class DemoOptionPanel
 	                    public boolean confirm()
 	                    {
 	                    	selectionValuePanel.setValue("Yes");
+	                    	
 	                    	return true;
 	                    }
 
 						public boolean cancel()
 						{
 							selectionValuePanel.setValue("No");
+							
 							return true;
 						}	
 						
 						public boolean apply()
 						{
 							selectionValuePanel.setValue("Apply");
+							
 							return true;
 						}
 	                };
@@ -98,12 +101,14 @@ public class DemoOptionPanel
 	                    public boolean confirm()
 	                    {
 	                    	selectionValuePanel.setValue("Yes");
+	                    	
 	                    	return true;
 	                    }
 
 						public boolean cancel()
 						{
 							selectionValuePanel.setValue("No");
+							
 							return true;
 						}	                    
 	                };
@@ -127,6 +132,7 @@ public class DemoOptionPanel
 						public boolean close()
 						{
 							selectionValuePanel.setValue("Close");
+							
 							return true;
 						}	                    
 	                };

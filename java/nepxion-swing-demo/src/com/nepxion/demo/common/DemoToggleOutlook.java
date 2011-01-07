@@ -24,6 +24,7 @@ public class DemoToggleOutlook
 	public void addButton(AbstractButton button)
 	{
 		super.addButton(button);
+		
 		DemoToggleButtonGroup.getInstance().add(button);
 	}
 }

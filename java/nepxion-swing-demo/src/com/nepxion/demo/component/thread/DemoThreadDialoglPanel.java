@@ -100,6 +100,7 @@ public class DemoThreadDialoglPanel
 				case 6:
 					return file.canWrite() ? "Yes" : "No";			
 			}
+			
 			return null;
 		}
 	}

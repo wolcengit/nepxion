@@ -39,6 +39,7 @@ public class DemoOutlookBar
         {
             outlookBar = new DemoOutlookBar();
         }
+        
         return outlookBar;
     }
 

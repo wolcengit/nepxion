@@ -244,19 +244,4 @@ public class DemoDropDownSelectorPanel
 			ButtonManager.updateUI(this);
 		}
 	}
-	
-//	JDropDownPopupMenu dropDownPopupMenu = new JDropDownPopupMenu();
-//	JDropDownPane dropDownPane = new JDropDownPane(dropDownPopupMenu, new JBasicScrollPane(tree))
-//	{
-//		public boolean confirm()
-//		{
-//			return true;
-//		}
-//		
-//		public boolean cancel()
-//		{
-//			return true;
-//		}
-//	};
-//	JDropDownSelector dropDownSelector = new JDropDownSelector(dropDownPane);
 }

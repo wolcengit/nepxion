@@ -99,6 +99,7 @@ public class DemoSelectorMenuButtonPanel
 			if (treeNode == null || !treeNode.isLeaf())
 			{
 				JBasicOptionPane.showMessageDialog(HandleManager.getFrame(this), "Please select child tree node", "Message", JBasicOptionPane.WARNING_MESSAGE);
+				
 				return false;
 			}
 			

@@ -103,6 +103,7 @@ public class DemoThreadContainerPanel
 				case 6:
 					return file.canWrite() ? "Yes" : "No";
 			}
+			
 			return null;
 		}
 	}

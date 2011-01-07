@@ -33,6 +33,7 @@ public class DemoHierarchyController
             	topicComponent.setVisible(true);
             }
         };
+        
         return action;
     }	
 }

@@ -48,6 +48,7 @@ public class DemoComponentFactory
 		JSortableTable table = new JSortableTable(new ElementNodeTableModel());
 		table.setAutoResizeMode(JSortableTable.AUTO_RESIZE_OFF);
 		table.getColumnModel().getColumn(3).setCellRenderer(new TableElementCellRenderer());
+		
 		return table;
 	}
 	
@@ -72,7 +73,8 @@ public class DemoComponentFactory
         	else if (column == 5 || column == 6)
         	{
         		return Boolean.class;
-        	}	
+        	}
+        	
         	return String.class;
         }
 		
@@ -90,6 +92,7 @@ public class DemoComponentFactory
 				case 6: return Boolean.valueOf(elementNode.isEnabled());
 				case 7: return elementNode.getUserObject();				
 			}
+			
 			return null;
 		}		
 	}

@@ -28,6 +28,7 @@ public class DemoToggleContentPanel
 		{
 			toggleContentPanel = new DemoToggleContentPanel();
 		}
+		
 		return toggleContentPanel;
 	}
 	

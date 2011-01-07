@@ -22,7 +22,8 @@ public class DemoToggleButtonGroup
 		if (buttonGroup == null)
 		{
 			buttonGroup = new DemoToggleButtonGroup(); 
-		}	
+		}
+		
 		return buttonGroup;
 	}
 	
