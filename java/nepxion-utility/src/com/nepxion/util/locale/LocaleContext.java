@@ -36,7 +36,7 @@ public class LocaleContext
 		for (int i = 0; i < LOCALE_LIST.length; i++)
 		{
 			Locale locale = LOCALE_LIST[i];
-			if (locale.toString().equals(language))
+			if (locale.toString().toLowerCase().equals(language.toLowerCase()))
 			{
 				return locale;
 			}	
