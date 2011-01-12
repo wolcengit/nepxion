@@ -55,6 +55,8 @@ public class JPreferenceButtonBar
 		add(saveButton);
 		add(refreshButton);
 		
+		customize();
+		
 		ButtonManager.updateUI(this);
 	}
 	
@@ -64,6 +66,11 @@ public class JPreferenceButtonBar
 	}
 	
 	public void refresh()
+	{
+		
+	}
+	
+	public void customize()
 	{
 		
 	}
