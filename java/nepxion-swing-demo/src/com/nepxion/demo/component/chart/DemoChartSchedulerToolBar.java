@@ -20,29 +20,21 @@ import javax.swing.BoxLayout;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import org.quartz.SchedulerException;
+
 import com.nepxion.swing.button.ButtonManager;
 import com.nepxion.swing.button.JBasicButton;
 import com.nepxion.swing.icon.IconFactory;
 import com.nepxion.swing.panel.JTimePanel;
-import com.nepxion.util.scheduler.quartz.basic.BasicSchedulerExecuter;
+import com.nepxion.util.scheduler.quartz.QuartzManager;
 
 public class DemoChartSchedulerToolBar
 	extends JPanel
 {
-	public DemoChartSchedulerToolBar(Class jobClass)
+	public DemoChartSchedulerToolBar(final Class jobClass)
 	{
 		setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-		setBorder(BorderFactory.createEmptyBorder(5, 0, 5, 0));
-		
-		final BasicSchedulerExecuter schedulerExecuter = new BasicSchedulerExecuter();
-		try
-		{
-			schedulerExecuter.setJobClass(jobClass);
-		}
-		catch (Exception e)
-		{
-			e.printStackTrace();
-		}
+		setBorder(BorderFactory.createEmptyBorder(5, 0, 5, 0));		
 		
 		final JTimePanel timePanel = new JTimePanel(JTimePanel.HORIZONTAL);
 		timePanel.setInterval(new int[] {0, 0, 0, 1, 0});
@@ -51,13 +43,16 @@ public class DemoChartSchedulerToolBar
 		startButton.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent e)
-			{
-				if (!schedulerExecuter.isStarted())
-				{
-					schedulerExecuter.start();
+			{				
+				try
+				{					
+					QuartzManager.scheduleJob(jobClass, timePanel.getInterval());
+					QuartzManager.start();
 				}
-				schedulerExecuter.setRepeatInterval(timePanel.getInterval());
-				schedulerExecuter.scheduleJob();
+				catch (SchedulerException ex)
+				{
+					ex.printStackTrace();
+				}
 			}
 		}
 		);
@@ -67,8 +62,15 @@ public class DemoChartSchedulerToolBar
 		stopButton.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent e)
-			{
-				schedulerExecuter.unscheduleJob();
+			{				
+				try
+				{
+					QuartzManager.unscheduleJob(jobClass);
+				}
+				catch (SchedulerException ex)
+				{
+					ex.printStackTrace();
+				}
 			}
 		}
 		);
