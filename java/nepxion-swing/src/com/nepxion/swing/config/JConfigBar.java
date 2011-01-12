@@ -37,7 +37,7 @@ public class JConfigBar
 		add(configContentPanel, BorderLayout.CENTER);
 		
 		setConfigButtonBarWidth(80);
-		setConfigContentPanelWidth(450);
+		setConfigContentPanelWidth(480);
 		setHeight(480);
 	}
 	
