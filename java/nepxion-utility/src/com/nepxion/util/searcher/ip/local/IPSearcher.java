@@ -91,6 +91,7 @@ public class IPSearcher
 		catch (FileNotFoundException e)
 		{
 			e.printStackTrace();
+			
 			throw e;
 		}
 		if (ipFile != null)
