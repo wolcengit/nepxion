@@ -123,6 +123,7 @@ public abstract class JSwingWorker
 			if (!isCancelled())
 			{
 				fireBackgroundException(e);
+				
 				throw e;
 			}
 		}
