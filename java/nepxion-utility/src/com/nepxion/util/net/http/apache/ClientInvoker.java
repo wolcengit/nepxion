@@ -58,12 +58,14 @@ public class ClientInvoker
 		{
 			request.abort();
 			e.printStackTrace();
+			
 			throw e;
 		}
 		catch (IOException e)
 		{
 			request.abort();
 			e.printStackTrace();
+			
 			throw e;			
 		}
 		

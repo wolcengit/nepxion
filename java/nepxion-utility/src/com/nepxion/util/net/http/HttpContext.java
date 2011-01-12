@@ -51,6 +51,7 @@ public class HttpContext
 		catch (Exception e)
 		{
 			log.fatal(e);
+			
 			throw e;
 		}
 		
@@ -69,6 +70,7 @@ public class HttpContext
 		catch (Exception e)
 		{
 			log.fatal(e);
+			
 			throw e;
 		}
 		
@@ -92,6 +94,7 @@ public class HttpContext
 		catch (Exception e)
 		{
 			log.fatal(e);
+			
 			throw e;
 		}
 		
