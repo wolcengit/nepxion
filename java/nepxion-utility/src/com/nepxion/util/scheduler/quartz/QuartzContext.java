@@ -45,6 +45,7 @@ public class QuartzContext
 		catch (SchedulerException e)
 		{
 			log.fatal(e);
+			
 			throw e;
 		}
 		
@@ -64,6 +65,7 @@ public class QuartzContext
 		catch (SchedulerException e)
 		{
 			log.fatal(e);
+			
 			throw e;
 		}
 		
@@ -84,6 +86,7 @@ public class QuartzContext
 		catch (Exception e)
 		{
 			log.fatal(e);
+			
 			throw e;
 		}
 	}
