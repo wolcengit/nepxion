@@ -41,6 +41,7 @@ public class ProxoolContext
 		catch (ProxoolException e)
 		{
 			log.fatal(e);
+			
 			throw e;
 		}
 		
@@ -59,6 +60,7 @@ public class ProxoolContext
 		catch (ProxoolException e)
 		{
 			log.fatal(e);
+			
 			throw e;
 		}
 		
@@ -79,6 +81,7 @@ public class ProxoolContext
 		catch (Exception e)
 		{
 			log.fatal(e);
+			
 			throw e;
 		}
 	}

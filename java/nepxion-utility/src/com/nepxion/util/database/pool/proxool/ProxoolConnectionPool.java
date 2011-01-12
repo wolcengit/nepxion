@@ -40,11 +40,13 @@ public class ProxoolConnectionPool
 		catch (SQLException e)
 		{
 			log.fatal(e);
+			
 			throw e;
 		}
 		catch (ClassNotFoundException e)
 		{
 			log.fatal(e);
+			
 			throw e;
 		}
 		
