@@ -237,7 +237,7 @@ public class DemoLazyLoaderTreePanel
 		
 		public DefaultMutableTreeNode addTreeNode(DefaultMutableTreeNode parentTreeNode)
 		{
-			LazyLoaderTreeManager.validate(fileTree, parentTreeNode);
+			LazyLoaderTreeManager.verify(fileTree, parentTreeNode);
 			
 			return new ElementNode("新增节点", IconFactory.getSwingIcon("stereo/add_16.png"), "新增节点");
 		}
