@@ -281,7 +281,7 @@ public class LazyLoaderTreeManager
 		}
 	}
 	
-	public static void validate(ILazyLoaderTree lazyLoaderTree, TreeNode treeNode)
+	public static void verify(ILazyLoaderTree lazyLoaderTree, TreeNode treeNode)
 	{
 		lazyLoaderTree.load(treeNode);
 		if (treeNode instanceof JLazyLoaderTreeNode && treeNode.getChildCount() == 0)
