@@ -90,7 +90,20 @@ public class JIPAddressTextField
 	
 	private JNumberTextField createTextField()
 	{
-		final JNumberTextField ipAddressTextField = new JNumberTextField(3, 0, 0, 255);
+		final JNumberTextField ipAddressTextField = new JNumberTextField(3, 0, 0, 255)
+		{
+			public boolean exclude(String value)
+			{
+				if (value.equals("."))
+				{
+					transferFocus();
+					
+					return true;
+				}
+				
+				return false;
+			}
+		};
 		ipAddressTextField.setHorizontalAlignment(RIGHT);
 		ipAddressTextField.setBorder(null);
 		ipAddressTextField.addKeyListener(new KeyAdapter()

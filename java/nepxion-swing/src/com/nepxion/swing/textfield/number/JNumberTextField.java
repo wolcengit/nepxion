@@ -48,6 +48,12 @@ public class JNumberTextField
 			public void insertString(int offset, String value, AttributeSet attributeSet)
 				throws BadLocationException
 			{
+				boolean isExclude = exclude(value);
+				if (isExclude)
+				{
+					return;
+				}
+				
 				try
 				{
 					super.insertString(offset, value, attributeSet);
@@ -63,5 +69,10 @@ public class JNumberTextField
 			}
 		}
 		);
+	}
+	
+	public boolean exclude(String value)
+	{
+		return false;
 	}
 }
