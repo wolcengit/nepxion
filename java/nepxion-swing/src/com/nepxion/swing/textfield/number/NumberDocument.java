@@ -83,6 +83,7 @@ public class NumberDocument
 		if (value.equals("F") || value.equals("f") || value.equals("D") || value.equals("d") || (text + value).length() > maximumLength || (decimalIndex > -1 && offset > decimalIndex && ((text.substring(decimalIndex + 1)) + value).length() > decimalLength) || (text.trim().equals("0") && !value.substring(0, 1).equals(".") && offset != 0) || (value.equals(".") && decimalLength == 0) || (value.indexOf(".") > -1 && value.substring(value.indexOf(".") + 1).length() > decimalLength))
 		{
 			Toolkit.getDefaultToolkit().beep();
+			
 			throw new NumberFormatException(SwingLocale.getString("invalid_data_format"));
 		}
 		try
@@ -94,6 +95,7 @@ public class NumberDocument
 				if (doubleValue < minimumValue || doubleValue > maximumValue)
 				{
 					Toolkit.getDefaultToolkit().beep();
+					
 					throw new IllegalArgumentException(SwingLocale.getString("data_overflow") + " [" + minimumValue + ", " + maximumValue + "]");
 				}
 			}
@@ -109,6 +111,7 @@ public class NumberDocument
 		catch (NumberFormatException e)
 		{
 			Toolkit.getDefaultToolkit().beep();
+			
 			throw new NumberFormatException(SwingLocale.getString("invalid_data_format"));
 		}
 		
