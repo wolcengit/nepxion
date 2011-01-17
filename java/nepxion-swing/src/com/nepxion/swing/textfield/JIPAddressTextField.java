@@ -97,7 +97,9 @@ public class JIPAddressTextField
 		{
 			public void keyReleased(KeyEvent e)
 			{				
-				boolean isDigit = Character.isDigit(e.getKeyChar());
+				char c = e.getKeyChar();				
+				boolean isDigit = Character.isDigit(c);	
+				
 				JBalloonTip balloonTip = ipAddressTextField.getBalloonTip();
 				int length = ipAddressTextField.getText().length();
 				if (!balloonTip.isVisible() && isDigit && length == 3)
