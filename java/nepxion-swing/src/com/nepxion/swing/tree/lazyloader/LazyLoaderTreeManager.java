@@ -280,14 +280,4 @@ public class LazyLoaderTreeManager
 			load(lazyLoaderTree, treeNode);
 		}
 	}
-	
-	public static void verify(ILazyLoaderTree lazyLoaderTree, TreeNode treeNode)
-	{
-		lazyLoaderTree.load(treeNode);
-		if (treeNode instanceof JLazyLoaderTreeNode && treeNode.getChildCount() == 0)
-		{
-			JLazyLoaderTreeNode lazyLoaderTreeNode = (JLazyLoaderTreeNode) treeNode;
-			lazyLoaderTreeNode.setLeaf(false);
-		}	
-	}
 }
