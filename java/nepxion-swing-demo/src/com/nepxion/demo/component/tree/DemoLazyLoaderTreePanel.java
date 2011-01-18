@@ -47,7 +47,6 @@ import com.nepxion.swing.tree.lazyloader.JLazyLoaderContainer;
 import com.nepxion.swing.tree.lazyloader.JLazyLoaderTree;
 import com.nepxion.swing.tree.lazyloader.JLazyLoaderTreeNode;
 import com.nepxion.swing.tree.lazyloader.LazyLoaderTreeController;
-import com.nepxion.swing.tree.lazyloader.LazyLoaderTreeManager;
 
 public class DemoLazyLoaderTreePanel
 	extends JPanel
@@ -236,9 +235,7 @@ public class DemoLazyLoaderTreePanel
 		}
 		
 		public DefaultMutableTreeNode addTreeNode(DefaultMutableTreeNode parentTreeNode)
-		{
-			LazyLoaderTreeManager.verify(fileTree, parentTreeNode);
-			
+		{			
 			return new ElementNode("新增节点", IconFactory.getSwingIcon("stereo/add_16.png"), "新增节点");
 		}
 		
