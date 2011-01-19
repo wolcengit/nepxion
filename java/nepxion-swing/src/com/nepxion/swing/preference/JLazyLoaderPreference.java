@@ -28,8 +28,8 @@ public class JLazyLoaderPreference
 	
 	public JLazyLoaderPreference()
 	{
-		syncLoadStrategyRadioButton = new JBasicRadioButton(SwingLocale.getString("sync_loader_strategy"), false);
-		asynLoadStrategyRadioButton = new JBasicRadioButton(SwingLocale.getString("asyn_loader_strategy"), true);
+		syncLoadStrategyRadioButton = new JBasicRadioButton(SwingLocale.getString("sync_loader_strategy"), true);
+		asynLoadStrategyRadioButton = new JBasicRadioButton(SwingLocale.getString("asyn_loader_strategy"), false);
 		
 		ButtonGroup buttonGroup = new ButtonGroup();
 		buttonGroup.add(syncLoadStrategyRadioButton);
