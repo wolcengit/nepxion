@@ -224,6 +224,22 @@ public class TreeManager
 		return -1;
 	}
 	
+	public static boolean isAncestorTreeNode(TreeNode ancestorTreeNode, TreeNode treeNode)
+	{		
+		if (ancestorTreeNode == null || treeNode == null)
+		{
+			return false;
+		}	
+		
+		TreeNode parentTreeNode = treeNode.getParent();
+		if (parentTreeNode != null && parentTreeNode == ancestorTreeNode)
+		{
+			return true;
+		}
+		
+		return isAncestorTreeNode(ancestorTreeNode, parentTreeNode);
+	}
+	
 	public static void recursionTreeNodes(TreeNode treeNode, String treeNodeName, List treeNodes)
 	{
 		for (int i = 0; i < treeNode.getChildCount(); i++)
