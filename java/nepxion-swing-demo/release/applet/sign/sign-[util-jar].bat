@@ -15,17 +15,19 @@
 @title Nepxion Signature
 @color 0a
 
-jarsigner -keystore security.store ../lib/util/commons-logging-1.1.1.jar security
-jarsigner -keystore security.store ../lib/util/dom4j-1.6.1.jar security
-jarsigner -keystore security.store ../lib/util/http-client-4.0.1.jar security
-jarsigner -keystore security.store ../lib/util/http-core-4.0.1.jar security
-jarsigner -keystore security.store ../lib/util/jacob-1.15.jar security
-jarsigner -keystore security.store ../lib/util/json.jar security
-jarsigner -keystore security.store ../lib/util/log4j-1.2.16.jar security
-jarsigner -keystore security.store ../lib/util/poi-3.6-20091214.jar security
-jarsigner -keystore security.store ../lib/util/proxool-0.9.1.jar security
-jarsigner -keystore security.store ../lib/util/proxool-cglib.jar security
-jarsigner -keystore security.store ../lib/util/quartz-all-1.8.3.jar security
-jarsigner -keystore security.store ../lib/util/servlet-api.jar security
-jarsigner -keystore security.store ../lib/util/slf4j-api-1.6.1.jar security
-jarsigner -keystore security.store ../lib/util/slf4j-log4j12-1.6.1.jar security
+set JAVA_HOME=D:\Software\JDK\JDK1.5
+
+%JAVA_HOME%\bin\jarsigner -keystore security.store -storepass 888888 ../lib/util/commons-logging-1.1.1.jar security
+%JAVA_HOME%\bin\jarsigner -keystore security.store -storepass 888888 ../lib/util/dom4j-1.6.1.jar security
+%JAVA_HOME%\bin\jarsigner -keystore security.store -storepass 888888 ../lib/util/http-client-4.0.3.jar security
+%JAVA_HOME%\bin\jarsigner -keystore security.store -storepass 888888 ../lib/util/http-core-4.1.jar security
+%JAVA_HOME%\bin\jarsigner -keystore security.store -storepass 888888 ../lib/util/jacob-1.15.jar security
+%JAVA_HOME%\bin\jarsigner -keystore security.store -storepass 888888 ../lib/util/json.jar security
+%JAVA_HOME%\bin\jarsigner -keystore security.store -storepass 888888 ../lib/util/log4j-1.2.16.jar security
+%JAVA_HOME%\bin\jarsigner -keystore security.store -storepass 888888 ../lib/util/poi-3.7-20101029.jar security
+%JAVA_HOME%\bin\jarsigner -keystore security.store -storepass 888888 ../lib/util/proxool-0.9.1.jar security
+%JAVA_HOME%\bin\jarsigner -keystore security.store -storepass 888888 ../lib/util/proxool-cglib.jar security
+%JAVA_HOME%\bin\jarsigner -keystore security.store -storepass 888888 ../lib/util/quartz-all-1.8.4.jar security
+%JAVA_HOME%\bin\jarsigner -keystore security.store -storepass 888888 ../lib/util/servlet-api.jar security
+%JAVA_HOME%\bin\jarsigner -keystore security.store -storepass 888888 ../lib/util/slf4j-api-1.6.1.jar security
+%JAVA_HOME%\bin\jarsigner -keystore security.store -storepass 888888 ../lib/util/slf4j-log4j12-1.6.1.jar security

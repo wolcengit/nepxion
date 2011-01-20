@@ -15,6 +15,8 @@
 @title Nepxion Signature
 @color 0a
 
-jarsigner -keystore security.store -storepass 888888 ../lib/nepxion-util.jar security
-jarsigner -keystore security.store -storepass 888888 ../lib/nepxion-swing.jar security
-jarsigner -keystore security.store -storepass 888888 ../lib/nepxion-swing-demo.jar security
+set JAVA_HOME=D:\Software\JDK\JDK1.5
+
+%JAVA_HOME%\bin\jarsigner -keystore security.store -storepass 888888 ../lib/nepxion-util.jar security
+%JAVA_HOME%\bin\jarsigner -keystore security.store -storepass 888888 ../lib/nepxion-swing.jar security
+%JAVA_HOME%\bin\jarsigner -keystore security.store -storepass 888888 ../lib/nepxion-swing-demo.jar security
