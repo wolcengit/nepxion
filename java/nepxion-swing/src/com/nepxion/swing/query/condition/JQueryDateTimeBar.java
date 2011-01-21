@@ -26,6 +26,8 @@ import com.nepxion.swing.layout.table.TableLayout;
 import com.nepxion.swing.locale.SwingLocale;
 import com.nepxion.swing.optionpane.IValidation;
 import com.nepxion.swing.selector.calendar.JDateTimeSelector;
+import com.nepxion.swing.selector.calendar.editor.JSpinnerDateTimeEditor;
+import com.nepxion.util.time.TimeConstants;
 import com.nepxion.util.time.TimeUtil;
 
 public class JQueryDateTimeBar
@@ -45,14 +47,10 @@ public class JQueryDateTimeBar
         Date startDateTime = TimeUtil.calculateDateTime(endDateTime, Calendar.HOUR, -24);
         
         JLabel startDateTimeLabel = new JLabel(SwingLocale.getString("start_time"));
-        
-		startDateTimeSelector = new JDateTimeSelector();
-		startDateTimeSelector.setDate(startDateTime);
-		
 		JLabel endDateTimeLabel = new JLabel(SwingLocale.getString("end_time"));
 		
-		endDateTimeSelector = new JDateTimeSelector();
-		endDateTimeSelector.setDate(endDateTime);
+		startDateTimeSelector = new JDateTimeSelector(startDateTime, TimeConstants.DATE_TIME_FORMAT, new JSpinnerDateTimeEditor());		
+		endDateTimeSelector = new JDateTimeSelector(endDateTime, TimeConstants.DATE_TIME_FORMAT, new JSpinnerDateTimeEditor());
 		
 		switch (direction)
 		{
@@ -79,8 +77,8 @@ public class JQueryDateTimeBar
 			}
 			case HORIZONTAL:
 			{
-				DimensionManager.setDimension(startDateTimeSelector, new Dimension(194, startDateTimeSelector.getPreferredSize().height));
-				DimensionManager.setDimension(endDateTimeSelector, new Dimension(194, endDateTimeSelector.getPreferredSize().height));
+				DimensionManager.setDimension(startDateTimeSelector, new Dimension(165, startDateTimeSelector.getPreferredSize().height));
+				DimensionManager.setDimension(endDateTimeSelector, new Dimension(165, endDateTimeSelector.getPreferredSize().height));
 				
 				setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
 				
