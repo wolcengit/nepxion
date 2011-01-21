@@ -29,44 +29,46 @@ public abstract class JYearSelectorDialog
 	private JYearSelector yearSelector;
 	private JPanel layoutPanel;
 	
-	public JYearSelectorDialog(Frame owner)
+	public JYearSelectorDialog(Frame owner, JYearSelector yearSelector)
 	{
-		this(owner, true);
+		this(owner, yearSelector, true);
 	}
 	
-	public JYearSelectorDialog(Dialog owner)
+	public JYearSelectorDialog(Dialog owner, JYearSelector yearSelector)
 	{
-		this(owner, true);
+		this(owner, yearSelector, true);
 	}
 	
-	public JYearSelectorDialog(Frame owner, boolean modal)
+	public JYearSelectorDialog(Frame owner, JYearSelector yearSelector, boolean modal)
 	{
-		this(owner, modal, false);
+		this(owner, yearSelector, modal, false);
 	}
 	
-	public JYearSelectorDialog(Dialog owner, boolean modal)
+	public JYearSelectorDialog(Dialog owner, JYearSelector yearSelector, boolean modal)
 	{
-		this(owner, modal, false);
+		this(owner, yearSelector, modal, false);
 	}
 	
-	public JYearSelectorDialog(Frame owner, boolean modal, boolean isHint)
+	public JYearSelectorDialog(Frame owner, JYearSelector yearSelector, boolean modal, boolean isHint)
 	{
 		super(owner, SwingLocale.getString("year_selector"), new Dimension(198, 108), modal, isHint, false);
+		
+		this.yearSelector = yearSelector;
 		
 		initComponents();
 	}
 	
-	public JYearSelectorDialog(Dialog owner, boolean modal, boolean isHint)
+	public JYearSelectorDialog(Dialog owner, JYearSelector yearSelector, boolean modal, boolean isHint)
 	{
 		super(owner, SwingLocale.getString("year_selector"), new Dimension(198, 108), modal, isHint, false);
+		
+		this.yearSelector = yearSelector;
 		
 		initComponents();
 	}
 	
 	private void initComponents()
 	{
-		yearSelector = new JYearSelector();
-		
 		layoutPanel = new JPanel();
 		layoutPanel.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
 		layoutPanel.setLayout(new BorderLayout());

@@ -29,44 +29,46 @@ public abstract class JDateSelectorDialog
 	private JDateSelector dateSelector;
 	private JPanel layoutPanel;
 	
-	public JDateSelectorDialog(Frame owner)
+	public JDateSelectorDialog(Frame owner, JDateSelector dateSelector)
 	{
-		this(owner, true);
+		this(owner, dateSelector, true);
 	}
 	
-	public JDateSelectorDialog(Dialog owner)
+	public JDateSelectorDialog(Dialog owner, JDateSelector dateSelector)
 	{
-		this(owner, true);
+		this(owner, dateSelector, true);
 	}
 	
-	public JDateSelectorDialog(Frame owner, boolean modal)
+	public JDateSelectorDialog(Frame owner, JDateSelector dateSelector, boolean modal)
 	{
-		this(owner, modal, false);
+		this(owner, dateSelector, modal, false);
 	}
 	
-	public JDateSelectorDialog(Dialog owner, boolean modal)
+	public JDateSelectorDialog(Dialog owner, JDateSelector dateSelector, boolean modal)
 	{
-		this(owner, modal, false);
+		this(owner, dateSelector, modal, false);
 	}
 	
-	public JDateSelectorDialog(Frame owner, boolean modal, boolean isHint)
+	public JDateSelectorDialog(Frame owner, JDateSelector dateSelector, boolean modal, boolean isHint)
 	{
 		super(owner, SwingLocale.getString("date_selector"), new Dimension(198, 108), modal, isHint, false);
+		
+		this.dateSelector = dateSelector;
 		
 		initComponents();
 	}
 	
-	public JDateSelectorDialog(Dialog owner, boolean modal, boolean isHint)
+	public JDateSelectorDialog(Dialog owner, JDateSelector dateSelector, boolean modal, boolean isHint)
 	{
 		super(owner, SwingLocale.getString("date_selector"), new Dimension(198, 108), modal, isHint, false);
+		
+		this.dateSelector = dateSelector;
 		
 		initComponents();
 	}
 	
 	private void initComponents()
-	{
-		dateSelector = new JDateSelector();
-		
+	{		
 		layoutPanel = new JPanel();
 		layoutPanel.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
 		layoutPanel.setLayout(new BorderLayout());

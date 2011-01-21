@@ -23,16 +23,15 @@ import com.nepxion.swing.optionpane.JBasicOptionPane;
 public class JDateSelectorOptionPane
 	extends JBasicOptionPane implements IDateSelectorComponent
 {
-	private Component parentComponent;
+	private Component owner;
 	private JDateSelector dateSelector;
 	private JPanel layoutPanel;
 	
-	public JDateSelectorOptionPane(Component parentComponent)
+	public JDateSelectorOptionPane(Component owner, JDateSelector dateSelector)
 	{
-		this.parentComponent = parentComponent;
-		
-		dateSelector = new JDateSelector();
-		dateSelector.setPreferredSize(new Dimension(180, dateSelector.getPreferredSize().height));
+		this.owner = owner;
+		this.dateSelector = dateSelector;
+		this.dateSelector.setPreferredSize(new Dimension(180, dateSelector.getPreferredSize().height));
 		
 		layoutPanel = new JPanel();
 		layoutPanel.setLayout(new BorderLayout());
@@ -41,7 +40,7 @@ public class JDateSelectorOptionPane
 	
 	public int showDateDialog()
 	{
-		return showDialog(parentComponent, layoutPanel, SwingLocale.getString("date_selector"), IconFactory.getSwingIcon("component/calendar_48.png"));
+		return showDialog(owner, layoutPanel, SwingLocale.getString("date_selector"), IconFactory.getSwingIcon("component/calendar_48.png"));
 	}
 	
 	public JDateSelector getDateSelector()

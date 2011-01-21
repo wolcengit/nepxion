@@ -23,16 +23,15 @@ import com.nepxion.swing.optionpane.JBasicOptionPane;
 public class JMonthSelectorOptionPane
 	extends JBasicOptionPane implements IMonthSelectorComponent
 {
-	private Component parentComponent;
+	private Component owner;
 	private JMonthSelector monthSelector;
 	private JPanel layoutPanel;
 	
-	public JMonthSelectorOptionPane(Component parentComponent)
+	public JMonthSelectorOptionPane(Component owner, JMonthSelector monthSelector)
 	{
-		this.parentComponent = parentComponent;
-		
-		monthSelector = new JMonthSelector();
-		monthSelector.setPreferredSize(new Dimension(180, monthSelector.getPreferredSize().height));
+		this.owner = owner;
+		this.monthSelector = monthSelector;
+		this.monthSelector.setPreferredSize(new Dimension(180, monthSelector.getPreferredSize().height));
 		
 		layoutPanel = new JPanel();
 		layoutPanel.setLayout(new BorderLayout());
@@ -41,7 +40,7 @@ public class JMonthSelectorOptionPane
 	
 	public int showMonthDialog()
 	{
-		return showDialog(parentComponent, layoutPanel, SwingLocale.getString("month_selector"), IconFactory.getSwingIcon("component/calendar_48.png"));
+		return showDialog(owner, layoutPanel, SwingLocale.getString("month_selector"), IconFactory.getSwingIcon("component/calendar_48.png"));
 	}
 	
 	public JMonthSelector getMonthSelector()

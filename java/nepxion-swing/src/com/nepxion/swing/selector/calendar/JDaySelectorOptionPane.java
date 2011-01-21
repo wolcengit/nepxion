@@ -12,7 +12,6 @@ package com.nepxion.swing.selector.calendar;
 
 import java.awt.BorderLayout;
 import java.awt.Component;
-import java.awt.Dimension;
 
 import javax.swing.JPanel;
 
@@ -23,15 +22,14 @@ import com.nepxion.swing.optionpane.JBasicOptionPane;
 public class JDaySelectorOptionPane
 	extends JBasicOptionPane implements IDaySelectorComponent
 {
-	private Component parentComponent;
+	private Component owner;
 	private JDaySelector daySelector;
 	private JPanel layoutPanel;
 	
-	public JDaySelectorOptionPane(Component parentComponent)
+	public JDaySelectorOptionPane(Component owner, JDaySelector daySelector)
 	{
-		this.parentComponent = parentComponent;
-		
-		daySelector = new JDaySelector(true);
+		this.owner = owner;
+		this.daySelector = daySelector;
 		
 		layoutPanel = new JPanel();
 		layoutPanel.setLayout(new BorderLayout());
@@ -40,7 +38,7 @@ public class JDaySelectorOptionPane
 	
 	public int showDayDialog()
 	{
-		return showDialog(parentComponent, layoutPanel, SwingLocale.getString("day_selector"), IconFactory.getSwingIcon("component/calendar_48.png"));
+		return showDialog(owner, layoutPanel, SwingLocale.getString("day_selector"), IconFactory.getSwingIcon("component/calendar_48.png"));
 	}
 	
 	public JDaySelector getDaySelector()
@@ -51,7 +49,6 @@ public class JDaySelectorOptionPane
 	public void setDaySelector(JDaySelector daySelector)
 	{
 		this.daySelector = daySelector;
-		this.daySelector.setPreferredSize(new Dimension(180, this.daySelector.getPreferredSize().height));
 		
 		layoutPanel.removeAll();
 		layoutPanel.add(daySelector);

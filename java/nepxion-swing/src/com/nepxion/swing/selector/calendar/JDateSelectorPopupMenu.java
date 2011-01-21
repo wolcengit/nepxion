@@ -30,12 +30,10 @@ public abstract class JDateSelectorPopupMenu
 	private JDateSelector dateSelector;
 	private JPanel layoutPanel;
 	
-	public JDateSelectorPopupMenu(AbstractButton button)
-	{
-		setResizable(false);
-		
-		dateSelector = new JDateSelector();
-		dateSelector.setPreferredSize(new Dimension(180, dateSelector.getPreferredSize().height));
+	public JDateSelectorPopupMenu(JDateSelector dateSelector, AbstractButton button)
+	{		
+		this.dateSelector = dateSelector;
+		this.dateSelector.setPreferredSize(new Dimension(180, dateSelector.getPreferredSize().height));
 		
 		layoutPanel = new JPanel();
 		layoutPanel.setLayout(new BorderLayout());
@@ -53,6 +51,7 @@ public abstract class JDateSelectorPopupMenu
 		
 		setPopupMenuWidth(dateSelector.getPreferredSize().width + 90);
 		setPopupMenuHeight(dateSelector.getPreferredSize().height + 95);
+		setResizable(false);
 	}
 	
 	public JDateSelector getDateSelector()

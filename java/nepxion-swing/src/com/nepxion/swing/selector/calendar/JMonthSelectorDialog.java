@@ -29,44 +29,46 @@ public abstract class JMonthSelectorDialog
 	private JMonthSelector monthSelector;
 	private JPanel layoutPanel;
 	
-	public JMonthSelectorDialog(Frame owner)
+	public JMonthSelectorDialog(Frame owner, JMonthSelector monthSelector)
 	{
-		this(owner, true);
+		this(owner, monthSelector, true);
 	}
 	
-	public JMonthSelectorDialog(Dialog owner)
+	public JMonthSelectorDialog(Dialog owner, JMonthSelector monthSelector)
 	{
-		this(owner, true);
+		this(owner, monthSelector, true);
 	}
 	
-	public JMonthSelectorDialog(Frame owner, boolean modal)
+	public JMonthSelectorDialog(Frame owner, JMonthSelector monthSelector, boolean modal)
 	{
-		this(owner, modal, false);
+		this(owner, monthSelector, modal, false);
 	}
 	
-	public JMonthSelectorDialog(Dialog owner, boolean modal)
+	public JMonthSelectorDialog(Dialog owner, JMonthSelector monthSelector, boolean modal)
 	{
-		this(owner, modal, false);
+		this(owner, monthSelector, modal, false);
 	}
 	
-	public JMonthSelectorDialog(Frame owner, boolean modal, boolean isHint)
+	public JMonthSelectorDialog(Frame owner, JMonthSelector monthSelector, boolean modal, boolean isHint)
 	{
 		super(owner, SwingLocale.getString("month_selector"), new Dimension(198, 108), modal, isHint, false);
+		
+		this.monthSelector = monthSelector;
 		
 		initComponents();
 	}
 	
-	public JMonthSelectorDialog(Dialog owner, boolean modal, boolean isHint)
+	public JMonthSelectorDialog(Dialog owner, JMonthSelector monthSelector, boolean modal, boolean isHint)
 	{
 		super(owner, SwingLocale.getString("month_selector"), new Dimension(198, 108), modal, isHint, false);
+		
+		this.monthSelector = monthSelector;
 		
 		initComponents();
 	}
 	
 	private void initComponents()
 	{
-		monthSelector = new JMonthSelector();
-		
 		layoutPanel = new JPanel();
 		layoutPanel.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
 		layoutPanel.setLayout(new BorderLayout());

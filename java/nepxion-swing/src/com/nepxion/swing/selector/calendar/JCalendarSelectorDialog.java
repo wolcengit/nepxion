@@ -29,44 +29,46 @@ public abstract class JCalendarSelectorDialog
 	private JCalendarSelector calendarSelector;
 	private JPanel layoutPanel;
 	
-	public JCalendarSelectorDialog(Frame owner)
+	public JCalendarSelectorDialog(Frame owner, JCalendarSelector calendarSelector)
 	{
-		this(owner, true);
+		this(owner, calendarSelector, true);		
 	}
 	
-	public JCalendarSelectorDialog(Dialog owner)
+	public JCalendarSelectorDialog(Dialog owner, JCalendarSelector calendarSelector)
 	{
-		this(owner, true);
+		this(owner, calendarSelector, true);
 	}
 	
-	public JCalendarSelectorDialog(Frame owner, boolean modal)
+	public JCalendarSelectorDialog(Frame owner, JCalendarSelector calendarSelector, boolean modal)
 	{
-		this(owner, modal, false);
+		this(owner, calendarSelector, modal, false);
 	}
 	
-	public JCalendarSelectorDialog(Dialog owner, boolean modal)
+	public JCalendarSelectorDialog(Dialog owner, JCalendarSelector calendarSelector, boolean modal)
 	{
-		this(owner, modal, false);
+		this(owner, calendarSelector, modal, false);
 	}
 	
-	public JCalendarSelectorDialog(Frame owner, boolean modal, boolean isHint)
+	public JCalendarSelectorDialog(Frame owner, JCalendarSelector calendarSelector, boolean modal, boolean isHint)
 	{
-		super(owner, SwingLocale.getString("calendar_selector"), new Dimension(330, 270), modal, isHint, false);
+		super(owner, SwingLocale.getString("calendar_selector"), new Dimension(330, 280), modal, isHint, false);
+		
+		this.calendarSelector = calendarSelector;
 		
 		initComponents();
 	}
 	
-	public JCalendarSelectorDialog(Dialog owner, boolean modal, boolean isHint)
+	public JCalendarSelectorDialog(Dialog owner, JCalendarSelector calendarSelector, boolean modal, boolean isHint)
 	{
-		super(owner, SwingLocale.getString("calendar_selector"), new Dimension(330, 270), modal, isHint, false);
+		super(owner, SwingLocale.getString("calendar_selector"), new Dimension(330, 280), modal, isHint, false);
+		
+		this.calendarSelector = calendarSelector;
 		
 		initComponents();
 	}
 	
 	private void initComponents()
-	{
-		calendarSelector = new JCalendarSelector();
-		
+	{		
 		layoutPanel = new JPanel();
 		layoutPanel.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
 		layoutPanel.add(calendarSelector);

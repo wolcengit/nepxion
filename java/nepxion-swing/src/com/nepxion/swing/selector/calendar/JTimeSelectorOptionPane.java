@@ -23,16 +23,15 @@ import com.nepxion.swing.optionpane.JBasicOptionPane;
 public class JTimeSelectorOptionPane
 	extends JBasicOptionPane implements ITimeSelectorComponent
 {
-	private Component parentComponent;
+	private Component owner;
 	private JTimeSelector timeSelector;
 	private JPanel layoutPanel;
 	
-	public JTimeSelectorOptionPane(Component parentComponent)
+	public JTimeSelectorOptionPane(Component owner, JTimeSelector timeSelector)
 	{
-		this.parentComponent = parentComponent;
-		
-		timeSelector = new JTimeSelector();
-		timeSelector.setPreferredSize(new Dimension(180, timeSelector.getPreferredSize().height));
+		this.owner = owner;
+		this.timeSelector = timeSelector;
+		this.timeSelector.setPreferredSize(new Dimension(180, timeSelector.getPreferredSize().height));
 		
 		layoutPanel = new JPanel();
 		layoutPanel.setLayout(new BorderLayout());
@@ -41,7 +40,7 @@ public class JTimeSelectorOptionPane
 	
 	public int showTimeDialog()
 	{
-		return showDialog(parentComponent, layoutPanel, SwingLocale.getString("time_selector"), IconFactory.getSwingIcon("component/calendar_48.png"));
+		return showDialog(owner, layoutPanel, SwingLocale.getString("time_selector"), IconFactory.getSwingIcon("component/calendar_48.png"));
 	}
 	
 	public JTimeSelector getTimeSelector()

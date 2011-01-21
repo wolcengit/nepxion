@@ -12,7 +12,6 @@ package com.nepxion.swing.selector.calendar;
 
 import java.awt.BorderLayout;
 import java.awt.Component;
-import java.awt.Dimension;
 
 import javax.swing.AbstractButton;
 import javax.swing.BorderFactory;
@@ -30,11 +29,9 @@ public abstract class JDaySelectorPopupMenu
 	private JDaySelector daySelector;
 	private JPanel layoutPanel;
 	
-	public JDaySelectorPopupMenu(AbstractButton button)
-	{
-		setResizable(false);
-		
-		daySelector = new JDaySelector(true);
+	public JDaySelectorPopupMenu(JDaySelector daySelector, AbstractButton button)
+	{		
+		this.daySelector = daySelector;
 		
 		layoutPanel = new JPanel();
 		layoutPanel.setLayout(new BorderLayout());
@@ -51,6 +48,7 @@ public abstract class JDaySelectorPopupMenu
 		
 		setPopupMenuWidth(daySelector.getPreferredSize().width + 90);
 		setPopupMenuHeight(daySelector.getPreferredSize().height + 74);
+		setResizable(false);		
 	}
 	
 	public JDaySelector getDaySelector()
@@ -61,7 +59,6 @@ public abstract class JDaySelectorPopupMenu
 	public void setDaySelector(JDaySelector daySelector)
 	{
 		this.daySelector = daySelector;
-		this.daySelector.setPreferredSize(new Dimension(180, this.daySelector.getPreferredSize().height));
 		
 		layoutPanel.removeAll();
 		layoutPanel.add(daySelector);

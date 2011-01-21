@@ -30,12 +30,10 @@ public abstract class JTimeSelectorPopupMenu
 	private JTimeSelector timeSelector;
 	private JPanel layoutPanel;
 	
-	public JTimeSelectorPopupMenu(AbstractButton button)
-	{
-		setResizable(false);
-		
-		timeSelector = new JTimeSelector();
-		timeSelector.setPreferredSize(new Dimension(180, timeSelector.getPreferredSize().height));
+	public JTimeSelectorPopupMenu(JTimeSelector timeSelector, AbstractButton button)
+	{		
+		this.timeSelector = timeSelector;		
+		this.timeSelector.setPreferredSize(new Dimension(180, timeSelector.getPreferredSize().height));
 		
 		layoutPanel = new JPanel();
 		layoutPanel.setLayout(new BorderLayout());
@@ -53,6 +51,7 @@ public abstract class JTimeSelectorPopupMenu
 		
 		setPopupMenuWidth(timeSelector.getPreferredSize().width + 90);
 		setPopupMenuHeight(timeSelector.getPreferredSize().height + 95);
+		setResizable(false);
 	}
 	
 	public JTimeSelector getTimeSelector()

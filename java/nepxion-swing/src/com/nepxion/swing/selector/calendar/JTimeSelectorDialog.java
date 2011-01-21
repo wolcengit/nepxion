@@ -29,44 +29,46 @@ public abstract class JTimeSelectorDialog
 	private JTimeSelector timeSelector;
 	private JPanel layoutPanel;
 	
-	public JTimeSelectorDialog(Frame owner)
+	public JTimeSelectorDialog(Frame owner, JTimeSelector timeSelector)
 	{
-		this(owner, true);
+		this(owner, timeSelector, true);
 	}
 	
-	public JTimeSelectorDialog(Dialog owner)
+	public JTimeSelectorDialog(Dialog owner, JTimeSelector timeSelector)
 	{
-		this(owner, true);
+		this(owner, timeSelector, true);
 	}
 	
-	public JTimeSelectorDialog(Frame owner, boolean modal)
+	public JTimeSelectorDialog(Frame owner, JTimeSelector timeSelector, boolean modal)
 	{
-		this(owner, modal, false);
+		this(owner, timeSelector, modal, false);
 	}
 	
-	public JTimeSelectorDialog(Dialog owner, boolean modal)
+	public JTimeSelectorDialog(Dialog owner, JTimeSelector timeSelector, boolean modal)
 	{
-		this(owner, modal, false);
+		this(owner, timeSelector, modal, false);
 	}
 	
-	public JTimeSelectorDialog(Frame owner, boolean modal, boolean isHint)
+	public JTimeSelectorDialog(Frame owner, JTimeSelector timeSelector, boolean modal, boolean isHint)
 	{
 		super(owner, SwingLocale.getString("time_selector"), new Dimension(198, 108), modal, isHint, false);
+		
+		this.timeSelector = timeSelector;
 		
 		initComponents();
 	}
 	
-	public JTimeSelectorDialog(Dialog owner, boolean modal, boolean isHint)
+	public JTimeSelectorDialog(Dialog owner, JTimeSelector timeSelector, boolean modal, boolean isHint)
 	{
 		super(owner, SwingLocale.getString("time_selector"), new Dimension(198, 108), modal, isHint, false);
+		
+		this.timeSelector = timeSelector;
 		
 		initComponents();
 	}
 	
 	private void initComponents()
-	{
-		timeSelector = new JTimeSelector();
-		
+	{		
 		layoutPanel = new JPanel();
 		layoutPanel.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
 		layoutPanel.setLayout(new BorderLayout());

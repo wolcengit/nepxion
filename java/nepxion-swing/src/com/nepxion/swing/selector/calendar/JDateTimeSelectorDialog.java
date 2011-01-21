@@ -29,44 +29,46 @@ public abstract class JDateTimeSelectorDialog
 	private JDateTimeSelector dateTimeSelector;
 	private JPanel layoutPanel;
 	
-	public JDateTimeSelectorDialog(Frame owner)
+	public JDateTimeSelectorDialog(Frame owner, JDateTimeSelector dateTimeSelector)
 	{
-		this(owner, true);
+		this(owner, dateTimeSelector, true);
 	}
 	
-	public JDateTimeSelectorDialog(Dialog owner)
+	public JDateTimeSelectorDialog(Dialog owner, JDateTimeSelector dateTimeSelector)
 	{
-		this(owner, true);
+		this(owner, dateTimeSelector, true);
 	}
 	
-	public JDateTimeSelectorDialog(Frame owner, boolean modal)
+	public JDateTimeSelectorDialog(Frame owner, JDateTimeSelector dateTimeSelector, boolean modal)
 	{
-		this(owner, modal, false);
+		this(owner, dateTimeSelector, modal, false);
 	}
 	
-	public JDateTimeSelectorDialog(Dialog owner, boolean modal)
+	public JDateTimeSelectorDialog(Dialog owner, JDateTimeSelector dateTimeSelector, boolean modal)
 	{
-		this(owner, modal, false);
+		this(owner, dateTimeSelector, modal, false);
 	}
 	
-	public JDateTimeSelectorDialog(Frame owner, boolean modal, boolean isHint)
+	public JDateTimeSelectorDialog(Frame owner, JDateTimeSelector dateTimeSelector, boolean modal, boolean isHint)
 	{
 		super(owner, SwingLocale.getString("date_time_selector"), new Dimension(268, 108), modal, isHint, false);
+		
+		this.dateTimeSelector = dateTimeSelector;
 		
 		initComponents();
 	}
 	
-	public JDateTimeSelectorDialog(Dialog owner, boolean modal, boolean isHint)
+	public JDateTimeSelectorDialog(Dialog owner, JDateTimeSelector dateTimeSelector, boolean modal, boolean isHint)
 	{
 		super(owner, SwingLocale.getString("date_time_selector"), new Dimension(268, 108), modal, isHint, false);
+		
+		this.dateTimeSelector = dateTimeSelector;
 		
 		initComponents();
 	}
 	
 	private void initComponents()
-	{
-		dateTimeSelector = new JDateTimeSelector();
-		
+	{		
 		layoutPanel = new JPanel();
 		layoutPanel.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
 		layoutPanel.setLayout(new BorderLayout());

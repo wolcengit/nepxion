@@ -23,16 +23,15 @@ import com.nepxion.swing.optionpane.JBasicOptionPane;
 public class JYearSelectorOptionPane
 	extends JBasicOptionPane implements IYearSelectorComponent
 {
-	private Component parentComponent;
+	private Component owner;
 	private JYearSelector yearSelector;
 	private JPanel layoutPanel;
 	
-	public JYearSelectorOptionPane(Component parentComponent)
+	public JYearSelectorOptionPane(Component owner, JYearSelector yearSelector)
 	{
-		this.parentComponent = parentComponent;
-		
-		yearSelector = new JYearSelector();
-		yearSelector.setPreferredSize(new Dimension(180, yearSelector.getPreferredSize().height));
+		this.owner = owner;
+		this.yearSelector = yearSelector;
+		this.yearSelector.setPreferredSize(new Dimension(180, yearSelector.getPreferredSize().height));
 		
 		layoutPanel = new JPanel();
 		layoutPanel.setLayout(new BorderLayout());
@@ -41,7 +40,7 @@ public class JYearSelectorOptionPane
 	
 	public int showYearDialog()
 	{
-		return showDialog(parentComponent, layoutPanel, SwingLocale.getString("year_selector"), IconFactory.getSwingIcon("component/calendar_48.png"));
+		return showDialog(owner, layoutPanel, SwingLocale.getString("year_selector"), IconFactory.getSwingIcon("component/calendar_48.png"));
 	}
 	
 	public JYearSelector getYearSelector()

@@ -30,12 +30,10 @@ public abstract class JYearSelectorPopupMenu
 	private JYearSelector yearSelector;
 	private JPanel layoutPanel;
 	
-	public JYearSelectorPopupMenu(AbstractButton button)
-	{
-		setResizable(false);
-		
-		yearSelector = new JYearSelector();
-		yearSelector.setPreferredSize(new Dimension(180, yearSelector.getPreferredSize().height));
+	public JYearSelectorPopupMenu(JYearSelector yearSelector, AbstractButton button)
+	{		
+		this.yearSelector = yearSelector;		
+		this.yearSelector.setPreferredSize(new Dimension(180, yearSelector.getPreferredSize().height));
 		
 		layoutPanel = new JPanel();
 		layoutPanel.setLayout(new BorderLayout());
@@ -53,6 +51,7 @@ public abstract class JYearSelectorPopupMenu
 		
 		setPopupMenuWidth(yearSelector.getPreferredSize().width + 90);
 		setPopupMenuHeight(yearSelector.getPreferredSize().height + 95);
+		setResizable(false);
 	}
 	
 	public JYearSelector getYearSelector()

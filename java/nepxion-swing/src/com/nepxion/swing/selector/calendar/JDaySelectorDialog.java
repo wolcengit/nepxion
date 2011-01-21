@@ -29,44 +29,46 @@ public abstract class JDaySelectorDialog
 	private JDaySelector daySelector;
 	private JPanel layoutPanel;
 	
-	public JDaySelectorDialog(Frame owner)
+	public JDaySelectorDialog(Frame owner, JDaySelector daySelector)
 	{
-		this(owner, true);
+		this(owner, daySelector, true);
 	}
 	
-	public JDaySelectorDialog(Dialog owner)
+	public JDaySelectorDialog(Dialog owner, JDaySelector daySelector)
 	{
-		this(owner, true);
+		this(owner, daySelector, true);
 	}
 	
-	public JDaySelectorDialog(Frame owner, boolean modal)
+	public JDaySelectorDialog(Frame owner, JDaySelector daySelector, boolean modal)
 	{
-		this(owner, modal, false);
+		this(owner, daySelector, modal, false);
 	}
 	
-	public JDaySelectorDialog(Dialog owner, boolean modal)
+	public JDaySelectorDialog(Dialog owner, JDaySelector daySelector, boolean modal)
 	{
-		this(owner, modal, false);
+		this(owner, daySelector, modal, false);
 	}
 	
-	public JDaySelectorDialog(Frame owner, boolean modal, boolean isHint)
+	public JDaySelectorDialog(Frame owner, JDaySelector daySelector, boolean modal, boolean isHint)
 	{
 		super(owner, SwingLocale.getString("day_selector"), new Dimension(330, 244), modal, isHint, false);
+		
+		this.daySelector = daySelector;
 		
 		initComponents();
 	}
 	
-	public JDaySelectorDialog(Dialog owner, boolean modal, boolean isHint)
+	public JDaySelectorDialog(Dialog owner, JDaySelector daySelector, boolean modal, boolean isHint)
 	{
 		super(owner, SwingLocale.getString("day_selector"), new Dimension(330, 244), modal, isHint, false);
+		
+		this.daySelector = daySelector;
 		
 		initComponents();
 	}
 	
 	private void initComponents()
-	{
-		daySelector = new JDaySelector(true);
-		
+	{		
 		layoutPanel = new JPanel();
 		layoutPanel.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
 		layoutPanel.setLayout(new BorderLayout());

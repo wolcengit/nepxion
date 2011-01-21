@@ -30,12 +30,10 @@ public abstract class JMonthSelectorPopupMenu
 	private JMonthSelector monthSelector;
 	private JPanel layoutPanel;
 	
-	public JMonthSelectorPopupMenu(AbstractButton button)
-	{
-		setResizable(false);
-		
-		monthSelector = new JMonthSelector();
-		monthSelector.setPreferredSize(new Dimension(180, monthSelector.getPreferredSize().height));
+	public JMonthSelectorPopupMenu(JMonthSelector monthSelector, AbstractButton button)
+	{		
+		this.monthSelector = monthSelector;
+		this.monthSelector.setPreferredSize(new Dimension(180, monthSelector.getPreferredSize().height));
 		
 		layoutPanel = new JPanel();
 		layoutPanel.setLayout(new BorderLayout());
@@ -53,6 +51,7 @@ public abstract class JMonthSelectorPopupMenu
 		
 		setPopupMenuWidth(monthSelector.getPreferredSize().width + 90);
 		setPopupMenuHeight(monthSelector.getPreferredSize().height + 95);
+		setResizable(false);
 	}
 	
 	public JMonthSelector getMonthSelector()

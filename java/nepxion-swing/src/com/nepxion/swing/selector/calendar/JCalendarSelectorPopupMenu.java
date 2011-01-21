@@ -29,11 +29,9 @@ public abstract class JCalendarSelectorPopupMenu
 	private JCalendarSelector calendarSelector;
 	private JPanel layoutPanel;
 	
-	public JCalendarSelectorPopupMenu(AbstractButton button)
+	public JCalendarSelectorPopupMenu(JCalendarSelector calendarSelector, AbstractButton button)
 	{
-		setResizable(false);
-		
-		calendarSelector = new JCalendarSelector();
+		this.calendarSelector = calendarSelector;
 		
 		layoutPanel = new JPanel();
 		layoutPanel.setLayout(new BorderLayout());
@@ -51,6 +49,7 @@ public abstract class JCalendarSelectorPopupMenu
 		
 		setPopupMenuWidth(calendarSelector.getPreferredSize().width + 90);
 		setPopupMenuHeight(calendarSelector.getPreferredSize().height + 74);
+		setResizable(false);
 	}
 	
 	public JCalendarSelector getCalendarSelector()
