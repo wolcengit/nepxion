@@ -30,12 +30,10 @@ public abstract class JLocaleSelectorPopupMenu
 	private JLocaleSelector localeSelector;
 	private JPanel layoutPanel;
 	
-	public JLocaleSelectorPopupMenu(AbstractButton button)
-	{
-		setResizable(false);
-		
-		localeSelector = new JLocaleSelector();
-		localeSelector.setPreferredSize(new Dimension(220, localeSelector.getPreferredSize().height));
+	public JLocaleSelectorPopupMenu(JLocaleSelector localeSelector, AbstractButton button)
+	{		
+		this.localeSelector = localeSelector;		
+		this.localeSelector.setPreferredSize(new Dimension(220, localeSelector.getPreferredSize().height));
 		
 		layoutPanel = new JPanel();
 		layoutPanel.setLayout(new BorderLayout());
@@ -53,6 +51,7 @@ public abstract class JLocaleSelectorPopupMenu
 		
 		setPopupMenuWidth(localeSelector.getPreferredSize().width + 90);
 		setPopupMenuHeight(localeSelector.getPreferredSize().height + 95);
+		setResizable(false);
 	}
 	
 	public JLocaleSelector getLocaleSelector()
@@ -63,7 +62,7 @@ public abstract class JLocaleSelectorPopupMenu
 	public void setLocaleSelector(JLocaleSelector localeSelector)
 	{
 		this.localeSelector = localeSelector;
-		this.localeSelector.setPreferredSize(new Dimension(180, this.localeSelector.getPreferredSize().height));
+		this.localeSelector.setPreferredSize(new Dimension(220, this.localeSelector.getPreferredSize().height));
 		
 		layoutPanel.removeAll();
 		layoutPanel.add(localeSelector);

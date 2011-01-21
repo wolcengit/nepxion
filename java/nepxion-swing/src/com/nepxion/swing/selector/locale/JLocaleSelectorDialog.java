@@ -29,44 +29,46 @@ public abstract class JLocaleSelectorDialog
 	private JLocaleSelector localeSelector;
 	private JPanel layoutPanel;
 	
-	public JLocaleSelectorDialog(Frame owner)
+	public JLocaleSelectorDialog(Frame owner, JLocaleSelector localeSelector)
 	{
-		this(owner, true);
+		this(owner, localeSelector, true);
 	}
 	
-	public JLocaleSelectorDialog(Dialog owner)
+	public JLocaleSelectorDialog(Dialog owner, JLocaleSelector localeSelector)
 	{
-		this(owner, true);
+		this(owner, localeSelector, true);
 	}
 	
-	public JLocaleSelectorDialog(Frame owner, boolean modal)
+	public JLocaleSelectorDialog(Frame owner, JLocaleSelector localeSelector, boolean modal)
 	{
-		this(owner, modal, false);
+		this(owner, localeSelector, modal, false);
 	}
 	
-	public JLocaleSelectorDialog(Dialog owner, boolean modal)
+	public JLocaleSelectorDialog(Dialog owner, JLocaleSelector localeSelector, boolean modal)
 	{
-		this(owner, modal, false);
+		this(owner, localeSelector, modal, false);
 	}
 	
-	public JLocaleSelectorDialog(Frame owner, boolean modal, boolean isHint)
+	public JLocaleSelectorDialog(Frame owner, JLocaleSelector localeSelector, boolean modal, boolean isHint)
 	{
 		super(owner, SwingLocale.getString("locale_selector"), new Dimension(238, 108), modal, isHint, false);
+		
+		this.localeSelector = localeSelector;
 		
 		initComponents();
 	}
 	
-	public JLocaleSelectorDialog(Dialog owner, boolean modal, boolean isHint)
+	public JLocaleSelectorDialog(Dialog owner, JLocaleSelector localeSelector, boolean modal, boolean isHint)
 	{
 		super(owner, SwingLocale.getString("locale_selector"), new Dimension(238, 108), modal, isHint, false);
+		
+		this.localeSelector = localeSelector;
 		
 		initComponents();
 	}
 	
 	private void initComponents()
-	{
-		localeSelector = new JLocaleSelector();
-		
+	{		
 		layoutPanel = new JPanel();
 		layoutPanel.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
 		layoutPanel.setLayout(new BorderLayout());

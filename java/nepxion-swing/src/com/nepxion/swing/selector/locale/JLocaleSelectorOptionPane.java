@@ -23,16 +23,15 @@ import com.nepxion.swing.optionpane.JBasicOptionPane;
 public class JLocaleSelectorOptionPane
 	extends JBasicOptionPane implements ILocaleSelectorComponent
 {
-	private Component parentComponent;
+	private Component owner;
 	private JLocaleSelector localeSelector;
 	private JPanel layoutPanel;
 	
-	public JLocaleSelectorOptionPane(Component parentComponent)
+	public JLocaleSelectorOptionPane(Component owner, JLocaleSelector localeSelector)
 	{
-		this.parentComponent = parentComponent;
-		
-		localeSelector = new JLocaleSelector();
-		localeSelector.setPreferredSize(new Dimension(220, localeSelector.getPreferredSize().height));
+		this.owner = owner;
+		this.localeSelector = localeSelector;
+		this.localeSelector.setPreferredSize(new Dimension(220, localeSelector.getPreferredSize().height));
 		
 		layoutPanel = new JPanel();
 		layoutPanel.setLayout(new BorderLayout());
@@ -41,7 +40,7 @@ public class JLocaleSelectorOptionPane
 	
 	public int showLocaleDialog()
 	{
-		return showDialog(parentComponent, layoutPanel, SwingLocale.getString("locale_selector"), IconFactory.getSwingIcon("component/locale_48.png"));
+		return showDialog(owner, layoutPanel, SwingLocale.getString("locale_selector"), IconFactory.getSwingIcon("component/locale_48.png"));
 	}
 	
 	public JLocaleSelector getLocaleSelector()
@@ -52,7 +51,7 @@ public class JLocaleSelectorOptionPane
 	public void setLocaleSelector(JLocaleSelector localeSelector)
 	{
 		this.localeSelector = localeSelector;
-		this.localeSelector.setPreferredSize(new Dimension(180, this.localeSelector.getPreferredSize().height));
+		this.localeSelector.setPreferredSize(new Dimension(220, this.localeSelector.getPreferredSize().height));
 		
 		layoutPanel.removeAll();
 		layoutPanel.add(localeSelector);
