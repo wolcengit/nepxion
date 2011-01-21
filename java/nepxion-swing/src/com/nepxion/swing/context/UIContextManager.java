@@ -12,7 +12,6 @@ package com.nepxion.swing.context;
 
 import java.net.URL;
 
-
 public class UIContextManager
 	implements UIContextConstants
 {	
