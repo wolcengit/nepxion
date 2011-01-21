@@ -51,7 +51,7 @@ public abstract class JCalendarSelectorDialog
 	
 	public JCalendarSelectorDialog(Frame owner, JCalendarSelector calendarSelector, boolean modal, boolean isHint)
 	{
-		super(owner, SwingLocale.getString("calendar_selector"), new Dimension(330, 280), modal, isHint, false);
+		super(owner, SwingLocale.getString("calendar_selector"), new Dimension(330, 290), modal, isHint, false);
 		
 		this.calendarSelector = calendarSelector;
 		
@@ -60,7 +60,7 @@ public abstract class JCalendarSelectorDialog
 	
 	public JCalendarSelectorDialog(Dialog owner, JCalendarSelector calendarSelector, boolean modal, boolean isHint)
 	{
-		super(owner, SwingLocale.getString("calendar_selector"), new Dimension(330, 280), modal, isHint, false);
+		super(owner, SwingLocale.getString("calendar_selector"), new Dimension(330, 290), modal, isHint, false);
 		
 		this.calendarSelector = calendarSelector;
 		

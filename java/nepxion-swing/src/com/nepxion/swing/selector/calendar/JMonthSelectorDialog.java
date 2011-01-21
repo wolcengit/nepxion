@@ -51,7 +51,7 @@ public abstract class JMonthSelectorDialog
 	
 	public JMonthSelectorDialog(Frame owner, JMonthSelector monthSelector, boolean modal, boolean isHint)
 	{
-		super(owner, SwingLocale.getString("month_selector"), new Dimension(198, 108), modal, isHint, false);
+		super(owner, SwingLocale.getString("month_selector"), new Dimension(200, 110), modal, isHint, false);
 		
 		this.monthSelector = monthSelector;
 		
@@ -60,7 +60,7 @@ public abstract class JMonthSelectorDialog
 	
 	public JMonthSelectorDialog(Dialog owner, JMonthSelector monthSelector, boolean modal, boolean isHint)
 	{
-		super(owner, SwingLocale.getString("month_selector"), new Dimension(198, 108), modal, isHint, false);
+		super(owner, SwingLocale.getString("month_selector"), new Dimension(200, 110), modal, isHint, false);
 		
 		this.monthSelector = monthSelector;
 		

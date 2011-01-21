@@ -51,7 +51,7 @@ public abstract class JTimeSelectorDialog
 	
 	public JTimeSelectorDialog(Frame owner, JTimeSelector timeSelector, boolean modal, boolean isHint)
 	{
-		super(owner, SwingLocale.getString("time_selector"), new Dimension(198, 108), modal, isHint, false);
+		super(owner, SwingLocale.getString("time_selector"), new Dimension(200, 110), modal, isHint, false);
 		
 		this.timeSelector = timeSelector;
 		
@@ -60,7 +60,7 @@ public abstract class JTimeSelectorDialog
 	
 	public JTimeSelectorDialog(Dialog owner, JTimeSelector timeSelector, boolean modal, boolean isHint)
 	{
-		super(owner, SwingLocale.getString("time_selector"), new Dimension(198, 108), modal, isHint, false);
+		super(owner, SwingLocale.getString("time_selector"), new Dimension(200, 110), modal, isHint, false);
 		
 		this.timeSelector = timeSelector;
 		

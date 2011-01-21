@@ -51,7 +51,7 @@ public abstract class JDaySelectorDialog
 	
 	public JDaySelectorDialog(Frame owner, JDaySelector daySelector, boolean modal, boolean isHint)
 	{
-		super(owner, SwingLocale.getString("day_selector"), new Dimension(330, 244), modal, isHint, false);
+		super(owner, SwingLocale.getString("day_selector"), new Dimension(330, 250), modal, isHint, false);
 		
 		this.daySelector = daySelector;
 		
@@ -60,7 +60,7 @@ public abstract class JDaySelectorDialog
 	
 	public JDaySelectorDialog(Dialog owner, JDaySelector daySelector, boolean modal, boolean isHint)
 	{
-		super(owner, SwingLocale.getString("day_selector"), new Dimension(330, 244), modal, isHint, false);
+		super(owner, SwingLocale.getString("day_selector"), new Dimension(330, 250), modal, isHint, false);
 		
 		this.daySelector = daySelector;
 		
