@@ -25,6 +25,7 @@ import com.nepxion.swing.button.JBasicButton;
 import com.nepxion.swing.handle.HandleManager;
 import com.nepxion.swing.icon.IconFactory;
 import com.nepxion.swing.layout.filed.FiledLayout;
+import com.nepxion.swing.selector.locale.JLocaleSelector;
 import com.nepxion.swing.selector.locale.JLocaleSelectorDialog;
 import com.nepxion.swing.selector.locale.JLocaleSelectorOptionPane;
 import com.nepxion.swing.selector.locale.JLocaleSelectorPopupMenu;
@@ -58,7 +59,7 @@ public class DemoLocaleSelectorPanel
 			{
 				public void actionPerformed(ActionEvent e)
 				{
-					final JLocaleSelectorDialog dialog = new JLocaleSelectorDialog(HandleManager.getFrame(DemoLocaleSelectorPanel.this))
+					final JLocaleSelectorDialog dialog = new JLocaleSelectorDialog(HandleManager.getFrame(DemoLocaleSelectorPanel.this), new JLocaleSelector())
 					{
 						public boolean confirm()
 						{
@@ -90,7 +91,7 @@ public class DemoLocaleSelectorPanel
 			{
 				public void actionPerformed(ActionEvent e)
 				{
-					JLocaleSelectorOptionPane optionPane = new JLocaleSelectorOptionPane(HandleManager.getFrame(DemoLocaleSelectorPanel.this));
+					JLocaleSelectorOptionPane optionPane = new JLocaleSelectorOptionPane(HandleManager.getFrame(DemoLocaleSelectorPanel.this), new JLocaleSelector());
 					int selectedValue = optionPane.showLocaleDialog();
 					if (selectedValue == JLocaleSelectorOptionPane.OK_OPTION)
 					{
@@ -108,7 +109,7 @@ public class DemoLocaleSelectorPanel
 			add(optionPaneStyleButton);
 			
 			JBasicButton popupMenuStyleButton = createPopupMenuStyleButton();
-			JLocaleSelectorPopupMenu popupMenu = new JLocaleSelectorPopupMenu(popupMenuStyleButton)
+			JLocaleSelectorPopupMenu popupMenu = new JLocaleSelectorPopupMenu(new JLocaleSelector(), popupMenuStyleButton)
 			{
 				public boolean confirm()
 				{

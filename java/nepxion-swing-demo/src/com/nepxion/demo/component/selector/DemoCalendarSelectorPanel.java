@@ -29,27 +29,35 @@ import com.nepxion.swing.icon.IconFactory;
 import com.nepxion.swing.layout.filed.FiledLayout;
 import com.nepxion.swing.menuitem.JBasicRadioButtonMenuItem;
 import com.nepxion.swing.popupmenu.JDecorationPopupMenu;
+import com.nepxion.swing.selector.calendar.JCalendarSelector;
 import com.nepxion.swing.selector.calendar.JCalendarSelectorDialog;
 import com.nepxion.swing.selector.calendar.JCalendarSelectorOptionPane;
 import com.nepxion.swing.selector.calendar.JCalendarSelectorPopupMenu;
+import com.nepxion.swing.selector.calendar.JDateSelector;
 import com.nepxion.swing.selector.calendar.JDateSelectorDialog;
 import com.nepxion.swing.selector.calendar.JDateSelectorOptionPane;
 import com.nepxion.swing.selector.calendar.JDateSelectorPopupMenu;
+import com.nepxion.swing.selector.calendar.JDateTimeSelector;
 import com.nepxion.swing.selector.calendar.JDateTimeSelectorDialog;
 import com.nepxion.swing.selector.calendar.JDateTimeSelectorOptionPane;
 import com.nepxion.swing.selector.calendar.JDateTimeSelectorPopupMenu;
+import com.nepxion.swing.selector.calendar.JDaySelector;
 import com.nepxion.swing.selector.calendar.JDaySelectorDialog;
 import com.nepxion.swing.selector.calendar.JDaySelectorOptionPane;
 import com.nepxion.swing.selector.calendar.JDaySelectorPopupMenu;
+import com.nepxion.swing.selector.calendar.JMonthSelector;
 import com.nepxion.swing.selector.calendar.JMonthSelectorDialog;
 import com.nepxion.swing.selector.calendar.JMonthSelectorOptionPane;
 import com.nepxion.swing.selector.calendar.JMonthSelectorPopupMenu;
+import com.nepxion.swing.selector.calendar.JTimeSelector;
 import com.nepxion.swing.selector.calendar.JTimeSelectorDialog;
 import com.nepxion.swing.selector.calendar.JTimeSelectorOptionPane;
 import com.nepxion.swing.selector.calendar.JTimeSelectorPopupMenu;
+import com.nepxion.swing.selector.calendar.JYearSelector;
 import com.nepxion.swing.selector.calendar.JYearSelectorDialog;
 import com.nepxion.swing.selector.calendar.JYearSelectorOptionPane;
 import com.nepxion.swing.selector.calendar.JYearSelectorPopupMenu;
+import com.nepxion.swing.selector.calendar.editor.JSpinnerDateTimeEditor;
 
 public class DemoCalendarSelectorPanel
 	extends JPanel
@@ -85,8 +93,8 @@ public class DemoCalendarSelectorPanel
 			dialogStyleButton.addActionListener(new ActionListener()
 			{
 				public void actionPerformed(ActionEvent e)
-				{					
-					final JCalendarSelectorDialog dialog = new JCalendarSelectorDialog(HandleManager.getFrame(DemoCalendarSelectorPanel.this))
+				{										
+					final JCalendarSelectorDialog dialog = new JCalendarSelectorDialog(HandleManager.getFrame(DemoCalendarSelectorPanel.this), new JCalendarSelector())
 					{
 						public boolean confirm()
 						{
@@ -118,7 +126,7 @@ public class DemoCalendarSelectorPanel
 			{
 				public void actionPerformed(ActionEvent e)
 				{
-					JCalendarSelectorOptionPane optionPane = new JCalendarSelectorOptionPane(HandleManager.getFrame(DemoCalendarSelectorPanel.this));
+					JCalendarSelectorOptionPane optionPane = new JCalendarSelectorOptionPane(HandleManager.getFrame(DemoCalendarSelectorPanel.this), new JCalendarSelector());
 					int selectedValue = optionPane.showCalendarDialog();
 					if (selectedValue == JCalendarSelectorOptionPane.OK_OPTION)
 					{
@@ -135,7 +143,7 @@ public class DemoCalendarSelectorPanel
 			add(optionPaneStyleButton);
 			
 			JBasicButton popupMenuStyleButton = createPopupMenuStyleButton();	
-			JCalendarSelectorPopupMenu popupMenu = new JCalendarSelectorPopupMenu(popupMenuStyleButton)
+			JCalendarSelectorPopupMenu popupMenu = new JCalendarSelectorPopupMenu(new JCalendarSelector(), popupMenuStyleButton)
 			{
 				public boolean confirm()
 				{
@@ -174,7 +182,7 @@ public class DemoCalendarSelectorPanel
 			{
 				public void actionPerformed(ActionEvent e)
 				{
-					final JDateTimeSelectorDialog dialog = new JDateTimeSelectorDialog(HandleManager.getFrame(DemoCalendarSelectorPanel.this))
+					final JDateTimeSelectorDialog dialog = new JDateTimeSelectorDialog(HandleManager.getFrame(DemoCalendarSelectorPanel.this), new JDateTimeSelector(new Date(), "yyyy-MM-dd HH:mm:ss", new JSpinnerDateTimeEditor()))
 					{
 						public boolean confirm()
 						{
@@ -194,11 +202,12 @@ public class DemoCalendarSelectorPanel
 							return true;
 						}
 					};
-					dialog.getDateTimeSelector().setFormat(getDateFormat(), getTimeFormat());
+					dialog.getDateTimeSelector().setDateFormatString(getDateFormat() + " " + getTimeFormat());
 					
 					dialog.setVisible(true);
 				}
-			});
+			}
+			);
 			add(dialogStyleButton);
 			
 			JBasicButton optionPaneStyleButton = createOptionPaneStyleButton();
@@ -206,8 +215,8 @@ public class DemoCalendarSelectorPanel
 			{
 				public void actionPerformed(ActionEvent e)
 				{
-					JDateTimeSelectorOptionPane optionPane = new JDateTimeSelectorOptionPane(HandleManager.getFrame(DemoCalendarSelectorPanel.this));
-					optionPane.getDateTimeSelector().setFormat(getDateFormat(), getTimeFormat());
+					JDateTimeSelectorOptionPane optionPane = new JDateTimeSelectorOptionPane(HandleManager.getFrame(DemoCalendarSelectorPanel.this), new JDateTimeSelector(new Date(), "yyyy-MM-dd HH:mm:ss", new JSpinnerDateTimeEditor()));
+					optionPane.getDateTimeSelector().setDateFormatString(getDateFormat() + " " + getTimeFormat());
 					int selectedValue = optionPane.showDateDialog();					
 					if (selectedValue == JCalendarSelectorOptionPane.OK_OPTION)
 					{
@@ -225,7 +234,7 @@ public class DemoCalendarSelectorPanel
 			add(optionPaneStyleButton);
 			
 			JBasicButton popupMenuStyleButton = createPopupMenuStyleButton();	
-			final JDateTimeSelectorPopupMenu popupMenu = new JDateTimeSelectorPopupMenu(popupMenuStyleButton)
+			final JDateTimeSelectorPopupMenu popupMenu = new JDateTimeSelectorPopupMenu(new JDateTimeSelector(new Date(), "yyyy-MM-dd HH:mm:ss", new JSpinnerDateTimeEditor()), popupMenuStyleButton)
 			{
 				public boolean confirm()
 				{					
@@ -249,7 +258,7 @@ public class DemoCalendarSelectorPanel
 				{
 					super.showPopupMenu();
 					
-					getDateTimeSelector().setFormat(getDateFormat(), getTimeFormat());
+					getDateTimeSelector().setDateFormatString(getDateFormat() + " " + getTimeFormat());
 				}				
 			};			
 			add(popupMenuStyleButton);				
@@ -277,7 +286,7 @@ public class DemoCalendarSelectorPanel
 			{
 				public void actionPerformed(ActionEvent e)
 				{					
-					final JDateSelectorDialog dialog = new JDateSelectorDialog(HandleManager.getFrame(DemoCalendarSelectorPanel.this))
+					final JDateSelectorDialog dialog = new JDateSelectorDialog(HandleManager.getFrame(DemoCalendarSelectorPanel.this), new JDateSelector(new Date(), "yyyy-MM-dd", new JSpinnerDateTimeEditor()))
 					{						
 						public boolean confirm()
 						{													
@@ -297,7 +306,7 @@ public class DemoCalendarSelectorPanel
 							return true;
 						}						
 					};
-					dialog.getDateSelector().setFormat(getDateFormat());
+					dialog.getDateSelector().setDateFormatString(getDateFormat());
 					
 					dialog.setVisible(true);
 				}
@@ -310,8 +319,8 @@ public class DemoCalendarSelectorPanel
 			{
 				public void actionPerformed(ActionEvent e)
 				{
-					JDateSelectorOptionPane optionPane = new JDateSelectorOptionPane(HandleManager.getFrame(DemoCalendarSelectorPanel.this));
-					optionPane.getDateSelector().setFormat(getDateFormat());
+					JDateSelectorOptionPane optionPane = new JDateSelectorOptionPane(HandleManager.getFrame(DemoCalendarSelectorPanel.this), new JDateSelector(new Date(), "yyyy-MM-dd", new JSpinnerDateTimeEditor()));
+					optionPane.getDateSelector().setDateFormatString(getDateFormat());
 					int selectedValue = optionPane.showDateDialog();					
 					if (selectedValue == JCalendarSelectorOptionPane.OK_OPTION)
 					{
@@ -329,7 +338,7 @@ public class DemoCalendarSelectorPanel
 			add(optionPaneStyleButton);
 			
 			JBasicButton popupMenuStyleButton = createPopupMenuStyleButton();	
-			final JDateSelectorPopupMenu popupMenu = new JDateSelectorPopupMenu(popupMenuStyleButton)
+			final JDateSelectorPopupMenu popupMenu = new JDateSelectorPopupMenu(new JDateSelector(new Date(), "yyyy-MM-dd", new JSpinnerDateTimeEditor()), popupMenuStyleButton)
 			{
 				public boolean confirm()
 				{					
@@ -353,7 +362,7 @@ public class DemoCalendarSelectorPanel
 				{
 					super.showPopupMenu();
 					
-					getDateSelector().setFormat(getDateFormat());
+					getDateSelector().setDateFormatString(getDateFormat());
 				}				
 			};			
 			add(popupMenuStyleButton);			
@@ -378,7 +387,7 @@ public class DemoCalendarSelectorPanel
 			{
 				public void actionPerformed(ActionEvent e)
 				{
-					final JYearSelectorDialog dialog = new JYearSelectorDialog(HandleManager.getFrame(DemoCalendarSelectorPanel.this))
+					final JYearSelectorDialog dialog = new JYearSelectorDialog(HandleManager.getFrame(DemoCalendarSelectorPanel.this), new JYearSelector())
 					{
 						public boolean confirm()
 						{
@@ -405,7 +414,7 @@ public class DemoCalendarSelectorPanel
 			{
 				public void actionPerformed(ActionEvent e)
 				{
-					JYearSelectorOptionPane optionPane = new JYearSelectorOptionPane(HandleManager.getFrame(DemoCalendarSelectorPanel.this));
+					JYearSelectorOptionPane optionPane = new JYearSelectorOptionPane(HandleManager.getFrame(DemoCalendarSelectorPanel.this), new JYearSelector());
 					int selectedValue = optionPane.showYearDialog();
 					if (selectedValue == JCalendarSelectorOptionPane.OK_OPTION)
 					{
@@ -418,7 +427,7 @@ public class DemoCalendarSelectorPanel
 			add(optionPaneStyleButton);
 			
 			JBasicButton popupMenuStyleButton = createPopupMenuStyleButton();
-			JYearSelectorPopupMenu popupMenu = new JYearSelectorPopupMenu(popupMenuStyleButton)
+			JYearSelectorPopupMenu popupMenu = new JYearSelectorPopupMenu(new JYearSelector(), popupMenuStyleButton)
 			{
 				public boolean confirm()
 				{
@@ -452,7 +461,7 @@ public class DemoCalendarSelectorPanel
 			{
 				public void actionPerformed(ActionEvent e)
 				{
-					final JMonthSelectorDialog dialog = new JMonthSelectorDialog(HandleManager.getFrame(DemoCalendarSelectorPanel.this))
+					final JMonthSelectorDialog dialog = new JMonthSelectorDialog(HandleManager.getFrame(DemoCalendarSelectorPanel.this), new JMonthSelector())
 					{
 						public boolean confirm()
 						{
@@ -479,7 +488,7 @@ public class DemoCalendarSelectorPanel
 			{
 				public void actionPerformed(ActionEvent e)
 				{
-					JMonthSelectorOptionPane optionPane = new JMonthSelectorOptionPane(HandleManager.getFrame(DemoCalendarSelectorPanel.this));
+					JMonthSelectorOptionPane optionPane = new JMonthSelectorOptionPane(HandleManager.getFrame(DemoCalendarSelectorPanel.this), new JMonthSelector());
 					int selectedValue = optionPane.showMonthDialog();
 					if (selectedValue == JCalendarSelectorOptionPane.OK_OPTION)
 					{
@@ -492,7 +501,7 @@ public class DemoCalendarSelectorPanel
 			add(optionPaneStyleButton);
 			
 			JBasicButton popupMenuStyleButton = createPopupMenuStyleButton();
-			JMonthSelectorPopupMenu popupMenu = new JMonthSelectorPopupMenu(popupMenuStyleButton)
+			JMonthSelectorPopupMenu popupMenu = new JMonthSelectorPopupMenu(new JMonthSelector(), popupMenuStyleButton)
 			{
 				public boolean confirm()
 				{
@@ -526,7 +535,7 @@ public class DemoCalendarSelectorPanel
 			{
 				public void actionPerformed(ActionEvent e)
 				{
-					final JDaySelectorDialog dialog = new JDaySelectorDialog(HandleManager.getFrame(DemoCalendarSelectorPanel.this))
+					final JDaySelectorDialog dialog = new JDaySelectorDialog(HandleManager.getFrame(DemoCalendarSelectorPanel.this), new JDaySelector(true))
 					{
 						public boolean confirm()
 						{
@@ -553,7 +562,7 @@ public class DemoCalendarSelectorPanel
 			{
 				public void actionPerformed(ActionEvent e)
 				{
-					JDaySelectorOptionPane optionPane = new JDaySelectorOptionPane(HandleManager.getFrame(DemoCalendarSelectorPanel.this));
+					JDaySelectorOptionPane optionPane = new JDaySelectorOptionPane(HandleManager.getFrame(DemoCalendarSelectorPanel.this), new JDaySelector(true));
 					int selectedValue = optionPane.showDayDialog();
 					if (selectedValue == JCalendarSelectorOptionPane.OK_OPTION)
 					{
@@ -566,7 +575,7 @@ public class DemoCalendarSelectorPanel
 			add(optionPaneStyleButton);
 			
 			JBasicButton popupMenuStyleButton = createPopupMenuStyleButton();
-			JDaySelectorPopupMenu popupMenu = new JDaySelectorPopupMenu(popupMenuStyleButton)
+			JDaySelectorPopupMenu popupMenu = new JDaySelectorPopupMenu(new JDaySelector(true), popupMenuStyleButton)
 			{
 				public boolean confirm()
 				{
@@ -600,7 +609,7 @@ public class DemoCalendarSelectorPanel
 			{
 				public void actionPerformed(ActionEvent e)
 				{
-					final JTimeSelectorDialog dialog = new JTimeSelectorDialog(HandleManager.getFrame(DemoCalendarSelectorPanel.this))
+					final JTimeSelectorDialog dialog = new JTimeSelectorDialog(HandleManager.getFrame(DemoCalendarSelectorPanel.this), new JTimeSelector())
 					{
 						public boolean confirm()
 						{
@@ -620,7 +629,9 @@ public class DemoCalendarSelectorPanel
 							return true;
 						}
 					};
-					dialog.getTimeSelector().setFormat(getDateFormat().equals("Null") ? "" : getDateFormat() + " " + getTimeFormat());
+					String dateFormat = getDateFormat().equals("Null") ? "" : getDateFormat();
+					String timeFormat = getTimeFormat().equals("Null") ? "" : getTimeFormat();
+					dialog.getTimeSelector().setFormat((dateFormat + " " + timeFormat).trim());
 					
 					dialog.setVisible(true);
 				}
@@ -633,8 +644,12 @@ public class DemoCalendarSelectorPanel
 			{
 				public void actionPerformed(ActionEvent e)
 				{
-					JTimeSelectorOptionPane optionPane = new JTimeSelectorOptionPane(HandleManager.getFrame(DemoCalendarSelectorPanel.this));
-					optionPane.getTimeSelector().setFormat(getDateFormat().equals("Null") ? "" : getDateFormat() + " " + getTimeFormat());
+					JTimeSelectorOptionPane optionPane = new JTimeSelectorOptionPane(HandleManager.getFrame(DemoCalendarSelectorPanel.this), new JTimeSelector());
+					
+					String dateFormat = getDateFormat().equals("Null") ? "" : getDateFormat();
+					String timeFormat = getTimeFormat().equals("Null") ? "" : getTimeFormat();
+					optionPane.getTimeSelector().setFormat((dateFormat + " " + timeFormat).trim());
+					
 					int selectedValue = optionPane.showTimeDialog();
 					if (selectedValue == JCalendarSelectorOptionPane.OK_OPTION)
 					{
@@ -652,7 +667,7 @@ public class DemoCalendarSelectorPanel
 			add(optionPaneStyleButton);
 			
 			JBasicButton popupMenuStyleButton = createPopupMenuStyleButton();
-			JTimeSelectorPopupMenu popupMenu = new JTimeSelectorPopupMenu(popupMenuStyleButton)
+			JTimeSelectorPopupMenu popupMenu = new JTimeSelectorPopupMenu(new JTimeSelector(), popupMenuStyleButton)
 			{
 				public boolean confirm()
 				{
@@ -676,7 +691,9 @@ public class DemoCalendarSelectorPanel
 				{
 					super.showPopupMenu();
 					
-					getTimeSelector().setFormat(getDateFormat().equals("Null") ? "" : getDateFormat() + " " + getTimeFormat());
+					String dateFormat = getDateFormat().equals("Null") ? "" : getDateFormat();
+					String timeFormat = getTimeFormat().equals("Null") ? "" : getTimeFormat();
+					getTimeSelector().setFormat((dateFormat + " " + timeFormat).trim());
 				}					
 			};
 			add(popupMenuStyleButton);				
