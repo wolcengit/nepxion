@@ -21,6 +21,7 @@ set JAVA_HOME=D:\Software\JDK\JDK1.5
 %JAVA_HOME%\bin\jarsigner -keystore security.store -storepass 888888 ../lib/swing/borland-skin-2006.jar security
 %JAVA_HOME%\bin\jarsigner -keystore security.store -storepass 888888 ../lib/swing/itext-2.1.7.jar security
 %JAVA_HOME%\bin\jarsigner -keystore security.store -storepass 888888 ../lib/swing/itext-asian.jar security
+%JAVA_HOME%\bin\jarsigner -keystore security.store -storepass 888888 ../lib/swing/jcalendar-1.3.4.200905090658.jar security
 %JAVA_HOME%\bin\jarsigner -keystore security.store -storepass 888888 ../lib/swing/jcommon-1.0.16.jar security
 %JAVA_HOME%\bin\jarsigner -keystore security.store -storepass 888888 ../lib/swing/jdesktop-swing-worker-1.2.jar security
 %JAVA_HOME%\bin\jarsigner -keystore security.store -storepass 888888 ../lib/swing/jdesktop-swingx-1.6.1.jar security
