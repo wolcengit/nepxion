@@ -10,74 +10,46 @@ package com.nepxion.swing.selector.calendar;
  * @version 1.0
  */
 
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import javax.swing.JPanel;
-
-import com.nepxion.swing.layout.table.TableLayout;
-import com.nepxion.util.time.TimeUtil;
+import com.toedter.calendar.IDateEditor;
+import com.toedter.calendar.JCalendar;
 
 public class JDateTimeSelector
-	extends JPanel
+	extends JDateSelector
 {
-	private JDateSelector dateSelector;
-	private JTimeSelector timeSelector;
-	
 	public JDateTimeSelector()
 	{
-		dateSelector = new JDateSelector();
-		timeSelector = new JTimeSelector();
-		
-		double[][] size = 
-		{ 
-			{TableLayout.FILL, TableLayout.PREFERRED}, 
-			{TableLayout.FILL}
-		};
-		
-		setLayout(new TableLayout(size));
-		add(dateSelector, "0, 0");
-		add(timeSelector, "1, 0");
+		super();
 	}
 	
-	public JDateSelector getDateSelector()
+	public JDateTimeSelector(IDateEditor dateEditor)
 	{
-		return dateSelector;
+		super(dateEditor);
 	}
 	
-	public JTimeSelector getTimeSelector()
+	public JDateTimeSelector(Date date)
 	{
-		return timeSelector;
+		super(date);
 	}
 	
-	public Date getDate()
+	public JDateTimeSelector(Date date, String dateFormatString)
 	{
-		String dateString = TimeUtil.getFormatString(dateSelector.getDate(), new SimpleDateFormat(dateSelector.getFormat()));
-		String timeString = TimeUtil.getFormatString(timeSelector.getTime(), new SimpleDateFormat(timeSelector.getFormat()));
-		Date date = TimeUtil.parseFormatDate(dateString + " " + timeString, new SimpleDateFormat(dateSelector.getFormat() + " " + timeSelector.getFormat()));
-		
-		return date;
+		super(date, dateFormatString);
 	}
 	
-	public void setDate(Date date)
+	public JDateTimeSelector(Date date, String dateFormatString, IDateEditor dateEditor)
 	{
-		String dateString = TimeUtil.getDate(date);
-		String timeString = TimeUtil.getTime(date);
-		dateSelector.setDate(TimeUtil.parseDate(dateString));
-		timeSelector.setTime(TimeUtil.parseTime(timeString));
+		super(date, dateFormatString, dateEditor);
 	}
 	
-	public void setFormat(String dateFormat, String timeFormat)
+	public JDateTimeSelector(String datePattern, String maskPattern, char placeholder)
 	{
-		dateSelector.setFormat(dateFormat);
-		timeSelector.setFormat(timeFormat);
+		super(datePattern, maskPattern, placeholder);
 	}
 	
-	public void setEnabled(boolean enabled)
+	public JDateTimeSelector(JCalendar calendar, Date date, String dateFormatString, IDateEditor dateEditor)
 	{
-		super.setEnabled(enabled);
-		
-		dateSelector.setEnabled(enabled);
-		timeSelector.setEnabled(enabled);
+		super(calendar, date, dateFormatString, dateEditor);
 	}
 }
