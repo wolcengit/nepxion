@@ -129,13 +129,12 @@ public abstract class JLoginDialog
 			public void actionPerformed(ActionEvent e)
 			{
 				String account = accountTextField.getText().trim();
-				String password = passwordField.getPasswordText().trim();
-				
+				String password = passwordField.getPasswordText().trim();				
 				Locale locale = getSelectedLocale();
 				
 				if (account.equals("") || password.equals(""))
 				{
-					JBasicOptionPane.showMessageDialog(JLoginDialog.this, SwingLocale.getString("login_not_null"), SwingLocale.getString("error"), JBasicOptionPane.ERROR_MESSAGE);
+					JBasicOptionPane.showMessageDialog(JLoginDialog.this, SwingLocale.getString("login_not_null", locale), SwingLocale.getString("error", locale), JBasicOptionPane.ERROR_MESSAGE);
 					
 					return;
 				}
@@ -147,7 +146,7 @@ public abstract class JLoginDialog
 				}
 				catch (Exception ex)
 				{
-					JExceptionDialog.traceException(JLoginDialog.this, SwingLocale.getString("login_failure_service"), ex);
+					JExceptionDialog.traceException(JLoginDialog.this, SwingLocale.getString("login_failure_service", locale), ex);
 					
 					return;
 				}
@@ -158,7 +157,7 @@ public abstract class JLoginDialog
 				}	
 				else
 				{
-					JBasicOptionPane.showMessageDialog(JLoginDialog.this, SwingLocale.getString("login_failure_validation"), SwingLocale.getString("error"), JBasicOptionPane.ERROR_MESSAGE);
+					JBasicOptionPane.showMessageDialog(JLoginDialog.this, SwingLocale.getString("login_failure_validation", locale), SwingLocale.getString("error", locale), JBasicOptionPane.ERROR_MESSAGE);
 				}
 			}
 		}
