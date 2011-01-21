@@ -36,6 +36,7 @@ public abstract class JDaySelectorPopupMenu
 		layoutPanel = new JPanel();
 		layoutPanel.setLayout(new BorderLayout());
 		layoutPanel.add(daySelector, BorderLayout.NORTH);
+		
 		JOptionPanel optionPanel = new JOptionPanel();
 		optionPanel.setIcon(IconFactory.getSwingIcon("component/calendar_48.png"));
 		optionPanel.setComponent(layoutPanel);
@@ -47,7 +48,7 @@ public abstract class JDaySelectorPopupMenu
 		registerButton(button);
 		
 		setPopupMenuWidth(daySelector.getPreferredSize().width + 90);
-		setPopupMenuHeight(daySelector.getPreferredSize().height + 74);
+		setPopupMenuHeight(daySelector.getPreferredSize().height + 75);
 		setResizable(false);		
 	}
 	

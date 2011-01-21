@@ -33,7 +33,7 @@ public abstract class JDateTimeSelectorPopupMenu
 	public JDateTimeSelectorPopupMenu(JDateTimeSelector dateTimeSelector, AbstractButton button)
 	{		
 		this.dateTimeSelector = dateTimeSelector;
-		this.dateTimeSelector.setPreferredSize(new Dimension(250, dateTimeSelector.getPreferredSize().height));
+		this.dateTimeSelector.setPreferredSize(new Dimension(180, dateTimeSelector.getPreferredSize().height));
 		
 		layoutPanel = new JPanel();
 		layoutPanel.setLayout(new BorderLayout());
@@ -62,7 +62,7 @@ public abstract class JDateTimeSelectorPopupMenu
 	public void setDateTimeSelector(JDateTimeSelector dateTimeSelector)
 	{
 		this.dateTimeSelector = dateTimeSelector;
-		this.dateTimeSelector.setPreferredSize(new Dimension(250, this.dateTimeSelector.getPreferredSize().height));
+		this.dateTimeSelector.setPreferredSize(new Dimension(180, this.dateTimeSelector.getPreferredSize().height));
 		
 		layoutPanel.removeAll();
 		layoutPanel.add(dateTimeSelector);
