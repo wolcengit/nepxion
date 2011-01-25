@@ -122,6 +122,26 @@ public class JConfigBar
 		}
 	}
 	
+	public void setSelectionTogglePanel(String toggleName)
+	{
+		if (toggleName == null)
+		{
+			return;
+		}
+		
+		for (Enumeration enumeration = configButtonBar.getButtonGroup().getElements(); enumeration.hasMoreElements();)
+		{
+			JToggleActionButton toggleActionButton = (JToggleActionButton) enumeration.nextElement();
+			ITogglePanel togglePanel = toggleActionButton.getTogglePanel();
+			if (togglePanel.getToggleName().equals(toggleName))
+			{
+				toggleActionButton.doClick();
+				
+				return;
+			}
+		}
+	}
+	
 	public void setSelectionTogglePanel(int index)
 	{
 		if (index < 0 || index > configButtonBar.getButtonGroup().getButtonCount() - 1)
