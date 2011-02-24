@@ -884,7 +884,7 @@ public class TimeUtil
 	 * @param dateTime   the date time
 	 * @return           the range date time list
 	 */
-	public static Date[] getRangeDateTimes(List dateTimes, Date dateTime)
+	public static Date[] getRangeDateTimes(List dateTimes, Date dateTime, boolean millisecondIgnored)
 	{
 		for (int i = 0; i < dateTimes.size() - 1; i++)
 		{
@@ -894,6 +894,12 @@ public class TimeUtil
 			long time = dateTime.getTime();
 			long time1 = dateTime1.getTime();
 			long time2 = dateTime2.getTime();
+			
+			if (millisecondIgnored)
+			{
+				time1 = time1 - time1 % 1000;
+				time2 = time2 - time2 % 1000;
+			}
 			
 			if (time >= time1 && time <= time2)
 			{
