@@ -18,6 +18,7 @@ import javax.swing.Icon;
 import javax.swing.JLabel;
 
 import com.nepxion.swing.container.JContainer;
+import com.nepxion.swing.locale.SwingLocale;
 import com.nepxion.swing.panel.JInformationPanel;
 
 public abstract class AbstractThreadContainer
@@ -109,7 +110,7 @@ public abstract class AbstractThreadContainer
 	
 	public void showError()
 	{
-		informationPanel.getLabel().setText(errorText);
+		informationPanel.getLabel().setText(errorText + SwingLocale.getString("period") + SwingLocale.getString("return_to_result_page"));
 		informationPanel.getLabel().setIcon(errorIcon);
 		addComponent(informationPanel, BorderLayout.CENTER);
 	}
