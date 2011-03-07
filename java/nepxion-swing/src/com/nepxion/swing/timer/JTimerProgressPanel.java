@@ -12,7 +12,6 @@ package com.nepxion.swing.timer;
 
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
-import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -113,8 +112,6 @@ public abstract class JTimerProgressPanel
 			KeyStrokeManager.registerButtonToEnterKey(hideButton, hideActionListener);
 			
 			cancelButton = new JClassicButton(SwingLocale.getString("cancel"), IconFactory.getSwingIcon("stereo/cancel_16.png"), SwingLocale.getString("cancel"));
-			cancelButton.setFocusPainted(false);
-			cancelButton.setMargin(new Insets(3, 9, 3, 9));
 			ActionListener cancelActionListener = new ActionListener()
 			{
 				public void actionPerformed(ActionEvent e)

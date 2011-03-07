@@ -16,7 +16,6 @@ import java.awt.Container;
 import java.awt.Dialog;
 import java.awt.Dimension;
 import java.awt.Frame;
-import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ComponentListener;
@@ -115,7 +114,6 @@ public class JExceptionDialog
 		
 		closeButton = new JClassicButton(SwingLocale.getString("exception_close"), IconFactory.getSwingIcon("stereo/close_16.png"), SwingLocale.getString("exception_close_tooltip"));
 		DimensionManager.setDimension(closeButton, new Dimension(96, 29));
-		closeButton.setMargin(new Insets(0, 0, 0, 0));
 		ActionListener closeActionListener = new ActionListener()
 		{
 			public void actionPerformed(ActionEvent e)
@@ -129,7 +127,6 @@ public class JExceptionDialog
 		
 		detailButton = new JClassicButton(SwingLocale.getString("exception_view"), IconFactory.getSwingIcon("stereo/info_16.png"), SwingLocale.getString("exception_view_tooltip"));
 		DimensionManager.setDimension(detailButton, new Dimension(96, 29));
-		detailButton.setMargin(new Insets(0, 0, 0, 0));
 		ActionListener detailActionListener = new ActionListener()
 		{
 			public void actionPerformed(ActionEvent e)

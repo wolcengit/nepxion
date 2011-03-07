@@ -15,6 +15,9 @@ import java.awt.Insets;
 import javax.swing.Action;
 import javax.swing.Icon;
 import javax.swing.JButton;
+import javax.swing.UIManager;
+
+import com.nepxion.swing.lookandfeel.LookAndFeelManager;
 
 public class JClassicButton
 	extends JButton
@@ -84,6 +87,15 @@ public class JClassicButton
 	private void initComponents()
 	{
 		setFocusPainted(false);
-		setMargin(new Insets(3, 9, 3, 9));
+		
+		if (LookAndFeelManager.isNimbusLookAndFeel())
+		{
+			setMargin(new Insets(0, 0, 0, 0));
+			
+		}
+		else
+		{
+			setMargin(new Insets(3, 9, 3, 9));
+		}
 	}
 }
