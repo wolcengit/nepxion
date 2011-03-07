@@ -34,6 +34,8 @@ public class ListCellRadioButtonPanel
 		
 		add(radioButton);
 		add(label);
+		
+		setBackground(Color.white);
 	}
 	
 	public JRadioButton getRadioButton()

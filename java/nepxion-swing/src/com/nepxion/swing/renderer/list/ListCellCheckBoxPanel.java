@@ -34,6 +34,8 @@ public class ListCellCheckBoxPanel
 		
 		add(checkBox);
 		add(label);
+		
+		setBackground(Color.white);
 	}
 	
 	public JCheckBox getCheckBox()
