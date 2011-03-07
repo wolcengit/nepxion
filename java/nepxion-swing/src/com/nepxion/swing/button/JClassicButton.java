@@ -15,7 +15,6 @@ import java.awt.Insets;
 import javax.swing.Action;
 import javax.swing.Icon;
 import javax.swing.JButton;
-import javax.swing.UIManager;
 
 import com.nepxion.swing.lookandfeel.LookAndFeelManager;
 
