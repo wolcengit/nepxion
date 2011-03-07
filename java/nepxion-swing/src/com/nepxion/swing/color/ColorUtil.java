@@ -12,6 +12,8 @@ package com.nepxion.swing.color;
 
 import java.awt.Color;
 
+import javax.swing.UIManager;
+
 public class ColorUtil
 {
 	public static String transformTo16Bit(int red, int green, int blue)
@@ -27,6 +29,13 @@ public class ColorUtil
 	public static Color getColor(String decode)
 	{
 		return Color.decode(decode);
+	}
+	
+	public static Color getUIManagerColor(String key)
+	{
+		Color background = UIManager.getColor(key);
+		
+		return new Color(background.getRed(), background.getGreen(), background.getBlue(), background.getAlpha());
 	}
 	
 	public static Color getRandomColor()

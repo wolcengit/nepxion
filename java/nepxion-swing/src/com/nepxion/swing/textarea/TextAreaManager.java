@@ -12,12 +12,14 @@ package com.nepxion.swing.textarea;
 
 import javax.swing.JTextArea;
 
+import com.nepxion.swing.color.ColorUtil;
+
 public class TextAreaManager
 {
 	public static void setLabelStyle(JTextArea textArea)
 	{
 		textArea.setBorder(null);
-		textArea.setBackground(null);
+		textArea.setBackground(ColorUtil.getUIManagerColor("Panel.background"));
 		textArea.setOpaque(false);
 		textArea.setEditable(false);
 		textArea.setLineWrap(true);

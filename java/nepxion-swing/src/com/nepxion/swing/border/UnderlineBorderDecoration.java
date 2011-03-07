@@ -12,11 +12,13 @@ package com.nepxion.swing.border;
 
 import javax.swing.JComponent;
 
+import com.nepxion.swing.color.ColorUtil;
+
 public class UnderlineBorderDecoration
 {
 	public UnderlineBorderDecoration(JComponent component)
 	{
 		component.setBorder(new UnderlineBorder());
-		component.setBackground(null);
+		component.setBackground(ColorUtil.getUIManagerColor("Panel.background"));
 	}
 }
