@@ -241,7 +241,12 @@ public class LookAndFeelManager
 	
 	public static boolean isNimbusLookAndFeel()
 	{
-		return UIManager.getLookAndFeel().getName().equals("Nimbus");
+		return UIManager.getLookAndFeel().getID().equals("Nimbus");
+	}
+	
+	public static boolean isAquaLookAndFeel()
+	{
+		return UIManager.getLookAndFeel().getID().equals("Aqua");
 	}
 	
 	public static void addonMetalLookAndFeel()
