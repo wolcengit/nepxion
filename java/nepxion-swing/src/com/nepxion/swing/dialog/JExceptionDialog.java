@@ -16,6 +16,7 @@ import java.awt.Container;
 import java.awt.Dialog;
 import java.awt.Dimension;
 import java.awt.Frame;
+import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ComponentListener;
@@ -88,14 +89,14 @@ public class JExceptionDialog
 	
 	public JExceptionDialog(Dialog owner)
 	{
-		super(owner, SwingLocale.getString("exception"), new Dimension(430, 110));
+		super(owner, SwingLocale.getString("exception"), new Dimension(440, 110));
 		
 		initComponents();
 	}
 	
 	public JExceptionDialog(Frame owner)
 	{
-		super(owner, SwingLocale.getString("exception"), new Dimension(430, 110));
+		super(owner, SwingLocale.getString("exception"), new Dimension(440, 110));
 		
 		initComponents();
 	}
@@ -113,7 +114,8 @@ public class JExceptionDialog
 		toggleTextField.setLabelStyle();
 		
 		closeButton = new JClassicButton(SwingLocale.getString("exception_close"), IconFactory.getSwingIcon("stereo/close_16.png"), SwingLocale.getString("exception_close_tooltip"));
-		DimensionManager.setDimension(closeButton, new Dimension(91, 29));
+		DimensionManager.setDimension(closeButton, new Dimension(96, 29));
+		closeButton.setMargin(new Insets(0, 0, 0, 0));
 		ActionListener closeActionListener = new ActionListener()
 		{
 			public void actionPerformed(ActionEvent e)
@@ -126,7 +128,8 @@ public class JExceptionDialog
 		KeyStrokeManager.registerButtonToEnterKey(closeButton, closeActionListener);
 		
 		detailButton = new JClassicButton(SwingLocale.getString("exception_view"), IconFactory.getSwingIcon("stereo/info_16.png"), SwingLocale.getString("exception_view_tooltip"));
-		DimensionManager.setDimension(detailButton, new Dimension(91, 29));
+		DimensionManager.setDimension(detailButton, new Dimension(96, 29));
+		detailButton.setMargin(new Insets(0, 0, 0, 0));
 		ActionListener detailActionListener = new ActionListener()
 		{
 			public void actionPerformed(ActionEvent e)
@@ -137,7 +140,7 @@ public class JExceptionDialog
 					detailButton.setText(SwingLocale.getString("exception_view"));
 					detailButton.setToolTipText(SwingLocale.getString("exception_view_tooltip"));
 					toggleTextField.setText(SwingLocale.getString("exception_view_description"));
-					setSize(430, 110);
+					setSize(440, 110);
 				}
 				else
 				{
@@ -145,7 +148,7 @@ public class JExceptionDialog
 					detailButton.setText(SwingLocale.getString("exception_hide"));
 					detailButton.setToolTipText(SwingLocale.getString("exception_hide_tooltip"));
 					toggleTextField.setText(SwingLocale.getString("exception_hide_description"));
-					setSize(430, 270);
+					setSize(440, 270);
 				}
 				open = !open;
 			}
@@ -179,7 +182,7 @@ public class JExceptionDialog
 		
 		detailTextArea = new JBasicTextArea(SwingLocale.getString("exception_detail_none"));
 		JBasicScrollPane detailScrollPane = new JBasicScrollPane();
-		detailScrollPane.setPreferredSize(new Dimension(395, 150));
+		detailScrollPane.setPreferredSize(new Dimension(400, 150));
 		detailScrollPane.setVerticalScrollBarPolicy(JBasicScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 		detailScrollPane.getViewport().add(detailTextArea);
 		
