@@ -24,7 +24,9 @@ import javax.swing.border.Border;
 import javax.swing.table.JTableHeader;
 import javax.swing.table.TableCellRenderer;
 
+import com.nepxion.swing.border.ButtonBorder;
 import com.nepxion.swing.icon.paint.ArrowIcon;
+import com.nepxion.swing.lookandfeel.LookAndFeelManager;
 
 /**
  * A table cell renderer for table headings - uses one of three JButton
@@ -98,16 +100,16 @@ public class SortButtonRenderer
 	public SortButtonRenderer()
 	{
 		this.pressedColumn = -1;
-		this.useLabels = UIManager.getLookAndFeel().getID().equals("Aqua");
+		this.useLabels = LookAndFeelManager.isNimbusLookAndFeel() || LookAndFeelManager.isAquaLookAndFeel();
 
 		final Icon northArrowIcon = new ArrowIcon(4, NORTH); // new ArrowEtchedIcon(NORTH);
-		final Icon southArrowIcon = new ArrowIcon(4, SOUTH); // new ArrowEtchedIcon(SOUTH); 		
-		final Insets insets = new Insets(0, 0, 0, 0);
-		final Border border = UIManager.getBorder("TableHeader.cellBorder");
+		final Icon southArrowIcon = new ArrowIcon(4, SOUTH); // new ArrowEtchedIcon(SOUTH);
 		// final Color background = UIManager.getColor("Panel.background");
 		
 		if (this.useLabels)
 		{
+			final Border border = new ButtonBorder(ButtonBorder.BORDER_RAISED);
+			
 			this.normalLabel = new JLabel();
 			this.normalLabel.setBorder(border);
 			this.normalLabel.setHorizontalAlignment(CENTER);
@@ -128,6 +130,9 @@ public class SortButtonRenderer
 		}
 		else
 		{
+			final Insets insets = new Insets(0, 0, 0, 0);
+			final Border border = UIManager.getBorder("TableHeader.cellBorder");
+			
 			this.normalButton = new JButton();	
 			this.normalButton.setMargin(insets);
 			this.normalButton.setBorder(border);
