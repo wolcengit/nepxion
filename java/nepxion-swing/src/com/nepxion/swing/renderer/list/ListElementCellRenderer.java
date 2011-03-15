@@ -190,12 +190,15 @@ public class ListElementCellRenderer
 		}
 		else
 		{
-			setText(value.toString());
+			if (value != null)
+			{	
+				setText(value.toString());
+				setToolTipText(value.toString());
+			}
 			if (cellIcon != null)
 			{
 				setIcon(cellIcon);
 			}
-			setToolTipText(value.toString());
 		}
 		if (cellBorder != null)
 		{
