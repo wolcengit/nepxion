@@ -14,10 +14,17 @@ import java.awt.Color;
 
 import javax.swing.JComboBox;
 
+import com.nepxion.swing.lookandfeel.LookAndFeelManager;
+
 public class ComboBoxManager
 {
 	public static void setPreferenceStyle(JComboBox comboBox)
 	{
+		if (LookAndFeelManager.isNimbusLookAndFeel())
+		{
+			return;
+		}	
+		
 		comboBox.setBackground(Color.white);
 		if (!comboBox.isEditable())
 		{
