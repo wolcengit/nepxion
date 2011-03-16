@@ -56,8 +56,7 @@ public class JBasicTabbedPane
 	
 	private void initComponents()
 	{
-		setFocusable(false);
-		setRequestFocusEnabled(false);
+		TabbedPaneManager.setPreferenceStyle(this);
 		
 		addMouseListener(this);
 	}
@@ -190,27 +189,6 @@ public class JBasicTabbedPane
 		if (closeTabIcon != null)
 		{
 			closeTabIcon.setHint(isHint);
-			repaint();
-		}
-	}
-	
-	public int getGap(int index)
-	{
-		CloseTabIcon closeTabIcon = getCloseTabIcon(index);
-		if (closeTabIcon != null)
-		{
-			return closeTabIcon.getGap();
-		}
-		
-		return 0;
-	}
-	
-	public void setGap(int index, int gap)
-	{
-		CloseTabIcon closeTabIcon = getCloseTabIcon(index);
-		if (closeTabIcon != null)
-		{
-			closeTabIcon.setGap(gap);
 			repaint();
 		}
 	}
