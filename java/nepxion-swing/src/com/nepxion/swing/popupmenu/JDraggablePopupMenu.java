@@ -25,6 +25,8 @@ public class JDraggablePopupMenu
 		setResizable(true);
 		setMovable(true);
 		setBackground(UIManager.getColor("Panel.background"));
+		
+		PopupMenuManager.setPreferenceStyle(this);
 	}
 	
 	public void showPopup(Insets insets, Component owner)

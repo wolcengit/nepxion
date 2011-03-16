@@ -27,6 +27,14 @@ public class PopupMenuManager
 		}	
 	}
 	
+	public static void setPreferenceStyle(JDraggablePopupMenu popupMenu)
+	{
+		if (LookAndFeelManager.isNimbusLookAndFeel())
+		{
+			popupMenu.setBorder(new LineBorder(new Color(89, 89, 89), 1));
+		}	
+	}
+	
 	public static int getMargin()
 	{
 		if (LookAndFeelManager.isNimbusLookAndFeel())
