@@ -51,7 +51,7 @@ public abstract class JDateTimeSelectorDialog
 	
 	public JDateTimeSelectorDialog(Frame owner, JDateTimeSelector dateTimeSelector, boolean modal, boolean isHint)
 	{
-		super(owner, SwingLocale.getString("date_time_selector"), new Dimension(200, 110), modal, isHint, false);
+		super(owner, SwingLocale.getString("date_time_selector"), new Dimension(200, 115), modal, isHint, false);
 		
 		this.dateTimeSelector = dateTimeSelector;
 		
@@ -60,7 +60,7 @@ public abstract class JDateTimeSelectorDialog
 	
 	public JDateTimeSelectorDialog(Dialog owner, JDateTimeSelector dateTimeSelector, boolean modal, boolean isHint)
 	{
-		super(owner, SwingLocale.getString("date_time_selector"), new Dimension(200, 110), modal, isHint, false);
+		super(owner, SwingLocale.getString("date_time_selector"), new Dimension(200, 115), modal, isHint, false);
 		
 		this.dateTimeSelector = dateTimeSelector;
 		

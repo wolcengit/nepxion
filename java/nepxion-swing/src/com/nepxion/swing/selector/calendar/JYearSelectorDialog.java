@@ -51,7 +51,7 @@ public abstract class JYearSelectorDialog
 	
 	public JYearSelectorDialog(Frame owner, JYearSelector yearSelector, boolean modal, boolean isHint)
 	{
-		super(owner, SwingLocale.getString("year_selector"), new Dimension(200, 110), modal, isHint, false);
+		super(owner, SwingLocale.getString("year_selector"), new Dimension(200, 115), modal, isHint, false);
 		
 		this.yearSelector = yearSelector;
 		
@@ -60,7 +60,7 @@ public abstract class JYearSelectorDialog
 	
 	public JYearSelectorDialog(Dialog owner, JYearSelector yearSelector, boolean modal, boolean isHint)
 	{
-		super(owner, SwingLocale.getString("year_selector"), new Dimension(200, 110), modal, isHint, false);
+		super(owner, SwingLocale.getString("year_selector"), new Dimension(200, 115), modal, isHint, false);
 		
 		this.yearSelector = yearSelector;
 		

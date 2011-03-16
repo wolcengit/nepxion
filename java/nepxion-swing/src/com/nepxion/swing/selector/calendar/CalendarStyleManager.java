@@ -10,8 +10,12 @@ package com.nepxion.swing.selector.calendar;
  * @version 1.0
  */
 
+import java.awt.Dimension;
+
+import javax.swing.JButton;
 import javax.swing.JComboBox;
 
+import com.nepxion.swing.dimension.DimensionManager;
 import com.nepxion.swing.lookandfeel.LookAndFeelManager;
 
 public class CalendarStyleManager
@@ -26,6 +30,14 @@ public class CalendarStyleManager
 			comboBox.setBorder(box.getBorder());
 			comboBox.setFocusable(true);
 			comboBox.setRequestFocusEnabled(true);			
+		}
+	}
+	
+	public static void setPreferenceStyle(JButton button)
+	{
+		if (LookAndFeelManager.isNimbusLookAndFeel())
+		{
+			DimensionManager.setDimension(button, new Dimension(29, 29));			
 		}
 	}
 }

@@ -13,6 +13,7 @@ package com.nepxion.swing.selector.calendar;
 import java.util.Date;
 
 import javax.swing.Icon;
+import javax.swing.JButton;
 
 import com.nepxion.swing.font.FontContext;
 import com.nepxion.swing.icon.IconFactory;
@@ -76,7 +77,11 @@ public class JDateSelector
 	{
 		setFont(FontContext.getFont());
 		
+		JButton CalendarButton = getCalendarButton();
+		
 		Icon calendarIcon = IconFactory.getSwingIcon("date.png");
-		getCalendarButton().setIcon(calendarIcon);
+		CalendarButton.setIcon(calendarIcon);
+		
+		CalendarStyleManager.setPreferenceStyle(CalendarButton);
 	}
 }

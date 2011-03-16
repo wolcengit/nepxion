@@ -14,6 +14,8 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
+import javax.swing.JComboBox;
+
 import com.nepxion.swing.font.FontContext;
 import com.toedter.calendar.JCalendar;
 
@@ -86,5 +88,8 @@ public class JCalendarSelector
 	private void initComponents()
 	{
 		setFont(FontContext.getFont());
+				
+		JComboBox comboBox = (JComboBox) getMonthChooser().getComboBox();
+		CalendarStyleManager.setPreferenceStyle(comboBox);
 	}
 }

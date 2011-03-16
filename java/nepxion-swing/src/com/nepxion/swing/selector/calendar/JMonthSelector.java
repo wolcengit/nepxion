@@ -10,6 +10,8 @@ package com.nepxion.swing.selector.calendar;
  * @version 1.0
  */
 
+import javax.swing.JComboBox;
+
 import com.nepxion.swing.font.FontContext;
 import com.toedter.calendar.JMonthChooser;
 
@@ -33,5 +35,8 @@ public class JMonthSelector
 	private void initComponents()
 	{
 		setFont(FontContext.getFont());
+		
+		JComboBox comboBox = (JComboBox) getComboBox();
+		CalendarStyleManager.setPreferenceStyle(comboBox);
 	}
 }
