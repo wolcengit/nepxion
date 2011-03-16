@@ -19,6 +19,7 @@ import javax.swing.JSpinner;
 
 import com.nepxion.swing.font.FontContext;
 import com.nepxion.swing.icon.IconFactory;
+import com.nepxion.swing.popupmenu.PopupManager;
 import com.toedter.calendar.IDateEditor;
 import com.toedter.calendar.JCalendar;
 import com.toedter.calendar.JDateChooser;
@@ -91,5 +92,7 @@ public class JDateSelector
 		
 		JComboBox comboBox = (JComboBox) getJCalendar().getMonthChooser().getComboBox();
 		CalendarStyleManager.setPreferenceStyle(comboBox);
+		
+		PopupManager.setPreferenceStyle(popup);
 	}
 }
