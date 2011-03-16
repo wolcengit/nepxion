@@ -53,6 +53,8 @@ public class JDecorationPopupMenu
 		this.painter = painter;
 		this.painter.setPopupMenu(this);
 		
+		PopupManager.setPreferenceStyle(this);
+		
 		ContainerManager.update(this);
 	}
 	
