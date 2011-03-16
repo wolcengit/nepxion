@@ -65,8 +65,8 @@ public class JIPAddressTextField
 		ipAddressTextField4 = createTextField();
 		
 		setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-		setFocusable(false);
-		setRequestFocusEnabled(false);
+		TextFieldManager.setPreferenceStyle(this);
+		
 		if (align != LEFT)
 		{
 			add(Box.createHorizontalStrut(20));

@@ -13,9 +13,19 @@ package com.nepxion.swing.textfield;
 import javax.swing.JTextField;
 
 import com.nepxion.swing.color.ColorUtil;
+import com.nepxion.swing.lookandfeel.LookAndFeelManager;
 
 public class TextFieldManager
 {
+	public static void setPreferenceStyle(JTextField textField)
+	{
+		if (!LookAndFeelManager.isNimbusLookAndFeel())
+		{
+			textField.setFocusable(false);
+			textField.setRequestFocusEnabled(false);
+		}
+	}
+	
 	public static void setLabelStyle(JTextField textField)
 	{
 		textField.setBorder(null);
