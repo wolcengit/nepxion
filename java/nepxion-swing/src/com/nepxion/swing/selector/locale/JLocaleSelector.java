@@ -12,6 +12,7 @@ package com.nepxion.swing.selector.locale;
 
 import javax.swing.JComponent;
 
+import com.nepxion.swing.combobox.ComboBoxManager;
 import com.toedter.components.JLocaleChooser;
 
 public class JLocaleSelector
@@ -20,10 +21,19 @@ public class JLocaleSelector
 	public JLocaleSelector()
 	{
 		super();
+		
+		initComponents();
 	}
 	
 	public JLocaleSelector(JComponent component) 
 	{
 		super(component);
+		
+		initComponents();
+	}
+	
+	private void initComponents()
+	{
+		ComboBoxManager.setPreferenceStyle(this);
 	}
 }

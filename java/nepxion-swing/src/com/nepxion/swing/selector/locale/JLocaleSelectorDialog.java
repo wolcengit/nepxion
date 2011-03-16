@@ -51,7 +51,7 @@ public abstract class JLocaleSelectorDialog
 	
 	public JLocaleSelectorDialog(Frame owner, JLocaleSelector localeSelector, boolean modal, boolean isHint)
 	{
-		super(owner, SwingLocale.getString("locale_selector"), new Dimension(238, 108), modal, isHint, false);
+		super(owner, SwingLocale.getString("locale_selector"), new Dimension(240, 115), modal, isHint, false);
 		
 		this.localeSelector = localeSelector;
 		
@@ -60,7 +60,7 @@ public abstract class JLocaleSelectorDialog
 	
 	public JLocaleSelectorDialog(Dialog owner, JLocaleSelector localeSelector, boolean modal, boolean isHint)
 	{
-		super(owner, SwingLocale.getString("locale_selector"), new Dimension(238, 108), modal, isHint, false);
+		super(owner, SwingLocale.getString("locale_selector"), new Dimension(240, 115), modal, isHint, false);
 		
 		this.localeSelector = localeSelector;
 		
