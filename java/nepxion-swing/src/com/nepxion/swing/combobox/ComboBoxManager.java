@@ -20,16 +20,14 @@ public class ComboBoxManager
 {
 	public static void setPreferenceStyle(JComboBox comboBox)
 	{
-		if (LookAndFeelManager.isNimbusLookAndFeel())
+		if (!LookAndFeelManager.isNimbusLookAndFeel())
 		{
-			return;
+			comboBox.setBackground(Color.white);
+			if (!comboBox.isEditable())
+			{
+				comboBox.setFocusable(false);
+			}
+			comboBox.setRequestFocusEnabled(false);
 		}	
-		
-		comboBox.setBackground(Color.white);
-		if (!comboBox.isEditable())
-		{
-			comboBox.setFocusable(false);
-		}
-		comboBox.setRequestFocusEnabled(false);
 	}
 }
