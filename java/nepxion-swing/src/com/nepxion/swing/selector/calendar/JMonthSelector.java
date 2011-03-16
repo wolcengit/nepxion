@@ -37,6 +37,6 @@ public class JMonthSelector
 		setFont(FontContext.getFont());
 		
 		JComboBox comboBox = (JComboBox) getComboBox();
-		CalendarStyleManager.setPreferenceStyle(comboBox);
+		CalendarManager.setPreferenceStyle(comboBox);
 	}
 }

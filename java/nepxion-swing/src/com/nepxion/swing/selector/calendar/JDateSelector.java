@@ -19,7 +19,7 @@ import javax.swing.JSpinner;
 
 import com.nepxion.swing.font.FontContext;
 import com.nepxion.swing.icon.IconFactory;
-import com.nepxion.swing.popupmenu.PopupManager;
+import com.nepxion.swing.popupmenu.PopupMenuManager;
 import com.toedter.calendar.IDateEditor;
 import com.toedter.calendar.JCalendar;
 import com.toedter.calendar.JDateChooser;
@@ -85,14 +85,14 @@ public class JDateSelector
 		Icon calendarIcon = IconFactory.getSwingIcon("date.png");
 		CalendarButton.setIcon(calendarIcon);
 		
-		CalendarStyleManager.setPreferenceStyle(CalendarButton);
+		CalendarManager.setPreferenceStyle(CalendarButton);
 		
 		JSpinner spinner = (JSpinner) getJCalendar().getYearChooser().getSpinner();
-		CalendarStyleManager.setPreferenceStyle(spinner);
+		CalendarManager.setPreferenceStyle(spinner);
 		
 		JComboBox comboBox = (JComboBox) getJCalendar().getMonthChooser().getComboBox();
-		CalendarStyleManager.setPreferenceStyle(comboBox);
+		CalendarManager.setPreferenceStyle(comboBox);
 		
-		PopupManager.setPreferenceStyle(popup);
+		PopupMenuManager.setPreferenceStyle(popup);
 	}
 }

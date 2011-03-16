@@ -21,7 +21,6 @@ public class TabbedPaneManager
 		if (!LookAndFeelManager.isNimbusLookAndFeel())
 		{
 			tabbedPane.setFocusable(false);
-			tabbedPane.setRequestFocusEnabled(false);
 		}
 	}
 }

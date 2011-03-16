@@ -10,13 +10,9 @@ package com.nepxion.swing.button;
  * @version 1.0
  */
 
-import java.awt.Insets;
-
 import javax.swing.Action;
 import javax.swing.Icon;
 import javax.swing.JButton;
-
-import com.nepxion.swing.lookandfeel.LookAndFeelManager;
 
 public class JClassicButton
 	extends JButton
@@ -85,16 +81,6 @@ public class JClassicButton
 	
 	private void initComponents()
 	{
-		setFocusPainted(false);
-		
-		if (LookAndFeelManager.isNimbusLookAndFeel())
-		{
-			setMargin(new Insets(0, 0, 0, 0));
-			
-		}
-		else
-		{
-			setMargin(new Insets(3, 9, 3, 9));
-		}
+		ButtonManager.setPreferenceStyle(this);
 	}
 }

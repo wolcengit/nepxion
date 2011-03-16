@@ -20,8 +20,7 @@ public class CheckBoxManager
 	{
 		if (!LookAndFeelManager.isNimbusLookAndFeel())
 		{
-			checkBox.setFocusable(false);
-			checkBox.setRequestFocusEnabled(false);
+			checkBox.setFocusPainted(false);
 		}	
 	}
 }

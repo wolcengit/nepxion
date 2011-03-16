@@ -21,7 +21,6 @@ public class RadioButtonManager
 		if (!LookAndFeelManager.isNimbusLookAndFeel())
 		{
 			radioButton.setFocusPainted(false);
-			radioButton.setRequestFocusEnabled(false);
 		}
 	}
 }

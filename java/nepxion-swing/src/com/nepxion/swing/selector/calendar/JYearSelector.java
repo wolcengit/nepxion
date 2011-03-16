@@ -30,6 +30,6 @@ public class JYearSelector
 		setFont(FontContext.getFont());
 		
 		JSpinner spinner = (JSpinner) getSpinner();
-		CalendarStyleManager.setPreferenceStyle(spinner);
+		CalendarManager.setPreferenceStyle(spinner);
 	}
 }

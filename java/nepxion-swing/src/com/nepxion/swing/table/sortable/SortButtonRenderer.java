@@ -100,7 +100,7 @@ public class SortButtonRenderer
 	public SortButtonRenderer()
 	{
 		this.pressedColumn = -1;
-		this.useLabels = LookAndFeelManager.isNimbusLookAndFeel() || LookAndFeelManager.isAquaLookAndFeel();
+		this.useLabels = LookAndFeelManager.isNimbusLookAndFeel();
 
 		final Icon northArrowIcon = new ArrowIcon(4, NORTH); // new ArrowEtchedIcon(NORTH);
 		final Icon southArrowIcon = new ArrowIcon(4, SOUTH); // new ArrowEtchedIcon(SOUTH);

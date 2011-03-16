@@ -25,6 +25,5 @@ public class TextAreaManager
 		textArea.setLineWrap(true);
 		textArea.setWrapStyleWord(true);
 		textArea.setFocusable(false);
-		textArea.setRequestFocusEnabled(false);
 	}
 }

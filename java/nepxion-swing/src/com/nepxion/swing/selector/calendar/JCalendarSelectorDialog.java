@@ -20,7 +20,6 @@ import javax.swing.JPanel;
 
 import com.nepxion.swing.dialog.JBasicDialog;
 import com.nepxion.swing.locale.SwingLocale;
-import com.nepxion.swing.lookandfeel.LookAndFeelManager;
 import com.nepxion.swing.panel.option.JOptionButtonPanel;
 
 public abstract class JCalendarSelectorDialog
@@ -52,7 +51,7 @@ public abstract class JCalendarSelectorDialog
 	
 	public JCalendarSelectorDialog(Frame owner, JCalendarSelector calendarSelector, boolean modal, boolean isHint)
 	{
-		super(owner, SwingLocale.getString("calendar_selector"), new Dimension(330, LookAndFeelManager.isNimbusLookAndFeel() ? 330 : 290), modal, isHint, false);
+		super(owner, SwingLocale.getString("calendar_selector"), new Dimension(330, CalendarManager.getCalendarSelectorDialogHeight()), modal, isHint, false);
 		
 		this.calendarSelector = calendarSelector;
 		
@@ -61,7 +60,7 @@ public abstract class JCalendarSelectorDialog
 	
 	public JCalendarSelectorDialog(Dialog owner, JCalendarSelector calendarSelector, boolean modal, boolean isHint)
 	{
-		super(owner, SwingLocale.getString("calendar_selector"), new Dimension(330, LookAndFeelManager.isNimbusLookAndFeel() ? 330 : 290), modal, isHint, false);
+		super(owner, SwingLocale.getString("calendar_selector"), new Dimension(330, CalendarManager.getCalendarSelectorDialogHeight()), modal, isHint, false);
 		
 		this.calendarSelector = calendarSelector;
 		

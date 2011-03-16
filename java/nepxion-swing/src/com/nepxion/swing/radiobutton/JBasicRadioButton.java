@@ -129,6 +129,6 @@ public class JBasicRadioButton
 	
 	private void initComponents()
 	{
-		setFocusPainted(false);
+		RadioButtonManager.setPreferenceStyle(this);
 	}
 }

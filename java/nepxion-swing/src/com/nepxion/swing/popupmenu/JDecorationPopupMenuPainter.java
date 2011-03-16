@@ -23,7 +23,6 @@ import java.awt.font.LineMetrics;
 import javax.swing.JPopupMenu;
 
 import com.nepxion.swing.gradient.JGradientPainter;
-import com.nepxion.swing.lookandfeel.LookAndFeelManager;
 import com.nepxion.swing.style.framework.IStyle;
 import com.nepxion.swing.style.framework.StyleManager;
 
@@ -143,7 +142,7 @@ public class JDecorationPopupMenuPainter
 		Dimension size = popupMenu.getSize();
 		Graphics2D g2 = (Graphics2D) g;
 		
-		Rectangle rectangle = new Rectangle(0, 0, width, LookAndFeelManager.isNimbusLookAndFeel() ? size.height - 1 : size.height - 2);
+		Rectangle rectangle = new Rectangle(0, 0, width, size.height - PopupMenuManager.getMargin());
 		JGradientPainter.fastFill((Graphics2D) g, rectangle, background, gradientColor, true);
 		
 		// GradientPaint gp = new GradientPaint(0.0F, 0.0F, background, 0.0F,

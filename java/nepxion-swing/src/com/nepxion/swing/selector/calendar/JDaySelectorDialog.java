@@ -20,7 +20,6 @@ import javax.swing.JPanel;
 
 import com.nepxion.swing.dialog.JBasicDialog;
 import com.nepxion.swing.locale.SwingLocale;
-import com.nepxion.swing.lookandfeel.LookAndFeelManager;
 import com.nepxion.swing.panel.option.JOptionButtonPanel;
 
 public abstract class JDaySelectorDialog
@@ -52,7 +51,7 @@ public abstract class JDaySelectorDialog
 	
 	public JDaySelectorDialog(Frame owner, JDaySelector daySelector, boolean modal, boolean isHint)
 	{
-		super(owner, SwingLocale.getString("day_selector"), new Dimension(330, LookAndFeelManager.isNimbusLookAndFeel() ? 290 : 250), modal, isHint, false);
+		super(owner, SwingLocale.getString("day_selector"), new Dimension(330, CalendarManager.getDaySelectorDialogHeight()), modal, isHint, false);
 		
 		this.daySelector = daySelector;
 		
@@ -61,7 +60,7 @@ public abstract class JDaySelectorDialog
 	
 	public JDaySelectorDialog(Dialog owner, JDaySelector daySelector, boolean modal, boolean isHint)
 	{
-		super(owner, SwingLocale.getString("day_selector"), new Dimension(330, LookAndFeelManager.isNimbusLookAndFeel() ? 290 : 250), modal, isHint, false);
+		super(owner, SwingLocale.getString("day_selector"), new Dimension(330, CalendarManager.getDaySelectorDialogHeight()), modal, isHint, false);
 		
 		this.daySelector = daySelector;
 		

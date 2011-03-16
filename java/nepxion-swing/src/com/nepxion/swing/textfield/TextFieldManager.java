@@ -22,7 +22,6 @@ public class TextFieldManager
 		if (!LookAndFeelManager.isNimbusLookAndFeel())
 		{
 			textField.setFocusable(false);
-			textField.setRequestFocusEnabled(false);
 		}
 	}
 	
@@ -33,6 +32,5 @@ public class TextFieldManager
 		textField.setOpaque(false);
 		textField.setEditable(false);
 		textField.setFocusable(false);
-		textField.setRequestFocusEnabled(false);
 	}
 }

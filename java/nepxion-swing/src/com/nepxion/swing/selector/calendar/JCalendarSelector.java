@@ -91,9 +91,9 @@ public class JCalendarSelector
 		setFont(FontContext.getFont());
 				
 		JSpinner spinner = (JSpinner) getYearChooser().getSpinner();
-		CalendarStyleManager.setPreferenceStyle(spinner);
+		CalendarManager.setPreferenceStyle(spinner);
 		
 		JComboBox comboBox = (JComboBox) getMonthChooser().getComboBox();
-		CalendarStyleManager.setPreferenceStyle(comboBox);
+		CalendarManager.setPreferenceStyle(comboBox);
 	}
 }

@@ -13,16 +13,19 @@ package com.nepxion.swing.button;
 import java.awt.Component;
 import java.awt.Container;
 import java.awt.Dimension;
+import java.awt.Insets;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 
 import javax.swing.AbstractButton;
 import javax.swing.ButtonGroup;
+import javax.swing.JButton;
 import javax.swing.JToolBar;
 import javax.swing.SwingConstants;
 
 import com.nepxion.swing.buttonbar.JBasicButtonBar;
 import com.nepxion.swing.dimension.DimensionManager;
+import com.nepxion.swing.lookandfeel.LookAndFeelManager;
 import com.nepxion.swing.separator.JBasicSeparator;
 import com.nepxion.swing.style.button.AbstractButtonUI;
 import com.nepxion.swing.style.button.IButtonStyle;
@@ -341,5 +344,19 @@ public class ButtonManager
 	public static ButtonBarUI getButtonBarUI()
 	{
 		return buttonBarUI;
+	}
+	
+	public static void setPreferenceStyle(JButton button)
+	{
+		if (LookAndFeelManager.isNimbusLookAndFeel())
+		{
+			button.setMargin(new Insets(0, 0, 0, 0));
+		}
+		else
+		{
+			button.setMargin(new Insets(3, 9, 3, 9));
+			
+			button.setFocusPainted(false);
+		}
 	}
 }

@@ -168,7 +168,6 @@ public abstract class JBubbleTip
 			messageTextArea.setLineWrap(true);
 			messageTextArea.setWrapStyleWord(true);
 			messageTextArea.setFocusable(false);
-			messageTextArea.setRequestFocusEnabled(false);
 			messageTextArea.setMargin(new Insets(4, 4, 4, 4));
 			
 			JBasicScrollPane messageScrollPane = new JBasicScrollPane(messageTextArea);

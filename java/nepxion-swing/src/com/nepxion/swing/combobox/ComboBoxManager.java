@@ -27,7 +27,6 @@ public class ComboBoxManager
 			{
 				comboBox.setFocusable(false);
 			}
-			comboBox.setRequestFocusEnabled(false);
 		}	
 	}
 }
