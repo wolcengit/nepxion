@@ -21,8 +21,6 @@ import java.util.List;
 import java.util.StringTokenizer;
 import java.util.TimeZone;
 
-import com.nepxion.util.locale.UtilityLocale;
-
 public class TimeUtil
 	implements TimeConstants
 {
@@ -852,7 +850,7 @@ public class TimeUtil
 		
 		if (interval < delimitedMillisecond)
 		{
-			throw new IllegalArgumentException(UtilityLocale.getString("interval_not_less_than_delimited_time"));
+			throw new IllegalArgumentException();
 		}
 		
 		int splitCount = (int) (interval / delimitedMillisecond);
