@@ -10,6 +10,8 @@ package com.nepxion.swing.selector.calendar;
  * @version 1.0
  */
 
+import javax.swing.JSpinner;
+
 import com.nepxion.swing.font.FontContext;
 import com.toedter.calendar.JYearChooser;
 
@@ -26,5 +28,8 @@ public class JYearSelector
 	private void initComponents()
 	{
 		setFont(FontContext.getFont());
+		
+		JSpinner spinner = (JSpinner) getSpinner();
+		CalendarStyleManager.setPreferenceStyle(spinner);
 	}
 }

@@ -14,6 +14,8 @@ import java.awt.Dimension;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.JSpinner;
+import javax.swing.JTextField;
 
 import com.nepxion.swing.dimension.DimensionManager;
 import com.nepxion.swing.lookandfeel.LookAndFeelManager;
@@ -24,12 +26,12 @@ public class CalendarStyleManager
 	{
 		if (LookAndFeelManager.isNimbusLookAndFeel())
 		{
-			JComboBox box = new JComboBox();
+			JComboBox component = new JComboBox();
 			
-			comboBox.setBackground(box.getBackground());
-			comboBox.setBorder(box.getBorder());
+			comboBox.setBackground(component.getBackground());
+			comboBox.setBorder(component.getBorder());
 			comboBox.setFocusable(true);
-			comboBox.setRequestFocusEnabled(true);			
+			comboBox.setRequestFocusEnabled(true);
 		}
 	}
 	
@@ -37,7 +39,17 @@ public class CalendarStyleManager
 	{
 		if (LookAndFeelManager.isNimbusLookAndFeel())
 		{
-			DimensionManager.setDimension(button, new Dimension(29, 29));			
+			DimensionManager.setDimension(button, new Dimension(29, 29));
+		}
+	}
+	
+	public static void setPreferenceStyle(JSpinner spinner)
+	{
+		if (LookAndFeelManager.isNimbusLookAndFeel())
+		{
+			JTextField component = new JTextField();
+			
+			spinner.getEditor().setBorder(component.getBorder());
 		}
 	}
 }

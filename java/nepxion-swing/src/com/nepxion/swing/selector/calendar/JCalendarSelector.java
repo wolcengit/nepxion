@@ -15,6 +15,7 @@ import java.util.Date;
 import java.util.Locale;
 
 import javax.swing.JComboBox;
+import javax.swing.JSpinner;
 
 import com.nepxion.swing.font.FontContext;
 import com.toedter.calendar.JCalendar;
@@ -89,6 +90,9 @@ public class JCalendarSelector
 	{
 		setFont(FontContext.getFont());
 				
+		JSpinner spinner = (JSpinner) getYearChooser().getSpinner();
+		CalendarStyleManager.setPreferenceStyle(spinner);
+		
 		JComboBox comboBox = (JComboBox) getMonthChooser().getComboBox();
 		CalendarStyleManager.setPreferenceStyle(comboBox);
 	}

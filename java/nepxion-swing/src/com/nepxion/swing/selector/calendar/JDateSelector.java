@@ -14,6 +14,8 @@ import java.util.Date;
 
 import javax.swing.Icon;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JSpinner;
 
 import com.nepxion.swing.font.FontContext;
 import com.nepxion.swing.icon.IconFactory;
@@ -83,5 +85,11 @@ public class JDateSelector
 		CalendarButton.setIcon(calendarIcon);
 		
 		CalendarStyleManager.setPreferenceStyle(CalendarButton);
+		
+		JSpinner spinner = (JSpinner) getJCalendar().getYearChooser().getSpinner();
+		CalendarStyleManager.setPreferenceStyle(spinner);
+		
+		JComboBox comboBox = (JComboBox) getJCalendar().getMonthChooser().getComboBox();
+		CalendarStyleManager.setPreferenceStyle(comboBox);
 	}
 }
