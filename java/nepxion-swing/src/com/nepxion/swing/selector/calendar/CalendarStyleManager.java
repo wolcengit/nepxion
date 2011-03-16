@@ -17,6 +17,7 @@ import javax.swing.JComboBox;
 import javax.swing.JSpinner;
 import javax.swing.JTextField;
 
+import com.nepxion.swing.combobox.ComboBoxManager;
 import com.nepxion.swing.dimension.DimensionManager;
 import com.nepxion.swing.lookandfeel.LookAndFeelManager;
 
@@ -28,10 +29,11 @@ public class CalendarStyleManager
 		{
 			JComboBox component = new JComboBox();
 			
-			comboBox.setBackground(component.getBackground());
 			comboBox.setBorder(component.getBorder());
-			comboBox.setFocusable(true);
-			comboBox.setRequestFocusEnabled(true);
+		}
+		else
+		{
+			ComboBoxManager.setPreferenceStyle(comboBox);
 		}
 	}
 	
