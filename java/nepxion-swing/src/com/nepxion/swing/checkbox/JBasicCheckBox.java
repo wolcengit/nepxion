@@ -129,7 +129,6 @@ public class JBasicCheckBox
 	
 	private void initComponents()
 	{
-		setFocusable(false);
-		setRequestFocusEnabled(false);
+		CheckBoxManager.setPreferenceStyle(this);
 	}
 }
