@@ -12,10 +12,16 @@ package com.nepxion.swing.radiobutton;
 
 import javax.swing.JRadioButton;
 
+import com.nepxion.swing.lookandfeel.LookAndFeelManager;
+
 public class RadioButtonManager
 {
 	public static void setPreferenceStyle(JRadioButton radioButton)
 	{
-		radioButton.setFocusPainted(false);
+		if (!LookAndFeelManager.isNimbusLookAndFeel())
+		{
+			radioButton.setFocusPainted(false);
+			radioButton.setRequestFocusEnabled(false);
+		}
 	}
 }
