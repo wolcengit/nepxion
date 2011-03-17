@@ -15,10 +15,9 @@ import java.util.Enumeration;
 import javax.swing.JTree;
 import javax.swing.SwingUtilities;
 
-import com.nepxion.swing.dialog.JExceptionDialog;
+import com.nepxion.swing.exception.ExceptionTracer;
 import com.nepxion.swing.handle.HandleManager;
 import com.nepxion.swing.swingworker.JSwingWorker;
-import com.nepxion.util.exception.ExceptionUtil;
 
 public class LazyLoaderSwingWorker
 	extends JSwingWorker
@@ -101,7 +100,7 @@ public class LazyLoaderSwingWorker
 						exception = e;
 					}
 					
-					JExceptionDialog.traceException(HandleManager.getFrame(LazyLoaderSwingWorker.this.getComponent()), ExceptionUtil.subString(e), exception);
+					ExceptionTracer.traceException(HandleManager.getFrame(LazyLoaderSwingWorker.this.getComponent()), exception);
 					
 					return;
 				}

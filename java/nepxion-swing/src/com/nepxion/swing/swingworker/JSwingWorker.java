@@ -14,9 +14,8 @@ import java.awt.Component;
 
 import org.jdesktop.swingworker.SwingWorker;
 
-import com.nepxion.swing.dialog.JExceptionDialog;
+import com.nepxion.swing.exception.ExceptionTracer;
 import com.nepxion.swing.handle.HandleManager;
-import com.nepxion.util.exception.ExceptionUtil;
 
 public abstract class JSwingWorker
 	extends SwingWorker
@@ -92,7 +91,7 @@ public abstract class JSwingWorker
 			fireForegroundException(e);
 			if (component != null)
 			{
-				JExceptionDialog.traceException(HandleManager.getFrame(component), ExceptionUtil.subString(e), e);
+				ExceptionTracer.traceException(HandleManager.getFrame(component), e);
 			}
 		}	
 		
@@ -105,7 +104,7 @@ public abstract class JSwingWorker
 			fireForegroundException(e);
 			if (component != null)
 			{
-				JExceptionDialog.traceException(HandleManager.getFrame(component), ExceptionUtil.subString(e), e);
+				ExceptionTracer.traceException(HandleManager.getFrame(component), e);
 			}
 		}
 	}

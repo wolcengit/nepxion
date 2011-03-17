@@ -16,11 +16,10 @@ import java.awt.Frame;
 import javax.swing.JLabel;
 import javax.swing.SwingUtilities;
 
-import com.nepxion.swing.dialog.JExceptionDialog;
+import com.nepxion.swing.exception.ExceptionTracer;
 import com.nepxion.swing.handle.HandleManager;
 import com.nepxion.swing.icon.IconFactory;
 import com.nepxion.swing.locale.SwingLocale;
-import com.nepxion.util.exception.ExceptionUtil;
 
 public abstract class JThreadDialog
 	extends AbstractThreadDialog
@@ -136,7 +135,7 @@ public abstract class JThreadDialog
 							exception = e;
 						}
 						
-						JExceptionDialog.traceException(HandleManager.getFrame(SwingWorker.this.getComponent()), ExceptionUtil.subString(e), exception);
+						ExceptionTracer.traceException(HandleManager.getFrame(SwingWorker.this.getComponent()), exception);
 						
 						return;
 					}

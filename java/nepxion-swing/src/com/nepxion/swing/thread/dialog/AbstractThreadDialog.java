@@ -25,11 +25,14 @@ import javax.swing.JPanel;
 import com.nepxion.swing.border.ShadowBorder;
 import com.nepxion.swing.dialog.DialogResizer;
 import com.nepxion.swing.dialog.JBasicDialog;
+import com.nepxion.swing.thread.ThreadManager;
 import com.nepxion.swing.timer.JTimerProgressPanel;
 
 public abstract class AbstractThreadDialog
 	extends JBasicDialog
 {
+	private JPanel layoutPanel;
+	
 	private JTimerProgressPanel progressPanel;
 	
 	private JLabel animationLabel;
@@ -70,10 +73,10 @@ public abstract class AbstractThreadDialog
 			}
 		};
 		
-		progressPanel.setPreferredSize(new Dimension(330, progressPanel.getPreferredSize().height + 10 + getDecoratedInset()));
+		progressPanel.setPreferredSize(new Dimension(330, progressPanel.getPreferredSize().height + 10 + ThreadManager.getDecoratedMargin(this)));
 		progressPanel.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
 		
-		JPanel layoutPanel = new JPanel();
+		layoutPanel = new JPanel();
 		layoutPanel.setLayout(new BorderLayout());
 		layoutPanel.add(progressPanel, BorderLayout.CENTER);
 		
@@ -99,6 +102,8 @@ public abstract class AbstractThreadDialog
 				break;
 			}
 		}
+		
+		ThreadManager.setPreferenceStyle(this);
 	}
 	
 	public void reset()
@@ -134,6 +139,11 @@ public abstract class AbstractThreadDialog
 	public void finish()
 	{
 		progressPanel.finish();
+	}
+	
+	public JPanel getLayoutPanel()
+	{
+		return layoutPanel;
 	}
 	
 	public JTimerProgressPanel getProgressPanel()
