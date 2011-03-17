@@ -15,6 +15,7 @@ import java.util.Properties;
 
 import com.nepxion.swing.activex.ActiveXConstants;
 import com.nepxion.swing.activex.ActiveXContext;
+import com.nepxion.swing.exception.ExceptionTracerContext;
 import com.nepxion.util.database.pool.proxool.ProxoolContext;
 import com.nepxion.util.encoder.EncoderConstants;
 import com.nepxion.util.encoder.EncoderContext;
@@ -50,6 +51,7 @@ public class DataContextRegister
 		initQuartz();
 		initIp();
 		initZone();
+		initException();
 	}
 	
 	private void initEncoder()
@@ -287,7 +289,21 @@ public class DataContextRegister
 				e.printStackTrace();
 			}
 		}
-	}		
+	}
+	
+	private void initException()
+	{
+		String exceptionTracerEnabled = properties.getProperty("exception-tracer-enabled");
+		
+		boolean isTracerEnabled = false;
+		
+		if (isValid(exceptionTracerEnabled))
+		{
+			isTracerEnabled = exceptionTracerEnabled.equals("true");
+		}
+		
+		ExceptionTracerContext.registerDebug(isTracerEnabled);
+	}	
 	
 	public boolean isValid(String content)
 	{
