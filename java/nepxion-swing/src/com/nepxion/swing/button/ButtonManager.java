@@ -25,6 +25,7 @@ import javax.swing.SwingConstants;
 
 import com.nepxion.swing.buttonbar.JBasicButtonBar;
 import com.nepxion.swing.dimension.DimensionManager;
+import com.nepxion.swing.font.FontContext;
 import com.nepxion.swing.lookandfeel.LookAndFeelManager;
 import com.nepxion.swing.separator.JBasicSeparator;
 import com.nepxion.swing.style.button.AbstractButtonUI;
@@ -150,7 +151,9 @@ public class ButtonManager
 				if (container instanceof JToolBar)
 				{
 					abstractButton.setFocusPainted(false);
-				}	
+				}
+				
+				abstractButton.setFont(FontContext.getFont());
 				
 				if (component instanceof JBasicSplitButton)
 				{
