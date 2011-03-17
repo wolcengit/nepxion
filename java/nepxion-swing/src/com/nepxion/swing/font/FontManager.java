@@ -17,17 +17,24 @@ import java.util.Enumeration;
 import javax.swing.UIManager;
 import javax.swing.plaf.FontUIResource;
 
+import com.nepxion.util.io.FileUtil;
+
 public class FontManager
 {
 	public static final String SWING_FONT_FOLDER = "com/nepxion/swing/font/";
 	
-	public static void setCustomFont(String fontName, int fontStyle, int fontSize)
+	public static void setCustomFont(String fontFileName, int fontStyle, int fontSize)
+	{
+		setCustomFont(fontFileName, fontStyle, fontSize, true);
+	}
+	
+	public static void setCustomFont(String fontFileName, int fontStyle, int fontSize, boolean classLoader)
 	{
 		Font font = null;
-		fontName = SWING_FONT_FOLDER + fontName;
+		String fontPath = SWING_FONT_FOLDER + fontFileName;
 		try
 		{
-			InputStream inputStream = FontManager.class.getResourceAsStream(fontName);
+			InputStream inputStream = FileUtil.getInputStream(fontPath, classLoader);
 			font = Font.createFont(Font.TRUETYPE_FONT, inputStream);
 			font = font.deriveFont(fontStyle, fontSize);
 			inputStream.close();
