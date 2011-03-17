@@ -50,6 +50,8 @@ public class FontContext
 		fontName = customFontName;
 		fontStyle = customFontStyle;
 		fontSize = customFontSize;
+		
+		font = new Font(fontName, fontStyle, fontSize);
 	}
 	
 	public static void registerChartTitleFont(String customChartTitleFontName, int customChartTitleFontStyle, int customChartTitleFontSize)
@@ -57,6 +59,8 @@ public class FontContext
 		chartTitleFontName = customChartTitleFontName;
 		chartTitleFontStyle = customChartTitleFontStyle;
 		chartTitleFontSize = customChartTitleFontSize;
+		
+		chartTitleFont = new Font(chartTitleFontName, chartTitleFontStyle, chartTitleFontSize);
 	}
 	
 	public static void registerChartSubTitleFont(String customChartSubTitleFontName, int customChartSubTitleFontStyle, int customChartSubTitleFontSize)
@@ -64,6 +68,8 @@ public class FontContext
 		chartSubTitleFontName = customChartSubTitleFontName;
 		chartSubTitleFontStyle = customChartSubTitleFontStyle;
 		chartSubTitleFontSize = customChartSubTitleFontSize;
+		
+		chartSubTitleFont = new Font(chartSubTitleFontName, chartSubTitleFontStyle, chartSubTitleFontSize);
 	}
 	
 	public static void registerChartLabelFont(String customChartLabelFontName, int customChartLabelFontStyle, int customChartLabelFontSize)
@@ -71,6 +77,8 @@ public class FontContext
 		chartLabelFontName = customChartLabelFontName;
 		chartLabelFontStyle = customChartLabelFontStyle;
 		chartLabelFontSize = customChartLabelFontSize;
+		
+		chartLabelFont = new Font(chartLabelFontName, chartLabelFontStyle, chartLabelFontSize);
 	}
 	
 	public static void registerChartTickLabelFont(String customChartTickLabelFontName, int customChartTickLabelFontStyle, int customChartTickLabelFontSize)
@@ -78,6 +86,8 @@ public class FontContext
 		chartTickLabelFontName = customChartTickLabelFontName;
 		chartTickLabelFontStyle = customChartTickLabelFontStyle;
 		chartTickLabelFontSize = customChartTickLabelFontSize;
+		
+		chartTickLabelFont = new Font(chartTickLabelFontName, chartTickLabelFontStyle, chartTickLabelFontSize);
 	}
 	
 	public static String getFontName()
@@ -156,52 +166,27 @@ public class FontContext
 	}
 		
 	public static Font getFont()
-	{
-		if (font == null)
-		{
-			font = new Font(fontName, fontStyle, fontSize);
-		}
-		
+	{		
 		return font;
 	}
 	
 	public static Font getChartTitleFont()
-	{
-		if (chartTitleFont == null)
-		{
-			chartTitleFont = new Font(chartTitleFontName, chartTitleFontStyle, chartTitleFontSize);
-		}
-		
+	{		
 		return chartTitleFont;
 	}
 	
 	public static Font getChartSubTitleFont()
-	{
-		if (chartSubTitleFont == null)
-		{
-			chartSubTitleFont = new Font(chartSubTitleFontName, chartSubTitleFontStyle, chartSubTitleFontSize);
-		}
-		
+	{		
 		return chartSubTitleFont;
 	}
 	
 	public static Font getChartLabelFont()
 	{
-		if (chartLabelFont == null)
-		{
-			chartLabelFont = new Font(chartLabelFontName, chartLabelFontStyle, chartLabelFontSize);
-		}
-		
 		return chartLabelFont;
 	}
 	
 	public static Font getChartTickLabelFont()
-	{
-		if (chartTickLabelFont == null)
-		{
-			chartTickLabelFont = new Font(chartTickLabelFontName, chartTickLabelFontStyle, chartTickLabelFontSize);
-		}
-		
+	{		
 		return chartTickLabelFont;
 	}
 }
