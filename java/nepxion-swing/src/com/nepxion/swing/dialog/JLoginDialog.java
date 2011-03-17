@@ -34,6 +34,7 @@ import javax.swing.border.Border;
 import com.nepxion.swing.button.JClassicButton;
 import com.nepxion.swing.combobox.JBasicComboBox;
 import com.nepxion.swing.element.ElementNode;
+import com.nepxion.swing.font.FontContext;
 import com.nepxion.swing.icon.IconFactory;
 import com.nepxion.swing.layout.filed.FiledLayout;
 import com.nepxion.swing.layout.table.TableLayout;
@@ -74,17 +75,17 @@ public abstract class JLoginDialog
 		super((Frame) null, title);
 		
 		accountLabel = new JLabel();
-		accountLabel.setFont(new Font("Dialog", 0, 14));
+		accountLabel.setFont(new Font(FontContext.getFontName(), 0, 14));
 		
 		accountTextField = new JBasicTextField();
 		
 		passwordLabel = new JLabel();
-		passwordLabel.setFont(new Font("Dialog", 0, 14));
+		passwordLabel.setFont(new Font(FontContext.getFontName(), 0, 14));
 		
 		passwordField = new JBasicPasswordField();
 		
 		localeLabel = new JLabel();
-		localeLabel.setFont(new Font("Dialog", 0, 14));
+		localeLabel.setFont(new Font(FontContext.getFontName(), 0, 14));
 		
 		localeComboBox = new JBasicComboBox();
 		localeComboBox.setRenderer(new ComboBoxElementCellRenderer());
@@ -121,7 +122,7 @@ public abstract class JLoginDialog
 		editorPanel.add(localeComboBox, "1, 2");
 		
 		loginButton = new JClassicButton();
-		loginButton.setFont(new Font("Dialog", 0, 14));
+		loginButton.setFont(new Font(FontContext.getFontName(), 0, 14));
 		loginButton.setPreferredSize(new Dimension(72, 32));
 		getRootPane().setDefaultButton(loginButton);
 		loginButton.addActionListener(new ActionListener()
@@ -164,7 +165,7 @@ public abstract class JLoginDialog
 		);
 		
 		resetButton = new JClassicButton();
-		resetButton.setFont(new Font("Dialog", 0, 14));
+		resetButton.setFont(new Font(FontContext.getFontName(), 0, 14));
 		resetButton.setPreferredSize(new Dimension(72, 32));
 		resetButton.addActionListener(new ActionListener()
 		{
@@ -177,7 +178,7 @@ public abstract class JLoginDialog
 		);
 		
 		exitButton = new JClassicButton();
-		exitButton.setFont(new Font("Dialog", 0, 14));
+		exitButton.setFont(new Font(FontContext.getFontName(), 0, 14));
 		exitButton.setPreferredSize(new Dimension(72, 32));
 		exitButton.addActionListener(new ActionListener()
 		{
