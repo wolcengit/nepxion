@@ -60,7 +60,7 @@ public class JBannerPanel
 	
 	private void initComponents()
 	{
-		setFont(new Font("Tahoma", Font.PLAIN, 11));
+		// setFont(new Font("Tahoma", Font.PLAIN, 11));
 		setBackground(Color.white);
 		setBorder(BorderFactory.createBevelBorder(BevelBorder.LOWERED));
 	}
