@@ -19,7 +19,6 @@ import javax.swing.UIManager;
 import com.l2fprod.common.swing.JOutlookBar;
 import com.l2fprod.common.swing.plaf.OutlookBarUI;
 import com.nepxion.swing.style.outlookbar.JFlatOutlookBarUI;
-import com.nepxion.swing.style.scrollpane.ScrollPaneUIManager;
 
 public class JFlatOutlookBar
 	extends JOutlookBar implements SwingConstants
@@ -49,12 +48,11 @@ public class JFlatOutlookBar
 	public JScrollPane makeScrollPane(Component component)
 	{
 		JScrollPane scrollPane = super.makeScrollPane(component);
-		
+				
 		scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 		scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
 		
-		scrollPane.getHorizontalScrollBar().setUI(ScrollPaneUIManager.getScrollBarUI());
-		scrollPane.getVerticalScrollBar().setUI(ScrollPaneUIManager.getScrollBarUI());
+		FlatOutlookBarManager.setPreferenceStyle(scrollPane);
 		
 		return scrollPane;
 	}
