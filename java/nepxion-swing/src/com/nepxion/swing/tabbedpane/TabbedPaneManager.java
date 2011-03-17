@@ -12,15 +12,10 @@ package com.nepxion.swing.tabbedpane;
 
 import javax.swing.JTabbedPane;
 
-import com.nepxion.swing.lookandfeel.LookAndFeelManager;
-
 public class TabbedPaneManager
 {
 	public static void setPreferenceStyle(JTabbedPane tabbedPane)
 	{
-		if (!LookAndFeelManager.isNimbusLookAndFeel())
-		{
-			tabbedPane.setFocusable(false);
-		}
+		tabbedPane.setFocusable(false);
 	}
 }
