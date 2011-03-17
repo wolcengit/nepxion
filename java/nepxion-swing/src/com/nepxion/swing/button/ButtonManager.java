@@ -147,6 +147,11 @@ public class ButtonManager
 					abstractButton.setVerticalTextPosition(CENTER);
 				}
 				
+				if (container instanceof JToolBar)
+				{
+					abstractButton.setFocusPainted(false);
+				}	
+				
 				if (component instanceof JBasicSplitButton)
 				{
 					JBasicSplitButton button = (JBasicSplitButton) component;
