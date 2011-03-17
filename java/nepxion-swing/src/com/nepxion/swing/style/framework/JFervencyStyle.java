@@ -39,7 +39,6 @@ public class JFervencyStyle
 		tabbedPaneForeground = Color.black;
 		tabbedPaneSelectionForeground = Color.white;
 		
-		
 		border = BorderManager.createLineBorder(Color.gray, -1, 2, 2, 2); // 2, 2, 2, 2
 		headerBorder = new RaisedHeaderBorder(Color.gray, Color.gray.brighter());
 		labelBorder = BorderFactory.createEmptyBorder(2, 4, 2, 1);
