@@ -184,7 +184,7 @@ public class JBasicDialog
 		this.isHint = isHint;
 	}
 	
-	public int getDecoratedInset()
+	public int getDecoratedMargin()
 	{
 		return JDialog.isDefaultLookAndFeelDecorated() ? 27 : 0;
 	}

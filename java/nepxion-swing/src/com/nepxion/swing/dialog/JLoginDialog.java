@@ -34,6 +34,7 @@ import javax.swing.border.Border;
 import com.nepxion.swing.button.JClassicButton;
 import com.nepxion.swing.combobox.JBasicComboBox;
 import com.nepxion.swing.element.ElementNode;
+import com.nepxion.swing.exception.ExceptionTracer;
 import com.nepxion.swing.font.FontContext;
 import com.nepxion.swing.icon.IconFactory;
 import com.nepxion.swing.layout.filed.FiledLayout;
@@ -147,7 +148,7 @@ public abstract class JLoginDialog
 				}
 				catch (Exception ex)
 				{
-					JExceptionDialog.traceException(JLoginDialog.this, SwingLocale.getString("login_failure_service", locale), ex);
+					ExceptionTracer.traceException(JLoginDialog.this, SwingLocale.getString("login_failure_service", locale), ex);
 					
 					return;
 				}
