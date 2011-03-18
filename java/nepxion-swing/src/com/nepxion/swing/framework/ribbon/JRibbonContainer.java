@@ -20,6 +20,7 @@ import javax.swing.JDesktopPane;
 import javax.swing.JInternalFrame;
 
 import com.nepxion.swing.container.JContainer;
+import com.nepxion.swing.popupmenu.JDecorationPopupMenu;
 import com.nepxion.swing.tabbedpane.ITabbedPane;
 
 public class JRibbonContainer
@@ -147,6 +148,8 @@ public class JRibbonContainer
 	public void setTabbedPane(final ITabbedPane tabbedPane)
 	{
 		this.tabbedPane = tabbedPane;
+		
+		tabbedPane.setPopupMenu(new JDecorationPopupMenu(), true);
 		
 		JComponent tabbedComponent = (JComponent) tabbedPane;
 		tabbedComponent.addPropertyChangeListener(new PropertyChangeListener()
