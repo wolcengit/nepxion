@@ -92,6 +92,16 @@ public class JBasicTable
 		TableManager.setSelectionMode(this, mode);
 	}
 	
+	public int getRowIndexToModel(int rowIndex)
+	{
+		return rowIndex;
+	}
+	
+	public int[] getRowIndexesToModel(int[] rowIndexes)
+	{
+		return rowIndexes;
+	}
+	
 	public void valueChanged(ListSelectionEvent e)
 	{
 		super.valueChanged(e);

@@ -52,6 +52,32 @@ public class JSortableTable
 		header.addMouseMotionListener(this.headerListener);	
 	}
 		
+	public int getRowIndexToModel(int rowIndex)
+	{
+		TableModel tableModel = getModel();
+		if (tableModel instanceof SortableTableModel)
+		{
+			SortableTableModel sortableTableModel = (SortableTableModel) tableModel;
+			
+			return sortableTableModel.getRowIndex(rowIndex);
+		}
+		
+		return -1;
+	}
+	
+	public int[] getRowIndexesToModel(int[] rowIndexes)
+	{
+		TableModel tableModel = getModel();
+		if (tableModel instanceof SortableTableModel)
+		{
+			SortableTableModel sortableTableModel = (SortableTableModel) tableModel;
+			
+			return sortableTableModel.getRowIndexes(rowIndexes);
+		}
+		
+		return null;
+	}
+	
 	public TableModel getDataModel()
 	{
 		TableModel tableModel = getModel();

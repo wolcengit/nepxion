@@ -61,7 +61,7 @@ public class TableController
 			return;
 		}
 		
-		int selectedRowIndex = TableManager.getRowIndex(table, selectedRow);
+		int selectedRowIndex = ((ITable) table).getRowIndexToModel(selectedRow);
 		Object rowData = tableAdapter.modifyRow(selectedRowIndex);
 		if (rowData == null)
 		{
@@ -97,7 +97,7 @@ public class TableController
 				return;
 			}
 			
-			int selectedRowIndex = TableManager.getRowIndex(table, selectedRow);
+			int selectedRowIndex =  ((ITable) table).getRowIndexToModel(selectedRow);
 			boolean flag = tableAdapter.deleteRow(selectedRowIndex);
 			if (!flag)
 			{
@@ -122,7 +122,7 @@ public class TableController
 				return;
 			}
 			
-			int[] selectedRowIndexes = TableManager.getRowIndexes(table, selectedRows);
+			int[] selectedRowIndexes = ((ITable) table).getRowIndexesToModel(selectedRows);
 			boolean flag = tableAdapter.deleteRows(selectedRowIndexes);
 			if (!flag)
 			{

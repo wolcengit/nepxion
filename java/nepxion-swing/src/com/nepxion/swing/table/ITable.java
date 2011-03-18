@@ -29,6 +29,10 @@ public interface ITable
 	
 	public void setSelectionMode(int mode);
 	
+	public int getRowIndexToModel(int rowIndex);
+	
+	public int[] getRowIndexesToModel(int[] rowIndexes);
+	
 	public void executeSelection(int selectedRow);
 	
 	public void executeClicked(int selectedRow, MouseEvent e);
