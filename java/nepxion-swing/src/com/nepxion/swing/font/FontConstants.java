@@ -30,7 +30,7 @@ public interface FontConstants
 	public static final int DEFAULT_CHART_LABEL_FONT_STYLE = Font.PLAIN;
 	public static final int DEFAULT_CHART_LABEL_FONT_SIZE = 12;
 	
-	public static final String DEFAULT_CHART_TICK_LABEL_FONT_NAME = "SansSerif";
+	public static final String DEFAULT_CHART_TICK_LABEL_FONT_NAME = "Dialog";
 	public static final int DEFAULT_CHART_TICK_LABEL_FONT_STYLE = Font.PLAIN;
-	public static final int DEFAULT_CHART_TICK_LABEL_FONT_SIZE = 10;
+	public static final int DEFAULT_CHART_TICK_LABEL_FONT_SIZE = 12;
 }

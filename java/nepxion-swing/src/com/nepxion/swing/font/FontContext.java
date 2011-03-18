@@ -11,6 +11,7 @@ package com.nepxion.swing.font;
  */
 
 import java.awt.Font;
+import java.awt.GraphicsEnvironment;
 
 public class FontContext
 	implements FontConstants
@@ -47,45 +48,65 @@ public class FontContext
 	
 	public static void registerFont(String customFontName, int customFontStyle, int customFontSize)
 	{
-		fontName = customFontName;
-		fontStyle = customFontStyle;
-		fontSize = customFontSize;
+		boolean isRetrieved = retrieveFont(customFontName);
+		if (isRetrieved)
+		{
+			fontName = customFontName;
+			fontStyle = customFontStyle;
+			fontSize = customFontSize;
+		}
 		
 		font = new Font(fontName, fontStyle, fontSize);
 	}
 	
 	public static void registerChartTitleFont(String customChartTitleFontName, int customChartTitleFontStyle, int customChartTitleFontSize)
 	{
-		chartTitleFontName = customChartTitleFontName;
-		chartTitleFontStyle = customChartTitleFontStyle;
-		chartTitleFontSize = customChartTitleFontSize;
+		boolean isRetrieved = retrieveFont(customChartTitleFontName);
+		if (isRetrieved)
+		{
+			chartTitleFontName = customChartTitleFontName;
+			chartTitleFontStyle = customChartTitleFontStyle;
+			chartTitleFontSize = customChartTitleFontSize;
+		}
 		
 		chartTitleFont = new Font(chartTitleFontName, chartTitleFontStyle, chartTitleFontSize);
 	}
 	
 	public static void registerChartSubTitleFont(String customChartSubTitleFontName, int customChartSubTitleFontStyle, int customChartSubTitleFontSize)
 	{
-		chartSubTitleFontName = customChartSubTitleFontName;
-		chartSubTitleFontStyle = customChartSubTitleFontStyle;
-		chartSubTitleFontSize = customChartSubTitleFontSize;
+		boolean isRetrieved = retrieveFont(customChartSubTitleFontName);
+		if (isRetrieved)
+		{
+			chartSubTitleFontName = customChartSubTitleFontName;
+			chartSubTitleFontStyle = customChartSubTitleFontStyle;
+			chartSubTitleFontSize = customChartSubTitleFontSize;
+		}
 		
 		chartSubTitleFont = new Font(chartSubTitleFontName, chartSubTitleFontStyle, chartSubTitleFontSize);
 	}
 	
 	public static void registerChartLabelFont(String customChartLabelFontName, int customChartLabelFontStyle, int customChartLabelFontSize)
 	{
-		chartLabelFontName = customChartLabelFontName;
-		chartLabelFontStyle = customChartLabelFontStyle;
-		chartLabelFontSize = customChartLabelFontSize;
+		boolean isRetrieved = retrieveFont(customChartLabelFontName);
+		if (isRetrieved)
+		{
+			chartLabelFontName = customChartLabelFontName;
+			chartLabelFontStyle = customChartLabelFontStyle;
+			chartLabelFontSize = customChartLabelFontSize;
+		}
 		
 		chartLabelFont = new Font(chartLabelFontName, chartLabelFontStyle, chartLabelFontSize);
 	}
 	
 	public static void registerChartTickLabelFont(String customChartTickLabelFontName, int customChartTickLabelFontStyle, int customChartTickLabelFontSize)
 	{
-		chartTickLabelFontName = customChartTickLabelFontName;
-		chartTickLabelFontStyle = customChartTickLabelFontStyle;
-		chartTickLabelFontSize = customChartTickLabelFontSize;
+		boolean isRetrieved = retrieveFont(customChartTickLabelFontName);
+		if (isRetrieved)
+		{
+			chartTickLabelFontName = customChartTickLabelFontName;
+			chartTickLabelFontStyle = customChartTickLabelFontStyle;
+			chartTickLabelFontSize = customChartTickLabelFontSize;
+		}
 		
 		chartTickLabelFont = new Font(chartTickLabelFontName, chartTickLabelFontStyle, chartTickLabelFontSize);
 	}
@@ -189,4 +210,18 @@ public class FontContext
 	{		
 		return chartTickLabelFont;
 	}
+	
+	public static boolean retrieveFont(String fontName)
+	{
+		String[] availableFontFamilyNames = GraphicsEnvironment.getLocalGraphicsEnvironment().getAvailableFontFamilyNames();
+		for (int i = 0; i < availableFontFamilyNames.length; i++)
+		{
+			if (availableFontFamilyNames[i].equals(fontName))
+			{
+				return true;
+			}	
+		}	
+		
+		return false;
+	}	
 }

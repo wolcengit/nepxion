@@ -11,7 +11,6 @@ package com.nepxion.swing.font;
  */
 
 import java.awt.Font;
-import java.awt.GraphicsEnvironment;
 import java.io.InputStream;
 import java.util.Enumeration;
 
@@ -45,42 +44,19 @@ public class FontManager
 			ex.printStackTrace();
 			font = FontContext.getFont();
 		}
+		
 		setFont(font);
 	}
 	
 	public static void setFont(String fontName, int fontStyle, int fontSize)
 	{
-		Font font = null;
-		
-		boolean isRetrieved = retrieveFont(fontName);
-		if (isRetrieved)
-		{
-			font = new Font(fontName, fontStyle, fontSize);
-		}	
-		else
-		{
-			font = new Font(FontConstants.DEFAULT_FONT_NAME, FontConstants.DEFAULT_FONT_STYLE, FontConstants.DEFAULT_FONT_SIZE);
-		}
-		
+		Font font = new Font(fontName, fontStyle, fontSize);
+
 		setFont(font);
 	}
-	
-	public static boolean retrieveFont(String fontName)
-	{
-		String[] fontFamilyNames = GraphicsEnvironment.getLocalGraphicsEnvironment().getAvailableFontFamilyNames();
-		for (int i = 0; i < fontFamilyNames.length; i++)
-		{
-			if (fontFamilyNames[i].equals(fontName))
-			{
-				return true;
-			}	
-		}	
 		
-		return false;
-	}
-	
 	public static void setFont(Font font)
-	{
+	{		
 		FontUIResource fontUIResource = new FontUIResource(font);
 		for (Enumeration enumeration = UIManager.getDefaults().keys(); enumeration.hasMoreElements();)
 		{
