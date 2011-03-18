@@ -12,9 +12,22 @@ package com.nepxion.swing.framework.dockable;
 
 import java.awt.Component;
 import java.awt.Container;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+
+import javax.swing.JComponent;
+
+import com.nepxion.swing.framework.JFrameWorkWindow;
+import com.nepxion.swing.fullscreen.FullScreenRegister;
+import com.nepxion.swing.fullscreen.FullScreenSupport;
+import com.nepxion.swing.keystroke.KeyStrokeManager;
+import com.nepxion.swing.locale.SwingLocale;
+import com.nepxion.swing.menu.JBasicMenu;
+import com.nepxion.swing.menuitem.JBasicCheckBoxMenuItem;
 
 public class DockableManager
 {
@@ -204,4 +217,101 @@ public class DockableManager
 			return getDockableContainer(container);
 		}
 	}
+	
+	
+	public static JDockableView getDockableView(JFrameWorkWindow frameWorkWindow, String title)
+	{
+		if (frameWorkWindow == null)
+		{
+			return null;
+		}
+		
+		JDockableHierarchy dockableHierarchy = (JDockableHierarchy) frameWorkWindow.getHierarchy();
+		
+		return getDockableView(dockableHierarchy, title);
+	}
+	
+	public static JDockableView getDockableView(JDockableHierarchy dockableHierarchy, String title)
+	{
+		if (dockableHierarchy == null)
+		{
+			return null;
+		}
+		
+		JDockableContainer dockableContainer = dockableHierarchy.getDockableContainer();
+		Component component = dockableContainer.getContentPane();
+		
+		if (component instanceof JDockable)
+		{
+			JDockable dockable = (JDockable) component;
+			
+			return DockableManager.getDockableView(dockable, title);
+		}
+		
+		return null;
+	}
+	
+	public static JBasicMenu getToggleMenu(final JDockableHierarchy hierarchy)
+	{
+		JBasicMenu toggleMenu = new JBasicMenu(SwingLocale.getString("view"), SwingLocale.getString("view") + "(V)");
+		toggleMenu.setMnemonic('V');
+		
+		final JBasicCheckBoxMenuItem toolBarToggleMenuItem = new JBasicCheckBoxMenuItem(SwingLocale.getString("toolbar"), SwingLocale.getString("toolbar"), true);
+		toolBarToggleMenuItem.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent e)
+			{
+				JComponent toolBar = hierarchy.getToolBar();
+				toolBar.setVisible(!toolBar.isVisible());
+			}
+		}
+		);
+		toggleMenu.add(toolBarToggleMenuItem);
+		
+		final JBasicCheckBoxMenuItem statusBarToggleMenuItem = new JBasicCheckBoxMenuItem(SwingLocale.getString("statusbar"), SwingLocale.getString("statusbar"), true);
+		statusBarToggleMenuItem.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent e)
+			{
+				JComponent statusBar = hierarchy.getStatusBar();
+				statusBar.setVisible(!statusBar.isVisible());
+			}
+		}
+		);
+		toggleMenu.add(statusBarToggleMenuItem);
+		
+		toggleMenu.addSeparator();
+		
+		List dockableViews = hierarchy.getDockableViews();
+		for (Iterator iterator = dockableViews.iterator(); iterator.hasNext();)
+		{
+			final JDockableView dockableView = (JDockableView) iterator.next();
+			final JBasicCheckBoxMenuItem dockableViewToggleMenuItem = new JBasicCheckBoxMenuItem(dockableView.getTitle(), dockableView.getTitle(), true);
+			dockableView.registerForeignButton(dockableViewToggleMenuItem);
+			dockableViewToggleMenuItem.addActionListener(new ActionListener()
+			{
+				public void actionPerformed(ActionEvent e)
+				{
+					dockableView.setVisible(!dockableView.isVisible());
+				}
+			}
+			);
+			toggleMenu.add(dockableViewToggleMenuItem);
+		}
+		
+		toggleMenu.addSeparator();
+		
+		JBasicCheckBoxMenuItem screenToggleMenuItem = new JBasicCheckBoxMenuItem(SwingLocale.getString("fullscreen"), SwingLocale.getString("fullscreen"));
+		// JBasicMenuItem screenToggleMenuItem = new JBasicMenuItem(FullScreenConstants.TEXT_MAXIMIZE, FullScreenConstants.ICON_MAXIMIZE, FullScreenConstants.TEXT_MAXIMIZE);
+		KeyStrokeManager.registerButton(screenToggleMenuItem, KeyEvent.VK_F12, 'F');
+		toggleMenu.add(screenToggleMenuItem);
+		
+		FullScreenSupport fullScreenSupport = new FullScreenSupport(hierarchy);
+		FullScreenRegister fullScreenRegister = new FullScreenRegister(fullScreenSupport);
+		fullScreenRegister.register(hierarchy.getMenuBar());
+		fullScreenRegister.register(hierarchy.getToolBar());
+		fullScreenRegister.register(screenToggleMenuItem);
+		
+		return toggleMenu;
+	}	
 }
