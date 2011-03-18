@@ -16,6 +16,8 @@ import java.awt.Rectangle;
 
 import javax.swing.Icon;
 
+import com.nepxion.swing.lookandfeel.LookAndFeelManager;
+
 public class CloseTabIcon
 	implements Icon
 {
@@ -23,7 +25,6 @@ public class CloseTabIcon
 	private int y;
 	private int width;
 	private int height;
-	private int gap = 0;
 	
 	private boolean isHint = false;
 	
@@ -32,18 +33,25 @@ public class CloseTabIcon
 	
 	public CloseTabIcon(Icon icon)
 	{
-		this(icon, true, true, false, 0);
+		this(icon, true, true, false);
 	}
 	
-	public CloseTabIcon(Icon icon, boolean isDrawBorder, boolean isDrawCenter, boolean isHint, int gap)
+	public CloseTabIcon(Icon icon, boolean isDrawBorder, boolean isDrawCenter, boolean isHint)
 	{
 		this.icon = icon;
 		this.closeIcon = new CloseIcon(isDrawBorder, isDrawCenter);
 		this.isHint = isHint;
-		this.gap = gap;
 		
-		width = closeIcon.getIconWidth() + 2;
-		height = closeIcon.getIconHeight() + 2;
+		if (LookAndFeelManager.isNimbusLookAndFeel())
+		{
+			width = closeIcon.getIconWidth() + 4;
+			height = closeIcon.getIconHeight();
+		}
+		else
+		{
+			width = closeIcon.getIconWidth() + 4;
+			height = closeIcon.getIconHeight() + 2;
+		}
 	}
 	
 	public void paintIcon(Component c, Graphics g, int x, int y)
@@ -53,11 +61,26 @@ public class CloseTabIcon
 		
 		if (closeIcon != null)
 		{
-			closeIcon.paintIcon(c, g, x - gap, y);
+			if (LookAndFeelManager.isNimbusLookAndFeel())
+			{
+				closeIcon.paintIcon(c, g, x + 4, y);
+			}
+			else
+			{
+				closeIcon.paintIcon(c, g, x, y);
+			}
 		}
+		
 		if (icon != null)
 		{
-			icon.paintIcon(c, g, x + width, y);
+			if (LookAndFeelManager.isNimbusLookAndFeel())
+			{
+				icon.paintIcon(c, g, x + width + 4, y);
+			}
+			else
+			{
+				icon.paintIcon(c, g, x + width, y);
+			}
 		}
 	}
 	
@@ -83,7 +106,14 @@ public class CloseTabIcon
 	
 	public Rectangle getBounds()
 	{
-		return new Rectangle(x - gap, y, width, height);
+		if (LookAndFeelManager.isNimbusLookAndFeel())
+		{
+			return new Rectangle(x + 4, y, closeIcon.getIconWidth(), closeIcon.getIconHeight());
+		}
+		else
+		{
+			return new Rectangle(x, y, closeIcon.getIconWidth(), closeIcon.getIconHeight());
+		}
 	}
 	
 	public boolean isHint()
@@ -94,15 +124,5 @@ public class CloseTabIcon
 	public void setHint(boolean isHint)
 	{
 		this.isHint = isHint;
-	}
-	
-	public int getGap()
-	{
-		return gap;
-	}
-	
-	public void setGap(int gap)
-	{
-		this.gap = gap;
 	}
 }

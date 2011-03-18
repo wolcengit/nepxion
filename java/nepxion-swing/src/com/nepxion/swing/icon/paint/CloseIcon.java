@@ -21,7 +21,7 @@ import javax.swing.UIManager;
 public class CloseIcon
 	implements Icon
 {
-	private Rectangle rectangle = new Rectangle(0, 0, 16, 16);
+	private Rectangle rectangle = new Rectangle(0, 0, 15, 15);
 	
 	private boolean isPressed = false;
 	private boolean isDrawBorder = true;
