@@ -41,6 +41,8 @@ public interface ITabbedPane
 	
 	public Component getComponentAt(int index);
 	
+	public void setSelectedComponent(Component component);
+	
 	
 	public String getSelectedTitle();
 	

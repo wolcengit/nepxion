@@ -19,8 +19,8 @@ import javax.swing.JPanel;
 
 import com.nepxion.swing.locale.SwingLocale;
 import com.nepxion.swing.scrollpane.JBasicScrollPane;
+import com.nepxion.swing.table.JBasicTable;
 import com.nepxion.swing.table.MapTableModel;
-import com.nepxion.swing.table.sortable.JSortableTable;
 
 public class JLoginInfoPanel
 	extends JPanel
@@ -35,7 +35,7 @@ public class JLoginInfoPanel
 	public JLoginInfoPanel(List rowDatas)
 	{
 		MapTableModel model = new MapTableModel(rowDatas, COLUMN_NAMES);
-		JSortableTable table = new JSortableTable(model);
+		JBasicTable table = new JBasicTable(model);
 		
 		JBasicScrollPane scrollPane = new JBasicScrollPane();
 		scrollPane.getViewport().add(table);

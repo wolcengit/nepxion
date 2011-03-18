@@ -33,6 +33,10 @@ public class JBasicTabbedPane
 	
 	private CloseIcon closeIcon;
 	
+	private boolean isDrawBorder = true;
+	private boolean isDrawCenter = true;
+	private boolean isHint = false;
+	
 	public JBasicTabbedPane()
 	{
 		super();
@@ -100,7 +104,7 @@ public class JBasicTabbedPane
 	{
 		if (isClosable)
 		{
-			super.addTab(title, new CloseTabIcon(icon), component, toolTipText);
+			super.addTab(title, new CloseTabIcon(icon, isDrawBorder, isDrawCenter, isHint), component, toolTipText);
 		}
 		else
 		{
@@ -130,6 +134,16 @@ public class JBasicTabbedPane
 		return null;
 	}
 	
+	public boolean isDrawBorder()
+	{		
+		return isDrawBorder;
+	}
+	
+	public void setDrawBorder( boolean isDrawBorder)
+	{
+		this.isDrawBorder = isDrawBorder;
+	}
+	
 	public boolean isDrawBorder(int index)
 	{
 		CloseIcon closeIcon = getCloseIcon(index);
@@ -151,6 +165,16 @@ public class JBasicTabbedPane
 		}
 	}
 	
+	public boolean isDrawCenter()
+	{
+		return isDrawCenter;
+	}
+	
+	public void setDrawCenter(boolean isDrawCenter)
+	{
+		this.isDrawCenter = isDrawCenter;
+	}
+	
 	public boolean isDrawCenter(int index)
 	{
 		CloseIcon closeIcon = getCloseIcon(index);
@@ -170,6 +194,16 @@ public class JBasicTabbedPane
 			closeIcon.setDrawCenter(isDrawCenter);
 			repaint();
 		}
+	}
+	
+	public boolean isHint()
+	{		
+		return isHint;
+	}
+	
+	public void setHint(boolean isHint)
+	{
+		this.isHint = isHint;
 	}
 	
 	public boolean isHint(int index)
@@ -231,7 +265,7 @@ public class JBasicTabbedPane
 			CloseTabIcon closeTabIcon = getCloseTabIcon(index);
 			if (closeTabIcon == null)
 			{
-				setIconAt(index, new CloseTabIcon(getIconAt(index)));
+				setIconAt(index, new CloseTabIcon(getIconAt(index), isDrawBorder, isDrawCenter, isHint));
 			}
 		}
 		else
