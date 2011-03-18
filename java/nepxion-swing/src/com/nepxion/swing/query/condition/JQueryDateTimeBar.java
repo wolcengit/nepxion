@@ -77,8 +77,8 @@ public class JQueryDateTimeBar
 			}
 			case HORIZONTAL:
 			{
-				DimensionManager.setDimension(startDateTimeSelector, new Dimension(165, startDateTimeSelector.getPreferredSize().height));
-				DimensionManager.setDimension(endDateTimeSelector, new Dimension(165, endDateTimeSelector.getPreferredSize().height));
+				DimensionManager.setDimension(startDateTimeSelector, new Dimension(180, startDateTimeSelector.getPreferredSize().height));
+				DimensionManager.setDimension(endDateTimeSelector, new Dimension(180, endDateTimeSelector.getPreferredSize().height));
 				
 				setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
 				

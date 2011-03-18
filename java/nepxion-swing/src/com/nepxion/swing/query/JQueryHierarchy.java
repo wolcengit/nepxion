@@ -49,7 +49,7 @@ public class JQueryHierarchy
 		dockable.add(queryConditionView, JDockable.FLEXIBLE);
 		dockable.add(queryResultView, JDockable.VARY);
 		
-		dockable.setDividerLocation(0, 245);
+		QueryManager.setPreferenceStyle(dockable);
 		
 		getDockableContainer().setContentPane(dockable);
 	}
