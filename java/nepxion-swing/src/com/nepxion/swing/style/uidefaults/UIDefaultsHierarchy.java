@@ -12,13 +12,13 @@ package com.nepxion.swing.style.uidefaults;
 
 import com.nepxion.swing.framework.dockable.JDockable;
 import com.nepxion.swing.framework.dockable.JDockableView;
-import com.nepxion.swing.framework.dockable.JFrameWorkHierarchy;
+import com.nepxion.swing.framework.dockable.JDockableHierarchy;
 import com.nepxion.swing.icon.IconFactory;
 import com.nepxion.swing.locale.SwingLocale;
 import com.nepxion.swing.scrollpane.JBasicScrollPane;
 
 public class UIDefaultsHierarchy
-	extends JFrameWorkHierarchy
+	extends JDockableHierarchy
 {
 	public final static String EXPLORER_TITLE = SwingLocale.getString("explorer");
 	public final static String CONTENT_PANE_TITLE = SwingLocale.getString("content_pane");

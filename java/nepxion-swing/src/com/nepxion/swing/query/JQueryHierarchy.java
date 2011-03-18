@@ -12,14 +12,14 @@ package com.nepxion.swing.query;
 
 import com.nepxion.swing.framework.dockable.JDockable;
 import com.nepxion.swing.framework.dockable.JDockableView;
-import com.nepxion.swing.framework.dockable.JFrameWorkHierarchy;
+import com.nepxion.swing.framework.dockable.JDockableHierarchy;
 import com.nepxion.swing.icon.IconFactory;
 import com.nepxion.swing.locale.SwingLocale;
 import com.nepxion.swing.query.condition.JQueryCondition;
 import com.nepxion.swing.query.result.JQueryResult;
 
 public class JQueryHierarchy
-	extends JFrameWorkHierarchy
+	extends JDockableHierarchy
 {
 	public final static String QUERY_CONDITION_TITLE = SwingLocale.getString("query_condition");
 	public final static String QUERY_RESULT_TITLE = SwingLocale.getString("query_result");
