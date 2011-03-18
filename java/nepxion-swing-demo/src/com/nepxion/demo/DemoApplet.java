@@ -16,7 +16,7 @@ import javax.swing.SwingUtilities;
 
 import com.nepxion.swing.context.DataContextManager;
 import com.nepxion.swing.context.UIContextManager;
-import com.nepxion.swing.framework.dockable.JFrameWorkApplet;
+import com.nepxion.swing.framework.JFrameWorkApplet;
 
 public class DemoApplet
 	extends JFrameWorkApplet

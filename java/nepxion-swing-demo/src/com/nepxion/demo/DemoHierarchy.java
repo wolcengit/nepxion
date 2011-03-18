@@ -15,11 +15,11 @@ import java.awt.event.KeyEvent;
 import javax.swing.JMenuItem;
 
 import com.nepxion.demo.common.DemoToggleContentPanel;
-import com.nepxion.swing.framework.dockable.FrameWorkManager;
+import com.nepxion.swing.framework.JFrameWorkStatusBar;
+import com.nepxion.swing.framework.dockable.DockableManager;
 import com.nepxion.swing.framework.dockable.JDockable;
+import com.nepxion.swing.framework.dockable.JDockableHierarchy;
 import com.nepxion.swing.framework.dockable.JDockableView;
-import com.nepxion.swing.framework.dockable.JFrameWorkHierarchy;
-import com.nepxion.swing.framework.dockable.JFrameWorkStatusBar;
 import com.nepxion.swing.icon.IconFactory;
 import com.nepxion.swing.keystroke.KeyStrokeManager;
 import com.nepxion.swing.menu.JBasicMenu;
@@ -28,7 +28,7 @@ import com.nepxion.swing.menuitem.JBasicMenuItem;
 import com.nepxion.swing.toolbar.JBasicToolBar;
 
 public class DemoHierarchy
-	extends JFrameWorkHierarchy
+	extends JDockableHierarchy
 {
     public final static String EXPLORER_TITLE = "Explorer";
     public final static String CONTENT_PANE_TITLE = "ContentPane";
@@ -60,7 +60,7 @@ public class DemoHierarchy
     {
         JBasicMenuBar menuBar = getMenuBar();
         
-        JBasicMenu menu = FrameWorkManager.getToggleMenu(this);
+        JBasicMenu menu = DockableManager.getToggleMenu(this);
         ((JMenuItem) menu.getMenuComponent(1)).doClick();
         menuBar.add(menu);
         
