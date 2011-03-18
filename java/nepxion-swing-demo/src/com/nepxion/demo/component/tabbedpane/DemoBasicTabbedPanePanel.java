@@ -133,18 +133,7 @@ public class DemoBasicTabbedPanePanel
 				}				
 			}
 			);			
-			add(hintCheckBox);	
-			
-			final JBasicCheckBox gapCheckBox = new JBasicCheckBox("Set gap length (=3) between Close Button & Icon", "Set gap length (=3) between Close Button & Icon", false);
-			gapCheckBox.addActionListener(new ActionListener()
-			{
-				public void actionPerformed(ActionEvent e)
-				{
-					basicTabbedPane.setGap(basicTabbedPane.getSelectedIndex(), gapCheckBox.isSelected() ? 3 : 0);
-				}				
-			}
-			);				
-			add(gapCheckBox);			
+			add(hintCheckBox);		
 		}
 	}
 }

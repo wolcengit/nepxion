@@ -12,13 +12,13 @@ package com.nepxion.demo.component.checkbox;
 
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
-import javax.swing.JCheckBox;
 import javax.swing.JPanel;
-import javax.swing.JRadioButton;
 
 import com.nepxion.swing.border.BorderManager;
+import com.nepxion.swing.checkbox.JBasicCheckBox;
 import com.nepxion.swing.checkbox.JLiteCheckBox;
 import com.nepxion.swing.layout.filed.FiledLayout;
+import com.nepxion.swing.radiobutton.JBasicRadioButton;
 
 public class DemoCheckBoxPanel
 	extends JPanel
@@ -42,10 +42,10 @@ public class DemoCheckBoxPanel
 			JLiteCheckBox styleCheckBox = new JLiteCheckBox("Style CheckBox", true);
 			add(styleCheckBox);
 			
-			JCheckBox c = new JCheckBox("CheckBox");
+			JBasicCheckBox c = new JBasicCheckBox("CheckBox");
 			add(c);
 
-			JRadioButton r = new JRadioButton("RadioButton");
+			JBasicRadioButton r = new JBasicRadioButton("RadioButton");
 			add(r);			
 		}
 	}	

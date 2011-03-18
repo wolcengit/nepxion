@@ -17,11 +17,11 @@ import javax.swing.JMenuItem;
 import com.nepxion.demo.DemoHierarchyController;
 import com.nepxion.demo.common.DemoComponentFactory;
 import com.nepxion.demo.common.DemoDataFactory;
-import com.nepxion.swing.framework.dockable.FrameWorkManager;
+import com.nepxion.swing.framework.JFrameWorkStatusBar;
+import com.nepxion.swing.framework.dockable.DockableManager;
 import com.nepxion.swing.framework.dockable.JDockable;
+import com.nepxion.swing.framework.dockable.JDockableHierarchy;
 import com.nepxion.swing.framework.dockable.JDockableView;
-import com.nepxion.swing.framework.dockable.JFrameWorkHierarchy;
-import com.nepxion.swing.framework.dockable.JFrameWorkStatusBar;
 import com.nepxion.swing.icon.IconFactory;
 import com.nepxion.swing.keystroke.KeyStrokeManager;
 import com.nepxion.swing.menu.JBasicMenu;
@@ -34,7 +34,7 @@ import com.nepxion.swing.textarea.JBasicTextArea;
 import com.nepxion.swing.toolbar.JBasicToolBar;
 
 public class DemoDockableHierarchy
-	extends JFrameWorkHierarchy
+	extends JDockableHierarchy
 {
     public final static String TREE_TITLE = "Tree View";
     public final static String TABLE_TITLE = "Table View";
@@ -113,7 +113,7 @@ public class DemoDockableHierarchy
     {
         JBasicMenuBar menuBar = getMenuBar();
         
-        JBasicMenu menu = FrameWorkManager.getToggleMenu(this);
+        JBasicMenu menu = DockableManager.getToggleMenu(this);
         ((JMenuItem) menu.getMenuComponent(1)).doClick();
         menuBar.add(menu);
         
