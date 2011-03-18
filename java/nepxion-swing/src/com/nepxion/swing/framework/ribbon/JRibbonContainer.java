@@ -31,10 +31,13 @@ public class JRibbonContainer
 	
 	private boolean isInternalFrame = true;
 	
+	private int maximumCount = 8;
+	
 	public JRibbonContainer()
 	{
 		desktopPane = new JDesktopPane();
-		
+		desktopPane.setDragMode(JDesktopPane.OUTLINE_DRAG_MODE);
+
 		setLayout(new BorderLayout());
 		addComponent(desktopPane, BorderLayout.CENTER);
 	}
@@ -49,11 +52,27 @@ public class JRibbonContainer
 			
 			if (handler == null)
 			{
+				JInternalFrame[] internalFrames = desktopPane.getAllFrames();
+				
+				if (internalFrames.length >= maximumCount)
+				{
+					return;
+				}	
+				
+				int x = 0;
+				int y = 0;
+				
+				if (internalFrames.length != 0)
+				{	
+					x = (6 + 10) * internalFrames.length;
+					y = (25 + 10) * internalFrames.length;
+				}
+				
 				internalFrame = new JInternalFrame(title, true, true, true, true);
 				internalFrame.setToolTipText(toolTipText);
 				internalFrame.setContentPane(component);
 				internalFrame.setSize(640, 480);
-				internalFrame.setLocation(0, 0);
+				internalFrame.setLocation(x, y);
 				internalFrame.setVisible(true);
 				
 				desktopPane.add(internalFrame);
@@ -74,6 +93,11 @@ public class JRibbonContainer
 		}
 		else
 		{
+			if (tabbedPane.getTabCount() >= maximumCount)
+			{
+				return;
+			}	
+			
 			JComponent tabbedComponent = (JComponent) tabbedPane;
 			if (tabbedComponent.getParent() == null)
 			{
@@ -133,6 +157,16 @@ public class JRibbonContainer
 	public void setInternalFrame(boolean isInternalFrame)
 	{
 		this.isInternalFrame = isInternalFrame;
+	}
+	
+	public int getMaximumCount()
+	{
+		return maximumCount;
+	}
+	
+	public void setMaximumCount(int maximumCount)
+	{
+		this.maximumCount = maximumCount;
 	}
 	
 	public JDesktopPane getDesktopPane()
