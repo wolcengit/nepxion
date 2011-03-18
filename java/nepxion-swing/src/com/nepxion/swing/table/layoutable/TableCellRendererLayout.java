@@ -180,7 +180,7 @@ public class TableCellRendererLayout
 		if (columnWidth == -1)
 		{
 			int rowCount = table.getRowCount();
-			System.out.println(rowCount + " &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& ");
+
 			Component headerCellRenderer = header.getDefaultRenderer().getTableCellRendererComponent(table, column.getIdentifier(), false, false, 0, columnIndex);
 			int width = (int) headerCellRenderer.getPreferredSize().getWidth();
 			
