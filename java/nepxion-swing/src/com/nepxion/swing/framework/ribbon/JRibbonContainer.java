@@ -20,6 +20,9 @@ import javax.swing.JDesktopPane;
 import javax.swing.JInternalFrame;
 
 import com.nepxion.swing.container.JContainer;
+import com.nepxion.swing.handle.HandleManager;
+import com.nepxion.swing.locale.SwingLocale;
+import com.nepxion.swing.optionpane.JBasicOptionPane;
 import com.nepxion.swing.popupmenu.JDecorationPopupMenu;
 import com.nepxion.swing.tabbedpane.ITabbedPane;
 
@@ -56,6 +59,8 @@ public class JRibbonContainer
 				
 				if (internalFrames.length >= maximumCount)
 				{
+					JBasicOptionPane.showMessageDialog(HandleManager.getFrame(this), SwingLocale.getString("open_panel_count_limited") + " " + maximumCount + " " + SwingLocale.getString("open_panel"), SwingLocale.getString("warning"), JBasicOptionPane.WARNING_MESSAGE);
+					
 					return;
 				}	
 				
@@ -68,10 +73,13 @@ public class JRibbonContainer
 					y = (25 + 10) * internalFrames.length;
 				}
 				
+				int width = component.getPreferredSize().width;
+				int height = component.getPreferredSize().height;
+				
 				internalFrame = new JInternalFrame(title, true, true, true, true);
 				internalFrame.setToolTipText(toolTipText);
 				internalFrame.setContentPane(component);
-				internalFrame.setSize(640, 480);
+				internalFrame.setSize(width != 0 ? width  + 50 : 640, height != 0 ? height + 50 : 480);
 				internalFrame.setLocation(x, y);
 				internalFrame.setVisible(true);
 				
@@ -92,12 +100,7 @@ public class JRibbonContainer
 			}
 		}
 		else
-		{
-			if (tabbedPane.getTabCount() >= maximumCount)
-			{
-				return;
-			}	
-			
+		{			
 			JComponent tabbedComponent = (JComponent) tabbedPane;
 			if (tabbedComponent.getParent() == null)
 			{
@@ -106,6 +109,13 @@ public class JRibbonContainer
 			
 			if (handler == null)
 			{
+				if (tabbedPane.getTabCount() >= maximumCount)
+				{
+					JBasicOptionPane.showMessageDialog(HandleManager.getFrame(this), SwingLocale.getString("open_panel_count_limited") + " " + maximumCount + " " + SwingLocale.getString("open_panel"), SwingLocale.getString("warning"), JBasicOptionPane.WARNING_MESSAGE);
+					
+					return;
+				}	
+				
 				tabbedPane.addTab(title, component, toolTipText, true);
 				tabbedPane.setSelectedComponent(component);
 			}
