@@ -27,6 +27,6 @@ public class DemoThreadControlOutlook
 		DemoToggleActionButton timerButton = new DemoToggleActionButton(new DemoTimerTogglePanel());
 		addButton(timerButton);
 		
-		ButtonManager.updateUI(this, new Dimension(50, 70), VERTICAL);
+		ButtonManager.updateUI(this, new Dimension(50, 70), new int[] {VERTICAL, CENTER});
 	}
 }

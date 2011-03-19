@@ -24,6 +24,6 @@ public class DemoUIControlOutlook
 		DemoToggleActionButton uiDefaultsButton = new DemoToggleActionButton(new DemoUIDefaultsTogglePanel());
         addButton(uiDefaultsButton); 
         
-        ButtonManager.updateUI(this, new Dimension(50, 70), VERTICAL);
+        ButtonManager.updateUI(this, new Dimension(50, 70), new int[] {VERTICAL, CENTER});
 	}
 }

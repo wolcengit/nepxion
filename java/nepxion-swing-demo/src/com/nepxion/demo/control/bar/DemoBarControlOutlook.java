@@ -39,6 +39,6 @@ public class DemoBarControlOutlook
 		DemoToggleActionButton statusBarButton = new DemoToggleActionButton(new DemoStatusBarTogglePanel());
         addButton(statusBarButton); 
                 
-        ButtonManager.updateUI(this, new Dimension(50, 70), VERTICAL);
+        ButtonManager.updateUI(this, new Dimension(50, 70), new int[] {VERTICAL, CENTER});
 	}
 }

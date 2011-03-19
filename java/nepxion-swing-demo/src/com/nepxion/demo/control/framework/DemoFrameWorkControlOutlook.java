@@ -27,6 +27,6 @@ public class DemoFrameWorkControlOutlook
 		DemoToggleActionButton dialogFrameWorkButton = new DemoToggleActionButton(new DemoVLDockingFrameWorkTogglePanel());
         addButton(dialogFrameWorkButton);      
         
-        ButtonManager.updateUI(this, new Dimension(50, 70), VERTICAL);
+        ButtonManager.updateUI(this, new Dimension(50, 70), new int[] {VERTICAL, CENTER});
 	}
 }

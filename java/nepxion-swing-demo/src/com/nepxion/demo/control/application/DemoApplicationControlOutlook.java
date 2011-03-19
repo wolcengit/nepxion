@@ -36,6 +36,6 @@ public class DemoApplicationControlOutlook
 		DemoToggleActionButton zoneButton = new DemoToggleActionButton(new DemoZoneTogglePanel());
 		addButton(zoneButton);
 		
-		ButtonManager.updateUI(this, new Dimension(50, 70), VERTICAL);
+		ButtonManager.updateUI(this, new Dimension(50, 70), new int[] {VERTICAL, CENTER});
 	}
 }

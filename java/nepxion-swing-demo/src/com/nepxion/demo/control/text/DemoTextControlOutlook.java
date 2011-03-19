@@ -42,6 +42,6 @@ public class DemoTextControlOutlook
 		DemoToggleActionButton editorPaneButton = new DemoToggleActionButton(new DemoEditorPaneTogglePanel());
         addButton(editorPaneButton);    
         
-        ButtonManager.updateUI(this, new Dimension(50, 70), VERTICAL);
+        ButtonManager.updateUI(this, new Dimension(50, 70), new int[] {VERTICAL, CENTER});
 	}
 }

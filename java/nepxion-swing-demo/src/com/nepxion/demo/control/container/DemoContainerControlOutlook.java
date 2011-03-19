@@ -45,6 +45,6 @@ public class DemoContainerControlOutlook
 		DemoToggleActionButton tabbedPaneButton = new DemoToggleActionButton(new DemoTabbedPaneTogglePanel());
         addButton(tabbedPaneButton);
         
-        ButtonManager.updateUI(this, new Dimension(50, 70), VERTICAL);
+        ButtonManager.updateUI(this, new Dimension(50, 70), new int[] {VERTICAL, CENTER});
 	}
 }

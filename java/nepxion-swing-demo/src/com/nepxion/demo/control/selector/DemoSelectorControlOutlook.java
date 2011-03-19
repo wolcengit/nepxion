@@ -42,6 +42,6 @@ public class DemoSelectorControlOutlook
 		DemoToggleActionButton radioButtonSelectorButton = new DemoToggleActionButton(new DemoRadioButtonSelectorTogglePanel());
         addButton(radioButtonSelectorButton);        
         
-        ButtonManager.updateUI(this, new Dimension(50, 70), VERTICAL);
+        ButtonManager.updateUI(this, new Dimension(50, 70), new int[] {VERTICAL, CENTER});
 	}
 }

@@ -27,6 +27,6 @@ public class DemoMenuControlOutlook
 		DemoToggleActionButton popupMenuButton = new DemoToggleActionButton(new DemoPopupMenuTogglePanel());
         addButton(popupMenuButton);      
         
-        ButtonManager.updateUI(this, new Dimension(50, 70), VERTICAL);
+        ButtonManager.updateUI(this, new Dimension(50, 70), new int[] {VERTICAL, CENTER});
 	}
 }

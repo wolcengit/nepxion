@@ -30,6 +30,6 @@ public class DemoDataControlOutlook
 		DemoToggleActionButton listButton = new DemoToggleActionButton(new DemoListTogglePanel());
         addButton(listButton);        
         
-        ButtonManager.updateUI(this, new Dimension(50, 70), VERTICAL);
+        ButtonManager.updateUI(this, new Dimension(50, 70), new int[] {VERTICAL, CENTER});
 	}
 }

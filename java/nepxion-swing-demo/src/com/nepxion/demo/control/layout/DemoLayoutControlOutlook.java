@@ -35,6 +35,6 @@ public class DemoLayoutControlOutlook
 		DemoToggleActionButton boxedLayoutButton = new DemoToggleActionButton(new DemoBoxLayoutTogglePanel());
         addButton(boxedLayoutButton);      
         
-        ButtonManager.updateUI(this, new Dimension(50, 70), VERTICAL);
+        ButtonManager.updateUI(this, new Dimension(50, 70), new int[] {VERTICAL, CENTER});
 	}
 }

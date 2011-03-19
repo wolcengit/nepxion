@@ -39,7 +39,7 @@ public class DemoButtonControlOutlook
 		DemoToggleActionButton slideButton = new DemoToggleActionButton(new DemoSlideTogglePanel());
         addButton(slideButton);        
         
-        ButtonManager.updateUI(this, new Dimension(50, 70), VERTICAL);
+        ButtonManager.updateUI(this, new Dimension(50, 70), new int[] {VERTICAL, CENTER});
         
         buttonButton.doClick();
 	}
