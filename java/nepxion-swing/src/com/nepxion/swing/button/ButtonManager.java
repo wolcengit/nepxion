@@ -51,7 +51,12 @@ public class ButtonManager
 	
 	public static void updateUI(Container container)
 	{
-		updateUI(container, false);
+		updateUI(container, (Insets) null);
+	}
+	
+	public static void updateUI(Container container, Insets insets)
+	{
+		updateUI(container, insets, HORIZONTAL);
 	}
 	
 	public static void updateUI(Container container, boolean isFlatButtonUI)
@@ -61,13 +66,25 @@ public class ButtonManager
 	
 	public static void updateUI(Container container, int iconTextLayout)
 	{
-		updateUI(container, iconTextLayout, false);
-	}			
+		updateUI(container, (Insets) null, iconTextLayout);
+	}		
+	
+	public static void updateUI(Container container, Insets insets, int iconTextLayout)
+	{
+		updateUI(container, insets, null, iconTextLayout);
+	}
+	
 	
 	public static void updateUI(Container container, ButtonGroup buttonGroup)
 	{
-		updateUI(container, null, buttonGroup);
+		updateUI(container, (Insets) null, buttonGroup);
 	}
+	
+	public static void updateUI(Container container, Insets insets, ButtonGroup buttonGroup)
+	{
+		updateUI(container, insets, buttonGroup, HORIZONTAL);
+	}
+	
 	
 	public static void updateUI(Container container, Dimension dimension)
 	{
@@ -94,12 +111,17 @@ public class ButtonManager
 	
 	public static void updateUI(Container container, ButtonGroup buttonGroup, int iconTextLayout)
 	{
-		updateUI(container, null, buttonGroup, HORIZONTAL);
+		updateUI(container, (Insets) null, buttonGroup, iconTextLayout);
 	}	
+	
+	public static void updateUI(Container container, Insets insets, ButtonGroup buttonGroup, int iconTextLayout)
+	{
+		updateUI(container, null, insets, buttonGroup, HORIZONTAL, false);
+	}		
 	
 	public static void updateUI(Container container, Dimension dimension, int iconTextLayout)
 	{
-		updateUI(container, dimension, null, iconTextLayout);
+		updateUI(container, dimension, null, iconTextLayout); 
 	}
 	
 	public static void updateUI(Container container, Dimension dimension, ButtonGroup buttonGroup)
@@ -128,8 +150,13 @@ public class ButtonManager
 		updateUI(container, dimension, buttonGroup, iconTextLayout, false);
 	}
 	
-		
+	
 	public static void updateUI(Container container, Dimension dimension, ButtonGroup buttonGroup, int iconTextLayout, boolean isFlatButtonUI)
+	{
+		updateUI(container, dimension, null, buttonGroup, iconTextLayout, isFlatButtonUI);
+	}
+		
+	public static void updateUI(Container container, Dimension dimension, Insets insets, ButtonGroup buttonGroup, int iconTextLayout, boolean isFlatButtonUI)
 	{
 		for (int i = 0; i < container.getComponentCount(); i++)
 		{
@@ -150,8 +177,13 @@ public class ButtonManager
 				
 				if (container instanceof JToolBar)
 				{
-					abstractButton.setFocusPainted(false);
+					abstractButton.setFocusPainted(false);					
 				}
+				
+				if (insets != null)
+				{
+					abstractButton.setMargin(insets);
+				}	
 				
 				abstractButton.setFont(FontContext.getFont());
 				
