@@ -107,9 +107,12 @@ public class JRibbonContainer
 			if (handler == null)
 			{
 				tabbedPane.addTab(title, component, toolTipText, true);
+				tabbedPane.setSelectedComponent(component);
 			}
-			
-			tabbedPane.setSelectedComponent(component);
+			else
+			{
+				tabbedPane.setSelectedComponent(handler);
+			}
 		}
 	}
 	
