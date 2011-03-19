@@ -36,15 +36,15 @@ public class FontContext
 	private static int chartTickLabelFontStyle = DEFAULT_CHART_TICK_LABEL_FONT_STYLE;
 	private static int chartTickLabelFontSize = DEFAULT_CHART_TICK_LABEL_FONT_SIZE;
 	
-	private static Font font;
+	private static Font font = new Font(fontName, fontStyle, fontSize);
 	
-	private static Font chartTitleFont;
+	private static Font chartTitleFont = new Font(chartTitleFontName, chartTitleFontStyle, chartTitleFontSize);
 	
-	private static Font chartSubTitleFont;
+	private static Font chartSubTitleFont = new Font(chartSubTitleFontName, chartSubTitleFontStyle, chartSubTitleFontSize);
 	
-	private static Font chartLabelFont;
+	private static Font chartLabelFont = new Font(chartLabelFontName, chartLabelFontStyle, chartLabelFontSize);
 	
-	private static Font chartTickLabelFont;
+	private static Font chartTickLabelFont = new Font(chartTickLabelFontName, chartTickLabelFontStyle, chartTickLabelFontSize);
 	
 	public static void registerFont(String customFontName, int customFontStyle, int customFontSize)
 	{
@@ -54,9 +54,9 @@ public class FontContext
 			fontName = customFontName;
 			fontStyle = customFontStyle;
 			fontSize = customFontSize;
+			
+			font = new Font(fontName, fontStyle, fontSize);
 		}
-		
-		font = new Font(fontName, fontStyle, fontSize);
 	}
 	
 	public static void registerChartTitleFont(String customChartTitleFontName, int customChartTitleFontStyle, int customChartTitleFontSize)
@@ -67,9 +67,9 @@ public class FontContext
 			chartTitleFontName = customChartTitleFontName;
 			chartTitleFontStyle = customChartTitleFontStyle;
 			chartTitleFontSize = customChartTitleFontSize;
-		}
-		
-		chartTitleFont = new Font(chartTitleFontName, chartTitleFontStyle, chartTitleFontSize);
+			
+			chartTitleFont = new Font(chartTitleFontName, chartTitleFontStyle, chartTitleFontSize);
+		}		
 	}
 	
 	public static void registerChartSubTitleFont(String customChartSubTitleFontName, int customChartSubTitleFontStyle, int customChartSubTitleFontSize)
@@ -80,9 +80,9 @@ public class FontContext
 			chartSubTitleFontName = customChartSubTitleFontName;
 			chartSubTitleFontStyle = customChartSubTitleFontStyle;
 			chartSubTitleFontSize = customChartSubTitleFontSize;
+			
+			chartSubTitleFont = new Font(chartSubTitleFontName, chartSubTitleFontStyle, chartSubTitleFontSize);			
 		}
-		
-		chartSubTitleFont = new Font(chartSubTitleFontName, chartSubTitleFontStyle, chartSubTitleFontSize);
 	}
 	
 	public static void registerChartLabelFont(String customChartLabelFontName, int customChartLabelFontStyle, int customChartLabelFontSize)
@@ -93,9 +93,9 @@ public class FontContext
 			chartLabelFontName = customChartLabelFontName;
 			chartLabelFontStyle = customChartLabelFontStyle;
 			chartLabelFontSize = customChartLabelFontSize;
+			
+			chartLabelFont = new Font(chartLabelFontName, chartLabelFontStyle, chartLabelFontSize);			
 		}
-		
-		chartLabelFont = new Font(chartLabelFontName, chartLabelFontStyle, chartLabelFontSize);
 	}
 	
 	public static void registerChartTickLabelFont(String customChartTickLabelFontName, int customChartTickLabelFontStyle, int customChartTickLabelFontSize)
@@ -106,9 +106,9 @@ public class FontContext
 			chartTickLabelFontName = customChartTickLabelFontName;
 			chartTickLabelFontStyle = customChartTickLabelFontStyle;
 			chartTickLabelFontSize = customChartTickLabelFontSize;
+			
+			chartTickLabelFont = new Font(chartTickLabelFontName, chartTickLabelFontStyle, chartTickLabelFontSize);			
 		}
-		
-		chartTickLabelFont = new Font(chartTickLabelFontName, chartTickLabelFontStyle, chartTickLabelFontSize);
 	}
 	
 	public static String getFontName()
