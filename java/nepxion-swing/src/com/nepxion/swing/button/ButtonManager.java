@@ -116,7 +116,7 @@ public class ButtonManager
 	
 	public static void updateUI(Container container, Insets insets, ButtonGroup buttonGroup, int iconTextLayout)
 	{
-		updateUI(container, null, insets, buttonGroup, HORIZONTAL, false);
+		updateUI(container, null, insets, buttonGroup, iconTextLayout, false);
 	}		
 	
 	public static void updateUI(Container container, Dimension dimension, int iconTextLayout)
