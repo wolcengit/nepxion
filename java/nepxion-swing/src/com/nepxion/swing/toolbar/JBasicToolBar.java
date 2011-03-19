@@ -51,11 +51,11 @@ public class JBasicToolBar
 		
 		if (isBorderVisible)
 		{
-			int h = getHeight();
+			int height = getHeight();
 			g.setColor(Color.white);
-			g.drawLine(1, 2, 1, h - 3);
+			g.drawLine(1, 2, 1, height - 3);
 			g.setColor(new Color(128, 128, 128));
-			g.drawLine(2, 2, 2, h - 3);
+			g.drawLine(2, 2, 2, height - 3);
 		}
 	}
 }
