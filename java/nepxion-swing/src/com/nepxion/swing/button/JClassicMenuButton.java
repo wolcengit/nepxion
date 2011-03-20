@@ -12,6 +12,7 @@ package com.nepxion.swing.button;
 
 import java.awt.Graphics;
 import java.awt.Insets;
+import java.awt.event.HierarchyEvent;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
@@ -19,10 +20,13 @@ import javax.swing.Action;
 import javax.swing.ButtonModel;
 import javax.swing.Icon;
 import javax.swing.JPopupMenu;
+import javax.swing.JToolBar;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.event.PopupMenuEvent;
 import javax.swing.event.PopupMenuListener;
+
+import com.nepxion.swing.listener.DisplayAbilityListener;
 
 public class JClassicMenuButton
 	extends JClassicButton implements MouseListener, PopupMenuListener
@@ -96,10 +100,38 @@ public class JClassicMenuButton
 	}
 	
 	private void initComponents()
-	{		
-		setMargin(new Insets(0, 0, 0, widthInset));
-		
+	{				
 		addMouseListener(this);
+		
+		addHierarchyListener(new DisplayAbilityListener()
+		{
+			public void displayAbilityChanged(HierarchyEvent e)
+			{
+				adaptDimension();
+				removeHierarchyListener(this);
+			}
+		}
+		);
+	}
+	
+	private void adaptDimension()
+	{
+		Insets insets = getMargin();
+		
+		if (getParent() instanceof JToolBar)
+		{	
+			if (insets.right < widthInset + 5)
+			{
+				setMargin(new Insets(insets.top, insets.left, insets.bottom, widthInset + 5));
+			}			
+		}
+		else
+		{
+			if (insets.right < widthInset)
+			{
+				setMargin(new Insets(insets.top, insets.left, insets.bottom, widthInset));
+			}
+		}
 	}
 	
 	public JPopupMenu getPopupMenu()
