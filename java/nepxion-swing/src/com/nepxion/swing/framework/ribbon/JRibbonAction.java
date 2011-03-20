@@ -20,7 +20,7 @@ import com.nepxion.swing.action.JSecurityAction;
 public class JRibbonAction
 	extends JSecurityAction
 {
-	private JRibbonContainer ribbonContainer;
+	private JRibbonContentPane ribbonContentPane;
 	
 	private String ribbonTitle;
 	private String ribbonToolTipText;
@@ -53,14 +53,14 @@ public class JRibbonAction
 		super(name, icon, toolTipText);
 	}
 	
-	public JRibbonContainer getRibbonContainer()
+	public JRibbonContentPane getRibbonContentPane()
 	{
-		return ribbonContainer;
+		return ribbonContentPane;
 	}
 	
-	public void setRibbonContainer(JRibbonContainer ribbonContainer)
+	public void setRibbonContentPane(JRibbonContentPane ribbonContentPane)
 	{
-		this.ribbonContainer = ribbonContainer;
+		this.ribbonContentPane = ribbonContentPane;
 	}
 	
 	public String getRibbonTitle()
@@ -121,6 +121,6 @@ public class JRibbonAction
 			}
 		}
 		
-		ribbonContainer.addRibbon(ribbonTitle, ribbonToolTipText, ribbonComponent);
+		ribbonContentPane.addRibbonComponent(ribbonTitle, ribbonToolTipText, ribbonComponent);
 	}
 }

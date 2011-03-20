@@ -20,19 +20,19 @@ import com.nepxion.swing.framework.JFrameWorkStatusBar;
 public class JRibbonHierarchy
 	extends JFrameWorkHierarchy
 {
-	private JPanel navigatorBar;
+	private JPanel toolBar;
 	
-	private JRibbonContainer ribbonContainer;
+	private JRibbonContentPane contentPane;
 	
 	private JFrameWorkStatusBar statusBar;
 	private JPanel statusBarContainer;
 	
 	public JRibbonHierarchy()
 	{
-		navigatorBar = new JPanel();
-		navigatorBar.setLayout(new BorderLayout());
+		toolBar = new JPanel();
+		toolBar.setLayout(new BorderLayout());
 		
-		ribbonContainer = new JRibbonContainer();
+		contentPane = new JRibbonContentPane();
 		
 		statusBar = new JFrameWorkStatusBar();
 		statusBarContainer = new JPanel();
@@ -40,19 +40,19 @@ public class JRibbonHierarchy
 		statusBarContainer.add(statusBar, BorderLayout.NORTH);
 		
 		setLayout(new BorderLayout());
-		add(navigatorBar, BorderLayout.NORTH);
-		add(ribbonContainer, BorderLayout.CENTER);
+		add(toolBar, BorderLayout.NORTH);
+		add(contentPane, BorderLayout.CENTER);
 		add(statusBarContainer, BorderLayout.SOUTH);
 	}
 	
-	public JPanel getNavigatorBar()
+	public JPanel getToolBar()
 	{
-		return navigatorBar;
+		return toolBar;
 	}
 	
-	public JRibbonContainer getRibbonContainer()
+	public JRibbonContentPane getContentPane()
 	{
-		return ribbonContainer;
+		return contentPane;
 	}
 	
 	public JFrameWorkStatusBar getStatusBar()
