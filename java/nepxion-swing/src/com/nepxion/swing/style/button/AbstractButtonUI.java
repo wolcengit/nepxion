@@ -115,6 +115,7 @@ public abstract class AbstractButtonUI
 		{
 			g.setColor(shadow);
 		}
+		
 		g.drawLine(c.getWidth() - 6 - 2, c.getHeight() / 2 - 1, c.getWidth() - 6 + 2, c.getHeight() / 2 - 1);
 		g.drawLine(c.getWidth() - 6 - 1, c.getHeight() / 2, c.getWidth() - 6 + 1, c.getHeight() / 2);
 		g.drawLine(c.getWidth() - 6, c.getHeight() / 2 + 1, c.getWidth() - 6, c.getHeight() / 2 + 1);
