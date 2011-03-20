@@ -27,8 +27,12 @@ import javax.swing.event.PopupMenuListener;
 public class JClassicMenuButton
 	extends JClassicButton implements MouseListener, PopupMenuListener
 {
+	protected int widthInset = ButtonContext.getButtonWidthInset();
+	
 	protected JPopupMenu popupMenu;
 	
+	protected boolean isShowArrowRight = true;
+
 	public JClassicMenuButton()
 	{
 		super();
@@ -93,7 +97,7 @@ public class JClassicMenuButton
 	
 	private void initComponents()
 	{		
-		setMargin(new Insets(0, 0, 0, 5));
+		setMargin(new Insets(0, 0, 0, widthInset));
 		
 		addMouseListener(this);
 	}
@@ -107,6 +111,16 @@ public class JClassicMenuButton
 	{
 		this.popupMenu = popupMenu;
 		this.popupMenu.addPopupMenuListener(this);
+	}
+	
+	public boolean isShowArrowRight()
+	{
+		return isShowArrowRight;
+	}
+
+	public void setShowArrowRight(boolean isShowArrowRight)
+	{
+		this.isShowArrowRight = isShowArrowRight;
 	}
 	
 	public void mouseClicked(MouseEvent e)
@@ -166,8 +180,17 @@ public class JClassicMenuButton
 			g.setColor(UIManager.getColor("controlShadow"));
 		}
 		
-		g.drawLine(getWidth() - 6 - 5, getHeight() / 2 - 1, getWidth() - 6 - 1, getHeight() / 2 - 1);
-		g.drawLine(getWidth() - 6 - 4, getHeight() / 2, getWidth() - 6 - 2, getHeight() / 2);
-		g.drawLine(getWidth() - 6 - 3, getHeight() / 2 + 1, getWidth() - 6 - 3, getHeight() / 2 + 1);
+		if (isShowArrowRight)
+		{	
+			g.drawLine(getWidth() - 6 - 5, getHeight() / 2 - 1, getWidth() - 6 - 1, getHeight() / 2 - 1);
+			g.drawLine(getWidth() - 6 - 4, getHeight() / 2, getWidth() - 6 - 2, getHeight() / 2);
+			g.drawLine(getWidth() - 6 - 3, getHeight() / 2 + 1, getWidth() - 6 - 3, getHeight() / 2 + 1);
+		}
+		else
+		{
+			g.drawLine(getWidth() / 2 - 1, getHeight() - 6 - 3, getWidth() / 2 + 3, getHeight() - 6 - 3);
+			g.drawLine(getWidth() / 2, getHeight() - 6 - 2, getWidth() / 2 + 2, getHeight() - 6 - 2);
+			g.drawLine(getWidth() / 2 + 1, getHeight() - 6 - 1, getWidth() / 2 + 1, getHeight() - 6 - 1);
+		}
 	}
 }
