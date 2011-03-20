@@ -22,7 +22,7 @@ public class JRibbonHierarchy
 {
 	private JPanel toolBar;
 	
-	private JRibbonContentPane contentPane;
+	private JRibbonContainer container;
 	
 	private JFrameWorkStatusBar statusBar;
 	private JPanel statusBarContainer;
@@ -32,7 +32,7 @@ public class JRibbonHierarchy
 		toolBar = new JPanel();
 		toolBar.setLayout(new BorderLayout());
 		
-		contentPane = new JRibbonContentPane();
+		container = new JRibbonContainer();
 		
 		statusBar = new JFrameWorkStatusBar();
 		statusBarContainer = new JPanel();
@@ -41,7 +41,7 @@ public class JRibbonHierarchy
 		
 		setLayout(new BorderLayout());
 		add(toolBar, BorderLayout.NORTH);
-		add(contentPane, BorderLayout.CENTER);
+		add(container, BorderLayout.CENTER);
 		add(statusBarContainer, BorderLayout.SOUTH);
 	}
 	
@@ -50,9 +50,9 @@ public class JRibbonHierarchy
 		return toolBar;
 	}
 	
-	public JRibbonContentPane getContentPane()
+	public JRibbonContainer getRibbonContainer()
 	{
-		return contentPane;
+		return container;
 	}
 	
 	public JFrameWorkStatusBar getStatusBar()
