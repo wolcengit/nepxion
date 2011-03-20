@@ -17,6 +17,7 @@ import java.awt.Graphics2D;
 import java.awt.Rectangle;
 
 import javax.swing.BorderFactory;
+import javax.swing.Icon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
@@ -39,10 +40,15 @@ public class JRibbon
 	
 	public JRibbon()
 	{
-		this("");
+		this(null, null);
 	}
 	
-	public JRibbon(String title)
+	public JRibbon(String title, String toolTipText)
+	{
+		this(title, null, toolTipText);
+	}
+	
+	public JRibbon(String title, Icon icon, String toolTipText)
 	{
 		container = new JBasicToolBar()
 		{
@@ -60,7 +66,7 @@ public class JRibbon
 			}
 		};
 		
-		label = new JLabel(title, JLabel.CENTER)
+		label = new JLabel(title, icon, JLabel.CENTER)
 		{
 			public void paint(Graphics g)
 			{
@@ -94,6 +100,7 @@ public class JRibbon
 				super.paint(g);
 			}
 		};
+		label.setToolTipText(toolTipText);
 		label.setBorder(BorderFactory.createEmptyBorder(0, 10, 0, 23));
 		
 		setLayout(new BorderLayout());
@@ -121,6 +128,26 @@ public class JRibbon
 	public void setTitle(String title)
 	{
 		label.setText(title);
+	}
+	
+	public Icon getIcon()
+	{
+		return label.getIcon();
+	}
+	
+	public void setIcon(Icon icon)
+	{
+		label.setIcon(icon);
+	}
+	
+	public String getToolTipText()
+	{
+		return label.getToolTipText();
+	}
+	
+	public void setToolTipText(String toolTipText)
+	{
+		label.setToolTipText(toolTipText);
 	}
 	
 	public Color getBorderBackground()

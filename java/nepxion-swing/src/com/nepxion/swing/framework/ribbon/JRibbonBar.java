@@ -11,15 +11,21 @@ package com.nepxion.swing.framework.ribbon;
  */
 
 import javax.swing.BorderFactory;
+import javax.swing.Icon;
 import javax.swing.JPanel;
+import javax.swing.SwingConstants;
 
 import com.nepxion.swing.layout.filed.FiledLayout;
 
 public class JRibbonBar
-	extends JPanel
+	extends JPanel implements SwingConstants
 {
-	public JRibbonBar()
+	private JRibbonContainer ribbonContainer;
+	
+	public JRibbonBar(JRibbonContainer ribbonContainer)
 	{
+		this.ribbonContainer = ribbonContainer;
+		
 		setLayout(new FiledLayout(FiledLayout.ROW, FiledLayout.FULL, 0));
 		setBorder(BorderFactory.createEmptyBorder(3, 3, 3, 3));
 	}
@@ -27,5 +33,16 @@ public class JRibbonBar
 	public void addRibbon(JRibbon ribbon)
 	{
 		add(ribbon);
+	}
+	
+	public JRibbonAction createRibbonAction(String text, Icon icon, String toolTipText, Class componentClass)
+	{
+		JRibbonAction action = new JRibbonAction(text, icon, toolTipText);
+		action.setRibbonTitle(toolTipText);
+		action.setRibbonToolTipText(toolTipText);
+		action.setRibbonComponentClass(componentClass);
+		action.setRibbonContainer(ribbonContainer);
+		
+		return action;
 	}
 }
