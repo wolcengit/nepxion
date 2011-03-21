@@ -21,16 +21,20 @@ import javax.swing.JInternalFrame;
 
 import com.nepxion.swing.container.JContainer;
 import com.nepxion.swing.handle.HandleManager;
+import com.nepxion.swing.internalframe.InternalFrameManager;
 import com.nepxion.swing.locale.SwingLocale;
 import com.nepxion.swing.optionpane.JBasicOptionPane;
 import com.nepxion.swing.popupmenu.JDecorationPopupMenu;
+import com.nepxion.swing.selector.checkbox.JCheckBoxSelector;
 import com.nepxion.swing.tabbedpane.ITabbedPane;
+import com.nepxion.swing.tabbedpane.TabbedPaneManager;
 
 public class JRibbonContainer
 	extends JContainer
 {
 	private JDesktopPane desktopPane;
 	private ITabbedPane tabbedPane;
+	private JCheckBoxSelector checkBoxSelector;
 	
 	private boolean isInternalFrame = true;
 	
@@ -123,6 +127,18 @@ public class JRibbonContainer
 			{
 				tabbedPane.setSelectedComponent(handler);
 			}
+		}
+	}
+	
+	public void closeRobbinComponent()
+	{
+		if (isInternalFrame)
+		{
+			InternalFrameManager.showCloseDialog(desktopPane, checkBoxSelector);
+		}
+		else if (tabbedPane != null && tabbedPane.getParent() != null)
+		{
+			TabbedPaneManager.showCloseDialog(tabbedPane, checkBoxSelector);
 		}
 	}
 	
