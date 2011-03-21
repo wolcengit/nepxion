@@ -11,6 +11,7 @@ package com.nepxion.swing.tabbedpane;
  */
 
 import java.awt.Component;
+import java.awt.Container;
 import java.util.List;
 
 import javax.swing.Icon;
@@ -42,6 +43,8 @@ public interface ITabbedPane
 	public Component getComponentAt(int index);
 	
 	public void setSelectedComponent(Component component);
+	
+	public Container getParent();
 	
 	
 	public String getSelectedTitle();

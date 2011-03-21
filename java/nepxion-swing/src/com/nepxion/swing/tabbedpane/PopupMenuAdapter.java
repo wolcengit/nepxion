@@ -13,14 +13,9 @@ package com.nepxion.swing.tabbedpane;
 import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.List;
-import java.util.Vector;
 
-import javax.swing.Icon;
 import javax.swing.JPopupMenu;
 
-import com.nepxion.swing.element.ElementNode;
-import com.nepxion.swing.element.IElementNode;
 import com.nepxion.swing.handle.HandleManager;
 import com.nepxion.swing.icon.IconFactory;
 import com.nepxion.swing.locale.SwingLocale;
@@ -95,35 +90,7 @@ public class PopupMenuAdapter
 		{
 			public void actionPerformed(ActionEvent e)
 			{
-				Vector slectionElementNodes = new Vector();
-				for (int i = 0; i < tabbedPane.getTabCount(); i++)
-				{
-					if (tabbedPane.isTabClosableAt(i))
-					{
-						String title = tabbedPane.getTitleAt(i);
-						String toolTipText = tabbedPane.getToolTipTextAt(i);
-						Icon icon = tabbedPane.getIcon(i);
-						Component component = tabbedPane.getComponentAt(i);
-						IElementNode elementNode = new ElementNode(title, title, icon, toolTipText, component);
-						slectionElementNodes.add(elementNode);
-					}
-				}
-				
-				if (checkBoxSelector == null)
-				{
-					checkBoxSelector = new JCheckBoxSelector(HandleManager.getFrame((Component) tabbedPane), SwingLocale.getString("select_close_tabs"));
-				}
-				checkBoxSelector.getCheckBoxList().setListData(slectionElementNodes);
-				checkBoxSelector.setVisible(true);
-				
-				if (checkBoxSelector.isConfirmed())
-				{
-					List selectedComponents = checkBoxSelector.getSelectedUserObjects();
-					if (selectedComponents != null)
-					{
-						tabbedPane.removeTabs(selectedComponents);
-					}
-				}
+				TabbedPaneManager.showCloseDialog(tabbedPane, checkBoxSelector);
 			}
 		}
 		);

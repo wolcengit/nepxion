@@ -10,12 +10,56 @@ package com.nepxion.swing.tabbedpane;
  * @version 1.0
  */
 
+import java.awt.Component;
+import java.util.List;
+import java.util.Vector;
+
+import javax.swing.Icon;
 import javax.swing.JTabbedPane;
+
+import com.nepxion.swing.element.ElementNode;
+import com.nepxion.swing.element.IElementNode;
+import com.nepxion.swing.handle.HandleManager;
+import com.nepxion.swing.locale.SwingLocale;
+import com.nepxion.swing.selector.checkbox.JCheckBoxSelector;
 
 public class TabbedPaneManager
 {
 	public static void setPreferenceStyle(JTabbedPane tabbedPane)
 	{
 		tabbedPane.setFocusable(false);
+	}
+	
+	public static void showCloseDialog(ITabbedPane tabbedPane, JCheckBoxSelector checkBoxSelector)
+	{
+		Vector slectionElementNodes = new Vector();
+		for (int i = 0; i < tabbedPane.getTabCount(); i++)
+		{
+			if (tabbedPane.isTabClosableAt(i))
+			{
+				String title = tabbedPane.getTitleAt(i);
+				String toolTipText = tabbedPane.getToolTipTextAt(i);
+				Icon icon = tabbedPane.getIcon(i);
+				Component component = tabbedPane.getComponentAt(i);
+				IElementNode elementNode = new ElementNode(title, title, icon, toolTipText, component);
+				slectionElementNodes.add(elementNode);
+			}
+		}
+		
+		if (checkBoxSelector == null)
+		{
+			checkBoxSelector = new JCheckBoxSelector(HandleManager.getFrame((Component) tabbedPane), SwingLocale.getString("select_close"));
+		}
+		checkBoxSelector.getCheckBoxList().setListData(slectionElementNodes);
+		checkBoxSelector.setVisible(true);
+		
+		if (checkBoxSelector.isConfirmed())
+		{
+			List selectedComponents = checkBoxSelector.getSelectedUserObjects();
+			if (selectedComponents != null)
+			{
+				tabbedPane.removeTabs(selectedComponents);
+			}
+		}
 	}
 }
