@@ -10,13 +10,13 @@ package com.nepxion.swing.statusbar;
  * @version 1.0
  */
 
+import javax.swing.BorderFactory;
 import javax.swing.JComponent;
-import javax.swing.JPanel;
 
-import com.nepxion.swing.layout.filed.FiledLayout;
+import com.nepxion.swing.toolbar.JBasicToolBar;
 
 public class JStatusItem
-	extends JPanel
+	extends JBasicToolBar
 {
 	private int index = -1;
 	
@@ -29,7 +29,8 @@ public class JStatusItem
 	
 	public JStatusItem()
 	{
-		setLayout(new FiledLayout(FiledLayout.ROW, FiledLayout.LEFT, 0));
+		// setLayout(new FiledLayout(FiledLayout.ROW, FiledLayout.CENTER, 0));
+		setBorder(BorderFactory.createEmptyBorder());
 	}
 	
 	protected int getIndex()

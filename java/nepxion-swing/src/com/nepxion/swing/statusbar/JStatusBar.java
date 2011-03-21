@@ -15,6 +15,7 @@ import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Graphics;
 
+import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JPanel;
@@ -58,13 +59,13 @@ public class JStatusBar
 	{
 		if (isBorderVisible)
 		{
-			setPreferredSize(new Dimension(getPreferredSize().width, 20));
+			setPreferredSize(new Dimension(getPreferredSize().width, 23));
 			setBorder(new ButtonBorder(ButtonBorder.BORDER_LOWERED));
 		}
 		else
 		{
-			setPreferredSize(new Dimension(getPreferredSize().width, 18));
-			setBorder(null);
+			setPreferredSize(new Dimension(getPreferredSize().width, 21));
+			setBorder(BorderFactory.createEmptyBorder());
 		}
 	}
 	
