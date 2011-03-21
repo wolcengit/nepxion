@@ -37,7 +37,7 @@ public class JStatusBar
 	private int leftIndex = 0;
 	private int rightIndex = 0;
 	
-	private int separatorHeight = -1;
+	private int separatorHeight = 17;
 	private boolean isCornerVisible = true;
 	
 	public JStatusBar()
