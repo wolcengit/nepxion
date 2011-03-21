@@ -40,6 +40,7 @@ public class JFrameWorkStatusBar
 		statusItem.add(timerProgressBar);
 		statusItem.add(Box.createHorizontalStrut(5));
 		statusItem.add(timerLabel);
+		
 		addItem(80, statusItem, JStatusBar.RIGHT);
 	}
 	
