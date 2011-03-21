@@ -27,6 +27,11 @@ public class JFrameWorkStatusBar
 	
 	public JFrameWorkStatusBar()
 	{
+		setBorderVisible(false);
+	}
+	
+	public void showProgressStatus()
+	{
 		timerProgressBar = new JTimerProgressBar(0, 100);
 		timerProgressBar.setPreferredSize(new Dimension(60, 16));
 		timerLabel = new JTimerLabel();
@@ -35,21 +40,33 @@ public class JFrameWorkStatusBar
 		statusItem.add(timerProgressBar);
 		statusItem.add(Box.createHorizontalStrut(5));
 		statusItem.add(timerLabel);
-		// addItem(80, statusItem, JStatusBar.RIGHT);
-		
-		setBorderVisible(false);
+		addItem(80, statusItem, JStatusBar.RIGHT);
 	}
 	
 	public void start()
 	{
-		timerProgressBar.start();
-		timerLabel.start();
+		if (timerProgressBar != null)
+		{	
+			timerProgressBar.start();
+		}
+		
+		if (timerLabel != null)
+		{
+			timerLabel.start();
+		}	
 	}
 	
 	public void stop()
 	{
-		timerProgressBar.stop();
-		timerLabel.stop();
+		if (timerProgressBar != null)
+		{	
+			timerProgressBar.stop();			
+		}
+		
+		if (timerLabel != null)
+		{
+			timerLabel.stop();
+		}
 	}
 	
 	public JTimerProgressBar getTimerProgressBar()
