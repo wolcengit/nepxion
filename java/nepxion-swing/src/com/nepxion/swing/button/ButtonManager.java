@@ -49,6 +49,20 @@ public class ButtonManager
 	
 	private static ButtonBarUI buttonBarUI;
 	
+	public static void setPreferenceStyle(JButton button)
+	{
+		if (LookAndFeelManager.isNimbusLookAndFeel())
+		{
+			button.setMargin(new Insets(0, 0, 0, 0));
+		}
+		else
+		{
+			button.setMargin(new Insets(3, 9, 3, 9));
+			
+			button.setFocusPainted(false);
+		}
+	}
+	
 	public static void updateUI(Container container)
 	{
 		updateUI(container, (Insets) null);
@@ -391,17 +405,13 @@ public class ButtonManager
 		return buttonBarUI;
 	}
 	
-	public static void setPreferenceStyle(JButton button)
+	public static String getStyleText(String text)
 	{
-		if (LookAndFeelManager.isNimbusLookAndFeel())
-		{
-			button.setMargin(new Insets(0, 0, 0, 0));
-		}
-		else
-		{
-			button.setMargin(new Insets(3, 9, 3, 9));
-			
-			button.setFocusPainted(false);
-		}
+		return text;
+	}
+	
+	public static String getStyleText(String text1, String text2)
+	{
+		return "<html><p align=center>" + text1 + "</p><p align=center>" + (text2 != null && !text2.trim().equals("") ? text2 : "&nbsp;") + "</p></html>";
 	}
 }
