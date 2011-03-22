@@ -10,6 +10,8 @@ package com.nepxion.demo.component.scrollpane;
  * @version 1.0
  */
 
+import java.awt.Color;
+
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.JPanel;
@@ -74,6 +76,7 @@ public class DemoAutoScrollPanePanel
 			table.setAutoResizeMode(JSortableTable.AUTO_RESIZE_OFF);
 			
 			JAutoRollScrollPane autoRollScrollPane = new JAutoRollScrollPane();
+			autoRollScrollPane.setViewportBorder(BorderManager.createLineBorder(Color.gray, 0, 0, 0, 0));
 			autoRollScrollPane.getViewport().add(table);
 			
 			add(autoRollScrollPane);
