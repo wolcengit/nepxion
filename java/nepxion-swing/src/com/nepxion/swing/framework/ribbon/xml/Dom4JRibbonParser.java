@@ -19,6 +19,8 @@ import java.io.UnsupportedEncodingException;
 import java.util.Iterator;
 
 import javax.swing.Icon;
+import javax.swing.JComponent;
+import javax.swing.MenuElement;
 import javax.swing.SwingConstants;
 
 import org.dom4j.Attribute;
@@ -28,12 +30,16 @@ import org.dom4j.Element;
 
 import com.nepxion.swing.button.ButtonManager;
 import com.nepxion.swing.button.JClassicButton;
+import com.nepxion.swing.button.JClassicMenuButton;
 import com.nepxion.swing.framework.ribbon.JRibbon;
 import com.nepxion.swing.framework.ribbon.JRibbonAction;
 import com.nepxion.swing.framework.ribbon.JRibbonBar;
 import com.nepxion.swing.framework.ribbon.JRibbonContainer;
 import com.nepxion.swing.framework.ribbon.RibbonManager;
 import com.nepxion.swing.icon.IconFactory;
+import com.nepxion.swing.menu.JBasicMenu;
+import com.nepxion.swing.menuitem.JBasicMenuItem;
+import com.nepxion.swing.popupmenu.JDecorationPopupMenu;
 import com.nepxion.swing.scrollpane.JAutoRollScrollPane;
 import com.nepxion.swing.tabbedpane.ITabbedPane;
 import com.nepxion.util.xml.dom4j.Dom4JReader;
@@ -108,9 +114,9 @@ public class Dom4JRibbonParser
 			Object childElementObject = elementIterator.next();
 			if (childElementObject instanceof Element)
 			{
-				Element ribbonBarElement = (Element) childElementObject;
+				Element childElement = (Element) childElementObject;
 				
-				parseRibbonBarAttribute(ribbonBarElement);
+				parseRibbonBarAttribute(childElement);
 			}
 		}
 	}
@@ -166,9 +172,9 @@ public class Dom4JRibbonParser
 			Object childElementObject = elementIterator.next();
 			if (childElementObject instanceof Element)
 			{
-				Element ribbonElement = (Element) childElementObject;
+				Element childElement = (Element) childElementObject;
 				
-				parseRibbonAttribute(ribbonElement, ribbonBar);
+				parseRibbonAttribute(childElement, ribbonBar);
 			}
 		}
 	}
@@ -220,9 +226,9 @@ public class Dom4JRibbonParser
 			Object childElementObject = elementIterator.next();
 			if (childElementObject instanceof Element)
 			{
-				Element ribbonElement = (Element) childElementObject;
+				Element childElement = (Element) childElementObject;
 				
-				parseButtonAttribute(ribbonElement, ribbon);
+				parseButtonAttribute(childElement, ribbon);
 			}
 		}
 		
@@ -277,10 +283,111 @@ public class Dom4JRibbonParser
 			}
 		}
 		
-		JRibbonAction ribbonAction = RibbonManager.createRibbonAction(ButtonManager.getStyleText(text1, text2), icon, toolTipText, ribbonContainer, clazz);
-		JClassicButton button = new JClassicButton(ribbonAction);
+		if (element.elements().size() == 0)
+		{
+			JRibbonAction ribbonAction = RibbonManager.createRibbonAction(ButtonManager.getStyleText(text1, text2), icon, toolTipText, ribbonContainer, clazz);
+			JClassicButton button = new JClassicButton(ribbonAction);
+			
+			container.add(button);
+		}
+		else
+		{
+			JClassicMenuButton button = new JClassicMenuButton(ButtonManager.getStyleText(text1, text2), icon, toolTipText);
+			button.setShowArrowRight(false);
+			
+			JDecorationPopupMenu popupMenu = new JDecorationPopupMenu();
+			button.setPopupMenu(popupMenu);
+			
+			container.add(button);
+			
+			parseMenuElement(element, popupMenu);
+		}		
+	}
+	
+	public void parseMenuElement(Element element, MenuElement menu)
+	{		
+		for (Iterator elementIterator = element.elementIterator(); elementIterator.hasNext();)
+		{
+			Object childElementObject = elementIterator.next();
+			if (childElementObject instanceof Element)
+			{
+				Element childElement = (Element) childElementObject;
+				
+				if (childElement.getName().equals(TAG_SEPARATOR))
+				{
+					if (menu instanceof JDecorationPopupMenu)
+					{
+						((JDecorationPopupMenu) menu).addSeparator();
+					}	
+					else if (menu instanceof JBasicMenu)
+					{
+						((JBasicMenu) menu).addSeparator();
+					}	
+				}
+				else
+				{
+					parseMenuAttribute(childElement, menu);
+				}
+			}
+		}
+	}
+	
+	public void parseMenuAttribute(Element element, MenuElement menu)
+	{
+		String text = null;
+		Icon icon = null;
+		String toolTipText = null;
+		Class clazz = null;
 		
-		container.add(button);
+		for (Iterator attributeIterator = element.attributeIterator(); attributeIterator.hasNext();)
+		{
+			Attribute attribute = (Attribute) attributeIterator.next();
+			String attributeName = attribute.getName().trim();
+			String attributeText = attribute.getText().trim();
+			
+			if (attributeName.equals(TAG_TEXT))
+			{
+				text = attributeText;
+			}
+			else if (attributeName.equals(TAG_ICON))
+			{
+				if (attributeText != null && !attributeText.equals(""))
+				{
+					icon = IconFactory.getContextIcon(attributeText);
+				}
+			}
+			else if (attributeName.equals(TAG_TOOL_TIP_TEXT))
+			{
+				toolTipText = attributeText;
+			}
+			else if (attributeName.equals(TAG_CLASS))
+			{
+				try
+				{
+					clazz = Class.forName(attributeText);
+				}
+				catch (ClassNotFoundException e)
+				{
+					e.printStackTrace();
+				}
+			}
+		}
+		
+		MenuElement childMenu = null;
+		if (element.elements().size() == 0)
+		{	
+			JRibbonAction ribbonAction = RibbonManager.createRibbonAction(ButtonManager.getStyleText(text), icon, toolTipText, ribbonContainer, clazz);
+			
+			childMenu = new JBasicMenuItem(ribbonAction);
+		}
+		else
+		{
+			childMenu = new JBasicMenu(ButtonManager.getStyleText(text), icon, toolTipText);
+
+			parseMenuElement(element, childMenu);
+		}
+
+		((JComponent) menu).add((JComponent) childMenu);
 	}
 	
 	public Insets getButtonInsets()

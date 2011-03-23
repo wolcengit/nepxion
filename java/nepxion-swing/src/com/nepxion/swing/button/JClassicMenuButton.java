@@ -116,6 +116,11 @@ public class JClassicMenuButton
 	
 	private void adaptDimension()
 	{
+		if (!isShowArrowRight)
+		{
+			return;
+		}	
+		
 		Insets insets = getMargin();
 		
 		if (getParent() instanceof JToolBar)
