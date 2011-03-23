@@ -17,7 +17,7 @@ import javax.swing.SwingConstants;
 public interface Dom4JRibbonConstants
 	extends SwingConstants
 {
-	public static final String CONFIG_FILE_PATH = "context/ribbon.xml";
+	public static final String CONFIG_FILE_PATH = "data/ribbon.xml";
 	
 	public static final String TAG_NAME = "name";
 	public static final String TAG_TITLE = "title";
