@@ -12,5 +12,5 @@ package com.nepxion.util.searcher.zone.local;
 
 public interface ZoneConstants
 {
-	public static final String CONFIG_FILE_PATH = "data/zone.dat";
+	public static final String CONFIG_FILE_PATH = "data/zone.xml";
 }
