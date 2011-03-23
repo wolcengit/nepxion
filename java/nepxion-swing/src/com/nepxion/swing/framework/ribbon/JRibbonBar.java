@@ -30,19 +30,8 @@ public class JRibbonBar
 		setBorder(BorderFactory.createEmptyBorder(3, 3, 3, 3));
 	}
 	
-	public void addRibbon(JRibbon ribbon)
-	{
-		add(ribbon);
-	}
-	
 	public JRibbonAction createRibbonAction(String text, Icon icon, String toolTipText, Class componentClass)
-	{
-		JRibbonAction action = new JRibbonAction(text, icon, toolTipText);
-		action.setRibbonTitle(toolTipText);
-		action.setRibbonToolTipText(toolTipText);
-		action.setRibbonComponentClass(componentClass);
-		action.setRibbonContainer(ribbonContainer);
-		
-		return action;
+	{		
+		return RibbonManager.createRibbonAction(text, icon, toolTipText, ribbonContainer, componentClass);
 	}
 }
