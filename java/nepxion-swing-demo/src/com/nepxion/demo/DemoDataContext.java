@@ -15,12 +15,13 @@ import java.net.URL;
 import com.nepxion.swing.activex.ActiveXConstants;
 import com.nepxion.swing.activex.ActiveXContext;
 import com.nepxion.util.encoder.EncoderContext;
+import com.nepxion.util.io.FileContext;
 import com.nepxion.util.locale.LocaleConstants;
 import com.nepxion.util.locale.LocaleContext;
 import com.nepxion.util.log.LoggerContext;
 import com.nepxion.util.scheduler.quartz.QuartzContext;
 import com.nepxion.util.searcher.ip.local.IPContext;
-import com.nepxion.util.searcher.zone.local.ZoneContext;
+import com.nepxion.util.searcher.zone.local.ZoneConstants;
 
 public class DemoDataContext
 {	
@@ -41,7 +42,7 @@ public class DemoDataContext
 			// ProxoolContext.register();
 			QuartzContext.register();
 			IPContext.register();
-			ZoneContext.register();
+			FileContext.register(ZoneConstants.CONFIG_FILE_PATH);
 		}
 		catch (Exception e)
 		{
@@ -64,7 +65,7 @@ public class DemoDataContext
 			// ProxoolContext.register(codeBase);
 			QuartzContext.register(codeBase);
 			IPContext.register(codeBase);
-			ZoneContext.register(codeBase);
+			FileContext.register(codeBase, ZoneConstants.CONFIG_FILE_PATH);
 		}
 		catch (Exception e)
 		{
