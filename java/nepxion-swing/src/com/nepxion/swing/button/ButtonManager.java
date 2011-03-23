@@ -412,9 +412,16 @@ public class ButtonManager
 		return buttonBarUI;
 	}
 	
+	/**
+	 * XML : "&#x0A;" -> HTML: "\n"
+	 * XML : "&amp;nbsp;" -> HTML : "&nbsp;"
+	 * @param text
+	 * @return
+	 */
 	public static String getStyleText(String text)
 	{
 		String delimiter = "\n";
+		
 		if (text.indexOf(delimiter) > -1)
 		{
 			String html = "<html>";
@@ -427,8 +434,9 @@ public class ButtonManager
 			}
 			
 			html += "</html>";
+
 			return html;
-		}	
+		}
 		else
 		{
 			return text;
