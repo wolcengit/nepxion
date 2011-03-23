@@ -19,12 +19,13 @@ import com.nepxion.swing.exception.ExceptionTracerContext;
 import com.nepxion.util.database.pool.proxool.ProxoolContext;
 import com.nepxion.util.encoder.EncoderConstants;
 import com.nepxion.util.encoder.EncoderContext;
+import com.nepxion.util.io.FileContext;
 import com.nepxion.util.locale.LocaleContext;
 import com.nepxion.util.log.LoggerContext;
 import com.nepxion.util.net.http.HttpContext;
 import com.nepxion.util.scheduler.quartz.QuartzContext;
 import com.nepxion.util.searcher.ip.local.IPContext;
-import com.nepxion.util.searcher.zone.local.ZoneContext;
+import com.nepxion.util.searcher.zone.local.ZoneConstants;
 
 public class DataContextRegister
 	extends AbstractContextRegister implements DataContextConstants
@@ -277,11 +278,11 @@ public class DataContextRegister
 			{
 				if (codeBase == null)
 				{
-					ZoneContext.register();
+					FileContext.register(ZoneConstants.CONFIG_FILE_PATH);
 				}	
 				else
 				{
-					ZoneContext.register(codeBase);
+					FileContext.register(codeBase, ZoneConstants.CONFIG_FILE_PATH);
 				}
 			}
 			catch (Exception e)
