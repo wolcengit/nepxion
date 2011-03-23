@@ -18,14 +18,15 @@ import com.nepxion.swing.element.ElementNode;
 import com.nepxion.swing.renderer.tree.TreeElementCellRenderer;
 import com.nepxion.swing.tree.JBasicTree;
 import com.nepxion.swing.tree.xml.Dom4JTreeParser;
-import com.nepxion.util.searcher.zone.local.ZoneContext;
+import com.nepxion.util.io.FileContext;
+import com.nepxion.util.searcher.zone.local.ZoneConstants;
 
 public class JZoneTree
-	extends JBasicTree
+	extends JBasicTree implements ZoneConstants
 {
 	public JZoneTree()
 	{
-		this(ZoneContext.getContent());
+		this(FileContext.getContent(CONFIG_FILE_PATH));
 	}
 	
 	public JZoneTree(String content)
