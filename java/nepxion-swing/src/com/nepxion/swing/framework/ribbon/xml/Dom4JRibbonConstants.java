@@ -22,8 +22,6 @@ public interface Dom4JRibbonConstants
 	public static final String TAG_NAME = "name";
 	public static final String TAG_TITLE = "title";
 	public static final String TAG_TEXT = "text";
-	public static final String TAG_TEXT1 = "text1";
-	public static final String TAG_TEXT2 = "text2";
 	public static final String TAG_ICON = "icon";
 	public static final String TAG_SEPARATOR = "separator";
 	public static final String TAG_TOOL_TIP_TEXT = "tooltip";

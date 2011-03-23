@@ -16,6 +16,7 @@ import java.awt.Dimension;
 import java.awt.Insets;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
+import java.util.StringTokenizer;
 
 import javax.swing.AbstractButton;
 import javax.swing.ButtonGroup;
@@ -413,11 +414,24 @@ public class ButtonManager
 	
 	public static String getStyleText(String text)
 	{
-		return text;
-	}
-	
-	public static String getStyleText(String text1, String text2)
-	{
-		return "<html><p align=center>" + text1 + "</p><p align=center>" + (text2 != null && !text2.trim().equals("") ? text2 : "&nbsp;") + "</p></html>";
+		String delimiter = "\n";
+		if (text.indexOf(delimiter) > -1)
+		{
+			String html = "<html>";
+			
+			StringTokenizer stringTokenizer = new StringTokenizer(text, delimiter);
+			while (stringTokenizer.hasMoreTokens())
+			{
+				String next = stringTokenizer.nextToken();
+				html += "<p align=center>" + next + "</p>";
+			}
+			
+			html += "</html>";
+			return html;
+		}	
+		else
+		{
+			return text;
+		}
 	}
 }

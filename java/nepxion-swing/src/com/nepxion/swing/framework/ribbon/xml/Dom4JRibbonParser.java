@@ -239,8 +239,7 @@ public class Dom4JRibbonParser
 	{
 		Container container = ribbon.getContainer();
 		
-		String text1 = null;
-		String text2 = null;
+		String text = null;
 		Icon icon = null;
 		String toolTipText = null;
 		Class clazz = null;
@@ -251,13 +250,9 @@ public class Dom4JRibbonParser
 			String attributeName = attribute.getName().trim();
 			String attributeText = attribute.getText().trim();
 			
-			if (attributeName.equals(TAG_TEXT1))
+			if (attributeName.equals(TAG_TEXT))
 			{
-				text1 = attributeText;
-			}
-			else if (attributeName.equals(TAG_TEXT2))
-			{
-				text2 = attributeText;
+				text = attributeText;
 			}
 			else if (attributeName.equals(TAG_ICON))
 			{
@@ -285,14 +280,14 @@ public class Dom4JRibbonParser
 		
 		if (element.elements().size() == 0)
 		{
-			JRibbonAction ribbonAction = RibbonManager.createRibbonAction(ButtonManager.getStyleText(text1, text2), icon, toolTipText, ribbonContainer, clazz);
+			JRibbonAction ribbonAction = RibbonManager.createRibbonAction(ButtonManager.getStyleText(text), icon, toolTipText, ribbonContainer, clazz);
 			JClassicButton button = new JClassicButton(ribbonAction);
 			
 			container.add(button);
 		}
 		else
 		{
-			JClassicMenuButton button = new JClassicMenuButton(ButtonManager.getStyleText(text1, text2), icon, toolTipText);
+			JClassicMenuButton button = new JClassicMenuButton(ButtonManager.getStyleText(text), icon, toolTipText);
 			button.setShowArrowRight(false);
 			
 			JDecorationPopupMenu popupMenu = new JDecorationPopupMenu();
