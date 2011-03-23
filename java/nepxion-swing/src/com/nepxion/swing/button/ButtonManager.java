@@ -42,6 +42,7 @@ public class ButtonManager
 	private static IButtonUI buttonUI;
 	private static IButtonUI menuButtonUI;
 	private static IButtonUI splitButtonUI;
+	private static IButtonStyle buttonStyle;
 	
 	private static FlatButtonUI flatButtonUI;
 	private static FlatMenuButtonUI flatMenuButtonUI;	
@@ -342,7 +343,7 @@ public class ButtonManager
 	{
 		try
 		{
-			IButtonStyle buttonStyle = (IButtonStyle) Class.forName(buttonStyleClass).newInstance();
+			buttonStyle = (IButtonStyle) Class.forName(buttonStyleClass).newInstance();
 			
 			Constructor buttonUIConstructor = Class.forName(buttonUIClass).getConstructor(new Class[] {IButtonStyle.class});
 			buttonUI = (IButtonUI) buttonUIConstructor.newInstance(new Object[] {buttonStyle});
@@ -398,6 +399,11 @@ public class ButtonManager
 	public static IButtonUI getSplitButtonUI()
 	{
 		return splitButtonUI;
+	}
+	
+	public static IButtonStyle getButtonStyle()
+	{
+		return buttonStyle;
 	}
 	
 	public static ButtonBarUI getButtonBarUI()
