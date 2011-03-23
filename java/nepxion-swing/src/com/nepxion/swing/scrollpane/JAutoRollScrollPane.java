@@ -19,7 +19,6 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-import javax.swing.JButton;
 import javax.swing.JComponent;
 import javax.swing.SwingConstants;
 import javax.swing.SwingUtilities;
@@ -27,11 +26,12 @@ import javax.swing.Timer;
 import javax.swing.border.Border;
 import javax.swing.border.CompoundBorder;
 import javax.swing.plaf.UIResource;
-import javax.swing.plaf.basic.BasicButtonUI;
 
 import com.jidesoft.icons.JideIconsFactory;
 import com.jidesoft.swing.SimpleScrollPane;
 import com.nepxion.swing.button.ButtonManager;
+import com.nepxion.swing.button.JBasicButton;
+import com.nepxion.swing.style.button.lite.LiteButtonUI;
 
 public class JAutoRollScrollPane
 	extends SimpleScrollPane implements SwingConstants
@@ -70,18 +70,15 @@ public class JAutoRollScrollPane
 		setScrollDownButton(new JAutoRollScrollButton(SwingConstants.SOUTH));
 		setScrollLeftButton(new JAutoRollScrollButton(SwingConstants.WEST));
 		setScrollRightButton(new JAutoRollScrollButton(SwingConstants.EAST));
-		
-		ButtonManager.updateUI(this, new Dimension(10, 10));
-		
 		setRepeatDelay(15);
-		
+
 		// setViewportBorder(BorderManager.createLineBorder(Color.gray, 0, 0, 0, 0));
 		
 		ScrollPaneManager.setPreferenceStyle(this);
 	}
 	
 	public class JAutoRollScrollButton
-		extends JButton implements MouseListener, ActionListener, UIResource
+		extends JBasicButton implements MouseListener, ActionListener, UIResource
 	{
 		private int direction;
 		private Timer timer;
@@ -105,11 +102,8 @@ public class JAutoRollScrollPane
 					setIcon(JideIconsFactory.getImageIcon(JideIconsFactory.Arrow.RIGHT));
 					break;
 			}
-			
-			addActionListener(this);
-			addMouseListener(this);
-			
-			setUI(new BasicButtonUI()
+						
+			setUI(new LiteButtonUI(ButtonManager.getButtonStyle())
 			{
 				public void paint(Graphics g, JComponent c)
 				{
@@ -143,7 +137,7 @@ public class JAutoRollScrollPane
 								g.drawLine(getWidth() - 1, 0, getWidth() - 1, getHeight() - 1);
 								g.drawLine(0, getHeight() - 1, getWidth() - 1, getHeight() - 1);
 								break;
-						}
+						}						
 					}
 					else
 					{
@@ -152,6 +146,10 @@ public class JAutoRollScrollPane
 				}
 			}
 			);
+			
+			setDimension(new Dimension(10, 10));
+			addActionListener(this);
+			addMouseListener(this);
 		}
 		
 		public void actionPerformed(ActionEvent e)
