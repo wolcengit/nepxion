@@ -11,7 +11,7 @@ package com.nepxion.swing.tree.xml;
  */
 
 public class Dom4JBasicTreeParser
-	implements Dom4JConstants
+	implements Dom4JTreeConstants
 {
 	public static final int DEFAULT_MODE_ICON = 1;
 	public static final String DEFAULT_EXTENSION_NAME = ".png";

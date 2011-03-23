@@ -16,7 +16,7 @@ import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.TreeNode;
 
 import com.nepxion.swing.toggle.ITogglePanel;
-import com.nepxion.swing.tree.xml.Dom4JConstants;
+import com.nepxion.swing.tree.xml.Dom4JTreeConstants;
 
 public class DefaultToggleAdapter
 	extends AbstractToggleAdapter
@@ -42,7 +42,7 @@ public class DefaultToggleAdapter
 		{
 			HashMap map = (HashMap) userObject;
 			
-			return (ITogglePanel) map.get(Dom4JConstants.TAG_CLASS);
+			return (ITogglePanel) map.get(Dom4JTreeConstants.TAG_CLASS);
 		}
 		
 		return null;
