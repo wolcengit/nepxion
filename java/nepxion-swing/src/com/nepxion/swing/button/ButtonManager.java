@@ -20,7 +20,6 @@ import java.util.StringTokenizer;
 
 import javax.swing.AbstractButton;
 import javax.swing.ButtonGroup;
-import javax.swing.JButton;
 import javax.swing.JToolBar;
 import javax.swing.SwingConstants;
 
@@ -51,7 +50,7 @@ public class ButtonManager
 	
 	private static ButtonBarUI buttonBarUI;
 	
-	public static void setPreferenceStyle(JButton button)
+	public static void setPreferenceStyle(AbstractButton button)
 	{
 		if (LookAndFeelManager.isNimbusLookAndFeel())
 		{

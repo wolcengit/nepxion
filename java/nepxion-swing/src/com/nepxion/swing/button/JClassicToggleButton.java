@@ -10,8 +10,6 @@ package com.nepxion.swing.button;
  * @version 1.0
  */
 
-import java.awt.Insets;
-
 import javax.swing.Action;
 import javax.swing.Icon;
 import javax.swing.JToggleButton;
@@ -140,7 +138,6 @@ public class JClassicToggleButton
 	
 	private void initComponents()
 	{
-		setFocusPainted(false);
-		setMargin(new Insets(3, 9, 3, 9));
+		ButtonManager.setPreferenceStyle(this);
 	}
 }
