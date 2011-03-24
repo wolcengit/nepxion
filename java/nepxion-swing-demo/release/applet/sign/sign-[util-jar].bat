@@ -17,6 +17,7 @@
 
 set JAVA_HOME=D:\Software\JDK\JDK1.5
 
+%JAVA_HOME%\bin\jarsigner -keystore security.store -storepass 888888 ../lib/util/commons-lang-3-3.0-beta.jar security
 %JAVA_HOME%\bin\jarsigner -keystore security.store -storepass 888888 ../lib/util/commons-logging-1.1.1.jar security
 %JAVA_HOME%\bin\jarsigner -keystore security.store -storepass 888888 ../lib/util/dom4j-1.6.1.jar security
 %JAVA_HOME%\bin\jarsigner -keystore security.store -storepass 888888 ../lib/util/http-client-4.0.3.jar security
