@@ -34,4 +34,9 @@ public class JRibbonBar
 	{		
 		return RibbonManager.createRibbonAction(text, icon, toolTipText, ribbonContainer, componentClass);
 	}
+	
+	public JRibbonAction createRibbonAction(String name, String text, Icon icon, String toolTipText, Class componentClass)
+	{		
+		return RibbonManager.createRibbonAction(name, text, icon, toolTipText, ribbonContainer, componentClass);
+	}
 }

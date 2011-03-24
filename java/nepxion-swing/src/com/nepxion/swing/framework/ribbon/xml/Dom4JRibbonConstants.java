@@ -24,10 +24,15 @@ public interface Dom4JRibbonConstants
 	public static final String TAG_TEXT = "text";
 	public static final String TAG_ICON = "icon";
 	public static final String TAG_SEPARATOR = "separator";
+	public static final String TAG_ORIENTATION = "orientation";
 	public static final String TAG_TOOL_TIP_TEXT = "tooltip";
 	public static final String TAG_CLOSABLE = "closable";
+	public static final String TAG_LAYOUT = "layout";
+	public static final String TAG_BUTTON_LAYOUT = "buttonlayout";
+	public static final String TAG_BUTTON_INSETS = "buttoninsets";
+	public static final String TAG_CONSTRAINTS = "constraints";
 	public static final String TAG_CLASS = "class";
 	
+	public static final int[] BUTTON_LAYOUT = new int[] {VERTICAL, CENTER};
 	public static final Insets BUTTON_INSETS = new Insets(8, 8, 8, 8);
-	public static final int[] BUTTON_LAYOUT_PARAMETERS = new int[] {VERTICAL, CENTER};
 }

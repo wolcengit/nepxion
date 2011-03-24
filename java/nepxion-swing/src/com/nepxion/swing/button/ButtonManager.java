@@ -79,14 +79,14 @@ public class ButtonManager
 		updateUI(container, new int[] {HORIZONTAL, CENTER}, isFlatButtonUI);
 	}	
 	
-	public static void updateUI(Container container, int[] layoutParameters)
+	public static void updateUI(Container container, int[] layout)
 	{
-		updateUI(container, (Insets) null, layoutParameters);
+		updateUI(container, (Insets) null, layout);
 	}		
 	
-	public static void updateUI(Container container, Insets insets, int[] layoutParameters)
+	public static void updateUI(Container container, Insets insets, int[] layout)
 	{
-		updateUI(container, insets, null, layoutParameters);
+		updateUI(container, insets, null, layout);
 	}
 	
 	
@@ -107,9 +107,9 @@ public class ButtonManager
 	}
 	
 	
-	public static void updateUI(Container container, int[] layoutParameters, boolean isFlatButtonUI)
+	public static void updateUI(Container container, int[] layout, boolean isFlatButtonUI)
 	{
-		updateUI(container, (Dimension) null, layoutParameters, isFlatButtonUI);
+		updateUI(container, (Dimension) null, layout, isFlatButtonUI);
 	}
 		
 		
@@ -124,19 +124,19 @@ public class ButtonManager
 	}	
 		
 	
-	public static void updateUI(Container container, ButtonGroup buttonGroup, int[] layoutParameters)
+	public static void updateUI(Container container, ButtonGroup buttonGroup, int[] layout)
 	{
-		updateUI(container, (Insets) null, buttonGroup, layoutParameters);
+		updateUI(container, (Insets) null, buttonGroup, layout);
 	}	
 	
-	public static void updateUI(Container container, Insets insets, ButtonGroup buttonGroup, int[] layoutParameters)
+	public static void updateUI(Container container, Insets insets, ButtonGroup buttonGroup, int[] layout)
 	{
-		updateUI(container, null, insets, buttonGroup, layoutParameters, false);
+		updateUI(container, null, insets, buttonGroup, layout, false);
 	}		
 	
-	public static void updateUI(Container container, Dimension dimension, int[] layoutParameters)
+	public static void updateUI(Container container, Dimension dimension, int[] layout)
 	{
-		updateUI(container, dimension, null, layoutParameters);
+		updateUI(container, dimension, null, layout);
 	}
 	
 	public static void updateUI(Container container, Dimension dimension, ButtonGroup buttonGroup)
@@ -145,14 +145,14 @@ public class ButtonManager
 	}	
 	
 	
-	public static void updateUI(Container container, ButtonGroup buttonGroup, int[] layoutParameters, boolean isFlatButtonUI)
+	public static void updateUI(Container container, ButtonGroup buttonGroup, int[] layout, boolean isFlatButtonUI)
 	{
-		updateUI(container, null, buttonGroup, layoutParameters, isFlatButtonUI);
+		updateUI(container, null, buttonGroup, layout, isFlatButtonUI);
 	}
 	
-	public static void updateUI(Container container, Dimension dimension, int[] layoutParameters, boolean isFlatButtonUI)
+	public static void updateUI(Container container, Dimension dimension, int[] layout, boolean isFlatButtonUI)
 	{
-		updateUI(container, dimension, null, layoutParameters, isFlatButtonUI);
+		updateUI(container, dimension, null, layout, isFlatButtonUI);
 	}
 	
 	public static void updateUI(Container container, Dimension dimension, ButtonGroup buttonGroup, boolean isFlatButtonUI)
@@ -160,18 +160,18 @@ public class ButtonManager
 		updateUI(container, dimension, buttonGroup, new int[] {HORIZONTAL, CENTER}, isFlatButtonUI);
 	}
 	
-	public static void updateUI(Container container, Dimension dimension, ButtonGroup buttonGroup, int[] layoutParameters)
+	public static void updateUI(Container container, Dimension dimension, ButtonGroup buttonGroup, int[] layout)
 	{
-		updateUI(container, dimension, buttonGroup, layoutParameters, false);
+		updateUI(container, dimension, buttonGroup, layout, false);
 	}
 	
 	
-	public static void updateUI(Container container, Dimension dimension, ButtonGroup buttonGroup, int[] layoutParameters, boolean isFlatButtonUI)
+	public static void updateUI(Container container, Dimension dimension, ButtonGroup buttonGroup, int[] layout, boolean isFlatButtonUI)
 	{
-		updateUI(container, dimension, null, buttonGroup, layoutParameters, isFlatButtonUI);
+		updateUI(container, dimension, null, buttonGroup, layout, isFlatButtonUI);
 	}
 		
-	public static void updateUI(Container container, Dimension dimension, Insets insets, ButtonGroup buttonGroup, int[] layoutParameters, boolean isFlatButtonUI)
+	public static void updateUI(Container container, Dimension dimension, Insets insets, ButtonGroup buttonGroup, int[] layout, boolean isFlatButtonUI)
 	{
 		for (int i = 0; i < container.getComponentCount(); i++)
 		{
@@ -180,8 +180,8 @@ public class ButtonManager
 			{
 				AbstractButton abstractButton = (AbstractButton) component;
 				
-				int iconTextLayout = layoutParameters[0];
-				int horizontalAlignment = layoutParameters[1];
+				int iconTextLayout = layout[0];
+				int horizontalAlignment = layout[1];
 				if (iconTextLayout == VERTICAL)
 				{
 					abstractButton.setHorizontalTextPosition(CENTER);
@@ -317,18 +317,25 @@ public class ButtonManager
 			else if (component instanceof JBasicSeparator)
 			{
 				JBasicSeparator separator = (JBasicSeparator) component;
+				Dimension size = null;
 				if (dimension != null)
 				{
-					if (container instanceof JToolBar)
-					{
-						JToolBar toolBar = (JToolBar) container;
-						separator.setOrientation(toolBar.getOrientation() == VERTICAL ? HORIZONTAL : VERTICAL);
-						separator.setLength(separator.getOrientation()== VERTICAL ? dimension.height - 8 : dimension.width - 8);
-					}
-					else
-					{
-						separator.setLength(dimension.height - 8);
-					}
+					size = dimension;
+				}
+				else
+				{
+					size = container.getPreferredSize();
+				}
+				
+				if (container instanceof JToolBar)
+				{
+					// JToolBar toolBar = (JToolBar) container;
+					// separator.setOrientation(toolBar.getOrientation() == VERTICAL ? HORIZONTAL : VERTICAL);
+					separator.setLength(separator.getOrientation()== VERTICAL ? size.height - 8 : size.width - 8);
+				}
+				else
+				{
+					separator.setLength(size.height - 8);
 				}
 			}
 		}

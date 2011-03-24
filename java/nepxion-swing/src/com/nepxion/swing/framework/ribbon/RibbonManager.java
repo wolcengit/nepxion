@@ -16,7 +16,13 @@ public class RibbonManager
 {
 	public static JRibbonAction createRibbonAction(String text, Icon icon, String toolTipText, JRibbonContainer ribbonContainer, Class componentClass)
 	{
+		return createRibbonAction(null, text, icon, toolTipText, ribbonContainer, componentClass);
+	}
+	
+	public static JRibbonAction createRibbonAction(String name, String text, Icon icon, String toolTipText, JRibbonContainer ribbonContainer, Class componentClass)
+	{
 		JRibbonAction action = new JRibbonAction(text, icon, toolTipText);
+		action.setName(name);
 		action.setRibbonTitle(toolTipText);
 		action.setRibbonToolTipText(toolTipText);
 		action.setRibbonComponentClass(componentClass);
