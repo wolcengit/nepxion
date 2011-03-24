@@ -63,7 +63,7 @@ public class JRibbonContainer
 				
 				if (internalFrames.length >= maximumCount)
 				{
-					JBasicOptionPane.showMessageDialog(HandleManager.getFrame(this), SwingLocale.getString("open_panel_count_limited") + " " + maximumCount + " " + SwingLocale.getString("open_panel"), SwingLocale.getString("warning"), JBasicOptionPane.WARNING_MESSAGE);
+					JBasicOptionPane.showMessageDialog(HandleManager.getFrame(this), SwingLocale.getString("open_panel_count_limited") + " " + maximumCount + " " + SwingLocale.getString("open_panel_suffix"), SwingLocale.getString("warning"), JBasicOptionPane.WARNING_MESSAGE);
 					
 					return;
 				}	
@@ -115,7 +115,7 @@ public class JRibbonContainer
 			{
 				if (tabbedPane.getTabCount() >= maximumCount)
 				{
-					JBasicOptionPane.showMessageDialog(HandleManager.getFrame(this), SwingLocale.getString("open_panel_count_limited") + " " + maximumCount + " " + SwingLocale.getString("open_panel"), SwingLocale.getString("warning"), JBasicOptionPane.WARNING_MESSAGE);
+					JBasicOptionPane.showMessageDialog(HandleManager.getFrame(this), SwingLocale.getString("open_panel_count_limited") + " " + maximumCount + " " + SwingLocale.getString("open_panel_suffix"), SwingLocale.getString("warning"), JBasicOptionPane.WARNING_MESSAGE);
 					
 					return;
 				}	
