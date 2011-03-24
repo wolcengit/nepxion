@@ -52,6 +52,8 @@ public abstract class JLoginDialog
 {
 	public static final Border ETCHED_BORDER = BorderFactory.createEtchedBorder(Color.white, new Color(148, 145, 140));
 	
+	protected JLabel imageLabel;
+	
 	protected JLabel accountLabel;
 	protected JBasicTextField accountTextField;
 	
@@ -107,7 +109,7 @@ public abstract class JLoginDialog
 		double[][] size = 
 		{ 
 			{80, 180}, 
-			{25, 25, 25}
+			{TableLayout.PREFERRED, TableLayout.PREFERRED, TableLayout.PREFERRED}
 		};
 		
 		TableLayout tableLayout = new TableLayout(size);
@@ -125,7 +127,6 @@ public abstract class JLoginDialog
 		loginButton = new JClassicButton();
 		loginButton.setFont(new Font(FontContext.getFontName(), 0, 14));
 		loginButton.setPreferredSize(new Dimension(72, 32));
-		getRootPane().setDefaultButton(loginButton);
 		loginButton.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent e)
@@ -164,6 +165,7 @@ public abstract class JLoginDialog
 			}
 		}
 		);
+		getRootPane().setDefaultButton(loginButton);
 		
 		resetButton = new JClassicButton();
 		resetButton.setFont(new Font(FontContext.getFontName(), 0, 14));
@@ -203,20 +205,16 @@ public abstract class JLoginDialog
 		separator = new JSeparator();
 		separator.setPreferredSize(new Dimension(280, separator.getPreferredSize().height));
 		
-		contentPanel = new JPanel();
-		contentPanel.setLayout(new FiledLayout(FiledLayout.COLUMN, FiledLayout.CENTER, 0));
+		imageLabel = new JLabel(banner, JLabel.LEFT);
+		imageLabel.setBorder(ETCHED_BORDER);
 		
 		initContentPanel();
 		
-		JLabel imageLabel = new JLabel(banner, JLabel.LEFT);
-		imageLabel.setBorder(ETCHED_BORDER);
-		
 		JPanel container = new JPanel();
-		container.setLayout(new BoxLayout(container, BoxLayout.X_AXIS));
+		container.setLayout(new BorderLayout(20, 0));
 		container.setBorder(BorderFactory.createCompoundBorder(ETCHED_BORDER, BorderFactory.createEmptyBorder(20, 20, 20, 20)));
-		container.add(imageLabel);
-		container.add(Box.createHorizontalStrut(20));
-		container.add(contentPanel);
+		container.add(imageLabel, BorderLayout.WEST);
+		container.add(contentPanel, BorderLayout.CENTER);
 		
 		getContentPane().setLayout(new BorderLayout());
 		getContentPane().add(container, BorderLayout.CENTER);
@@ -237,12 +235,24 @@ public abstract class JLoginDialog
 	
 	protected void initContentPanel()
 	{
-		contentPanel.setBorder(BorderFactory.createCompoundBorder(ETCHED_BORDER, BorderFactory.createEmptyBorder(25, 20, 25, 20))); // 30, 20, 30, 20
+		int margin = (imageLabel.getPreferredSize().height - buttonPanel.getPreferredSize().height - separator.getPreferredSize().height - editorPanel.getPreferredSize().height) / 4;
+		
+		contentPanel = new JPanel();
+		contentPanel.setBorder(BorderFactory.createCompoundBorder(ETCHED_BORDER, BorderFactory.createEmptyBorder(margin, 20, margin, 20)));
+		contentPanel.setLayout(new FiledLayout(FiledLayout.COLUMN, FiledLayout.CENTER, margin));
 		contentPanel.add(editorPanel);
-		contentPanel.add(Box.createVerticalStrut(25)); // 37
 		contentPanel.add(separator);
-		contentPanel.add(Box.createVerticalStrut(25)); // 37
 		contentPanel.add(buttonPanel);
+		
+		int indent = contentPanel.getPreferredSize().height - imageLabel.getPreferredSize().height;
+		if (indent > 0)
+		{	
+			
+			int totalFixedMargin = margin * 2 - indent;
+			int fixedMargin = totalFixedMargin / 2;
+			
+			contentPanel.setBorder(BorderFactory.createCompoundBorder(ETCHED_BORDER, BorderFactory.createEmptyBorder(fixedMargin, 20, totalFixedMargin - fixedMargin, 20)));
+		}
 	}
 	
 	protected void initLocale(Locale locale)
