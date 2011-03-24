@@ -28,7 +28,6 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.Icon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JSeparator;
 import javax.swing.border.Border;
 
 import com.nepxion.swing.button.JClassicButton;
@@ -42,6 +41,7 @@ import com.nepxion.swing.layout.table.TableLayout;
 import com.nepxion.swing.locale.SwingLocale;
 import com.nepxion.swing.optionpane.JBasicOptionPane;
 import com.nepxion.swing.renderer.combobox.ComboBoxElementCellRenderer;
+import com.nepxion.swing.separator.JBasicSeparator;
 import com.nepxion.swing.textfield.JBasicPasswordField;
 import com.nepxion.swing.textfield.JBasicTextField;
 import com.nepxion.util.locale.LocaleConstants;
@@ -50,7 +50,9 @@ import com.nepxion.util.locale.LocaleContext;
 public abstract class JLoginDialog
 	extends JBasicDialog
 {
-	public static final Border ETCHED_BORDER = BorderFactory.createEtchedBorder(Color.white, new Color(148, 145, 140));
+	public static final int FONT_SIZE = 12;
+	public static final int FONT_STYLE = Font.PLAIN;
+	public static final Border ETCHED_BORDER = BorderFactory.createEtchedBorder(Color.white, new Color(128, 128, 128));
 	
 	protected JLabel imageLabel;
 	
@@ -71,24 +73,24 @@ public abstract class JLoginDialog
 	protected JPanel editorPanel;
 	protected JPanel buttonPanel;
 	
-	protected JSeparator separator;
+	protected JBasicSeparator separator;
 	
 	public JLoginDialog(String title, Icon banner)
 	{
 		super((Frame) null, title);
 		
 		accountLabel = new JLabel();
-		accountLabel.setFont(new Font(FontContext.getFontName(), 0, 14));
+		accountLabel.setFont(new Font(FontContext.getFontName(), FONT_STYLE, FONT_SIZE));
 		
 		accountTextField = new JBasicTextField();
 		
 		passwordLabel = new JLabel();
-		passwordLabel.setFont(new Font(FontContext.getFontName(), 0, 14));
+		passwordLabel.setFont(new Font(FontContext.getFontName(), FONT_STYLE, FONT_SIZE));
 		
 		passwordField = new JBasicPasswordField();
 		
 		localeLabel = new JLabel();
-		localeLabel.setFont(new Font(FontContext.getFontName(), 0, 14));
+		localeLabel.setFont(new Font(FontContext.getFontName(), FONT_STYLE, FONT_SIZE));
 		
 		localeComboBox = new JBasicComboBox();
 		localeComboBox.setRenderer(new ComboBoxElementCellRenderer());
@@ -125,7 +127,7 @@ public abstract class JLoginDialog
 		editorPanel.add(localeComboBox, "1, 2");
 		
 		loginButton = new JClassicButton();
-		loginButton.setFont(new Font(FontContext.getFontName(), 0, 14));
+		loginButton.setFont(new Font(FontContext.getFontName(), FONT_STYLE, FONT_SIZE));
 		loginButton.setPreferredSize(new Dimension(72, 32));
 		loginButton.addActionListener(new ActionListener()
 		{
@@ -168,7 +170,7 @@ public abstract class JLoginDialog
 		getRootPane().setDefaultButton(loginButton);
 		
 		resetButton = new JClassicButton();
-		resetButton.setFont(new Font(FontContext.getFontName(), 0, 14));
+		resetButton.setFont(new Font(FontContext.getFontName(), FONT_STYLE, FONT_SIZE));
 		resetButton.setPreferredSize(new Dimension(72, 32));
 		resetButton.addActionListener(new ActionListener()
 		{
@@ -181,7 +183,7 @@ public abstract class JLoginDialog
 		);
 		
 		exitButton = new JClassicButton();
-		exitButton.setFont(new Font(FontContext.getFontName(), 0, 14));
+		exitButton.setFont(new Font(FontContext.getFontName(), FONT_STYLE, FONT_SIZE));
 		exitButton.setPreferredSize(new Dimension(72, 32));
 		exitButton.addActionListener(new ActionListener()
 		{
@@ -202,8 +204,8 @@ public abstract class JLoginDialog
 		buttonPanel.add(exitButton);
 		buttonPanel.add(Box.createHorizontalGlue());
 		
-		separator = new JSeparator();
-		separator.setPreferredSize(new Dimension(280, separator.getPreferredSize().height));
+		separator = new JBasicSeparator(JBasicSeparator.HORIZONTAL, JBasicSeparator.LOWERED_STYLE, 280);
+		//separator.setPreferredSize(new Dimension(280, separator.getPreferredSize().height));
 		
 		imageLabel = new JLabel(banner, JLabel.LEFT);
 		imageLabel.setBorder(ETCHED_BORDER);
