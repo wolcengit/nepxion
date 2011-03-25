@@ -16,18 +16,28 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
 import com.nepxion.swing.layout.filed.FiledLayout;
+import com.nepxion.swing.scrollpane.JAutoRollScrollPane;
 
 public class JRibbonBar
-	extends JPanel implements SwingConstants
+	extends JAutoRollScrollPane implements SwingConstants
 {
 	private JRibbonContainer ribbonContainer;
+	private JPanel panel;
 	
 	public JRibbonBar(JRibbonContainer ribbonContainer)
 	{
 		this.ribbonContainer = ribbonContainer;
 		
-		setLayout(new FiledLayout(FiledLayout.ROW, FiledLayout.FULL, 0));
-		setBorder(BorderFactory.createEmptyBorder(3, 3, 3, 3));
+		panel = new JPanel();
+		panel.setLayout(new FiledLayout(FiledLayout.ROW, FiledLayout.FULL, 0));
+		panel.setBorder(BorderFactory.createEmptyBorder(3, 3, 3, 3));
+		
+		setViewportView(panel);
+	}
+	
+	public JPanel getRibbonView()
+	{
+		return panel;
 	}
 	
 	public JRibbonAction createRibbonAction(String text, Icon icon, String toolTipText, Class componentClass)
