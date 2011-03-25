@@ -95,6 +95,7 @@ public class JStatusBar
 		int cornerWidth = 0;
 		
 		JBasicSeparator separator = new JBasicSeparator(style, separatorHeight != -1 ? separatorHeight : getPreferredSize().height);
+		separator.setBackground(getBackground());
 		
 		if (justification == LEFT)
 		{
