@@ -12,21 +12,17 @@ package com.nepxion.swing.framework.ribbon;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 import javax.swing.AbstractButton;
 import javax.swing.JPanel;
-import javax.swing.JTabbedPane;
 
 import com.nepxion.swing.button.ButtonManager;
 import com.nepxion.swing.button.JBasicButton;
 import com.nepxion.swing.button.JClassicButton;
-import com.nepxion.swing.container.ContainerManager;
 import com.nepxion.swing.framework.JFrameWorkHierarchy;
 import com.nepxion.swing.framework.JFrameWorkStatusBar;
-import com.nepxion.swing.icon.IconFactory;
-import com.nepxion.swing.locale.SwingLocale;
+import com.nepxion.swing.framework.ribbon.action.JRibbonCloseAction;
+import com.nepxion.swing.framework.ribbon.action.JRibbonToggleAction;
 import com.nepxion.swing.lookandfeel.LookAndFeelManager;
 import com.nepxion.swing.statusbar.JStatusBar;
 import com.nepxion.swing.statusbar.JStatusItem;
@@ -40,10 +36,7 @@ public class JRibbonHierarchy
 	
 	private JFrameWorkStatusBar statusBar;
 	private JPanel statusBarContainer;
-	
-	private int tabHeight = -1;
-	private int robbinBarHeight = -1;
-	
+		
 	public JRibbonHierarchy()
 	{
 		toolBar = new JPanel();
@@ -69,38 +62,22 @@ public class JRibbonHierarchy
 		AbstractButton closeRibbonComponentButton = null;
 		if (LookAndFeelManager.isNimbusLookAndFeel())
 		{
-			closeRibbonComponentButton = new JClassicButton(IconFactory.getSwingIcon("item_close.png"), SwingLocale.getString("close_panel"));
+			closeRibbonComponentButton = new JClassicButton(new JRibbonCloseAction(this));
 		}
 		else
 		{
-			closeRibbonComponentButton = new JBasicButton(IconFactory.getSwingIcon("item_close.png"), SwingLocale.getString("close_panel"));
+			closeRibbonComponentButton = new JBasicButton(new JRibbonCloseAction(this));
 		}
-		
-		closeRibbonComponentButton.addActionListener(new ActionListener()
-		{
-			public void actionPerformed(ActionEvent e)
-			{
-				closeRibbonComponent();
-			}
-		});
 		
 		AbstractButton toggleRibbonBarButton = null;
 		if (LookAndFeelManager.isNimbusLookAndFeel())
 		{
-			toggleRibbonBarButton = new JClassicButton(IconFactory.getSwingIcon("toggle_size.png"), SwingLocale.getString("toggle_toolbar_visibility"));
+			toggleRibbonBarButton = new JClassicButton(new JRibbonToggleAction(this));
 		}
 		else
 		{
-			toggleRibbonBarButton = new JBasicButton(IconFactory.getSwingIcon("toggle_size.png"), SwingLocale.getString("toggle_toolbar_visibility"));
+			toggleRibbonBarButton = new JBasicButton(new JRibbonToggleAction(this));
 		}
-		
-		toggleRibbonBarButton.addActionListener(new ActionListener()
-		{
-			public void actionPerformed(ActionEvent e)
-			{
-				toggleRibbonBar();
-			}
-		});
 		
 		JStatusItem statusItem = new JStatusItem();
 		statusItem.add(closeRibbonComponentButton);
@@ -110,43 +87,6 @@ public class JRibbonHierarchy
 		
 		statusBar.setSeparatorHeight(14);
 		statusBar.addItem(60, statusItem, JStatusBar.LEFT);
-	}
-	
-	public void closeRibbonComponent()
-	{
-		JRibbonContainer ribbonContainer = getRibbonContainer();
-		ribbonContainer.closeRobbinComponent();
-	}
-	
-	public void toggleRibbonBar()
-	{
-		JPanel toolBar = getToolBar();
-		
-		JTabbedPane tabbedPane = (JTabbedPane) toolBar.getComponent(0);
-		
-		int tabbedPaneHeight = tabbedPane.getSize().height;
-		int tabbedPaneWidth = tabbedPane.getSize().width;
-		if (tabbedPaneHeight != tabHeight)
-		{
-			for (int i = 0; i < tabbedPane.getTabCount(); i++)
-			{
-				JRibbonBar ribbonBar = (JRibbonBar) tabbedPane.getComponentAt(i);
-				if (ribbonBar.getSize().height > robbinBarHeight)
-				{
-					robbinBarHeight = ribbonBar.getSize().height;
-				}
-			}
-			
-			tabHeight = tabbedPaneHeight - robbinBarHeight;
-			
-			tabbedPane.setPreferredSize(new Dimension(tabbedPaneWidth, tabHeight));
-		}
-		else
-		{
-			tabbedPane.setPreferredSize(new Dimension(tabbedPaneWidth, tabHeight + robbinBarHeight));
-		}
-		
-		ContainerManager.update(tabbedPane);
 	}
 	
 	public JPanel getToolBar()

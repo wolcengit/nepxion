@@ -12,8 +12,10 @@ package com.nepxion.swing.framework.ribbon;
 
 import javax.swing.Icon;
 
+import com.nepxion.swing.framework.ribbon.action.JRibbonAction;
+
 public class RibbonManager
-{
+{	
 	public static JRibbonAction createRibbonAction(String text, Icon icon, String toolTipText, JRibbonContainer ribbonContainer, Class componentClass)
 	{
 		return createRibbonAction(null, text, icon, toolTipText, ribbonContainer, componentClass);
