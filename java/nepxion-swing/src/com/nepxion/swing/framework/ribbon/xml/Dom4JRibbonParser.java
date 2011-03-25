@@ -45,7 +45,6 @@ import com.nepxion.swing.lookandfeel.LookAndFeelManager;
 import com.nepxion.swing.menu.JBasicMenu;
 import com.nepxion.swing.menuitem.JBasicMenuItem;
 import com.nepxion.swing.popupmenu.JDecorationPopupMenu;
-import com.nepxion.swing.scrollpane.JAutoRollScrollPane;
 import com.nepxion.swing.separator.JBasicSeparator;
 import com.nepxion.swing.tabbedpane.ITabbedPane;
 import com.nepxion.util.string.StringUtil;
@@ -164,7 +163,7 @@ public class Dom4JRibbonParser
 			}
 		}
 		
-		tabbedPane.addTab(title, icon, new JAutoRollScrollPane(ribbonBar), toolTipText, isClosable);
+		tabbedPane.addTab(title, icon, ribbonBar, toolTipText, isClosable);
 		
 		parseRibbonElement(element, ribbonBar);
 	}
@@ -252,7 +251,7 @@ public class Dom4JRibbonParser
 		{
 			ribbon.getContainer().setLayout(layout);
 		}
-		ribbonBar.add(ribbon);
+		ribbonBar.getRibbonView().add(ribbon);
 		
 		parseButtonElement(element, ribbon);
 		
