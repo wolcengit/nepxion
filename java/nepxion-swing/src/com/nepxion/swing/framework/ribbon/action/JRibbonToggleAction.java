@@ -12,6 +12,8 @@ package com.nepxion.swing.framework.ribbon.action;
 
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
@@ -24,7 +26,7 @@ import com.nepxion.swing.icon.IconFactory;
 import com.nepxion.swing.locale.SwingLocale;
 
 public class JRibbonToggleAction
-	extends JSecurityAction
+	extends JSecurityAction	implements MouseListener
 {
 	private JTabbedPane tabbedPane;
 	private JRibbonHierarchy ribbonHierarchy;
@@ -43,7 +45,7 @@ public class JRibbonToggleAction
 		this.ribbonHierarchy = ribbonHierarchy;
 	}
 	
-	public void execute(ActionEvent e)
+	private void toggle()
 	{
 		if (tabbedPane == null)
 		{
@@ -80,5 +82,38 @@ public class JRibbonToggleAction
 		}
 		
 		ContainerManager.update(tabbedPane);
+	}
+	
+	public void execute(ActionEvent e)
+	{
+		toggle();
+	}
+	
+	public void mouseClicked(MouseEvent e)
+	{
+		if (e.getClickCount() > 1)
+		{
+			toggle();
+		}
+	}
+	
+	public void mousePressed(MouseEvent e)
+	{
+		
+	}
+	
+	public void mouseReleased(MouseEvent e)
+	{
+		
+	}
+	
+	public void mouseEntered(MouseEvent e)
+	{
+		
+	}
+	
+	public void mouseExited(MouseEvent e)
+	{
+		
 	}
 }

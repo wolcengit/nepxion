@@ -44,21 +44,20 @@ public class JRibbonHierarchy
 		
 		container = new JRibbonContainer();
 		
+		setLayout(new BorderLayout());
+		add(toolBar, BorderLayout.NORTH);
+		add(container, BorderLayout.CENTER);
+	}
+	
+	public void showStatusBar()
+	{
 		statusBar = new JFrameWorkStatusBar();
 		statusBarContainer = new JPanel();
 		statusBarContainer.setLayout(new BorderLayout());
 		statusBarContainer.add(statusBar, BorderLayout.NORTH);
 		
-		setLayout(new BorderLayout());
-		add(toolBar, BorderLayout.NORTH);
-		add(container, BorderLayout.CENTER);
 		add(statusBarContainer, BorderLayout.SOUTH);
 		
-		initStatusBar();
-	}
-	
-	private void initStatusBar()
-	{
 		AbstractButton closeRibbonComponentButton = null;
 		if (LookAndFeelManager.isNimbusLookAndFeel())
 		{
