@@ -59,7 +59,6 @@ public class ButtonManager
 		else
 		{
 			button.setMargin(new Insets(3, 9, 3, 9));
-			
 			button.setFocusPainted(false);
 		}
 	}
