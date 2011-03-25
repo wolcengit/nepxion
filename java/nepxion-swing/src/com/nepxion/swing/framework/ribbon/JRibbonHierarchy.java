@@ -69,7 +69,7 @@ public class JRibbonHierarchy
 		}
 		);
 		
-		JBasicToggleButton toggleRibbonBarButton = new JBasicToggleButton(IconFactory.getSwingIcon("toggle_size.png"), SwingLocale.getString("close"));	
+		JBasicToggleButton toggleRibbonBarButton = new JBasicToggleButton(IconFactory.getSwingIcon("toggle_size.png"), SwingLocale.getString("toggle_toolbar_visibility"));	
 		toggleRibbonBarButton.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent e)
