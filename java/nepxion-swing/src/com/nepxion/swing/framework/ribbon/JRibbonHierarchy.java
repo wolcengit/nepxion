@@ -16,11 +16,13 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.AbstractButton;
+import javax.swing.JComponent;
 import javax.swing.JPanel;
 
 import com.nepxion.swing.button.ButtonManager;
 import com.nepxion.swing.button.JBasicButton;
 import com.nepxion.swing.button.JClassicButton;
+import com.nepxion.swing.container.ContainerManager;
 import com.nepxion.swing.framework.JFrameWorkHierarchy;
 import com.nepxion.swing.framework.JFrameWorkStatusBar;
 import com.nepxion.swing.icon.IconFactory;
@@ -28,6 +30,7 @@ import com.nepxion.swing.locale.SwingLocale;
 import com.nepxion.swing.lookandfeel.LookAndFeelManager;
 import com.nepxion.swing.statusbar.JStatusBar;
 import com.nepxion.swing.statusbar.JStatusItem;
+import com.nepxion.swing.tabbedpane.ITabbedPane;
 
 public class JRibbonHierarchy
 	extends JFrameWorkHierarchy
@@ -38,6 +41,9 @@ public class JRibbonHierarchy
 	
 	private JFrameWorkStatusBar statusBar;
 	private JPanel statusBarContainer;
+	
+	private int tabHeight = -1;
+	private int robbinBarHeight = -1;
 	
 	public JRibbonHierarchy()
 	{
@@ -76,9 +82,8 @@ public class JRibbonHierarchy
 			public void actionPerformed(ActionEvent e)
 			{
 				closeRibbonComponent();
-			}	
-		}
-		);
+			}
+		});
 		
 		AbstractButton toggleRibbonBarButton = null;
 		if (LookAndFeelManager.isNimbusLookAndFeel())
@@ -95,9 +100,8 @@ public class JRibbonHierarchy
 			public void actionPerformed(ActionEvent e)
 			{
 				toggleRibbonBar();
-			}	
-		}
-		);
+			}
+		});
 		
 		JStatusItem statusItem = new JStatusItem();
 		statusItem.add(closeRibbonComponentButton);
@@ -118,7 +122,34 @@ public class JRibbonHierarchy
 	public void toggleRibbonBar()
 	{
 		JPanel toolBar = getToolBar();
-		toolBar.setVisible(!toolBar.isVisible());
+		
+		ITabbedPane tabbedPane = (ITabbedPane) toolBar.getComponent(0);
+		JComponent tabbedPaneComponent = (JComponent) tabbedPane;
+		
+		int tabbedPaneHeight = tabbedPaneComponent.getSize().height;
+		int tabbedPaneWidth = tabbedPaneComponent.getSize().width;
+		if (tabbedPaneHeight != tabHeight)
+		{
+			for (int i = 0; i < tabbedPane.getTabCount(); i++)
+			{
+				JRibbonBar ribbonBar = (JRibbonBar) tabbedPane.getComponentAt(i);
+				if (ribbonBar.getSize().height > robbinBarHeight)
+				{
+					robbinBarHeight = ribbonBar.getSize().height;
+				}
+			}
+			
+			tabHeight = tabbedPaneHeight - robbinBarHeight;
+			
+			tabbedPaneComponent.setPreferredSize(new Dimension(tabbedPaneWidth, tabHeight));
+		}
+		else
+		{
+			tabbedPaneComponent.setPreferredSize(new Dimension(tabbedPaneWidth, tabHeight + robbinBarHeight));
+		}
+		
+		ContainerManager.update((JComponent) tabbedPane);
+		
 	}
 	
 	public JPanel getToolBar()
