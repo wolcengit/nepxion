@@ -148,6 +148,7 @@ public class JAutoRollScrollPane
 			);
 			
 			setDimension(new Dimension(10, 10));
+			
 			addActionListener(this);
 			addMouseListener(this);
 		}
