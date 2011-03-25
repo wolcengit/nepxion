@@ -12,6 +12,7 @@ package com.nepxion.swing.framework;
 
 import java.awt.Dimension;
 
+import javax.swing.BorderFactory;
 import javax.swing.Box;
 
 import com.nepxion.swing.statusbar.JStatusBar;
@@ -37,9 +38,11 @@ public class JFrameWorkStatusBar
 		timerLabel = new JTimerLabel();
 		
 		JStatusItem statusItem = new JStatusItem();
+		statusItem.setBorder(BorderFactory.createEmptyBorder(2, 2, 2, 2));
 		statusItem.add(timerProgressBar);
 		statusItem.add(Box.createHorizontalStrut(5));
 		statusItem.add(timerLabel);
+		statusItem.add(Box.createHorizontalStrut(5));
 		
 		addItem(80, statusItem, JStatusBar.RIGHT);
 	}
