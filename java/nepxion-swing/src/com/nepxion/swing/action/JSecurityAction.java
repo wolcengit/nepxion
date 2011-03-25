@@ -30,24 +30,44 @@ public abstract class JSecurityAction
 		super();
 	}
 	
-	public JSecurityAction(String name)
+	public JSecurityAction(String text)
 	{
-		super(name);
+		super(text);
 	}
 	
-	public JSecurityAction(String name, Icon icon)
+	public JSecurityAction(Icon icon)
 	{
-		super(name, icon);
+		super(icon);
 	}
 	
-	public JSecurityAction(String name, String toolTipText)
+	public JSecurityAction(Icon icon, String toolTipText)
 	{
-		super(name, toolTipText);
+		super(icon, toolTipText);
 	}
 	
-	public JSecurityAction(String name, Icon icon, String toolTipText)
+	public JSecurityAction(String text, String toolTipText)
 	{
-		super(name, icon, toolTipText);
+		super(text, toolTipText);
+	}
+	
+	public JSecurityAction(String text, Icon icon)
+	{
+		super(text, icon);
+	}
+
+	public JSecurityAction(String text, Icon icon, String toolTipText)
+	{
+		super(text, icon, toolTipText);
+	}
+	
+	public JSecurityAction(String name, String text, String toolTipText)
+	{
+		super(name, text, toolTipText);
+	}
+	
+	public JSecurityAction(String name, String text, Icon icon, String toolTipText)
+	{
+		super(name, text, icon, toolTipText);
 	}
 	
 	public boolean isPermitted()

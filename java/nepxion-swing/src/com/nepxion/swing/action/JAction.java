@@ -17,43 +17,83 @@ import javax.swing.Icon;
 public abstract class JAction
 	extends AbstractAction
 {	
+	private String name;
+	
 	public JAction()
 	{
 		super();
 	}
 	
-	public JAction(String name)
+	public JAction(String text)
 	{
-		super(name);
+		super(text);
 	}
 	
-	public JAction(String name, Icon icon)
+	public JAction(Icon icon)
 	{
-		super(name, icon);
+		super(null, icon);
 	}
 	
-	public JAction(String name, String toolTipText)
+	public JAction(Icon icon, String toolTipText)
 	{
-		this(name);
+		super(null, icon);
 		
 		setToolTipText(toolTipText);
 	}
 	
-	public JAction(String name, Icon icon, String toolTipText)
+	public JAction(String text, String toolTipText)
 	{
-		this(name, icon);
+		super(text);
 		
+		setToolTipText(toolTipText);
+	}
+	
+	public JAction(String text, Icon icon)
+	{
+		super(text, icon);
+	}
+
+	public JAction(String text, Icon icon, String toolTipText)
+	{
+		super(text, icon);
+		
+		setToolTipText(toolTipText);
+	}
+	
+	public JAction(String name, String text, String toolTipText)
+	{
+		super(text);
+		
+		setName(name);
+		setToolTipText(toolTipText);
+	}
+	
+	public JAction(String name, String text, Icon icon, String toolTipText)
+	{
+		super(text, icon);
+		
+		setName(name);
 		setToolTipText(toolTipText);
 	}
 	
 	public String getName()
 	{
-		return (String) getValue(Action.NAME);
+		return name;
 	}
 	
 	public void setName(String name)
 	{
-		putValue(Action.NAME, name);
+		this.name = name;
+	}
+	
+	public String getText()
+	{
+		return (String) getValue(Action.NAME);
+	}
+	
+	public void setText(String text)
+	{
+		putValue(Action.NAME, text);
 	}
 	
 	public String getToolTipText()

@@ -12,33 +12,53 @@ package com.nepxion.swing.taskbar;
 
 import javax.swing.Icon;
 
-import com.nepxion.swing.action.JAction;
+import com.nepxion.swing.action.JSecurityAction;
 
 public abstract class JTaskAction
-	extends JAction
+	extends JSecurityAction
 {
 	public JTaskAction()
 	{
 		super();
 	}
 	
-	public JTaskAction(String name)
+	public JTaskAction(String text)
 	{
-		super(name);
+		super(text);
 	}
 	
-	public JTaskAction(String name, Icon icon)
+	public JTaskAction(Icon icon)
 	{
-		super(name, icon);
+		super(icon);
 	}
 	
-	public JTaskAction(String name, String toolTipText)
+	public JTaskAction(Icon icon, String toolTipText)
 	{
-		super(name, toolTipText);
+		super(icon, toolTipText);
 	}
 	
-	public JTaskAction(String name, Icon icon, String toolTipText)
+	public JTaskAction(String text, String toolTipText)
 	{
-		super(name, icon, toolTipText);
+		super(text, toolTipText);
+	}
+	
+	public JTaskAction(String text, Icon icon)
+	{
+		super(text, icon);
+	}
+
+	public JTaskAction(String text, Icon icon, String toolTipText)
+	{
+		super(text, icon, toolTipText);
+	}
+	
+	public JTaskAction(String name, String text, String toolTipText)
+	{
+		super(name, text, toolTipText);
+	}
+	
+	public JTaskAction(String name, String text, Icon icon, String toolTipText)
+	{
+		super(name, text, icon, toolTipText);
 	}
 }
