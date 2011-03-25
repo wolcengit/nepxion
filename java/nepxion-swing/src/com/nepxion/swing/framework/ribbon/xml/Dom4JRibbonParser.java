@@ -30,6 +30,8 @@ import org.dom4j.DocumentException;
 import org.dom4j.Element;
 
 import com.nepxion.swing.button.ButtonManager;
+import com.nepxion.swing.button.JBasicButton;
+import com.nepxion.swing.button.JBasicMenuButton;
 import com.nepxion.swing.button.JClassicButton;
 import com.nepxion.swing.button.JClassicMenuButton;
 import com.nepxion.swing.framework.ribbon.JRibbon;
@@ -39,6 +41,7 @@ import com.nepxion.swing.framework.ribbon.JRibbonContainer;
 import com.nepxion.swing.framework.ribbon.RibbonManager;
 import com.nepxion.swing.icon.IconFactory;
 import com.nepxion.swing.layout.table.TableLayout;
+import com.nepxion.swing.lookandfeel.LookAndFeelManager;
 import com.nepxion.swing.menu.JBasicMenu;
 import com.nepxion.swing.menuitem.JBasicMenuItem;
 import com.nepxion.swing.popupmenu.JDecorationPopupMenu;
@@ -332,15 +335,30 @@ public class Dom4JRibbonParser
 			if (element.elements().size() == 0)
 			{
 				JRibbonAction ribbonAction = RibbonManager.createRibbonAction(name, ButtonManager.getStyleText(text), icon, toolTipText, ribbonContainer, clazz);
-				component = new JClassicButton(ribbonAction);
+				if (LookAndFeelManager.isNimbusLookAndFeel())
+				{	
+					component = new JClassicButton(ribbonAction);
+				}
+				else
+				{
+					component = new JBasicButton(ribbonAction);
+				}
 			}
 			else
 			{
-				component = new JClassicMenuButton(ButtonManager.getStyleText(text), icon, toolTipText);
-				((JClassicMenuButton) component).setShowArrowRight(false);
-				
 				JDecorationPopupMenu popupMenu = new JDecorationPopupMenu();
-				((JClassicMenuButton) component).setPopupMenu(popupMenu);
+				
+				if (LookAndFeelManager.isNimbusLookAndFeel())
+				{	
+					component = new JClassicMenuButton(ButtonManager.getStyleText(text), icon, toolTipText);
+					((JClassicMenuButton) component).setShowArrowRight(false);	
+					((JClassicMenuButton) component).setPopupMenu(popupMenu);
+				}
+				else
+				{
+					component = new JBasicMenuButton(ButtonManager.getStyleText(text), icon, toolTipText);	
+					((JBasicMenuButton) component).setPopupMenu(popupMenu);
+				}
 				
 				parseMenuElement(element, popupMenu);
 			}

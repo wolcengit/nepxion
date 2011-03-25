@@ -11,18 +11,21 @@ package com.nepxion.swing.framework.ribbon;
  */
 
 import java.awt.BorderLayout;
+import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.AbstractButton;
 import javax.swing.JPanel;
 
 import com.nepxion.swing.button.ButtonManager;
 import com.nepxion.swing.button.JBasicButton;
-import com.nepxion.swing.button.JBasicToggleButton;
+import com.nepxion.swing.button.JClassicButton;
 import com.nepxion.swing.framework.JFrameWorkHierarchy;
 import com.nepxion.swing.framework.JFrameWorkStatusBar;
 import com.nepxion.swing.icon.IconFactory;
 import com.nepxion.swing.locale.SwingLocale;
+import com.nepxion.swing.lookandfeel.LookAndFeelManager;
 import com.nepxion.swing.statusbar.JStatusBar;
 import com.nepxion.swing.statusbar.JStatusItem;
 
@@ -58,24 +61,40 @@ public class JRibbonHierarchy
 	
 	private void initStatusBar()
 	{
-		JBasicButton closeRibbonComponentButton = new JBasicButton(IconFactory.getSwingIcon("item_close.png"), SwingLocale.getString("close_panel"));
+		AbstractButton closeRibbonComponentButton = null;
+		if (LookAndFeelManager.isNimbusLookAndFeel())
+		{
+			closeRibbonComponentButton = new JClassicButton(IconFactory.getSwingIcon("item_close.png"), SwingLocale.getString("close_panel"));
+		}
+		else
+		{
+			closeRibbonComponentButton = new JBasicButton(IconFactory.getSwingIcon("item_close.png"), SwingLocale.getString("close_panel"));
+		}
+		
 		closeRibbonComponentButton.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent e)
 			{
-				JRibbonContainer ribbonContainer = getRibbonContainer();
-				ribbonContainer.closeRobbinComponent();
+				closeRibbonComponent();
 			}	
 		}
 		);
 		
-		JBasicToggleButton toggleRibbonBarButton = new JBasicToggleButton(IconFactory.getSwingIcon("toggle_size.png"), SwingLocale.getString("toggle_toolbar_visibility"));	
+		AbstractButton toggleRibbonBarButton = null;
+		if (LookAndFeelManager.isNimbusLookAndFeel())
+		{
+			toggleRibbonBarButton = new JClassicButton(IconFactory.getSwingIcon("toggle_size.png"), SwingLocale.getString("toggle_toolbar_visibility"));
+		}
+		else
+		{
+			toggleRibbonBarButton = new JBasicButton(IconFactory.getSwingIcon("toggle_size.png"), SwingLocale.getString("toggle_toolbar_visibility"));
+		}
+		
 		toggleRibbonBarButton.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent e)
 			{
-				JPanel toolBar = getToolBar();
-				toolBar.setVisible(!toolBar.isVisible());
+				toggleRibbonBar();
 			}	
 		}
 		);
@@ -84,10 +103,22 @@ public class JRibbonHierarchy
 		statusItem.add(closeRibbonComponentButton);
 		statusItem.add(toggleRibbonBarButton);
 		
-		ButtonManager.updateUI(statusItem);
+		ButtonManager.updateUI(statusItem, new Dimension(30, 30));
 		
 		statusBar.setSeparatorHeight(14);
 		statusBar.addItem(60, statusItem, JStatusBar.LEFT);
+	}
+	
+	public void closeRibbonComponent()
+	{
+		JRibbonContainer ribbonContainer = getRibbonContainer();
+		ribbonContainer.closeRobbinComponent();
+	}
+	
+	public void toggleRibbonBar()
+	{
+		JPanel toolBar = getToolBar();
+		toolBar.setVisible(!toolBar.isVisible());
 	}
 	
 	public JPanel getToolBar()
