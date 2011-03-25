@@ -16,8 +16,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.AbstractButton;
-import javax.swing.JComponent;
 import javax.swing.JPanel;
+import javax.swing.JTabbedPane;
 
 import com.nepxion.swing.button.ButtonManager;
 import com.nepxion.swing.button.JBasicButton;
@@ -30,7 +30,6 @@ import com.nepxion.swing.locale.SwingLocale;
 import com.nepxion.swing.lookandfeel.LookAndFeelManager;
 import com.nepxion.swing.statusbar.JStatusBar;
 import com.nepxion.swing.statusbar.JStatusItem;
-import com.nepxion.swing.tabbedpane.ITabbedPane;
 
 public class JRibbonHierarchy
 	extends JFrameWorkHierarchy
@@ -123,11 +122,10 @@ public class JRibbonHierarchy
 	{
 		JPanel toolBar = getToolBar();
 		
-		ITabbedPane tabbedPane = (ITabbedPane) toolBar.getComponent(0);
-		JComponent tabbedPaneComponent = (JComponent) tabbedPane;
+		JTabbedPane tabbedPane = (JTabbedPane) toolBar.getComponent(0);
 		
-		int tabbedPaneHeight = tabbedPaneComponent.getSize().height;
-		int tabbedPaneWidth = tabbedPaneComponent.getSize().width;
+		int tabbedPaneHeight = tabbedPane.getSize().height;
+		int tabbedPaneWidth = tabbedPane.getSize().width;
 		if (tabbedPaneHeight != tabHeight)
 		{
 			for (int i = 0; i < tabbedPane.getTabCount(); i++)
@@ -141,14 +139,14 @@ public class JRibbonHierarchy
 			
 			tabHeight = tabbedPaneHeight - robbinBarHeight;
 			
-			tabbedPaneComponent.setPreferredSize(new Dimension(tabbedPaneWidth, tabHeight));
+			tabbedPane.setPreferredSize(new Dimension(tabbedPaneWidth, tabHeight));
 		}
 		else
 		{
-			tabbedPaneComponent.setPreferredSize(new Dimension(tabbedPaneWidth, tabHeight + robbinBarHeight));
+			tabbedPane.setPreferredSize(new Dimension(tabbedPaneWidth, tabHeight + robbinBarHeight));
 		}
 		
-		ContainerManager.update(tabbedPaneComponent);
+		ContainerManager.update(tabbedPane);
 	}
 	
 	public JPanel getToolBar()
