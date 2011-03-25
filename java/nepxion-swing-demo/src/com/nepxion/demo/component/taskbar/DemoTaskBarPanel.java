@@ -52,7 +52,7 @@ public class DemoTaskBarPanel
 			systemTaskGroup.setSpecial(true);
 			systemTaskGroup.add(new JTaskAction("Send by email", IconFactory.getIcon("com/l2fprod/common/demo/icons/tasks-email.png"), "Send by email")
 			{
-				public void actionPerformed(ActionEvent e)
+				public void execute(ActionEvent e)
 				{
 					JBasicOptionPane.showMessageDialog(HandleManager.getFrame(DemoTaskBarPanel.this), "Send by email", "Message", JBasicOptionPane.INFORMATION_MESSAGE);
 				}
@@ -60,7 +60,7 @@ public class DemoTaskBarPanel
 			);
 			systemTaskGroup.add(new JTaskAction("Delete", IconFactory.getIcon("com/l2fprod/common/demo/icons/tasks-recycle.png"), "Delete")
 			{
-				public void actionPerformed(ActionEvent e)
+				public void execute(ActionEvent e)
 				{
 					JBasicOptionPane.showMessageDialog(HandleManager.getFrame(DemoTaskBarPanel.this), "Delete", "Message", JBasicOptionPane.INFORMATION_MESSAGE);
 				}
@@ -74,7 +74,7 @@ public class DemoTaskBarPanel
 			officeTaskGroup.setScrollOnExpand(true);
 			officeTaskGroup.add(new JTaskAction("Write Document", IconFactory.getIcon("com/l2fprod/common/demo/icons/tasks-writedoc.png"), "Write Document")
 			{
-				public void actionPerformed(ActionEvent e)
+				public void execute(ActionEvent e)
 				{
 					JBasicOptionPane.showMessageDialog(HandleManager.getFrame(DemoTaskBarPanel.this), "Write Document", "Message", JBasicOptionPane.INFORMATION_MESSAGE);
 				}
@@ -87,7 +87,7 @@ public class DemoTaskBarPanel
 			seeAlsoTaskGroup.setCollapsable(false);
 			seeAlsoTaskGroup.add(new JTaskAction("The Internet", IconFactory.getIcon("com/l2fprod/common/demo/icons/tasks-internet.png"), "A cool web resource")
 			{
-				public void actionPerformed(ActionEvent e)
+				public void execute(ActionEvent e)
 				{
 					JBasicOptionPane.showMessageDialog(HandleManager.getFrame(DemoTaskBarPanel.this), "The Internet", "Message", JBasicOptionPane.INFORMATION_MESSAGE);
 				}
@@ -95,7 +95,7 @@ public class DemoTaskBarPanel
 			);
 			seeAlsoTaskGroup.add(new JTaskAction("Help Center", IconFactory.getIcon("com/l2fprod/common/demo/icons/tasks-question.png"), "The place where you can't find anything")
 			{
-				public void actionPerformed(ActionEvent e)
+				public void execute(ActionEvent e)
 				{
 					JBasicOptionPane.showMessageDialog(HandleManager.getFrame(DemoTaskBarPanel.this), "Help Center", "Message", JBasicOptionPane.INFORMATION_MESSAGE);
 				}
@@ -117,12 +117,12 @@ public class DemoTaskBarPanel
 			JTaskGroup managementTaskGroup = new JTaskGroup("Management", "Management");
 			managementTaskGroup.add(new JTaskAction("Add TaskGroup", "Add TaskGroup")
 			{
-				public void actionPerformed(ActionEvent e)
+				public void execute(ActionEvent e)
 				{
 					JTaskGroup newTaskGroup = new JTaskGroup("New TaskGroup", "New TaskGroup");
 					newTaskGroup.add(new JTaskAction("New Task", "New Task")
 					{
-						public void actionPerformed(ActionEvent e)
+						public void execute(ActionEvent e)
 						{
 							JBasicOptionPane.showMessageDialog(HandleManager.getFrame(DemoTaskBarPanel.this), "New Task", "Message", JBasicOptionPane.INFORMATION_MESSAGE);
 						}
@@ -136,7 +136,7 @@ public class DemoTaskBarPanel
 			);
 			managementTaskGroup.add(new JTaskAction("Delete TaskGroup", "Delete TaskGroup")
 			{
-				public void actionPerformed(ActionEvent e)
+				public void execute(ActionEvent e)
 				{
 					taskBar.remove(0);
 					ContainerManager.update(TaskBarPanel.this);				
