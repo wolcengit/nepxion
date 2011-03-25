@@ -148,8 +148,7 @@ public class JRibbonHierarchy
 			tabbedPaneComponent.setPreferredSize(new Dimension(tabbedPaneWidth, tabHeight + robbinBarHeight));
 		}
 		
-		ContainerManager.update((JComponent) tabbedPane);
-		
+		ContainerManager.update(tabbedPaneComponent);
 	}
 	
 	public JPanel getToolBar()
