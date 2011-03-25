@@ -33,24 +33,44 @@ public class JRibbonAction
 		super();
 	}
 	
-	public JRibbonAction(String name)
+	public JRibbonAction(String text)
 	{
-		super(name);
+		super(text);
 	}
 	
-	public JRibbonAction(String name, Icon icon)
+	public JRibbonAction(Icon icon)
 	{
-		super(name, icon);
+		super(icon);
 	}
 	
-	public JRibbonAction(String name, String toolTipText)
+	public JRibbonAction(Icon icon, String toolTipText)
 	{
-		super(name, toolTipText);
+		super(icon, toolTipText);
 	}
 	
-	public JRibbonAction(String name, Icon icon, String toolTipText)
+	public JRibbonAction(String text, String toolTipText)
 	{
-		super(name, icon, toolTipText);
+		super(text, toolTipText);
+	}
+	
+	public JRibbonAction(String text, Icon icon)
+	{
+		super(text, icon);
+	}
+
+	public JRibbonAction(String text, Icon icon, String toolTipText)
+	{
+		super(text, icon, toolTipText);
+	}
+	
+	public JRibbonAction(String name, String text, String toolTipText)
+	{
+		super(name, text, toolTipText);
+	}
+	
+	public JRibbonAction(String name, String text, Icon icon, String toolTipText)
+	{
+		super(name, text, icon, toolTipText);
 	}
 	
 	public JRibbonContainer getRibbonContainer()
