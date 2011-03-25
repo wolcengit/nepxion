@@ -24,9 +24,10 @@ import javax.swing.UIManager;
 import com.nepxion.swing.border.ButtonBorder;
 import com.nepxion.swing.dimension.DimensionManager;
 import com.nepxion.swing.separator.JBasicSeparator;
+import com.nepxion.swing.toolbar.JBasicToolBar;
 
 public class JStatusBar
-	extends JPanel
+	extends JBasicToolBar
 {
 	public static final int LEFT = 0;
 	public static final int RIGHT = 1;
