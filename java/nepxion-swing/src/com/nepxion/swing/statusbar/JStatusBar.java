@@ -19,6 +19,7 @@ import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JPanel;
+import javax.swing.SwingConstants;
 import javax.swing.UIManager;
 
 import com.nepxion.swing.border.ButtonBorder;
@@ -27,11 +28,8 @@ import com.nepxion.swing.separator.JBasicSeparator;
 import com.nepxion.swing.toolbar.JBasicToolBar;
 
 public class JStatusBar
-	extends JBasicToolBar
-{
-	public static final int LEFT = 0;
-	public static final int RIGHT = 1;
-	
+	extends JBasicToolBar implements SwingConstants
+{	
 	private JPanel leftPanel;
 	private JPanel rightPanel;
 	

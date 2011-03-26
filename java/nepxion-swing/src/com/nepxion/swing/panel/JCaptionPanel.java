@@ -23,14 +23,12 @@ import java.awt.font.TextLayout;
 import java.awt.image.BufferedImage;
 
 import javax.swing.JPanel;
+import javax.swing.SwingConstants;
 import javax.swing.SwingUtilities;
 
 public class JCaptionPanel
-	extends JPanel implements Runnable
-{
-	public static final int TOP = 0;
-	public static final int BOTTOM = 1;
-	
+	extends JPanel implements Runnable, SwingConstants
+{	
 	private String[] caption;
 	
 	private BufferedImage image;

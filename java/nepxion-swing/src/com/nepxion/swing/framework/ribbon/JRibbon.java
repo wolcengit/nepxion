@@ -91,9 +91,6 @@ public class JRibbon
 					Graphics2D g2d = (Graphics2D) g;
 					Rectangle rectangle = new Rectangle(0, 0, getWidth(), getHeight());
 					JGradientPainter.fastFill(g2d, rectangle, new Color(255, 255, 255, 150), UIManager.getColor("Label.background"), true);
-					
-					g.setColor(borderBackground);
-					g.drawLine(0, 0, getWidth(), 0);
 				}
 				
 				// Draw Corner
