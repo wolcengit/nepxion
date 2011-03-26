@@ -15,6 +15,7 @@ import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyVetoException;
 
+import javax.swing.Icon;
 import javax.swing.JComponent;
 import javax.swing.JDesktopPane;
 import javax.swing.JInternalFrame;
@@ -49,7 +50,7 @@ public class JRibbonContainer
 		addComponent(desktopPane, BorderLayout.CENTER);
 	}
 	
-	public void addRibbonComponent(String title, String toolTipText, JComponent component)
+	public void addRibbonComponent(String name, String title, Icon icon, String toolTipText, JComponent component)
 	{
 		JComponent handler = retrieveRobbinComponent(component);
 		
@@ -81,6 +82,8 @@ public class JRibbonContainer
 				int height = component.getPreferredSize().height;
 				
 				internalFrame = new JInternalFrame(title, true, true, true, true);
+				internalFrame.setName(name);
+				internalFrame.setFrameIcon(icon);
 				internalFrame.setToolTipText(toolTipText);
 				internalFrame.setContentPane(component);
 				internalFrame.setSize(width != 0 ? width  + 50 : 640, height != 0 ? height + 50 : 480);
@@ -120,7 +123,8 @@ public class JRibbonContainer
 					return;
 				}	
 				
-				tabbedPane.addTab(title, component, toolTipText, true);
+				component.setName(name);
+				tabbedPane.addTab(title, icon, component, toolTipText, true);
 				tabbedPane.setSelectedComponent(component);
 			}
 			else

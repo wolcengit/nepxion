@@ -23,9 +23,13 @@ public interface Dom4JRibbonConstants
 	public static final String TAG_TITLE = "title";
 	public static final String TAG_TEXT = "text";
 	public static final String TAG_ICON = "icon";
+	public static final String TAG_TOOL_TIP_TEXT = "tooltip";
+	public static final String TAG_RIBBON_NAME = "ribbonname";
+	public static final String TAG_RIBBON_TITLE = "ribbontitle";
+	public static final String TAG_RIBBON_ICON = "ribbonicon";
+	public static final String TAG_RIBBON_TOOL_TIP_TEXT = "ribbontooltip";
 	public static final String TAG_SEPARATOR = "separator";
 	public static final String TAG_ORIENTATION = "orientation";
-	public static final String TAG_TOOL_TIP_TEXT = "tooltip";
 	public static final String TAG_CLOSABLE = "closable";
 	public static final String TAG_LAYOUT = "layout";
 	public static final String TAG_BUTTON_LAYOUT = "buttonlayout";

@@ -16,6 +16,7 @@ import javax.swing.Icon;
 import javax.swing.JComponent;
 
 import com.nepxion.swing.action.JSecurityAction;
+import com.nepxion.swing.exception.ExceptionTracer;
 import com.nepxion.swing.framework.ribbon.JRibbonContainer;
 
 public class JRibbonAction
@@ -23,7 +24,9 @@ public class JRibbonAction
 {
 	private JRibbonContainer ribbonContainer;
 	
+	private String ribbonName;
 	private String ribbonTitle;
+	private Icon ribbonIcon;
 	private String ribbonToolTipText;
 	
 	private Class ribbonComponentClass;
@@ -84,6 +87,16 @@ public class JRibbonAction
 		this.ribbonContainer = ribbonContainer;
 	}
 	
+	public String getRibbonName()
+	{
+		return ribbonName;
+	}
+	
+	public void setRibbonName(String ribbonName)
+	{
+		this.ribbonName = ribbonName;
+	}
+	
 	public String getRibbonTitle()
 	{
 		return ribbonTitle;
@@ -92,6 +105,16 @@ public class JRibbonAction
 	public void setRibbonTitle(String ribbonTitle)
 	{
 		this.ribbonTitle = ribbonTitle;
+	}
+	
+	public Icon getRibbonIcon()
+	{
+		return ribbonIcon;
+	}
+	
+	public void setRibbonIcon(Icon ribbonIcon)
+	{
+		this.ribbonIcon = ribbonIcon;
 	}
 	
 	public String getRibbonToolTipText()
@@ -125,23 +148,21 @@ public class JRibbonAction
 	}
 	
 	public void execute(ActionEvent e)
-	{
+	{		
 		if (ribbonComponent == null)
 		{
 			try
 			{
 				ribbonComponent = (JComponent) ribbonComponentClass.newInstance();
 			}
-			catch (InstantiationException ex)
+			catch (Exception ex)
 			{
-				ex.printStackTrace();
-			}
-			catch (IllegalAccessException ex)
-			{
-				ex.printStackTrace();
+				ExceptionTracer.traceException(ribbonContainer, "组件实例化错误 [" + ribbonComponentClass + "]", ex);
+				
+				return;
 			}
 		}
 		
-		ribbonContainer.addRibbonComponent(ribbonTitle, ribbonToolTipText, ribbonComponent);
+		ribbonContainer.addRibbonComponent(ribbonName, ribbonTitle, ribbonIcon, ribbonToolTipText, ribbonComponent);
 	}
 }

@@ -11,16 +11,14 @@ package com.nepxion.swing.framework.ribbon;
  */
 
 import javax.swing.BorderFactory;
-import javax.swing.Icon;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
-import com.nepxion.swing.framework.ribbon.action.JRibbonAction;
 import com.nepxion.swing.layout.filed.FiledLayout;
 import com.nepxion.swing.scrollpane.JAutoRollScrollPane;
 
 public class JRibbonBar
-	extends JAutoRollScrollPane implements SwingConstants
+	extends JAutoRollScrollPane	implements SwingConstants
 {
 	private JRibbonContainer ribbonContainer;
 	private JPanel panel;
@@ -36,18 +34,13 @@ public class JRibbonBar
 		setViewportView(panel);
 	}
 	
+	public JRibbonContainer getRibbonContainer()
+	{
+		return ribbonContainer;
+	}
+	
 	public JPanel getRibbonView()
 	{
 		return panel;
-	}
-	
-	public JRibbonAction createRibbonAction(String text, Icon icon, String toolTipText, Class componentClass)
-	{		
-		return RibbonManager.createRibbonAction(text, icon, toolTipText, ribbonContainer, componentClass);
-	}
-	
-	public JRibbonAction createRibbonAction(String name, String text, Icon icon, String toolTipText, Class componentClass)
-	{		
-		return RibbonManager.createRibbonAction(name, text, icon, toolTipText, ribbonContainer, componentClass);
 	}
 }

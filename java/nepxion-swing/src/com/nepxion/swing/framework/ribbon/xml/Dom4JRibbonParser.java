@@ -278,6 +278,10 @@ public class Dom4JRibbonParser
 		String text = null;
 		Icon icon = null;
 		String toolTipText = null;
+		String ribbonName = null;
+		String ribbonTitle = null;
+		Icon ribbonIcon = null;
+		String ribbonToolTipText = null;
 		int orientation = 1;
 		String constraints = null;
 		Class clazz = null;
@@ -307,6 +311,25 @@ public class Dom4JRibbonParser
 			{
 				toolTipText = attributeText;
 			}
+			else if (attributeName.equals(TAG_RIBBON_NAME))
+			{
+				ribbonName = attributeText;
+			}
+			else if (attributeName.equals(TAG_RIBBON_TITLE))
+			{
+				ribbonTitle = attributeText;
+			}
+			else if (attributeName.equals(TAG_RIBBON_ICON))
+			{
+				if (attributeText != null && !attributeText.equals(""))
+				{
+					ribbonIcon = IconFactory.getContextIcon(attributeText);
+				}
+			}
+			else if (attributeName.equals(TAG_RIBBON_TOOL_TIP_TEXT))
+			{
+				ribbonToolTipText = attributeText;
+			}
 			else if (attributeName.equals(TAG_ORIENTATION))
 			{
 				orientation = Integer.parseInt(attributeText);
@@ -328,12 +351,25 @@ public class Dom4JRibbonParser
 			}
 		}
 		
+		if (ribbonName == null || ribbonName.trim().equals(""))
+		{
+			ribbonName = name;
+		}	
+		if (ribbonTitle == null || ribbonTitle.trim().equals(""))
+		{
+			ribbonTitle = toolTipText;
+		}
+		if (ribbonToolTipText == null || ribbonToolTipText.trim().equals(""))
+		{
+			ribbonToolTipText = toolTipText;
+		}
+		
 		JComponent component = null;
 		if (!element.getName().equals(TAG_SEPARATOR))
 		{	
 			if (element.elements().size() == 0)
 			{
-				JRibbonAction ribbonAction = RibbonManager.createRibbonAction(name, ButtonManager.getStyleText(text), icon, toolTipText, ribbonContainer, clazz);
+				JRibbonAction ribbonAction = createRibbonAction(name, text, icon, toolTipText, ribbonName, ribbonTitle, ribbonIcon, ribbonToolTipText, clazz);				                                           
 				if (LookAndFeelManager.isNimbusLookAndFeel())
 				{	
 					component = new JClassicButton(ribbonAction);
@@ -398,6 +434,10 @@ public class Dom4JRibbonParser
 		String text = null;
 		Icon icon = null;
 		String toolTipText = null;
+		String ribbonName = null;
+		String ribbonTitle = null;
+		Icon ribbonIcon = null;
+		String ribbonToolTipText = null;
 		Class clazz = null;
 		
 		for (Iterator attributeIterator = element.attributeIterator(); attributeIterator.hasNext();)
@@ -425,6 +465,25 @@ public class Dom4JRibbonParser
 			{
 				toolTipText = attributeText;
 			}
+			else if (attributeName.equals(TAG_RIBBON_NAME))
+			{
+				ribbonName = attributeText;
+			}
+			else if (attributeName.equals(TAG_RIBBON_TITLE))
+			{
+				ribbonTitle = attributeText;
+			}
+			else if (attributeName.equals(TAG_RIBBON_ICON))
+			{
+				if (attributeText != null && !attributeText.equals(""))
+				{
+					ribbonIcon = IconFactory.getContextIcon(attributeText);
+				}
+			}
+			else if (attributeName.equals(TAG_RIBBON_TOOL_TIP_TEXT))
+			{
+				ribbonToolTipText = attributeText;
+			}			
 			else if (attributeName.equals(TAG_CLASS))
 			{
 				try
@@ -437,12 +496,26 @@ public class Dom4JRibbonParser
 				}
 			}
 		}
+		
+		if (ribbonName == null || ribbonName.trim().equals(""))
+		{
+			ribbonName = name;
+		}	
+		if (ribbonTitle == null || ribbonTitle.trim().equals(""))
+		{
+			ribbonTitle = toolTipText;
+		}
+		if (ribbonToolTipText == null || ribbonToolTipText.trim().equals(""))
+		{
+			ribbonToolTipText = toolTipText;
+		}
+		
 		if (!element.getName().equals(TAG_SEPARATOR))
 		{	
 			MenuElement childMenu = null;
 			if (element.elements().size() == 0)
 			{
-				JRibbonAction ribbonAction = RibbonManager.createRibbonAction(name, ButtonManager.getStyleText(text), icon, toolTipText, ribbonContainer, clazz);
+				JRibbonAction ribbonAction = createRibbonAction(name, text, icon, toolTipText, ribbonName, ribbonTitle, ribbonIcon, ribbonToolTipText, clazz);	
 				
 				childMenu = new JBasicMenuItem(ribbonAction);
 			}
@@ -466,5 +539,10 @@ public class Dom4JRibbonParser
 				((JBasicMenu) menu).addSeparator();
 			}
 		}		
+	}
+	
+	public JRibbonAction createRibbonAction(String name, String text, Icon icon, String toolTipText, String ribbonName, String ribbonTitle, Icon ribbonIcon, String ribbonToolTipText, Class clazz)
+	{
+		return RibbonManager.createRibbonAction(name, ButtonManager.getStyleText(text), icon, toolTipText, ribbonName, ribbonTitle, ribbonIcon, ribbonToolTipText, ribbonContainer, clazz);
 	}
 }
