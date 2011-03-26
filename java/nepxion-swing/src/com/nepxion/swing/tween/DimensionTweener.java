@@ -69,7 +69,7 @@ public class DimensionTweener
 		this.component = component;
 		this.dimension = dimension;
 		this.componentDimension = component.getSize();
-			
+		
 		this.zoomIn = zoomIn;
 		this.horizontalTweening = horizontalTweening;
 		this.verticalTweening = verticalTweening;
@@ -97,7 +97,7 @@ public class DimensionTweener
 		}
 		
 		if (frameIndex == frameCount)
-		{				
+		{
 			timer.stop();
 		}
 		else
