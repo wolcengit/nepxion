@@ -23,7 +23,7 @@ public class JBedouinLiteButtonStyle
 		rolloverBorderColor = new Color(128, 128, 128, 225);
 		
 		selectionBackground = new Color(166, 173, 176);
-		selectionBorderColor = new Color(128, 128, 128);
+		selectionBorderColor = Color.gray;
 		
 		checkColor = new Color(90, 97, 100);
 		focusColor = new Color(234, 182, 71);

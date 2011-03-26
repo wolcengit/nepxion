@@ -20,9 +20,11 @@ import javax.swing.BorderFactory;
 import javax.swing.Icon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.UIManager;
 
 import com.nepxion.swing.border.ShadowBorder;
 import com.nepxion.swing.gradient.JGradientPainter;
+import com.nepxion.swing.lookandfeel.LookAndFeelManager;
 import com.nepxion.swing.toolbar.JBasicToolBar;
 
 public class JRibbon
@@ -70,13 +72,29 @@ public class JRibbon
 		{
 			public void paint(Graphics g)
 			{
-				// Draw Background
-				// g.setColor(labelBackground);
-				// g.fillRect(0, 0, getWidth(), getHeight());
-								
-				Graphics2D g2d = (Graphics2D) g;
-				Rectangle rectangle = new Rectangle(0, 0, getWidth(), getHeight());
-				JGradientPainter.fastFill(g2d, rectangle, containerGradientStartBackground, containerGradientEndBackground, true);
+				if (LookAndFeelManager.isNimbusLookAndFeel())
+				{	
+					// Draw Background
+					// g.setColor(labelBackground);
+					// g.fillRect(0, 0, getWidth(), getHeight());
+									
+					Graphics2D g2d = (Graphics2D) g;
+					Rectangle rectangle = new Rectangle(0, 0, getWidth(), getHeight());
+					JGradientPainter.fastFill(g2d, rectangle, containerGradientStartBackground, containerGradientEndBackground, true);
+				}
+				else
+				{
+					// Draw Background
+					// g.setColor(labelBackground);
+					// g.fillRect(0, 0, getWidth(), getHeight());
+									
+					Graphics2D g2d = (Graphics2D) g;
+					Rectangle rectangle = new Rectangle(0, 0, getWidth(), getHeight());
+					JGradientPainter.fastFill(g2d, rectangle, new Color(255, 255, 255, 150), UIManager.getColor("Label.background"), true);
+					
+					g.setColor(borderBackground);
+					g.drawLine(0, 0, getWidth(), 0);
+				}
 				
 				// Draw Corner
 				g.setColor(cornerBackground);

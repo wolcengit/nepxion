@@ -103,7 +103,7 @@ public class JBasicSeparator
 		}
 		else if (style.equals(LOWERED_STYLE))
 		{
-			g.setColor(new Color(128, 128, 128));
+			g.setColor(Color.gray);
 		}
 		if (orientation == VERTICAL)
 		{
@@ -120,7 +120,7 @@ public class JBasicSeparator
 		}
 		else if (style.equals(RAISED_STYLE))
 		{
-			g.setColor(new Color(128, 128, 128));
+			g.setColor(Color.gray);
 		}
 		if (orientation == VERTICAL)
 		{

@@ -44,13 +44,13 @@ public class LiteCheckBoxMenuItemUI
 		armedIcon = new CheckBoxIcon(IconFactory.getSwingIcon(PLASTIC_STYLE + "checkbox_lower.png"), this.buttonStyle.getCheckColor(), this.buttonStyle.getFocusColor(), false, true);
 		pressedIcon = new CheckBoxIcon(IconFactory.getSwingIcon(PLASTIC_STYLE + "checkbox_lower.png"), this.buttonStyle.getCheckColor(), this.buttonStyle.getFocusColor(), false, true);
 		rolloverIcon = new CheckBoxIcon(IconFactory.getSwingIcon(PLASTIC_STYLE + "checkbox_raised.png"), this.buttonStyle.getCheckColor(), this.buttonStyle.getFocusColor(), false, true);
-		disableIcon = new CheckBoxIcon(IconFactory.getSwingIcon(PLASTIC_STYLE + "checkbox_disable.png"), new Color(128, 128, 128), null, false, false);
+		disableIcon = new CheckBoxIcon(IconFactory.getSwingIcon(PLASTIC_STYLE + "checkbox_disable.png"), Color.gray, null, false, false);
 		normalIcon = new CheckBoxIcon(IconFactory.getSwingIcon(PLASTIC_STYLE + "checkbox_raised.png"), this.buttonStyle.getCheckColor(), this.buttonStyle.getFocusColor(), false, false);
 		
 		selectionArmedIcon = new CheckBoxIcon(IconFactory.getSwingIcon(PLASTIC_STYLE + "checkbox_lower.png"), this.buttonStyle.getCheckColor(), this.buttonStyle.getFocusColor(), true, true);
 		selectionPressedIcon = new CheckBoxIcon(IconFactory.getSwingIcon(PLASTIC_STYLE + "checkbox_lower.png"), this.buttonStyle.getCheckColor(), this.buttonStyle.getFocusColor(), true, true);
 		selectionRolloverIcon = new CheckBoxIcon(IconFactory.getSwingIcon(PLASTIC_STYLE + "checkbox_raised.png"), this.buttonStyle.getCheckColor(), this.buttonStyle.getFocusColor(), true, true);
-		selectionDisableIcon = new CheckBoxIcon(IconFactory.getSwingIcon(PLASTIC_STYLE + "checkbox_disable.png"), new Color(128, 128, 128), null, true, false);
+		selectionDisableIcon = new CheckBoxIcon(IconFactory.getSwingIcon(PLASTIC_STYLE + "checkbox_disable.png"), Color.gray, null, true, false);
 		selectionNormalIcon = new CheckBoxIcon(IconFactory.getSwingIcon(PLASTIC_STYLE + "checkbox_raised.png"), this.buttonStyle.getCheckColor(), this.buttonStyle.getFocusColor(), true, false);
 	}
 }

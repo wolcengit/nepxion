@@ -56,7 +56,7 @@ public class LineChartFactory
 	
 	public static void setXYPlotPreference(XYPlot xyPlot, String legendToolTipText, boolean isShapesVisible)
 	{
-		xyPlot.setBackgroundPaint(new GradientPaint(0.0F, 0.0F, new Color(128, 128, 128), 0.0F, 0.0F, new Color(251, 251, 251), true));
+		xyPlot.setBackgroundPaint(new GradientPaint(0.0F, 0.0F, Color.gray, 0.0F, 0.0F, new Color(251, 251, 251), true));
 		xyPlot.setDomainGridlinePaint(Color.white);
 		xyPlot.setRangeGridlinePaint(Color.white);
 		xyPlot.setAxisOffset(new RectangleInsets(0.0D, 0.0D, 5.0D, 0.0D));

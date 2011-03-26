@@ -52,7 +52,7 @@ public abstract class JLoginDialog
 {
 	public static final int FONT_SIZE = 12;
 	public static final int FONT_STYLE = Font.PLAIN;
-	public static final Border ETCHED_BORDER = BorderFactory.createEtchedBorder(Color.white, new Color(128, 128, 128));
+	public static final Border ETCHED_BORDER = BorderFactory.createEtchedBorder(Color.white, Color.gray);
 	
 	protected JLabel imageLabel;
 	

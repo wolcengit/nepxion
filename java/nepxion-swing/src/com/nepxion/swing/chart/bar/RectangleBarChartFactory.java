@@ -272,7 +272,7 @@ public class RectangleBarChartFactory
 	
 	public static void setValueMarker(CategoryPlot categoryPlot, Comparable category, String text, double value, Paint paint)
 	{
-		setValueMarker(categoryPlot, category, text, value, paint, new Color(128, 128, 128));
+		setValueMarker(categoryPlot, category, text, value, paint, Color.gray);
 	}
 	
 	public static void setValueMarker(CategoryPlot categoryPlot, Comparable category, String text, double value, Paint paint, Paint outlinePaint)

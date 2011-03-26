@@ -162,7 +162,7 @@ public class JStatusBar
 			g.drawLine(w, h - 12, w - 12, h);
 			g.drawLine(w, h - 8, w - 8, h);
 			g.drawLine(w, h - 4, w - 4, h);
-			g.setColor(new Color(128, 128, 128));
+			g.setColor(Color.gray);
 			g.drawLine(w, h - 11, w - 11, h);
 			g.drawLine(w, h - 10, w - 10, h);
 			g.drawLine(w, h - 7, w - 7, h);

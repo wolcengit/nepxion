@@ -102,7 +102,7 @@ public class PieChartFactory
 		piePlot.setStartAngle(270D);
 		piePlot.setForegroundAlpha(0.75F);
 		piePlot.setSimpleLabels(false);
-		piePlot.setBackgroundPaint(new GradientPaint(0.0F, 0.0F, new Color(128, 128, 128), 0.0F, 0.0F, new Color(251, 251, 251), true));
+		piePlot.setBackgroundPaint(new GradientPaint(0.0F, 0.0F, Color.gray, 0.0F, 0.0F, new Color(251, 251, 251), true));
 	}
 	
 	public static Comparable getPiePlotSelectionkey(JChartPanel chartPanel)
