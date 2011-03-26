@@ -42,8 +42,11 @@ public class JStatusBar
 	public JStatusBar()
 	{
 		leftPanel = new JPanel();
+		leftPanel.setOpaque(false);
 		leftPanel.setLayout(new BoxLayout(leftPanel, BoxLayout.X_AXIS));
+		
 		rightPanel = new JPanel();
+		rightPanel.setOpaque(false);
 		rightPanel.setLayout(new BoxLayout(rightPanel, BoxLayout.X_AXIS));
 		
 		add(leftPanel);
