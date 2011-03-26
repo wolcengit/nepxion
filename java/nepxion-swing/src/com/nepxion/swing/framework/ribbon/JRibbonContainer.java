@@ -50,9 +50,10 @@ public class JRibbonContainer
 		addComponent(desktopPane, BorderLayout.CENTER);
 	}
 	
-	public void addRibbonComponent(String name, String title, Icon icon, String toolTipText, JComponent component)
+	public void addRibbonComponent(String name, String title, Icon icon, String toolTipText, IRibbonComponent component)
 	{
-		JComponent handler = retrieveRobbinComponent(component);
+		JComponent ribbonComponent = (JComponent) component;
+		JComponent handler = retrieveRobbinComponent(ribbonComponent);
 		
 		if (isInternalFrame)
 		{
@@ -78,17 +79,18 @@ public class JRibbonContainer
 					y = (25 + 10) * internalFrames.length;
 				}
 				
-				int width = component.getPreferredSize().width;
-				int height = component.getPreferredSize().height;
+				int width = ribbonComponent.getPreferredSize().width;
+				int height = ribbonComponent.getPreferredSize().height;
 				
 				internalFrame = new JInternalFrame(title, true, true, true, true);
 				internalFrame.setName(name);
 				internalFrame.setFrameIcon(icon);
 				internalFrame.setToolTipText(toolTipText);
-				internalFrame.setContentPane(component);
+				internalFrame.setContentPane(ribbonComponent);
 				internalFrame.setSize(width != 0 ? width  + 50 : 640, height != 0 ? height + 50 : 480);
 				internalFrame.setLocation(x, y);
 				internalFrame.setVisible(true);
+				ribbonComponent.setName(name);
 				
 				desktopPane.add(internalFrame);
 			}
@@ -123,9 +125,10 @@ public class JRibbonContainer
 					return;
 				}	
 				
-				component.setName(name);
-				tabbedPane.addTab(title, icon, component, toolTipText, true);
-				tabbedPane.setSelectedComponent(component);
+				tabbedPane.addTab(title, icon, ribbonComponent, toolTipText, true);
+				tabbedPane.setSelectedComponent(ribbonComponent);
+				
+				ribbonComponent.setName(name);
 			}
 			else
 			{
@@ -146,7 +149,7 @@ public class JRibbonContainer
 		}
 	}
 	
-	public JComponent retrieveRobbinComponent(JComponent component)
+	private JComponent retrieveRobbinComponent(JComponent component)
 	{
 		if (isInternalFrame)
 		{

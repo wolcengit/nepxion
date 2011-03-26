@@ -13,11 +13,12 @@ package com.nepxion.swing.framework.ribbon.action;
 import java.awt.event.ActionEvent;
 
 import javax.swing.Icon;
-import javax.swing.JComponent;
 
 import com.nepxion.swing.action.JSecurityAction;
 import com.nepxion.swing.exception.ExceptionTracer;
+import com.nepxion.swing.framework.ribbon.IRibbonComponent;
 import com.nepxion.swing.framework.ribbon.JRibbonContainer;
+import com.nepxion.swing.locale.SwingLocale;
 
 public class JRibbonAction
 	extends JSecurityAction
@@ -30,7 +31,7 @@ public class JRibbonAction
 	private String ribbonToolTipText;
 	
 	private Class ribbonComponentClass;
-	private JComponent ribbonComponent;
+	private IRibbonComponent ribbonComponent;
 	
 	public JRibbonAction()
 	{
@@ -137,12 +138,12 @@ public class JRibbonAction
 		this.ribbonComponentClass = ribbonComponentClass;
 	}
 	
-	public JComponent getRibbonComponent()
+	public IRibbonComponent getRibbonComponent()
 	{
 		return ribbonComponent;
 	}
 	
-	public void setRibbonComponent(JComponent ribbonComponent)
+	public void setRibbonComponent(IRibbonComponent ribbonComponent)
 	{
 		this.ribbonComponent = ribbonComponent;
 	}
@@ -153,11 +154,23 @@ public class JRibbonAction
 		{
 			try
 			{
-				ribbonComponent = (JComponent) ribbonComponentClass.newInstance();
+				ribbonComponent = (IRibbonComponent) ribbonComponentClass.newInstance();
+			}
+			catch (NullPointerException ex)
+			{
+				ExceptionTracer.traceException(ribbonContainer, SwingLocale.getString("component_not_initialized") + " [" + ribbonComponentClass + "]", ex); // Neptune
+				
+				return;
+			}
+			catch (ClassCastException ex)
+			{
+				ExceptionTracer.traceException(ribbonContainer, SwingLocale.getString("component_not_initialized") + " " + IRibbonComponent.class.getSimpleName() + " [" + ribbonComponentClass + "]", ex); // Neptune
+				
+				return;
 			}
 			catch (Exception ex)
 			{
-				ExceptionTracer.traceException(ribbonContainer, "组件实例化错误 [" + ribbonComponentClass + "]", ex);
+				ExceptionTracer.traceException(ribbonContainer, SwingLocale.getString("component_instantiation_error") + " [" + ribbonComponentClass + "]", ex); // Neptune
 				
 				return;
 			}
