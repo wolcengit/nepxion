@@ -53,8 +53,8 @@ import com.nepxion.util.xml.dom4j.Dom4JReader;
 public class Dom4JRibbonParser
 	implements Dom4JRibbonConstants, SwingConstants
 {
-	private JRibbonContainer ribbonContainer;
-	private ITabbedPane tabbedPane;
+	protected JRibbonContainer ribbonContainer;
+	protected ITabbedPane tabbedPane;
 	
 	public Dom4JRibbonParser(JRibbonContainer ribbonContainer, ITabbedPane tabbedPane)
 	{
@@ -541,8 +541,8 @@ public class Dom4JRibbonParser
 		}		
 	}
 	
-	public JRibbonAction createRibbonAction(String name, String text, Icon icon, String toolTipText, String ribbonName, String ribbonTitle, Icon ribbonIcon, String ribbonToolTipText, Class clazz)
+	public JRibbonAction createRibbonAction(String name, String text, Icon icon, String toolTipText, String ribbonName, String ribbonTitle, Icon ribbonIcon, String ribbonToolTipText, Class ribbonComponentclazz)
 	{
-		return RibbonManager.createRibbonAction(name, ButtonManager.getStyleText(text), icon, toolTipText, ribbonName, ribbonTitle, ribbonIcon, ribbonToolTipText, ribbonContainer, clazz);
+		return RibbonManager.createRibbonAction(name, ButtonManager.getStyleText(text), icon, toolTipText, ribbonName, ribbonTitle, ribbonIcon, ribbonToolTipText, ribbonContainer, ribbonComponentclazz);
 	}
 }
