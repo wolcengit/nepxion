@@ -20,6 +20,7 @@ import java.util.StringTokenizer;
 
 import javax.swing.AbstractButton;
 import javax.swing.ButtonGroup;
+import javax.swing.JButton;
 import javax.swing.JToolBar;
 import javax.swing.SwingConstants;
 
@@ -202,7 +203,14 @@ public class ButtonManager
 				if (insets != null)
 				{
 					abstractButton.setMargin(insets);
-				}	
+				}
+				else
+				{
+					if (container instanceof JToolBar && abstractButton instanceof JButton)
+					{
+						abstractButton.setMargin(new Insets(3, 3, 3, 3));				
+					}
+				}
 				
 				abstractButton.setFont(FontContext.getFont());
 				
