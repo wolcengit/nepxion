@@ -20,8 +20,14 @@ public interface TableCellRendererConstants
 	// 不进行尺寸设置
 	public static final int IGNORE = -2;
 	
-	// 设置部署模式
+	// 部署模式设置
 	public static final String ROW_COLUMN_LAYOUT_MODE = "rowColumnLayoutMode"; 
 	public static final String ROW_LAYOUT_MODE = "rowLayoutMode";
 	public static final String COLUMN_LAYOUT_MODE = "columnLayoutMode";
+	
+	// 尺寸设置
+	public static final int COLUMN_WIDTH_GAP = 20;
+	public static final int LOW_ROW_HEIGHT_GAP = -4;
+	public static final int HIHG_ROW_HEIGHT_GAP = 5;
+	public static final int HIGH_ROW_HEIGHT = 24;
 }

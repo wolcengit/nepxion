@@ -30,7 +30,8 @@ import com.nepxion.swing.table.layoutable.TableCellRendererLayout;
 public class JBasicTable
 	extends JTable implements ITable, TableCellRendererConstants, MouseListener
 {
-	private int[] gaps = LOW_DEFAULT_TABLE_GAPS;
+	private int columnWidthGap = COLUMN_WIDTH_GAP;
+	private int rowHeightGap = LOW_ROW_HEIGHT_GAP;
 	
 	private int selectedRow = -1;
 	
@@ -150,20 +151,30 @@ public class JBasicTable
 		return rowIndexes;
 	}
 	
-	public int[] getGaps()
+	public int getColumnWidthGap()
 	{
-		return gaps;
+		return columnWidthGap;
+	}
+
+	public void setColumnWidthGap(int columnWidthGap)
+	{
+		this.columnWidthGap = columnWidthGap;
 	}
 	
-	public void setGaps(int[] gaps)
+	public int getRowHeightGap()
 	{
-		this.gaps = gaps;
+		return rowHeightGap;
+	}
+	
+	public void setRowHeightGap(int rowHeightGap)
+	{
+		this.rowHeightGap = rowHeightGap;
 	}
 	
 	public void adaptLayout(String layoutMode)
 	{
 		TableCellRendererLayout layout = new TableCellRendererLayout(this);
-		layout.doLayout(gaps, layoutMode);
+		layout.doLayout(new int[] {columnWidthGap, rowHeightGap}, layoutMode);
 	}
 	
 	public void valueChanged(ListSelectionEvent e)

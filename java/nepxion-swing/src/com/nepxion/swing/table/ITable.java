@@ -22,9 +22,6 @@ public interface ITable
 	public static final int CONTIGUOUS_TREE_SELECTION = TreeSelectionModel.CONTIGUOUS_TREE_SELECTION;
 	public static final int DISCONTIGUOUS_TREE_SELECTION = TreeSelectionModel.DISCONTIGUOUS_TREE_SELECTION;
 	
-	public static final int[] LOW_DEFAULT_TABLE_GAPS = {20, -4};
-	public static final int[] HIGH_DEFAULT_TABLE_GAPS = {20, 5};
-	
 	public TableModel getModel();
 	
 	public void setModel(TableModel tableModel);
@@ -39,9 +36,13 @@ public interface ITable
 	
 	public int[] getRowIndexesToModel(int[] rowIndexes);
 	
-	public int[] getGaps();
+	public int getColumnWidthGap();
 	
-	public void setGaps(int[] gaps);
+	public void setColumnWidthGap(int columnWidthGap);
+	
+	public int getRowHeightGap();
+	
+	public void setRowHeightGap(int rowHeightGap);
 	
 	public void adaptLayout(String layoutMode);
 	
