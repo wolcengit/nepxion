@@ -24,7 +24,7 @@ public class JRowHeaderTable
 	
 	public JRowHeaderTable()
 	{
-		
+
 	}
 	
 	public void setRowHeaderSize(int cellWidth, int cellHeight)
