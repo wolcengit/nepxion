@@ -12,6 +12,7 @@ package com.nepxion.swing.table;
 
 import java.awt.event.MouseEvent;
 
+import javax.swing.table.TableColumn;
 import javax.swing.table.TableModel;
 import javax.swing.tree.TreeSelectionModel;
 
@@ -28,6 +29,8 @@ public interface ITable
 	public int getSelectionMode();
 	
 	public void setSelectionMode(int mode);
+	
+	public TableColumn getColumn(int column);
 	
 	public int getRowIndexToModel(int rowIndex);
 	

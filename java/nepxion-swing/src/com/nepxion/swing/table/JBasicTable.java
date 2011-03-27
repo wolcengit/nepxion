@@ -17,6 +17,7 @@ import java.util.Vector;
 import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
 import javax.swing.event.ListSelectionEvent;
+import javax.swing.table.TableColumn;
 import javax.swing.table.TableColumnModel;
 import javax.swing.table.TableModel;
 
@@ -90,6 +91,11 @@ public class JBasicTable
 	public void setSelectionMode(int mode)
 	{
 		TableManager.setSelectionMode(this, mode);
+	}
+	
+	public TableColumn getColumn(int column)
+	{
+		return getColumnModel().getColumn(column);
 	}
 	
 	public int getRowIndexToModel(int rowIndex)

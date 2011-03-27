@@ -98,10 +98,9 @@ public class JSortableTable
 		
 		headerListener.setTableModel(sortableTableModel);
 		
-		TableColumnModel tableColumnModel = getColumnModel();
 		for (int i = 0; i < getColumnCount(); i++)
 		{
-			tableColumnModel.getColumn(i).setHeaderRenderer(sortButtonRenderer);
+			getColumn(i).setHeaderRenderer(sortButtonRenderer);
 		}
 		
 		sortableTableModel.sort();
