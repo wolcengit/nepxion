@@ -47,7 +47,7 @@ public class DemoComponentFactory
 	{		
 		JSortableTable table = new JSortableTable(new ElementNodeTableModel());
 		table.setAutoResizeMode(JSortableTable.AUTO_RESIZE_OFF);
-		table.getColumnModel().getColumn(3).setCellRenderer(new TableElementCellRenderer());
+		table.getColumn(3).setCellRenderer(new TableElementCellRenderer());
 		
 		return table;
 	}
