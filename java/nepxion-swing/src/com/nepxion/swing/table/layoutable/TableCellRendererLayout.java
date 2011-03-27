@@ -230,7 +230,7 @@ public class TableCellRendererLayout
 	}
 	
 	public void doLayoutRowHeight(int rowIndex, int rowHeight, int rowMinimumHeight, int rowMaximumHeight, int rowGap)
-	{		
+	{
 		if (rowHeight > 0)
 		{
 			table.setRowHeight(rowIndex, rowHeight + rowGap);
