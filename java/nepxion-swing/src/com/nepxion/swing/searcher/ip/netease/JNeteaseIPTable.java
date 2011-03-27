@@ -32,7 +32,7 @@ public class JNeteaseIPTable
 		JBasicTextField textField = new JBasicTextField();
 		for (int i = 0; i < getColumnCount(); i++)
 		{
-			getColumnModel().getColumn(i).setCellEditor(new DefaultCellEditor(textField));
+			getColumn(i).setCellEditor(new DefaultCellEditor(textField));
 		}
 		
 		popupMenu = new JDecorationPopupMenu();

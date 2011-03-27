@@ -35,9 +35,9 @@ public class UIDefaultsTable
 		if (model instanceof UIDefaultsTableModel)
 		{
 			JBasicTextField textField = new JBasicTextField();
-			getColumnModel().getColumn(0).setCellEditor(new DefaultCellEditor(textField));
-			getColumnModel().getColumn(1).setCellEditor(new DefaultCellEditor(textField));
-			getColumnModel().getColumn(2).setCellRenderer(new UIDefaultsTableCellRenderer());
+			getColumn(0).setCellEditor(new DefaultCellEditor(textField));
+			getColumn(1).setCellEditor(new DefaultCellEditor(textField));
+			getColumn(2).setCellRenderer(new UIDefaultsTableCellRenderer());
 		}
 	}
 }
