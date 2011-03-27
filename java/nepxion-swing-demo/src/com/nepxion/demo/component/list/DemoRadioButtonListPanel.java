@@ -14,11 +14,11 @@ import java.util.List;
 
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
-import javax.swing.JList;
 import javax.swing.JPanel;
 
 import com.nepxion.demo.common.DemoDataFactory;
 import com.nepxion.swing.border.BorderManager;
+import com.nepxion.swing.list.JBasicList;
 import com.nepxion.swing.renderer.list.ListRadioButtonCellRenderer;
 import com.nepxion.swing.scrollpane.JBasicScrollPane;
 import com.nepxion.util.data.CollectionUtil;
@@ -44,7 +44,7 @@ public class DemoRadioButtonListPanel
 			
 			List componentElementNodes = DemoDataFactory.getComponentElementNodes();
 			
-			JList radioButtonList = new JList(CollectionUtil.parseVector(componentElementNodes));
+			JBasicList radioButtonList = new JBasicList(CollectionUtil.parseVector(componentElementNodes));
 			radioButtonList.setCellRenderer(new ListRadioButtonCellRenderer(radioButtonList));
 			
 			JBasicScrollPane radioButtonListScrollPane = new JBasicScrollPane();
