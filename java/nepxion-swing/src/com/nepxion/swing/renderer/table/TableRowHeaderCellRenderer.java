@@ -15,23 +15,25 @@ import java.awt.Component;
 import javax.swing.DefaultListCellRenderer;
 import javax.swing.JList;
 import javax.swing.JTable;
+import javax.swing.UIManager;
+import javax.swing.table.JTableHeader;
 
 import com.nepxion.swing.element.IElementNode;
 
 public class TableRowHeaderCellRenderer
 	extends DefaultListCellRenderer
 {
-// private JTableHeader header;
+	private JTableHeader header;
 	
 	public TableRowHeaderCellRenderer(JTable table)
 	{
-//      header = table.getTableHeader();
-//      setOpaque(true);
-//      setBorder(UIManager.getBorder("TableHeader.cellBorder"));
-//      /*setHorizontalAlignment(CENTER);*/
-//      setForeground(header.getForeground());
-//      setBackground(header.getBackground());
-//      setFont(header.getFont());		
+      header = table.getTableHeader();
+      setOpaque(true);
+      setBorder(UIManager.getBorder("TableHeader.cellBorder"));
+      /*setHorizontalAlignment(CENTER);*/
+      setForeground(header.getForeground());
+      setBackground(header.getBackground());
+      setFont(header.getFont());		
 	}
 	
 	public Component getListCellRendererComponent(JList list, Object value, int index, boolean isSelected, boolean cellHasFocus)
