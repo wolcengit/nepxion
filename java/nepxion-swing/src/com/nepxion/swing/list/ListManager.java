@@ -10,7 +10,12 @@ package com.nepxion.swing.list;
  * @version 1.0
  */
 
+import javax.swing.JList;
+
 public class ListManager
 {
-	
+	public static void setPreferenceStyle(JList list)
+	{
+		
+	}
 }
