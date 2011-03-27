@@ -15,7 +15,10 @@ import java.awt.event.MouseListener;
 import java.util.Vector;
 
 import javax.swing.ListSelectionModel;
+import javax.swing.SwingUtilities;
 import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.TableModelEvent;
+import javax.swing.event.TableModelListener;
 import javax.swing.table.TableColumnModel;
 import javax.swing.table.TableModel;
 
@@ -24,10 +27,14 @@ import org.jdesktop.swingx.decorator.HighlighterFactory;
 
 import com.nepxion.swing.table.ITable;
 import com.nepxion.swing.table.TableManager;
+import com.nepxion.swing.table.layoutable.TableCellRendererConstants;
+import com.nepxion.swing.table.layoutable.TableCellRendererLayout;
 
 public class JComplexTable
-	extends JXTable implements ITable, MouseListener
+	extends JXTable implements ITable, TableCellRendererConstants, MouseListener
 {
+	private int[] gaps = LOW_DEFAULT_TABLE_GAPS;
+	
 	private int selectedRow = -1;
 	
 	public JComplexTable()
@@ -86,7 +93,41 @@ public class JComplexTable
 		addMouseListener(this);
 		getSelectionModel().addListSelectionListener(this);
 		
-		addHighlighter(HighlighterFactory.createSimpleStriping()); 		
+		addHighlighter(HighlighterFactory.createSimpleStriping());
+	}
+	
+	public void setModel(final TableModel tableModel)
+	{
+		super.setModel(tableModel);
+		
+		tableModel.addTableModelListener(new TableModelListener()
+		{
+			public void tableChanged(TableModelEvent e)
+			{
+				if (getAutoResizeMode() == AUTO_RESIZE_OFF)
+				{
+					SwingUtilities.invokeLater(new Runnable()
+					{
+						public void run()
+						{
+							adaptLayout(COLUMN_LAYOUT_MODE);
+						}
+					}
+					);					
+				}
+			}
+		}
+		);
+	}
+	
+	public void setAutoResizeMode(int mode)
+	{
+		super.setAutoResizeMode(mode);
+		
+		if (mode == AUTO_RESIZE_OFF)
+		{
+			adaptLayout(ROW_COLUMN_LAYOUT_MODE);
+		}
 	}
 	
 	public int getSelectionMode()
@@ -107,7 +148,23 @@ public class JComplexTable
 	public int[] getRowIndexesToModel(int[] rowIndexes)
 	{
 		return rowIndexes;
-	}	
+	}
+	
+	public int[] getGaps()
+	{
+		return gaps;
+	}
+	
+	public void setGaps(int[] gaps)
+	{
+		this.gaps = gaps;
+	}
+	
+	public void adaptLayout(String layoutMode)
+	{
+		TableCellRendererLayout layout = new TableCellRendererLayout(this);
+		layout.doLayout(gaps, layoutMode);
+	}
 	
 	public void valueChanged(ListSelectionEvent e)
 	{

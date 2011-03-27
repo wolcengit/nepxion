@@ -16,14 +16,22 @@ import java.util.Vector;
 
 import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
+import javax.swing.SwingUtilities;
 import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.TableModelEvent;
+import javax.swing.event.TableModelListener;
 import javax.swing.table.TableColumn;
 import javax.swing.table.TableColumnModel;
 import javax.swing.table.TableModel;
 
+import com.nepxion.swing.table.layoutable.TableCellRendererConstants;
+import com.nepxion.swing.table.layoutable.TableCellRendererLayout;
+
 public class JBasicTable
-	extends JTable implements ITable, MouseListener
+	extends JTable implements ITable, TableCellRendererConstants, MouseListener
 {
+	private int[] gaps = LOW_DEFAULT_TABLE_GAPS;
+	
 	private int selectedRow = -1;
 	
 	public JBasicTable()
@@ -83,6 +91,40 @@ public class JBasicTable
 		getSelectionModel().addListSelectionListener(this);
 	}
 	
+	public void setModel(final TableModel tableModel)
+	{
+		super.setModel(tableModel);
+		
+		tableModel.addTableModelListener(new TableModelListener()
+		{
+			public void tableChanged(TableModelEvent e)
+			{
+				if (getAutoResizeMode() == AUTO_RESIZE_OFF)
+				{
+					SwingUtilities.invokeLater(new Runnable()
+					{
+						public void run()
+						{
+							adaptLayout(COLUMN_LAYOUT_MODE);
+						}
+					}
+					);					
+				}
+			}
+		}
+		);
+	}
+	
+	public void setAutoResizeMode(int mode)
+	{
+		super.setAutoResizeMode(mode);
+		
+		if (mode == AUTO_RESIZE_OFF)
+		{
+			adaptLayout(ROW_COLUMN_LAYOUT_MODE);
+		}
+	}
+	
 	public int getSelectionMode()
 	{
 		return TableManager.getSelectionMode(this);
@@ -106,6 +148,22 @@ public class JBasicTable
 	public int[] getRowIndexesToModel(int[] rowIndexes)
 	{
 		return rowIndexes;
+	}
+	
+	public int[] getGaps()
+	{
+		return gaps;
+	}
+	
+	public void setGaps(int[] gaps)
+	{
+		this.gaps = gaps;
+	}
+	
+	public void adaptLayout(String layoutMode)
+	{
+		TableCellRendererLayout layout = new TableCellRendererLayout(this);
+		layout.doLayout(gaps, layoutMode);
 	}
 	
 	public void valueChanged(ListSelectionEvent e)
