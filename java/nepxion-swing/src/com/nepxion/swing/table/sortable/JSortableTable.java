@@ -11,7 +11,6 @@ package com.nepxion.swing.table.sortable;
  */
 
 import javax.swing.table.JTableHeader;
-import javax.swing.table.TableColumnModel;
 import javax.swing.table.TableModel;
 
 import com.nepxion.swing.table.JBasicTable;
