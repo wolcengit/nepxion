@@ -17,20 +17,8 @@ import javax.swing.table.JTableHeader;
 import javax.swing.table.TableColumn;
 
 public class TableCellRendererLayout
-{
-	// 自适应尺寸设置
-	// 1. 当设置单元格的宽度时候，需比较表格单元格绘制器CellRenderer和表格头单元绘制器的宽度，取最大值，设置单元格的宽度
-	// 2. 当设置单元格的高度时候，取表格单元格绘制器CellRenderer的高度，设置单元格的高度
-	public static final int PREFERRED = -1;
-	
-	// 不进行尺寸设置
-	public static final int IGNORE = -2;
-	
-	// 设置部署模式
-	public static final String ROW_COLUMN_LAYOUT_MODE = "rowColumnLayoutMode"; 
-	public static final String ROW_LAYOUT_MODE = "rowLayoutMode";
-	public static final String COLUMN_LAYOUT_MODE = "columnLayoutMode";
-	
+	implements TableCellRendererConstants
+{	
 	private JTable table;
 	
 	public TableCellRendererLayout(JTable table)
