@@ -121,7 +121,7 @@ public class JBasicTable
 		
 		if (mode == AUTO_RESIZE_OFF)
 		{
-			adaptLayout(ROW_COLUMN_LAYOUT_MODE);
+			adaptLayout(COLUMN_LAYOUT_MODE); // ROW_COLUMN_LAYOUT_MODE
 		}
 	}
 	
