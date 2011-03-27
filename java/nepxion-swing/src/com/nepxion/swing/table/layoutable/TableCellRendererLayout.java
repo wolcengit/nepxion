@@ -26,6 +26,11 @@ public class TableCellRendererLayout
 	// 不进行尺寸设置
 	public static final int IGNORE = -2;
 	
+	// 设置部署模式
+	public static final String ROW_COLUMN_LAYOUT_MODE = "rowColumnLayoutMode"; 
+	public static final String ROW_LAYOUT_MODE = "rowLayoutMode";
+	public static final String COLUMN_LAYOUT_MODE = "columnLayoutMode";
+	
 	private JTable table;
 	
 	public TableCellRendererLayout(JTable table)
@@ -35,27 +40,52 @@ public class TableCellRendererLayout
 	
 	public void doLayout()
 	{
-		doLayout((int[]) null);
+		doLayout(ROW_COLUMN_LAYOUT_MODE);
+	}
+	
+	public void doLayout(String layoutMode)
+	{
+		doLayout((int[]) null, layoutMode);
 	}
 	
 	public void doLayout(int[] gaps)
 	{
-		doLayout(null, null, gaps);
+		doLayout(gaps, ROW_COLUMN_LAYOUT_MODE);
+	}
+	
+	public void doLayout(int[] gaps, String layoutMode)
+	{
+		doLayout(null, null, gaps, layoutMode);
 	}
 	
 	public void doLayout(int[][] sizes)
 	{
-		doLayout(sizes, (int[][]) null);
+		doLayout(sizes, ROW_COLUMN_LAYOUT_MODE);
+	}
+	
+	public void doLayout(int[][] sizes, String layoutMode)
+	{
+		doLayout(sizes, (int[][]) null, layoutMode);
 	}
 	
 	public void doLayout(int[][] sizes, int[][] range)
 	{
-		doLayout(sizes, range, null);
+		doLayout(sizes, range, ROW_COLUMN_LAYOUT_MODE);
+	}
+	
+	public void doLayout(int[][] sizes, int[][] range, String layoutMode)
+	{
+		doLayout(sizes, range, null, layoutMode);
 	}
 	
 	public void doLayout(int[][] range, int[] gaps)
 	{
-		doLayout(null, range, gaps);
+		doLayout(range, gaps, ROW_COLUMN_LAYOUT_MODE);
+	}	
+	
+	public void doLayout(int[][] range, int[] gaps, String layoutMode)
+	{
+		doLayout(null, range, gaps, layoutMode);
 	}	
 	
 	/*
@@ -80,7 +110,7 @@ public class TableCellRendererLayout
 	 * 2.提示：
 	 *   表格有优先分配先出现的列的宽度，假如表格有3列，设置最后一列的宽度为100，则是无效的，因为表格已经为前2列分配了默认的宽度，最后一列只能执行自适应的宽度                
 	 */
-	public void doLayout(int[][] sizes, int[][] range, int[] gaps)
+	public void doLayout(int[][] sizes, int[][] range, int[] gaps, String layoutMode)
 	{
 		int[] columnWidths = null;
 		int[] rowHeights = null;
@@ -122,48 +152,54 @@ public class TableCellRendererLayout
 			rowGap = gaps[1];
 		}
 		
-		int columnCount = table.getColumnCount();
-		for (int columnIndex = 0; columnIndex < columnCount; columnIndex++)
-		{
-			int columnWidth = IGNORE;
-			if (columnWidths == null)
+		if (layoutMode.equals(ROW_COLUMN_LAYOUT_MODE) || layoutMode.equals(COLUMN_LAYOUT_MODE))
+		{	
+			int columnCount = table.getColumnCount();
+			for (int columnIndex = 0; columnIndex < columnCount; columnIndex++)
 			{
-				columnWidth = PREFERRED;
-			}
-			else
-			{
-				if (columnIndex < columnWidths.length)
+				int columnWidth = IGNORE;
+				if (columnWidths == null)
 				{
-					columnWidth = columnWidths[columnIndex];
+					columnWidth = PREFERRED;
 				}
 				else
 				{
-					break;
+					if (columnIndex < columnWidths.length)
+					{
+						columnWidth = columnWidths[columnIndex];
+					}
+					else
+					{
+						break;
+					}
 				}
+				doLayoutColumnWidth(columnIndex, columnWidth, columnMinimumWidth, columnMaximumWidth, columnGap);
 			}
-			doLayoutColumnWidth(columnIndex, columnWidth, columnMinimumWidth, columnMaximumWidth, columnGap);
 		}
 		
-		int rowCount = table.getRowCount();
-		for (int rowIndex = 0; rowIndex < rowCount; rowIndex++)
-		{
-			int rowHeight = IGNORE;
-			if (rowHeights == null)
+		if (layoutMode.equals(ROW_COLUMN_LAYOUT_MODE) || layoutMode.equals(ROW_LAYOUT_MODE))
+		{	
+			int rowCount = table.getRowCount();
+			for (int rowIndex = 0; rowIndex < rowCount; rowIndex++)
 			{
-				rowHeight = PREFERRED;
-			}
-			else
-			{
-				if (rowIndex < rowHeights.length)
+				int rowHeight = IGNORE;
+				if (rowHeights == null)
 				{
-					rowHeight = rowHeights[rowIndex];
+					rowHeight = PREFERRED;
 				}
 				else
 				{
-					break;
+					if (rowIndex < rowHeights.length)
+					{
+						rowHeight = rowHeights[rowIndex];
+					}
+					else
+					{
+						break;
+					}
 				}
+				doLayoutRowHeight(rowIndex, rowHeight, rowMinimumHeight, rowMaximumHeight, rowGap);
 			}
-			doLayoutRowHeight(rowIndex, rowHeight, rowMinimumHeight, rowMaximumHeight, rowGap);
 		}
 	}
 	
