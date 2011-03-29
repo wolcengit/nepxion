@@ -14,6 +14,7 @@ import java.awt.Component;
 
 import javax.swing.JTable;
 import javax.swing.table.JTableHeader;
+import javax.swing.table.TableCellRenderer;
 import javax.swing.table.TableColumn;
 
 public class TableCellRendererLayout
@@ -210,10 +211,16 @@ public class TableCellRendererLayout
 			
 			for (int rowIndex = 0; rowIndex < rowCount; rowIndex++)
 			{
-				Component cellRenderer = table.getCellRenderer(rowIndex, columnIndex).getTableCellRendererComponent(table, table.getValueAt(rowIndex, columnIndex), false, false, rowIndex, columnIndex);
-				
-				int cellRendererWidth = (int) cellRenderer.getPreferredSize().getWidth();
-				width = Math.max(cellRendererWidth, width);
+				TableCellRenderer tableCellRenderer = table.getCellRenderer(rowIndex, columnIndex);
+				if (tableCellRenderer != null)
+				{	
+					Component cellRenderer = tableCellRenderer.getTableCellRendererComponent(table, table.getValueAt(rowIndex, columnIndex), false, false, rowIndex, columnIndex);
+					if (cellRenderer != null)
+					{	
+						int cellRendererWidth = (int) cellRenderer.getPreferredSize().getWidth();
+						width = Math.max(cellRendererWidth, width);
+					}
+				}
 			}
 			
 			if (columnMinimumWidth > 0 && columnMinimumWidth > width)
@@ -242,11 +249,18 @@ public class TableCellRendererLayout
 			
 			for (int columnIndex = 0; columnIndex < columnCount; columnIndex++)
 			{
-				Component cellRenderer = table.getCellRenderer(rowIndex, columnIndex).getTableCellRendererComponent(table, table.getValueAt(rowIndex, columnIndex), false, false, rowIndex, columnIndex);
-				int cellRendererHeight = (int) cellRenderer.getPreferredSize().getHeight();
-				if (height < cellRendererHeight)
-				{
-					height = cellRendererHeight;
+				TableCellRenderer tableCellRenderer = table.getCellRenderer(rowIndex, columnIndex);
+				if (tableCellRenderer != null)
+				{	
+					Component cellRenderer = tableCellRenderer.getTableCellRendererComponent(table, table.getValueAt(rowIndex, columnIndex), false, false, rowIndex, columnIndex);
+					if (cellRenderer != null)
+					{	
+						int cellRendererHeight = (int) cellRenderer.getPreferredSize().getHeight();
+						if (height < cellRendererHeight)
+						{
+							height = cellRendererHeight;
+						}
+					}
 				}
 			}
 			
