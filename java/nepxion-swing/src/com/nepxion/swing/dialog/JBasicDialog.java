@@ -142,6 +142,7 @@ public class JBasicDialog
 				public void displayAbilityChanged(HierarchyEvent e)
 				{
 					setDimension(getContentPane().getPreferredSize());
+					
 					removeHierarchyListener(this);
 				}
 			}

@@ -129,7 +129,7 @@ public interface ITree
 	
 	public void update(TreeNode treeNode);
 	
-	public void executeSelection(TreeNode treeNode);
+	public void executeSelection(TreeNode oldSelectionTreeNode, TreeNode newSelectionTreeNode);
 	
 	public void executeClicked(TreeNode treeNode, MouseEvent e);
 	

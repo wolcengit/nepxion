@@ -339,18 +339,18 @@ public class JCheckBoxTree
 		TreeManager.update(this, treeNode);
 	}
 	
-	public void valueChanged(TreeSelectionEvent evt)
+	public void valueChanged(TreeSelectionEvent e)
 	{
-		TreeNode treeNode = getSelectionTreeNode();
-		if (treeNode == null)
-		{
-			return;
-		}
+		TreePath oldSelectionPath = e.getOldLeadSelectionPath();
+		TreePath newSelectionPath = e.getNewLeadSelectionPath();
 		
-		executeSelection(treeNode);
+		TreeNode oldSelectionTreeNode = TreeManager.getTreeNode(oldSelectionPath);
+		TreeNode newSelectionTreeNode = TreeManager.getTreeNode(newSelectionPath);
+		
+		executeSelection(oldSelectionTreeNode, newSelectionTreeNode);
 	}
 	
-	public void executeSelection(TreeNode treeNode)
+	public void executeSelection(TreeNode oldSelectionTreeNode, TreeNode newSelectionTreeNode)
 	{
 		
 	}
