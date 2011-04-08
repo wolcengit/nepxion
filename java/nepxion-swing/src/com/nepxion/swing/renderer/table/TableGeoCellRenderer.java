@@ -13,15 +13,14 @@ package com.nepxion.swing.renderer.table;
 import java.awt.Color;
 import java.awt.Component;
 
-import javax.swing.JLabel;
 import javax.swing.JTable;
-import javax.swing.table.TableCellRenderer;
+import javax.swing.table.DefaultTableCellRenderer;
 
 import com.nepxion.swing.element.IElementNode;
 import com.nepxion.swing.icon.paint.GeoCellIcon;
 
 public class TableGeoCellRenderer
-	extends JLabel implements TableCellRenderer
+	extends DefaultTableCellRenderer
 {
 	public TableGeoCellRenderer(int cellAlignment)
 	{
@@ -31,12 +30,11 @@ public class TableGeoCellRenderer
 	
 	public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column)
 	{
+		super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
+		
 		IElementNode elementNode = (IElementNode) value;
 		Color color = (Color) elementNode.getUserObject();
 		setIcon(new GeoCellIcon(elementNode.getIndex(), color));
-		setFont(table.getFont());
-		setBackground(isSelected ? table.getSelectionBackground() : table.getBackground());
-		setForeground(isSelected ? table.getSelectionForeground() : table.getForeground());
 		
 		return this;
 	}

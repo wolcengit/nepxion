@@ -13,14 +13,13 @@ package com.nepxion.swing.renderer.table;
 import java.awt.Color;
 import java.awt.Component;
 
-import javax.swing.JLabel;
 import javax.swing.JTable;
-import javax.swing.table.TableCellRenderer;
+import javax.swing.table.DefaultTableCellRenderer;
 
 import com.nepxion.swing.border.LineBorder;
 
 public class TableColorCellRenderer
-	extends JLabel implements TableCellRenderer
+	extends DefaultTableCellRenderer
 {
 	public TableColorCellRenderer(int cellAlignment)
 	{
@@ -31,10 +30,10 @@ public class TableColorCellRenderer
 	
 	public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column)
 	{
+		super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
+		
 		Color color = (Color) value;
 		setBackground(color);
-		setFont(table.getFont());
-		setForeground(isSelected ? table.getSelectionForeground() : table.getForeground());
 		
 		return this;
 	}

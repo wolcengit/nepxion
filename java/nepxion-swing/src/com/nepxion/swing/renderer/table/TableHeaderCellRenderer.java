@@ -12,16 +12,15 @@ package com.nepxion.swing.renderer.table;
 
 import java.awt.Component;
 
-import javax.swing.JLabel;
 import javax.swing.JTable;
 import javax.swing.UIManager;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.JTableHeader;
-import javax.swing.table.TableCellRenderer;
 
 import com.nepxion.swing.element.IElementNode;
 
 public class TableHeaderCellRenderer
-	extends JLabel implements TableCellRenderer
+	extends DefaultTableCellRenderer
 {	
 	public TableHeaderCellRenderer(JTableHeader header, IElementNode elementNode, int cellAlignment)
 	{		
@@ -40,6 +39,8 @@ public class TableHeaderCellRenderer
 	
 	public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column)
 	{
+		super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
+		
 		return this;
 	}
 }
