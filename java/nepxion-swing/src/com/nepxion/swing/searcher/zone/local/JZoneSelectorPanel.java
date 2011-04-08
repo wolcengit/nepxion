@@ -18,11 +18,10 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import com.nepxion.swing.button.ButtonManager;
-import com.nepxion.swing.editor.table.ITableCellEditorPane;
 import com.nepxion.swing.textfield.number.JNumberTextField;
 
 public class JZoneSelectorPanel
-	extends JPanel implements ITableCellEditorPane
+	extends JPanel
 {
 	private JNumberTextField textField;
 	private JZoneSelectorButton button;
