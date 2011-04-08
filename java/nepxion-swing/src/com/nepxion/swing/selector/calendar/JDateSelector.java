@@ -19,6 +19,7 @@ import javax.swing.JSpinner;
 
 import com.nepxion.swing.font.FontContext;
 import com.nepxion.swing.icon.IconFactory;
+import com.nepxion.swing.locale.SwingLocale;
 import com.nepxion.swing.popupmenu.PopupMenuManager;
 import com.toedter.calendar.IDateEditor;
 import com.toedter.calendar.JCalendar;
@@ -80,12 +81,13 @@ public class JDateSelector
 	{
 		setFont(FontContext.getFont());
 		
-		JButton CalendarButton = getCalendarButton();
+		JButton calendarButton = getCalendarButton();
 		
 		Icon calendarIcon = IconFactory.getSwingIcon("date.png");
-		CalendarButton.setIcon(calendarIcon);
+		calendarButton.setIcon(calendarIcon);
+		calendarButton.setToolTipText(SwingLocale.getString("select_date_time"));
 		
-		CalendarManager.setPreferenceStyle(CalendarButton);
+		CalendarManager.setPreferenceStyle(calendarButton);
 		
 		JSpinner spinner = (JSpinner) getJCalendar().getYearChooser().getSpinner();
 		CalendarManager.setPreferenceStyle(spinner);
