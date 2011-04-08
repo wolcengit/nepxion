@@ -20,6 +20,12 @@ import com.nepxion.swing.locale.SwingLocale;
 public class TableBooleanCellRenderer
 	extends DefaultTableCellRenderer
 {
+	public TableBooleanCellRenderer(int cellAlignment)
+	{
+		setHorizontalAlignment(cellAlignment);
+		setOpaque(true);
+	}
+	
 	public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column)
 	{
 		super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);

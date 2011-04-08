@@ -22,8 +22,9 @@ import com.nepxion.swing.border.LineBorder;
 public class TableColorCellRenderer
 	extends JLabel implements TableCellRenderer
 {
-	public TableColorCellRenderer()
+	public TableColorCellRenderer(int cellAlignment)
 	{
+		setHorizontalAlignment(cellAlignment);
 		setOpaque(true);
 		setBorder(new LineBorder(Color.black));
 	}

@@ -23,8 +23,9 @@ import com.nepxion.swing.icon.paint.GeoCellIcon;
 public class TableGeoCellRenderer
 	extends JLabel implements TableCellRenderer
 {
-	public TableGeoCellRenderer()
+	public TableGeoCellRenderer(int cellAlignment)
 	{
+		setHorizontalAlignment(cellAlignment);
 		setOpaque(true);
 	}
 	

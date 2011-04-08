@@ -18,6 +18,12 @@ import javax.swing.table.DefaultTableCellRenderer;
 public class TablePasswordCellRenderer
 	extends DefaultTableCellRenderer
 {
+	public TablePasswordCellRenderer(int cellAlignment)
+	{
+		setHorizontalAlignment(cellAlignment);
+		setOpaque(true);
+	}
+	
 	public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column)
 	{
 		super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);

@@ -27,13 +27,13 @@ public class TableRowHeaderCellRenderer
 	
 	public TableRowHeaderCellRenderer(JTable table)
 	{
-      header = table.getTableHeader();
-      setOpaque(true);
-      setBorder(UIManager.getBorder("TableHeader.cellBorder"));
-      /*setHorizontalAlignment(CENTER);*/
-      setForeground(header.getForeground());
-      setBackground(header.getBackground());
-      setFont(header.getFont());		
+		header = table.getTableHeader();
+		setOpaque(true);
+		setBorder(UIManager.getBorder("TableHeader.cellBorder"));
+		/* setHorizontalAlignment(CENTER); */
+		setForeground(header.getForeground());
+		setBackground(header.getBackground());
+		setFont(header.getFont());
 	}
 	
 	public Component getListCellRendererComponent(JList list, Object value, int index, boolean isSelected, boolean cellHasFocus)

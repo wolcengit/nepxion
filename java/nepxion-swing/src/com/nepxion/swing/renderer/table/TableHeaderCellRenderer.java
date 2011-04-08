@@ -22,18 +22,20 @@ import com.nepxion.swing.element.IElementNode;
 
 public class TableHeaderCellRenderer
 	extends JLabel implements TableCellRenderer
-{
-	public TableHeaderCellRenderer(JTableHeader header, IElementNode elementNode)
-	{
-		setOpaque(true);
-		setText(elementNode.getText());
-		setIcon(elementNode.getIcon());
-		setToolTipText(elementNode.getToolTipText());
-		setBorder(UIManager.getBorder("TableHeader.cellBorder"));
-		setHorizontalAlignment(CENTER);
+{	
+	public TableHeaderCellRenderer(JTableHeader header, IElementNode elementNode, int cellAlignment)
+	{		
 		setForeground(header.getForeground());
 		setBackground(header.getBackground());
 		setFont(header.getFont());
+		
+		setText(elementNode.getText());
+		setIcon(elementNode.getIcon());
+		setToolTipText(elementNode.getToolTipText());
+		
+		setHorizontalAlignment(cellAlignment);
+		setOpaque(true);
+		setBorder(UIManager.getBorder("TableHeader.cellBorder"));
 	}
 	
 	public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column)
