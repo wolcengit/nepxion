@@ -64,6 +64,7 @@ public class NeteaseMobileTableModel
 				entity.setCity(value.toString());
 				break;
 		}
+		
 		fireTableDataChanged();
 	}
 }

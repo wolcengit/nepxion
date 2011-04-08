@@ -69,6 +69,7 @@ public class NeteaseIDTableModel
 				entity.setGender(value.toString());
 				break;
 		}
+		
 		fireTableDataChanged();
 	}
 }

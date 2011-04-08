@@ -84,6 +84,7 @@ public class GeoTableModel
 				entity.setEastLongitude(Double.parseDouble(value.toString()));
 				break;
 		}
+		
 		fireTableDataChanged();
 	}
 }

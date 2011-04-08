@@ -93,6 +93,7 @@ public class LocTableModel
 				entity.setPostalCode(value.toString());
 				break;
 		}
+		
 		fireTableDataChanged();
 	}
 }

@@ -84,6 +84,7 @@ public class LocatingMobileTableModel
 				entity.setCard(value.toString());
 				break;
 		}
+		
 		fireTableDataChanged();
 	}
 }

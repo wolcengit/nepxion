@@ -102,24 +102,28 @@ public abstract class BasicTableModel
 	public void addRow(Object rowData)
 	{
 		rowDatas.add(rowData);
+		
 		fireTableDataChanged();
 	}
 	
 	public void addRow(Object rowData, int row)
 	{
 		rowDatas.add(row, rowData);
+		
 		fireTableDataChanged();
 	}
 	
 	public void addRows(List rowDataList)
 	{
 		rowDatas.addAll(rowDataList);
+		
 		fireTableDataChanged();
 	}
 	
 	public void addRows(List rowDataList, int row)
 	{
 		rowDatas.addAll(row, rowDataList);
+		
 		fireTableDataChanged();
 	}
 	
@@ -127,18 +131,21 @@ public abstract class BasicTableModel
 	{
 		rowDatas.remove(row);
 		rowDatas.add(row, rowData);
+		
 		fireTableDataChanged();
 	}
 	
 	public void deleteRow(int row)
 	{
 		rowDatas.remove(row);
+		
 		fireTableDataChanged();
 	}
 	
 	public void deleteRow(Object rowData)
 	{
 		rowDatas.remove(rowData);
+		
 		fireTableDataChanged();
 	}
 	
@@ -157,6 +164,7 @@ public abstract class BasicTableModel
 	public void deleteRows(List rowDataList)
 	{
 		rowDatas.removeAll(rowDataList);
+		
 		fireTableDataChanged();
 	}
 	
@@ -185,6 +193,7 @@ public abstract class BasicTableModel
 	public void clearRows()
 	{
 		rowDatas.clear();
+		
 		fireTableDataChanged();
 	}
 }
