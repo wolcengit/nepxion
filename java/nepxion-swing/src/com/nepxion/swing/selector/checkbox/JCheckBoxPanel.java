@@ -57,6 +57,7 @@ public class JCheckBoxPanel
 			}
 		}
 		selectionList.setCellRenderer(new ListCheckBoxCellRenderer(selectionList, 22));
+		
 		getViewport().add(selectionList);
 	}
 	
@@ -87,7 +88,7 @@ public class JCheckBoxPanel
 		return selectionList;
 	}
 	
-	public void setSelections()
+	private void adaptSelections()
 	{
 		selectedElementNodes = new ArrayList();
 		selectedUserObjects = new ArrayList();
@@ -105,14 +106,14 @@ public class JCheckBoxPanel
 	
 	public List getSelections()
 	{
-		setSelections();
+		adaptSelections();
 		
 		return selectedElementNodes;
 	}
 	
 	public List getSelectedUserObjects()
 	{
-		setSelections();
+		adaptSelections();
 		
 		return selectedUserObjects;
 	}
