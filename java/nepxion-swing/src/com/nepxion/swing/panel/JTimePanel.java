@@ -247,25 +247,25 @@ public class JTimePanel
 		}
 		if (hourTextField.isVisible() && hourTextField.getText().equals(""))
 		{
-			JBasicOptionPane.showMessageDialog(HandleManager.getFrame(this), SwingLocale.getString("hour_description"), SwingLocale.getString("error"), JBasicOptionPane.ERROR_MESSAGE);
+			JBasicOptionPane.showMessageDialog(HandleManager.getFrame(this), SwingLocale.getString("hour_description"), SwingLocale.getString("warning"), JBasicOptionPane.WARNING_MESSAGE);
 			
 			return false;
 		}
 		if (minuteTextField.isVisible() && minuteTextField.getText().equals(""))
 		{
-			JBasicOptionPane.showMessageDialog(HandleManager.getFrame(this), SwingLocale.getString("minute_description"), SwingLocale.getString("error"), JBasicOptionPane.ERROR_MESSAGE);
+			JBasicOptionPane.showMessageDialog(HandleManager.getFrame(this), SwingLocale.getString("minute_description"), SwingLocale.getString("warning"), JBasicOptionPane.WARNING_MESSAGE);
 			
 			return false;
 		}
 		if (secondTextField.isVisible() && secondTextField.getText().equals(""))
 		{
-			JBasicOptionPane.showMessageDialog(HandleManager.getFrame(this), SwingLocale.getString("second_description"), SwingLocale.getString("error"), JBasicOptionPane.ERROR_MESSAGE);
+			JBasicOptionPane.showMessageDialog(HandleManager.getFrame(this), SwingLocale.getString("second_description"), SwingLocale.getString("warning"), JBasicOptionPane.WARNING_MESSAGE);
 			
 			return false;
 		}
 		if (milliSecondTextField.isVisible() && milliSecondTextField.getText().equals(""))
 		{
-			JBasicOptionPane.showMessageDialog(HandleManager.getFrame(this), SwingLocale.getString("millisecond_description"), SwingLocale.getString("error"), JBasicOptionPane.ERROR_MESSAGE);
+			JBasicOptionPane.showMessageDialog(HandleManager.getFrame(this), SwingLocale.getString("millisecond_description"), SwingLocale.getString("warning"), JBasicOptionPane.WARNING_MESSAGE);
 			
 			return false;
 		}
