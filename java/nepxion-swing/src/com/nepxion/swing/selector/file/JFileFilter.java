@@ -11,17 +11,17 @@ package com.nepxion.swing.selector.file;
  */
 
 import java.io.File;
-import java.util.Collection;
+import java.util.List;
 
 import javax.swing.filechooser.FileFilter;
 
 public class JFileFilter
 	extends FileFilter
 {
-	private Collection filterWords;
+	private List filterWords;
 	private String filterDescription;
 	
-	public JFileFilter(Collection filterWords, String filterDescription)
+	public JFileFilter(List filterWords, String filterDescription)
 	{
 		this.filterWords = filterWords;
 		this.filterDescription = filterDescription;
@@ -42,7 +42,7 @@ public class JFileFilter
 		return accept;
 	}
 	
-	public Collection getWords()
+	public List getWords()
 	{
 		return filterWords;
 	}

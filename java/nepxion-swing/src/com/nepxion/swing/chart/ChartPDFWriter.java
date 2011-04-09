@@ -11,7 +11,7 @@ package com.nepxion.swing.chart;
  */
 
 import java.io.IOException;
-import java.util.Collection;
+import java.util.List;
 
 import javax.swing.SwingUtilities;
 
@@ -33,7 +33,7 @@ public class ChartPDFWriter
 	{
 		this.chartPanel = chartPanel;
 		
-		Collection filterWords = CollectionUtil.parseList(new String[] {"pdf"});
+		List filterWords = CollectionUtil.parseList(new String[] {"pdf"});
 		String filterDescription = "PDF " + SwingLocale.getString("document") + " (*.pdf)";
 		JFileFilter filterFilter = new JFileFilter(filterWords, filterDescription);
 		
