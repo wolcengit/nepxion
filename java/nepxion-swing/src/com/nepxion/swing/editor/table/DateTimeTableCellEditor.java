@@ -32,6 +32,11 @@ public class DateTimeTableCellEditor
 		dateTimeSelector = new JDateTimeSelector(null, dateFormatString, dateEditor);
 	}
 	
+	public DateTimeTableCellEditor(JDateTimeSelector dateTimeSelector)
+	{
+		this.dateTimeSelector = dateTimeSelector;
+	}
+	
 	public boolean isCellEditable(EventObject e)
 	{
 		if (e instanceof MouseEvent)

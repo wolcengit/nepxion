@@ -42,6 +42,11 @@ public class ZoneTableCellEditor
 		menuButton.setShowArrow(false);
 	}
 	
+	public ZoneTableCellEditor(JZoneSelectorPanel zoneSelectorPanel)
+	{
+		this.zoneSelectorPanel = zoneSelectorPanel;
+	}
+	
 	public boolean isCellEditable(EventObject e)
 	{
 		if (e instanceof MouseEvent)
