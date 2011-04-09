@@ -35,6 +35,7 @@ public class JClassicMenuButton
 	
 	protected JPopupMenu popupMenu;
 	
+	protected boolean isShowArrow = true;
 	protected boolean isShowArrowRight = true;
 
 	public JClassicMenuButton()
@@ -117,6 +118,11 @@ public class JClassicMenuButton
 	
 	private void adaptDimension()
 	{
+		if (!isShowArrow)
+		{
+			return;
+		}	
+		
 		if (!isShowArrowRight)
 		{
 			return;
@@ -149,6 +155,16 @@ public class JClassicMenuButton
 	{
 		this.popupMenu = popupMenu;
 		this.popupMenu.addPopupMenuListener(this);
+	}
+	
+	public boolean isShowArrow()
+	{
+		return isShowArrow;
+	}
+
+	public void setShowArrow(boolean isShowArrow)
+	{
+		this.isShowArrow = isShowArrow;
 	}
 	
 	public boolean isShowArrowRight()
@@ -212,23 +228,26 @@ public class JClassicMenuButton
 	{
 		super.paint(g);
 		
-		ButtonModel buttonModel = getModel();
-		if (!buttonModel.isEnabled())
+		if (isShowArrow)
 		{
-			g.setColor(UIManager.getColor("controlShadow"));
-		}
-		
-		if (isShowArrowRight)
-		{	
-			g.drawLine(getWidth() - 6 - 5, getHeight() / 2 - 1, getWidth() - 6 - 1, getHeight() / 2 - 1);
-			g.drawLine(getWidth() - 6 - 4, getHeight() / 2, getWidth() - 6 - 2, getHeight() / 2);
-			g.drawLine(getWidth() - 6 - 3, getHeight() / 2 + 1, getWidth() - 6 - 3, getHeight() / 2 + 1);
-		}
-		else
-		{
-			g.drawLine(getWidth() / 2 - 1, getHeight() - 6 - 3, getWidth() / 2 + 3, getHeight() - 6 - 3);
-			g.drawLine(getWidth() / 2, getHeight() - 6 - 2, getWidth() / 2 + 2, getHeight() - 6 - 2);
-			g.drawLine(getWidth() / 2 + 1, getHeight() - 6 - 1, getWidth() / 2 + 1, getHeight() - 6 - 1);
+			ButtonModel buttonModel = getModel();
+			if (!buttonModel.isEnabled())
+			{
+				g.setColor(UIManager.getColor("controlShadow"));
+			}
+			
+			if (isShowArrowRight)
+			{	
+				g.drawLine(getWidth() - 6 - 5, getHeight() / 2 - 1, getWidth() - 6 - 1, getHeight() / 2 - 1);
+				g.drawLine(getWidth() - 6 - 4, getHeight() / 2, getWidth() - 6 - 2, getHeight() / 2);
+				g.drawLine(getWidth() - 6 - 3, getHeight() / 2 + 1, getWidth() - 6 - 3, getHeight() / 2 + 1);
+			}
+			else
+			{
+				g.drawLine(getWidth() / 2 - 1, getHeight() - 6 - 3, getWidth() / 2 + 3, getHeight() - 6 - 3);
+				g.drawLine(getWidth() / 2, getHeight() - 6 - 2, getWidth() / 2 + 2, getHeight() - 6 - 2);
+				g.drawLine(getWidth() / 2 + 1, getHeight() - 6 - 1, getWidth() / 2 + 1, getHeight() - 6 - 1);
+			}
 		}
 	}
 }

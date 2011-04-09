@@ -41,7 +41,7 @@ public class CalendarManager
 	{
 		if (LookAndFeelManager.isNimbusLookAndFeel())
 		{
-			DimensionManager.setDimension(button, new Dimension(29, 29));
+			DimensionManager.setDimension(button, new Dimension(26, 26));
 		}
 	}
 	

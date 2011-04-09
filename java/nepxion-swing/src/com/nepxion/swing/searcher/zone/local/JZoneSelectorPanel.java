@@ -10,10 +10,11 @@ package com.nepxion.swing.searcher.zone.local;
  * @version 1.0
  */
 
+import java.awt.BorderLayout;
 import java.awt.Dimension;
 
 import javax.swing.AbstractButton;
-import javax.swing.BoxLayout;
+import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
@@ -24,34 +25,62 @@ public class JZoneSelectorPanel
 	extends JPanel
 {
 	private JNumberTextField textField;
-	private JZoneSelectorButton button;
+	private JButton button;
 	
 	private int maximumLength = 12;
 	
 	public JZoneSelectorPanel()
 	{
-		this("");
+		this(false);
+	}
+	
+	public JZoneSelectorPanel(boolean isClassicStyle)
+	{
+		this("", isClassicStyle);
 	}
 	
 	public JZoneSelectorPanel(String value)
 	{
-		this(value, 12);
+		this(value, false);
+	}
+	
+	public JZoneSelectorPanel(String value, boolean isClassicStyle)
+	{
+		this(value, 12, isClassicStyle);
 	}
 	
 	public JZoneSelectorPanel(int maximumLength)
 	{
-		this("", maximumLength);
+		this(maximumLength, false);
+	}
+	
+	public JZoneSelectorPanel(int maximumLength, boolean isClassicStyle)
+	{
+		this("", maximumLength, isClassicStyle);
 	}
 	
 	public JZoneSelectorPanel(String value, int maximumLength)
 	{
+		this(value, maximumLength, false);
+	}
+	
+	public JZoneSelectorPanel(String value, int maximumLength, boolean isClassicStyle)
+	{
 		textField = new JNumberTextField(maximumLength, 0);
 		
-		button = new JZoneSelectorButton(textField);
+		if (isClassicStyle)
+		{
+			button = new JZoneSelectorClassicButton(textField);
+		}
+		else
+		{
+			button = new JZoneSelectorBasicButton(textField);
+			
+		}
 		
-		setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-		add(textField);
-		add(button);
+		setLayout(new BorderLayout());
+		add(textField, BorderLayout.CENTER);
+		add(button, BorderLayout.EAST);
 		
 		ButtonManager.updateUI(this, new Dimension(26, 22));
 		
