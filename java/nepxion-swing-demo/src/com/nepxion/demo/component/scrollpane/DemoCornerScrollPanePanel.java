@@ -23,6 +23,7 @@ import com.nepxion.swing.button.JBasicButton;
 import com.nepxion.swing.button.JBasicToggleButton;
 import com.nepxion.swing.icon.IconFactory;
 import com.nepxion.swing.scrollpane.JCornerScrollPane;
+import com.nepxion.swing.textarea.JBasicTextArea;
 
 public class DemoCornerScrollPanePanel
 	extends JPanel
@@ -59,7 +60,7 @@ public class DemoCornerScrollPanePanel
 			bottomToolBar.add(new JBasicButton(IconFactory.getContextIcon("scroll_down.png")));
 			ButtonManager.updateUI(bottomToolBar, new Dimension(18, 18));
 			
-			JCornerScrollPane cornerScrollPane = new JCornerScrollPane();
+			JCornerScrollPane cornerScrollPane = new JCornerScrollPane(new JBasicTextArea());
 			cornerScrollPane.setHorizontalScrollBarPolicy(JCornerScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
 			cornerScrollPane.setVerticalScrollBarPolicy(JCornerScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 			cornerScrollPane.setScrollBarCorner(JCornerScrollPane.HORIZONTAL_LEADING, leadingToolBar);
