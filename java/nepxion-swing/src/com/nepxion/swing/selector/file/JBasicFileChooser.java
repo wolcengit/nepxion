@@ -15,16 +15,22 @@ import java.awt.Container;
 import java.awt.HeadlessException;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
 import java.io.File;
+import java.util.List;
 
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JFileChooser;
 import javax.swing.JRootPane;
+import javax.swing.filechooser.FileFilter;
 import javax.swing.filechooser.FileSystemView;
 import javax.swing.plaf.FileChooserUI;
 import javax.swing.plaf.basic.BasicFileChooserUI;
+import javax.swing.text.JTextComponent;
 
+import com.nepxion.swing.listener.SelectionListener;
 import com.nepxion.swing.locale.SwingLocale;
 import com.nepxion.swing.optionpane.JBasicOptionPane;
 
@@ -81,6 +87,7 @@ public class JBasicFileChooser
 	{
 		dialog = super.createDialog(parent);
 		
+		verifyFileFilterComboBox();
 		verifyApprovalButton();
 		
 		return dialog;
@@ -99,6 +106,38 @@ public class JBasicFileChooser
 				dialog.setVisible(true);
 			}
 		}
+	}
+	
+	public void verifyFileFilterComboBox()
+	{		
+		Container container = (Container) getComponent(getComponentCount() - 1);
+		
+		Container textFieldContainer = (Container) container.getComponent(0);
+		Component textFieldComponent = textFieldContainer.getComponent(textFieldContainer.getComponentCount() - 1);
+		
+		Container comboBoxContainer = (Container) container.getComponent(container.getComponentCount() - 2);
+		Component comboBoxComponent = comboBoxContainer.getComponent(1);
+		
+		if (comboBoxComponent instanceof JComboBox && textFieldComponent instanceof JTextComponent)
+		{
+			final JTextComponent textField = (JTextComponent) textFieldComponent;
+			JComboBox comboBox = (JComboBox) comboBoxComponent;
+			comboBox.addItemListener(new SelectionListener()
+			{
+				public void itemSelectionStateChanged(ItemEvent e)
+				{
+					String fileName = textField.getText();
+					if (fileName.lastIndexOf(".") > -1)
+					{	
+						fileName = fileName.substring(0, fileName.lastIndexOf("."));
+					}
+					
+					String fileSuffix = getFileSuffix();					
+					textField.setText(fileSuffix != null ? fileName + "." + fileSuffix : fileName);
+				}
+			}
+			);
+		}	
 	}
 	
 	public void verifyApprovalButton()
@@ -142,7 +181,20 @@ public class JBasicFileChooser
 		return parentComponent;
 	}
 	
-	private String getType()
+	public String getFileSuffix()
+	{
+		FileFilter fileFilter = getFileFilter();
+		if (fileFilter instanceof JFileFilter)
+		{	
+			List filterWords = ((JFileFilter) fileFilter).getWords();
+		
+			return filterWords.get(0).toString();
+		}
+		
+		return null;
+	}
+	
+	public String getType()
 	{
 		String type = null;
 		

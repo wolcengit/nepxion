@@ -13,7 +13,6 @@ package com.nepxion.swing.selector.file;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.io.File;
-import java.util.List;
 
 import javax.swing.filechooser.FileFilter;
 import javax.swing.filechooser.FileSystemView;
@@ -107,10 +106,7 @@ public class JFileSelector
 	
 	public String getFileSuffix()
 	{
-		JFileFilter fileFilter = (JFileFilter) getFileFilter();
-		List filterWords = fileFilter.getWords();
-		
-		return filterWords.get(0).toString();
+		return fileChooser.getFileSuffix();
 	}
 	
 	public JBasicFileChooser getChooser()
@@ -123,6 +119,12 @@ public class JFileSelector
 		fileChooser.setFileSelectionMode(FILES_ONLY);
 		if (fileName != null)
 		{
+			String fileSuffix = getFileSuffix();
+			if (fileSuffix != null)
+			{
+				fileName += "." + fileSuffix;
+			}	
+
 			fileChooser.setSelectedFile(new File(fileName));
 		}
 		int returnValue = fileChooser.showSaveDialog(fileChooser.getParentComponent());
