@@ -30,6 +30,7 @@ import com.nepxion.swing.icon.IconFactory;
 import com.nepxion.swing.keystroke.KeyStrokeManager;
 import com.nepxion.swing.layout.table.TableLayout;
 import com.nepxion.swing.locale.SwingLocale;
+import com.nepxion.swing.optionpane.JBasicOptionPane;
 
 public class JRadioButtonSelector
 	extends JBasicDialog
@@ -97,6 +98,14 @@ public class JRadioButtonSelector
 		{
 			public void actionPerformed(ActionEvent e)
 			{
+				Object selection = radioButtonPanel.getSelection();
+				if (selection == null)
+				{
+					JBasicOptionPane.showMessageDialog(JRadioButtonSelector.this, SwingLocale.getString("select_not_null"), SwingLocale.getString("warning"), JBasicOptionPane.WARNING_MESSAGE);
+					
+					return;
+				}	
+				
 				setVisible(false);
 				isConfirmed = true;
 			}
@@ -123,6 +132,7 @@ public class JRadioButtonSelector
 			{TableLayout.FILL, TableLayout.PREFERRED, 5, TableLayout.PREFERRED, TableLayout.FILL}, 
 			{TableLayout.FILL, 5, 30}
 		};
+		
 		JPanel panel = new JPanel();
 		panel.setLayout(new TableLayout(size));
 		panel.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
