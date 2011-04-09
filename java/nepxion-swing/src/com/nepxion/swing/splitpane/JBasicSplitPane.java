@@ -57,6 +57,7 @@ public class JBasicSplitPane
 			public void displayAbilityChanged(HierarchyEvent e)
 			{
 				adaptDividerLocation();
+				
 				removeHierarchyListener(this);
 			}
 		}
