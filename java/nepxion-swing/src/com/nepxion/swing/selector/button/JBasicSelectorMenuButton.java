@@ -25,6 +25,7 @@ public abstract class JBasicSelectorMenuButton
 	extends JBasicMenuButton
 {
 	private JPanel container;
+	private JOptionButtonPanel optionButtonPanel;
 	
 	public JBasicSelectorMenuButton()
 	{
@@ -87,7 +88,7 @@ public abstract class JBasicSelectorMenuButton
 		final JDecorationPopupMenu popupMenu = new JDecorationPopupMenu();
 		setPopupMenu(popupMenu);
 		
-		JOptionButtonPanel optionButtonPanel = new JOptionButtonPanel(JOptionButtonPanel.YES_NO_OPTION)
+		optionButtonPanel = new JOptionButtonPanel(JOptionButtonPanel.YES_NO_OPTION)
 		{
 			public boolean confirm()
 			{
@@ -110,6 +111,11 @@ public abstract class JBasicSelectorMenuButton
 	public void setContentPane(Component component)
 	{
 		container.add(component, BorderLayout.CENTER);
+	}
+	
+	public JOptionButtonPanel getOptionButtonPanel()
+	{
+		return optionButtonPanel;
 	}
 	
 	public boolean doConfirm()
