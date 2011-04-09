@@ -14,7 +14,7 @@ import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
-import java.util.Collection;
+import java.util.List;
 
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
@@ -64,15 +64,15 @@ public class DemoActiveXPanel
 			{
 				public void actionPerformed(ActionEvent e)
 				{
-					Collection webFilterWords = CollectionUtil.parseList(new String[] {"html", "htm"});
+					List webFilterWords = CollectionUtil.parseList(new String[] {"html", "htm"});
 					String webFilterDescription = "Web File(*.html, *.htm)";
 					JFileFilter webFileFilter = new JFileFilter(webFilterWords, webFilterDescription);
 					
-					Collection htmlFilterWords = CollectionUtil.parseList(new String[] {"html"});
+					List htmlFilterWords = CollectionUtil.parseList(new String[] {"html"});
 					String htmlFilterDescription = "Web File(*.html)";
 					JFileFilter htmlFileFilter = new JFileFilter(htmlFilterWords, htmlFilterDescription);
 					
-					Collection htmFilterWords = CollectionUtil.parseList(new String[] {"htm"});
+					List htmFilterWords = CollectionUtil.parseList(new String[] {"htm"});
 					String htmFilterDescription = "Web File(*.htm)";
 					JFileFilter htmFileFilter = new JFileFilter(htmFilterWords, htmFilterDescription);
 					
@@ -132,7 +132,7 @@ public class DemoActiveXPanel
 			{
 				public void actionPerformed(ActionEvent e)
 				{
-					Collection filterWords = CollectionUtil.parseList(new String[] {"doc"});
+					List filterWords = CollectionUtil.parseList(new String[] {"doc"});
 					String filterDescription = "Word File(*.doc)";
 					JFileFilter fileFilter = new JFileFilter(filterWords, filterDescription);
 					
@@ -192,15 +192,15 @@ public class DemoActiveXPanel
 			{
 				public void actionPerformed(ActionEvent e)
 				{
-					Collection excelFilterWords = CollectionUtil.parseList(new String[] {"xls", "csv"});
+					List excelFilterWords = CollectionUtil.parseList(new String[] {"xls", "csv"});
 					String excelFilterDescription = "Excel File(*.xls, *.csv)";
 					JFileFilter excelFileFilter = new JFileFilter(excelFilterWords, excelFilterDescription);
 					
-					Collection xlsFilterWords = CollectionUtil.parseList(new String[] {"xls"});
+					List xlsFilterWords = CollectionUtil.parseList(new String[] {"xls"});
 					String xlsFilterDescription = "Excel File(*.xls)";
 					JFileFilter xlsFileFilter = new JFileFilter(xlsFilterWords, xlsFilterDescription);
 					
-					Collection csvFilterWords = CollectionUtil.parseList(new String[] {"csv"});
+					List csvFilterWords = CollectionUtil.parseList(new String[] {"csv"});
 					String csvFilterDescription = "Excel File(*.csv)";
 					JFileFilter csvFileFilter = new JFileFilter(csvFilterWords, csvFilterDescription);
 
@@ -265,7 +265,7 @@ public class DemoActiveXPanel
 			{
 				public void actionPerformed(ActionEvent e)
 				{
-					Collection filterWords = CollectionUtil.parseList(new String[] {"ppt"});
+					List filterWords = CollectionUtil.parseList(new String[] {"ppt"});
 					String filterDescription = "PowerPoint File(*.ppt)";
 					JFileFilter fileFilter = new JFileFilter(filterWords, filterDescription);
 					
