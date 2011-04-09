@@ -139,7 +139,7 @@ public abstract class JLoginDialog
 				
 				if (account.equals("") || password.equals(""))
 				{
-					JBasicOptionPane.showMessageDialog(JLoginDialog.this, SwingLocale.getString("login_not_null", locale), SwingLocale.getString("error", locale), JBasicOptionPane.ERROR_MESSAGE);
+					JBasicOptionPane.showMessageDialog(JLoginDialog.this, SwingLocale.getString("login_not_null", locale), SwingLocale.getString("warning", locale), JBasicOptionPane.WARNING_MESSAGE);
 					
 					return;
 				}
@@ -162,7 +162,7 @@ public abstract class JLoginDialog
 				}	
 				else
 				{
-					JBasicOptionPane.showMessageDialog(JLoginDialog.this, SwingLocale.getString("login_failure_validation", locale), SwingLocale.getString("error", locale), JBasicOptionPane.ERROR_MESSAGE);
+					JBasicOptionPane.showMessageDialog(JLoginDialog.this, SwingLocale.getString("login_failure_validation", locale), SwingLocale.getString("warning", locale), JBasicOptionPane.WARNING_MESSAGE);
 				}
 			}
 		}

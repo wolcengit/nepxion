@@ -241,7 +241,7 @@ public class JTimePanel
 	{
 		if (dayTextField.isVisible() && dayTextField.getText().equals(""))
 		{
-			JBasicOptionPane.showMessageDialog(HandleManager.getFrame(this), SwingLocale.getString("day_description"), SwingLocale.getString("error"), JBasicOptionPane.ERROR_MESSAGE);
+			JBasicOptionPane.showMessageDialog(HandleManager.getFrame(this), SwingLocale.getString("day_description"), SwingLocale.getString("warning"), JBasicOptionPane.WARNING_MESSAGE);
 			
 			return false;
 		}
