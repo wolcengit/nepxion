@@ -60,7 +60,7 @@ public class JRadioButtonPanel
 		return selectionList;
 	}
 	
-	public void setSelection()
+	private void adapterSelection()
 	{
 		ListModel listModel = selectionList.getModel();
 		for (int i = 0; i < listModel.getSize(); i++)
@@ -78,14 +78,14 @@ public class JRadioButtonPanel
 	
 	public IElementNode getSelection()
 	{
-		setSelection();
+		adapterSelection();
 		
 		return selectedElementNode;
 	}
 	
 	public Object getSelectedUserObject()
 	{
-		setSelection();
+		adapterSelection();
 		
 		return selectedUserObject;
 	}
