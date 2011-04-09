@@ -16,9 +16,9 @@ import java.awt.Dimension;
 import javax.swing.AbstractButton;
 import javax.swing.JButton;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
 
 import com.nepxion.swing.button.ButtonManager;
+import com.nepxion.swing.textfield.JBasicTextField;
 import com.nepxion.swing.textfield.number.JNumberTextField;
 
 public class JZoneSelectorPanel
@@ -87,7 +87,7 @@ public class JZoneSelectorPanel
 		setValue(value);
 	}
 	
-	public JTextField getTextField()
+	public JBasicTextField getTextField()
 	{
 		return textField;
 	}
