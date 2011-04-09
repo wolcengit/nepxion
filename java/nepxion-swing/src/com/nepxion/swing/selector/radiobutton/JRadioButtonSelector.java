@@ -35,7 +35,7 @@ import com.nepxion.swing.optionpane.JBasicOptionPane;
 public class JRadioButtonSelector
 	extends JBasicDialog
 {
-	private JRadioButtonPanel radioButtonPanel;
+	private JRadioButtonListPanel radioButtonListPanel;
 	
 	private List allElementNodes;
 	
@@ -91,14 +91,14 @@ public class JRadioButtonSelector
 	
 	private void initComponents()
 	{
-		radioButtonPanel = new JRadioButtonPanel(allElementNodes);
+		radioButtonListPanel = new JRadioButtonListPanel(allElementNodes);
 		
 		final JClassicButton confirmButton = new JClassicButton(SwingLocale.getString("yes"), IconFactory.getSwingIcon("stereo/confirm_16.png"), SwingLocale.getString("yes"));
 		ActionListener confirmActionListener = new ActionListener()
 		{
 			public void actionPerformed(ActionEvent e)
 			{
-				Object selection = radioButtonPanel.getSelection();
+				Object selection = radioButtonListPanel.getSelection();
 				if (selection == null)
 				{
 					JBasicOptionPane.showMessageDialog(JRadioButtonSelector.this, SwingLocale.getString("select_not_null"), SwingLocale.getString("warning"), JBasicOptionPane.WARNING_MESSAGE);
@@ -136,7 +136,7 @@ public class JRadioButtonSelector
 		JPanel panel = new JPanel();
 		panel.setLayout(new TableLayout(size));
 		panel.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
-		panel.add(radioButtonPanel, "0, 0, 4, 0");
+		panel.add(radioButtonListPanel, "0, 0, 4, 0");
 		panel.add(confirmButton, "1, 2");
 		panel.add(cancelButton, "3, 2");
 		
@@ -144,24 +144,24 @@ public class JRadioButtonSelector
 		container.add(panel);
 	}
 	
-	public JRadioButtonPanel getRadioButtonPanel()
+	public JRadioButtonListPanel getRadioButtonListPanel()
 	{
-		return radioButtonPanel;
+		return radioButtonListPanel;
 	}
 	
 	public JList getRadioButtonList()
 	{
-		return radioButtonPanel.getList();
+		return radioButtonListPanel.getList();
 	}
 	
 	public IElementNode getSelection()
 	{
-		return radioButtonPanel.getSelection();
+		return radioButtonListPanel.getSelection();
 	}
 	
 	public Object getSelectedUserObject()
 	{
-		return radioButtonPanel.getSelectedUserObject();
+		return radioButtonListPanel.getSelectedUserObject();
 	}
 	
 	public boolean isConfirmed()

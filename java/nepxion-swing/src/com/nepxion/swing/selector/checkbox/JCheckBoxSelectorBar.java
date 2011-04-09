@@ -37,7 +37,7 @@ public class JCheckBoxSelectorBar
 {
 	private JBasicTextField textField;
 	private ISelectorMenuButton menuButton;
-	private JCheckBoxPanel checkBoxPanel;
+	private JCheckBoxListPanel checkBoxListPanel;
 	
 	public JCheckBoxSelectorBar(List elementNodes)
 	{
@@ -49,8 +49,8 @@ public class JCheckBoxSelectorBar
 		textField = new JBasicTextField();
 		textField.setEditable(false);
 		
-		checkBoxPanel = new JCheckBoxPanel(elementNodes);
-		checkBoxPanel.setPreferredSize(new Dimension(300, 300));
+		checkBoxListPanel = new JCheckBoxListPanel(elementNodes);
+		checkBoxListPanel.setPreferredSize(new Dimension(300, 300));
 		
 		if (isClassicStyle)
 		{
@@ -82,7 +82,7 @@ public class JCheckBoxSelectorBar
 				}
 			};
 		}
-		menuButton.setContentPane(checkBoxPanel);
+		menuButton.setContentPane(checkBoxListPanel);
 		
 		JClassicButton refreshButton = new JClassicButton(SwingLocale.getString("refresh"), IconFactory.getSwingIcon("stereo/refresh_16.png"), SwingLocale.getString("refresh"));
 		refreshButton.addActionListener(new ActionListener()
@@ -100,7 +100,7 @@ public class JCheckBoxSelectorBar
 		{
 			public void actionPerformed(ActionEvent e)
 			{
-				checkBoxPanel.adaptListFacade(JCheckBoxPanel.SELECT_ALL);
+				checkBoxListPanel.adaptListFacade(JCheckBoxListPanel.SELECT_ALL);
 			}
 		}
 		);
@@ -111,7 +111,7 @@ public class JCheckBoxSelectorBar
 		{
 			public void actionPerformed(ActionEvent e)
 			{
-				checkBoxPanel.adaptListFacade(JCheckBoxPanel.SELECT_REVERSE);
+				checkBoxListPanel.adaptListFacade(JCheckBoxListPanel.SELECT_REVERSE);
 			}
 		}
 		);
@@ -131,7 +131,7 @@ public class JCheckBoxSelectorBar
 		
 	public boolean confirm()
 	{				
-		List selections = checkBoxPanel.getSelections();
+		List selections = checkBoxListPanel.getSelections();
 		if (selections == null || selections.size() == 0)
 		{
 			JBasicOptionPane.showMessageDialog(HandleManager.getFrame(this), SwingLocale.getString("select_not_null"), SwingLocale.getString("warning"), JBasicOptionPane.WARNING_MESSAGE);
@@ -166,9 +166,9 @@ public class JCheckBoxSelectorBar
 		return menuButton;
 	}
 	
-	public JCheckBoxPanel getCheckBoxPanel()
+	public JCheckBoxListPanel getCheckBoxListPanel()
 	{
-		return checkBoxPanel;
+		return checkBoxListPanel;
 	}
 	
 	public void setEnabled(boolean enabled)

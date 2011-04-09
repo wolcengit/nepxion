@@ -34,7 +34,7 @@ import com.nepxion.swing.optionpane.JBasicOptionPane;
 public class JCheckBoxSelector
 	extends JBasicDialog
 {
-	private JCheckBoxPanel checkBoxPanel;
+	private JCheckBoxListPanel checkBoxListPanel;
 	
 	private List allElementNodes;
 	
@@ -90,14 +90,14 @@ public class JCheckBoxSelector
 	
 	private void initComponents()
 	{
-		checkBoxPanel = new JCheckBoxPanel(allElementNodes);
+		checkBoxListPanel = new JCheckBoxListPanel(allElementNodes);
 		
 		JClassicButton selectAllButton = new JClassicButton(SwingLocale.getString("select_all"), IconFactory.getSwingIcon("stereo/redo_16.png"), SwingLocale.getString("select_all"));
 		selectAllButton.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent e)
 			{
-				checkBoxPanel.adaptListFacade(JCheckBoxPanel.SELECT_ALL);
+				checkBoxListPanel.adaptListFacade(JCheckBoxListPanel.SELECT_ALL);
 			}
 		}
 		);
@@ -107,7 +107,7 @@ public class JCheckBoxSelector
 		{
 			public void actionPerformed(ActionEvent e)
 			{
-				checkBoxPanel.adaptListFacade(JCheckBoxPanel.SELECT_REVERSE);
+				checkBoxListPanel.adaptListFacade(JCheckBoxListPanel.SELECT_REVERSE);
 			}
 		}
 		);
@@ -117,7 +117,7 @@ public class JCheckBoxSelector
 		{
 			public void actionPerformed(ActionEvent e)
 			{
-				List selections = checkBoxPanel.getSelections();
+				List selections = checkBoxListPanel.getSelections();
 				if (selections == null || selections.size() == 0)
 				{
 					JBasicOptionPane.showMessageDialog(JCheckBoxSelector.this, SwingLocale.getString("select_not_null"), SwingLocale.getString("warning"), JBasicOptionPane.WARNING_MESSAGE);
@@ -155,7 +155,7 @@ public class JCheckBoxSelector
 		JPanel panel = new JPanel();
 		panel.setLayout(new TableLayout(size));
 		panel.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
-		panel.add(checkBoxPanel, "0, 0, 6, 0");
+		panel.add(checkBoxListPanel, "0, 0, 6, 0");
 		panel.add(selectAllButton, "0, 2");
 		panel.add(selectReverseButton, "2, 2");
 		panel.add(confirmButton, "4, 2");
@@ -165,24 +165,24 @@ public class JCheckBoxSelector
 		container.add(panel);
 	}
 	
-	public JCheckBoxPanel getCheckBoxPanel()
+	public JCheckBoxListPanel getCheckBoxListPanel()
 	{
-		return checkBoxPanel;
+		return checkBoxListPanel;
 	}
 	
 	public JList getCheckBoxList()
 	{
-		return checkBoxPanel.getList();
+		return checkBoxListPanel.getList();
 	}
 	
 	public List getSelections()
 	{
-		return checkBoxPanel.getSelections();
+		return checkBoxListPanel.getSelections();
 	}
 	
 	public List getSelectedUserObjects()
 	{
-		return checkBoxPanel.getSelectedUserObjects();
+		return checkBoxListPanel.getSelectedUserObjects();
 	}
 	
 	public boolean isConfirmed()
