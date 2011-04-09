@@ -22,7 +22,7 @@ import com.nepxion.swing.panel.option.JOptionButtonPanel;
 import com.nepxion.swing.popupmenu.JDecorationPopupMenu;
 
 public abstract class JClassicSelectorMenuButton
-	extends JClassicMenuButton
+	extends JClassicMenuButton implements ISelectorMenuButton
 {
 	private JPanel container;
 	private JOptionButtonPanel optionButtonPanel;
@@ -137,8 +137,4 @@ public abstract class JClassicSelectorMenuButton
 		
 		return false;
 	}
-	
-	public abstract boolean confirm();
-	
-	public abstract boolean cancel();
 }
