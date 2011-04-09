@@ -28,8 +28,8 @@ import com.nepxion.swing.menu.JBasicMenu;
 import com.nepxion.swing.menubar.JBasicMenuBar;
 import com.nepxion.swing.menuitem.JBasicMenuItem;
 import com.nepxion.swing.scrollpane.JBasicScrollPane;
-import com.nepxion.swing.selector.checkbox.JCheckBoxPanel;
-import com.nepxion.swing.selector.radiobutton.JRadioButtonPanel;
+import com.nepxion.swing.selector.checkbox.JCheckBoxListPanel;
+import com.nepxion.swing.selector.radiobutton.JRadioButtonListPanel;
 import com.nepxion.swing.textarea.JBasicTextArea;
 import com.nepxion.swing.toolbar.JBasicToolBar;
 
@@ -69,8 +69,8 @@ public class DemoDockableHierarchy
         JDockableView tabbedPaneView = new JDockableView(TABBED_PANE_TITLE, IconFactory.getSwingIcon("component/tabbed_pane_16.png"), DemoComponentFactory.getTabbedPane());
         
         JDockableView listView = new JDockableView(LIST_TITLE, IconFactory.getSwingIcon("component/list_16.png"), new JBasicScrollPane(DemoComponentFactory.getList()));
-        JDockableView checkBoxSelectorView = new JDockableView(CHECK_BOX_SELECTOR_TITLE, IconFactory.getSwingIcon("component/check_box_16.png"), new JCheckBoxPanel(DemoDataFactory.getComponentElementNodes()));
-        JDockableView radioButtonSelectorView = new JDockableView(RADIO_BUTTON_SELECTOR_TITLE, IconFactory.getSwingIcon("component/radio_button_16.png"), new JRadioButtonPanel(DemoDataFactory.getComponentElementNodes()));
+        JDockableView checkBoxSelectorView = new JDockableView(CHECK_BOX_SELECTOR_TITLE, IconFactory.getSwingIcon("component/check_box_16.png"), new JCheckBoxListPanel(DemoDataFactory.getComponentElementNodes()));
+        JDockableView radioButtonSelectorView = new JDockableView(RADIO_BUTTON_SELECTOR_TITLE, IconFactory.getSwingIcon("component/radio_button_16.png"), new JRadioButtonListPanel(DemoDataFactory.getComponentElementNodes()));
         
         JDockable rightDockable = new JDockable();
         rightDockable.setOrientation(JDockable.VERTICAL_SPLIT);
