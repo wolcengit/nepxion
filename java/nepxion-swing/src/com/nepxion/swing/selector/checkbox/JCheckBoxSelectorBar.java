@@ -39,17 +39,17 @@ public class JCheckBoxSelectorBar
 	private ISelectorMenuButton menuButton;
 	private JCheckBoxListPanel checkBoxListPanel;
 	
-	public JCheckBoxSelectorBar(List elementNodes)
+	public JCheckBoxSelectorBar(List allElementNodes)
 	{
-		this(elementNodes, false);
+		this(allElementNodes, false);
 	}
 	
-	public JCheckBoxSelectorBar(List elementNodes, boolean isClassicStyle)
+	public JCheckBoxSelectorBar(List allElementNodes, boolean isClassicStyle)
 	{
 		textField = new JBasicTextField();
 		textField.setEditable(false);
 		
-		checkBoxListPanel = new JCheckBoxListPanel(elementNodes);
+		checkBoxListPanel = new JCheckBoxListPanel(allElementNodes);
 		checkBoxListPanel.setPreferredSize(new Dimension(300, 300));
 		
 		if (isClassicStyle)

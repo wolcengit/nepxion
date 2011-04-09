@@ -27,9 +27,9 @@ public class CheckBoxTableCellEditor
 {
 	private JCheckBoxSelectorBar checkBoxSelectorBar;
 	
-	public CheckBoxTableCellEditor(List elementNodes)
+	public CheckBoxTableCellEditor(List allElementNodes)
 	{
-		checkBoxSelectorBar = new JCheckBoxSelectorBar(elementNodes, true);
+		checkBoxSelectorBar = new JCheckBoxSelectorBar(allElementNodes, true);
 
 		JClassicSelectorMenuButton menuButton = (JClassicSelectorMenuButton) checkBoxSelectorBar.getMenuButton();
 		menuButton.setShowArrow(false);
