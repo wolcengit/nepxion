@@ -30,7 +30,7 @@ public class ZoneTableCellEditor
 	{
 		zoneSelectorPanel = new JZoneSelectorPanel(true);
 		
-		JClassicSelectorMenuButton menuButton = (JClassicSelectorMenuButton) zoneSelectorPanel.getButton();
+		JClassicSelectorMenuButton menuButton = (JClassicSelectorMenuButton) zoneSelectorPanel.getMenuButton();
 		menuButton.setShowArrow(false);
 	}
 	
@@ -38,7 +38,7 @@ public class ZoneTableCellEditor
 	{
 		zoneSelectorPanel = new JZoneSelectorPanel(maximumLength, true);
 		
-		JClassicSelectorMenuButton menuButton = (JClassicSelectorMenuButton) zoneSelectorPanel.getButton();
+		JClassicSelectorMenuButton menuButton = (JClassicSelectorMenuButton) zoneSelectorPanel.getMenuButton();
 		menuButton.setShowArrow(false);
 	}
 	
