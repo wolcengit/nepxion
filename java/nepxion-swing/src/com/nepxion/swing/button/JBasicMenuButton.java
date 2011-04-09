@@ -142,6 +142,7 @@ public class JBasicMenuButton
 	{
 		BasicButtonModel buttonModel = (BasicButtonModel) getModel();
 		buttonModel.setMenuDropDown(true);
+		
 		repaint();
 	}
 	
@@ -149,6 +150,7 @@ public class JBasicMenuButton
 	{
 		BasicButtonModel buttonModel = (BasicButtonModel) getModel();
 		buttonModel.setMenuDropDown(false);
+		
 		repaint();
 	}
 	

@@ -99,6 +99,7 @@ public class JBasicButton
 			public void displayAbilityChanged(HierarchyEvent e)
 			{
 				adaptDimension();
+				
 				removeHierarchyListener(this);
 			}
 		}

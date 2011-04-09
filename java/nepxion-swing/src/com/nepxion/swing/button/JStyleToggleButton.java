@@ -153,6 +153,7 @@ public class JStyleToggleButton
 			public void displayAbilityChanged(HierarchyEvent e)
 			{
 				adaptDimension();
+				
 				removeHierarchyListener(this);
 			}
 		}

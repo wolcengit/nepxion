@@ -108,6 +108,7 @@ public class JClassicMenuButton
 			public void displayAbilityChanged(HierarchyEvent e)
 			{
 				adaptDimension();
+				
 				removeHierarchyListener(this);
 			}
 		}

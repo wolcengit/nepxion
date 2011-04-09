@@ -156,6 +156,7 @@ public class JBasicToggleButton
 			public void displayAbilityChanged(HierarchyEvent e)
 			{
 				adaptDimension();
+				
 				removeHierarchyListener(this);
 			}
 		}

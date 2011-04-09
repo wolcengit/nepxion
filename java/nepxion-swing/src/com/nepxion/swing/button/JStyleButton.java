@@ -96,6 +96,7 @@ public class JStyleButton
 			public void displayAbilityChanged(HierarchyEvent e)
 			{
 				adaptDimension();
+				
 				removeHierarchyListener(this);
 			}
 		}
