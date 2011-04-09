@@ -49,6 +49,8 @@ public class QuartzContext
 			throw e;
 		}
 		
+		System.setProperty("org.terracotta.quartz.skipUpdateCheck", "true");
+		
 		log.info("---- Quartz Scheduler Initialization End ----");
 	}
 	
@@ -68,6 +70,8 @@ public class QuartzContext
 			
 			throw e;
 		}
+		
+		System.setProperty("org.terracotta.quartz.skipUpdateCheck", "true");
 		
 		log.info("---- Quartz Scheduler Initialization End ----");
 	}
