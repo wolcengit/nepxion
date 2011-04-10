@@ -149,6 +149,6 @@ public class JRadioButtonSelectorBar
 	
 	public void setValue(Object value)
 	{
-		textField.setText(value.toString());
+		textField.setText(value != null ? value.toString() : "");
 	}
 }
