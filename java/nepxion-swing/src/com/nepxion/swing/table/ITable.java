@@ -44,6 +44,10 @@ public interface ITable
 	
 	public void setRowHeightGap(int rowHeightGap);
 	
+	public boolean isAutoLayout();
+	
+	public void setAutoLayout(boolean isAutoLayout);
+	
 	public void adaptLayout(String layoutMode);
 	
 	public void executeSelection(int selectedRow);

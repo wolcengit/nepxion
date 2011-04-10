@@ -33,6 +33,8 @@ public class JBasicTable
 	private int columnWidthGap = COLUMN_WIDTH_GAP;
 	private int rowHeightGap = LOW_ROW_HEIGHT_GAP;
 	
+	private boolean isAutoLayout = true;
+	
 	private int selectedRow = -1;
 	
 	public JBasicTable()
@@ -100,7 +102,7 @@ public class JBasicTable
 		{
 			public void tableChanged(TableModelEvent e)
 			{
-				if (getAutoResizeMode() == AUTO_RESIZE_OFF)
+				if (getAutoResizeMode() == AUTO_RESIZE_OFF && isAutoLayout)
 				{
 					SwingUtilities.invokeLater(new Runnable()
 					{
@@ -109,7 +111,7 @@ public class JBasicTable
 							adaptLayout(COLUMN_LAYOUT_MODE);
 						}
 					}
-					);					
+					);
 				}
 			}
 		}
@@ -169,6 +171,16 @@ public class JBasicTable
 	public void setRowHeightGap(int rowHeightGap)
 	{
 		this.rowHeightGap = rowHeightGap;
+	}
+		
+	public boolean isAutoLayout()
+	{
+		return isAutoLayout;
+	}
+	
+	public void setAutoLayout(boolean isAutoLayout)
+	{
+		this.isAutoLayout = isAutoLayout;
 	}
 	
 	public void adaptLayout(String layoutMode)
