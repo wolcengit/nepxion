@@ -63,7 +63,7 @@ public class DemoCheckBoxSelectorPanel
 					if (checkBoxSelector.isConfirmed())
 					{	
 						String value = "";
-						for (Iterator iterator = checkBoxSelector.getSelections().iterator(); iterator.hasNext();)
+						for (Iterator iterator = checkBoxSelector.getSelectedElementNodes().iterator(); iterator.hasNext();)
 						{
 							value += iterator.next() + ";";
 						}

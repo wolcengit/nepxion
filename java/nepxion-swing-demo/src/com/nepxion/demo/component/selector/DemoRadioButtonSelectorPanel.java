@@ -61,9 +61,9 @@ public class DemoRadioButtonSelectorPanel
 					
 					if (radioButtonSelector.isConfirmed())
 					{	
-						if (radioButtonSelector.getSelection() != null)
+						if (radioButtonSelector.getSelectedElementNode() != null)
 						{	
-							selectionValuePanel.setValue(radioButtonSelector.getSelection().toString());
+							selectionValuePanel.setValue(radioButtonSelector.getSelectedElementNode().toString());
 						}
 					}
 				}
