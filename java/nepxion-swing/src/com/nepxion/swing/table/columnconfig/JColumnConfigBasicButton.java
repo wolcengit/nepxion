@@ -48,7 +48,7 @@ public class JColumnConfigBasicButton
 			}
 		}
 		);
-		buttonContainer.add(selectAllButton, 1);
+		buttonContainer.add(selectAllButton, 0);
 		
 		JClassicButton selectReverseButton = new JClassicButton(SwingLocale.getString("select_reverse"), IconFactory.getSwingIcon("stereo/undo_16.png"), SwingLocale.getString("select_reverse"));
 		selectReverseButton.addActionListener(new ActionListener()
@@ -59,7 +59,7 @@ public class JColumnConfigBasicButton
 			}
 		}
 		);
-		buttonContainer.add(selectReverseButton, 2);
+		buttonContainer.add(selectReverseButton, 1);
 		
 		buttonContainer.add(Box.createHorizontalStrut(5), 2);
 	}
