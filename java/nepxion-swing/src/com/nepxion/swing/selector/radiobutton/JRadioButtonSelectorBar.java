@@ -83,6 +83,8 @@ public class JRadioButtonSelectorBar
 		}
 		menuButton.setContentPane(radioButtonListPanel);
 		
+		JPanel buttonContainer = menuButton.getOptionButtonPanel().getContainer();
+		
 		JClassicButton refreshButton = new JClassicButton(SwingLocale.getString("refresh"), IconFactory.getSwingIcon("stereo/refresh_16.png"), SwingLocale.getString("refresh"));
 		refreshButton.addActionListener(new ActionListener()
 		{
@@ -92,7 +94,7 @@ public class JRadioButtonSelectorBar
 			}
 		}
 		);
-		menuButton.getOptionButtonPanel().getContainer().add(refreshButton, 0);
+		buttonContainer.add(refreshButton, 0);
 		
 		setLayout(new BorderLayout());
 		add(textField, BorderLayout.CENTER);

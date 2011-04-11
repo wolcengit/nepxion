@@ -18,6 +18,7 @@ import java.awt.event.ActionListener;
 import java.util.Iterator;
 import java.util.List;
 
+import javax.swing.Box;
 import javax.swing.JPanel;
 
 import com.nepxion.swing.button.ButtonManager;
@@ -84,6 +85,8 @@ public class JCheckBoxSelectorBar
 		}
 		menuButton.setContentPane(checkBoxListPanel);
 		
+		JPanel buttonContainer = menuButton.getOptionButtonPanel().getContainer();
+		
 		JClassicButton refreshButton = new JClassicButton(SwingLocale.getString("refresh"), IconFactory.getSwingIcon("stereo/refresh_16.png"), SwingLocale.getString("refresh"));
 		refreshButton.addActionListener(new ActionListener()
 		{
@@ -93,7 +96,7 @@ public class JCheckBoxSelectorBar
 			}
 		}
 		);
-		menuButton.getOptionButtonPanel().getContainer().add(refreshButton, 0);
+		buttonContainer.add(refreshButton, 0);
 		
 		JClassicButton selectAllButton = new JClassicButton(SwingLocale.getString("select_all"), IconFactory.getSwingIcon("stereo/redo_16.png"), SwingLocale.getString("select_all"));
 		selectAllButton.addActionListener(new ActionListener()
@@ -104,7 +107,7 @@ public class JCheckBoxSelectorBar
 			}
 		}
 		);
-		menuButton.getOptionButtonPanel().getContainer().add(selectAllButton, 1);
+		buttonContainer.add(selectAllButton, 1);
 		
 		JClassicButton selectReverseButton = new JClassicButton(SwingLocale.getString("select_reverse"), IconFactory.getSwingIcon("stereo/undo_16.png"), SwingLocale.getString("select_reverse"));
 		selectReverseButton.addActionListener(new ActionListener()
@@ -115,7 +118,9 @@ public class JCheckBoxSelectorBar
 			}
 		}
 		);
-		menuButton.getOptionButtonPanel().getContainer().add(selectReverseButton, 2);
+		buttonContainer.add(selectReverseButton, 2);
+		
+		buttonContainer.add(Box.createHorizontalStrut(5), 3);
 		
 		setLayout(new BorderLayout());
 		add(textField, BorderLayout.CENTER);
