@@ -55,5 +55,5 @@ public class TableManager
 		}
 		
 		return model;
-	}	
+	} 
 }
