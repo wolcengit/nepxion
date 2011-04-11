@@ -10,8 +10,8 @@ package com.nepxion.swing.selector.radiobutton;
  * @version 1.0
  */
 
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Vector;
 
 import javax.swing.JList;
 import javax.swing.ListModel;
@@ -42,14 +42,7 @@ public class JRadioButtonListPanel
 		}
 		else
 		{
-			if (allElementNodes instanceof Vector)
-			{
-				selectionList = new JList((Vector) allElementNodes);
-			}
-			else
-			{
-				selectionList = new JList(CollectionUtil.parseVector(allElementNodes));
-			}
+			selectionList = new JList(CollectionUtil.parseVector(allElementNodes));
 		}
 		selectionList.setCellRenderer(new ListRadioButtonCellRenderer(selectionList, 22));
 		getViewport().add(selectionList);
@@ -58,6 +51,24 @@ public class JRadioButtonListPanel
 	public JList getList()
 	{
 		return selectionList;
+	}
+	
+	public List getAllElementNodes()
+	{
+		List allElementNodes = new ArrayList();
+		ListModel listModel = selectionList.getModel();
+		for (int i = 0; i < listModel.getSize(); i++)
+		{
+			Object elementNode = listModel.getElementAt(i);
+			allElementNodes.add(elementNode);
+		}
+		
+		return allElementNodes;
+	}
+	
+	public void setAllElementNodes(List allElementNodes)
+	{
+		selectionList.setListData(CollectionUtil.parseVector(allElementNodes));	
 	}
 	
 	private void adapterSelection()

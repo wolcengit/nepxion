@@ -12,7 +12,6 @@ package com.nepxion.swing.selector.checkbox;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Vector;
 
 import javax.swing.JList;
 import javax.swing.ListModel;
@@ -47,14 +46,7 @@ public class JCheckBoxListPanel
 		}
 		else
 		{
-			if (allElementNodes instanceof Vector)
-			{
-				selectionList = new JList((Vector) allElementNodes);
-			}
-			else
-			{
-				selectionList = new JList(CollectionUtil.parseVector(allElementNodes));
-			}
+			selectionList = new JList(CollectionUtil.parseVector(allElementNodes));
 		}
 		selectionList.setCellRenderer(new ListCheckBoxCellRenderer(selectionList, 22));
 		
@@ -86,6 +78,24 @@ public class JCheckBoxListPanel
 	public JList getList()
 	{
 		return selectionList;
+	}
+	
+	public List getAllElementNodes()
+	{
+		List allElementNodes = new ArrayList();
+		ListModel listModel = selectionList.getModel();
+		for (int i = 0; i < listModel.getSize(); i++)
+		{
+			Object elementNode = listModel.getElementAt(i);
+			allElementNodes.add(elementNode);
+		}
+		
+		return allElementNodes;
+	}
+	
+	public void setAllElementNodes(List allElementNodes)
+	{
+		selectionList.setListData(CollectionUtil.parseVector(allElementNodes));	
 	}
 	
 	private void adaptSelections()
