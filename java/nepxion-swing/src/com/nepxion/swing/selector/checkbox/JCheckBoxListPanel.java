@@ -72,7 +72,24 @@ public class JCheckBoxListPanel
 					break;
 			}
 		}
-		selectionList.repaint();
+		
+		updateSelection();
+	}
+	
+	private void adaptSelection()
+	{
+		selectedElementNodes = new ArrayList();
+		selectedUserObjects = new ArrayList();
+		ListModel listModel = selectionList.getModel();
+		for (int i = 0; i < listModel.getSize(); i++)
+		{
+			IElementNode elementNode = (IElementNode) listModel.getElementAt(i);
+			if (elementNode.isSelected())
+			{
+				selectedElementNodes.add(elementNode);
+				selectedUserObjects.add(elementNode.getUserObject());
+			}
+		}
 	}
 	
 	public JList getList()
@@ -98,33 +115,22 @@ public class JCheckBoxListPanel
 		selectionList.setListData(CollectionUtil.parseVector(allElementNodes));	
 	}
 	
-	private void adaptSelections()
+	public List getSelectedElementNodes()
 	{
-		selectedElementNodes = new ArrayList();
-		selectedUserObjects = new ArrayList();
-		ListModel listModel = selectionList.getModel();
-		for (int i = 0; i < listModel.getSize(); i++)
-		{
-			IElementNode elementNode = (IElementNode) listModel.getElementAt(i);
-			if (elementNode.isSelected())
-			{
-				selectedElementNodes.add(elementNode);
-				selectedUserObjects.add(elementNode.getUserObject());
-			}
-		}
-	}
-	
-	public List getSelections()
-	{
-		adaptSelections();
+		adaptSelection();
 		
 		return selectedElementNodes;
 	}
 	
 	public List getSelectedUserObjects()
 	{
-		adaptSelections();
+		adaptSelection();
 		
 		return selectedUserObjects;
+	}
+	
+	public void updateSelection()
+	{
+		selectionList.repaint();
 	}
 }

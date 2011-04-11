@@ -98,8 +98,8 @@ public class JRadioButtonSelector
 		{
 			public void actionPerformed(ActionEvent e)
 			{
-				Object selection = radioButtonListPanel.getSelection();
-				if (selection == null)
+				Object selectedElementNode = radioButtonListPanel.getSelectedElementNode();
+				if (selectedElementNode == null)
 				{
 					JBasicOptionPane.showMessageDialog(JRadioButtonSelector.this, SwingLocale.getString("select_not_null"), SwingLocale.getString("warning"), JBasicOptionPane.WARNING_MESSAGE);
 					
@@ -154,9 +154,9 @@ public class JRadioButtonSelector
 		return radioButtonListPanel.getList();
 	}
 	
-	public IElementNode getSelection()
+	public IElementNode getSelectedElementNode()
 	{
-		return radioButtonListPanel.getSelection();
+		return radioButtonListPanel.getSelectedElementNode();
 	}
 	
 	public Object getSelectedUserObject()

@@ -48,6 +48,22 @@ public class JRadioButtonListPanel
 		getViewport().add(selectionList);
 	}
 	
+	private void adapterSelection()
+	{
+		ListModel listModel = selectionList.getModel();
+		for (int i = 0; i < listModel.getSize(); i++)
+		{
+			IElementNode elementNode = (IElementNode) listModel.getElementAt(i);
+			if (elementNode.isSelected())
+			{
+				selectedElementNode = elementNode;
+				selectedUserObject = elementNode.getUserObject();
+				
+				return;
+			}
+		}
+	}
+	
 	public JList getList()
 	{
 		return selectionList;
@@ -71,23 +87,7 @@ public class JRadioButtonListPanel
 		selectionList.setListData(CollectionUtil.parseVector(allElementNodes));	
 	}
 	
-	private void adapterSelection()
-	{
-		ListModel listModel = selectionList.getModel();
-		for (int i = 0; i < listModel.getSize(); i++)
-		{
-			IElementNode elementNode = (IElementNode) listModel.getElementAt(i);
-			if (elementNode.isSelected())
-			{
-				selectedElementNode = elementNode;
-				selectedUserObject = elementNode.getUserObject();
-				
-				return;
-			}
-		}
-	}
-	
-	public IElementNode getSelection()
+	public IElementNode getSelectedElementNode()
 	{
 		adapterSelection();
 		
@@ -99,5 +99,10 @@ public class JRadioButtonListPanel
 		adapterSelection();
 		
 		return selectedUserObject;
+	}
+	
+	public void updateSelection()
+	{
+		selectionList.repaint();
 	}
 }

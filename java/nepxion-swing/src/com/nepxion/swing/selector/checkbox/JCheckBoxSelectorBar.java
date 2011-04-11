@@ -131,8 +131,8 @@ public class JCheckBoxSelectorBar
 		
 	public boolean confirm()
 	{				
-		List selections = checkBoxListPanel.getSelections();
-		if (selections == null || selections.size() == 0)
+		List selectedElementNodes = checkBoxListPanel.getSelectedElementNodes();
+		if (selectedElementNodes == null || selectedElementNodes.size() == 0)
 		{
 			JBasicOptionPane.showMessageDialog(HandleManager.getFrame(this), SwingLocale.getString("select_not_null"), SwingLocale.getString("warning"), JBasicOptionPane.WARNING_MESSAGE);
 			
@@ -140,7 +140,7 @@ public class JCheckBoxSelectorBar
 		}
 		
 		StringBuffer stringBuffer = new StringBuffer();
-		for (Iterator iterator = selections.iterator(); iterator.hasNext();)
+		for (Iterator iterator = selectedElementNodes.iterator(); iterator.hasNext();)
 		{
 			ElementNode elementNode = (ElementNode) iterator.next();
 			

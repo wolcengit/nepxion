@@ -108,15 +108,15 @@ public class JRadioButtonSelectorBar
 		
 	public boolean confirm()
 	{				
-		IElementNode selection = radioButtonListPanel.getSelection();
-		if (selection == null)
+		IElementNode selectedElementNode = radioButtonListPanel.getSelectedElementNode();
+		if (selectedElementNode == null)
 		{
 			JBasicOptionPane.showMessageDialog(HandleManager.getFrame(this), SwingLocale.getString("select_not_null"), SwingLocale.getString("warning"), JBasicOptionPane.WARNING_MESSAGE);
 			
 			return false;
 		}
 		
-		textField.setText(selection.getText());
+		textField.setText(selectedElementNode.getText());
 		
 		return true;
 	}

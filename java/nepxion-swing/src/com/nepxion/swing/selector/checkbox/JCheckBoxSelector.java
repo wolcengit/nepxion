@@ -117,8 +117,8 @@ public class JCheckBoxSelector
 		{
 			public void actionPerformed(ActionEvent e)
 			{
-				List selections = checkBoxListPanel.getSelections();
-				if (selections == null || selections.size() == 0)
+				List selectedElementNodes = checkBoxListPanel.getSelectedElementNodes();
+				if (selectedElementNodes == null || selectedElementNodes.size() == 0)
 				{
 					JBasicOptionPane.showMessageDialog(JCheckBoxSelector.this, SwingLocale.getString("select_not_null"), SwingLocale.getString("warning"), JBasicOptionPane.WARNING_MESSAGE);
 					
@@ -175,9 +175,9 @@ public class JCheckBoxSelector
 		return checkBoxListPanel.getList();
 	}
 	
-	public List getSelections()
+	public List getSelectedElementNodes()
 	{
-		return checkBoxListPanel.getSelections();
+		return checkBoxListPanel.getSelectedElementNodes();
 	}
 	
 	public List getSelectedUserObjects()
