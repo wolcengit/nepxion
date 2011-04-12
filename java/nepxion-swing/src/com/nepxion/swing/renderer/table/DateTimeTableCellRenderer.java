@@ -11,7 +11,6 @@ package com.nepxion.swing.renderer.table;
  */
 
 import java.awt.Component;
-import java.text.DateFormat;
 import java.util.Date;
 
 import javax.swing.JTable;
@@ -22,16 +21,16 @@ import com.nepxion.util.time.TimeUtil;
 public class DateTimeTableCellRenderer
 	extends DefaultTableCellRenderer
 {
-	private DateFormat dataFormat;
+	private String formatString;
 	
 	public DateTimeTableCellRenderer()
 	{
 		setOpaque(true);
 	}
 	
-	public DateTimeTableCellRenderer(DateFormat dataFormat)
+	public DateTimeTableCellRenderer(String formatString)
 	{
-		this.dataFormat = dataFormat;
+		this.formatString = formatString;
 		
 		setOpaque(true);
 	}
@@ -43,7 +42,7 @@ public class DateTimeTableCellRenderer
 		if (value instanceof Date)
 		{
 			Date date = (Date) value;
-			String text = TimeUtil.getFormatString(date, dataFormat);
+			String text = TimeUtil.getDateTimeString(date, formatString);
 			
 			setText(text);
 		}
