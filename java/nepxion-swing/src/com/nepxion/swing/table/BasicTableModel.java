@@ -168,25 +168,25 @@ public abstract class BasicTableModel
 		fireTableDataChanged();
 	}
 	
-	public void fixRows(int fixedRowCount, boolean isFromTop)
+	public void limitRows(int limitedRowCount, boolean isFromTop)
 	{
 		int rowCount = getRowCount();
-		if (rowCount > fixedRowCount)
+		if (rowCount > limitedRowCount)
 		{
-			int deletedCount = rowCount - fixedRowCount;
-			int[] deleteRows = new int[deletedCount];
+			int deletedCount = rowCount - limitedRowCount;
+			int[] deletedRows = new int[deletedCount];
 			for (int i = 0; i < deletedCount; i++)
 			{
 				if (isFromTop)
-				{	
-					deleteRows[i] = i;					
+				{
+					deletedRows[i] = i;
 				}
 				else
 				{
-					deleteRows[i] = rowCount - i - 1;
+					deletedRows[i] = rowCount - i - 1;
 				}
 			}
-			deleteRows(deleteRows);
+			deleteRows(deletedRows);
 		}
 	}
 	

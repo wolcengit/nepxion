@@ -43,7 +43,7 @@ public interface ITableModel
 	
 	public void deleteRows(List rowDataList);
 	
-	public void fixRows(int fixedRowCount, boolean isFromTop);
+	public void limitRows(int limitedRowCount, boolean isFromTop);
 	
 	public void clearRows();
 }
