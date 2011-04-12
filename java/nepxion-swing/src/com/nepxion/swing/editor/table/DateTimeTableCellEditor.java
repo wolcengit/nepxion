@@ -27,9 +27,9 @@ public class DateTimeTableCellEditor
 {
 	private JDateTimeSelector dateTimeSelector;
 	
-	public DateTimeTableCellEditor(String dateFormatString, IDateEditor dateEditor)
+	public DateTimeTableCellEditor(String formatString, IDateEditor dateEditor)
 	{
-		dateTimeSelector = new JDateTimeSelector(null, dateFormatString, dateEditor);
+		dateTimeSelector = new JDateTimeSelector(null, formatString, dateEditor);
 	}
 	
 	public DateTimeTableCellEditor(JDateTimeSelector dateTimeSelector)
