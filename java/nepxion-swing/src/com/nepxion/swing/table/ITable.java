@@ -10,8 +10,6 @@ package com.nepxion.swing.table;
  * @version 1.0
  */
 
-import java.awt.event.MouseEvent;
-
 import javax.swing.table.TableColumn;
 import javax.swing.table.TableModel;
 import javax.swing.tree.TreeSelectionModel;
@@ -51,8 +49,6 @@ public interface ITable
 	public void adaptLayout(String layoutMode);
 	
 	public void executeSelection(int selectedRow);
-	
-	public void executeClicked(int selectedRow, MouseEvent e);
 	
 	public void executeClicked(int selectedRow);
 	

@@ -215,6 +215,7 @@ public class JBasicTable
 	public void mouseClicked(MouseEvent e)
 	{
 		int selectedRow = getSelectedRow();
+		
 		executeClicked(selectedRow, e);
 	}
 	
