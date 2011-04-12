@@ -124,11 +124,11 @@ public class JToggleTree
 		this.toggleAdapter = toggleAdapter;
 	}
 	
-	public void executeSelection(TreeNode treeNode)
+	public void executeSelection(TreeNode oldSelectionTreeNode, TreeNode newSelectionTreeNode)
 	{
 		if (invokeMode == INVOKE_MODE_SELECTED)
 		{
-			toggleAdapter.invoke(treeNode);
+			toggleAdapter.invoke(oldSelectionTreeNode, newSelectionTreeNode);
 		}
 	}
 	
@@ -136,7 +136,7 @@ public class JToggleTree
 	{
 		if (invokeMode == INVOKE_MODE_CLICKED)
 		{
-			toggleAdapter.invoke(treeNode);
+			toggleAdapter.invoke(null, treeNode);
 		}
 	}
 	
@@ -144,7 +144,7 @@ public class JToggleTree
 	{
 		if (invokeMode == INVOKE_MODE_DOUBLE_CLICKED)
 		{
-			toggleAdapter.invoke(treeNode);
+			toggleAdapter.invoke(null, treeNode);
 		}
 	}
 }

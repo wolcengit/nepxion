@@ -14,5 +14,5 @@ import javax.swing.tree.TreeNode;
 
 public interface IToggleAdapter
 {
-	public void invoke(TreeNode treeNode);
+	public void invoke(TreeNode oldSelectionTreeNode, TreeNode newSelectionTreeNode);
 }

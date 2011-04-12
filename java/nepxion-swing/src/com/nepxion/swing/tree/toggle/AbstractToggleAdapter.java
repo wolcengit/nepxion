@@ -27,9 +27,9 @@ public abstract class AbstractToggleAdapter
 		this.toggleTree.setToggleAdapter(this);
 	}
 	
-	public void invoke(TreeNode treeNode)
+	public void invoke(TreeNode oldSelectionTreeNode, TreeNode newSelectionTreeNode)
 	{
-		if (treeNode == null)
+		if (newSelectionTreeNode == null)
 		{
 			return;
 		}
@@ -40,7 +40,7 @@ public abstract class AbstractToggleAdapter
 			return;
 		}
 		
-		ITogglePanel togglePanel = getTogglePanel(treeNode);
+		ITogglePanel togglePanel = getTogglePanel(newSelectionTreeNode);
 		if (togglePanel == null)
 		{
 			return;
@@ -48,13 +48,13 @@ public abstract class AbstractToggleAdapter
 		
 		if (togglePanel.getToggleName() == null)
 		{
-			String name = treeNode.toString();
+			String name = newSelectionTreeNode.toString();
 			togglePanel.setToggleName(name);
 		}
 		
 		if (togglePanel.getToggleDescription() == null)
 		{
-			String description = toggleTree.getTreeNavigator().getURL(treeNode);
+			String description = toggleTree.getTreeNavigator().getURL(newSelectionTreeNode);
 			togglePanel.setToggleDescription(description);
 		}
 		

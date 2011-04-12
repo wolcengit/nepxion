@@ -10,7 +10,6 @@ package com.nepxion.swing.tree;
  * @version 1.0
  */
 
-import java.awt.event.MouseEvent;
 import java.util.List;
 
 import javax.swing.tree.DefaultMutableTreeNode;
@@ -130,8 +129,6 @@ public interface ITree
 	public void update(TreeNode treeNode);
 	
 	public void executeSelection(TreeNode oldSelectionTreeNode, TreeNode newSelectionTreeNode);
-	
-	public void executeClicked(TreeNode treeNode, MouseEvent e);
 	
 	public void executeClicked(TreeNode treeNode);
 	
