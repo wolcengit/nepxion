@@ -16,17 +16,17 @@ public class TimeComparable
 	implements Comparable, TimeConstants
 {
 	private Date dateTime;
-	private String format;
+	private String formatString;
 	
 	public TimeComparable(Date dateTime)
 	{
-		this(dateTime, DATE_TIME_FORMAT);
+		this(dateTime, DATE_TIME_FORMAT_STRING);
 	}
 	
-	public TimeComparable(Date dateTime, String format)
+	public TimeComparable(Date dateTime, String formatString)
 	{
 		this.dateTime = dateTime;
-		this.format = format;
+		this.formatString = formatString;
 	}
 	
 	public Date getDateTime()
@@ -39,14 +39,14 @@ public class TimeComparable
 		this.dateTime = dateTime;
 	}
 	
-	public String getFormat()
+	public String getFormatString()
 	{
-		return format;
+		return formatString;
 	}
 	
-	public void setFormat(String format)
+	public void setFormatString(String formatString)
 	{
-		this.format = format;
+		this.formatString = formatString;
 	}
 	
 	public int compareTo(Object object)
@@ -61,27 +61,27 @@ public class TimeComparable
 	{
 		String dateTimeString = null;
 		
-		if (format.equals(DATE_TIME_FORMAT))
+		if (formatString.equals(DATE_TIME_FORMAT_STRING))
 		{
 			dateTimeString = TimeUtil.getDateTime(dateTime);
 		}
-		else if (format.equals(MILLISECOND_DATE_TIME_FORMAT))
+		else if (formatString.equals(MILLISECOND_DATE_TIME_FORMAT_STRING))
 		{
 			dateTimeString = TimeUtil.getMillisecondDateTime(dateTime);
 		}
-		else if (format.equals(TIME_ZONE_DATE_TIME_FORMAT))
+		else if (formatString.equals(TIME_ZONE_DATE_TIME_FORMAT_STRING))
 		{
 			dateTimeString = TimeUtil.getTimeZoneDateTime(dateTime);
 		}
-		else if (format.equals(DATE_FORMAT))
+		else if (formatString.equals(DATE_FORMAT_STRING))
 		{
 			dateTimeString = TimeUtil.getDate(dateTime);
 		}
-		else if (format.equals(TIME_FORMAT))
+		else if (formatString.equals(TIME_FORMAT_STRING))
 		{
 			dateTimeString = TimeUtil.getTime(dateTime);
 		}
-		else if (format.equals(MILLISECOND_TIME_FORMAT))
+		else if (formatString.equals(MILLISECOND_TIME_FORMAT_STRING))
 		{
 			dateTimeString = TimeUtil.getMillisecondTime(dateTime);
 		}

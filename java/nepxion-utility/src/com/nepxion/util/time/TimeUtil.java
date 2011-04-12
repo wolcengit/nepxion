@@ -12,7 +12,6 @@ package com.nepxion.util.time;
 
 import java.text.DateFormat;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -23,14 +22,7 @@ import java.util.TimeZone;
 
 public class TimeUtil
 	implements TimeConstants
-{
-	private static SimpleDateFormat dateTimeFormat = new SimpleDateFormat(DATE_TIME_FORMAT);
-	private static SimpleDateFormat millisecondDateTimeFormat = new SimpleDateFormat(MILLISECOND_DATE_TIME_FORMAT);
-	private static SimpleDateFormat timeZoneDateTimeFormat = new SimpleDateFormat(TIME_ZONE_DATE_TIME_FORMAT);
-	private static SimpleDateFormat dateFormat = new SimpleDateFormat(DATE_FORMAT);
-	private static SimpleDateFormat timeFormat = new SimpleDateFormat(TIME_FORMAT);
-	private static SimpleDateFormat millisecondTimeFormat = new SimpleDateFormat(MILLISECOND_TIME_FORMAT);
-	
+{	
 	/**
 	 * Get the current year
 	 * @return  the current year
@@ -770,7 +762,7 @@ public class TimeUtil
 	 */		
 	public synchronized static DateFormat getDateTimeFormat()
 	{
-		return dateTimeFormat;
+		return DATE_TIME_FORMAT;
 	}
 	
 	/**
@@ -779,7 +771,7 @@ public class TimeUtil
 	 */	
 	public synchronized static DateFormat getMillisecondDateTimeFormat()
 	{
-		return millisecondDateTimeFormat;
+		return MILLISECOND_DATE_TIME_FORMAT;
 	}
 	
 	/**
@@ -788,7 +780,7 @@ public class TimeUtil
 	 */		
 	public synchronized static DateFormat getTimeZoneDateTimeFormat()
 	{
-		return timeZoneDateTimeFormat;
+		return TIME_ZONE_DATE_TIME_FORMAT;
 	}
 		
 	/**
@@ -797,7 +789,7 @@ public class TimeUtil
 	 */	
 	public synchronized static DateFormat getDateFormat()
 	{
-		return dateFormat;
+		return DATE_FORMAT;
 	}
 	
 	/**
@@ -806,7 +798,7 @@ public class TimeUtil
 	 */	
 	public synchronized static DateFormat getTimeFormat()
 	{
-		return timeFormat;
+		return TIME_FORMAT;
 	}	
 	
 	/**
@@ -815,7 +807,7 @@ public class TimeUtil
 	 */
 	public synchronized static DateFormat getMillisecondTimeFormat()
 	{
-		return millisecondTimeFormat;
+		return MILLISECOND_TIME_FORMAT;
 	}
 	
 	/**
