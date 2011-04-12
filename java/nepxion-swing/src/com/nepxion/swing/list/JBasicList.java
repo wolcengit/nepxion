@@ -12,13 +12,13 @@ package com.nepxion.swing.list;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.util.List;
 import java.util.Vector;
 
 import javax.swing.JList;
-import javax.swing.ListModel;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
+
+import com.nepxion.util.data.CollectionUtil;
 
 public class JBasicList
 	extends JList implements ListSelectionListener, MouseListener
@@ -32,23 +32,23 @@ public class JBasicList
 		initComponents();
 	}
 	
-	public JBasicList(ListModel dataModel)
+	public JBasicList(BasicListModel listModel)
 	{
-		super(dataModel);
+		super(listModel);
 		
 		initComponents();
 	}
 	
 	public JBasicList(Object[] listData)
 	{
-		super(listData);
+		setListData(listData);
 		
 		initComponents();
 	}
 	
 	public JBasicList(Vector listData)
 	{
-		super(listData);
+		setListData(listData);
 		
 		initComponents();
 	}
@@ -60,22 +60,46 @@ public class JBasicList
 		addListSelectionListener(this);
 	}
 	
-	public List getListData()
+	public int[] getSelectedIndexes()
 	{
-		Vector listData = new Vector();
+		BasicListModel listModel = (BasicListModel) getModel();
 		
-		ListModel listModel = getModel();
-		for (int i = 0; i < listModel.getSize(); i++)
+		Object[] selectedValues = getSelectedValues();
+		int[] selectedIndexes = new int[selectedValues.length];
+		
+		for (int i = 0; i < selectedValues.length; i++)
 		{
-			Object element = listModel.getElementAt(i);
-			listData.add(element);
-		}
+			Object object = selectedValues[i];
+			
+			int index = listModel.indexOf(object);
+			
+			selectedIndexes[i] = index;
+		}	
 		
-		return listData;
+		return selectedIndexes;
+	}
+	
+	public Vector getListData()
+	{
+		BasicListModel listModel = (BasicListModel) getModel();
+		
+		return listModel.getRowDatas();
+	}
+	
+	public void setListData(Object[] listData)
+	{
+		Vector rowDatas = CollectionUtil.parseVector(listData);
+		setListData(rowDatas);
+	}
+	
+	public void setListData(Vector listData)
+	{
+		BasicListModel listModel = new BasicListModel(listData);
+		setModel(listModel);
 	}
 	
 	public void valueChanged(ListSelectionEvent e)
-	{		
+	{
 		boolean isAdjusting = e.getValueIsAdjusting();
 		if (isAdjusting)
 		{
