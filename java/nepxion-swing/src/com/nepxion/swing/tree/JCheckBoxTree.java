@@ -359,6 +359,7 @@ public class JCheckBoxTree
 	{
 		int x = e.getX();
 		int y = e.getY();
+		
 		TreePath treePath = getPathForLocation(x, y);
 		if (treePath != null)
 		{
