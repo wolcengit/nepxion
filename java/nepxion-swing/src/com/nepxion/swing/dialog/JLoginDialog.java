@@ -40,7 +40,7 @@ import com.nepxion.swing.layout.filed.FiledLayout;
 import com.nepxion.swing.layout.table.TableLayout;
 import com.nepxion.swing.locale.SwingLocale;
 import com.nepxion.swing.optionpane.JBasicOptionPane;
-import com.nepxion.swing.renderer.combobox.ComboBoxElementCellRenderer;
+import com.nepxion.swing.renderer.combobox.ElementComboBoxCellRenderer;
 import com.nepxion.swing.separator.JBasicSeparator;
 import com.nepxion.swing.textfield.JBasicPasswordField;
 import com.nepxion.swing.textfield.JBasicTextField;
@@ -93,7 +93,7 @@ public abstract class JLoginDialog
 		localeLabel.setFont(new Font(FontContext.getFontName(), FONT_STYLE, FONT_SIZE));
 		
 		localeComboBox = new JBasicComboBox();
-		localeComboBox.setRenderer(new ComboBoxElementCellRenderer());
+		localeComboBox.setRenderer(new ElementComboBoxCellRenderer());
 		localeComboBox.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent e)

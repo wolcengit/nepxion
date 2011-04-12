@@ -17,7 +17,7 @@ import javax.swing.ListModel;
 
 import com.nepxion.swing.element.IElementNode;
 import com.nepxion.swing.list.JBasicList;
-import com.nepxion.swing.renderer.list.ListCheckBoxCellRenderer;
+import com.nepxion.swing.renderer.list.CheckBoxListCellRenderer;
 import com.nepxion.swing.scrollpane.JBasicScrollPane;
 import com.nepxion.util.data.CollectionUtil;
 
@@ -48,7 +48,7 @@ public class JCheckBoxListPanel
 		{
 			selectionList = new JBasicList(CollectionUtil.parseVector(allElementNodes));
 		}
-		selectionList.setCellRenderer(new ListCheckBoxCellRenderer(selectionList, 22));
+		selectionList.setCellRenderer(new CheckBoxListCellRenderer(selectionList, 22));
 		
 		getViewport().add(selectionList);
 	}

@@ -14,7 +14,7 @@ import java.util.Vector;
 
 import javax.swing.JList;
 
-import com.nepxion.swing.renderer.table.TableRowHeaderCellRenderer;
+import com.nepxion.swing.renderer.table.RowHeaderTableCellRenderer;
 import com.nepxion.swing.table.JBasicTable;
 
 public class JRowHeaderTable
@@ -39,7 +39,7 @@ public class JRowHeaderTable
 	{
 		RowHeaderListModel rowHeaderListModel = new RowHeaderListModel(rowHeaderData);
 		rowHeader = new JList(rowHeaderListModel);
-		rowHeader.setCellRenderer(new TableRowHeaderCellRenderer(this));
+		rowHeader.setCellRenderer(new RowHeaderTableCellRenderer(this));
 	}
 	
 	public Vector getRowHeaderData()

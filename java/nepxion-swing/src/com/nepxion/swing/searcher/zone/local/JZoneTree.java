@@ -15,7 +15,7 @@ import javax.swing.tree.DefaultTreeModel;
 import org.dom4j.DocumentException;
 
 import com.nepxion.swing.element.ElementNode;
-import com.nepxion.swing.renderer.tree.TreeElementCellRenderer;
+import com.nepxion.swing.renderer.tree.ElementTreeCellRenderer;
 import com.nepxion.swing.tree.JBasicTree;
 import com.nepxion.swing.tree.xml.Dom4JTreeParser;
 import com.nepxion.util.io.FileContext;
@@ -46,7 +46,7 @@ public class JZoneTree
 		}
 		DefaultTreeModel treeModel = new DefaultTreeModel(root);
 		setModel(treeModel);
-		setCellRenderer(new TreeElementCellRenderer(TreeElementCellRenderer.NIMBUS_STYLE, 20));
+		setCellRenderer(new ElementTreeCellRenderer(ElementTreeCellRenderer.NIMBUS_STYLE, 20));
 		setSelectionMode(JBasicTree.SINGLE_TREE_SELECTION);
 	}
 }

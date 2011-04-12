@@ -17,7 +17,7 @@ import java.util.Vector;
 import javax.swing.ComboBoxModel;
 
 import com.nepxion.swing.element.IElementNode;
-import com.nepxion.swing.renderer.combobox.ComboBoxGroupCellRenderer;
+import com.nepxion.swing.renderer.combobox.GroupComboBoxCellRenderer;
 
 public class JGroupComboBox
 	extends JBasicComboBox
@@ -75,7 +75,7 @@ public class JGroupComboBox
 					return;
 				}
 			}
-			if (selectedItem.toString().equals(ComboBoxGroupCellRenderer.SEPARATOR))
+			if (selectedItem.toString().equals(GroupComboBoxCellRenderer.SEPARATOR))
 			{
 				setSelectedItem(currentItem);
 				
