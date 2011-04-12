@@ -19,7 +19,7 @@ import javax.swing.JPanel;
 import com.nepxion.demo.common.DemoDataFactory;
 import com.nepxion.swing.border.BorderManager;
 import com.nepxion.swing.list.JBasicList;
-import com.nepxion.swing.renderer.list.ListCheckBoxCellRenderer;
+import com.nepxion.swing.renderer.list.CheckBoxListCellRenderer;
 import com.nepxion.swing.scrollpane.JBasicScrollPane;
 import com.nepxion.util.data.CollectionUtil;
 
@@ -45,7 +45,7 @@ public class DemoCheckBoxListPanel
 			List componentElementNodes = DemoDataFactory.getComponentElementNodes();
 			
 			JBasicList checkBoxList = new JBasicList(CollectionUtil.parseVector(componentElementNodes));
-			checkBoxList.setCellRenderer(new ListCheckBoxCellRenderer(checkBoxList));
+			checkBoxList.setCellRenderer(new CheckBoxListCellRenderer(checkBoxList));
 			
 			JBasicScrollPane checkBoxListScrollPane = new JBasicScrollPane();
 			checkBoxListScrollPane.getViewport().add(checkBoxList);			

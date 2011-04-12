@@ -16,7 +16,7 @@ import javax.swing.JPanel;
 
 import com.nepxion.demo.common.DemoDataFactory;
 import com.nepxion.swing.border.BorderManager;
-import com.nepxion.swing.renderer.tree.TreeElementCellRenderer;
+import com.nepxion.swing.renderer.tree.ElementTreeCellRenderer;
 import com.nepxion.swing.scrollpane.JBasicScrollPane;
 import com.nepxion.swing.tree.JBasicTree;
 
@@ -40,7 +40,7 @@ public class DemoElementTreePanel
 			setBorder(BorderManager.createComplexTitleBorder("Element Tree"));
 			
 			JBasicTree elementTree = new JBasicTree(DemoDataFactory.getRootElementNode());
-			elementTree.setCellRenderer(new TreeElementCellRenderer(20));
+			elementTree.setCellRenderer(new ElementTreeCellRenderer(20));
 			elementTree.expandAll();
 			
 			JBasicScrollPane decorationTreeScrollPane = new JBasicScrollPane();

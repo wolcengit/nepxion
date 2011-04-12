@@ -21,7 +21,7 @@ import com.nepxion.demo.common.DemoDataFactory;
 import com.nepxion.swing.border.BorderManager;
 import com.nepxion.swing.combobox.JGroupComboBox;
 import com.nepxion.swing.layout.filed.FiledLayout;
-import com.nepxion.swing.renderer.combobox.ComboBoxGroupCellRenderer;
+import com.nepxion.swing.renderer.combobox.GroupComboBoxCellRenderer;
 import com.nepxion.util.data.CollectionUtil;
 
 public class DemoGroupComboBoxPanel
@@ -44,12 +44,12 @@ public class DemoGroupComboBoxPanel
 			setBorder(BorderManager.createComplexTitleBorder("Group ComboBox"));
 			
 			List componentElementNodes = DemoDataFactory.getComponentElementNodes();
-			componentElementNodes.add(3, ComboBoxGroupCellRenderer.SEPARATOR);
-			componentElementNodes.add(8, ComboBoxGroupCellRenderer.SEPARATOR);
+			componentElementNodes.add(3, GroupComboBoxCellRenderer.SEPARATOR);
+			componentElementNodes.add(8, GroupComboBoxCellRenderer.SEPARATOR);
 			
 			JGroupComboBox groupComboBox = new JGroupComboBox(CollectionUtil.parseVector(componentElementNodes));
 			groupComboBox.setMaximumSize(new Dimension(350, groupComboBox.getPreferredSize().height));
-			groupComboBox.setRenderer(new ComboBoxGroupCellRenderer(BorderFactory.createEmptyBorder(0, 5, 0, 0), -1));
+			groupComboBox.setRenderer(new GroupComboBoxCellRenderer(BorderFactory.createEmptyBorder(0, 5, 0, 0), -1));
 			add(groupComboBox);
 		}
 	}

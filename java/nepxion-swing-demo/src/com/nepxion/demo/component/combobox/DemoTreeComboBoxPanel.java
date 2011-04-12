@@ -27,7 +27,7 @@ import com.nepxion.swing.border.BorderManager;
 import com.nepxion.swing.combobox.JBasicComboBox;
 import com.nepxion.swing.element.ElementNode;
 import com.nepxion.swing.layout.filed.FiledLayout;
-import com.nepxion.swing.renderer.combobox.ComboBoxElementCellRenderer;
+import com.nepxion.swing.renderer.combobox.ElementComboBoxCellRenderer;
 import com.nepxion.util.data.CollectionUtil;
 
 public class DemoTreeComboBoxPanel
@@ -72,7 +72,7 @@ public class DemoTreeComboBoxPanel
 	}
 	
 	public class ComboBoxTreeCellRenderer
-		extends ComboBoxElementCellRenderer
+		extends ElementComboBoxCellRenderer
 	{
 		public ComboBoxTreeCellRenderer()
 		{

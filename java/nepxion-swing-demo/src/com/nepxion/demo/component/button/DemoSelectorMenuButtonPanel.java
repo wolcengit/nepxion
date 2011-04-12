@@ -24,7 +24,7 @@ import com.nepxion.swing.handle.HandleManager;
 import com.nepxion.swing.icon.IconFactory;
 import com.nepxion.swing.layout.filed.FiledLayout;
 import com.nepxion.swing.optionpane.JBasicOptionPane;
-import com.nepxion.swing.renderer.tree.TreeElementCellRenderer;
+import com.nepxion.swing.renderer.tree.ElementTreeCellRenderer;
 import com.nepxion.swing.selector.button.JBasicSelectorMenuButton;
 import com.nepxion.swing.textfield.JBasicTextField;
 import com.nepxion.swing.tree.JBasicTree;
@@ -83,7 +83,7 @@ public class DemoSelectorMenuButtonPanel
 				}
 			};
 					
-			tree.setCellRenderer(new TreeElementCellRenderer(TreeElementCellRenderer.NIMBUS_STYLE, 20));
+			tree.setCellRenderer(new ElementTreeCellRenderer(ElementTreeCellRenderer.NIMBUS_STYLE, 20));
 			tree.setSelectionMode(JBasicTree.SINGLE_TREE_SELECTION);			
 			tree.expandAll();
 			

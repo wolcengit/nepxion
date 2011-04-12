@@ -23,7 +23,7 @@ import com.nepxion.swing.combobox.JBasicComboBox;
 import com.nepxion.swing.combobox.JGroupComboBox;
 import com.nepxion.swing.icon.IconFactory;
 import com.nepxion.swing.layout.filed.FiledLayout;
-import com.nepxion.swing.renderer.combobox.ComboBoxElementCellRenderer;
+import com.nepxion.swing.renderer.combobox.ElementComboBoxCellRenderer;
 import com.nepxion.util.data.CollectionUtil;
 
 public class DemoElementComboBoxPanel
@@ -50,7 +50,7 @@ public class DemoElementComboBoxPanel
 			
 			JBasicComboBox singleIconComboBox = new JBasicComboBox(componentNameDatas);
 			singleIconComboBox.setMaximumSize(new Dimension(350, singleIconComboBox.getPreferredSize().height));
-			singleIconComboBox.setRenderer(new ComboBoxElementCellRenderer(BorderFactory.createEmptyBorder(0, 5, 0, 0), IconFactory.getSwingIcon("component/combo_box_16.png")));			
+			singleIconComboBox.setRenderer(new ElementComboBoxCellRenderer(BorderFactory.createEmptyBorder(0, 5, 0, 0), IconFactory.getSwingIcon("component/combo_box_16.png")));			
 			add(singleIconComboBox);
 		}
 	}
@@ -67,7 +67,7 @@ public class DemoElementComboBoxPanel
 			
 			JBasicComboBox multiIconComboBox = new JGroupComboBox(CollectionUtil.parseVector(componentElementNodes));
 			multiIconComboBox.setMaximumSize(new Dimension(350, multiIconComboBox.getPreferredSize().height));
-			multiIconComboBox.setRenderer(new ComboBoxElementCellRenderer(BorderFactory.createEmptyBorder(0, 5, 0, 0)));
+			multiIconComboBox.setRenderer(new ElementComboBoxCellRenderer(BorderFactory.createEmptyBorder(0, 5, 0, 0)));
 			add(multiIconComboBox);
 		}
 	}	

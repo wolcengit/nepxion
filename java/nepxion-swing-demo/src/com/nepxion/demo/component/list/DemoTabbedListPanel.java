@@ -17,7 +17,7 @@ import javax.swing.JPanel;
 import com.nepxion.demo.common.DemoDataFactory;
 import com.nepxion.swing.border.BorderManager;
 import com.nepxion.swing.list.JBasicList;
-import com.nepxion.swing.renderer.list.ListTabbedCellRenderer;
+import com.nepxion.swing.renderer.list.TabbedListCellRenderer;
 import com.nepxion.swing.scrollpane.JBasicScrollPane;
 
 public class DemoTabbedListPanel
@@ -42,7 +42,7 @@ public class DemoTabbedListPanel
 			String[] componentDescriptonDatas = DemoDataFactory.getComponentDescriptonDatas();
 			
 			JBasicList checkBoxList = new JBasicList(componentDescriptonDatas);
-			checkBoxList.setCellRenderer(new ListTabbedCellRenderer(700, "\t", new int[] {100, 270, 430}, 50));
+			checkBoxList.setCellRenderer(new TabbedListCellRenderer(700, "\t", new int[] {100, 270, 430}, 50));
 			
 			JBasicScrollPane checkBoxListScrollPane = new JBasicScrollPane();
 			checkBoxListScrollPane.getViewport().add(checkBoxList);			

@@ -35,7 +35,7 @@ import com.nepxion.swing.layout.filed.FiledLayout;
 import com.nepxion.swing.listener.SelectionListener;
 import com.nepxion.swing.optionpane.JBasicOptionPane;
 import com.nepxion.swing.popupmenu.JDecorationPopupMenu;
-import com.nepxion.swing.renderer.combobox.ComboBoxElementCellRenderer;
+import com.nepxion.swing.renderer.combobox.ElementComboBoxCellRenderer;
 import com.nepxion.swing.tabbedpane.JEclipseTabbedPane;
 import com.nepxion.util.data.CollectionUtil;
 
@@ -110,7 +110,7 @@ public class DemoEclipseTabbedPanePanel
 			List tabShapeElementNodes = DemoDataFactory.getEclipseTabShapeElementNodes();
 			
 			final JBasicComboBox tabShapeComboBox = new JBasicComboBox(CollectionUtil.parseVector(tabShapeElementNodes));
-			tabShapeComboBox.setRenderer(new ComboBoxElementCellRenderer());
+			tabShapeComboBox.setRenderer(new ElementComboBoxCellRenderer());
 			tabShapeComboBox.addItemListener(new SelectionListener()
 			{
 				public void itemSelectionStateChanged(ItemEvent e)

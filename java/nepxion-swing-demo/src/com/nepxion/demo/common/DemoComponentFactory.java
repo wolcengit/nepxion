@@ -21,9 +21,9 @@ import com.nepxion.swing.icon.IconFactory;
 import com.nepxion.swing.menu.JBasicMenu;
 import com.nepxion.swing.menuitem.JBasicMenuItem;
 import com.nepxion.swing.popupmenu.JDecorationPopupMenu;
-import com.nepxion.swing.renderer.list.ListElementCellRenderer;
-import com.nepxion.swing.renderer.table.TableElementCellRenderer;
-import com.nepxion.swing.renderer.tree.TreeElementCellRenderer;
+import com.nepxion.swing.renderer.list.ElementListCellRenderer;
+import com.nepxion.swing.renderer.table.ElementTableCellRenderer;
+import com.nepxion.swing.renderer.tree.ElementTreeCellRenderer;
 import com.nepxion.swing.scrollpane.JBasicScrollPane;
 import com.nepxion.swing.tabbedpane.JEclipseTabbedPane;
 import com.nepxion.swing.table.BasicTableModel;
@@ -37,7 +37,7 @@ public class DemoComponentFactory
 	public static JBasicTree getTree()
 	{				
 		JBasicTree tree = new JBasicTree(DemoDataFactory.getRootElementNode());
-		tree.setCellRenderer(new TreeElementCellRenderer(20));
+		tree.setCellRenderer(new ElementTreeCellRenderer(20));
 		tree.expandAll();
 		
 		return tree;				
@@ -47,7 +47,7 @@ public class DemoComponentFactory
 	{		
 		JSortableTable table = new JSortableTable(new ElementNodeTableModel());
 		table.setAutoResizeMode(JSortableTable.AUTO_RESIZE_OFF);
-		table.getColumn(3).setCellRenderer(new TableElementCellRenderer());
+		table.getColumn(3).setCellRenderer(new ElementTableCellRenderer());
 		
 		return table;
 	}
@@ -102,7 +102,7 @@ public class DemoComponentFactory
 		List componentElementNodes = DemoDataFactory.getComponentElementNodes();
 		
 		JList list = new JList(CollectionUtil.parseVector(componentElementNodes));
-		list.setCellRenderer(new ListElementCellRenderer(list, BorderFactory.createEmptyBorder(0, 5, 0, 0), 22));
+		list.setCellRenderer(new ElementListCellRenderer(list, BorderFactory.createEmptyBorder(0, 5, 0, 0), 22));
 		
 		return list;
 	}

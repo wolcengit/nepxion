@@ -38,7 +38,7 @@ import com.nepxion.swing.lookandfeel.LookAndFeelManager;
 import com.nepxion.swing.menuitem.JBasicMenuItem;
 import com.nepxion.swing.menuitem.JBasicRadioButtonMenuItem;
 import com.nepxion.swing.popupmenu.JDecorationPopupMenu;
-import com.nepxion.swing.renderer.tree.TreeElementCellRenderer;
+import com.nepxion.swing.renderer.tree.ElementTreeCellRenderer;
 import com.nepxion.swing.separator.JBasicSeparator;
 import com.nepxion.swing.tree.AbstractTreeAdapter;
 import com.nepxion.swing.tree.lazyloader.AbstractLazyLoader;
@@ -137,7 +137,7 @@ public class DemoLazyLoaderTreePanel
 			setModel(treeModel);
 			// setRootVisible(false);
 			// setSelectionMode(SINGLE_TREE_SELECTION);
-			setCellRenderer(new TreeElementCellRenderer(20));
+			setCellRenderer(new ElementTreeCellRenderer(20));
 			setLazyLoader(new FileLazyLoader(false));
 			
 			lazyLoaderAdapter = new FileLazyLoaderAdapter(this);

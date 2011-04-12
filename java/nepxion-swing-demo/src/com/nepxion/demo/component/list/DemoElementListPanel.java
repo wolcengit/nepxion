@@ -20,7 +20,7 @@ import com.nepxion.demo.common.DemoDataFactory;
 import com.nepxion.swing.border.BorderManager;
 import com.nepxion.swing.icon.IconFactory;
 import com.nepxion.swing.list.JBasicList;
-import com.nepxion.swing.renderer.list.ListElementCellRenderer;
+import com.nepxion.swing.renderer.list.ElementListCellRenderer;
 import com.nepxion.swing.scrollpane.JBasicScrollPane;
 import com.nepxion.util.data.CollectionUtil;
 
@@ -47,7 +47,7 @@ public class DemoElementListPanel
 			String[] componentNameDatas = DemoDataFactory.getComponentNameDatas();
 			
 			JBasicList singleIconList = new JBasicList(componentNameDatas);
-			singleIconList.setCellRenderer(new ListElementCellRenderer(singleIconList, BorderFactory.createEmptyBorder(0, 5, 0, 0), IconFactory.getSwingIcon("component/list_16.png"), 22));
+			singleIconList.setCellRenderer(new ElementListCellRenderer(singleIconList, BorderFactory.createEmptyBorder(0, 5, 0, 0), IconFactory.getSwingIcon("component/list_16.png"), 22));
 			
 			JBasicScrollPane singleIconListScrollPane = new JBasicScrollPane();
 			singleIconListScrollPane.getViewport().add(singleIconList);			
@@ -66,7 +66,7 @@ public class DemoElementListPanel
 			List componentElementNodes = DemoDataFactory.getComponentElementNodes();
 			
 			JBasicList multiIconList = new JBasicList(CollectionUtil.parseVector(componentElementNodes));
-			multiIconList.setCellRenderer(new ListElementCellRenderer(multiIconList, BorderFactory.createEmptyBorder(0, 5, 0, 0), 22));
+			multiIconList.setCellRenderer(new ElementListCellRenderer(multiIconList, BorderFactory.createEmptyBorder(0, 5, 0, 0), 22));
 			
 			JBasicScrollPane multiIconListScrollPane = new JBasicScrollPane();
 			multiIconListScrollPane.getViewport().add(multiIconList);			
