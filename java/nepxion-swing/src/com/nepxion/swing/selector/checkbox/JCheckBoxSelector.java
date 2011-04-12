@@ -19,7 +19,6 @@ import java.awt.event.ActionListener;
 import java.util.List;
 
 import javax.swing.BorderFactory;
-import javax.swing.JList;
 import javax.swing.JPanel;
 
 import com.nepxion.swing.button.ButtonFocusListener;
@@ -28,6 +27,7 @@ import com.nepxion.swing.dialog.JBasicDialog;
 import com.nepxion.swing.icon.IconFactory;
 import com.nepxion.swing.keystroke.KeyStrokeManager;
 import com.nepxion.swing.layout.table.TableLayout;
+import com.nepxion.swing.list.JBasicList;
 import com.nepxion.swing.locale.SwingLocale;
 import com.nepxion.swing.optionpane.JBasicOptionPane;
 
@@ -170,7 +170,7 @@ public class JCheckBoxSelector
 		return checkBoxListPanel;
 	}
 	
-	public JList getCheckBoxList()
+	public JBasicList getCheckBoxList()
 	{
 		return checkBoxListPanel.getList();
 	}

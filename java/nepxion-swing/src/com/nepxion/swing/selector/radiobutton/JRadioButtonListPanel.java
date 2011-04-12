@@ -10,13 +10,12 @@ package com.nepxion.swing.selector.radiobutton;
  * @version 1.0
  */
 
-import java.util.ArrayList;
 import java.util.List;
 
-import javax.swing.JList;
 import javax.swing.ListModel;
 
 import com.nepxion.swing.element.IElementNode;
+import com.nepxion.swing.list.JBasicList;
 import com.nepxion.swing.renderer.list.ListRadioButtonCellRenderer;
 import com.nepxion.swing.scrollpane.JBasicScrollPane;
 import com.nepxion.util.data.CollectionUtil;
@@ -24,7 +23,7 @@ import com.nepxion.util.data.CollectionUtil;
 public class JRadioButtonListPanel
 	extends JBasicScrollPane
 {
-	private JList selectionList;
+	private JBasicList selectionList;
 	
 	private IElementNode selectedElementNode;
 	private Object selectedUserObject;
@@ -38,11 +37,11 @@ public class JRadioButtonListPanel
 	{
 		if (allElementNodes == null)
 		{
-			selectionList = new JList();
+			selectionList = new JBasicList();
 		}
 		else
 		{
-			selectionList = new JList(CollectionUtil.parseVector(allElementNodes));
+			selectionList = new JBasicList(CollectionUtil.parseVector(allElementNodes));
 		}
 		selectionList.setCellRenderer(new ListRadioButtonCellRenderer(selectionList, 22));
 		getViewport().add(selectionList);
@@ -64,22 +63,14 @@ public class JRadioButtonListPanel
 		}
 	}
 	
-	public JList getList()
+	public JBasicList getList()
 	{
 		return selectionList;
 	}
 	
 	public List getAllElementNodes()
 	{
-		List allElementNodes = new ArrayList();
-		ListModel listModel = selectionList.getModel();
-		for (int i = 0; i < listModel.getSize(); i++)
-		{
-			Object elementNode = listModel.getElementAt(i);
-			allElementNodes.add(elementNode);
-		}
-		
-		return allElementNodes;
+		return selectionList.getListData();
 	}
 	
 	public void setAllElementNodes(List allElementNodes)

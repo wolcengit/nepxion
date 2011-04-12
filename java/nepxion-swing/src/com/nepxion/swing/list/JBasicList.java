@@ -10,6 +10,7 @@ package com.nepxion.swing.list;
  * @version 1.0
  */
 
+import java.util.List;
 import java.util.Vector;
 
 import javax.swing.JList;
@@ -49,5 +50,19 @@ public class JBasicList
 	private void initComponents()
 	{
 		ListManager.setPreferenceStyle(this);
+	}
+	
+	public List getListData()
+	{
+		Vector listData = new Vector();
+		
+		ListModel listModel = getModel();
+		for (int i = 0; i < listModel.getSize(); i++)
+		{
+			Object element = listModel.getElementAt(i);
+			listData.add(element);
+		}
+		
+		return listData;
 	}
 }

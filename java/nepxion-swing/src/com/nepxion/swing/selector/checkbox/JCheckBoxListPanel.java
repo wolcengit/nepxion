@@ -13,10 +13,10 @@ package com.nepxion.swing.selector.checkbox;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.swing.JList;
 import javax.swing.ListModel;
 
 import com.nepxion.swing.element.IElementNode;
+import com.nepxion.swing.list.JBasicList;
 import com.nepxion.swing.renderer.list.ListCheckBoxCellRenderer;
 import com.nepxion.swing.scrollpane.JBasicScrollPane;
 import com.nepxion.util.data.CollectionUtil;
@@ -28,7 +28,7 @@ public class JCheckBoxListPanel
 	public static final byte SELECT_NONE = 1;
 	public static final byte SELECT_REVERSE = 2;
 	
-	private JList selectionList;
+	private JBasicList selectionList;
 	
 	private List selectedElementNodes;
 	private List selectedUserObjects;
@@ -42,11 +42,11 @@ public class JCheckBoxListPanel
 	{
 		if (allElementNodes == null)
 		{
-			selectionList = new JList();
+			selectionList = new JBasicList();
 		}
 		else
 		{
-			selectionList = new JList(CollectionUtil.parseVector(allElementNodes));
+			selectionList = new JBasicList(CollectionUtil.parseVector(allElementNodes));
 		}
 		selectionList.setCellRenderer(new ListCheckBoxCellRenderer(selectionList, 22));
 		
@@ -92,22 +92,14 @@ public class JCheckBoxListPanel
 		}
 	}
 	
-	public JList getList()
+	public JBasicList getList()
 	{
 		return selectionList;
 	}
 	
 	public List getAllElementNodes()
 	{
-		List allElementNodes = new ArrayList();
-		ListModel listModel = selectionList.getModel();
-		for (int i = 0; i < listModel.getSize(); i++)
-		{
-			Object elementNode = listModel.getElementAt(i);
-			allElementNodes.add(elementNode);
-		}
-		
-		return allElementNodes;
+		return selectionList.getListData();
 	}
 	
 	public void setAllElementNodes(List allElementNodes)
