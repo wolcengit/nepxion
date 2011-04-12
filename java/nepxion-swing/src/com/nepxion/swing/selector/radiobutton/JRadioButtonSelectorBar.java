@@ -17,6 +17,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
 
+import javax.swing.Box;
 import javax.swing.JPanel;
 
 import com.nepxion.swing.button.ButtonManager;
@@ -95,6 +96,8 @@ public class JRadioButtonSelectorBar
 		}
 		);
 		buttonContainer.add(refreshButton, 0);
+		
+		buttonContainer.add(Box.createHorizontalStrut(5), 1);
 		
 		setLayout(new BorderLayout());
 		add(textField, BorderLayout.CENTER);
