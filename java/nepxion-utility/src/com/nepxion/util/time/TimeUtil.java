@@ -754,7 +754,50 @@ public class TimeUtil
 		}
 		
 		return hourString + ":" + minuteString + ":" + secondString + ":" + millisecondString;
-	}	
+	}
+	
+	/**
+	 * Get the date string
+	 * @param dateTime      the date
+	 * @param formatString  the format string
+	 * @return              the date time string
+	 */
+	public static String getDateTimeString(Date date, String formatString)
+	{
+		String dateTimeString = null;
+		
+		if (formatString.equals(DATE_TIME_FORMAT_STRING))
+		{
+			dateTimeString = TimeUtil.getDateTime(date);
+		}
+		else if (formatString.equals(MILLISECOND_DATE_TIME_FORMAT_STRING))
+		{
+			dateTimeString = TimeUtil.getMillisecondDateTime(date);
+		}
+		else if (formatString.equals(TIME_ZONE_DATE_TIME_FORMAT_STRING))
+		{
+			dateTimeString = TimeUtil.getTimeZoneDateTime(date);
+		}
+		else if (formatString.equals(DATE_FORMAT_STRING))
+		{
+			dateTimeString = TimeUtil.getDate(date);
+		}
+		else if (formatString.equals(TIME_FORMAT_STRING))
+		{
+			dateTimeString = TimeUtil.getTime(date);
+		}
+		else if (formatString.equals(MILLISECOND_TIME_FORMAT_STRING))
+		{
+			dateTimeString = TimeUtil.getMillisecondTime(date);
+		}
+		
+		if (dateTimeString == null)
+		{
+			dateTimeString = TimeUtil.getDateTime(date);
+		}
+		
+		return dateTimeString;
+	}
 	
 	/**
 	 * Get the date time format

@@ -58,39 +58,7 @@ public class TimeComparable
 	}
 	
 	public String toString()
-	{
-		String dateTimeString = null;
-		
-		if (formatString.equals(DATE_TIME_FORMAT_STRING))
-		{
-			dateTimeString = TimeUtil.getDateTime(dateTime);
-		}
-		else if (formatString.equals(MILLISECOND_DATE_TIME_FORMAT_STRING))
-		{
-			dateTimeString = TimeUtil.getMillisecondDateTime(dateTime);
-		}
-		else if (formatString.equals(TIME_ZONE_DATE_TIME_FORMAT_STRING))
-		{
-			dateTimeString = TimeUtil.getTimeZoneDateTime(dateTime);
-		}
-		else if (formatString.equals(DATE_FORMAT_STRING))
-		{
-			dateTimeString = TimeUtil.getDate(dateTime);
-		}
-		else if (formatString.equals(TIME_FORMAT_STRING))
-		{
-			dateTimeString = TimeUtil.getTime(dateTime);
-		}
-		else if (formatString.equals(MILLISECOND_TIME_FORMAT_STRING))
-		{
-			dateTimeString = TimeUtil.getMillisecondTime(dateTime);
-		}
-		
-		if (dateTimeString == null)
-		{
-			dateTimeString = TimeUtil.getDateTime(dateTime);
-		}
-		
-		return dateTimeString;
+	{		
+		return TimeUtil.getDateTimeString(dateTime, formatString);
 	}
 }
