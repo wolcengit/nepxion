@@ -20,9 +20,8 @@ import com.nepxion.swing.locale.SwingLocale;
 public class TableBooleanCellRenderer
 	extends DefaultTableCellRenderer
 {
-	public TableBooleanCellRenderer(int cellAlignment)
+	public TableBooleanCellRenderer()
 	{
-		setHorizontalAlignment(cellAlignment);
 		setOpaque(true);
 	}
 	

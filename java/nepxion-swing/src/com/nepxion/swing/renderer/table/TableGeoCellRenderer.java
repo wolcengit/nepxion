@@ -22,9 +22,8 @@ import com.nepxion.swing.icon.paint.GeoCellIcon;
 public class TableGeoCellRenderer
 	extends DefaultTableCellRenderer
 {
-	public TableGeoCellRenderer(int cellAlignment)
+	public TableGeoCellRenderer()
 	{
-		setHorizontalAlignment(cellAlignment);
 		setOpaque(true);
 	}
 	

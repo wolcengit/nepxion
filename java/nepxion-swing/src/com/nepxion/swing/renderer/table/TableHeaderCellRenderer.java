@@ -22,7 +22,7 @@ import com.nepxion.swing.element.IElementNode;
 public class TableHeaderCellRenderer
 	extends DefaultTableCellRenderer
 {	
-	public TableHeaderCellRenderer(JTableHeader header, IElementNode elementNode, int cellAlignment)
+	public TableHeaderCellRenderer(JTableHeader header, IElementNode elementNode)
 	{		
 		setForeground(header.getForeground());
 		setBackground(header.getBackground());
@@ -32,7 +32,6 @@ public class TableHeaderCellRenderer
 		setIcon(elementNode.getIcon());
 		setToolTipText(elementNode.getToolTipText());
 		
-		setHorizontalAlignment(cellAlignment);
 		setOpaque(true);
 		setBorder(UIManager.getBorder("TableHeader.cellBorder"));
 	}

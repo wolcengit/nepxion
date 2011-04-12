@@ -45,7 +45,7 @@ public class JSortableTable
 	{
 		sortButtonRenderer = new SortButtonRenderer();
 		
-		final JTableHeader header = getTableHeader();
+		JTableHeader header = getTableHeader();
 		this.headerListener = new SortableTableHeaderListener(sortButtonRenderer);
 		header.addMouseListener(this.headerListener);
 		header.addMouseMotionListener(this.headerListener);	

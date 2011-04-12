@@ -49,8 +49,8 @@ public class JQueryDateTimeBar
         JLabel startDateTimeLabel = new JLabel(SwingLocale.getString("start_time"));
 		JLabel endDateTimeLabel = new JLabel(SwingLocale.getString("end_time"));
 		
-		startDateTimeSelector = new JDateTimeSelector(startDateTime, TimeConstants.DATE_TIME_FORMAT, new JSpinnerDateTimeEditor());		
-		endDateTimeSelector = new JDateTimeSelector(endDateTime, TimeConstants.DATE_TIME_FORMAT, new JSpinnerDateTimeEditor());
+		startDateTimeSelector = new JDateTimeSelector(startDateTime, TimeConstants.DATE_TIME_FORMAT_STRING, new JSpinnerDateTimeEditor());		
+		endDateTimeSelector = new JDateTimeSelector(endDateTime, TimeConstants.DATE_TIME_FORMAT_STRING, new JSpinnerDateTimeEditor());
 		
 		switch (direction)
 		{

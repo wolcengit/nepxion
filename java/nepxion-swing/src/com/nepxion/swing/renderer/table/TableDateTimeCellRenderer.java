@@ -21,9 +21,8 @@ import com.nepxion.util.time.TimeUtil;
 public class TableDateTimeCellRenderer
 	extends DefaultTableCellRenderer
 {
-	public TableDateTimeCellRenderer(int cellAlignment)
+	public TableDateTimeCellRenderer()
 	{
-		setHorizontalAlignment(cellAlignment);
 		setOpaque(true);
 	}
 	

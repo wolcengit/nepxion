@@ -21,9 +21,8 @@ import com.nepxion.swing.border.LineBorder;
 public class TableColorCellRenderer
 	extends DefaultTableCellRenderer
 {
-	public TableColorCellRenderer(int cellAlignment)
+	public TableColorCellRenderer()
 	{
-		setHorizontalAlignment(cellAlignment);
 		setOpaque(true);
 		setBorder(new LineBorder(Color.black));
 	}

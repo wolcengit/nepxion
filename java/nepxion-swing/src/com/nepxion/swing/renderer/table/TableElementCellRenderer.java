@@ -30,32 +30,21 @@ public class TableElementCellRenderer
 		this(null);
 	}
 	
-	public TableElementCellRenderer(int cellAlignment)
+	public TableElementCellRenderer(int cellHeight)
 	{
-		this(-1, cellAlignment);
+		this(null, cellHeight);
 	}
 	
 	public TableElementCellRenderer(Icon cellIcon)
 	{
-		this(cellIcon, CENTER);
+		this(cellIcon, -1);
 	}
 	
-	public TableElementCellRenderer(int cellHeight, int cellAlignment)
-	{
-		this(null, cellHeight, cellAlignment);
-	}
-	
-	public TableElementCellRenderer(Icon cellIcon, int cellAlignment)
-	{
-		this(cellIcon, -1, cellAlignment);
-	}
-	
-	public TableElementCellRenderer(Icon cellIcon, int cellHeight, int cellAlignment)
+	public TableElementCellRenderer(Icon cellIcon, int cellHeight)
 	{
 		this.cellIcon = cellIcon;
 		this.cellHeight = cellHeight;
 		
-		setHorizontalAlignment(cellAlignment);
 		setOpaque(true);
 	}
 	

@@ -18,9 +18,8 @@ import javax.swing.table.DefaultTableCellRenderer;
 public class TablePasswordCellRenderer
 	extends DefaultTableCellRenderer
 {
-	public TablePasswordCellRenderer(int cellAlignment)
+	public TablePasswordCellRenderer()
 	{
-		setHorizontalAlignment(cellAlignment);
 		setOpaque(true);
 	}
 	
