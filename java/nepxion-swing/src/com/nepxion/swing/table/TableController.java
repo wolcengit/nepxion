@@ -69,7 +69,7 @@ public class TableController
 		}
 		
 		ITableModel tableModel = TableManager.getModel(table);		
-		tableModel.updateRow(selectedRowIndex, rowData);
+		tableModel.updateRow(rowData, selectedRowIndex);
 	}
 	
 	public static void delete(JTable table, ITableAdapter tableAdapter)

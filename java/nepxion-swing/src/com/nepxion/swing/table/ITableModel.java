@@ -33,7 +33,7 @@ public interface ITableModel
 	
 	public void addRows(List rowDataList, int row);
 	
-	public void updateRow(int row, Object rowData);
+	public void updateRow(Object rowData, int row);
 	
 	public void deleteRow(int row);
 	

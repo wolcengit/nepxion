@@ -127,7 +127,7 @@ public abstract class BasicTableModel
 		fireTableDataChanged();
 	}
 	
-	public void updateRow(int row, Object rowData)
+	public void updateRow(Object rowData, int row)
 	{
 		rowDatas.remove(row);
 		rowDatas.add(row, rowData);

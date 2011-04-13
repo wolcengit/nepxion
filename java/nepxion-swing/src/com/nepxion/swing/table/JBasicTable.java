@@ -143,11 +143,13 @@ public class JBasicTable
 		return getColumnModel().getColumn(column);
 	}
 	
+	// 在JDK1.6下，其启用排序功能，务必把该方法覆盖掉
 	public int getRowIndexToModel(int rowIndex)
 	{
 		return rowIndex;
 	}
 	
+	// 在JDK1.6下，其启用排序功能，务必把该方法覆盖掉
 	public int[] getRowIndexesToModel(int[] rowIndexes)
 	{
 		return rowIndexes;
