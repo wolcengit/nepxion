@@ -35,7 +35,7 @@ public class JBasicTable
 	
 	private boolean isAutoLayout = true;
 	
-	private int selectedRow = -1;
+	private int selectedIndex = -1;
 	
 	public JBasicTable()
 	{
@@ -195,17 +195,33 @@ public class JBasicTable
 	{
 		super.valueChanged(e);
 		
-		boolean isAdjusting = e.getValueIsAdjusting();
-		if (isAdjusting)
+		int[] selectedRows = getSelectedRows();
+		
+		if (selectedRows.length == 0)
 		{
-			if (getSelectedRow() == selectedRow)
+			boolean isAdjusting = e.getValueIsAdjusting();
+			if (isAdjusting)
+			{
+				if (getSelectedRow() == selectedIndex)
+				{
+					return;
+				}
+				
+				selectedIndex = getSelectedRow();
+				
+				executeSelection(selectedIndex);
+			}
+		}
+		else
+		{
+			if (getSelectedRow() == selectedIndex)
 			{
 				return;
 			}
 			
-			selectedRow = getSelectedRow();
+			selectedIndex = getSelectedRow();
 			
-			executeSelection(selectedRow);
+			executeSelection(selectedIndex);
 		}
 	}
 	
