@@ -118,12 +118,12 @@ public class JBasicList
 			boolean isAdjusting = e.getValueIsAdjusting();
 			if (isAdjusting)
 			{
-				int oldSelectionRow = selectedIndex;
-				int newSelectionRow = -1;
+				int oldSelectedRow = selectedIndex;
+				int newSelectedRow = -1;
 				selectedIndex = -1;
 				selectedIndexes = null;
 				
-				executeSelection(oldSelectionRow, newSelectionRow);
+				executeSelection(oldSelectedRow, newSelectedRow);
 			}
 		}
 		else if (selectedRows.length == 1)
@@ -141,28 +141,28 @@ public class JBasicList
 			selectedIndex = getSelectedIndex();
 			selectedIndexes = null;
 			
-			int oldSelectionRow = -1;
-			int newSelectionRow = -1;
+			int oldSelectedRow = -1;
+			int newSelectedRow = -1;
 			
 			int firstIndex = e.getFirstIndex();
 			int lastIndex = e.getLastIndex();
 			
 			if (e.getFirstIndex() == e.getLastIndex())
 			{
-				newSelectionRow = selectedIndex;
+				newSelectedRow = selectedIndex;
 			}
 			else if (e.getFirstIndex() == selectedIndex)
 			{
-				oldSelectionRow = lastIndex;
-				newSelectionRow = firstIndex;
+				oldSelectedRow = lastIndex;
+				newSelectedRow = firstIndex;
 			}
 			else if (e.getLastIndex() == selectedIndex)
 			{
-				oldSelectionRow = firstIndex;
-				newSelectionRow = lastIndex;
+				oldSelectedRow = firstIndex;
+				newSelectedRow = lastIndex;
 			}
 			
-			executeSelection(oldSelectionRow, newSelectionRow);
+			executeSelection(oldSelectedRow, newSelectedRow);
 		}
 		else
 		{
@@ -170,7 +170,7 @@ public class JBasicList
 		}
 	}
 	
-	public void executeSelection(int oldSelectionRow, int newSelectionRow)
+	public void executeSelection(int oldSelectedRow, int newSelectedRow)
 	{
 
 	}

@@ -33,7 +33,7 @@ public interface IList
 	
 	public Vector getListData();
 	
-	public void executeSelection(int oldSelectionRow, int newSelectionRow);
+	public void executeSelection(int oldSelectedRow, int newSelectedRow);
 	
 	public void executeClicked(int selectedRow);
 	
