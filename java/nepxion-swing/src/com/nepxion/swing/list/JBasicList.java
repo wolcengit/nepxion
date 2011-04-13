@@ -15,6 +15,7 @@ import java.awt.event.MouseListener;
 import java.util.Vector;
 
 import javax.swing.JList;
+import javax.swing.ListModel;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
@@ -93,9 +94,18 @@ public class JBasicList
 	}
 	
 	public void setListData(Vector listData)
-	{
-		BasicListModel listModel = new BasicListModel(listData);
-		setModel(listModel);
+	{	
+		ListModel model = getModel();
+		if (model instanceof BasicListModel)
+		{	
+			BasicListModel listModel = (BasicListModel) model;
+			listModel.setRowDatas(listData);
+		}
+		else
+		{
+			BasicListModel listModel = new BasicListModel(listData);
+			setModel(listModel);
+		}
 	}
 	
 	public void valueChanged(ListSelectionEvent e)
