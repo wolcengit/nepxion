@@ -177,11 +177,19 @@ public class ElementListCellRenderer
 		{
 			list.setFixedCellHeight(cellHeight);
 		}
+		
 		if (value instanceof IElementNode)
 		{
 			IElementNode elementNode = (IElementNode) value;
 			setText(elementNode.getText());
-			setIcon(elementNode.getIcon());
+			if (cellIcon != null)
+			{
+				setIcon(cellIcon);
+			}
+			else
+			{
+				setIcon(elementNode.getIcon());
+			}
 			setToolTipText(elementNode.getToolTipText());
 		}
 		else if (value instanceof Icon)
@@ -200,6 +208,7 @@ public class ElementListCellRenderer
 				setIcon(cellIcon);
 			}
 		}
+		
 		if (cellBorder != null)
 		{
 			adaptBorder(isSelected, cellHasFocus);
