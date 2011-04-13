@@ -22,9 +22,10 @@ import javax.swing.event.ListSelectionListener;
 import com.nepxion.util.data.CollectionUtil;
 
 public class JBasicList
-	extends JList implements ListSelectionListener, MouseListener
+	extends JList implements IList, ListSelectionListener, MouseListener
 {
-	private int selectedRow = -1;
+	private int selectedIndex = -1;
+	private int[] selectedIndexes;
 	
 	public JBasicList()
 	{
@@ -75,7 +76,7 @@ public class JBasicList
 			int index = listModel.indexOf(object);
 			
 			selectedIndexes[i] = index;
-		}	
+		}
 		
 		return selectedIndexes;
 	}
@@ -94,10 +95,10 @@ public class JBasicList
 	}
 	
 	public void setListData(Vector listData)
-	{	
+	{
 		ListModel model = getModel();
 		if (model instanceof BasicListModel)
-		{	
+		{
 			BasicListModel listModel = (BasicListModel) model;
 			listModel.setRowDatas(listData);
 		}
@@ -110,23 +111,68 @@ public class JBasicList
 	
 	public void valueChanged(ListSelectionEvent e)
 	{
-		boolean isAdjusting = e.getValueIsAdjusting();
-		if (isAdjusting)
+		int[] selectedRows = getSelectedIndexes();
+		
+		if (selectedRows.length == 0)
 		{
-			if (getSelectedIndex() == selectedRow)
+			boolean isAdjusting = e.getValueIsAdjusting();
+			if (isAdjusting)
+			{
+				int oldSelectionRow = selectedIndex;
+				int newSelectionRow = -1;
+				selectedIndex = -1;
+				selectedIndexes = null;
+				
+				executeSelection(oldSelectionRow, newSelectionRow);
+			}
+		}
+		else if (selectedRows.length == 1)
+		{
+			if (getSelectedIndex() == selectedIndex)
 			{
 				return;
 			}
 			
-			selectedRow = getSelectedIndex();
+			if (selectedIndexes != null && selectedIndexes.length > 1)
+			{
+				return;
+			}
 			
-			executeSelection(selectedRow);
+			selectedIndex = getSelectedIndex();
+			selectedIndexes = null;
+			
+			int oldSelectionRow = -1;
+			int newSelectionRow = -1;
+			
+			int firstIndex = e.getFirstIndex();
+			int lastIndex = e.getLastIndex();
+			
+			if (e.getFirstIndex() == e.getLastIndex())
+			{
+				newSelectionRow = selectedIndex;
+			}
+			else if (e.getFirstIndex() == selectedIndex)
+			{
+				oldSelectionRow = lastIndex;
+				newSelectionRow = firstIndex;
+			}
+			else if (e.getLastIndex() == selectedIndex)
+			{
+				oldSelectionRow = firstIndex;
+				newSelectionRow = lastIndex;
+			}
+			
+			executeSelection(oldSelectionRow, newSelectionRow);
+		}
+		else
+		{
+			selectedIndexes = selectedRows;
 		}
 	}
 	
-	public void executeSelection(int selectedRow)
+	public void executeSelection(int oldSelectionRow, int newSelectionRow)
 	{
-		
+
 	}
 	
 	public void mouseClicked(MouseEvent e)
