@@ -19,7 +19,7 @@ import com.nepxion.swing.tree.lazyloader.JLazyLoaderCheckBoxTree;
 public class JToggleLazyLoaderCheckBoxTree
 	extends JLazyLoaderCheckBoxTree	implements IToggleTree
 {
-	private int invokeMode = 0;
+	private int invokeMode = INVOKE_MODE_SELECTED;
 	private TreeNavigator treeNavigator;
 	
 	private JToggleContentPanel toggleContentPanel;

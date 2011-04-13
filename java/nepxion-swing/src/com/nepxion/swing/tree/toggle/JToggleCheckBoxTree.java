@@ -23,7 +23,7 @@ import com.nepxion.swing.tree.TreeNavigator;
 public class JToggleCheckBoxTree
 	extends JCheckBoxTree implements IToggleTree
 {
-	private int invokeMode = 0;
+	private int invokeMode = INVOKE_MODE_SELECTED;
 	private TreeNavigator treeNavigator;
 	
 	private JToggleContentPanel toggleContentPanel;
