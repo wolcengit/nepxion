@@ -35,6 +35,11 @@ public class JToggleContentPanel
 	
 	public JToggleContentPanel(boolean isHeaderDecorated)
 	{
+		this(isHeaderDecorated, true);
+	}
+			
+	public JToggleContentPanel(boolean isHeaderDecorated, boolean isHeaderVisible)
+	{
 		header = new JDecorationHeader();
 		if (!isHeaderDecorated)
 		{	
@@ -43,16 +48,21 @@ public class JToggleContentPanel
 			header.getLabel().setForeground(Color.black);
 		}
 		
-		bannerPanel = new JPanel();
-		bannerPanel.setBorder(BorderFactory.createEmptyBorder(2, 2, 2, 2));
-		bannerPanel.setLayout(new BorderLayout());
-		bannerPanel.add(header, BorderLayout.CENTER);
-		
+		if (isHeaderVisible)
+		{	
+			bannerPanel = new JPanel();
+			bannerPanel.setBorder(BorderFactory.createEmptyBorder(2, 2, 2, 2));
+			bannerPanel.setLayout(new BorderLayout());
+			bannerPanel.add(header, BorderLayout.CENTER);
+		}
 		container = new JContainer();
 		container.setLayout(new BorderLayout());
 		
 		setLayout(new BorderLayout());
-		add(bannerPanel, BorderLayout.NORTH);
+		if (isHeaderVisible)
+		{	
+			add(bannerPanel, BorderLayout.NORTH);
+		}
 		add(container, BorderLayout.CENTER);
 	}
 	
