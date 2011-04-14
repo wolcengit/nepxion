@@ -22,11 +22,12 @@ import com.nepxion.swing.dimension.DimensionManager;
 import com.nepxion.swing.listener.DisplayAbilityListener;
 
 public class JBasicToggleButton
-	extends JToggleButton implements IButton
+	extends JToggleButton implements IButton, IToggleButton
 {
 	protected int widthInset = ButtonContext.getButtonWidthInset();
 	protected int heightInset = ButtonContext.getButtonHeightInset();
 	protected boolean isDimensionAdaptive = true;
+	protected boolean isGrouped = true;
 	
 	public JBasicToggleButton()
 	{
@@ -220,6 +221,16 @@ public class JBasicToggleButton
 		DimensionManager.setDimension(this, dimension);
 		
 		isDimensionAdaptive = false;
+	}
+	
+	public boolean isGrouped()
+	{
+		return isGrouped;
+	}
+	
+	public void setGrouped(boolean isGrouped)
+	{
+		this.isGrouped = isGrouped;
 	}
 	
 	public void setUI(ButtonUI buttonUI)

@@ -15,8 +15,10 @@ import javax.swing.Icon;
 import javax.swing.JToggleButton;
 
 public class JClassicToggleButton
-	extends JToggleButton
+	extends JToggleButton implements IToggleButton
 {
+	protected boolean isGrouped = true;
+	
 	public JClassicToggleButton()
 	{
 		super();
@@ -139,5 +141,15 @@ public class JClassicToggleButton
 	private void initComponents()
 	{
 		ButtonManager.setPreferenceStyle(this);
+	}
+	
+	public boolean isGrouped()
+	{
+		return isGrouped;
+	}
+	
+	public void setGrouped(boolean isGrouped)
+	{
+		this.isGrouped = isGrouped;
 	}
 }

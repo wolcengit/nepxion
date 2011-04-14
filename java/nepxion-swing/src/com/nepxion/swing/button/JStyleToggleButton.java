@@ -21,11 +21,12 @@ import com.nepxion.swing.dimension.DimensionManager;
 import com.nepxion.swing.listener.DisplayAbilityListener;
 
 public class JStyleToggleButton
-	extends JideToggleButton implements IButton
+	extends JideToggleButton implements IButton, IToggleButton
 {
 	protected int widthInset = ButtonContext.getButtonWidthInset();
 	protected int heightInset = ButtonContext.getButtonHeightInset();
 	protected boolean isDimensionAdaptive = true;
+	protected boolean isGrouped = true;
 	
 	public JStyleToggleButton()
 	{
@@ -217,5 +218,15 @@ public class JStyleToggleButton
 		DimensionManager.setDimension(this, dimension);
 		
 		isDimensionAdaptive = false;
+	}
+	
+	public boolean isGrouped()
+	{
+		return isGrouped;
+	}
+	
+	public void setGrouped(boolean isGrouped)
+	{
+		this.isGrouped = isGrouped;
 	}
 }
