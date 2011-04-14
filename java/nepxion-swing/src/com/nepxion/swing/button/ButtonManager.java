@@ -214,6 +214,18 @@ public class ButtonManager
 				
 				abstractButton.setFont(FontContext.getFont());
 				
+				if (buttonGroup != null)
+				{
+					if (abstractButton instanceof IToggleButton)
+					{
+						IToggleButton toggleButton = (IToggleButton) component;
+						if (toggleButton.isGrouped())
+						{	
+							buttonGroup.add(abstractButton);
+						}
+					}
+				}
+				
 				if (component instanceof JBasicSplitButton)
 				{
 					JBasicSplitButton button = (JBasicSplitButton) component;
@@ -307,10 +319,6 @@ public class ButtonManager
 					if (dimension != null)
 					{
 						button.setDimension(dimension);
-					}
-					if (buttonGroup != null)
-					{
-						buttonGroup.add(button);
 					}
 				}
 				else
