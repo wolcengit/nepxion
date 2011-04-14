@@ -18,10 +18,10 @@ import com.nepxion.swing.thread.container.JThreadContainer;
 public abstract class JThreadTogglePanel
 	extends JThreadContainer implements ITogglePanel
 {
-	private String toggleName;
-	private Icon toggleIcon;
-	private Icon toggleBannerIcon;
-	private String toggleDescription;
+	protected String toggleName;
+	protected Icon toggleIcon;
+	protected Icon toggleBannerIcon;
+	protected String toggleDescription;
 	
 	public JThreadTogglePanel()
 	{
