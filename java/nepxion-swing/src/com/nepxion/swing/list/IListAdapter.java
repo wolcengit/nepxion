@@ -16,35 +16,35 @@ public interface IListAdapter
 {
 	public boolean addRowPermitted();
 	
-	public Object addRow() throws Exception;
+	public Object addRow();
 	
 	
 	public boolean modifyRowPermitted(int selectedRow);
 	
-	public Object modifyRow(int selectedRow) throws Exception;
+	public Object modifyRow(int selectedRow);
 	
 	
 	public boolean deleteRowPermitted(int selectedRow);
 	
-	public boolean deleteRow(int selectedRow) throws Exception;
+	public boolean deleteRow(int selectedRow);
 	
 	
 	public boolean deleteRowsPermitted(int[] selectedRows);
 	
-	public boolean deleteRows(int[] selectedRows) throws Exception;
+	public boolean deleteRows(int[] selectedRows);
 	
 	
 	public boolean refreshPermitted();
 	
-	public List refresh() throws Exception;
+	public List refresh();
 	
 	
 	public boolean clearPermitted();
 	
-	public boolean clear() throws Exception;
+	public boolean clear();
 	
 	
 	public boolean savePermitted();
 	
-	public List save() throws Exception;
+	public List save();
 }

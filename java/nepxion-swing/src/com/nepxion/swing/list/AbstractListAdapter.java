@@ -26,7 +26,6 @@ public abstract class AbstractListAdapter
 	}
 	
 	public Object addRow()
-		throws Exception
 	{
 		return null;
 	}
@@ -38,7 +37,6 @@ public abstract class AbstractListAdapter
 	}
 	
 	public Object modifyRow(int selectedRow)
-		throws Exception
 	{
 		return null;
 	}
@@ -50,7 +48,6 @@ public abstract class AbstractListAdapter
 	}
 	
 	public boolean deleteRow(int selectedRow)
-		throws Exception
 	{
 		return true;
 	}
@@ -62,7 +59,6 @@ public abstract class AbstractListAdapter
 	}
 	
 	public boolean deleteRows(int[] selectedRows)
-		throws Exception
 	{
 		return true;
 	}
@@ -74,7 +70,6 @@ public abstract class AbstractListAdapter
 	}
 	
 	public List refresh()
-		throws Exception
 	{
 		return null;
 	}
@@ -86,7 +81,6 @@ public abstract class AbstractListAdapter
 	}
 	
 	public boolean clear()
-		throws Exception
 	{
 		return true;
 	}
@@ -97,7 +91,6 @@ public abstract class AbstractListAdapter
 	}
 	
 	public List save()
-		throws Exception
 	{
 		return null;
 	}
