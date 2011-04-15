@@ -72,7 +72,7 @@ public class TableController
 		tableModel.updateRow(rowData, selectedRowIndex);
 	}
 	
-	public static void delete(JTable table, ITableAdapter tableAdapter)
+	public static void delete(final JTable table, final ITableAdapter tableAdapter)
 	{
 		boolean isMultiSelection = isMultiSelection(table, SwingLocale.getString("delete") + SwingLocale.getString("record"));
 		if (!isMultiSelection)
@@ -97,15 +97,31 @@ public class TableController
 				return;
 			}
 			
-			int selectedRowIndex =  ((ITable) table).getRowIndexToModel(selectedRow);
-			boolean flag = tableAdapter.deleteRow(selectedRowIndex);
-			if (!flag)
-			{
-				return;
-			}
+			final int selectedRowIndex = ((ITable) table).getRowIndexToModel(selectedRow);
 			
-			ITableModel tableModel = TableManager.getModel(table);
-			tableModel.deleteRow(selectedRowIndex);
+			JThreadDialog dialog = new JThreadDialog(HandleManager.getFrame(table), SwingLocale.getString("delete"), SwingLocale.getString("delete_and_wait"))
+			{
+				protected void loadForeground(Object data)
+					throws Exception
+				{
+					Boolean flag = (Boolean) data;
+					
+					if (flag.booleanValue())
+					{
+						ITableModel tableModel = TableManager.getModel(table);
+						tableModel.deleteRow(selectedRowIndex);
+						
+						JBasicOptionPane.showMessageDialog(HandleManager.getFrame(table), SwingLocale.getString("delete_record_success"), SwingLocale.getString("information"), JBasicOptionPane.INFORMATION_MESSAGE);
+					}	
+				}
+				
+				protected Object loadBackground()
+					throws Exception
+				{
+					return Boolean.valueOf(tableAdapter.deleteRow(selectedRowIndex));
+				}
+			};
+			dialog.execute();
 		}
 		else
 		{
@@ -122,22 +138,32 @@ public class TableController
 				return;
 			}
 			
-			int[] selectedRowIndexes = ((ITable) table).getRowIndexesToModel(selectedRows);
-			boolean flag = tableAdapter.deleteRows(selectedRowIndexes);
-			if (!flag)
-			{
-				return;
-			}
+			final int[] selectedRowIndexes = ((ITable) table).getRowIndexesToModel(selectedRows);
 			
-			ITableModel tableModel = TableManager.getModel(table);			
-			tableModel.deleteRows(selectedRowIndexes);
+			JThreadDialog dialog = new JThreadDialog(HandleManager.getFrame(table), SwingLocale.getString("delete"), SwingLocale.getString("delete_and_wait"))
+			{
+				protected void loadForeground(Object data)
+					throws Exception
+				{
+					Boolean flag = (Boolean) data;
+					
+					if (flag.booleanValue())
+					{
+						ITableModel tableModel = TableManager.getModel(table);			
+						tableModel.deleteRows(selectedRowIndexes);
+						
+						JBasicOptionPane.showMessageDialog(HandleManager.getFrame(table), SwingLocale.getString("delete_record_success"), SwingLocale.getString("information"), JBasicOptionPane.INFORMATION_MESSAGE);
+					}	
+				}
+				
+				protected Object loadBackground()
+					throws Exception
+				{
+					return Boolean.valueOf(tableAdapter.deleteRows(selectedRowIndexes));
+				}
+			};
+			dialog.execute();
 		}
-	}
-	
-	public static void setRowDatas(JTable table, List rowDatas)
-	{		
-		ITableModel tableModel = TableManager.getModel(table);
-		tableModel.setRowDatas(rowDatas);
 	}
 	
 	public static void refresh(final JTable table, final ITableAdapter tableAdapter)
@@ -151,7 +177,7 @@ public class TableController
 		
 		if (table.getRowCount() == 0)
 		{
-			JBasicOptionPane.showMessageDialog(HandleManager.getFrame(table), SwingLocale.getString("not_refresh_record"), SwingLocale.getString("warning"), JBasicOptionPane.WARNING_MESSAGE);
+			JBasicOptionPane.showMessageDialog(HandleManager.getFrame(table), SwingLocale.getString("no_refresh_records"), SwingLocale.getString("warning"), JBasicOptionPane.WARNING_MESSAGE);
 			
 			return;
 		}
@@ -170,6 +196,8 @@ public class TableController
 				List rowDatas = (List) data;
 				
 				setRowDatas(table, rowDatas);
+				
+				// JBasicOptionPane.showMessageDialog(HandleManager.getFrame(table), SwingLocale.getString("refresh_record_success"), SwingLocale.getString("information"), JBasicOptionPane.INFORMATION_MESSAGE);
 			}
 			
 			protected Object loadBackground()
@@ -183,7 +211,7 @@ public class TableController
 		dialog.execute();
 	}
 	
-	public static void clear(JTable table, ITableAdapter tableAdapter)
+	public static void clear(final JTable table, final ITableAdapter tableAdapter)
 	{
 		if (!tableAdapter.clearPermitted())
 		{
@@ -194,7 +222,7 @@ public class TableController
 		
 		if (table.getRowCount() == 0)
 		{
-			JBasicOptionPane.showMessageDialog(HandleManager.getFrame(table), SwingLocale.getString("not_clear_record"), SwingLocale.getString("warning"), JBasicOptionPane.WARNING_MESSAGE);
+			JBasicOptionPane.showMessageDialog(HandleManager.getFrame(table), SwingLocale.getString("no_clear_records"), SwingLocale.getString("warning"), JBasicOptionPane.WARNING_MESSAGE);
 			
 			return;
 		}
@@ -205,14 +233,76 @@ public class TableController
 			return;
 		}
 		
-		boolean flag = tableAdapter.clear();
-		if (!flag)
+		JThreadDialog dialog = new JThreadDialog(HandleManager.getFrame(table), SwingLocale.getString("clear"), SwingLocale.getString("clear_and_wait"))
+		{
+			protected void loadForeground(Object data)
+				throws Exception
+			{
+				Boolean flag = (Boolean) data;
+				
+				if (flag.booleanValue())
+				{
+					ITableModel tableModel = TableManager.getModel(table);
+					tableModel.clearRows();
+				}	
+			}
+			
+			protected Object loadBackground()
+				throws Exception
+			{
+				return Boolean.valueOf(tableAdapter.clear());
+			}
+		};
+		dialog.execute();
+	}
+	
+	public static void save(final JTable table, final ITableAdapter tableAdapter)
+	{
+		if (!tableAdapter.savePermitted())
+		{
+			JBasicOptionPane.showMessageDialog(HandleManager.getFrame(table), SwingLocale.getString("table") + SwingLocale.getString("save_no_permission"), SwingLocale.getString("warning"), JBasicOptionPane.WARNING_MESSAGE);
+			
+			return;
+		}
+		
+		if (table.getRowCount() == 0)
+		{
+			JBasicOptionPane.showMessageDialog(HandleManager.getFrame(table), SwingLocale.getString("no_save_records"), SwingLocale.getString("warning"), JBasicOptionPane.WARNING_MESSAGE);
+			
+			return;
+		}
+		
+		int selectedValue = JBasicOptionPane.showConfirmDialog(HandleManager.getFrame(table), SwingLocale.getString("confirm_to_save"), SwingLocale.getString("confirm"), JBasicOptionPane.YES_NO_OPTION);
+		if (selectedValue != JBasicOptionPane.YES_OPTION)
 		{
 			return;
 		}
 		
+		JThreadDialog dialog = new JThreadDialog(HandleManager.getFrame(table), SwingLocale.getString("save"), SwingLocale.getString("save_and_wait"))
+		{
+			protected void loadForeground(Object data)
+				throws Exception
+			{
+				List rowDatas = (List) data;
+				
+				setRowDatas(table, rowDatas);
+			}
+			
+			protected Object loadBackground()
+				throws Exception
+			{
+				List rowDatas = tableAdapter.save();
+
+				return rowDatas;
+			}
+		};
+		dialog.execute();
+	}
+	
+	public static void setRowDatas(JTable table, List rowDatas)
+	{		
 		ITableModel tableModel = TableManager.getModel(table);
-		tableModel.clearRows();
+		tableModel.setRowDatas(rowDatas);
 	}
 	
 	public static boolean isSingleSelection(JTable table, String operationName)

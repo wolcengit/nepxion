@@ -70,7 +70,7 @@ public class ListController
 		listModel.setElementAt(rowData, selectedRow);
 	}
 	
-	public static void delete(JBasicList list, IListAdapter listAdapter)
+	public static void delete(final JBasicList list, final IListAdapter listAdapter)
 	{
 		boolean isMultiSelection = isMultiSelection(list, SwingLocale.getString("delete") + SwingLocale.getString("record"));
 		if (!isMultiSelection)
@@ -78,10 +78,10 @@ public class ListController
 			return;
 		}
 		
-		int[] selectedRows = list.getSelectedIndexes();
+		final int[] selectedRows = list.getSelectedIndexes();
 		if (selectedRows.length == 1)
 		{
-			int selectedRow = selectedRows[0];
+			final int selectedRow = selectedRows[0];
 			if (!listAdapter.deleteRowPermitted(selectedRow))
 			{
 				JBasicOptionPane.showMessageDialog(HandleManager.getFrame(list), SwingLocale.getString("list_row_selection") + SwingLocale.getString("delete_no_permission"), SwingLocale.getString("warning"), JBasicOptionPane.WARNING_MESSAGE);
@@ -93,16 +93,31 @@ public class ListController
 			if (selectedValue != JBasicOptionPane.YES_OPTION)
 			{
 				return;
-			}
+			}			
 			
-			boolean flag = listAdapter.deleteRow(selectedRow);
-			if (!flag)
+			JThreadDialog dialog = new JThreadDialog(HandleManager.getFrame(list), SwingLocale.getString("clear"), SwingLocale.getString("clear_and_wait"))
 			{
-				return;
-			}
-			
-			BasicListModel listModel = (BasicListModel) list.getModel();
-			listModel.remove(selectedRow);
+				protected void loadForeground(Object data)
+					throws Exception
+				{
+					Boolean flag = (Boolean) data;
+					
+					if (flag.booleanValue())
+					{
+						BasicListModel listModel = (BasicListModel) list.getModel();
+						listModel.remove(selectedRow);
+						
+						JBasicOptionPane.showMessageDialog(HandleManager.getFrame(list), SwingLocale.getString("delete_record_success"), SwingLocale.getString("information"), JBasicOptionPane.INFORMATION_MESSAGE);
+					}	
+				}
+				
+				protected Object loadBackground()
+					throws Exception
+				{
+					return Boolean.valueOf(listAdapter.deleteRow(selectedRow));
+				}
+			};
+			dialog.execute();
 		}
 		else
 		{
@@ -119,14 +134,29 @@ public class ListController
 				return;
 			}
 			
-			boolean flag = listAdapter.deleteRows(selectedRows);
-			if (!flag)
+			JThreadDialog dialog = new JThreadDialog(HandleManager.getFrame(list), SwingLocale.getString("clear"), SwingLocale.getString("clear_and_wait"))
 			{
-				return;
-			}
-			
-			BasicListModel listModel = (BasicListModel) list.getModel();
-			listModel.removeElements(selectedRows);
+				protected void loadForeground(Object data)
+					throws Exception
+				{
+					Boolean flag = (Boolean) data;
+					
+					if (flag.booleanValue())
+					{
+						BasicListModel listModel = (BasicListModel) list.getModel();
+						listModel.removeElements(selectedRows);
+						
+						JBasicOptionPane.showMessageDialog(HandleManager.getFrame(list), SwingLocale.getString("delete_record_success"), SwingLocale.getString("information"), JBasicOptionPane.INFORMATION_MESSAGE);
+					}	
+				}
+				
+				protected Object loadBackground()
+					throws Exception
+				{
+					return Boolean.valueOf(listAdapter.deleteRows(selectedRows));
+				}
+			};
+			dialog.execute();
 		}
 	}
 	
@@ -141,7 +171,7 @@ public class ListController
 		
 		if (list.getListData().size() == 0)
 		{
-			JBasicOptionPane.showMessageDialog(HandleManager.getFrame(list), SwingLocale.getString("not_refresh_record"), SwingLocale.getString("warning"), JBasicOptionPane.WARNING_MESSAGE);
+			JBasicOptionPane.showMessageDialog(HandleManager.getFrame(list), SwingLocale.getString("no_refresh_records"), SwingLocale.getString("warning"), JBasicOptionPane.WARNING_MESSAGE);
 			
 			return;
 		}
@@ -160,6 +190,8 @@ public class ListController
 				List rowDatas = (List) data;
 				
 				list.setListData(CollectionUtil.parseVector(rowDatas));
+				
+				// JBasicOptionPane.showMessageDialog(HandleManager.getFrame(list), SwingLocale.getString("refresh_record_success"), SwingLocale.getString("information"), JBasicOptionPane.INFORMATION_MESSAGE);
 			}
 			
 			protected Object loadBackground()
@@ -173,7 +205,7 @@ public class ListController
 		dialog.execute();
 	}
 	
-	public static void clear(JBasicList list, IListAdapter listAdapter)
+	public static void clear(final JBasicList list, final IListAdapter listAdapter)
 	{
 		if (!listAdapter.clearPermitted())
 		{
@@ -184,7 +216,7 @@ public class ListController
 		
 		if (list.getListData().size() == 0)
 		{
-			JBasicOptionPane.showMessageDialog(HandleManager.getFrame(list), SwingLocale.getString("not_clear_record"), SwingLocale.getString("warning"), JBasicOptionPane.WARNING_MESSAGE);
+			JBasicOptionPane.showMessageDialog(HandleManager.getFrame(list), SwingLocale.getString("no_clear_records"), SwingLocale.getString("warning"), JBasicOptionPane.WARNING_MESSAGE);
 			
 			return;
 		}
@@ -195,14 +227,70 @@ public class ListController
 			return;
 		}
 		
-		boolean flag = listAdapter.clear();
-		if (!flag)
+		JThreadDialog dialog = new JThreadDialog(HandleManager.getFrame(list), SwingLocale.getString("clear"), SwingLocale.getString("clear_and_wait"))
+		{
+			protected void loadForeground(Object data)
+				throws Exception
+			{
+				Boolean flag = (Boolean) data;
+				
+				if (flag.booleanValue())
+				{
+					BasicListModel listModel = (BasicListModel) list.getModel();
+					listModel.clear();
+				}	
+			}
+			
+			protected Object loadBackground()
+				throws Exception
+			{
+				return Boolean.valueOf(listAdapter.clear());
+			}
+		};
+		dialog.execute();
+	}
+	
+	public static void save(final JBasicList list, final IListAdapter listAdapter)
+	{
+		if (!listAdapter.savePermitted())
+		{
+			JBasicOptionPane.showMessageDialog(HandleManager.getFrame(list), SwingLocale.getString("list") + SwingLocale.getString("save_no_permission"), SwingLocale.getString("warning"), JBasicOptionPane.WARNING_MESSAGE);
+			
+			return;
+		}
+		
+		if (list.getListData().size() == 0)
+		{
+			JBasicOptionPane.showMessageDialog(HandleManager.getFrame(list), SwingLocale.getString("no_save_records"), SwingLocale.getString("warning"), JBasicOptionPane.WARNING_MESSAGE);
+			
+			return;
+		}
+		
+		int selectedValue = JBasicOptionPane.showConfirmDialog(HandleManager.getFrame(list), SwingLocale.getString("confirm_to_save"), SwingLocale.getString("confirm"), JBasicOptionPane.YES_NO_OPTION);
+		if (selectedValue != JBasicOptionPane.YES_OPTION)
 		{
 			return;
 		}
 		
-		BasicListModel listModel = (BasicListModel) list.getModel();
-		listModel.clear();
+		JThreadDialog dialog = new JThreadDialog(HandleManager.getFrame(list), SwingLocale.getString("save"), SwingLocale.getString("save_and_wait"))
+		{
+			protected void loadForeground(Object data)
+				throws Exception
+			{
+				List rowDatas = (List) data;
+				
+				list.setListData(CollectionUtil.parseVector(rowDatas));
+			}
+			
+			protected Object loadBackground()
+				throws Exception
+			{
+				List rowDatas = listAdapter.save();
+
+				return rowDatas;
+			}
+		};
+		dialog.execute();
 	}
 	
 	public static boolean isSingleSelection(JBasicList list, String operationName)
