@@ -42,4 +42,9 @@ public interface ITableAdapter
 	public boolean clearPermitted();
 	
 	public boolean clear();
+	
+	
+	public boolean savePermitted();
+	
+	public List save(int[] rows);
 }

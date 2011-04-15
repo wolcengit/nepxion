@@ -84,4 +84,15 @@ public abstract class AbstractTableAdapter
 	{
 		return true;
 	}
+	
+	
+	public boolean savePermitted()
+	{
+		return true;
+	}
+	
+	public List save(int[] rows)
+	{
+		return null;
+	}
 }

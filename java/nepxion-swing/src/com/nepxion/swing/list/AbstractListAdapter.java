@@ -84,4 +84,14 @@ public abstract class AbstractListAdapter
 	{
 		return true;
 	}
+	
+	public boolean savePermitted()
+	{
+		return true;
+	}
+	
+	public List save(int[] rows)
+	{
+		return null;
+	}
 }
