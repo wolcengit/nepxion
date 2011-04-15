@@ -90,7 +90,7 @@ public abstract class AbstractListAdapter
 		return true;
 	}
 	
-	public List save(int[] rows)
+	public List save()
 	{
 		return null;
 	}

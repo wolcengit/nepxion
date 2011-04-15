@@ -46,5 +46,5 @@ public interface IListAdapter
 	
 	public boolean savePermitted();
 	
-	public List save(int[] rows);
+	public List save();
 }

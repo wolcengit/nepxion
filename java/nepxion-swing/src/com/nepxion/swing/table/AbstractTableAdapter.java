@@ -91,7 +91,7 @@ public abstract class AbstractTableAdapter
 		return true;
 	}
 	
-	public List save(int[] rows)
+	public List save()
 	{
 		return null;
 	}
