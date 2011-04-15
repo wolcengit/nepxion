@@ -23,9 +23,9 @@ public class VisibilityTweener
 	private JComponent component;
 	private Dimension dimension;
 	
-	private boolean visibleTweening = true;
 	private boolean horizontalTweening = true;
 	private boolean verticalTweening = true;
+	private boolean visibleTweening = true;
 	
 	private int frameInterval = 1;
 	private int frameCount = 20;
@@ -33,57 +33,56 @@ public class VisibilityTweener
 	
 	private Timer timer;
 	
-	public VisibilityTweener(JComponent component, boolean visibleTweening)
+	public VisibilityTweener(JComponent component)
 	{
-		this(component, visibleTweening, true, true);
+		this(component, true, true);
 	}
 	
-	public VisibilityTweener(JComponent component, boolean visibleTweening, int frameInterval, int frameCount)
+	public VisibilityTweener(JComponent component, int frameInterval, int frameCount)
 	{
-		this(component, visibleTweening, true, true, frameInterval, frameCount);
+		this(component, true, true, frameInterval, frameCount);
 	}
 	
-	public VisibilityTweener(JComponent component, boolean visibleTweening, boolean horizontalTweening, boolean verticalTweening)
+	public VisibilityTweener(JComponent component, boolean horizontalTweening, boolean verticalTweening)
 	{
-		this(component, visibleTweening, horizontalTweening, verticalTweening, 1, 20);
+		this(component, horizontalTweening, verticalTweening, 1, 20);
 	}
 	
-	public VisibilityTweener(JComponent component, boolean visibleTweening, boolean horizontalTweening, boolean verticalTweening, int frameInterval, int frameCount)
+	public VisibilityTweener(JComponent component, boolean horizontalTweening, boolean verticalTweening, int frameInterval, int frameCount)
 	{
 		this.component = component;
 		this.dimension = component.getSize();
 		
-		this.visibleTweening = visibleTweening;
 		this.horizontalTweening = horizontalTweening;
 		this.verticalTweening = verticalTweening;
 		
 		this.frameInterval = frameInterval;
 		this.frameCount = frameCount;
-		
-		if (visibleTweening)
-		{
-			this.frameIndex = 0;
-			component.setSize(0, 0);
-		}
-		else
-		{
-			this.frameIndex = frameCount;
-		}
-		
+				
 		timer = new Timer(this.frameInterval, this);
 	}
 	
-	public void tween()
-	{
-		timer.start();
+	public void tween(boolean visibleTweening)
+	{		
+		this.visibleTweening = visibleTweening;
+		
 		if (visibleTweening)
 		{
+			frameIndex = 0;
+			
+			component.setSize(0, 0);
 			component.setVisible(true);
 		}
+		else
+		{
+			frameIndex = frameCount;
+		}
+		
+		timer.start();
 	}
 	
 	public void actionPerformed(ActionEvent e)
-	{
+	{		
 		if (visibleTweening)
 		{
 			component.setSize(horizontalTweening ? dimension.width * frameIndex / frameCount : dimension.width, verticalTweening ? dimension.height * frameIndex / frameCount : dimension.height);
@@ -100,7 +99,7 @@ public class VisibilityTweener
 		else
 		{
 			component.setSize(horizontalTweening ? dimension.width * frameIndex / frameCount : dimension.width, verticalTweening ? dimension.height * frameIndex / frameCount : dimension.height);
-			
+						
 			if (frameIndex == 0)
 			{
 				component.setVisible(false);
@@ -112,5 +111,57 @@ public class VisibilityTweener
 				frameIndex--;
 			}
 		}
+	}
+	
+	public Dimension getDimension()
+	{
+		return dimension;
+	}
+
+	public void setDimension(Dimension dimension)
+	{
+		this.dimension = dimension;
+	}
+	
+	public boolean isHorizontalTweening()
+	{
+		return horizontalTweening;
+	}
+
+	public void setHorizontalTweening(boolean horizontalTweening)
+	{
+		this.horizontalTweening = horizontalTweening;
+	}
+
+	public boolean isVerticalTweening()
+	{
+		return verticalTweening;
+	}
+
+	public void setVerticalTweening(boolean verticalTweening)
+	{
+		this.verticalTweening = verticalTweening;
+	}
+
+	public int getFrameInterval()
+	{
+		return frameInterval;
+	}
+
+	public void setFrameInterval(int frameInterval)
+	{
+		this.frameInterval = frameInterval;
+		
+		timer.setDelay(this.frameInterval);
+	}
+
+	public int getFrameCount()
+	{
+		return frameCount;
+	}
+
+	public void setFrameCount(int frameCount)
+	{
+		this.frameCount = frameCount;
 	}
 }
