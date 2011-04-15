@@ -405,4 +405,17 @@ public class TableController
 		
 		return action;
 	}
+	
+	public static JSecurityAction getSaveAction(final JTable table, final ITableAdapter tableAdapter)
+	{
+		JSecurityAction action = new JSecurityAction(SwingLocale.getString("save"), IconFactory.getSwingIcon("solid_save.png"), SwingLocale.getString("save") + SwingLocale.getString("record"))
+		{
+			public void execute(ActionEvent e)
+			{
+				save(table, tableAdapter);
+			}
+		};
+		
+		return action;
+	}	
 }

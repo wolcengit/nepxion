@@ -393,4 +393,17 @@ public class ListController
 		
 		return action;
 	}
+	
+	public static JSecurityAction getSaveAction(final JBasicList list, final IListAdapter listAdapter)
+	{
+		JSecurityAction action = new JSecurityAction(SwingLocale.getString("save"), IconFactory.getSwingIcon("solid_save.png"), SwingLocale.getString("save") + SwingLocale.getString("record"))
+		{
+			public void execute(ActionEvent e)
+			{
+				save(list, listAdapter);
+			}
+		};
+		
+		return action;
+	}
 }
