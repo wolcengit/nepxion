@@ -16,35 +16,35 @@ public interface ITableAdapter
 {
 	public boolean addRowPermitted();
 	
-	public Object addRow();
+	public Object addRow() throws Exception;
 	
 	
 	public boolean modifyRowPermitted(int selectedRow);
 	
-	public Object modifyRow(int selectedRow);
+	public Object modifyRow(int selectedRow) throws Exception;
 	
 	
 	public boolean deleteRowPermitted(int selectedRow);
 	
-	public boolean deleteRow(int selectedRow);
+	public boolean deleteRow(int selectedRow) throws Exception;
 	
 	
 	public boolean deleteRowsPermitted(int[] selectedRows);
 	
-	public boolean deleteRows(int[] selectedRows);
+	public boolean deleteRows(int[] selectedRows) throws Exception;
 	
 	
 	public boolean refreshPermitted();
 	
-	public List refresh();
+	public List refresh() throws Exception;
 	
 	
 	public boolean clearPermitted();
 	
-	public boolean clear();
+	public boolean clear() throws Exception;
 	
 	
 	public boolean savePermitted();
 	
-	public List save();
+	public List save()throws Exception;
 }
