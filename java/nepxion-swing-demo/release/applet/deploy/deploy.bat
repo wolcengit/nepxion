@@ -17,6 +17,7 @@
 
 copy ..\..\application\lib\nepxion-util.jar ..\lib\
 copy ..\..\application\lib\nepxion-swing.jar ..\lib\
+copy ..\..\application\lib\nepxion-cots.jar ..\lib\
 copy ..\..\application\lib\nepxion-swing-demo.jar ..\lib\
 
 cd ..\sign\
