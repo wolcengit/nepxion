@@ -24,7 +24,7 @@ import javax.swing.JLabel;
 
 import twaver.ZoomListener;
 
-import com.nepxion.cots.twaver.element.TIconFactory;
+import com.nepxion.cots.twaver.icon.TIconFactory;
 import com.nepxion.swing.separator.JBasicSeparator;
 import com.nepxion.swing.statusbar.JStatusBar;
 import com.nepxion.swing.statusbar.JStatusItem;

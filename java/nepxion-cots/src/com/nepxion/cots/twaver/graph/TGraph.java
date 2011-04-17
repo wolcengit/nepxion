@@ -32,9 +32,9 @@ import twaver.network.TNetwork;
 
 import com.nepxion.cots.twaver.element.TDataBoxPropertyChangeAdapter;
 import com.nepxion.cots.twaver.element.TGroup;
-import com.nepxion.cots.twaver.element.TIconFactory;
 import com.nepxion.cots.twaver.element.TNode;
 import com.nepxion.cots.twaver.element.TType;
+import com.nepxion.cots.twaver.icon.TIconFactory;
 import com.nepxion.swing.action.JSecurityAction;
 import com.nepxion.swing.selector.file.JFileSelector;
 

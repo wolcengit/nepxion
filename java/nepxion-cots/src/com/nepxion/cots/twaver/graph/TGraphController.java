@@ -17,7 +17,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.AbstractButton;
 
 import com.nepxion.cots.twaver.element.TGroupType;
-import com.nepxion.cots.twaver.element.TIconFactory;
+import com.nepxion.cots.twaver.icon.TIconFactory;
 import com.nepxion.swing.action.JSecurityAction;
 
 public class TGraphController

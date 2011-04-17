@@ -22,7 +22,7 @@ import javax.swing.JPanel;
 
 import com.nepxion.cots.twaver.element.TDataBoxUndoRedoAdapter;
 import com.nepxion.cots.twaver.element.TGroupType;
-import com.nepxion.cots.twaver.element.TIconFactory;
+import com.nepxion.cots.twaver.icon.TIconFactory;
 import com.nepxion.swing.action.JSecurityAction;
 import com.nepxion.swing.button.ButtonManager;
 import com.nepxion.swing.button.JBasicButton;

@@ -12,7 +12,7 @@ package com.nepxion.cots.twaver.graph;
  * @version 1.0
  */
 
-import com.nepxion.cots.twaver.element.TIconFactory;
+import com.nepxion.cots.twaver.icon.TIconFactory;
 import com.nepxion.swing.button.JBasicSplitButton;
 import com.nepxion.swing.button.JClassicMenuButton;
 import com.nepxion.swing.lookandfeel.LookAndFeelManager;

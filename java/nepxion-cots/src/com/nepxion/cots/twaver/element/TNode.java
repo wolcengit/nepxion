@@ -12,6 +12,8 @@ package com.nepxion.cots.twaver.element;
  * @version 1.0
  */
 
+import com.nepxion.cots.twaver.icon.TIconFactory;
+
 import twaver.Element;
 import twaver.Node;
 import twaver.TDataBox;
