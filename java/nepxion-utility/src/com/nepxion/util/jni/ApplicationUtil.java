@@ -38,12 +38,12 @@ public class ApplicationUtil
 		else
 		{
 			cmd = UNIX_BROWSER + " " + UNIX_BROWSER_PROCESS + "(" + url + ")";
-			Process p = Runtime.getRuntime().exec(cmd);
-			int exitCode = p.waitFor();
+			Process process = Runtime.getRuntime().exec(cmd);
+			int exitCode = process.waitFor();
 			if (exitCode != 0)
 			{
 				cmd = UNIX_BROWSER + " " + url;
-				p = Runtime.getRuntime().exec(cmd);
+				process = Runtime.getRuntime().exec(cmd);
 			}
 		}
 	}
