@@ -24,7 +24,7 @@ public class TGraphGridBackground
 	private int height = 450;
 	private int widthCount = 30;
 	private int heightCount = 40;
-	private int startX = 107;
+	private int startX = 105;
 	private int startY = 295;
 	private double angle = 30 * Math.PI / 180;
 	
