@@ -81,6 +81,7 @@ public class DemoLocaleSelectorPanel
 					};
 					
 					dialog.setVisible(true);
+					dialog.dispose();
 				}
 			}
 			);

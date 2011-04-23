@@ -116,6 +116,7 @@ public class DemoCalendarSelectorPanel
 					};				
 				
 					dialog.setVisible(true);
+					dialog.dispose();
 				}
 			}
 			);	
@@ -205,6 +206,7 @@ public class DemoCalendarSelectorPanel
 					dialog.getDateTimeSelector().setDateFormatString(getDateFormat() + " " + getTimeFormat());
 					
 					dialog.setVisible(true);
+					dialog.dispose();
 				}
 			}
 			);
@@ -309,6 +311,7 @@ public class DemoCalendarSelectorPanel
 					dialog.getDateSelector().setDateFormatString(getDateFormat());
 					
 					dialog.setVisible(true);
+					dialog.dispose();
 				}
 			}
 			);	
@@ -404,6 +407,7 @@ public class DemoCalendarSelectorPanel
 					};
 					
 					dialog.setVisible(true);
+					dialog.dispose();
 				}
 			}
 			);
@@ -478,6 +482,7 @@ public class DemoCalendarSelectorPanel
 					};
 					
 					dialog.setVisible(true);
+					dialog.dispose();
 				}
 			}
 			);
@@ -552,6 +557,7 @@ public class DemoCalendarSelectorPanel
 					};
 					
 					dialog.setVisible(true);
+					dialog.dispose();
 				}
 			}
 			);
@@ -634,6 +640,7 @@ public class DemoCalendarSelectorPanel
 					dialog.getTimeSelector().setFormat((dateFormat + " " + timeFormat).trim());
 					
 					dialog.setVisible(true);
+					dialog.dispose();
 				}
 			}
 			);

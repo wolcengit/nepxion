@@ -86,6 +86,7 @@ public class DemoOptionPanel
 	                optionDialog.getContentPane().setLayout(new BorderLayout());
 	                optionDialog.getContentPane().add(optionPanel, BorderLayout.SOUTH);
 	                optionDialog.setVisible(true);
+	                optionDialog.dispose();
 				}
 			}
 			);
@@ -117,6 +118,7 @@ public class DemoOptionPanel
 	                optionDialog.getContentPane().setLayout(new BorderLayout());
 	                optionDialog.getContentPane().add(optionPanel, BorderLayout.SOUTH);
 	                optionDialog.setVisible(true);
+	                optionDialog.dispose();
 				}
 			}
 			);
@@ -141,6 +143,7 @@ public class DemoOptionPanel
 	                optionDialog.getContentPane().setLayout(new BorderLayout());
 	                optionDialog.getContentPane().add(optionPanel, BorderLayout.SOUTH);
 	                optionDialog.setVisible(true);
+	                optionDialog.dispose();
 				}
 			}
 			);

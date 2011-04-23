@@ -72,6 +72,7 @@ public class DemoDropDownSelectorPanel
 					JBasicDialog dialog = new JBasicDialog(HandleManager.getFrame(DemoDropDownSelectorPanel.this), "Tree PopupMenu DropDown Selector", new Dimension(400, 55), true, true, true);
 					dialog.getContentPane().add(dropDownSelector);
 					dialog.setVisible(true);
+					dialog.dispose();
 				}
 			}
 			);
@@ -100,6 +101,7 @@ public class DemoDropDownSelectorPanel
 					JBasicDialog dialog = new JBasicDialog(HandleManager.getFrame(DemoDropDownSelectorPanel.this), "Tree Draggable PopupMenu DropDown Selector", new Dimension(400, 55), true, true, true);
 					dialog.getContentPane().add(dropDownSelector);
 					dialog.setVisible(true);
+					dialog.dispose();
 				}
 			}
 			);
@@ -140,6 +142,7 @@ public class DemoDropDownSelectorPanel
 					JBasicDialog dialog = new JBasicDialog(HandleManager.getFrame(DemoDropDownSelectorPanel.this), "Table PopupMenu DropDown Selector", new Dimension(400, 55), true, true, true);
 					dialog.getContentPane().add(dropDownSelector);
 					dialog.setVisible(true);
+					dialog.dispose();
 				}
 			}
 			);
@@ -168,6 +171,7 @@ public class DemoDropDownSelectorPanel
 					JBasicDialog dialog = new JBasicDialog(HandleManager.getFrame(DemoDropDownSelectorPanel.this), "Table Draggable PopupMenu DropDown Selector", new Dimension(400, 55), true, true, true);
 					dialog.getContentPane().add(dropDownSelector);
 					dialog.setVisible(true);
+					dialog.dispose();
 				}
 			}
 			);
@@ -208,6 +212,7 @@ public class DemoDropDownSelectorPanel
 					JBasicDialog dialog = new JBasicDialog(HandleManager.getFrame(DemoDropDownSelectorPanel.this), "List PopupMenu DropDown Selector", new Dimension(400, 55), true, true, true);
 					dialog.getContentPane().add(dropDownSelector);
 					dialog.setVisible(true);
+					dialog.dispose();
 				}
 			}
 			);
@@ -236,6 +241,7 @@ public class DemoDropDownSelectorPanel
 					JBasicDialog dialog = new JBasicDialog(HandleManager.getFrame(DemoDropDownSelectorPanel.this), "List Draggable PopupMenu DropDown Selector", new Dimension(400, 55), true, true, true);
 					dialog.getContentPane().add(dropDownSelector);
 					dialog.setVisible(true);
+					dialog.dispose();
 				}
 			}
 			);

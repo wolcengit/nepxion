@@ -50,6 +50,7 @@ public class DemoCaptionSplashDialogPanel
 				{
 					DemoCaptionSplashDialog captionSplashDialog = new DemoCaptionSplashDialog();
 					captionSplashDialog.setVisible(true);
+					captionSplashDialog.dispose();
 				}
 			}
 			);

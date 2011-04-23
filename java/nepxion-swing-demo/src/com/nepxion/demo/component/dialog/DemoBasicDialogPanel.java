@@ -61,6 +61,7 @@ public class DemoBasicDialogPanel
 						basicDialog.setMaximumDimension(new Dimension(400, 400));
 					}	
 					basicDialog.setVisible(true);
+					basicDialog.dispose();
 				}
 			}
 			);
