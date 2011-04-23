@@ -952,6 +952,7 @@ public class TGraphManager
 		
 		JCheckBoxSelector selector = exportDataConfig.getSelector();
 		selector.setVisible(true);
+		selector.dispose();
 		
 		if (selector.getSelectedElementNodes() == null || !selector.isConfirmed())
 		{
