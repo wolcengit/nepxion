@@ -52,6 +52,7 @@ public class TabbedPaneManager
 		}
 		checkBoxSelector.getCheckBoxList().setListData(slectionElementNodes);
 		checkBoxSelector.setVisible(true);
+		checkBoxSelector.dispose();
 		
 		if (checkBoxSelector.isConfirmed())
 		{

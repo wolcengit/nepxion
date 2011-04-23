@@ -67,6 +67,7 @@ public abstract class JThreadDialog
 			public void run()
 			{
 				setVisible(true);
+				dispose();
 			}
 		}
 		);
