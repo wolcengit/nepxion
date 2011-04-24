@@ -17,6 +17,10 @@ import javax.swing.Icon;
 public interface IElementNode
 	extends Serializable
 {
+	public static final int SELECTION_INDEX_IGNORED = 0;
+	public static final int SELECTION_INDEX_CONTAINED = 1;
+	public static final int SELECTION_INDEX_NOT_CONTAINED = 2;
+	
 	public int getIndex();
 	
 	public void setIndex(int index);
@@ -36,6 +40,10 @@ public interface IElementNode
 	public String getToolTipText();
 	
 	public void setToolTipText(String toolTipText);	
+	
+	public int getSelectedIndex();
+	
+	public void setSelectedIndex(int selectedIndex);
 		
 	public boolean isSelected();
 	

@@ -25,7 +25,8 @@ public class ElementNode
 	private String text;
 	private Icon icon;
 	private String toolTipText;	
-	private boolean selected = false; 
+	private int selectedIndex;
+	private boolean selected = false;
 	private boolean enabled = true;
 	private boolean animation = false;	
 	
@@ -237,6 +238,16 @@ public class ElementNode
 	public void setSelected(boolean selected)
 	{
 		this.selected = selected;
+	}
+	
+	public int getSelectedIndex()
+	{
+		return selectedIndex;
+	}
+	
+	public void setSelectedIndex(int selectedIndex)
+	{
+		this.selectedIndex = selectedIndex;
 	}
 	
 	public boolean isEnabled()
