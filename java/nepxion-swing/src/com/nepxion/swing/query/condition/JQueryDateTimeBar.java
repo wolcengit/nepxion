@@ -56,7 +56,7 @@ public class JQueryDateTimeBar
 		{
 			case VERTICAL:
 			{
-				double size[][] = 
+				double[][] size = 
 				{ 
 					{60, TableLayout.FILL}, 
 					{TableLayout.PREFERRED, TableLayout.PREFERRED}
