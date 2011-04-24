@@ -97,7 +97,7 @@ public class TGraphControlBar
 		
 		public GraphToolBar()
 		{
-			double size[][] = 
+			double[][] size = 
 			{
 				{30, 30},
 				{TableLayout.FILL, TableLayout.FILL, TableLayout.FILL, TableLayout.FILL, TableLayout.FILL, TableLayout.FILL, TableLayout.FILL}
@@ -248,7 +248,7 @@ public class TGraphControlBar
 		
 		public NodeOperationToolBar()
 		{
-			double size[][] = 
+			double[][] size = 
 			{
 				{30, 30},
 				{TableLayout.FILL, TableLayout.FILL, TableLayout.FILL, TableLayout.FILL, TableLayout.FILL, TableLayout.FILL, TableLayout.FILL}
@@ -514,7 +514,7 @@ public class TGraphControlBar
 		
 		public NodeEditionToolBar()
 		{
-			double size[][] = 
+			double[][] size = 
 			{
 				{30, 30},
 				{TableLayout.FILL, TableLayout.FILL}
@@ -652,7 +652,7 @@ public class TGraphControlBar
 		
 		public IOToolBar()
 		{
-			double size[][] = 
+			double[][] size = 
 			{
 				{30, 30},
 				{TableLayout.FILL, TableLayout.FILL}

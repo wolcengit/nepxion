@@ -36,7 +36,7 @@ public class TLabelConfig
 	
 	public TLabelConfig()
 	{
-		double size[][] = 
+		double[][] size = 
 		{
 			{TableLayout.FILL}, 
 			{100}
