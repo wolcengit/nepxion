@@ -25,7 +25,7 @@ public class ElementNode
 	private String text;
 	private Icon icon;
 	private String toolTipText;	
-	private int selectedIndex;
+	private int selectedIndex = 0;
 	private boolean selected = false;
 	private boolean enabled = true;
 	private boolean animation = false;	
