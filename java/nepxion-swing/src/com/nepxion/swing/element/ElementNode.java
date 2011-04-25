@@ -10,6 +10,8 @@ package com.nepxion.swing.element;
  * @version 1.0
  */
 
+import java.io.IOException;
+
 import javax.swing.Icon;
 import javax.swing.tree.DefaultMutableTreeNode;
 
@@ -276,6 +278,7 @@ public class ElementNode
 	}
 	
 	public ElementNode deepClone()
+		throws IOException, ClassNotFoundException
 	{
 		return (ElementNode) CloneUtil.deepClone(this);
 	}
