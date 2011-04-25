@@ -10,6 +10,8 @@ package com.nepxion.util.data;
  * @version 1.0
  */
 
+import java.io.IOException;
+
 import com.nepxion.util.io.IOUtil;
 
 public class CloneUtil
@@ -18,8 +20,11 @@ public class CloneUtil
 	 * Get deep clone object
 	 * @param object  the origin
 	 * @return        the clone object
+	 * @throws        IOException
+	 * @throws        ClassNotFoundException
 	 */
 	public static Object deepClone(Object object)
+		throws IOException, ClassNotFoundException
 	{
 		return IOUtil.deepClone(object);
 	}
@@ -31,7 +36,19 @@ public class CloneUtil
 		
 		System.out.println("execute deep clone");
 		
-		String[] arrayClone = (String[]) CloneUtil.deepClone(array);
+		String[] arrayClone = null;
+		try
+		{
+			arrayClone = (String[]) CloneUtil.deepClone(array);
+		}
+		catch (IOException e)
+		{
+			e.printStackTrace();
+		}
+		catch (ClassNotFoundException e)
+		{
+			e.printStackTrace();
+		}
 
 		array[0] = "Value4";
 		array[1] = "Value5";
