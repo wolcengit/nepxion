@@ -14,6 +14,9 @@ import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 
 import javax.swing.BorderFactory;
 import javax.swing.Box;
@@ -83,7 +86,22 @@ public class DemoToggleTemplate
 						String projectFolderName = "nepxion-swing-demo";
 						String codePath = FileUtil.getResourcePath(viewComponent.getClass(), projectFolderName);
 						
-						codeContent = FileUtil.readString(codePath, "GBK", false);						
+						try
+						{
+							codeContent = FileUtil.readString(codePath, "GBK", false);
+						}
+						catch (FileNotFoundException ex)
+						{
+							ex.printStackTrace();
+						}
+						catch (UnsupportedEncodingException ex)
+						{
+							ex.printStackTrace();
+						}
+						catch (IOException ex)
+						{
+							ex.printStackTrace();
+						}						
 						codeTextArea.setText(codeContent);
 						codeTextArea.moveCaretPosition(0);
 					}					
