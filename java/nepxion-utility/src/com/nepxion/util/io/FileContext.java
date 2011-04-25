@@ -22,31 +22,17 @@ public class FileContext
 	public static void register(String filePath)
 		throws Exception
 	{
-		try
-		{
-			InputStream inputStream = FileUtil.getInputStream(filePath, false);
-			String content = IOUtil.getString(inputStream);
-			map.put(filePath, content);
-		}
-		catch (Exception e)
-		{
-			throw e;
-		}
+		InputStream inputStream = FileUtil.getInputStream(filePath, false);
+		String content = IOUtil.getString(inputStream);
+		map.put(filePath, content);
 	}
 	
 	public static void register(URL codeBase, String filePath)
 		throws Exception
 	{
-		try
-		{
-			InputStream inputStream = FileUtil.getInputStream(codeBase, filePath);
-			String content = IOUtil.getString(inputStream);
-			map.put(filePath, content);
-		}
-		catch (Exception e)
-		{
-			throw e;
-		}
+		InputStream inputStream = FileUtil.getInputStream(codeBase, filePath);
+		String content = IOUtil.getString(inputStream);
+		map.put(filePath, content);
 	}
 	
 	public static String getContent(String filePath)
