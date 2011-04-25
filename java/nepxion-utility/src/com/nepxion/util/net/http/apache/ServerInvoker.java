@@ -79,7 +79,18 @@ public class ServerInvoker
 			}
 			case REQUEST_ENTITY_TYPE_SERIALIZABLE:
 			{
-				requestObject = IOUtil.read(request.getInputStream());
+				try
+				{
+					requestObject = IOUtil.read(request.getInputStream());
+				}
+				catch (Exception e)
+				{
+					IllegalArgumentException illegalArgumentException = new IllegalArgumentException("The request serializable entity is null or invalid");
+					
+					ServerLogger.responseInfo("Serializable Entity", illegalArgumentException);
+					
+					illegalArgumentException.printStackTrace();
+				}
 				ServerLogger.requestInfo(method, "Serializable Entity", requestObject);
 				break;
 			}
@@ -94,8 +105,11 @@ public class ServerInvoker
 		}
 		else
 		{
-			ServerLogger.responseInfo("Illegal Argument Serializable Entity", responseObject);
-			// ServerInvokerLogger.responseLog("Unknown Entity", "Invoked By Another Course - [OutputStream, PrintWriter ...]");
+			IllegalArgumentException illegalArgumentException = new IllegalArgumentException("The response serializable entity is null or invalid");
+			
+			ServerLogger.responseInfo("Serializable Entity", illegalArgumentException);
+			
+			IOUtil.write(response.getOutputStream(), illegalArgumentException);
 		}
 	}
 	
