@@ -36,11 +36,11 @@ public class Dom4JWriter
 	 * Get xml text by document
 	 * @param document  the instanceof Document
 	 * @return          the xml text
-	 * @throws          UnsupportedEncodingException
 	 * @throws          IOException
+	 * @throws          UnsupportedEncodingException
 	 */
 	public static String getText(Document document)
-		throws UnsupportedEncodingException, IOException
+		throws IOException, UnsupportedEncodingException
 	{
 		return getText(document, EncoderContext.getIOCharset());
 	}
@@ -54,7 +54,7 @@ public class Dom4JWriter
 	 * @throws          UnsupportedEncodingException
 	 */
 	public static String getText(Document document, String charset)
-		throws IOException, UnsupportedEncodingException
+		throws IOException, UnsupportedEncodingException 
 	{
 		ByteArrayOutputStream baos = new ByteArrayOutputStream();
 		OutputFormat outputFormat = new OutputFormat("  ", true, charset);
