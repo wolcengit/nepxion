@@ -27,43 +27,23 @@ public class LoggerContext
 	public static void register(String filePath)
 		throws Exception
 	{		
-		try
-		{
-			PropertyConfigurator.configure(filePath);
-		}
-		catch (Exception e)
-		{
-			throw e;
-		}
+		PropertyConfigurator.configure(filePath);
 	}
 	
 	public static void register(Properties properties)
 		throws Exception
 	{
-		try
-		{
-			PropertyConfigurator.configure(properties);
-		}
-		catch (Exception e)
-		{
-			throw e;
-		}
+		PropertyConfigurator.configure(properties);
 	}
 	
 	public static void register(URL codeBase)
 		throws Exception
 	{
 		Properties properties = new Properties();
-		try
-		{
-			URL url = new URL(codeBase + CONFIG_FILE_PATH);
-			properties.load(url.openStream());
 
-			register(properties);
-		}
-		catch (Exception e)
-		{
-			throw e;
-		}
+		URL url = new URL(codeBase + CONFIG_FILE_PATH);
+		properties.load(url.openStream());
+	
+		register(properties);
 	}
 }
