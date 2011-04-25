@@ -113,7 +113,12 @@ public class MultiRadioButtonListCellRenderer
 			{
 				notContainedRadioButton.setSelected(true);
 				break;
-			}	
+			}
+			default :
+			{
+				ignoredRadioButton.setSelected(true);
+				break;
+			}
 		}
 		
 		cellLabel.setText(elementNode.getText());

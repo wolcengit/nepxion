@@ -83,6 +83,8 @@ public class JCheckBoxTree
 	{
 		TreeManager.setPreferenceStyle(this);
 		
+		setRowHeight(20);
+		
 		addMouseListener(this);
 		addTreeSelectionListener(this);
 		
