@@ -109,6 +109,30 @@ public class JBasicList
 		}
 	}
 	
+	public void moveUp(int index)
+	{		
+		BasicListModel listModel = (BasicListModel) getModel();
+		
+		if (index > 0)
+		{		
+			listModel.moveUp(index);
+			
+			setSelectedIndex(index - 1);
+		}
+	}
+	
+	public void moveDown(int index)
+	{		
+		BasicListModel listModel = (BasicListModel) getModel();
+		
+		if (index > -1 && index < listModel.size() - 1)
+		{
+			listModel.moveDown(index);
+			
+			setSelectedIndex(index + 1);
+		}
+	}
+	
 	public void valueChanged(ListSelectionEvent e)
 	{
 		int[] selectedRows = getSelectedIndexes();

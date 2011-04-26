@@ -336,4 +336,34 @@ public class BasicListModel
 		
 		fireIntervalRemoved(this, fromIndex, toIndex);
 	}
+	
+	public void moveUp(int index)
+	{
+		if (index <= 0)
+		{
+			return;
+		}	
+		
+		Object object = rowDatas.elementAt(index);
+		
+		rowDatas.remove(index);
+		rowDatas.add(index - 1, object);
+		
+		fireContentsChanged(this, index - 1, index);
+	}
+	
+	public void moveDown(int index)
+	{
+		if (index >= rowDatas.size() - 1)
+		{
+			return;
+		}	
+		
+		Object object = rowDatas.elementAt(index);
+		
+		rowDatas.remove(index);
+		rowDatas.add(index + 1, object);
+		
+		fireContentsChanged(this, index, index + 1);
+	}	
 }
