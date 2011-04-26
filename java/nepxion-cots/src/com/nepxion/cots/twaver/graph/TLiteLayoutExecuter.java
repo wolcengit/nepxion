@@ -55,10 +55,11 @@ public class TLiteLayoutExecuter
 		this.layoutEngine = new TLiteLayoutEngine();
 	}
 	
-	public void doOrganicLayout(boolean isAnimated)
+	public void doOrganicLayout(int length, boolean isAnimated)
 	{
 		OrganicLayouter layouter = new OrganicLayouter();
 		layouter.setGravityFactor(2.00);
+		layouter.setPreferredEdgeLength(length);
 		
 		try
 		{
@@ -70,11 +71,12 @@ public class TLiteLayoutExecuter
 		}
 	}
 	
-	public void doSmartOrganicLayout(boolean isAnimated)
+	public void doSmartOrganicLayout(int length, boolean isAnimated)
 	{
 		SmartOrganicLayouter layouter = new SmartOrganicLayouter();
 		layouter.setMinimalNodeDistance(1);
 		layouter.setCompactness(0.01);
+		layouter.setPreferredEdgeLength(length);
 
 		try
 		{
@@ -86,9 +88,10 @@ public class TLiteLayoutExecuter
 		}
 	}
 	
-	public void doHierarchicLayout(boolean isAnimated)
+	public void doHierarchicLayout(int length, boolean isAnimated)
 	{
 		HierarchicLayouter layouter = new HierarchicLayouter();
+		layouter.setMinimalNodeDistance(length);
 		
 		try
 		{
@@ -100,10 +103,11 @@ public class TLiteLayoutExecuter
 		}
 	}
 	
-	public void doOrthogonalLayout(boolean isAnimated)
+	public void doOrthogonalLayout(int length, boolean isAnimated)
 	{
 		OrthogonalLayouter layouter = new OrthogonalLayouter();
-
+		layouter.setGrid(length);
+		
 		try
 		{
 			doLayout(layouter, isAnimated);
@@ -128,9 +132,10 @@ public class TLiteLayoutExecuter
 		}
 	}
 	
-	public void doSingleCycleLayout(boolean isAnimated)
+	public void doSingleCycleLayout(int length, boolean isAnimated)
 	{
 		SingleCycleLayouter layouter = new SingleCycleLayouter();
+		layouter.setMinimalNodeDistance(length);
 
 		try
 		{
@@ -142,9 +147,10 @@ public class TLiteLayoutExecuter
 		}
 	}
 	
-	public void doTreeLayout(boolean isAnimated)
+	public void doTreeLayout(int length, boolean isAnimated)
 	{
 		TreeLayouter layouter = new TreeLayouter();
+		layouter.setMinimalNodeDistance(length);
 
 		try
 		{
@@ -184,9 +190,10 @@ public class TLiteLayoutExecuter
 		}
 	}
 	
-	public void doBalloonTreeLayout(boolean isAnimated)
+	public void doBalloonTreeLayout(int length, boolean isAnimated)
 	{
 		BalloonLayouter layouter = new BalloonLayouter();
+		layouter.setMinimalEdgeLength(length);
 		
 		try
 		{

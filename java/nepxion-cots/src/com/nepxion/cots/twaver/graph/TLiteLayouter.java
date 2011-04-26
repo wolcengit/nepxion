@@ -21,6 +21,9 @@ import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JSlider;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 
 import com.nepxion.cots.twaver.icon.TIconFactory;
 import com.nepxion.swing.border.ComplexEtchedBorder;
@@ -37,6 +40,9 @@ public class TLiteLayouter
 {
 	private JLabel typeLabel;
 	private JBasicComboBox typeComboBox;
+	
+	private JLabel lengthLabel;
+	private JSlider lengthSlider;
 	
 	private JLabel animationLabel;
 	private JBasicCheckBox animationCheckBox;
@@ -61,7 +67,7 @@ public class TLiteLayouter
 			}
 		}
 		);
-		
+				
 		double size1[][] = 
 		{
 			{0.35, 0.65},
@@ -74,6 +80,21 @@ public class TLiteLayouter
 		layoutModePanel.add(typeLabel, "0, 0");
 		layoutModePanel.add(typeComboBox, "1, 0");
 		
+		lengthLabel = new JLabel("布局长度");
+		
+		lengthSlider = new JSlider(1, 500, 100);
+		lengthSlider.setToolTipText(lengthSlider.getValue() + "");
+		lengthSlider.addChangeListener(new ChangeListener()
+		{
+			public void stateChanged(ChangeEvent e)
+			{
+				doLayout(stopButton.isEnabled());
+				
+				lengthSlider.setToolTipText(lengthSlider.getValue() + "");
+			}
+		}
+		);
+		
 		animationLabel = new JLabel("布局效果");
 		
 		animationCheckBox = new JBasicCheckBox("启用动画效果", true);
@@ -81,14 +102,16 @@ public class TLiteLayouter
 		double size2[][] = 
 		{
 			{0.35, 0.65},
-			{22}
+			{22, 22}
 		};
 		
 		JPanel layoutParamPanel = new JPanel();
 		layoutParamPanel.setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "设置布局参数"));
 		layoutParamPanel.setLayout(new TableLayout(size2));
-		layoutParamPanel.add(animationLabel, "0, 0");
-		layoutParamPanel.add(animationCheckBox, "1, 0");
+		layoutParamPanel.add(lengthLabel, "0, 0");
+		layoutParamPanel.add(lengthSlider, "1, 0");
+		layoutParamPanel.add(animationLabel, "0, 1");
+		layoutParamPanel.add(animationCheckBox, "1, 1");
 		
 		runButton = new JBasicButton("运行", TIconFactory.getContextIcon("run.png"), "运行布局");
 		runButton.addActionListener(new ActionListener()
@@ -131,7 +154,7 @@ public class TLiteLayouter
 		add(layoutParamPanel);
 		add(buttonPanel);
 		
-		typeComboBox.setSelectedIndex(1);
+		typeComboBox.setSelectedIndex(0);
 	}
 	
 	private void doLayout(boolean enabled)
@@ -147,19 +170,19 @@ public class TLiteLayouter
 	{
 		if (layoutType.equals(TLayoutType.LITE_ORGANIC_LAYOUT_TYPE))
 		{
-			liteLayoutExecuter.doOrganicLayout(animationCheckBox.isSelected());
+			liteLayoutExecuter.doOrganicLayout(lengthSlider.getValue(), animationCheckBox.isSelected());
 		}
 		else if (layoutType.equals(TLayoutType.LITE_SMART_ORGANIC_LAYOUT_TYPE))
 		{
-			liteLayoutExecuter.doSmartOrganicLayout(animationCheckBox.isSelected());
+			liteLayoutExecuter.doSmartOrganicLayout(lengthSlider.getValue(), animationCheckBox.isSelected());
 		}
 		else if (layoutType.equals(TLayoutType.LITE_HIERARCHIC_LAYOUT_TYPE))
 		{
-			liteLayoutExecuter.doHierarchicLayout(animationCheckBox.isSelected());
+			liteLayoutExecuter.doHierarchicLayout(lengthSlider.getValue(), animationCheckBox.isSelected());
 		}
 		else if (layoutType.equals(TLayoutType.LITE_ORTHOGONAL_LAYOUT_TYPE))
 		{
-			liteLayoutExecuter.doOrthogonalLayout(animationCheckBox.isSelected());
+			liteLayoutExecuter.doOrthogonalLayout(lengthSlider.getValue(), animationCheckBox.isSelected());
 		}
 		else if (layoutType.equals(TLayoutType.LITE_CIRCULAR_LAYOUT_TYPE))
 		{
@@ -167,11 +190,11 @@ public class TLiteLayouter
 		}
 		else if (layoutType.equals(TLayoutType.LITE_SINGLE_CYCLE_LAYOUT_TYPE))
 		{
-			liteLayoutExecuter.doSingleCycleLayout(animationCheckBox.isSelected());
+			liteLayoutExecuter.doSingleCycleLayout(lengthSlider.getValue(), animationCheckBox.isSelected());
 		}
 		else if (layoutType.equals(TLayoutType.LITE_TREE_LAYOUT_TYPE))
 		{
-			liteLayoutExecuter.doTreeLayout(animationCheckBox.isSelected());
+			liteLayoutExecuter.doTreeLayout(lengthSlider.getValue(), animationCheckBox.isSelected());
 		}
 		else if (layoutType.equals(TLayoutType.LITE_AR_TREE_LAYOUT_TYPE))
 		{
@@ -183,7 +206,7 @@ public class TLiteLayouter
 		}
 		else if (layoutType.equals(TLayoutType.LITE_BALLOON_TREE_LAYOUT_TYPE))
 		{
-			liteLayoutExecuter.doBalloonTreeLayout(animationCheckBox.isSelected());
+			liteLayoutExecuter.doBalloonTreeLayout(lengthSlider.getValue(), animationCheckBox.isSelected());
 		}
 		else if (layoutType.equals(TLayoutType.LITE_RANDOM_LAYOUT_TYPE))
 		{
