@@ -11,6 +11,8 @@ package com.nepxion.swing.outlookbar;
  */
 
 import java.awt.Component;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.JScrollPane;
 import javax.swing.SwingConstants;
@@ -79,5 +81,76 @@ public class JFlatOutlookBar
 		outlookBarUI.getButtonUI().setIndent(indent);
 		
 		super.setAllTabsAlignment(alignment);
+	}
+	
+	public String getSelectedTitle()
+	{
+		int index = getSelectedIndex();
+		if (index == -1)
+		{
+			return null;
+		}
+		
+		return getTitleAt(index);
+	}
+	
+	public Component getTabAt(String title)
+	{
+		for (int i = 0; i < getTabCount(); i++)
+		{
+			if (getTitleAt(i).equals(title))
+			{
+				return getComponentAt(i);
+			}
+		}
+		
+		return null;
+	}
+	
+	public void removeTabAt(String title)
+	{
+		for (int i = 0; i < getTabCount(); i++)
+		{
+			if (getTitleAt(i).equals(title))
+			{
+				removeTabAt(i);
+				break;
+			}
+		}
+	}
+	
+	public void removeTabs(List closedComponents)
+	{
+		for (int i = 0; i < closedComponents.size(); i++)
+		{
+			Component closedComponent = (Component) closedComponents.get(i);
+			
+			super.removeTabAt(indexOfComponent(closedComponent));
+		}
+	}
+	
+	public void removeReverseTabsAt(int index)
+	{
+		List closedComponents = new ArrayList();
+		for (int i = 0; i < getTabCount(); i++)
+		{
+			if (i != index)
+			{
+				Component component = getComponentAt(i);
+				closedComponents.add(component);
+			}
+		}
+		removeTabs(closedComponents);
+	}
+	
+	public void removeAllTabs()
+	{
+		List components = new ArrayList();
+		for (int i = 0; i < getTabCount(); i++)
+		{
+			Component component = getComponentAt(i);
+			components.add(component);
+		}
+		removeTabs(components);
 	}
 }
