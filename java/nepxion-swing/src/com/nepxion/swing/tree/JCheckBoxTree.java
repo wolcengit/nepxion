@@ -12,6 +12,7 @@ package com.nepxion.swing.tree;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Vector;
@@ -25,6 +26,7 @@ import javax.swing.tree.TreeNode;
 import javax.swing.tree.TreePath;
 
 import com.jidesoft.swing.CheckBoxTree;
+import com.jidesoft.swing.CheckBoxTreeSelectionModel;
 import com.nepxion.swing.searchable.JSearchableFactory;
 
 public class JCheckBoxTree
@@ -334,6 +336,73 @@ public class JCheckBoxTree
 	public void collapseAll(TreePath treePath)
 	{
 		TreeManager.collapseAll(this, treePath);
+	}
+	
+	public List getCheckBoxSelectionLeafTreeNodes()
+	{
+		CheckBoxTreeSelectionModel checkBoxTreeSelectionModel = getCheckBoxTreeSelectionModel();
+		if (checkBoxTreeSelectionModel == null)
+		{
+			return null;
+		}	
+		
+		TreePath[] selectionTreePaths = checkBoxTreeSelectionModel.getSelectionPaths();
+		if (selectionTreePaths == null)
+		{
+			return null;
+		}	
+		
+		List selectionTreeNodes = new ArrayList();
+		for (int i = 0; i < selectionTreePaths.length; i++)
+		{
+			TreePath selectionTreePath = selectionTreePaths[i];
+			TreeNode treeNode = getTreeNode(selectionTreePath);
+			recursionTreeNode(selectionTreeNodes, treeNode);
+		}
+		
+		return selectionTreeNodes;
+	}
+	
+	private void recursionTreeNode(List selectionTreeNodes, TreeNode treeNode)
+	{
+		if (treeNode.getChildCount() == 0)
+		{
+			selectionTreeNodes.add(treeNode);
+		}	
+		else
+		{
+			for (int i = 0; i < treeNode.getChildCount(); i++)
+			{
+				TreeNode childTreeNode = treeNode.getChildAt(i);
+				
+				recursionTreeNode(selectionTreeNodes, childTreeNode);
+			}	
+		}
+	}
+	
+	public List getCheckBoxSelectionTreeNodes()
+	{
+		CheckBoxTreeSelectionModel checkBoxTreeSelectionModel = getCheckBoxTreeSelectionModel();
+		if (checkBoxTreeSelectionModel == null)
+		{
+			return null;
+		}	
+		
+		TreePath[] selectionTreePaths = checkBoxTreeSelectionModel.getSelectionPaths();
+		if (selectionTreePaths == null)
+		{
+			return null;
+		}	
+		
+		List selectionTreeNodes = new ArrayList();
+		for (int i = 0; i < selectionTreePaths.length; i++)
+		{
+			TreePath selectionTreePath = selectionTreePaths[i];
+			TreeNode treeNode = getTreeNode(selectionTreePath);
+			selectionTreeNodes.add(treeNode);
+		}
+		
+		return selectionTreeNodes;
 	}
 	
 	public void update(TreeNode treeNode)

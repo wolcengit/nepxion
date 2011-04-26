@@ -10,6 +10,7 @@ package com.nepxion.swing.element;
  * @version 1.0
  */
 
+import java.io.IOException;
 import java.io.Serializable;
 
 import javax.swing.Icon;
@@ -62,4 +63,6 @@ public interface IElementNode
 	public void setUserObject(Object userObject);
 	
 	public String toString();
+	
+	public IElementNode deepClone() throws IOException, ClassNotFoundException;
 }
