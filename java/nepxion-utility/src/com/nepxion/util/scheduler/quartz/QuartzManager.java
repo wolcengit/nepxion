@@ -13,9 +13,11 @@ package com.nepxion.util.scheduler.quartz;
 import java.util.Date;
 
 import org.quartz.Scheduler;
+import org.quartz.SchedulerContext;
 import org.quartz.SchedulerException;
 
 public class QuartzManager
+	implements QuartzConstants
 {
 	public static void start()
 		throws SchedulerException
@@ -101,5 +103,24 @@ public class QuartzManager
 	public static Scheduler getScheduler()
 	{
 		return QuartzContext.getScheduler();
+	}
+	
+	public static void setContextObject(Object contextObject)
+		throws SchedulerException
+	{
+		SchedulerContext schedulerContext = getScheduler().getContext();
+
+		if (schedulerContext.get(CONTEXT_OBJECT) == null)
+		{
+			schedulerContext.put(CONTEXT_OBJECT, contextObject);
+		}
+	}
+	
+	public static Object getContextObject()
+		throws SchedulerException
+	{
+		SchedulerContext schedulerContext = getScheduler().getContext();
+
+		return schedulerContext.get(CONTEXT_OBJECT);
 	}
 }

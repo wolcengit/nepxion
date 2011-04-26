@@ -13,4 +13,6 @@ package com.nepxion.util.scheduler.quartz;
 public interface QuartzConstants
 {
 	public static final String CONFIG_FILE_PATH = "conf/quartz.properties";
+	
+	public static final String CONTEXT_OBJECT = "targetObject";
 }
