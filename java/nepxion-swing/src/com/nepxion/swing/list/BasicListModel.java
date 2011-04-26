@@ -182,6 +182,21 @@ public class BasicListModel
 		fireIntervalAdded(this, index, index);
 	}
 	
+	public void addElements(List objects)
+	{
+		int index = rowDatas.size();
+		rowDatas.addAll(objects);
+		
+		fireIntervalAdded(this, index, index);
+	}
+	
+	public void addElements(List objects, int index)
+	{
+		rowDatas.addAll(index, objects);
+		
+		fireIntervalAdded(this, index, index);
+	}
+	
 	public boolean removeElement(Object object)
 	{
 		int index = indexOf(object);
