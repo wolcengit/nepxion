@@ -286,6 +286,8 @@ public class TableController
 				List rowDatas = (List) data;
 				
 				setRowDatas(table, rowDatas);
+				
+				JBasicOptionPane.showMessageDialog(HandleManager.getFrame(table), SwingLocale.getString("save_record_success"), SwingLocale.getString("information"), JBasicOptionPane.INFORMATION_MESSAGE);
 			}
 			
 			protected Object loadBackground()

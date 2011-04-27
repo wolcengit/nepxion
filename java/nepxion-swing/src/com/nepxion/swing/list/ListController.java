@@ -280,6 +280,8 @@ public class ListController
 				List rowDatas = (List) data;
 				
 				list.setListData(CollectionUtil.parseVector(rowDatas));
+				
+				JBasicOptionPane.showMessageDialog(HandleManager.getFrame(list), SwingLocale.getString("save_record_success"), SwingLocale.getString("information"), JBasicOptionPane.INFORMATION_MESSAGE);
 			}
 			
 			protected Object loadBackground()
