@@ -10,7 +10,7 @@ package com.nepxion.util.net.http.apache;
  * @version 1.0
  */
 
-import java.util.List;
+import java.util.Collection;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -55,20 +55,15 @@ public class ClientLogger
 	
 	public static String paser(Object dataInfo)
 	{
-		if (dataInfo instanceof List)
+		if (dataInfo instanceof Collection)
 		{
-			List list = (List) dataInfo;
-			int size = list.size();
+			Collection collection = (Collection) dataInfo;
+			int size = collection.size();
 			
 			if (size > 10)
 			{	
-				String classInfo = "List";
-				String containClassInfo = "";
-				if (size > 0)
-				{
-					containClassInfo = "[" + list.get(0).getClass().getName() + "]";
-				}	
-	
+				String classInfo = "Collection";
+				String containClassInfo = "[" + collection.toArray()[0].getClass().getName() + "]";
 				String sizeInfo = ", Size is " + size;
 				
 				return  classInfo + containClassInfo + sizeInfo;
