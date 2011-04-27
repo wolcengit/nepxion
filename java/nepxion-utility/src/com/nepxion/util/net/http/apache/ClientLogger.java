@@ -63,10 +63,10 @@ public class ClientLogger
 			if (size > 10)
 			{	
 				String classInfo = "List";
-				String containClassInfo = "[" + list.get(0).getClass().getName() + "]";
-				String sizeInfo = ", Size is " + size;
+				String containClassInfo = "Class:" + list.get(0).getClass().getName();
+				String sizeInfo = "Size:" + size;
 				
-				return  classInfo + containClassInfo + sizeInfo;
+				return  classInfo + "(" + containClassInfo + ", " + sizeInfo + ")";
 			}
 		}
 		
