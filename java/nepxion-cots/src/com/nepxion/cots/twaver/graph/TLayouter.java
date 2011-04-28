@@ -21,6 +21,34 @@ import twaver.SpringLayouter;
 
 public class TLayouter
 {
+	public static final int MINIMUM_FORCE_SIZE = 10;
+	public static final int MAXIMUM_FORCE_SIZE = 500;
+	public static final int DEFAULT_FORCE_SIZE = 100;
+	
+	public static final int MINIMUM_STEP_SIZE = 1;
+	public static final int MAXIMUM_STEP_SIZE = 1000;
+	public static final int DEFAULT_STEP_SIZE = 500;
+	
+	public static final int MINIMUM_UPDATE_DURATION = 1;
+	public static final int MAXIMUM_UPDATE_DURATION = 500;
+	public static final int DEFAULT_UPDATE_DURATION = 10;
+	
+	public static final int MINIMUM_X_OFFSET = 0;
+	public static final int MAXIMUM_X_OFFSET = 2000;
+	public static final int DEFAULT_X_OFFSET = 150;
+	
+	public static final int MINIMUM_Y_OFFSET = 0;
+	public static final int MAXIMUM_Y_OFFSET = 2000;
+	public static final int DEFAULT_Y_OFFSET = 150;
+	
+	public static final int MINIMUM_X_GAP = 1;
+	public static final int MAXIMUM_X_GAP = 500;
+	public static final int DEFAULT_X_GAP = 20;
+	
+	public static final int MINIMUM_Y_GAP = 1;
+	public static final int MAXIMUM_Y_GAP = 500;
+	public static final int DEFAULT_Y_GAP = 20;
+	
 	private TGraph graph;
 	private SpringLayouter layouter;
 	
@@ -29,9 +57,9 @@ public class TLayouter
 		this.graph = graph;
 		this.layouter = graph.getSpringLayouter();
 		
-		setForceSize(100);
-		setStepSize(500);
-		setUpdateDuration(10);
+		setForceSize(DEFAULT_FORCE_SIZE);
+		setStepSize(DEFAULT_STEP_SIZE);
+		setUpdateDuration(DEFAULT_UPDATE_DURATION);
 	}
 	
 	public int getForceSize()
@@ -84,7 +112,12 @@ public class TLayouter
 		layouter.stop();
 	}
 	
-	public void doLayout(TLayoutType layoutType, boolean isAllElementsLayouted, boolean isAnimated, int xOffset, int yOffset, final int width, final int height)
+	public void doLayout(TLayoutType layoutType)
+	{
+		doLayout(layoutType, true, true, DEFAULT_X_OFFSET, DEFAULT_Y_OFFSET, DEFAULT_X_GAP, DEFAULT_Y_GAP);
+	}
+	
+	public void doLayout(TLayoutType layoutType, boolean isAllElementsLayouted, boolean isAnimated, int xOffset, int yOffset, final int xGap, final int yGap)
 	{
 		if (layoutType.equals(TLayoutType.SPRING_LAYOUT_TYPE))
 		{
@@ -109,7 +142,7 @@ public class TLayouter
 						return null;
 					}
 					
-					return new Dimension(width, height);
+					return new Dimension(xGap, yGap);
 				}
 			}
 			);
