@@ -39,15 +39,15 @@ public class TLayouter
 	
 	public static final int MINIMUM_Y_OFFSET = 0;
 	public static final int MAXIMUM_Y_OFFSET = 2000;
-	public static final int DEFAULT_Y_OFFSET = 150;
+	public static final int DEFAULT_Y_OFFSET = 50;
 	
 	public static final int MINIMUM_X_GAP = 1;
 	public static final int MAXIMUM_X_GAP = 500;
-	public static final int DEFAULT_X_GAP = 20;
+	public static final int DEFAULT_X_GAP = 50;
 	
 	public static final int MINIMUM_Y_GAP = 1;
 	public static final int MAXIMUM_Y_GAP = 500;
-	public static final int DEFAULT_Y_GAP = 20;
+	public static final int DEFAULT_Y_GAP = 50;
 	
 	private TGraph graph;
 	private SpringLayouter layouter;
@@ -114,7 +114,12 @@ public class TLayouter
 	
 	public void doLayout(TLayoutType layoutType)
 	{
-		doLayout(layoutType, true, true, DEFAULT_X_OFFSET, DEFAULT_Y_OFFSET, DEFAULT_X_GAP, DEFAULT_Y_GAP);
+		doLayout(layoutType, DEFAULT_X_OFFSET, DEFAULT_Y_OFFSET, DEFAULT_X_GAP, DEFAULT_Y_GAP);
+	}
+	
+	public void doLayout(TLayoutType layoutType, int xOffset, int yOffset, final int xGap, final int yGap)
+	{
+		doLayout(layoutType, true, true, xOffset, yOffset, xGap, yGap);
 	}
 	
 	public void doLayout(TLayoutType layoutType, boolean isAllElementsLayouted, boolean isAnimated, int xOffset, int yOffset, final int xGap, final int yGap)

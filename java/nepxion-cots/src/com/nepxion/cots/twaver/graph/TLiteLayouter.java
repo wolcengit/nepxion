@@ -46,6 +46,10 @@ import com.nepxion.swing.handle.HandleManager;
 
 public class TLiteLayouter
 {
+	public static final int MINIMUM_GAP = 1;
+	public static final int MAXIMUM_GAP = 500;
+	public static final int DEFAULT_GAP = 100;
+	
 	private TGraph graph;
 	private TLiteLayoutEngine layoutEngine;
 	
@@ -55,11 +59,11 @@ public class TLiteLayouter
 		this.layoutEngine = new TLiteLayoutEngine();
 	}
 	
-	public void doOrganicLayout(int length, boolean isAnimated)
+	public void doOrganicLayout(int gap, boolean isAnimated)
 	{
 		OrganicLayouter layouter = new OrganicLayouter();
 		layouter.setGravityFactor(2.00);
-		layouter.setPreferredEdgeLength(length);
+		layouter.setPreferredEdgeLength(gap);
 		
 		try
 		{
@@ -71,12 +75,12 @@ public class TLiteLayouter
 		}
 	}
 	
-	public void doSmartOrganicLayout(int length, boolean isAnimated)
+	public void doSmartOrganicLayout(int gap, boolean isAnimated)
 	{
 		SmartOrganicLayouter layouter = new SmartOrganicLayouter();
 		layouter.setMinimalNodeDistance(1);
 		layouter.setCompactness(0.01);
-		layouter.setPreferredEdgeLength(length);
+		layouter.setPreferredEdgeLength(gap);
 
 		try
 		{
@@ -88,10 +92,10 @@ public class TLiteLayouter
 		}
 	}
 	
-	public void doHierarchicLayout(int length, boolean isAnimated)
+	public void doHierarchicLayout(int gap, boolean isAnimated)
 	{
 		HierarchicLayouter layouter = new HierarchicLayouter();
-		layouter.setMinimalNodeDistance(length);
+		layouter.setMinimalNodeDistance(gap);
 		
 		try
 		{
@@ -103,10 +107,10 @@ public class TLiteLayouter
 		}
 	}
 	
-	public void doOrthogonalLayout(int length, boolean isAnimated)
+	public void doOrthogonalLayout(int gap, boolean isAnimated)
 	{
 		OrthogonalLayouter layouter = new OrthogonalLayouter();
-		layouter.setGrid(length);
+		layouter.setGrid(gap);
 		
 		try
 		{
@@ -132,10 +136,10 @@ public class TLiteLayouter
 		}
 	}
 	
-	public void doSingleCycleLayout(int length, boolean isAnimated)
+	public void doSingleCycleLayout(int gap, boolean isAnimated)
 	{
 		SingleCycleLayouter layouter = new SingleCycleLayouter();
-		layouter.setMinimalNodeDistance(length);
+		layouter.setMinimalNodeDistance(gap);
 
 		try
 		{
@@ -147,10 +151,10 @@ public class TLiteLayouter
 		}
 	}
 	
-	public void doTreeLayout(int length, boolean isAnimated)
+	public void doTreeLayout(int gap, boolean isAnimated)
 	{
 		TreeLayouter layouter = new TreeLayouter();
-		layouter.setMinimalNodeDistance(length);
+		layouter.setMinimalNodeDistance(gap);
 
 		try
 		{
@@ -190,10 +194,10 @@ public class TLiteLayouter
 		}
 	}
 	
-	public void doBalloonTreeLayout(int length, boolean isAnimated)
+	public void doBalloonTreeLayout(int gap, boolean isAnimated)
 	{
 		BalloonLayouter layouter = new BalloonLayouter();
-		layouter.setMinimalEdgeLength(length);
+		layouter.setMinimalEdgeLength(gap);
 		
 		try
 		{

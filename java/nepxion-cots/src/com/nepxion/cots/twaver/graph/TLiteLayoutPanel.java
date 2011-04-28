@@ -41,8 +41,8 @@ public class TLiteLayoutPanel
 	private JLabel typeLabel;
 	private JBasicComboBox typeComboBox;
 	
-	private JLabel lengthLabel;
-	private JSlider lengthSlider;
+	private JLabel gapLabel;
+	private JSlider gapSlider;
 	
 	private JLabel animationLabel;
 	private JBasicCheckBox animationCheckBox;
@@ -80,17 +80,17 @@ public class TLiteLayoutPanel
 		layoutModePanel.add(typeLabel, "0, 0");
 		layoutModePanel.add(typeComboBox, "1, 0");
 		
-		lengthLabel = new JLabel("布局长度");
+		gapLabel = new JLabel("布局长度");
 		
-		lengthSlider = new JSlider(1, 500, 100);
-		lengthSlider.setToolTipText(lengthSlider.getValue() + "");
-		lengthSlider.addChangeListener(new ChangeListener()
+		gapSlider = new JSlider(TLiteLayouter.MINIMUM_GAP, TLiteLayouter.MAXIMUM_GAP, TLiteLayouter.DEFAULT_GAP);
+		gapSlider.setToolTipText(gapSlider.getValue() + "");
+		gapSlider.addChangeListener(new ChangeListener()
 		{
 			public void stateChanged(ChangeEvent e)
 			{
 				doLayout(stopButton.isEnabled());
 				
-				lengthSlider.setToolTipText(lengthSlider.getValue() + "");
+				gapSlider.setToolTipText(gapSlider.getValue() + "");
 			}
 		}
 		);
@@ -108,8 +108,8 @@ public class TLiteLayoutPanel
 		JPanel layoutParamPanel = new JPanel();
 		layoutParamPanel.setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "设置布局参数"));
 		layoutParamPanel.setLayout(new TableLayout(size2));
-		layoutParamPanel.add(lengthLabel, "0, 0");
-		layoutParamPanel.add(lengthSlider, "1, 0");
+		layoutParamPanel.add(gapLabel, "0, 0");
+		layoutParamPanel.add(gapSlider, "1, 0");
 		layoutParamPanel.add(animationLabel, "0, 1");
 		layoutParamPanel.add(animationCheckBox, "1, 1");
 		
@@ -170,19 +170,19 @@ public class TLiteLayoutPanel
 	{
 		if (layoutType.equals(TLayoutType.LITE_ORGANIC_LAYOUT_TYPE))
 		{
-			liteLayouter.doOrganicLayout(lengthSlider.getValue(), animationCheckBox.isSelected());
+			liteLayouter.doOrganicLayout(gapSlider.getValue(), animationCheckBox.isSelected());
 		}
 		else if (layoutType.equals(TLayoutType.LITE_SMART_ORGANIC_LAYOUT_TYPE))
 		{
-			liteLayouter.doSmartOrganicLayout(lengthSlider.getValue(), animationCheckBox.isSelected());
+			liteLayouter.doSmartOrganicLayout(gapSlider.getValue(), animationCheckBox.isSelected());
 		}
 		else if (layoutType.equals(TLayoutType.LITE_HIERARCHIC_LAYOUT_TYPE))
 		{
-			liteLayouter.doHierarchicLayout(lengthSlider.getValue(), animationCheckBox.isSelected());
+			liteLayouter.doHierarchicLayout(gapSlider.getValue(), animationCheckBox.isSelected());
 		}
 		else if (layoutType.equals(TLayoutType.LITE_ORTHOGONAL_LAYOUT_TYPE))
 		{
-			liteLayouter.doOrthogonalLayout(lengthSlider.getValue(), animationCheckBox.isSelected());
+			liteLayouter.doOrthogonalLayout(gapSlider.getValue(), animationCheckBox.isSelected());
 		}
 		else if (layoutType.equals(TLayoutType.LITE_CIRCULAR_LAYOUT_TYPE))
 		{
@@ -190,11 +190,11 @@ public class TLiteLayoutPanel
 		}
 		else if (layoutType.equals(TLayoutType.LITE_SINGLE_CYCLE_LAYOUT_TYPE))
 		{
-			liteLayouter.doSingleCycleLayout(lengthSlider.getValue(), animationCheckBox.isSelected());
+			liteLayouter.doSingleCycleLayout(gapSlider.getValue(), animationCheckBox.isSelected());
 		}
 		else if (layoutType.equals(TLayoutType.LITE_TREE_LAYOUT_TYPE))
 		{
-			liteLayouter.doTreeLayout(lengthSlider.getValue(), animationCheckBox.isSelected());
+			liteLayouter.doTreeLayout(gapSlider.getValue(), animationCheckBox.isSelected());
 		}
 		else if (layoutType.equals(TLayoutType.LITE_AR_TREE_LAYOUT_TYPE))
 		{
@@ -206,7 +206,7 @@ public class TLiteLayoutPanel
 		}
 		else if (layoutType.equals(TLayoutType.LITE_BALLOON_TREE_LAYOUT_TYPE))
 		{
-			liteLayouter.doBalloonTreeLayout(lengthSlider.getValue(), animationCheckBox.isSelected());
+			liteLayouter.doBalloonTreeLayout(gapSlider.getValue(), animationCheckBox.isSelected());
 		}
 		else if (layoutType.equals(TLayoutType.LITE_RANDOM_LAYOUT_TYPE))
 		{
