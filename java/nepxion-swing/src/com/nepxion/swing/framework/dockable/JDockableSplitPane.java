@@ -25,7 +25,7 @@ public class JDockableSplitPane
 	private JDockableView dockableView;
 	private Container dockableContainer;
 	
-	private boolean isMaximize = false;
+	private boolean isMaximized = false;
 	private int index;
 	
 	public JDockableSplitPane()
@@ -77,7 +77,7 @@ public class JDockableSplitPane
 	public void toggleView(Component component)
 	{
 		init();
-		if (!isMaximize)
+		if (!isMaximized)
 		{
 			index = indexOfPane(component);
 			if (dockableView != null)
@@ -107,13 +107,13 @@ public class JDockableSplitPane
 				dockableContainer.validate();
 			}
 		}
-		isMaximize = !isMaximize;
+		isMaximized = !isMaximized;
 	}
 	
 	public void toggleLayout()
 	{
 		init();
-		if (isMaximize)
+		if (isMaximized)
 		{
 			return;
 		}

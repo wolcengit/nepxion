@@ -117,7 +117,7 @@ public class JLazyLoaderContainer
 		private ButtonGroup historyButtonGroup;
 		private JBasicMenuItem historyEmptyMenuItem;
 		
-		private int maximizeHistoryCount = 10;
+		private int maximumHistoryCount = 10;
 		
 		public SearchBar()
 		{
@@ -366,10 +366,10 @@ public class JLazyLoaderContainer
 			{
 				historyPopupMenu.remove(historyEmptyMenuItem);
 			}
-			if (historyPopupMenu.getComponentCount() >= maximizeHistoryCount + 2)
+			if (historyPopupMenu.getComponentCount() >= maximumHistoryCount + 2)
 			{
-				historyButtonGroup.remove((HistoryRadioButtonMenuItem) historyPopupMenu.getComponent(maximizeHistoryCount - 1));
-				historyPopupMenu.remove(historyPopupMenu.getComponent(maximizeHistoryCount - 1));
+				historyButtonGroup.remove((HistoryRadioButtonMenuItem) historyPopupMenu.getComponent(maximumHistoryCount - 1));
+				historyPopupMenu.remove(historyPopupMenu.getComponent(maximumHistoryCount - 1));
 			}
 			
 			HistoryRadioButtonMenuItem historyRadioButtonMenuItem = new HistoryRadioButtonMenuItem(searchDescription);
