@@ -19,10 +19,10 @@ public class TLayouterBar
 {
 	public TLayouterBar(TGraph graph)
 	{
-		TLayouter layouter = new TLayouter(graph);
-		TLiteLayouter liteLayouter = new TLiteLayouter(graph);
+		TLayouterPanel layouterPanel = new TLayouterPanel(graph);
+		TLiteLayoutPanel liteLayoutPanel = new TLiteLayoutPanel(graph);
 		
-		addTab("基本布局", null, makeScrollPane(layouter), "基本布局");
-		addTab("增强布局", null, makeScrollPane(liteLayouter), "增强布局");
+		addTab("基本布局", null, makeScrollPane(layouterPanel), "基本布局");
+		addTab("增强布局", null, makeScrollPane(liteLayoutPanel), "增强布局");
 	}
 }
