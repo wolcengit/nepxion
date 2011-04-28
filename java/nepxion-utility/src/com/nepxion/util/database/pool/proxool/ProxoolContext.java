@@ -26,7 +26,7 @@ public class ProxoolContext
 	private static Log log = LogFactory.getLog(ProxoolContext.class);
 	
 	/**
-	 * Register proxool by default config file path.
+	 * Registers proxool by default config file path.
 	 * @throws ProxoolException
 	 */
 	public static void register()
@@ -36,7 +36,7 @@ public class ProxoolContext
 	}
 	
 	/**
-	 * Register proxool by config file path.
+	 * Registers proxool by config file path.
 	 * @param filePath the config file path 
 	 * @throws ProxoolException
 	 */
@@ -60,7 +60,7 @@ public class ProxoolContext
 	}
 	
 	/**
-	 * Register proxool by properties.
+	 * Registers proxool by properties.
 	 * @param properties the instance of Properties
 	 * @throws ProxoolException
 	 */
@@ -84,7 +84,7 @@ public class ProxoolContext
 	}
 	
 	/**
-	 * Register proxool by url.
+	 * Registers proxool by url.
 	 * @param codeBase the instance of URL
 	 * @throws MalformedURLException
 	 * @throws IOException
