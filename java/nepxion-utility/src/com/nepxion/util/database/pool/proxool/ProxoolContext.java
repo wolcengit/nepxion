@@ -10,6 +10,8 @@ package com.nepxion.util.database.pool.proxool;
  * @version 1.0
  */
 
+import java.io.IOException;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Properties;
 
@@ -23,12 +25,21 @@ public class ProxoolContext
 {
 	private static Log log = LogFactory.getLog(ProxoolContext.class);
 	
+	/**
+	 * Register proxool by default config file path.
+	 * @throws ProxoolException
+	 */
 	public static void register()
 		throws ProxoolException
 	{
 		register(CONFIG_FILE_PATH);
 	}
 	
+	/**
+	 * Register proxool by config file path.
+	 * @param filePath the config file path 
+	 * @throws ProxoolException
+	 */
 	public static void register(String filePath)
 		throws ProxoolException
 	{
@@ -48,6 +59,11 @@ public class ProxoolContext
 		log.info("----- Proxool Context Initialization End ----");
 	}
 	
+	/**
+	 * Register proxool by properties.
+	 * @param properties the instance of Properties
+	 * @throws ProxoolException
+	 */
 	public static void register(Properties properties)
 		throws ProxoolException
 	{
@@ -67,10 +83,18 @@ public class ProxoolContext
 		log.info("---- Proxool Context Initialization Start ---");
 	}
 	
+	/**
+	 * Register proxool by url.
+	 * @param codeBase the instance of URL
+	 * @throws MalformedURLException
+	 * @throws IOException
+	 * @throws ProxoolException
+	 */
 	public static void register(URL codeBase)
-		throws Exception
+		throws MalformedURLException, IOException, ProxoolException
 	{
 		Properties properties = new Properties();
+
 		try
 		{
 			URL url = new URL(codeBase + CONFIG_FILE_PATH);
@@ -78,7 +102,19 @@ public class ProxoolContext
 			
 			register(properties);
 		}
-		catch (Exception e)
+		catch (MalformedURLException e)
+		{
+			log.fatal(e);
+			
+			throw e;
+		}
+		catch (IOException e)
+		{
+			log.fatal(e);
+			
+			throw e;
+		}
+		catch (ProxoolException e)
 		{
 			log.fatal(e);
 			

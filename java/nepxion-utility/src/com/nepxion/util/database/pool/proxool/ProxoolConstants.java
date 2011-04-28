@@ -12,11 +12,23 @@ package com.nepxion.util.database.pool.proxool;
 
 public interface ProxoolConstants
 {
+	/**
+	 * The path for config file of "proxool.properties".
+	 */
 	public static final String CONFIG_FILE_PATH = "conf/proxool.properties";
 	
+	/**
+	 * The connection pool driver for proxool.
+	 */
 	public static final String PROXOOL_DRIVER = "org.logicalcobwebs.proxool.ProxoolDriver";
 	
+	/**
+	 * The prefix for proxool.
+	 */
 	public static final String PREFIX = "proxool.";
 	
+	/**
+	 * The default alias for connection.
+	 */
 	public static final String DEFAULT_ALIAS = "DefaultProxool";
 }

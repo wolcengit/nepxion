@@ -22,12 +22,29 @@ public class ProxoolConnectionPool
 {
 	private static Log log = LogFactory.getLog(ProxoolConnectionPool.class);
 	
+	/**
+	 * Returns the default Connection.
+	 * If you want to get the default connection, the alias must be defined with DEFAULT_ALIAS.
+	 * @return the instance of Connection
+	 * @throws SQLException
+	 * @throws ClassNotFoundException
+	 * @see #getConnection
+	 */
 	public static Connection getDefaultConnection()
 		throws SQLException, ClassNotFoundException
 	{
 		return getConnection(DEFAULT_ALIAS);
 	}
 	
+	/**
+	 * Returns the connection by alias.
+	 * A connection is corresponded to an alias, all of them can be defined in the config file of "proxool.properties".
+	 * The detail usage of configuration is referred to proxool site
+	 * @param alias the alias string
+	 * @return the instance of Connection
+	 * @throws SQLException
+	 * @throws ClassNotFoundException
+	 */
 	public static Connection getConnection(String alias)
 		throws SQLException, ClassNotFoundException
 	{
