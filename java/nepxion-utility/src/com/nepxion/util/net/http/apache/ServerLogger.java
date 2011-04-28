@@ -70,6 +70,6 @@ public class ServerLogger
 			}
 		}
 		
-		return dataInfo.toString();
+		return dataInfo != null ? dataInfo.toString() : "null";
 	}
 }

@@ -70,7 +70,7 @@ public class ClientLogger
 			}
 		}
 		
-		return dataInfo.toString();
+		return dataInfo != null ? dataInfo.toString() : "null";
 	}
 	
 	public static void fatal(Exception e)
