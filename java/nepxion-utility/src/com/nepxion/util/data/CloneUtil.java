@@ -17,11 +17,11 @@ import com.nepxion.util.io.IOUtil;
 public class CloneUtil
 {
 	/**
-	 * Get deep clone object
-	 * @param object  the origin
-	 * @return        the clone object
-	 * @throws        IOException
-	 * @throws        ClassNotFoundException
+	 * Gets the deep clone object.
+	 * @param object the origin object
+	 * @return the clone object
+	 * @throws IOException
+	 * @throws ClassNotFoundException
 	 */
 	public static Object deepClone(Object object)
 		throws IOException, ClassNotFoundException

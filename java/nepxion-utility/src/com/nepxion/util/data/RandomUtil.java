@@ -14,17 +14,30 @@ import java.util.Random;
 
 public class RandomUtil
 {
-	public static final String CHART_LIST = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+	/**
+	 * The char list for A-Z.
+	 */
+	public static final String CHAR_LIST = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 	
-	public static char getRandomChart()
+	/**
+	 * Gets random char in A-Z.
+	 * @return the random char
+	 */
+	public static char getRandomChar()
 	{
-		char[] chars = CHART_LIST.toCharArray();
+		char[] chars = CHAR_LIST.toCharArray();
 		Random random = new Random();
 		int randomIndex = random.nextInt(chars.length);
 		
 		return chars[randomIndex];
 	}
 	
+	/**
+	 * Gets random number of int type within the min and max int value.
+	 * @param min the min int value 
+	 * @param max the max int value
+	 * @return the random number of int type
+	 */
 	public static int getRandomInt(int min, int max)
 	{
 		Random random = new Random();
@@ -32,6 +45,12 @@ public class RandomUtil
 		return random.nextInt(max - min + 1) + min;
 	}
 	
+	/**
+	 * Gets random number of double type within the min and max int value.
+	 * @param min the min int value 
+	 * @param max the max int value
+	 * @return the random number of double type
+	 */
 	public static double getRandomDouble(int min, int max)
 	{
 		return Math.random() * (max - min) + min;

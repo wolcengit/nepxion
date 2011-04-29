@@ -17,9 +17,9 @@ import java.util.Vector;
 public class CollectionUtil
 {
 	/**
-	 * Parse array to list
-	 * @param array  the array object 
-	 * @return       the instance of List
+	 * Parses array to list.
+	 * @param array the array object 
+	 * @return the instance of List
 	 */
 	public static List parseList(Object[] array)
 	{
@@ -27,9 +27,9 @@ public class CollectionUtil
 	}
 	
 	/**
-	 * Parse list to array
-	 * @param list  the instance of List 
-	 * @return      the array object 
+	 * Parses list to array.
+	 * @param list the instance of List 
+	 * @return the array object 
 	 */	
 	public static Object[] parseArray(List list)
 	{
@@ -37,9 +37,9 @@ public class CollectionUtil
 	}	
 	
 	/**
-	 * Parse array to vector
-	 * @param array  the array object 
-	 * @return       the instance of Vector
+	 * Parses array to vector.
+	 * @param array the array object 
+	 * @return the instance of Vector
 	 */
 	public static Vector parseVector(Object[] array)
 	{
@@ -47,9 +47,9 @@ public class CollectionUtil
 	}
 	
 	/**
-	 * Parse list to vector
-	 * @param array  the instance of List
-	 * @return       the instance of Vector
+	 * Parses list to vector.
+	 * @param array the instance of List
+	 * @return the instance of Vector
 	 */	
 	public static Vector parseVector(List list)
 	{
@@ -57,9 +57,9 @@ public class CollectionUtil
 	}
 	
 	/**
-	 * Parse list to vector
-	 * @param array  the instance of List
-	 * @return       the instance of Vector
+	 * Parses list to vector.
+	 * @param array the instance of List
+	 * @return the instance of Vector
 	 */		
 	public static Object[] parseArray(Vector vector)
 	{
