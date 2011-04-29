@@ -16,6 +16,12 @@ import java.io.PrintStream;
 
 public class ExceptionUtil
 {
+	/**
+	 * SubString for exception.
+	 * It only gets the part after first colon of the exception string.
+	 * @param e the instance of Exception
+	 * @return the text value
+	 */
 	public static String subString(Exception e)
 	{
 		String message = e.getMessage();
@@ -29,6 +35,11 @@ public class ExceptionUtil
 		return message;
 	}
 	
+	/**
+	 * Gets the text for exception.
+	 * @param e the instance of Exception
+	 * @return the text value
+	 */
 	public static String getText(Exception e)
 	{
 		ByteArrayOutputStream baos = new ByteArrayOutputStream();
