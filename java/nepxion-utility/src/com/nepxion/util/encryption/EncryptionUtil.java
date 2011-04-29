@@ -18,60 +18,131 @@ import sun.misc.BASE64Encoder;
 public class EncryptionUtil
 	implements EncryptionConstants
 {
+	/**
+	 * Encrypts the text with MD5.
+	 * @param text the text value
+	 * @return the encrypted text value
+	 * @throws Exception
+	 */
 	public static String encryptMD5(String text)
 		throws Exception
 	{
 		return encrypt(text, ALGORITHM_MD5);
 	}
 	
+	/**
+	 * Encrypts the text by given charset with MD5.
+	 * @param text the text value
+	 * @param charset the charset value
+	 * @return the encrypted text value
+	 * @throws Exception
+	 * @see #encrypt
+	 */
 	public static String encryptMD5(String text, String charset)
 		throws Exception
 	{
 		return encrypt(text, ALGORITHM_MD5, charset);
 	}
 	
+	/**
+	 * Encrypts the text with SHA.
+	 * @param text the text value
+	 * @return the encrypted text value
+	 * @throws Exception
+	 */
 	public static String encryptSHA(String text)
 		throws Exception
 	{
 		return encrypt(text, ALGORITHM_SHA);
 	}
 	
+	/**
+	 * Encrypts the text by given charset with SHA.
+	 * @param text the text value
+	 * @param charset the charset value
+	 * @return the encrypted text value
+	 * @throws Exception
+	 * @see #encrypt
+	 */
 	public static String encryptSHA(String text, String charset)
 		throws Exception
 	{
 		return encrypt(text, ALGORITHM_SHA, charset);
 	}
 	
+	/**
+	 * Encrypts the text with SHA_256.
+	 * @param text the text value
+	 * @return the encrypted text value
+	 * @throws Exception
+	 */
 	public static String encryptSHA256(String text)
 		throws Exception
 	{
 		return encrypt(text, ALGORITHM_SHA_256);
 	}
 	
+	/**
+	 * Encrypts the text by given charset with SHA_256.
+	 * @param text the text value
+	 * @param charset the charset value
+	 * @return the encrypted text value
+	 * @throws Exception
+	 * @see #encrypt
+	 */
 	public static String encryptSHA256(String text, String charset)
 		throws Exception
 	{
 		return encrypt(text, ALGORITHM_SHA_256, charset);
 	}
 	
+	/**
+	 * Encrypts the text with SHA_512.
+	 * @param text the text value
+	 * @return the encrypted text value
+	 * @throws Exception
+	 */
 	public static String encryptSHA512(String text)
 		throws Exception
 	{
 		return encrypt(text, ALGORITHM_SHA_512);
 	}
 	
+	/**
+	 * Encrypts the text by given charset with SHA_512.
+	 * @param text the text value
+	 * @param charset the charset value
+	 * @return the encrypted text value
+	 * @throws Exception
+	 * @see #encrypt
+	 */
 	public static String encryptSHA512(String text, String charset)
 		throws Exception
 	{
 		return encrypt(text, ALGORITHM_SHA_512, charset);
 	}
 	
+	/**
+	 * Encrypts the text by given algorithm and UTF-8 charset.
+	 * @param text the text value
+	 * @param algorithm the algorithm value
+	 * @return the encrypted text value
+	 * @throws Exception
+	 */
 	public static String encrypt(String text, String algorithm)
 		throws Exception
 	{
 		return encrypt(text, algorithm, "UTF-8");
 	}
 	
+	/**
+	 * Encrypts the text by given algorithm and charset.
+	 * @param text the text value
+	 * @param algorithm the algorithm value
+	 * @param charset the charset value
+	 * @return the encrypted text value
+	 * @throws Exception
+	 */
 	public static String encrypt(String text, String algorithm, String charset)
 		throws Exception
 	{
@@ -81,6 +152,12 @@ public class EncryptionUtil
 		return encryptBASE64(bytes);
 	}
 	
+	/**
+	 * Encrypts the byte array with BASE64.
+	 * @param bytes the byte array
+	 * @return the encrypted text value
+	 * @throws Exception
+	 */
 	public static String encryptBASE64(byte[] bytes)
 		throws Exception
 	{
@@ -89,6 +166,12 @@ public class EncryptionUtil
 		return base64Encoder.encodeBuffer(bytes);
 	}
 	
+	/**
+	 * Decrypts the text with BASE64.
+	 * @param text the text value
+	 * @return the decrypted byte array
+	 * @throws Exception
+	 */
 	public static byte[] decryptBASE64(String text)
 		throws Exception
 	{

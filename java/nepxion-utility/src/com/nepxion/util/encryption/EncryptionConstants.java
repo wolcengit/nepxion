@@ -12,8 +12,23 @@ package com.nepxion.util.encryption;
 
 public interface EncryptionConstants
 {
+	/**
+	 * The encryption algorithm for MD5.
+	 */
 	public static final String ALGORITHM_MD5 = "MD5";
+	
+	/**
+	 * The encryption algorithm for SHA.
+	 */
 	public static final String ALGORITHM_SHA = "SHA";
+	
+	/**
+	 * The encryption algorithm for SHA-256.
+	 */
 	public static final String ALGORITHM_SHA_256 = "SHA-256";
+	
+	/**
+	 * The encryption algorithm for SHA-512.
+	 */
 	public static final String ALGORITHM_SHA_512 = "SHA-512";
 }
