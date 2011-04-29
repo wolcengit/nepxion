@@ -31,10 +31,10 @@ import com.nepxion.util.encoder.EncoderUtil;
 public class Dom4JReader
 {
 	/**
-	 * Get document by string
-	 * @param text  the xml text
-	 * @return      the instance of Document
-	 * @throws      DocumentException
+	 * Gets the document by xml text.
+	 * @param text the xml text
+	 * @return the instance of Document
+	 * @throws DocumentException
 	 */
 	public static Document getDocument(String text)
 		throws DocumentException
@@ -43,11 +43,13 @@ public class Dom4JReader
 	}
 		
 	/**
-	 * Get format document by string
-	 * @param text  the xml text
-	 * @return      the instance of Document
-	 * @throws      DocumentException
-	 * @throws      UnsupportedEncodingException  
+	 * Gets the document by text with charset formatted.
+	 * The charset is registered in EncoderContext.
+	 * @param text the xml text
+	 * @return the instance of Document
+	 * @throws DocumentException
+	 * @throws UnsupportedEncodingException
+	 * @see #EncoderContext.getIOCharset
 	 */
 	public static Document getFormatDocument(String text) 
 		throws DocumentException, UnsupportedEncodingException
@@ -56,12 +58,12 @@ public class Dom4JReader
 	}
 	
 	/**
-	 * Get format document by string
-	 * @param text     the xml text
-	 * @param charset  the charset text, example "ISO-8859-1", "UTF-8", "GBK", "GB2312"
-	 * @return         the instance of Document
-	 * @throws         DocumentException
-	 * @throws         UnsupportedEncodingException  
+	 * Gets the document by text with charset formatted.
+	 * @param text the xml text
+	 * @param charset the charset value
+	 * @return the instance of Document
+	 * @throws DocumentException
+	 * @throws UnsupportedEncodingException
 	 */
 	public static Document getFormatDocument(String text, String charset) 
 		throws DocumentException, UnsupportedEncodingException
@@ -72,11 +74,11 @@ public class Dom4JReader
 	}
 	
 	/**
-	 * Get document by file
-	 * @param file  the instance of File
-	 * @return      the instance of Document
-	 * @throws      DocumentException
-	 * @throws      FileNotFoundException 
+	 * Gets the document by file.
+	 * @param file the instance of File
+	 * @return the instance of Document
+	 * @throws DocumentException
+	 * @throws FileNotFoundException
 	 */
 	public static Document getDocument(File file)
 		throws DocumentException, FileNotFoundException
@@ -87,12 +89,14 @@ public class Dom4JReader
 	}
 	
 	/**
-	 * Get format document by file
-	 * @param file  the instance of File
-	 * @return      the instance of Document
-	 * @throws      DocumentException
-	 * @throws      FileNotFoundException 
-	 * @throws      UnsupportedEncodingException 
+	 * Gets the document by file with charset formatted.
+	 * The charset is registered in EncoderContext.
+	 * @param file the instance of File
+	 * @return the instance of Document
+	 * @throws DocumentException
+	 * @throws FileNotFoundException
+	 * @throws UnsupportedEncodingException
+	 * @see #EncoderContext.getIOCharset
 	 */
 	public static Document getFormatDocument(File file)
 		throws DocumentException, FileNotFoundException, UnsupportedEncodingException
@@ -101,13 +105,13 @@ public class Dom4JReader
 	}
 	
 	/**
-	 * Get format document by file
-	 * @param file     the instance of File
-	 * @param charset  the charset text, example "ISO-8859-1", "UTF-8", "GBK", "GB2312"
-	 * @return         the instance of Document
-	 * @throws         DocumentException
-	 * @throws         FileNotFoundException 
-	 * @throws         UnsupportedEncodingException 
+	 * Gets the document by file with charset formatted.
+	 * @param file the instance of File
+	 * @param charset the charset value
+	 * @return the instance of Document
+	 * @throws DocumentException
+	 * @throws FileNotFoundException 
+	 * @throws UnsupportedEncodingException 
 	 */
 	public static Document getFormatDocument(File file, String charset)
 		throws DocumentException, FileNotFoundException, UnsupportedEncodingException
@@ -118,10 +122,10 @@ public class Dom4JReader
 	}
 	
 	/**
-	 * Get document by inputSource
-	 * @param inputSource  the instance of InputSource
-	 * @return             the instance of Document
-	 * @throws             DocumentException
+	 * Gets the document by inputSource.
+	 * @param inputSource the instance of InputSource
+	 * @return the instance of Document
+	 * @throws DocumentException
 	 */
 	public static Document getDocument(InputSource inputSource)
 		throws DocumentException
@@ -132,10 +136,12 @@ public class Dom4JReader
 	}
 	
 	/**
-	 * Get document by inputSource
-	 * @param inputSource  the instance of InputSource
-	 * @return             the instance of Document
-	 * @throws             DocumentException
+	 * Gets the document by inputSource with charset formatted.
+	 * The charset is registered in EncoderContext.
+	 * @param inputSource the instance of InputSource
+	 * @return the instance of Document
+	 * @throws DocumentException
+	 * @see #EncoderContext.getIOCharset
 	 */
 	public static Document getFormatDocument(InputSource inputSource)
 		throws DocumentException
@@ -144,11 +150,11 @@ public class Dom4JReader
 	}
 	
 	/**
-	 * Get document by inputSource
-	 * @param inputSource  the instance of InputSource
-	 * @param charset      the charset text, example "ISO-8859-1", "UTF-8", "GBK", "GB2312"
-	 * @return             the instance of Document
-	 * @throws             DocumentException
+	 * Gets the document by inputSource with charset formatted.
+	 * @param inputSource the instance of InputSource
+	 * @param charset the charset value
+	 * @return the instance of Document
+	 * @throws DocumentException
 	 */
 	public static Document getFormatDocument(InputSource inputSource, String charset)
 		throws DocumentException
@@ -159,10 +165,10 @@ public class Dom4JReader
 	}
 	
 	/**
-	 * Get document by inputStream
-	 * @param inputStream  the instance of InputStream
-	 * @return             the instance of Document
-	 * @throws             DocumentException
+	 * Gets the document by inputStream.
+	 * @param inputStream the instance of InputStream
+	 * @return the instance of Document
+	 * @throws DocumentException
 	 */
 	public static Document getDocument(InputStream inputStream)
 		throws DocumentException
@@ -173,11 +179,13 @@ public class Dom4JReader
 	}
 	
 	/**
-	 * Get document by inputStream
-	 * @param inputStream  the instance of InputStream
-	 * @return             the instance of Document
-	 * @throws             DocumentException
-	 * @throws             UnsupportedEncodingException 
+	 * Gets the document by inputStream with charset formatted.
+	 * The charset is registered in EncoderContext.
+	 * @param inputStream the instance of InputStream
+	 * @return the instance of Document
+	 * @throws DocumentException
+	 * @throws UnsupportedEncodingException
+	 * @see #EncoderContext.getIOCharset
 	 */
 	public static Document getFormatDocument(InputStream inputStream)
 		throws DocumentException, UnsupportedEncodingException
@@ -186,12 +194,12 @@ public class Dom4JReader
 	}
 	
 	/**
-	 * Get document by inputStream
-	 * @param inputStream  the instance of InputStream
-	 * @param charset      the charset text, example "ISO-8859-1", "UTF-8", "GBK", "GB2312"
-	 * @return             the instance of Document
-	 * @throws             DocumentException
-	 * @throws             UnsupportedEncodingException 
+	 * Gets the document by inputStream with charset formatted.
+	 * @param inputStream the instance of InputStream
+	 * @param charset the charset value
+	 * @return the instance of Document
+	 * @throws DocumentException
+	 * @throws UnsupportedEncodingException 
 	 */
 	public static Document getFormatDocument(InputStream inputStream, String charset)
 		throws DocumentException, UnsupportedEncodingException
@@ -202,10 +210,10 @@ public class Dom4JReader
 	}
 	
 	/**
-	 * Get document by reader
-	 * @param reader  the instance of Reader
-	 * @return        the instance of Document
-	 * @throws        DocumentException
+	 * Gets the document by reader
+	 * @param reader the instance of Reader
+	 * @return the instance of Document
+	 * @throws DocumentException
 	 */
 	public static Document getDocument(Reader reader)
 		throws DocumentException
@@ -216,10 +224,10 @@ public class Dom4JReader
 	}
 	
 	/**
-	 * Get document by url
-	 * @param url  the instance of URL
-	 * @return     the instance of Document
-	 * @throws     DocumentException
+	 * Gets the document by url
+	 * @param url the instance of URL
+	 * @return the instance of Document
+	 * @throws DocumentException
 	 */
 	public static Document getDocument(URL url)
 		throws DocumentException
