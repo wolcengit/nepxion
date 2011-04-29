@@ -12,5 +12,8 @@ package com.nepxion.util.encoder;
 
 public interface EncoderConstants
 {
+	/**
+	 * The charset of default value.
+	 */
 	public static final String DEFAULT_CHARSET = "ISO-8859-1";
 }

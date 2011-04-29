@@ -13,24 +13,49 @@ package com.nepxion.util.encoder;
 public class EncoderContext
 	implements EncoderConstants
 {	
+	/**
+	 * The io charset.
+	 * It is mainly used for getting the io-stream with the native file and object. 
+	 */
 	private static String ioCharset = DEFAULT_CHARSET;
+	
+	/**
+	 * The http charset.
+	 * It is mainly used for getting the io-stream with the remote file and object. Currently it is only support http mode.
+	 */
 	private static String httpCharset = DEFAULT_CHARSET;
 	
+	/**
+	 * Registers io charset.
+	 * @param customIOCharset the io charset value
+	 */
 	public static void registerIOCharset(String customIOCharset)
 	{
 		ioCharset = customIOCharset;
 	}
 	
+	/**
+	 * Gets io charset.
+	 * @return the registered io charset value
+	 */
 	public static String getIOCharset()
 	{
 		return ioCharset;
 	}
 	
+	/**
+	 * Registers http charset.
+	 * @param customHttpCharset the http charset value
+	 */
 	public static void registerHttpCharset(String customHttpCharset)
 	{
 		httpCharset = customHttpCharset;
 	}
 	
+	/**
+	 * Gets http charset.
+	 * @return the registered http charset value
+	 */
 	public static String getHttpCharset()
 	{
 		return httpCharset;

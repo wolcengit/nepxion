@@ -14,30 +14,66 @@ import java.io.UnsupportedEncodingException;
 
 public class EncoderUtil
 {
+	/**
+	 * Formats text with GB2312 charset.
+	 * @param text the text value
+	 * @return the formatted text value
+	 * @throws UnsupportedEncodingException
+	 * @see #format
+	 */
 	public static String formatGB2312(String text)
 		throws UnsupportedEncodingException
 	{
 		return format(text, "GB2312");
 	}	
 	
+	/**
+	 * Formats text with GBK charset.
+	 * @param text the text value
+	 * @return the formatted text value
+	 * @throws UnsupportedEncodingException
+	 * @see #format
+	 */
 	public static String formatGBK(String text)
 		throws UnsupportedEncodingException
 	{
 		return format(text, "GBK");
 	}		
 	
+	/**
+	 * Formats text with UTF-8 charset.
+	 * @param text the text value
+	 * @return the formatted text value
+	 * @throws UnsupportedEncodingException
+	 * @see #format
+	 */
 	public static String formatUTF8(String text)
 		throws UnsupportedEncodingException
 	{	
 		return format(text, "UFT-8");
 	}	
 	
+	/**
+	 * Formats text by given charset.The the origin charset is ISO-8859-1.
+	 * @param text the text value
+	 * @param transferCharset the transfer charset
+	 * @return the formatted text value
+	 * @throws UnsupportedEncodingException
+	 */
 	public static String format(String text, String transferCharset)
 		throws UnsupportedEncodingException
 	{		
 		return format(text, "ISO-8859-1", transferCharset);
 	}	
 	
+	/**
+	 * Formats text by given charset.
+	 * @param text the text value
+	 * @param originCharset the origin charset
+	 * @param transferCharset the transfer charset
+	 * @return the formatted text value
+	 * @throws UnsupportedEncodingException
+	 */
 	public static String format(String text, String originCharset, String transferCharset)
 		throws UnsupportedEncodingException
 	{
