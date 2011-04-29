@@ -88,7 +88,8 @@ public class DemoActiveXPanel
 						textField.setText(file.getAbsolutePath());
 					}
 				}
-			});
+			}
+			);
 			add(selectorButton);
 			
 			JBasicButton callButton = new JBasicButton(IconFactory.getSwingIcon("property.png"), "Call Web");
@@ -105,7 +106,8 @@ public class DemoActiveXPanel
 						ex.printStackTrace();
 					}
 				}
-			});
+			}
+			);
 			add(callButton);
 			
 			ButtonManager.updateUI(this);
