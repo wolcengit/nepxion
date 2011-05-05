@@ -25,7 +25,6 @@ public class JBasicList
 	extends JList implements IList, ListSelectionListener, MouseListener
 {
 	private int selectedIndex = -1;
-	private int[] selectedIndexes;
 	
 	public JBasicList()
 	{
@@ -145,7 +144,6 @@ public class JBasicList
 				int oldSelectedRow = selectedIndex;
 				int newSelectedRow = -1;
 				selectedIndex = -1;
-				selectedIndexes = null;
 				
 				executeSelection(oldSelectedRow, newSelectedRow);
 			}
@@ -156,14 +154,8 @@ public class JBasicList
 			{
 				return;
 			}
-			
-			if (selectedIndexes != null && selectedIndexes.length > 1)
-			{
-				return;
-			}
-			
+						
 			selectedIndex = getSelectedIndex();
-			selectedIndexes = null;
 			
 			int oldSelectedRow = -1;
 			int newSelectedRow = -1;
@@ -185,12 +177,13 @@ public class JBasicList
 				oldSelectedRow = firstIndex;
 				newSelectedRow = lastIndex;
 			}
+			else
+			{
+				oldSelectedRow = -1;
+				newSelectedRow = selectedIndex;
+			}
 			
 			executeSelection(oldSelectedRow, newSelectedRow);
-		}
-		else
-		{
-			selectedIndexes = selectedRows;
 		}
 	}
 	
