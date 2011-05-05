@@ -58,6 +58,7 @@ public class JBasicList
 	{
 		ListManager.setPreferenceStyle(this);
 		
+		addMouseListener(this);
 		addListSelectionListener(this);
 	}
 	
