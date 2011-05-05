@@ -158,19 +158,19 @@ public class JRibbonAction
 			}
 			catch (NullPointerException ex)
 			{
-				ExceptionTracer.traceException(ribbonContainer, SwingLocale.getString("component_not_initialized") + " [" + ribbonComponentClass + "]", ex);
+				ExceptionTracer.traceException(ribbonContainer, SwingLocale.getString("component_initialization_failed") + " [" + ribbonComponentClass + "]", ex);
 				
 				return;
 			}
 			catch (ClassCastException ex)
 			{
-				ExceptionTracer.traceException(ribbonContainer, SwingLocale.getString("component_not_initialized") + " " + IRibbonComponent.class.getSimpleName() + " [" + ribbonComponentClass + "]", ex);
+				ExceptionTracer.traceException(ribbonContainer, SwingLocale.getString("component_implementation_failed") + " " + IRibbonComponent.class.getSimpleName() + " [" + ribbonComponentClass + "]", ex);
 				
 				return;
 			}
 			catch (Exception ex)
 			{
-				ExceptionTracer.traceException(ribbonContainer, SwingLocale.getString("component_instantiation_error") + " [" + ribbonComponentClass + "]", ex);
+				ExceptionTracer.traceException(ribbonContainer, SwingLocale.getString("component_instantiation_failed") + " [" + ribbonComponentClass + "]", ex);
 				
 				return;
 			}
