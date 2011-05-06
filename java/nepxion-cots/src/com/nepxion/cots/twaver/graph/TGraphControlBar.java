@@ -220,6 +220,11 @@ public class TGraphControlBar
 				JBasicRadioButtonMenuItem groupTypeMenuItem = new JBasicRadioButtonMenuItem(TGraphController.getGroupTypeConfigAction(graph, groupType));
 				groupPopupMenu.add(groupTypeMenuItem);
 				
+				if (groupType == TGroupType.PARALLELOGRAM_GROUP_TYPE)
+				{
+					groupTypeMenuItem.setSelected(true);
+				}	
+				
 				groupTypeButtonGroup.add(groupTypeMenuItem);
 			}
 			

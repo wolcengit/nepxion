@@ -13,6 +13,7 @@ package com.nepxion.cots.twaver.graph;
  */
 
 import com.nepxion.cots.twaver.icon.TIconFactory;
+import com.nepxion.swing.button.ButtonManager;
 import com.nepxion.swing.button.JBasicSplitButton;
 import com.nepxion.swing.button.JClassicMenuButton;
 import com.nepxion.swing.lookandfeel.LookAndFeelManager;
@@ -33,13 +34,13 @@ public class TGraphToolBar
 	{
 		graph.setToolbar(this);
 		
-		JDecorationPopupMenu controlBarOperationPopupMenu = new JDecorationPopupMenu();
+		JDecorationPopupMenu controlBarPopupMenu = new JDecorationPopupMenu();
 		
 		JBasicMenuItem controlBarVisibleMenuItem = new JBasicMenuItem(TGraphController.getShowControlBarAction(graph));
-		controlBarOperationPopupMenu.add(controlBarVisibleMenuItem);
+		controlBarPopupMenu.add(controlBarVisibleMenuItem);
 		
 		JBasicMenuItem controlBarHiddenMenuItem = new JBasicMenuItem(TGraphController.getHideControlBarAction(graph));
-		controlBarOperationPopupMenu.add(controlBarHiddenMenuItem);
+		controlBarPopupMenu.add(controlBarHiddenMenuItem);
 		
 		if (showControlBar)
 		{
@@ -50,11 +51,11 @@ public class TGraphToolBar
 			controlBarHiddenMenuItem.doClick();
 		}
 		
-		controlBarOperationPopupMenu.addSeparator();
+		controlBarPopupMenu.addSeparator();
 		
 		JBasicMenu toggleTabMenu = new JBasicMenu("«–ªª√Ê∞Â¿∏", "«–ªª√Ê∞Â¿∏");
 		toggleTabMenu.setIcon(TIconFactory.getSwingIcon("toggle_layout.png"));
-		controlBarOperationPopupMenu.add(toggleTabMenu);
+		controlBarPopupMenu.add(toggleTabMenu);
 		
 		TGraphControlBar controlBar = (TGraphControlBar) graph.getControlBarInternalFrame().getContent();
 		for (int i = 0; i < controlBar.getTabCount(); i++)
@@ -66,14 +67,16 @@ public class TGraphToolBar
 		if (LookAndFeelManager.isNimbusLookAndFeel())
 		{
 			JClassicMenuButton panelButton = new JClassicMenuButton("√Ê∞Â", TIconFactory.getContextIcon("pane.png"), "œ‘ æ∫Õ“˛≤ÿ≤Ÿ◊˜√Ê∞Â");
-			panelButton.setPopupMenu(controlBarOperationPopupMenu);
+			panelButton.setPopupMenu(controlBarPopupMenu);
 			add(panelButton);
 		}
 		else
 		{
 			JBasicSplitButton panelButton = new JBasicSplitButton(TGraphController.getToggleControlBarAction(graph));
-			panelButton.setPopupMenu(controlBarOperationPopupMenu);
+			panelButton.setPopupMenu(controlBarPopupMenu);
 			add(panelButton);
 		}
+		
+		ButtonManager.updateUI(this);
 	}
 }
