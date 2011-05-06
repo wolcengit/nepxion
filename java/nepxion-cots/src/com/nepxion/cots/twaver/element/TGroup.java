@@ -15,11 +15,12 @@ package com.nepxion.cots.twaver.element;
 import java.awt.Color;
 
 import twaver.Element;
+import twaver.GeoCoordinate;
 import twaver.Group;
 import twaver.TDataBox;
-import twaver.TUIManager;
 import twaver.TWaverConst;
 import twaver.TWaverUtil;
+import twaver.gis.TWaverGisConst;
 
 public class TGroup
 	extends Group implements TElement
@@ -80,6 +81,18 @@ public class TGroup
 		putGroupGradientFactory(TWaverConst.GRADIENT_EXTEND_E);
 		putGroup3D(true);
 		putGroupAngle(45);
+	}
+	
+	public GeoCoordinate getGeoCoordinate()
+	{
+		GeoCoordinate geoCoordinate = (GeoCoordinate) getClientProperty(TWaverGisConst.GEOCOORDINATE);;
+		
+		return geoCoordinate;
+	}
+	
+	public void setGeoCoordinate(GeoCoordinate geoCoordinate)
+	{
+		putClientProperty(TWaverGisConst.GEOCOORDINATE, geoCoordinate);
 	}
 	
 	public boolean isMovable()
@@ -197,68 +210,6 @@ public class TGroup
 	public void setDeletePermitted(boolean isDeletePermitted)
 	{
 		this.isDeletePermitted = isDeletePermitted;
-	}
-	
-	// 捆绑Element ClientProperty和元数据属性，实现属性同步
-	// 设置属性值，进行Element ClientProperty和元数据属性过滤
-	public void putClientProperty(Object key, Object value)
-	{
-		if (TUIManager.isPredefinedClientPropertyKey(key.toString()))
-		{
-			super.putClientProperty(key, value);
-		}
-		else
-		{
-			putServiceClientProperty(key, value);
-		}
-	}
-	
-	public void putServiceClientProperty(Object key, Object value)
-	{
-	}
-	
-	// 捆绑Element ClientProperty和元数据属性，实现属性同步
-	// 获取属性值，进行Element ClientProperty和元数据属性过滤
-	public Object getClientProperty(Object key)
-	{
-		if (TUIManager.isPredefinedClientPropertyKey(key.toString()))
-		{
-			return super.getClientProperty(key);
-		}
-		else
-		{
-			return getServiceClientProperty(key);
-		}
-	}
-	
-	public Object getServiceClientProperty(Object key)
-	{
-		return null;
-	}
-	
-	// 捆绑当名称改变时，触发Element UserObject里相对应的名称属性
-	public void setName(String name)
-	{
-		super.setName(name);
-		
-		setServicecName(name);
-	}
-	
-	public void setServicecName(String name)
-	{
-		
-	}
-	
-	// 捆绑Element UserObject和VEntity对象
-	public void setUserObject(Object userObject)
-	{
-		super.setUserObject(userObject);
-		
-		setServiceUserObject(userObject);
-	}
-	
-	public void setServiceUserObject(Object userObject)
-	{
 	}
 	
 	public String toString()
