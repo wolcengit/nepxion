@@ -26,6 +26,7 @@ import com.nepxion.swing.button.JBasicMenuButton;
 import com.nepxion.swing.button.JBasicToggleButton;
 import com.nepxion.swing.layout.table.TableLayout;
 import com.nepxion.swing.menuitem.JBasicMenuItem;
+import com.nepxion.swing.menuitem.JBasicRadioButtonMenuItem;
 import com.nepxion.swing.outlookbar.JFlatOutlook;
 import com.nepxion.swing.outlookbar.JFlatOutlookBar;
 import com.nepxion.swing.popupmenu.JDecorationPopupMenu;
@@ -204,20 +205,22 @@ public class TGraphControlBar
 			JBasicMenuItem unLockSelectionMenuItem = new JBasicMenuItem(TGraphController.getUnLockSelectionAction(graph));
 			lockPopupMenu.add(unLockSelectionMenuItem);
 			
-			JBasicMenuButton lockButton = new JBasicMenuButton(TIconFactory.getContextIcon("lock.png"));
+			JBasicMenuButton lockButton = new JBasicMenuButton(TIconFactory.getContextIcon("lock.png"), "锁定和解锁节点");
 			lockButton.setPopupMenu(lockPopupMenu);
-			lockButton.setToolTipText("锁定和解锁节点");
 			nodeOutlook.add(lockButton, "0, 1");
 			
 			JDecorationPopupMenu groupPopupMenu = new JDecorationPopupMenu();
 			
+			ButtonGroup groupTypeButtonGroup = new ButtonGroup();
 			TGroupType[] groupTypes = new TGroupType[] {TGroupType.RECTANGLE_GROUP_TYPE, TGroupType.ROUND_RECTANGLE_GROUP_TYPE, TGroupType.ROUND_GROUP_TYPE, TGroupType.OCTAGON_GROUP_TYPE, TGroupType.PARALLELOGRAM_GROUP_TYPE, TGroupType.ELLIPSE_GROUP_TYPE};
 			for (int i = 0; i < groupTypes.length; i++)
 			{
 				TGroupType groupType = groupTypes[i];
 				
-				JBasicMenuItem groupShapeMenuItem = new JBasicMenuItem(TGraphController.getGroupTypeConfigAction(graph, groupType));
-				groupPopupMenu.add(groupShapeMenuItem);
+				JBasicRadioButtonMenuItem groupTypeMenuItem = new JBasicRadioButtonMenuItem(TGraphController.getGroupTypeConfigAction(graph, groupType));
+				groupPopupMenu.add(groupTypeMenuItem);
+				
+				groupTypeButtonGroup.add(groupTypeMenuItem);
 			}
 			
 			groupPopupMenu.addSeparator();
@@ -228,9 +231,8 @@ public class TGraphControlBar
 			JBasicMenuItem collapseAllMenuItem = new JBasicMenuItem(TGraphController.getGroupCollapseAction(graph));
 			groupPopupMenu.add(collapseAllMenuItem);
 			
-			JBasicMenuButton groupButton = new JBasicMenuButton(TIconFactory.getContextIcon("group.png"));
+			JBasicMenuButton groupButton = new JBasicMenuButton(TIconFactory.getContextIcon("group.png"), "组设置");
 			groupButton.setPopupMenu(groupPopupMenu);
-			groupButton.setToolTipText("组设置");
 			nodeOutlook.add(groupButton, "1, 1");
 			
 			JDecorationPopupMenu alignPopupMenu = new JDecorationPopupMenu();
@@ -255,9 +257,8 @@ public class TGraphControlBar
 			JBasicMenuItem alignBottomMenuItem = new JBasicMenuItem(TGraphController.getAlignBottoJSecurityAction(graph));
 			alignPopupMenu.add(alignBottomMenuItem);
 			
-			JBasicMenuButton alignButton = new JBasicMenuButton(TIconFactory.getContextIcon("align_vertical_center.png"));
+			JBasicMenuButton alignButton = new JBasicMenuButton(TIconFactory.getContextIcon("align_vertical_center.png"), "图元对齐");
 			alignButton.setPopupMenu(alignPopupMenu);
-			alignButton.setToolTipText("图元对齐");
 			nodeOutlook.add(alignButton, "0, 2");
 			
 			JDecorationPopupMenu pilePopupMenu = new JDecorationPopupMenu();
@@ -276,9 +277,8 @@ public class TGraphControlBar
 			JBasicMenuItem pileToBottomMenuItem = new JBasicMenuItem(TGraphController.getPileToBottoJSecurityAction(graph));
 			pilePopupMenu.add(pileToBottomMenuItem);
 			
-			JBasicMenuButton pileButton = new JBasicMenuButton(TIconFactory.getContextIcon("pile_to_top.png"));
+			JBasicMenuButton pileButton = new JBasicMenuButton(TIconFactory.getContextIcon("pile_to_top.png"), "图元堆列");
 			pileButton.setPopupMenu(pilePopupMenu);
-			pileButton.setToolTipText("图元堆列");
 			nodeOutlook.add(pileButton, "1, 2");
 			
 			JDecorationPopupMenu sameSizePopupMenu = new JDecorationPopupMenu();
@@ -297,9 +297,8 @@ public class TGraphControlBar
 			JBasicMenuItem evenVerticalSpaceMenuItem = new JBasicMenuItem(TGraphController.getSameVerticalSpaceAction(graph));
 			sameSizePopupMenu.add(evenVerticalSpaceMenuItem);
 			
-			JBasicMenuButton sameSizeButton = new JBasicMenuButton(TIconFactory.getContextIcon("same_horizontal_space.png"));
+			JBasicMenuButton sameSizeButton = new JBasicMenuButton(TIconFactory.getContextIcon("same_horizontal_space.png"), "图元尺寸和距离调整");
 			sameSizeButton.setPopupMenu(sameSizePopupMenu);
-			sameSizeButton.setToolTipText("图元尺寸和距离调整");
 			nodeOutlook.add(sameSizeButton, "0, 3");
 			
 			JDecorationPopupMenu layerPopupMenu = new JDecorationPopupMenu();
@@ -318,9 +317,8 @@ public class TGraphControlBar
 			JBasicMenuItem moveToBottomMenuItem = new JBasicMenuItem(TGraphController.getMoveToBottoJSecurityAction(graph));
 			layerPopupMenu.add(moveToBottomMenuItem);
 			
-			JBasicMenuButton layerButton = new JBasicMenuButton(TIconFactory.getContextIcon("move_to_up.png"));
+			JBasicMenuButton layerButton = new JBasicMenuButton(TIconFactory.getContextIcon("move_to_up.png"), "图元图层调整");
 			layerButton.setPopupMenu(layerPopupMenu);
-			layerButton.setToolTipText("图元图层调整");
 			nodeOutlook.add(layerButton, "1, 3");
 			
 			ButtonManager.updateUI(nodeOutlook, new Dimension(25, 25), new ButtonGroup());
@@ -367,9 +365,8 @@ public class TGraphControlBar
 			JBasicMenuItem exportImageMenuItem = new JBasicMenuItem(TGraphController.getExportImageAction(graph));
 			exportPopupMenu.add(exportImageMenuItem);
 			
-			JBasicMenuButton exportButton = new JBasicMenuButton(TIconFactory.getContextIcon("export.png"));
+			JBasicMenuButton exportButton = new JBasicMenuButton(TIconFactory.getContextIcon("export.png"), "导出");
 			exportButton.setPopupMenu(exportPopupMenu);
-			exportButton.setToolTipText("导出");
 			ioOutlook.add(exportButton, "1, 0");
 			
 			JBasicButton printButton = new JBasicButton(TGraphController.getPrintAction(graph));
