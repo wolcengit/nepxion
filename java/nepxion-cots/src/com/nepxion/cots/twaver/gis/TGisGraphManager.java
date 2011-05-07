@@ -12,11 +12,14 @@ package com.nepxion.cots.twaver.gis;
  * @version 1.0
  */
 
+import java.awt.Dimension;
+
 import twaver.gis.GeographyMap;
 import twaver.gis.utils.GisInputHandlerFactory;
 import twaver.gis.utils.GisToolkits;
 
-import com.nepxion.cots.twaver.graph.TGraph;
+import com.nepxion.cots.twaver.graph.TInternalFrame;
+import com.nepxion.cots.twaver.icon.TIconFactory;
 
 public class TGisGraphManager
 {
@@ -27,8 +30,6 @@ public class TGisGraphManager
         if (map != null)
         {
             gisGraph.setInteractionMode(GisInputHandlerFactory.createDefaultMode(gisGraph, map));
-            
-            //GisInputHandlerFactory.createSelectMode(gisGraph, map);
         }
     }
 
@@ -39,7 +40,7 @@ public class TGisGraphManager
         if (map != null)
         {
             gisGraph.setInteractionMode(GisInputHandlerFactory.createPanMode(gisGraph, map));
-            gisGraph.getCanvas().setCursor(TGraph.PAN_CURSOR);
+            gisGraph.getCanvas().setCursor(TGisGraph.PAN_CURSOR);
         }
     }
 
@@ -50,7 +51,7 @@ public class TGisGraphManager
         if (map != null)
         {
             gisGraph.setInteractionMode(GisInputHandlerFactory.createZoomMode(gisGraph, map,GeographyMap.MAPMODE_ZOOMIN));
-            gisGraph.getCanvas().setCursor(TGraph.ZOOM_IN_CURSOR);
+            gisGraph.getCanvas().setCursor(TGisGraph.ZOOM_IN_CURSOR);
         }
     }
 
@@ -61,18 +62,7 @@ public class TGisGraphManager
         if (map != null)
         {
             gisGraph.setInteractionMode(GisInputHandlerFactory.createZoomMode(gisGraph, map,GeographyMap.MAPMODE_ZOOMOUT));
-            gisGraph.getCanvas().setCursor(TGraph.ZOOM_OUT_CURSOR);
-        }
-    }
-
-    // 拉框放大模式
-    public static void zoomInRectangle(TGisGraph gisGraph)
-    {
-        GeographyMap map = gisGraph.getMap();
-        if (map != null)
-        {
-            gisGraph.setInteractionMode(GisInputHandlerFactory.createZoomMode(gisGraph, map, GeographyMap.MAPMODE_ZOOMIN_BYSCALE));
-            gisGraph.getCanvas().setCursor(TGraph.ZOOM_IN_RECTANGLE_CURSOR);
+            gisGraph.getCanvas().setCursor(TGisGraph.ZOOM_OUT_CURSOR);
         }
     }
 
@@ -96,6 +86,13 @@ public class TGisGraphManager
         }
     }
 
+    // 显示导航
+    public static void navigator(TGisGraph gisGraph)
+    {
+    	TGisNavigator gisNavigator = gisGraph.getTGisNavigator();
+    	gisNavigator.showout(!gisNavigator.isShowing());
+    }
+    
     // 测量地图
     public static void distance(TGisGraph gisGraph)
     {
@@ -106,56 +103,66 @@ public class TGisGraphManager
         }
     }
 
-    // 坐标和比例显示
-    public static void scale(TGisGraph gisGraph)
-    {
-//        MInternalFrame scaleInternalFrame = gisGraph.getScaleInternalFrame();
-//        if (scaleInternalFrame == null)
-//        {
-//            MGisScaleBar scaleBar = new MGisScaleBar(gisGraph);
-//            scaleBar.setPreferredSize(new Dimension(500, 20));
-//            scaleInternalFrame = new MInternalFrame(gisGraph, "坐标和比例", IconFactory.getGraphicsIcon("scale.png"), scaleBar);
-//
-//            scaleInternalFrame.setResizable(false);
-//            gisGraph.getLayeredPane().add(scaleInternalFrame);
-//            gisGraph.setScaleInternalFrame(scaleInternalFrame);
-//            scaleInternalFrame.setLocation(0, gisGraph.getViewport().getHeight() - scaleInternalFrame.getHeight() + 2);
-//        }
-//        if (!scaleInternalFrame.isVisible())
-//        {
-//            AnimationInvoker.show(scaleInternalFrame, 1, 20, true, false);
-//        }
-//        else
-//        {
-//            scaleInternalFrame.setVisible(false);
-//        }
-    }
+	// 坐标和比例显示
+	public static void scale(TGisGraph gisGraph)
+	{
+		TInternalFrame scaleInternalFrame = gisGraph.getScaleInternalFrame();
+		if (scaleInternalFrame == null)
+		{
+			TGisGraphScaleBar scaleBar = new TGisGraphScaleBar(gisGraph);
+			scaleBar.setPreferredSize(new Dimension(540, 20));
+			
+			scaleInternalFrame = new TInternalFrame(gisGraph, "坐标和比例", TIconFactory.getContextIcon("scale.png"), scaleBar);
+			scaleInternalFrame.setResizable(false);
+			scaleInternalFrame.setLocation(0, gisGraph.getViewport().getHeight() - scaleInternalFrame.getHeight() + 2);
+			scaleInternalFrame.setHorizontalTweening(true);
+			scaleInternalFrame.setVerticalTweening(false);
+			scaleInternalFrame.setTweeningDimension(scaleInternalFrame.getSize());
+			
+			gisGraph.getLayeredPane().add(scaleInternalFrame);
+			gisGraph.setScaleInternalFrame(scaleInternalFrame);
+		}
+		
+		if (!scaleInternalFrame.isVisible())
+		{
+			scaleInternalFrame.tween(true);
+		}
+		else
+		{
+			scaleInternalFrame.tween(false);
+		}
+	}
+	
+	// 鹰眼展示
+	public static void overview(TGisGraph gisGraph)
+	{
+		TGisOverview overview = gisGraph.getGisOverview();
+		if (overview == null)
+		{
+			overview = new TGisOverview(gisGraph, "鹰眼", new Dimension(150, 150), TIconFactory.getContextIcon("overview.png"));
+			overview.setLocation(gisGraph.getViewport().getWidth() - overview.getWidth() + 2, gisGraph.getViewport().getHeight() - overview.getHeight() + 2);
+			overview.setHorizontalTweening(true);
+			overview.setVerticalTweening(true);
+			overview.setTweeningDimension(overview.getSize());
+			
+			gisGraph.getLayeredPane().add(overview);
+			gisGraph.setOverview(overview);
+		}
+		
+		if (!overview.isVisible())
+		{
+			overview.tween(true);
+		}
+		else
+		{
+			overview.tween(false);
+		}
+	}
 
-    // 鹰眼展示
-    public static void overview(TGisGraph view)
-    {
-//        MOverview overview = view.getOverview();
-//		if (overview == null)
-//		{
-//			overview = new MOverview(view, "鹰眼", new Dimension(150, 150), IconFactory.getGraphicsIcon("overview.png"));
-//			view.getLayeredPane().add(overview);
-//			view.setOverview(overview);
-//			overview.setLocation(view.getViewport().getWidth() - overview.getWidth() + 2, view.getViewport().getHeight() - overview.getHeight() + 2);
-//		}
-//		if (!overview.isVisible())
-//		{
-//			overview.setVisible(true);
-//			// AnimationInvoker.show(overview, 1, 20, true, true);
-//		}
-//		else
-//		{
-//			overview.setVisible(false);
-//		}
-    }
-
-    public static void config(TGisGraph gisGraph)
-    {
-//        MGisConfigPane configPane = gisGraph.getConfigPane();
-//        JVerifyOptionPane.showDialog(HandleFactory.getFrame(gisGraph), configPane, "设置", null, new Object[] {"关闭"});
-    }
+	public static void setMapType(TGisGraph gisGraph, TMapType mapType)
+	{
+		GeographyMap map = gisGraph.getMap();
+		map.removeAllLayers();
+		map.addLayer(mapType.getName(), mapType.getType());
+	}
 }

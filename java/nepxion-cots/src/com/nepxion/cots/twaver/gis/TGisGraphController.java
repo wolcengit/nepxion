@@ -90,23 +90,6 @@ public class TGisGraphController
 		return action;
 	}
 	
-	public static JSecurityAction getZoomInRectangleAction(final TGisGraph gisGraph)
-	{
-		JSecurityAction action = new JSecurityAction("矩形拉框放大", TIconFactory.getContextIcon("zoom_in_rectangle.png"), "矩形拉框放大")
-		{
-			public void execute(ActionEvent e)
-			{
-				AbstractButton button = (AbstractButton) e.getSource();
-				if (button.isSelected())
-				{
-					TGisGraphManager.zoomInRectangle(gisGraph);
-				}
-			}
-		};
-		
-		return action;
-	}
-	
 	public static JSecurityAction getZoomResetAction(final TGisGraph gisGraph)
 	{
 		JSecurityAction action = new JSecurityAction("原始大小", TIconFactory.getContextIcon("zoom_reset.png"), "原始大小 Ctrl-O")
@@ -123,7 +106,7 @@ public class TGisGraphController
 	
 	public static JSecurityAction getZoomBackAction(final TGisGraph gisGraph)
 	{
-		JSecurityAction action = new JSecurityAction("缩放后退", "缩放后退")
+		JSecurityAction action = new JSecurityAction("缩放后退", TIconFactory.getContextIcon("zoom.png"), "缩放后退")
 		{
 			public void execute(ActionEvent e)
 			{
@@ -131,6 +114,19 @@ public class TGisGraphController
 			}
 		};
 		TGraphKeyboardRegister.registerZoomBack(gisGraph, action);
+		
+		return action;
+	}
+	
+	public static JSecurityAction getNavigatorAction(final TGisGraph gisGraph)
+	{
+		JSecurityAction action = new JSecurityAction("导航器", TIconFactory.getContextIcon("distance.png"), "导航器")
+		{
+			public void execute(ActionEvent e)
+			{
+				TGisGraphManager.navigator(gisGraph);
+			}
+		};
 		
 		return action;
 	}
@@ -161,13 +157,26 @@ public class TGisGraphController
 		return action;
 	}
 	
-	public static JSecurityAction getConfigAction(final TGisGraph gisGraph)
+	public static JSecurityAction getOverviewAction(final TGisGraph gisGraph)
 	{
-		JSecurityAction action = new JSecurityAction("设置", TIconFactory.getContextIcon("config.png"), "设置")
+		JSecurityAction action = new JSecurityAction("鹰眼窗口", TIconFactory.getContextIcon("overview.png"), "鹰眼窗口")
 		{
 			public void execute(ActionEvent e)
 			{
-				// TGisGraphManager.config(gisGraph);
+				TGisGraphManager.overview(gisGraph);
+			}
+		};
+		
+		return action;
+	}
+	
+	public static JSecurityAction getMapTypeConfigAction(final TGisGraph gisGraph, final TMapType mapType)
+	{
+		JSecurityAction action = new JSecurityAction(mapType.toString(), "切换到 " + mapType)
+		{
+			public void execute(ActionEvent e)
+			{
+				TGisGraphManager.setMapType(gisGraph, mapType);
 			}
 		};
 		

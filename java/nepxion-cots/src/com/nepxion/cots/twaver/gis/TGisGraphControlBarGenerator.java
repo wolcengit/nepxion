@@ -15,7 +15,6 @@ package com.nepxion.cots.twaver.gis;
 import java.awt.Dimension;
 
 import javax.swing.ButtonGroup;
-import javax.swing.JMenuItem;
 
 import com.nepxion.cots.twaver.graph.TGraphControlBar;
 import com.nepxion.cots.twaver.graph.TGraphController;
@@ -25,6 +24,7 @@ import com.nepxion.swing.button.JBasicButton;
 import com.nepxion.swing.button.JBasicMenuButton;
 import com.nepxion.swing.button.JBasicToggleButton;
 import com.nepxion.swing.layout.table.TableLayout;
+import com.nepxion.swing.menuitem.JBasicRadioButtonMenuItem;
 import com.nepxion.swing.outlookbar.JFlatOutlook;
 import com.nepxion.swing.popupmenu.JDecorationPopupMenu;
 
@@ -47,7 +47,7 @@ public class TGisGraphControlBarGenerator
 		selectButton.setSelected(true);
 		selectButton.setText("");
 		viewOutlook.add(selectButton, "0, 0");
-		
+				
 		JBasicToggleButton panButton = new JBasicToggleButton(TGisGraphController.getPanAction(gisGraph));
 		panButton.setText("");
 		viewOutlook.add(panButton, "0, 1");
@@ -64,48 +64,64 @@ public class TGisGraphControlBarGenerator
 		zoomOutButton.setText("");
 		viewOutlook.add(zoomOutButton, "1, 2");
 		
-		JBasicToggleButton zoomInRectangleButton = new JBasicToggleButton(TGisGraphController.getZoomInRectangleAction(gisGraph));
-		zoomInRectangleButton.setText("");
-		viewOutlook.add(zoomInRectangleButton, "0, 3");
-		
 		JBasicButton zoomResetButton = new JBasicButton(TGisGraphController.getZoomResetAction(gisGraph));
 		zoomResetButton.setText("");
-		viewOutlook.add(zoomResetButton, "1, 3");
+		viewOutlook.add(zoomResetButton, "0, 3");
 		
 		JBasicToggleButton magnifierButton = new JBasicToggleButton(TGraphController.getMagnifierAction(gisGraph));
 		magnifierButton.setText("");
 		viewOutlook.add(magnifierButton, "0, 4");
 		
-		JDecorationPopupMenu zoomPopupMenu = new JDecorationPopupMenu();
+		JDecorationPopupMenu mapPopupMenu = new JDecorationPopupMenu();
 		
-		JMenuItem zoomBackMenuItem = new JMenuItem(TGisGraphController.getZoomBackAction(gisGraph));
-		zoomPopupMenu.add(zoomBackMenuItem);
+		ButtonGroup mapTypeButtonGroup = new ButtonGroup();
+		TMapType[] mapTypes = new TMapType[] {TMapType.GOOGLE_MAP_TYPE,	TMapType.GOOGLE_SATELLITE_MAP_TYPE, TMapType.GOOGLE_TERRAIN_MAP_TYPE, TMapType.MICROSOFT_BINT_MAP_TYPE, TMapType.OPENSTREET_MAP_TYPE, TMapType.MAPABC_MAP_TYPE, TMapType.TIANDITU_MAP_TYPE};
+		for (int i = 0; i < mapTypes.length; i++)
+		{
+			TMapType mapType = mapTypes[i];
+			
+			JBasicRadioButtonMenuItem mapTypeMenuItem = new JBasicRadioButtonMenuItem(TGisGraphController.getMapTypeConfigAction(gisGraph, mapType));
+			mapPopupMenu.add(mapTypeMenuItem);
+			
+			if (mapType == TMapType.MAPABC_MAP_TYPE)
+			{
+				mapTypeMenuItem.doClick();
+			}	
+			
+			mapTypeButtonGroup.add(mapTypeMenuItem);
+		}
 		
-		JBasicMenuButton zoomButton = new JBasicMenuButton(TIconFactory.getContextIcon("zoom.png"));
-		zoomButton.setPopupMenu(zoomPopupMenu);
-		viewOutlook.add(zoomButton, "1, 4");
+		JBasicMenuButton mapButton = new JBasicMenuButton(TIconFactory.getContextIcon("map.png"));
+		mapButton.setPopupMenu(mapPopupMenu);
+		viewOutlook.add(mapButton, "1, 4");
 		
-		JBasicToggleButton distanceButton = new JBasicToggleButton(TGisGraphController.getDistanceAction(gisGraph));
-		distanceButton.setText("");
-		viewOutlook.add(distanceButton, "0, 5");
+		JBasicButton zoomButton = new JBasicButton(TGisGraphController.getZoomBackAction(gisGraph));
+		zoomButton.setText("");
+		viewOutlook.add(zoomButton, "1, 3");
 		
 		JBasicToggleButton scaleButton = new JBasicToggleButton(TGisGraphController.getScaleAction(gisGraph));
 		scaleButton.setText("");
 		scaleButton.setGrouped(false);
-		viewOutlook.add(scaleButton, "1, 5");
+		viewOutlook.add(scaleButton, "0, 5");
+		
+		JBasicToggleButton distanceButton = new JBasicToggleButton(TGisGraphController.getDistanceAction(gisGraph));
+		distanceButton.setText("");
+		viewOutlook.add(distanceButton, "1, 5");
 		
 		JBasicButton fullscreenButton = new JBasicButton(TGraphController.getFullScreenAction(gisGraph));
 		fullscreenButton.setText("");
 		viewOutlook.add(fullscreenButton, "0, 6");
 		
-		JBasicButton configButton = new JBasicButton(TGisGraphController.getConfigAction(gisGraph));
-		configButton.setText("");
-		viewOutlook.add(configButton, "1, 6");
-		
-		JBasicToggleButton overviewButton = new JBasicToggleButton(TGraphController.getOverviewAction(gisGraph));
+		JBasicToggleButton overviewButton = new JBasicToggleButton(TGisGraphController.getOverviewAction(gisGraph));
 		overviewButton.setText("");
 		overviewButton.setGrouped(false);
-		viewOutlook.add(overviewButton, "0, 7");
+		viewOutlook.add(overviewButton, "1, 6");
+		
+		JBasicToggleButton navigatorButton = new JBasicToggleButton(TGisGraphController.getNavigatorAction(gisGraph));
+		navigatorButton.setSelected(true);
+		navigatorButton.setText("");
+		navigatorButton.setGrouped(false);
+		viewOutlook.add(navigatorButton, "0, 7");
 		
 		ButtonManager.updateUI(viewOutlook, new Dimension(25, 25), new ButtonGroup());
 	}

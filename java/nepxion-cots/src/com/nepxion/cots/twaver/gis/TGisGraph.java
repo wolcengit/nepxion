@@ -15,6 +15,7 @@ package com.nepxion.cots.twaver.gis;
 import twaver.TDataBox;
 import twaver.gis.GeographyMap;
 import twaver.gis.GisNetworkAdapter;
+import twaver.gis.TWaverGisConst;
 
 import com.nepxion.cots.twaver.element.TType;
 import com.nepxion.cots.twaver.graph.TGraph;
@@ -23,9 +24,10 @@ import com.nepxion.cots.twaver.graph.TGraphToolBar;
 public class TGisGraph
 	extends TGraph
 {
-	private GisNetworkAdapter gisAdapter;
+	private TGisNavigator gisNavigator;
+	private TGisOverview gisOverview;
 	
-//	private MGisConfigPane configPane;
+	private GisNetworkAdapter gisAdapter;
 	
 	public TGisGraph()
 	{
@@ -56,20 +58,31 @@ public class TGisGraph
 		
 		new TGraphToolBar(this);
 		new TGisGraphControlBarGenerator(this);
+		
+		gisNavigator = new TGisNavigator(this);
+		gisNavigator.showout(true);
+		
+		GeographyMap map = gisAdapter.getMap();
+		map.setGroundingColor(TWaverGisConst.GOOGLE_COLOR);
+	}
+	
+	public TGisOverview getGisOverview()
+	{
+		return gisOverview;
+	}
+	
+	public void setOverview(TGisOverview gisOverview)
+	{
+		this.gisOverview = gisOverview;
+	}
+	
+	public TGisNavigator getTGisNavigator()
+	{
+		return gisNavigator;
 	}
 	
 	public GeographyMap getMap()
 	{
 		return gisAdapter.getMap();
 	}
-	
-//	public MGisConfigPane getConfigPane()
-//	{
-//		if (configPane == null)
-//		{
-//			configPane = new MGisConfigPane();
-//		}
-//		
-//		return configPane;
-//	}
 }
