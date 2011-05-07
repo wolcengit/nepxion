@@ -793,7 +793,7 @@ public class TGraphController
 	
 	public static JSecurityAction getExportSVGAction(final TGraph graph)
 	{
-		JSecurityAction action = new JSecurityAction("矢量文件", TIconFactory.getContextIcon("svg.png"), "矢量文件")
+		JSecurityAction action = new JSecurityAction("矢量文件", TIconFactory.getContextIcon("svg.png"), "导出矢量文件")
 		{
 			public void execute(ActionEvent e)
 			{

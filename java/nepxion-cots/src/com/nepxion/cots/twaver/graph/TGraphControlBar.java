@@ -134,7 +134,7 @@ public class TGraphControlBar
 			JBasicMenuItem zoomBackMenuItem = new JBasicMenuItem(TGraphController.getZoomBackAction(graph));
 			zoomPopupMenu.add(zoomBackMenuItem);
 			
-			JBasicMenuButton zoomButton = new JBasicMenuButton(TIconFactory.getContextIcon("zoom.png"));
+			JBasicMenuButton zoomButton = new JBasicMenuButton(TIconFactory.getContextIcon("zoom.png"), "Ëõ·Å");
 			zoomButton.setPopupMenu(zoomPopupMenu);
 			viewOutlook.add(zoomButton, "1, 4");
 			
