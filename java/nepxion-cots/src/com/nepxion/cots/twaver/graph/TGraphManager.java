@@ -769,7 +769,7 @@ public class TGraphManager
 		if (controlBarInternalFrame == null)
 		{
 			TGraphControlBar controlBar = new TGraphControlBar(graph);
-			controlBar.setPreferredSize(new Dimension(90, 320));
+			controlBar.setPreferredSize(new Dimension(90, 310));
 			
 			controlBarInternalFrame = new TInternalFrame(graph, "Ãæ°å", TIconFactory.getContextIcon("pane.png"), controlBar);
 			controlBarInternalFrame.setLocation(0, 0);
