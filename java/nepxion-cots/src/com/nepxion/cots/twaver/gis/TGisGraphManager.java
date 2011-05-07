@@ -156,7 +156,7 @@ public class TGisGraphManager
 		else
 		{
 			overview.tween(false);
-		}
+		}	
 	}
 
 	public static void setMapType(TGisGraph gisGraph, TMapType mapType)
