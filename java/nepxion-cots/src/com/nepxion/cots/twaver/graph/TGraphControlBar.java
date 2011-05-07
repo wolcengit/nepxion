@@ -147,11 +147,16 @@ public class TGraphControlBar
 			fullscreenButton.setText("");
 			viewOutlook.add(fullscreenButton, "1, 5");
 			
+			JBasicToggleButton layoutButton = new JBasicToggleButton(TGraphController.getLayoutAction(graph));
+			layoutButton.setText("");
+			layoutButton.setGrouped(false);
+			viewOutlook.add(layoutButton, "0, 6");
+			
 			JBasicToggleButton overviewButton = new JBasicToggleButton(TGraphController.getOverviewAction(graph));
 			overviewButton.setText("");
 			overviewButton.setGrouped(false);
-			viewOutlook.add(overviewButton, "0, 6");
-			
+			viewOutlook.add(overviewButton, "1, 6");
+						
 			ButtonManager.updateUI(viewOutlook, new Dimension(25, 25), new ButtonGroup());
 			
 			add(viewOutlook);
@@ -174,20 +179,11 @@ public class TGraphControlBar
 			double[][] size = 
 			{
 				{30, 30},
-				{TableLayout.FILL, TableLayout.FILL, TableLayout.FILL, TableLayout.FILL, TableLayout.FILL, TableLayout.FILL, TableLayout.FILL}
+				{TableLayout.FILL, TableLayout.FILL, TableLayout.FILL, TableLayout.FILL}
 			};
 			
 			nodeOutlook = new JFlatOutlook();
 			nodeOutlook.setLayout(new TableLayout(size));
-			
-			JBasicToggleButton layoutButton = new JBasicToggleButton(TGraphController.getLayoutAction(graph));
-			layoutButton.setText("");
-			layoutButton.setGrouped(false);
-			nodeOutlook.add(layoutButton, "0, 0");
-			
-			JBasicButton hideChildrenButton = new JBasicButton(TGraphController.getHideChildrenAction(graph));
-			hideChildrenButton.setText("");
-			nodeOutlook.add(hideChildrenButton, "1, 0");
 						
 			JDecorationPopupMenu lockPopupMenu = new JDecorationPopupMenu();
 			
@@ -207,7 +203,97 @@ public class TGraphControlBar
 			
 			JBasicMenuButton lockButton = new JBasicMenuButton(TIconFactory.getContextIcon("lock.png"), "锁定和解锁节点");
 			lockButton.setPopupMenu(lockPopupMenu);
-			nodeOutlook.add(lockButton, "0, 1");
+			nodeOutlook.add(lockButton, "0, 0");
+			
+			JBasicButton hideChildrenButton = new JBasicButton(TGraphController.getHideChildrenAction(graph));
+			hideChildrenButton.setText("");
+			nodeOutlook.add(hideChildrenButton, "1, 0");
+			
+			JDecorationPopupMenu alignPopupMenu = new JDecorationPopupMenu();
+			
+			JBasicMenuItem alignLeftMenuItem = new JBasicMenuItem(TGraphController.getAlignLeftAction(graph));
+			alignPopupMenu.add(alignLeftMenuItem);
+			
+			JBasicMenuItem alignVerticalCenterMenuItem = new JBasicMenuItem(TGraphController.getAlignVerticalCenterAction(graph));
+			alignPopupMenu.add(alignVerticalCenterMenuItem);
+			
+			JBasicMenuItem alignRightMenuItem = new JBasicMenuItem(TGraphController.getAlignRightAction(graph));
+			alignPopupMenu.add(alignRightMenuItem);
+			
+			alignPopupMenu.addSeparator();
+			
+			JBasicMenuItem alignTopMenuItem = new JBasicMenuItem(TGraphController.getAlignTopAction(graph));
+			alignPopupMenu.add(alignTopMenuItem);
+			
+			JBasicMenuItem alignHorizontalCenterMenuItem = new JBasicMenuItem(TGraphController.getAlignHorizontalCenterAction(graph));
+			alignPopupMenu.add(alignHorizontalCenterMenuItem);
+			
+			JBasicMenuItem alignBottomMenuItem = new JBasicMenuItem(TGraphController.getAlignBottoJSecurityAction(graph));
+			alignPopupMenu.add(alignBottomMenuItem);
+			
+			JBasicMenuButton alignButton = new JBasicMenuButton(TIconFactory.getContextIcon("align_vertical_center.png"), "图元对齐");
+			alignButton.setPopupMenu(alignPopupMenu);
+			nodeOutlook.add(alignButton, "0, 1");
+			
+			JDecorationPopupMenu pilePopupMenu = new JDecorationPopupMenu();
+			
+			JBasicMenuItem pileToLeftMenuItem = new JBasicMenuItem(TGraphController.getPileToLeftAction(graph));
+			pilePopupMenu.add(pileToLeftMenuItem);
+			
+			JBasicMenuItem pileToRightMenuItem = new JBasicMenuItem(TGraphController.getPileToRightAction(graph));
+			pilePopupMenu.add(pileToRightMenuItem);
+			
+			pilePopupMenu.addSeparator();
+			
+			JBasicMenuItem pileToTopMenuItem = new JBasicMenuItem(TGraphController.getPileToTopAction(graph));
+			pilePopupMenu.add(pileToTopMenuItem);
+			
+			JBasicMenuItem pileToBottomMenuItem = new JBasicMenuItem(TGraphController.getPileToBottoJSecurityAction(graph));
+			pilePopupMenu.add(pileToBottomMenuItem);
+			
+			JBasicMenuButton pileButton = new JBasicMenuButton(TIconFactory.getContextIcon("pile_to_top.png"), "图元堆列");
+			pileButton.setPopupMenu(pilePopupMenu);
+			nodeOutlook.add(pileButton, "1, 1");
+			
+			JDecorationPopupMenu sameSizePopupMenu = new JDecorationPopupMenu();
+			
+			JBasicMenuItem sameWidthMenuItem = new JBasicMenuItem(TGraphController.getSameWidthAction(graph));
+			sameSizePopupMenu.add(sameWidthMenuItem);
+			
+			JBasicMenuItem sameHeightMenuItem = new JBasicMenuItem(TGraphController.getSameHeightAction(graph));
+			sameSizePopupMenu.add(sameHeightMenuItem);
+			
+			sameSizePopupMenu.addSeparator();
+			
+			JBasicMenuItem evenHorizontalSpaceMenuItem = new JBasicMenuItem(TGraphController.getSameHorizontalSpaceAction(graph));
+			sameSizePopupMenu.add(evenHorizontalSpaceMenuItem);
+			
+			JBasicMenuItem evenVerticalSpaceMenuItem = new JBasicMenuItem(TGraphController.getSameVerticalSpaceAction(graph));
+			sameSizePopupMenu.add(evenVerticalSpaceMenuItem);
+			
+			JBasicMenuButton sameSizeButton = new JBasicMenuButton(TIconFactory.getContextIcon("same_horizontal_space.png"), "图元尺寸和距离调整");
+			sameSizeButton.setPopupMenu(sameSizePopupMenu);
+			nodeOutlook.add(sameSizeButton, "0, 2");
+			
+			JDecorationPopupMenu layerPopupMenu = new JDecorationPopupMenu();
+			
+			JBasicMenuItem moveToUpMenuItem = new JBasicMenuItem(TGraphController.getMoveToUpAction(graph));
+			layerPopupMenu.add(moveToUpMenuItem);
+			
+			JBasicMenuItem moveToDownMenuItem = new JBasicMenuItem(TGraphController.getMoveToDownAction(graph));
+			layerPopupMenu.add(moveToDownMenuItem);
+			
+			layerPopupMenu.addSeparator();
+			
+			JBasicMenuItem moveToTopMenuItem = new JBasicMenuItem(TGraphController.getMoveToTopAction(graph));
+			layerPopupMenu.add(moveToTopMenuItem);
+			
+			JBasicMenuItem moveToBottomMenuItem = new JBasicMenuItem(TGraphController.getMoveToBottoJSecurityAction(graph));
+			layerPopupMenu.add(moveToBottomMenuItem);
+			
+			JBasicMenuButton layerButton = new JBasicMenuButton(TIconFactory.getContextIcon("move_to_up.png"), "图元图层调整");
+			layerButton.setPopupMenu(layerPopupMenu);
+			nodeOutlook.add(layerButton, "1, 2");
 			
 			JDecorationPopupMenu groupPopupMenu = new JDecorationPopupMenu();
 			
@@ -238,93 +324,7 @@ public class TGraphControlBar
 			
 			JBasicMenuButton groupButton = new JBasicMenuButton(TIconFactory.getContextIcon("group.png"), "组设置");
 			groupButton.setPopupMenu(groupPopupMenu);
-			nodeOutlook.add(groupButton, "1, 1");
-			
-			JDecorationPopupMenu alignPopupMenu = new JDecorationPopupMenu();
-			
-			JBasicMenuItem alignLeftMenuItem = new JBasicMenuItem(TGraphController.getAlignLeftAction(graph));
-			alignPopupMenu.add(alignLeftMenuItem);
-			
-			JBasicMenuItem alignVerticalCenterMenuItem = new JBasicMenuItem(TGraphController.getAlignVerticalCenterAction(graph));
-			alignPopupMenu.add(alignVerticalCenterMenuItem);
-			
-			JBasicMenuItem alignRightMenuItem = new JBasicMenuItem(TGraphController.getAlignRightAction(graph));
-			alignPopupMenu.add(alignRightMenuItem);
-			
-			alignPopupMenu.addSeparator();
-			
-			JBasicMenuItem alignTopMenuItem = new JBasicMenuItem(TGraphController.getAlignTopAction(graph));
-			alignPopupMenu.add(alignTopMenuItem);
-			
-			JBasicMenuItem alignHorizontalCenterMenuItem = new JBasicMenuItem(TGraphController.getAlignHorizontalCenterAction(graph));
-			alignPopupMenu.add(alignHorizontalCenterMenuItem);
-			
-			JBasicMenuItem alignBottomMenuItem = new JBasicMenuItem(TGraphController.getAlignBottoJSecurityAction(graph));
-			alignPopupMenu.add(alignBottomMenuItem);
-			
-			JBasicMenuButton alignButton = new JBasicMenuButton(TIconFactory.getContextIcon("align_vertical_center.png"), "图元对齐");
-			alignButton.setPopupMenu(alignPopupMenu);
-			nodeOutlook.add(alignButton, "0, 2");
-			
-			JDecorationPopupMenu pilePopupMenu = new JDecorationPopupMenu();
-			
-			JBasicMenuItem pileToLeftMenuItem = new JBasicMenuItem(TGraphController.getPileToLeftAction(graph));
-			pilePopupMenu.add(pileToLeftMenuItem);
-			
-			JBasicMenuItem pileToRightMenuItem = new JBasicMenuItem(TGraphController.getPileToRightAction(graph));
-			pilePopupMenu.add(pileToRightMenuItem);
-			
-			pilePopupMenu.addSeparator();
-			
-			JBasicMenuItem pileToTopMenuItem = new JBasicMenuItem(TGraphController.getPileToTopAction(graph));
-			pilePopupMenu.add(pileToTopMenuItem);
-			
-			JBasicMenuItem pileToBottomMenuItem = new JBasicMenuItem(TGraphController.getPileToBottoJSecurityAction(graph));
-			pilePopupMenu.add(pileToBottomMenuItem);
-			
-			JBasicMenuButton pileButton = new JBasicMenuButton(TIconFactory.getContextIcon("pile_to_top.png"), "图元堆列");
-			pileButton.setPopupMenu(pilePopupMenu);
-			nodeOutlook.add(pileButton, "1, 2");
-			
-			JDecorationPopupMenu sameSizePopupMenu = new JDecorationPopupMenu();
-			
-			JBasicMenuItem sameWidthMenuItem = new JBasicMenuItem(TGraphController.getSameWidthAction(graph));
-			sameSizePopupMenu.add(sameWidthMenuItem);
-			
-			JBasicMenuItem sameHeightMenuItem = new JBasicMenuItem(TGraphController.getSameHeightAction(graph));
-			sameSizePopupMenu.add(sameHeightMenuItem);
-			
-			sameSizePopupMenu.addSeparator();
-			
-			JBasicMenuItem evenHorizontalSpaceMenuItem = new JBasicMenuItem(TGraphController.getSameHorizontalSpaceAction(graph));
-			sameSizePopupMenu.add(evenHorizontalSpaceMenuItem);
-			
-			JBasicMenuItem evenVerticalSpaceMenuItem = new JBasicMenuItem(TGraphController.getSameVerticalSpaceAction(graph));
-			sameSizePopupMenu.add(evenVerticalSpaceMenuItem);
-			
-			JBasicMenuButton sameSizeButton = new JBasicMenuButton(TIconFactory.getContextIcon("same_horizontal_space.png"), "图元尺寸和距离调整");
-			sameSizeButton.setPopupMenu(sameSizePopupMenu);
-			nodeOutlook.add(sameSizeButton, "0, 3");
-			
-			JDecorationPopupMenu layerPopupMenu = new JDecorationPopupMenu();
-			
-			JBasicMenuItem moveToUpMenuItem = new JBasicMenuItem(TGraphController.getMoveToUpAction(graph));
-			layerPopupMenu.add(moveToUpMenuItem);
-			
-			JBasicMenuItem moveToDownMenuItem = new JBasicMenuItem(TGraphController.getMoveToDownAction(graph));
-			layerPopupMenu.add(moveToDownMenuItem);
-			
-			layerPopupMenu.addSeparator();
-			
-			JBasicMenuItem moveToTopMenuItem = new JBasicMenuItem(TGraphController.getMoveToTopAction(graph));
-			layerPopupMenu.add(moveToTopMenuItem);
-			
-			JBasicMenuItem moveToBottomMenuItem = new JBasicMenuItem(TGraphController.getMoveToBottoJSecurityAction(graph));
-			layerPopupMenu.add(moveToBottomMenuItem);
-			
-			JBasicMenuButton layerButton = new JBasicMenuButton(TIconFactory.getContextIcon("move_to_up.png"), "图元图层调整");
-			layerButton.setPopupMenu(layerPopupMenu);
-			nodeOutlook.add(layerButton, "1, 3");
+			nodeOutlook.add(groupButton, "0, 3");
 			
 			ButtonManager.updateUI(nodeOutlook, new Dimension(25, 25), new ButtonGroup());
 			
