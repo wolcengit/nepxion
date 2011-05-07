@@ -120,7 +120,7 @@ public class TGisGraphController
 	
 	public static JSecurityAction getNavigatorAction(final TGisGraph gisGraph)
 	{
-		JSecurityAction action = new JSecurityAction("µ¼º½Æ÷", TIconFactory.getContextIcon("distance.png"), "µ¼º½Æ÷")
+		JSecurityAction action = new JSecurityAction("µ¼º½Æ÷", TIconFactory.getContextIcon("navigator.png"), "µ¼º½Æ÷")
 		{
 			public void execute(ActionEvent e)
 			{

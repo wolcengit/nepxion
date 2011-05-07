@@ -17,15 +17,19 @@ import twaver.gis.gadget.Navigator;
 public class TGisNavigator
 	extends Navigator
 {
+	private TGisGraph gisGraph;
+	
 	public TGisNavigator(TGisGraph gisGraph)
 	{
 		super(gisGraph);
+		
+		this.gisGraph = gisGraph;
 	}
 	
 	public void showout(boolean showout)
-	{		
+	{	
 		super.showout(showout);
 		
-		setPosition(500, 0);
+		setPosition(gisGraph.getViewport().getWidth() - getWidth() - 15, 15);
 	}
 }

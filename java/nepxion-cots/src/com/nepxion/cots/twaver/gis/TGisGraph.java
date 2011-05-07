@@ -12,6 +12,8 @@ package com.nepxion.cots.twaver.gis;
  * @version 1.0
  */
 
+import java.awt.event.HierarchyEvent;
+
 import twaver.TDataBox;
 import twaver.gis.GeographyMap;
 import twaver.gis.GisNetworkAdapter;
@@ -20,6 +22,7 @@ import twaver.gis.TWaverGisConst;
 import com.nepxion.cots.twaver.element.TType;
 import com.nepxion.cots.twaver.graph.TGraph;
 import com.nepxion.cots.twaver.graph.TGraphToolBar;
+import com.nepxion.swing.listener.VisibilityListener;
 
 public class TGisGraph
 	extends TGraph
@@ -56,14 +59,24 @@ public class TGisGraph
 		gisAdapter = new GisNetworkAdapter(this);
 		gisAdapter.installAdapter();
 		
-		new TGraphToolBar(this);
-		new TGisGraphControlBarGenerator(this);
-		
 		gisNavigator = new TGisNavigator(this);
-		gisNavigator.showout(true);
 		
 		GeographyMap map = gisAdapter.getMap();
 		map.setGroundingColor(TWaverGisConst.GOOGLE_COLOR);
+		
+		new TGraphToolBar(this);
+		new TGisGraphControlBarGenerator(this);
+		
+		addHierarchyListener(new VisibilityListener()
+		{
+			public void visibilityChanged(HierarchyEvent e)
+			{
+				gisNavigator.showout(true);
+				
+				removeHierarchyListener(this);
+			}
+		}
+		);
 	}
 	
 	public TGisOverview getGisOverview()
