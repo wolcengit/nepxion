@@ -845,6 +845,11 @@ public class TGraphManager
 		{
 			overview.tween(false);
 		}
+		
+		if (overview.isVisible())
+		{
+			graph.adjustComponentPosition(overview);
+		}	
 	}
 	
 	// ²¼¾ÖÆ÷ÏÔÊ¾
