@@ -36,18 +36,19 @@ public class TGraphScaleBar
 	{
 		setSeparatorHeight(13);
 		
-		final JLabel scaleLabel = new JLabel(TIconFactory.getContextIcon("scale.png"));
-		scaleLabel.setText("0,0");
-		
 		final JLabel zoomLabel = new JLabel(TIconFactory.getContextIcon("zoom.png"));
-		addItem(100, new JStatusItem(scaleLabel), LEFT, JBasicSeparator.LOWERED_STYLE);
-		addItem(50, new JStatusItem(zoomLabel), RIGHT, JBasicSeparator.LOWERED_STYLE);
 		
+		final JLabel positionLabel = new JLabel(TIconFactory.getContextIcon("scale.png"));
+		positionLabel.setText("x:0 y:0");
+		
+		addItem(90, new JStatusItem(zoomLabel), LEFT, JBasicSeparator.LOWERED_STYLE, true);
+		addItem(130, new JStatusItem(positionLabel), LEFT, JBasicSeparator.LOWERED_STYLE, false);
+
 		graph.getCanvas().addMouseListener(new MouseAdapter()
 		{
 			public void mouseExited(MouseEvent e)
 			{
-				update(scaleLabel, zoomLabel, graph, null);
+				update(zoomLabel, positionLabel, graph, null);
 			}
 		}
 		);
@@ -56,12 +57,12 @@ public class TGraphScaleBar
 		{
 			public void mouseDragged(MouseEvent e)
 			{
-				update(scaleLabel, zoomLabel, graph, e.getPoint());
+				update(zoomLabel, positionLabel, graph, e.getPoint());
 			}
 			
 			public void mouseMoved(MouseEvent e)
 			{
-				update(scaleLabel, zoomLabel, graph, e.getPoint());
+				update(zoomLabel, positionLabel, graph, e.getPoint());
 			}
 		}
 		);
@@ -70,7 +71,7 @@ public class TGraphScaleBar
 		{
 			public void mouseWheelMoved(MouseWheelEvent e)
 			{
-				update(scaleLabel, zoomLabel, graph, e.getPoint());
+				update(zoomLabel, positionLabel, graph, e.getPoint());
 			}
 		}
 		);
@@ -79,27 +80,29 @@ public class TGraphScaleBar
 		{
 			public void zoomChanged(double oldZoom, double newZoom)
 			{
-				update(scaleLabel, zoomLabel, graph, null);
+				update(zoomLabel, positionLabel, graph, null);
 			}
 		}
 		);
 		
-		update(scaleLabel, zoomLabel, graph, null);
+		update(zoomLabel, positionLabel, graph, null);
 	}
 	
-	private void update(JLabel scaleLabel, JLabel zoomLabel, TGraph graph, Point point)
+	private void update(JLabel zoomLabel, JLabel positionLabel, TGraph graph, Point point)
 	{
 		double zoom = graph.getZoom();
+		
+		NumberFormat format = NumberFormat.getInstance();
+		format.setMaximumFractionDigits(2);
+		zoomLabel.setText("Ëõ·Å:" + format.format(zoom));
+		//zoomLabel.setText("zoom:" + format.format(zoom));
+		
 		if (point != null)
 		{
 			int x = (int) (point.getX() / zoom);
 			int y = (int) (point.getY() / zoom);
 			
-			scaleLabel.setText(x + "," + y);
+			positionLabel.setText("x:" + x + " y:" + y);
 		}
-		
-		NumberFormat format = NumberFormat.getInstance();
-		format.setMaximumFractionDigits(2);
-		zoomLabel.setText(format.format(zoom));
 	}
 }

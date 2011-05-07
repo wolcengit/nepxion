@@ -798,7 +798,7 @@ public class TGraphManager
 		if (scaleInternalFrame == null)
 		{
 			TGraphScaleBar scaleBar = new TGraphScaleBar(graph);
-			scaleBar.setPreferredSize(new Dimension(200, 20));
+			scaleBar.setPreferredSize(new Dimension(230, 20));
 			
 			scaleInternalFrame = new TInternalFrame(graph, "×ø±êºÍ±ÈÀý", TIconFactory.getContextIcon("scale.png"), scaleBar);
 			scaleInternalFrame.setResizable(false);
