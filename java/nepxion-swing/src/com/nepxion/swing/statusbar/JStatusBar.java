@@ -83,25 +83,46 @@ public class JStatusBar
 	
 	public void addItem(int width, JStatusItem item)
 	{
-		addItem(width, item, LEFT);
+		addItem(width, item, true);
+	}
+	
+	public void addItem(int width, JStatusItem item, boolean isSeparator)
+	{
+		addItem(width, item, LEFT, isSeparator);
 	}
 	
 	public void addItem(int width, JStatusItem item, int justification)
 	{
-		addItem(width, item, justification, JBasicSeparator.RAISED_STYLE);
+		addItem(width, item, justification, true);
+	}
+	
+	public void addItem(int width, JStatusItem item, int justification, boolean isSeparator)
+	{
+		addItem(width, item, justification, JBasicSeparator.RAISED_STYLE, isSeparator);
 	}
 	
 	public void addItem(int width, JStatusItem item, int justification, String style)
 	{
+		addItem(width, item, justification, style, true);
+	}
+	
+	public void addItem(int width, JStatusItem item, int justification, String style, boolean isSeparator)
+	{
 		int cornerWidth = 0;
 		
-		JBasicSeparator separator = new JBasicSeparator(style, separatorHeight != -1 ? separatorHeight : getPreferredSize().height);
-		separator.setBackground(getBackground());
-		
+		JBasicSeparator separator = null;
+		if (isSeparator)
+		{	
+			separator = new JBasicSeparator(style, separatorHeight != -1 ? separatorHeight : getPreferredSize().height);
+			separator.setBackground(getBackground());
+		}
 		if (justification == LEFT)
 		{
 			leftPanel.add(item);
-			leftPanel.add(separator);
+			if (separator != null)
+			{	
+				leftPanel.add(separator);
+			}
 			item.setIndex(leftIndex);
 			leftIndex++;
 		}
@@ -111,8 +132,15 @@ public class JStatusBar
 			{
 				cornerWidth = 15;
 			}
-			rightPanel.add(separator, 0);
-			rightPanel.add(item, 1);
+			if (separator != null)
+			{
+				rightPanel.add(separator, 0);
+				rightPanel.add(item, 1);
+			}
+			else
+			{
+				leftPanel.add(item);
+			}
 			item.setIndex(rightIndex);
 			rightIndex++;
 		}
