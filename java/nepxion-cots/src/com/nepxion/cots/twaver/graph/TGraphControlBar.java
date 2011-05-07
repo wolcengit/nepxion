@@ -143,14 +143,14 @@ public class TGraphControlBar
 			scaleButton.setGrouped(false);
 			viewOutlook.add(scaleButton, "0, 5");
 			
-			JBasicButton fullscreenButton = new JBasicButton(TGraphController.getFullScreenAction(graph));
-			fullscreenButton.setText("");
-			viewOutlook.add(fullscreenButton, "1, 5");
-			
 			JBasicToggleButton layoutButton = new JBasicToggleButton(TGraphController.getLayoutAction(graph));
 			layoutButton.setText("");
 			layoutButton.setGrouped(false);
-			viewOutlook.add(layoutButton, "0, 6");
+			viewOutlook.add(layoutButton, "1, 5");
+			
+			JBasicButton fullscreenButton = new JBasicButton(TGraphController.getFullScreenAction(graph));
+			fullscreenButton.setText("");
+			viewOutlook.add(fullscreenButton, "0, 6");
 			
 			JBasicToggleButton overviewButton = new JBasicToggleButton(TGraphController.getOverviewAction(graph));
 			overviewButton.setText("");
