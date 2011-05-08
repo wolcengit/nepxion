@@ -26,10 +26,10 @@ import com.nepxion.util.encoder.EncoderContext;
 public class IOUtil
 {
 	/**
-	 * Write Object by OutputStream
-	 * @param outputStream  the instance of OutputStream
-	 * @param object        the instance of Object
-	 * @throws              IOException
+	 * Writes the object to an outputStream.
+	 * @param outputStream the instance of OutputStream
+	 * @param object the object
+	 * @throws IOException
 	 */
 	public static void write(OutputStream outputStream, Object object)
 		throws IOException
@@ -41,11 +41,11 @@ public class IOUtil
 	}
 	
 	/**
-	 * Read Object by InputStream
-	 * @param inputStream  the instance of InputStream
-	 * @return             the instance of Object
-	 * @throws             IOException
-	 * @throws             ClassNotFoundException
+	 * Reads the object from an inputStream.
+	 * @param inputStream the instance of InputStream
+	 * @return the object
+	 * @throws IOException
+	 * @throws ClassNotFoundException
 	 */
 	public static Object read(InputStream inputStream)
 		throws IOException, ClassNotFoundException
@@ -58,10 +58,10 @@ public class IOUtil
 	}
 	
 	/**
-	 * Write Object by ByteArrayOutputStream
-	 * @param object  the instance of Object
-	 * @return        the instance of ByteArrayOutputStream
-	 * @throws        IOException
+	 * Writes the object to an outputStream.
+	 * @param object the object
+	 * @return the instance of ByteArrayOutputStream
+	 * @throws IOException
 	 */
 	public static ByteArrayOutputStream write(Object object)
 		throws IOException
@@ -76,11 +76,11 @@ public class IOUtil
 	}
 	
 	/**
-	 * Read Object by ByteArrayOutputStream
-	 * @param outputStream  the instance of ByteArrayOutputStream
-	 * @return              the instance of Object
-	 * @throws              IOException
-	 * @throws              ClassNotFoundException
+	 * Reads the object from an outputStream.
+	 * @param outputStream the instance of ByteArrayOutputStream
+	 * @return the object
+	 * @throws IOException
+	 * @throws ClassNotFoundException
 	 */
 	public static Object read(ByteArrayOutputStream outputStream)
 		throws IOException, ClassNotFoundException
@@ -94,10 +94,10 @@ public class IOUtil
 	}
 	
 	/**
-	 * Get ByteArrayInputStream by Object
-	 * @param object  the instance of Object
-	 * @return        the instance of ByteArrayInputStream
-	 * @throws        IOException
+	 * Gets the inputStream by a object.
+	 * @param object the object
+	 * @return the instance of ByteArrayInputStream
+	 * @throws IOException
 	 */
 	public static ByteArrayInputStream getInputStream(Object object)
 		throws IOException
@@ -110,11 +110,11 @@ public class IOUtil
 	}
 	
 	/**
-	 * Get Object by InputStream
-	 * @param inputStream  the instance of InputStream
-	 * @return             the instance of Object
-	 * @throws             IOException
-	 * @throws             ClassNotFoundException
+	 * Gets the object by an inputStream.
+	 * @param inputStream the instance of InputStream
+	 * @return the object
+	 * @throws IOException
+	 * @throws ClassNotFoundException
 	 */
 	public static Object getObject(InputStream inputStream)
 		throws IOException, ClassNotFoundException
@@ -123,9 +123,9 @@ public class IOUtil
 	}
 	
 	/**
-	 * Get InputStream by String
-	 * @param text  the instance of String
-	 * @return      the instance of ByteArrayInputStream
+	 * Gets the inputStream by a text.
+	 * @param text the text value
+	 * @return the instance of ByteArrayInputStream
 	 */
 	public static ByteArrayInputStream getInputStream(String text)
 	{
@@ -135,11 +135,12 @@ public class IOUtil
 	}
 	
 	/**
-	 * Get String by InputStream
-	 * @param inputStream  the instance of InputStream
-	 * @return             the instance of String
-	 * @throws             IOException
-	 * @throws             UnsupportedEncodingException
+	 * Gets the text by an inputStream.
+	 * The charset is registered in EncoderContext.
+	 * @param inputStream the instance of InputStream
+	 * @return the text value
+	 * @throws IOException
+	 * @throws UnsupportedEncodingException
 	 */
 	public static String getString(InputStream inputStream)
 		throws IOException, UnsupportedEncodingException
@@ -148,12 +149,12 @@ public class IOUtil
 	}
 	
 	/**
-	 * Get String by InputStream
-	 * @param inputStream  the instance of InputStream
-	 * @param charset      the charset text, example "ISO-8859-1", "UTF-8", "GBK", "GB2312"
-	 * @return             the instance of String
-	 * @throws             IOException
-	 * @throws             UnsupportedEncodingException
+	 * Gets the text by an inputStream with the charset formatted.
+	 * @param inputStream the instance of InputStream
+	 * @param charset the charset value
+	 * @return the text value
+	 * @throws IOException
+	 * @throws UnsupportedEncodingException
 	 */
 	public static String getString(InputStream inputStream, String charset)
 		throws IOException, UnsupportedEncodingException
@@ -175,11 +176,12 @@ public class IOUtil
 	}
 	
 	/**
-	 * Read String by InputStream
-	 * @param inputStream  the instance of InputStream
-	 * @return             the instance of String
-	 * @throws             IOException
-	 * @throws             UnsupportedEncodingException
+	 * Reads the text from an inputStream.
+	 * The charset is registered in EncoderContext.
+	 * @param inputStream the instance of InputStream
+	 * @return the text value
+	 * @throws IOException
+	 * @throws UnsupportedEncodingException
 	 */
 	public static String readString(InputStream inputStream)
 		throws IOException, UnsupportedEncodingException
@@ -188,12 +190,12 @@ public class IOUtil
 	}
 	
 	/**
-	 * Read String by InputStream
-	 * @param inputStream  the instance of InputStream
-	 * @param charset      the charset text, example "ISO-8859-1", "UTF-8", "GBK", "GB2312"
-	 * @return             the instance of String
-	 * @throws             IOException
-	 * @throws             UnsupportedEncodingException
+	 * Reads the text from an inputStream with the charset formatted.
+	 * @param inputStream the instance of InputStream
+	 * @param charset the charset value
+	 * @return the text value
+	 * @throws IOException
+	 * @throws UnsupportedEncodingException
 	 */
 	public static String readString(InputStream inputStream, String charset)
 		throws IOException, UnsupportedEncodingException
@@ -213,11 +215,11 @@ public class IOUtil
 	}
 	
 	/**
-	 * Get deep clone object
-	 * @param object  the origin
-	 * @return        the clone object
-	 * @throws        IOException
-	 * @throws        ClassNotFoundException
+	 * Gets the deep clone object.
+	 * @param object the origin object
+	 * @return the clone object
+	 * @throws IOException
+	 * @throws ClassNotFoundException
 	 */
 	public static Object deepClone(Object object)
 		throws IOException, ClassNotFoundException
