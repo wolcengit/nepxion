@@ -12,13 +12,41 @@ package com.nepxion.util.jni;
 
 public class ApplicationUtil
 {
+	/**
+	 * The Windows os name.
+	 */
 	public static final String WINDOWS_OS_NAME = "Windows";
+	
+	/**
+	 * The Windows browser handler.
+	 */
 	public static final String WINDOWS_BROWSER = "rundll32";
+	
+	/**
+	 * The Windows browser process handler.
+	 */
 	public static final String WINDOWS_BROWSER_PROCESS = "url.dll,FileProtocolHandler";
+	
+	/**
+	 * The Unix os name.
+	 */
 	public static final String UNIX_OS_NAME = "Unix";
+	
+	/**
+	 * The Unix browser handler.
+	 */
 	public static final String UNIX_BROWSER = "netscape";
+	
+	/**
+	 * The Unix browser process handler.
+	 */
 	public static final String UNIX_BROWSER_PROCESS = "-remote openURL";
 	
+	/**
+	 * Calls the application of Windows or Unix platform.
+	 * @param url the url value
+	 * @throws Exception
+	 */
 	public static void callApplication(String url)
 		throws Exception
 	{
@@ -48,6 +76,11 @@ public class ApplicationUtil
 		}
 	}
 	
+	/**
+	 * Calls the Internet Explorer of Windows platform.
+	 * @param url the url value
+	 * @throws Exception
+	 */
 	public static void callInternetExplorer(String url)
 		throws Exception
 	{
@@ -55,6 +88,10 @@ public class ApplicationUtil
 		Runtime.getRuntime().exec(cmd);
 	}
 	
+	/**
+	 * Returns true if windows platform.
+	 * @return true if windows platform
+	 */
 	private static boolean isWindowsPlatform()
 	{
 		String osName = System.getProperty("os.name");

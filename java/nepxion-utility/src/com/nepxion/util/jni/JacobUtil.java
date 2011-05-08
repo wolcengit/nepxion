@@ -17,6 +17,11 @@ import com.jacob.com.Variant;
 
 public class JacobUtil
 {
+	/**
+	 * Calls the Internet Explorer of Windows platform by Jacob ActiveX.
+	 * @param url the url value
+	 * @throws Exception
+	 */
 	public static void callInternetExplorer(String url)
 		throws Exception
 	{
@@ -44,6 +49,12 @@ public class JacobUtil
 		}
 	}
 	
+	/**
+	 * Calls the Word application of Windows Office by Jacob ActiveX.
+	 * @param filePath the file path
+	 * @param readOnly the boolean value of readOnly
+	 * @throws Exception
+	 */
 	public static void callWord(String filePath, boolean readOnly)
 		throws Exception
 	{
@@ -70,6 +81,12 @@ public class JacobUtil
 		}
 	}
 	
+	/**
+	 * Calls the Excel application of Windows Office by Jacob ActiveX.
+	 * @param filePath the file path
+	 * @param readOnly the boolean value of readOnly
+	 * @throws Exception
+	 */
 	public static void callExcel(String filePath, boolean readOnly)
 		throws Exception
 	{
@@ -96,6 +113,13 @@ public class JacobUtil
 		}
 	}
 	
+	/**
+	 * Calls the PowerPoint application of Windows Office by Jacob ActiveX.
+	 * @param filePath the file path
+	 * @param readOnly the boolean value of readOnly
+	 * @param fullScreen the boolean value of fullScreen
+	 * @throws Exception
+	 */
 	public static void callPowerPoint(String filePath, boolean readOnly, boolean fullScreen)
 		throws Exception
 	{
@@ -128,6 +152,12 @@ public class JacobUtil
 		}
 	}
 	
+	/**
+	 * Transforms the Word file To the Html file by Jacob ActiveX.
+	 * @param wordFilePath the word file path
+	 * @param htmlFilePath the html file path
+	 * @throws Exception
+	 */
 	public static void transformWordToHtml(String wordFilePath, String htmlFilePath)
 		throws Exception
 	{
@@ -157,6 +187,12 @@ public class JacobUtil
 		}
 	}
 	
+	/**
+	 * Transforms the Excel file To the Html file by Jacob ActiveX.
+	 * @param excelFilePath the excel file path
+	 * @param htmlFilePath the html file path
+	 * @throws Exception
+	 */
 	public static void transformExcelToHtml(String excelFilePath, String htmlFilePath)
 		throws Exception
 	{
