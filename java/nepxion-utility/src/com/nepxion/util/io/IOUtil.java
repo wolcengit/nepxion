@@ -141,6 +141,7 @@ public class IOUtil
 	 * @return the text value
 	 * @throws IOException
 	 * @throws UnsupportedEncodingException
+	 * @see #EncoderContext.getIOCharset
 	 */
 	public static String getString(InputStream inputStream)
 		throws IOException, UnsupportedEncodingException
@@ -182,6 +183,7 @@ public class IOUtil
 	 * @return the text value
 	 * @throws IOException
 	 * @throws UnsupportedEncodingException
+	 * @see #EncoderContext.getIOCharset
 	 */
 	public static String readString(InputStream inputStream)
 		throws IOException, UnsupportedEncodingException

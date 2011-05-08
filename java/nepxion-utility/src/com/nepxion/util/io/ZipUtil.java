@@ -33,6 +33,7 @@ public class ZipUtil
 	 * @throws IOException
 	 * @throws FileNotFoundException
 	 * @throws UnsupportedEncodingException
+	 * @see #EncoderContext.getIOCharset
 	 */	
 	public static List getZipFileList(String filePath, boolean classLoader)
 		throws IOException, FileNotFoundException, UnsupportedEncodingException
@@ -82,6 +83,7 @@ public class ZipUtil
 	 * @throws IOException
 	 * @throws FileNotFoundException
 	 * @throws UnsupportedEncodingException
+	 * @see #EncoderContext.getIOCharset
 	 */	
 	public static BufferedReader getZipReader(String filePath, boolean classLoader)
 		throws IOException, FileNotFoundException, UnsupportedEncodingException

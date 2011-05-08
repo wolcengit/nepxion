@@ -31,8 +31,8 @@ import com.nepxion.util.encoder.EncoderUtil;
 public class Dom4JReader
 {
 	/**
-	 * Gets the document by xml text.
-	 * @param text the xml text
+	 * Gets the document by a xml text.
+	 * @param text the xml text value
 	 * @return the instance of Document
 	 * @throws DocumentException
 	 */
@@ -43,9 +43,9 @@ public class Dom4JReader
 	}
 		
 	/**
-	 * Gets the document by text with charset formatted.
+	 * Gets the document by a xml text and charset.
 	 * The charset is registered in EncoderContext.
-	 * @param text the xml text
+	 * @param text the xml text value
 	 * @return the instance of Document
 	 * @throws DocumentException
 	 * @throws UnsupportedEncodingException
@@ -58,8 +58,8 @@ public class Dom4JReader
 	}
 	
 	/**
-	 * Gets the document by text with charset formatted.
-	 * @param text the xml text
+	 * Gets the document by a xml text and charset.
+	 * @param text the xml text value
 	 * @param charset the charset value
 	 * @return the instance of Document
 	 * @throws DocumentException
@@ -74,7 +74,7 @@ public class Dom4JReader
 	}
 	
 	/**
-	 * Gets the document by file.
+	 * Gets the document by a file.
 	 * @param file the instance of File
 	 * @return the instance of Document
 	 * @throws DocumentException
@@ -89,7 +89,7 @@ public class Dom4JReader
 	}
 	
 	/**
-	 * Gets the document by file with charset formatted.
+	 * Gets the document by a file.
 	 * The charset is registered in EncoderContext.
 	 * @param file the instance of File
 	 * @return the instance of Document
@@ -105,7 +105,7 @@ public class Dom4JReader
 	}
 	
 	/**
-	 * Gets the document by file with charset formatted.
+	 * Gets the document by a file and charset.
 	 * @param file the instance of File
 	 * @param charset the charset value
 	 * @return the instance of Document
@@ -122,7 +122,7 @@ public class Dom4JReader
 	}
 	
 	/**
-	 * Gets the document by inputSource.
+	 * Gets the document by an inputSource.
 	 * @param inputSource the instance of InputSource
 	 * @return the instance of Document
 	 * @throws DocumentException
@@ -136,7 +136,7 @@ public class Dom4JReader
 	}
 	
 	/**
-	 * Gets the document by inputSource with charset formatted.
+	 * Gets the document by an inputSource.
 	 * The charset is registered in EncoderContext.
 	 * @param inputSource the instance of InputSource
 	 * @return the instance of Document
@@ -150,7 +150,7 @@ public class Dom4JReader
 	}
 	
 	/**
-	 * Gets the document by inputSource with charset formatted.
+	 * Gets the document by an inputSource and charset.
 	 * @param inputSource the instance of InputSource
 	 * @param charset the charset value
 	 * @return the instance of Document
@@ -165,7 +165,7 @@ public class Dom4JReader
 	}
 	
 	/**
-	 * Gets the document by inputStream.
+	 * Gets the document by an inputStream.
 	 * @param inputStream the instance of InputStream
 	 * @return the instance of Document
 	 * @throws DocumentException
@@ -179,7 +179,7 @@ public class Dom4JReader
 	}
 	
 	/**
-	 * Gets the document by inputStream with charset formatted.
+	 * Gets the document by an inputStream.
 	 * The charset is registered in EncoderContext.
 	 * @param inputStream the instance of InputStream
 	 * @return the instance of Document
@@ -194,7 +194,7 @@ public class Dom4JReader
 	}
 	
 	/**
-	 * Gets the document by inputStream with charset formatted.
+	 * Gets the document by an inputStream and charset.
 	 * @param inputStream the instance of InputStream
 	 * @param charset the charset value
 	 * @return the instance of Document
@@ -210,7 +210,7 @@ public class Dom4JReader
 	}
 	
 	/**
-	 * Gets the document by reader
+	 * Gets the document by a reader.
 	 * @param reader the instance of Reader
 	 * @return the instance of Document
 	 * @throws DocumentException
@@ -224,7 +224,7 @@ public class Dom4JReader
 	}
 	
 	/**
-	 * Gets the document by url
+	 * Gets the document by an url.
 	 * @param url the instance of URL
 	 * @return the instance of Document
 	 * @throws DocumentException

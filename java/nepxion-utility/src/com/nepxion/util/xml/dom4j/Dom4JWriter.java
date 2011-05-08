@@ -24,8 +24,8 @@ import com.nepxion.util.encoder.EncoderContext;
 public class Dom4JWriter
 {
 	/**
-	 * Creates Document.
-	 * @return the instanceof Document
+	 * Creates the document.
+	 * @return the instance of Document
 	 */
 	public static Document createDocument()
 	{
@@ -33,12 +33,13 @@ public class Dom4JWriter
 	}
 	
 	/**
-	 * Get the xml text with charset formatted by document.
+	 * Get the xml text by a document.
 	 * The charset is registered in EncoderContext.
 	 * @param document the instanceof Document
-	 * @return the xml text
+	 * @return the xml text value
 	 * @throws IOException
 	 * @throws UnsupportedEncodingException
+	 * @see #EncoderContext.getIOCharset
 	 */
 	public static String getText(Document document)
 		throws IOException, UnsupportedEncodingException
@@ -47,10 +48,10 @@ public class Dom4JWriter
 	}
 	
 	/**
-	 * Get the xml text with charset formatted by document.
+	 * Get the xml text with a document and charset.
 	 * @param document the instanceof Document.
-	 * @param charset the Charset value
-	 * @return the xml text
+	 * @param charset the charset value
+	 * @return the xml text value
 	 * @throws IOException
 	 * @throws UnsupportedEncodingException
 	 */
