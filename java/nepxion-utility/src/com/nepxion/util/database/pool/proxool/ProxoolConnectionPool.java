@@ -37,9 +37,9 @@ public class ProxoolConnectionPool
 	}
 	
 	/**
-	 * Returns the connection by alias.
+	 * Returns the connection by an alias.
 	 * A connection is corresponded to an alias, all of them can be defined in the config file of "proxool.properties".
-	 * The detail usage of configuration is referred to proxool site
+	 * The detail usage of configuration is referred to the proxool site
 	 * @param alias the alias string
 	 * @return the instance of Connection
 	 * @throws SQLException

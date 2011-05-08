@@ -20,7 +20,7 @@ public class RandomUtil
 	public static final String CHAR_LIST = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 	
 	/**
-	 * Gets random char in A-Z.
+	 * Gets the random char in A-Z.
 	 * @return the random char
 	 */
 	public static char getRandomChar()
@@ -33,7 +33,7 @@ public class RandomUtil
 	}
 	
 	/**
-	 * Gets random number of int type within the min and max int value.
+	 * Gets the random number of int type within the min and max int value.
 	 * @param min the min int value 
 	 * @param max the max int value
 	 * @return the random number of int type
@@ -46,7 +46,7 @@ public class RandomUtil
 	}
 	
 	/**
-	 * Gets random number of double type within the min and max int value.
+	 * Gets the random number of double type within the min and max int value.
 	 * @param min the min int value 
 	 * @param max the max int value
 	 * @return the random number of double type

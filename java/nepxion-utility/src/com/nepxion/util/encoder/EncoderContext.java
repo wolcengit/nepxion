@@ -26,7 +26,7 @@ public class EncoderContext
 	private static String httpCharset = DEFAULT_CHARSET;
 	
 	/**
-	 * Registers io charset.
+	 * Registers the io charset.
 	 * @param customIOCharset the io charset value
 	 */
 	public static void registerIOCharset(String customIOCharset)
@@ -35,7 +35,7 @@ public class EncoderContext
 	}
 	
 	/**
-	 * Gets io charset.
+	 * Gets the io charset.
 	 * @return the registered io charset value
 	 */
 	public static String getIOCharset()
@@ -44,7 +44,7 @@ public class EncoderContext
 	}
 	
 	/**
-	 * Registers http charset.
+	 * Registers the http charset.
 	 * @param customHttpCharset the http charset value
 	 */
 	public static void registerHttpCharset(String customHttpCharset)
@@ -53,7 +53,7 @@ public class EncoderContext
 	}
 	
 	/**
-	 * Gets http charset.
+	 * Gets the http charset.
 	 * @return the registered http charset value
 	 */
 	public static String getHttpCharset()

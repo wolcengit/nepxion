@@ -15,7 +15,7 @@ import java.io.UnsupportedEncodingException;
 public class EncoderUtil
 {
 	/**
-	 * Formats text with GB2312 charset.
+	 * Formats the text with GB2312 charset.
 	 * @param text the text value
 	 * @return the formatted text value
 	 * @throws UnsupportedEncodingException
@@ -28,7 +28,7 @@ public class EncoderUtil
 	}	
 	
 	/**
-	 * Formats text with GBK charset.
+	 * Formats the text with GBK charset.
 	 * @param text the text value
 	 * @return the formatted text value
 	 * @throws UnsupportedEncodingException
@@ -41,7 +41,7 @@ public class EncoderUtil
 	}		
 	
 	/**
-	 * Formats text with UTF-8 charset.
+	 * Formats the text with UTF-8 charset.
 	 * @param text the text value
 	 * @return the formatted text value
 	 * @throws UnsupportedEncodingException
@@ -54,7 +54,7 @@ public class EncoderUtil
 	}	
 	
 	/**
-	 * Formats text by given charset.The the origin charset is ISO-8859-1.
+	 * Formats the text by a charset.The the origin charset is ISO-8859-1.
 	 * @param text the text value
 	 * @param transferCharset the transfer charset
 	 * @return the formatted text value
@@ -67,7 +67,7 @@ public class EncoderUtil
 	}	
 	
 	/**
-	 * Formats text by given charset.
+	 * Formats the text by a charset.
 	 * @param text the text value
 	 * @param originCharset the origin charset
 	 * @param transferCharset the transfer charset

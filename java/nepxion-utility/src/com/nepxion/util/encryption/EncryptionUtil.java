@@ -31,7 +31,7 @@ public class EncryptionUtil
 	}
 	
 	/**
-	 * Encrypts the text by given charset with MD5.
+	 * Encrypts the text by a charset with MD5.
 	 * @param text the text value
 	 * @param charset the charset value
 	 * @return the encrypted text value
@@ -57,7 +57,7 @@ public class EncryptionUtil
 	}
 	
 	/**
-	 * Encrypts the text by given charset with SHA.
+	 * Encrypts the text by a charset with SHA.
 	 * @param text the text value
 	 * @param charset the charset value
 	 * @return the encrypted text value
@@ -83,7 +83,7 @@ public class EncryptionUtil
 	}
 	
 	/**
-	 * Encrypts the text by given charset with SHA_256.
+	 * Encrypts the text by a charset with SHA_256.
 	 * @param text the text value
 	 * @param charset the charset value
 	 * @return the encrypted text value
@@ -109,7 +109,7 @@ public class EncryptionUtil
 	}
 	
 	/**
-	 * Encrypts the text by given charset with SHA_512.
+	 * Encrypts the text by a charset with SHA_512.
 	 * @param text the text value
 	 * @param charset the charset value
 	 * @return the encrypted text value
@@ -123,7 +123,7 @@ public class EncryptionUtil
 	}
 	
 	/**
-	 * Encrypts the text by given algorithm and UTF-8 charset.
+	 * Encrypts the text by an algorithm and UTF-8 charset.
 	 * @param text the text value
 	 * @param algorithm the algorithm value
 	 * @return the encrypted text value
@@ -136,7 +136,7 @@ public class EncryptionUtil
 	}
 	
 	/**
-	 * Encrypts the text by given algorithm and charset.
+	 * Encrypts the text by an algorithm and charset.
 	 * @param text the text value
 	 * @param algorithm the algorithm value
 	 * @param charset the charset value

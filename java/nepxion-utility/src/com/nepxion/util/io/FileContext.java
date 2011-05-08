@@ -19,6 +19,13 @@ public class FileContext
 {
 	private static Map map = new HashMap();
 	
+	/**
+	 * Registers the file content of string by a native file path.
+	 * It is mainly used for the static file, such as a properties file and xml file etc.
+	 * It is initialized and persisted in the map with the key for the file path and the entry for the file content.
+	 * @param filePath the file path
+	 * @throws Exception
+	 */
 	public static void register(String filePath)
 		throws Exception
 	{
@@ -27,6 +34,14 @@ public class FileContext
 		map.put(filePath, content);
 	}
 	
+	/**
+	 * Registers the file content of string by a remote file url.
+	 * It is mainly used for the static file, such as a properties file and xml file etc.
+	 * It is initialized and persisted in the map with the key for the file path and the entry for the file content.
+	 * @param codeBase the instance of URL
+	 * @param filePath the file path
+	 * @throws Exception
+	 */
 	public static void register(URL codeBase, String filePath)
 		throws Exception
 	{
@@ -35,6 +50,11 @@ public class FileContext
 		map.put(filePath, content);
 	}
 	
+	/**
+	 * Gets the file content of string by a file path.
+	 * @param filePath the file path
+	 * @return the file content of string
+	 */
 	public static String getContent(String filePath)
 	{
 		String content = (String) map.get(filePath);

@@ -17,7 +17,7 @@ import java.io.PrintStream;
 public class ExceptionUtil
 {
 	/**
-	 * SubString for exception.
+	 * SubString for the exception.
 	 * It only gets the part after first colon of the exception string.
 	 * @param e the instance of Exception
 	 * @return the text value
@@ -36,7 +36,7 @@ public class ExceptionUtil
 	}
 	
 	/**
-	 * Gets the text for exception.
+	 * Gets the text for an exception.
 	 * @param e the instance of Exception
 	 * @return the text value
 	 */
