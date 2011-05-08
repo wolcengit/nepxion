@@ -39,7 +39,6 @@ public class Dom4JWriter
 	 * @return the xml text value
 	 * @throws IOException
 	 * @throws UnsupportedEncodingException
-	 * @see #EncoderContext.getIOCharset
 	 */
 	public static String getText(Document document)
 		throws IOException, UnsupportedEncodingException

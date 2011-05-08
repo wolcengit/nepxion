@@ -48,7 +48,7 @@ public class CollectionUtil
 	
 	/**
 	 * Parses the list to the vector.
-	 * @param array the instance of List
+	 * @param list the instance of List
 	 * @return the instance of Vector
 	 */	
 	public static Vector parseVector(List list)
@@ -58,7 +58,7 @@ public class CollectionUtil
 	
 	/**
 	 * Parses the list to the vector.
-	 * @param array the instance of List
+	 * @param vector the instance of List
 	 * @return the instance of Vector
 	 */		
 	public static Object[] parseArray(Vector vector)

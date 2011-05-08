@@ -35,7 +35,6 @@ public class FileUtil
 	 * @throws IOException
 	 * @throws FileNotFoundException
 	 * @throws UnsupportedEncodingException
-	 * @see #EncoderContext.getIOCharset
 	 */
 	public static String readString(String filePath, boolean classLoader)
 		throws IOException, FileNotFoundException, UnsupportedEncodingException 

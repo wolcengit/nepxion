@@ -49,7 +49,6 @@ public class Dom4JReader
 	 * @return the instance of Document
 	 * @throws DocumentException
 	 * @throws UnsupportedEncodingException
-	 * @see #EncoderContext.getIOCharset
 	 */
 	public static Document getFormatDocument(String text) 
 		throws DocumentException, UnsupportedEncodingException
@@ -96,7 +95,6 @@ public class Dom4JReader
 	 * @throws DocumentException
 	 * @throws FileNotFoundException
 	 * @throws UnsupportedEncodingException
-	 * @see #EncoderContext.getIOCharset
 	 */
 	public static Document getFormatDocument(File file)
 		throws DocumentException, FileNotFoundException, UnsupportedEncodingException
@@ -141,7 +139,6 @@ public class Dom4JReader
 	 * @param inputSource the instance of InputSource
 	 * @return the instance of Document
 	 * @throws DocumentException
-	 * @see #EncoderContext.getIOCharset
 	 */
 	public static Document getFormatDocument(InputSource inputSource)
 		throws DocumentException
@@ -185,7 +182,6 @@ public class Dom4JReader
 	 * @return the instance of Document
 	 * @throws DocumentException
 	 * @throws UnsupportedEncodingException
-	 * @see #EncoderContext.getIOCharset
 	 */
 	public static Document getFormatDocument(InputStream inputStream)
 		throws DocumentException, UnsupportedEncodingException
