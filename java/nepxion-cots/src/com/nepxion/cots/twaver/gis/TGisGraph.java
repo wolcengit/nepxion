@@ -14,6 +14,8 @@ package com.nepxion.cots.twaver.gis;
 
 import java.awt.event.HierarchyEvent;
 
+import javax.swing.SwingUtilities;
+
 import twaver.TDataBox;
 import twaver.gis.GeographyMap;
 import twaver.gis.GisNetworkAdapter;
@@ -71,7 +73,14 @@ public class TGisGraph
 		{
 			public void visibilityChanged(HierarchyEvent e)
 			{
-				gisNavigator.showout(true);
+				SwingUtilities.invokeLater(new Runnable()
+				{
+					public void run()
+					{
+						gisNavigator.showout(true);
+					}
+				}
+				);
 				
 				removeHierarchyListener(this);
 			}
