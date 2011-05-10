@@ -18,32 +18,56 @@ public class TimeComparable
 	private Date dateTime;
 	private String formatString;
 	
+	/**
+	 * Constructs with the specified initial date time.
+	 * @param dateTime the date time
+	 */
 	public TimeComparable(Date dateTime)
 	{
 		this(dateTime, DATE_TIME_FORMAT_STRING);
 	}
 	
+	/**
+	 * Constructs with the specified initial date time and format string.
+	 * @param dateTime the date time
+	 */
 	public TimeComparable(Date dateTime, String formatString)
 	{
 		this.dateTime = dateTime;
 		this.formatString = formatString;
 	}
 	
+	/**
+	 * Gets the date time.
+	 * @return the instance of Date
+	 */
 	public Date getDateTime()
 	{
 		return dateTime;
 	}
 	
+	/**
+	 * Sets the date time.
+	 * @param dateTime the instance of Date
+	 */
 	public void setDateTime(Date dateTime)
 	{
 		this.dateTime = dateTime;
 	}
 	
+	/**
+	 * Gets the format string.
+	 * @return the format string
+	 */
 	public String getFormatString()
 	{
 		return formatString;
 	}
 	
+	/**
+	 * Sets the format string.
+	 * @param formatString the format string
+	 */
 	public void setFormatString(String formatString)
 	{
 		this.formatString = formatString;

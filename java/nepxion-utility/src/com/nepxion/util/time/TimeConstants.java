@@ -15,17 +15,63 @@ import java.text.SimpleDateFormat;
 
 public interface TimeConstants
 {
+	/**
+	 * The date time format string.
+	 */
 	public final static String DATE_TIME_FORMAT_STRING = "yyyy-MM-dd HH:mm:ss";
+	
+	/**
+	 * The millisecond date time format string.
+	 */
 	public final static String MILLISECOND_DATE_TIME_FORMAT_STRING = "yyyy-MM-dd HH:mm:ss:SSS";
+	
+	/**
+	 * The time zone date time format string.
+	 */
 	public final static String TIME_ZONE_DATE_TIME_FORMAT_STRING = "yyyy-MM-dd HH:mm:ss zzzz";
+	
+	/**
+	 * The date format string.
+	 */
 	public final static String DATE_FORMAT_STRING = "yyyy-MM-dd";
+	
+	/**
+	 * The time format string.
+	 */
 	public final static String TIME_FORMAT_STRING = "HH:mm:ss";
+	
+	/**
+	 * The millisecond time format string.
+	 */
 	public final static String MILLISECOND_TIME_FORMAT_STRING = "HH:mm:ss:SSS";
 	
+	/**
+	 * The date time format.
+	 */
 	public static final DateFormat DATE_TIME_FORMAT = new SimpleDateFormat(DATE_TIME_FORMAT_STRING);
+	
+	/**
+	 * The millisecond date time format.
+	 */
 	public static final DateFormat MILLISECOND_DATE_TIME_FORMAT = new SimpleDateFormat(MILLISECOND_DATE_TIME_FORMAT_STRING);
+	
+	/**
+	 * The time zone date time format.
+	 */
 	public static final DateFormat TIME_ZONE_DATE_TIME_FORMAT = new SimpleDateFormat(TIME_ZONE_DATE_TIME_FORMAT_STRING);
+	
+	/**
+	 * The date format.
+	 */
 	public static final DateFormat DATE_FORMAT = new SimpleDateFormat(DATE_FORMAT_STRING);
+	
+	/**
+	 * The time format.
+	 */
 	public static final DateFormat TIME_FORMAT = new SimpleDateFormat(TIME_FORMAT_STRING);
+	
+	/**
+	 * The millisecond time format.
+	 */
 	public static final DateFormat MILLISECOND_TIME_FORMAT = new SimpleDateFormat(MILLISECOND_TIME_FORMAT_STRING);
 }
