@@ -18,6 +18,11 @@ import org.apache.commons.lang3.StringUtils;
 
 public class StringUtil
 {
+	/**
+	 * Parses to the int array by a text.
+	 * @param text the text value
+	 * @return the int array
+	 */
 	public static int[] parseIntArray(String text)
 	{
 		text = StringUtils.deleteWhitespace(text);
@@ -33,6 +38,11 @@ public class StringUtil
 		return intArray;
 	}
 	
+	/**
+	 * Parses to the two-dimensional int array by a text.
+	 * @param text the text value
+	 * @return the two-dimensional int array
+	 */
 	public static int[][] parseInt2Array(String text)
 	{
 		text = StringUtils.deleteWhitespace(text);
@@ -66,6 +76,11 @@ public class StringUtil
 		return int2Array;
 	}
 	
+	/**
+	 * Parses to the byte array by a text.
+	 * @param text the text value
+	 * @return the byte array
+	 */
 	public static byte[] parseByteArray(String text)
 	{
 		text = StringUtils.deleteWhitespace(text);
@@ -81,6 +96,11 @@ public class StringUtil
 		return byteArray;
 	}
 	
+	/**
+	 * Parses to the two-dimensional byte array by a text.
+	 * @param text the text value
+	 * @return the two-dimensional byte array
+	 */
 	public static byte[][] parseByte2Array(String text)
 	{
 		text = StringUtils.deleteWhitespace(text);
@@ -114,6 +134,11 @@ public class StringUtil
 		return byte2Array;
 	}
 	
+	/**
+	 * Parses to the short array by a text.
+	 * @param text the text value
+	 * @return the short array
+	 */
 	public static short[] parseShortArray(String text)
 	{
 		text = StringUtils.deleteWhitespace(text);
@@ -129,6 +154,11 @@ public class StringUtil
 		return shortArray;
 	}
 	
+	/**
+	 * Parses to the two-dimensional short array by a text.
+	 * @param text the text value
+	 * @return the two-dimensional short array
+	 */
 	public static short[][] parseShort2Array(String text)
 	{
 		text = StringUtils.deleteWhitespace(text);
@@ -162,6 +192,11 @@ public class StringUtil
 		return short2Array;
 	}
 	
+	/**
+	 * Parses to the long array by a text.
+	 * @param text the text value
+	 * @return the long array
+	 */
 	public static long[] parseLongArray(String text)
 	{
 		text = StringUtils.deleteWhitespace(text);
@@ -177,6 +212,11 @@ public class StringUtil
 		return longArray;
 	}
 	
+	/**
+	 * Parses to the two-dimensional long array by a text.
+	 * @param text the text value
+	 * @return the two-dimensional long array
+	 */
 	public static long[][] parseLong2Array(String text)
 	{
 		text = StringUtils.deleteWhitespace(text);
@@ -210,6 +250,11 @@ public class StringUtil
 		return long2Array;
 	}
 	
+	/**
+	 * Parses to the float array by a text.
+	 * @param text the text value
+	 * @return the float array
+	 */
 	public static float[] parseFloatArray(String text)
 	{
 		text = StringUtils.deleteWhitespace(text);
@@ -225,6 +270,11 @@ public class StringUtil
 		return floatArray;
 	}
 	
+	/**
+	 * Parses to the two-dimensional float array by a text.
+	 * @param text the text value
+	 * @return the two-dimensional float array
+	 */
 	public static float[][] parseFloat2Array(String text)
 	{
 		text = StringUtils.deleteWhitespace(text);
@@ -258,6 +308,11 @@ public class StringUtil
 		return float2Array;
 	}
 	
+	/**
+	 * Parses to the double array by a text.
+	 * @param text the text value
+	 * @return the double array
+	 */
 	public static double[] parseDoubleArray(String text)
 	{
 		text = StringUtils.deleteWhitespace(text);
