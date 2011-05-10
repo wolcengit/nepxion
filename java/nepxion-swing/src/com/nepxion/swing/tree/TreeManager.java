@@ -145,7 +145,7 @@ public class TreeManager
 		
 		return new TreePath(treeNodes);
 	}
-	
+		
 	public static TreeNode[] getTreeNodes(TreeNode treeNode, int depth)
 	{
 		TreeNode[] treeNodes;
@@ -171,7 +171,7 @@ public class TreeManager
 		return treeNodes;
 	}
 	
-	public static TreeNode[] getTreeNodes(JTree tree, TreePath[] treePaths)
+	public static TreeNode[] getTreeNodes(TreePath[] treePaths)
 	{
 		TreeNode[] treeNodes = new TreeNode[treePaths.length];
 		for (int i = 0; i < treePaths.length; i++)
@@ -180,6 +180,18 @@ public class TreeManager
 		}
 		
 		return treeNodes;
+	}
+	
+	public static TreePath[] getTreePaths(TreeNode[] treeNodes)
+	{
+		TreePath[] treePaths = new TreePath[treeNodes.length];
+		
+		for (int i = 0; i < treeNodes.length; i++)
+		{
+			treePaths[i] = getTreePath(treeNodes[i]);
+		}	
+		
+		return treePaths;
 	}
 	
 	public static TreeNode getChildTreeNode(TreeNode treeNode, String childTreeNodeName)

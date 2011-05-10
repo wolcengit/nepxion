@@ -180,7 +180,12 @@ public class JCheckBoxTree
 	
 	public TreeNode[] getTreeNodes(TreePath[] treePaths)
 	{
-		return TreeManager.getTreeNodes(this, treePaths);
+		return TreeManager.getTreeNodes(treePaths);
+	}
+	
+	public TreePath[] getTreePaths(TreeNode[] treeNodes)
+	{
+		return TreeManager.getTreePaths(treeNodes);
 	}
 	
 	public TreeNode getChildTreeNode(TreeNode treeNode, String childTreeNodeName)
@@ -403,6 +408,24 @@ public class JCheckBoxTree
 		}
 		
 		return selectionTreeNodes;
+	}
+	
+	public void setCheckBoxSelectionTreeNodes(TreeNode[] treeNodes)
+	{
+		TreePath[] treePaths = getTreePaths(treeNodes);
+		
+		setCheckBoxSelectionTreeNodes(treePaths);
+	}
+	
+	public void setCheckBoxSelectionTreeNodes(TreePath[] treePaths)
+	{
+		CheckBoxTreeSelectionModel checkBoxTreeSelectionModel = getCheckBoxTreeSelectionModel();
+		if (checkBoxTreeSelectionModel == null)
+		{
+			return;
+		}
+		
+		checkBoxTreeSelectionModel.setSelectionPaths(treePaths);
 	}
 	
 	public void update(TreeNode treeNode)

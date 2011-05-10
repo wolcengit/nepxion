@@ -64,6 +64,8 @@ public interface ITree
 	
 	public TreeNode[] getTreeNodes(TreePath[] treePaths);
 	
+	public TreePath[] getTreePaths(TreeNode[] treeNodes);
+	
 	public TreeNode getChildTreeNode(TreeNode treeNode, String childTreeNodeName);
 	
 	public TreeNode[] getChildTreeNodes(TreeNode treeNode);

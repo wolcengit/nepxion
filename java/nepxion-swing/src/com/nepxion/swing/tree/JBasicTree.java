@@ -176,7 +176,12 @@ public class JBasicTree
 	
 	public TreeNode[] getTreeNodes(TreePath[] treePaths)
 	{
-		return TreeManager.getTreeNodes(this, treePaths);
+		return TreeManager.getTreeNodes(treePaths);
+	}
+	
+	public TreePath[] getTreePaths(TreeNode[] treeNodes)
+	{
+		return TreeManager.getTreePaths(treeNodes);
 	}
 	
 	public TreeNode getChildTreeNode(TreeNode treeNode, String childTreeNodeName)
