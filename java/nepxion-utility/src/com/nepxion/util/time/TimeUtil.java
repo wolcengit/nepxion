@@ -24,8 +24,8 @@ public class TimeUtil
 	implements TimeConstants
 {	
 	/**
-	 * Get the current year
-	 * @return  the current year
+	 * Gets the current year.
+	 * @return the current year
 	 */
 	public static int getCurrentYear()
 	{
@@ -33,8 +33,8 @@ public class TimeUtil
 	}
 	
 	/**
-	 * Get the current month
-	 * @return  the current month
+	 * Gets the current month.
+	 * @return the current month
 	 */
 	public static int getCurrentMonth()
 	{
@@ -42,8 +42,8 @@ public class TimeUtil
 	}
 	
 	/**
-	 * Get the current day
-	 * @return  the current day
+	 * Gets the current day
+	 * @return the current day
 	 */
 	public static int getCurrentDay()
 	{
@@ -51,8 +51,8 @@ public class TimeUtil
 	}
 	
 	/**
-	 * Get the current hour
-	 * @return  the current hour
+	 * Gets the current hour.
+	 * @return the current hour
 	 */
 	public static int getCurrentHour()
 	{
@@ -60,8 +60,8 @@ public class TimeUtil
 	}
 	
 	/**
-	 * Get the current minute
-	 * @return  the current minute
+	 * Gets the current minute.
+	 * @return the current minute
 	 */
 	public static int getCurrentMinute()
 	{
@@ -69,8 +69,8 @@ public class TimeUtil
 	}
 	
 	/**
-	 * Get the current second
-	 * @return  the current second
+	 * Gets the current second.
+	 * @return the current second
 	 */
 	public static int getCurrentSecond()
 	{
@@ -78,8 +78,8 @@ public class TimeUtil
 	}
 	
 	/**
-	 * Get the current millisecond
-	 * @return  the current millisecond
+	 * Gets the current millisecond.
+	 * @return the current millisecond
 	 */
 	public static int getCurrentMillisecond()
 	{
@@ -87,8 +87,8 @@ public class TimeUtil
 	}
 	
 	/**
-	 * Get the current date and time string.Its format string is yyyy-MM-dd HH:mm:ss
-	 * @return  the current date and time string
+	 * Gets the current date time string with the format string "yyyy-MM-dd HH:mm:ss".
+	 * @return  the current date time string
 	 */
 	public static String getCurrentDateTime()
 	{
@@ -96,9 +96,9 @@ public class TimeUtil
 	}
 		
 	/**
-	 * Get a date and time string.Its format string is yyyy-MM-dd HH:mm:ss
-	 * @param date  the instance of Date
-	 * @return      a date and time string 
+	 * Gets the date time string by a date with the format string "yyyy-MM-dd HH:mm:ss".
+	 * @param date the instance of Date
+	 * @return the date time string
 	 */
 	public static String getDateTime(Date date)
 	{
@@ -106,9 +106,9 @@ public class TimeUtil
 	}
 	
 	/**
-	 * Get a date and time string.Its format string is yyyy-MM-dd HH:mm:ss:SSS
-	 * @param date  the instance of Date
-	 * @return      a date and time string 
+	 * Gets the date time string by a date with the format string "yyyy-MM-dd HH:mm:ss:SSS".
+	 * @param date the instance of Date
+	 * @return the date time string
 	 */
 	public static String getMillisecondDateTime(Date date)
 	{
@@ -116,9 +116,9 @@ public class TimeUtil
 	}
 	
 	/**
-	 * Get a date and time string.Its format string is yyyy-MM-dd HH:mm:ss zzzz
+	 * Gets the date time string by a date with the format string "yyyy-MM-dd HH:mm:ss zzzz".
 	 * @param date  the instance of Date
-	 * @return      a date and time string 
+	 * @return the date time string
 	 */
 	public static String getTimeZoneDateTime(Date date)
 	{
@@ -126,8 +126,8 @@ public class TimeUtil
 	}
 	
 	/**
-	 * Get the current date string.Its format string is yyyy-MM-dd
-	 * @return  the current date string
+	 * Gets the current date string with the format string "yyyy-MM-dd".
+	 * @return the current date string
 	 */	
 	public static String getCurrentDate()
 	{
@@ -135,9 +135,9 @@ public class TimeUtil
 	}
 	
 	/**
-	 * Get a date string.Its format string is yyyy-MM-dd
-	 * @param date  the instance of Date
-	 * @return      a date string
+	 * Gets the date string by a date with the format string "yyyy-MM-dd".
+	 * @param date the instance of Date
+	 * @return the date string
 	 */
 	public static String getDate(Date date)
 	{
@@ -145,7 +145,7 @@ public class TimeUtil
 	}
 	
 	/** 
-	 * Get the current time string.Its format string is HH:mm:ss
+	 * Gets the current time string with the format string "HH:mm:ss".
 	 * @return the current time string
 	 */
 	public static String getCurrentTime()
@@ -154,9 +154,9 @@ public class TimeUtil
 	}
 	
 	/**
-	 * Get a time string.Its format string is HH:mm:ss
-	 * @param date  the instance of Date
-	 * @return      a time string
+	 * Gets the time string by a date with the format string "HH:mm:ss".
+	 * @param date the instance of Date
+	 * @return the time string
 	 */
 	public static String getTime(Date date)
 	{
@@ -164,8 +164,8 @@ public class TimeUtil
 	}
 	
 	/** 
-	 * Get the current millisecond time string.Its format string is HH:mm:ss:SSS
-	 * @return the current millisecond time string
+	 * Gets the current time string with the format string "HH:mm:ss:SSS".
+	 * @return the current time string
 	 */
 	public static String getCurrentMillisecondTime()
 	{
@@ -173,9 +173,9 @@ public class TimeUtil
 	}
 	
 	/**
-	 * Get a time millisecond string.Its format string is HH:mm:ss:SSS
-	 * @param date  the instance of Date
-	 * @return      a millisecond time string
+	 * Gets the time string by a date with the format string "HH:mm:ss:SSS".
+	 * @param date the instance of Date
+	 * @return the time string
 	 */
 	public static String getMillisecondTime(Date date)
 	{		
@@ -183,10 +183,10 @@ public class TimeUtil
 	}	
 		
 	/**
-	 * Get the common format string
-	 * @param date        the instanceof Date 
-	 * @param dateFormat  the instanceof DateFormat
-	 * @return            the format string     
+	 * Gets the date string by a date and dateFormat.
+	 * @param date the instance of Date 
+	 * @param dateFormat the instance of DateFormat
+	 * @return the date string     
 	 */
 	public static String getFormatString(Date date, DateFormat dateFormat)
 	{
@@ -194,8 +194,8 @@ public class TimeUtil
 	}
 	
 	/**
-	 * Get the current day of the week
-	 * @return  the current day of the week
+	 * Gets the current day of the week.
+	 * @return the current day of the week
 	 */
 	public static int getCurrentDayOfWeek()
 	{
@@ -203,11 +203,11 @@ public class TimeUtil
 	}
 	
 	/**
-	 * Get a day of the week 
-	 * @param year   the year
-	 * @param month  the month
-	 * @param day    the day
-	 * @return       a day of the week
+	 * Gets the day of the week. 
+	 * @param year the year
+	 * @param month the month
+	 * @param day the day
+	 * @return the day of the week
 	 */
 	public static int getDayOfWeek(int year, int month, int day)
 	{
@@ -217,8 +217,8 @@ public class TimeUtil
 	}
 	
 	/**
-	 * Get the current week of the month
-	 * @return  the current week of the month
+	 * Gets the current week of the month.
+	 * @return the current week of the month
 	 */
 	public static int getCurrentWeekOfMonth()
 	{
@@ -226,11 +226,11 @@ public class TimeUtil
 	}
 	
 	/**
-	 * Get a week of the month
-	 * @param year   the year
-	 * @param month  the month
-	 * @param day    the day
-	 * @return       a week of the month
+	 * Gets a week of the month.
+	 * @param year the year
+	 * @param month the month
+	 * @param day the day
+	 * @return the week of the month
 	 */
 	public static int getWeekOfMonth(int year, int month, int day)
 	{
@@ -240,8 +240,8 @@ public class TimeUtil
 	}
 	
 	/**
-	 * Get the current week of the year
-	 * @return  the current week of the year
+	 * Gets the current week of the year.
+	 * @return the current week of the year
 	 */
 	public static int getCurrentWeekOfYear()
 	{
@@ -249,11 +249,11 @@ public class TimeUtil
 	}
 	
 	/**
-	 * Get a week of the year
-	 * @param year   the year
-	 * @param month  the month
-	 * @param day    the day
-	 * @return       a week of the year
+	 * Gets the week of the year.
+	 * @param year the year
+	 * @param month the month
+	 * @param day the day
+	 * @return the week of the year
 	 */
 	public static int getWeekOfYear(int year, int month, int day)
 	{
@@ -263,9 +263,9 @@ public class TimeUtil
 	}
 	
 	/**
-	 * Parse string to date instance.Its format is yyyy-MM-dd HH:mm:ss
-	 * @param date  the date string
-	 * @return      the instance of Date
+	 * Parses the date string to date object with the format string "yyyy-MM-dd HH:mm:ss".
+	 * @param date the date string
+	 * @return the instance of Date
 	 */
 	public static Date parseDateTime(String date)
 	{
@@ -273,9 +273,9 @@ public class TimeUtil
 	}
 	
 	/**
-	 * Parse string to date instance.Its format is yyyy-MM-dd HH:mm:ss zzzz
-	 * @param date  the date string
-	 * @return      the instance of Date
+	 * Parses the date string to date object with the format string "yyyy-MM-dd HH:mm:ss zzzz".
+	 * @param date the date string
+	 * @return the instance of Date
 	 */
 	public static Date parseTimeZoneDateTime(String date)
 	{
@@ -283,9 +283,9 @@ public class TimeUtil
 	}
 
 	/**
-	 * Parse string to date instance.Its format is yyyy-MM-dd
-	 * @param date  the date string
-	 * @return      the instance of Date
+	 * Parses the date string to date object with the format string "yyyy-MM-dd".
+	 * @param date the date string
+	 * @return the instance of Date
 	 */	
 	public static Date parseDate(String date)
 	{
@@ -293,9 +293,9 @@ public class TimeUtil
 	}
 	
 	/**
-	 * Parse String to date instance.Its format is HH:mm:ss
-	 * @param time  the time string
-	 * @return      the instance of Date
+	 * Parses the time string to date object with the format string "HH:mm:ss".
+	 * @param time the time string
+	 * @return the instance of Date
 	 */		
 	public static Date parseTime(String time)
 	{
@@ -303,10 +303,10 @@ public class TimeUtil
 	}
 	
 	/**
-	 * Parse String to the common format Date
-	 * @param dateString  the date string
-	 * @param dateFormat  the instance of DateFormat
-	 * @return            the instance of Date
+	 * Parses the data string to the date object by a dateFormat.
+	 * @param dateString the date string
+	 * @param dateFormat the instance of DateFormat
+	 * @return the instance of Date
 	 */
 	public static Date parseFormatDate(String dateString, DateFormat dateFormat)
 	{
@@ -325,9 +325,9 @@ public class TimeUtil
 	}
 		
 	/**
-	 * Get the calendar instance
-	 * @param dateTime  the date time string
-	 * @return          the instance of GregorianCalendar
+	 * Gets the calendar object by a date time string.
+	 * @param dateTime the date time string
+	 * @return the instance of GregorianCalendar
 	 */
 	public static GregorianCalendar getCalendar(String dateTime)
 	{
@@ -339,9 +339,9 @@ public class TimeUtil
 	}
 
 	/**
-	 * Get the daylight saving time offset
-	 * @param date  the instance of Date
-	 * @return      the daylight saving time offset
+	 * Gets the daylight saving time offset by a date.
+	 * @param date the instance of Date
+	 * @return the daylight saving time offset
 	 */
 	public static int getDSTOffset(Date date)
 	{
@@ -349,10 +349,10 @@ public class TimeUtil
 	}
 	
 	/**
-	 * Get the daylight saving time offset
-	 * @param date      the instance of Date
-	 * @param timeZone  the instance of TimeZone
-	 * @return          the daylight saving time offset
+	 * Gets the daylight saving time offset by a date and timeZone.
+	 * @param date the instance of Date
+	 * @param timeZone the instance of TimeZone
+	 * @return the daylight saving time offset
 	 */
 	public static int getDSTOffset(Date date, TimeZone timeZone)
 	{
@@ -367,10 +367,10 @@ public class TimeUtil
 	}	
 	
 	/**
-	 * Get time interval String.Its format is "HH:mm:ss"
-	 * @param startMillisecond  the start millisecond
-	 * @param endMillisecond    the end millisecond
-	 * @return                  time interval String
+	 * Gets the time interval String by a startMillisecond and endMillisecond with the format string "HH:mm:ss".
+	 * @param startMillisecond the start millisecond
+	 * @param endMillisecond the end millisecond
+	 * @return the time interval String
 	 */
 	public static String getTimeInterval(long startMillisecond, long endMillisecond)
 	{
@@ -386,10 +386,10 @@ public class TimeUtil
 	}
 	
 	/**
-	 * Get millisecond time interval String.Its format is "HH:mm:ss:SSS"
-	 * @param startMillisecond  the start millisecond
-	 * @param endMillisecond    the end millisecond
-	 * @return                  millisecond time interval String
+	 * Gets the time interval String by a startMillisecond and endMillisecond with the format string "HH:mm:ss:SSS".
+	 * @param startMillisecond the start millisecond
+	 * @param endMillisecond the end millisecond
+	 * @return the time interval String
 	 */
 	public static String getMillisecondTimeInterval(long startMillisecond, long endMillisecond)
 	{
@@ -408,10 +408,10 @@ public class TimeUtil
 	}	
 	
 	/**
-	 * Judge whether time1 is before time2.Its format is yyyy-MM-dd HH:mm:ss
-	 * @param time1  the inputting time1
-	 * @param time2  the inputting time2
-	 * @return       boolean flag
+	 * Returns true if the time1 is before the time2 with the format string "yyyy-MM-dd HH:mm:ss".
+	 * @param time1 the time1 string
+	 * @param time2 the time2 string
+	 * @return true if the time1 is before the time2
 	 */
 	public static boolean isTimeBefore(String time1, String time2)
 	{
@@ -419,11 +419,11 @@ public class TimeUtil
 	}
 	
 	/**
-	 * Judge whether time1 is before time2
-	 * @param time1       the inputting time1
-	 * @param time2       the inputting time2
-	 * @param dateFormat  the instance of DateFormat
-	 * @return            boolean flag
+	 * Returns true if the time1 is before the time2 by a dateFormat.
+	 * @param time1 the time1 string
+	 * @param time2 the time2 string
+	 * @param dateFormat the instance of DateFormat
+	 * @return true if the time1 is before the time2
 	 */
 	public static boolean isTimeBefore(String time1, String time2, DateFormat dateFormat)
 	{
@@ -442,9 +442,9 @@ public class TimeUtil
 	}
 	
 	/**
-	 * Judge whether inputting time is before current time.Its format is yyyy-MM-dd HH:mm:ss
-	 * @param time  the inputting time
-	 * @return      boolean flag
+	 * Returns true if the time is before the current time with the format string "yyyy-MM-dd HH:mm:ss".
+	 * @param time  the time string
+	 * @return true if the time is before the current time
 	 */
 	public static boolean isTimeBefore(String time)
 	{
@@ -452,10 +452,10 @@ public class TimeUtil
 	}
 	
 	/**
-	 * Judge whether inputting time is before current time
-	 * @param time        the inputting time
-	 * @param dateFormat  the instance of DateFormat
-	 * @return            boolean flag
+	 * Returns true if the time is before the current time by a dateFormat.
+	 * @param time the time string
+	 * @param dateFormat the instance of DateFormat
+	 * @return true if the time is before the current time
 	 */
 	public static boolean isTimeBefore(String time, DateFormat dateFormat)
 	{
@@ -475,10 +475,10 @@ public class TimeUtil
 	}
 	
 	/**
-	 * Judge whether time1 is after time2.Its format is yyyy-MM-dd HH:mm:ss
-	 * @param time1  the inputting time1
-	 * @param time2  the inputting time2
-	 * @return       boolean flag
+	 * Returns true if the time1 is after the time2 with the format string "yyyy-MM-dd HH:mm:ss".
+	 * @param time1 the time1 string
+	 * @param time2 the time2 string
+	 * @return true if the time1 is after the time2
 	 */
 	public static boolean isTimeAfter(String time1, String time2)
 	{
@@ -486,11 +486,11 @@ public class TimeUtil
 	}
 	
 	/**
-	 * Judge whether time1 is after time2
-	 * @param time1       the inputting time1
-	 * @param time2       the inputting time2
-	 * @param dateFormat  the instance of DateFormat
-	 * @return            boolean flag
+	 * Returns true if the time1 is after the time2 by a dateFormat.
+	 * @param time1 the time1 string
+	 * @param time2 the time2 string
+	 * @param dateFormat the instance of DateFormat
+	 * @return true if the time1 is after the time2
 	 */
 	public static boolean isTimeAfter(String time1, String time2, DateFormat dateFormat)
 	{
@@ -509,9 +509,9 @@ public class TimeUtil
 	}
 	
 	/**
-	 * Judge whether inputting time is after current time.Its format is yyyy-MM-dd HH:mm:ss
-	 * @param time  the inputting time
-	 * @return      boolean flag
+	 * Returns true if the time is after the current time with the format string "yyyy-MM-dd HH:mm:ss".
+	 * @param time  the time string
+	 * @return true if the time is before the current time
 	 */
 	public static boolean isTimeAfter(String time)
 	{
@@ -519,10 +519,10 @@ public class TimeUtil
 	}
 	
 	/**
-	 * Judge whether inputting time is after current time
-	 * @param time        the inputting time
-	 * @param dateFormat  the instance of DateFormat
-	 * @return            boolean flag
+	 * Returns true if the time is after the current time by a dateFormat.
+	 * @param time the time string
+	 * @param dateFormat the instance of DateFormat
+	 * @return true if the time is after the current time
 	 */
 	public static boolean isTimeAfter(String time, DateFormat dateFormat)
 	{
@@ -542,9 +542,9 @@ public class TimeUtil
 	}	
 	
 	/**
-	 * Get the date millisecond
-	 * @param date  the instance of Date
-	 * @return      
+	 * Gets the date millisecond of the date.
+	 * @param date the instance of Date
+	 * @return the millisecond of the date    
 	 */
 	public static long getDateMillisecond(Date date)
 	{
@@ -552,9 +552,9 @@ public class TimeUtil
 	}
 	
 	/**
-	 * Get the time millisecond
-	 * @param date  the instance of Date
-	 * @return      the millisecond
+	 * Gets the time millisecond of the date.
+	 * @param date the instance of Date
+	 * @return the time millisecond
 	 */
 	public static long getTimeMillisecond(Date date)
 	{
@@ -562,9 +562,10 @@ public class TimeUtil
 	}
 	
 	/**
-	 * Get the second
-	 * @param timeArray  the time array.Its format is {day, hour, minute, second}
-	 * @return           the second
+	 * Gets the second by a time array.
+	 * The time array must be [day, hour, minute, second].
+	 * @param timeArray  the time array
+	 * @return the second
 	 */
 	public static long getSecond(int[] timeArray)
 	{
@@ -572,9 +573,10 @@ public class TimeUtil
 	}
 	
 	/**
-	 * Get the milliSecond
-	 * @param timeArray  the time array.Its format is {day, hour, minute, second, milliSecond}
-	 * @return           the milliSecond
+	 * Gets the milliSecond by a time array.
+	 * The time array must be [day, hour, minute, second, milliSecond].
+	 * @param timeArray the time array
+	 * @return the milliSecond
 	 */
 	public static long getMillisecond(int[] timeArray)
 	{
@@ -582,10 +584,12 @@ public class TimeUtil
 	}
 	
 	/**
-	 * Get the time array
-	 * @param timeString  the time string.Its format is example "day, hour, minute, second"
-	 * @param delimiter   the time delimiter, example ", "
-	 * @return            the time array
+	 * Gets the time array by a time string and delimiter.
+	 * The time string must be [day, hour, minute, second].
+	 * The delimiter likes ",".
+	 * @param timeString the time string
+	 * @param delimiter the delimiter
+	 * @return the time array
 	 */
 	public static int[] parseTimeArray(String timeString, String delimiter)
 	{
@@ -602,7 +606,7 @@ public class TimeUtil
 	}		
 	
 	/**
-	 * Get the millisecond time array
+	 * Gets the millisecond time array.
 	 * @param timeString  the time string.Its format is example "day, hour, minute ,second, milliSecond"
 	 * @param delimiter   the time delimiter, example ", "
 	 * @return            the millisecond time array
@@ -622,11 +626,11 @@ public class TimeUtil
 	}	
 	
 	/**
-	 * Get the date string
-	 * @param year   the year
-	 * @param month  the month
-	 * @param day    the day
-	 * @return       the date string
+	 * Gets the date string with the format string "yyyy-MM-dd".
+	 * @param year the year
+	 * @param month the month
+	 * @param day the day
+	 * @return the date string
 	 */
 	public static String getDateString(long year, long month, long day)
 	{
@@ -656,11 +660,11 @@ public class TimeUtil
 	}
 	
 	/**
-	 * Get the time string
-	 * @param hour    the hour
-	 * @param minute  the minute
-	 * @param second  the second
-	 * @return        the time string
+	 * Gets the time string with the format string "HH:mm:ss".
+	 * @param hour the hour
+	 * @param minute the minute
+	 * @param second the second
+	 * @return the time string
 	 */
 	public static String getTimeString(long hour, long minute, long second)
 	{
@@ -699,12 +703,12 @@ public class TimeUtil
 	}
 	
 	/**
-	 * Get the millisecond time string
-	 * @param hour         the hour
-	 * @param minute       the minute
-	 * @param second       the second
-	 * @param millisecond  the millisecond
-	 * @return             the millisecond time string
+	 * Gets the time string with the format string "HH:mm:ss:SSS".
+	 * @param hour the hour
+	 * @param minute the minute
+	 * @param second the second
+	 * @param millisecond the millisecond
+	 * @return the time string
 	 */
 	public static String getMillisecondTimeString(long hour, long minute, long second, long millisecond)
 	{
@@ -757,10 +761,10 @@ public class TimeUtil
 	}
 	
 	/**
-	 * Get the date string
-	 * @param dateTime      the date
-	 * @param formatString  the format string
-	 * @return              the date time string
+	 * Gets the date time string by a format string.
+	 * @param date the instance of Date
+	 * @param formatString the format string
+	 * @return  the date time string
 	 */
 	public static String getDateTimeString(Date date, String formatString)
 	{
@@ -800,8 +804,8 @@ public class TimeUtil
 	}
 	
 	/**
-	 * Get the date time format
-	 * @return  the instance of DateFormat
+	 * Gets the date format object with the format string "yyyy-MM-dd HH:mm:ss".
+	 * @return the instance of DateFormat
 	 */		
 	public synchronized static DateFormat getDateTimeFormat()
 	{
@@ -809,8 +813,8 @@ public class TimeUtil
 	}
 	
 	/**
-	 * Get the millisecond date time format
-	 * @return  the instance of DateFormat
+	 * Gets the date format object with the format string "yyyy-MM-dd HH:mm:ss:SSS".
+	 * @return the instance of DateFormat
 	 */	
 	public synchronized static DateFormat getMillisecondDateTimeFormat()
 	{
@@ -818,8 +822,8 @@ public class TimeUtil
 	}
 	
 	/**
-	 * Get the time zone date time format
-	 * @return  the instance of DateFormat
+	 * Gets the date format object with the format string "yyyy-MM-dd HH:mm:ss zzzz".
+	 * @return the instance of DateFormat
 	 */		
 	public synchronized static DateFormat getTimeZoneDateTimeFormat()
 	{
@@ -827,8 +831,8 @@ public class TimeUtil
 	}
 		
 	/**
-	 * Get the date format
-	 * @return  the instance of DateFormat
+	 * Gets the date format object with the format string "yyyy-MM-dd".
+	 * @return the instance of DateFormat
 	 */	
 	public synchronized static DateFormat getDateFormat()
 	{
@@ -836,8 +840,8 @@ public class TimeUtil
 	}
 	
 	/**
-	 * Get the time format
-	 * @return  the instance of DateFormat
+	 * Gets the date format object with the format string "HH:mm:ss".
+	 * @return the instance of DateFormat
 	 */	
 	public synchronized static DateFormat getTimeFormat()
 	{
@@ -845,8 +849,8 @@ public class TimeUtil
 	}	
 	
 	/**
-	 * Get the millisecond time format
-	 * @return  the instance of DateFormat
+	 * Gets the date format object with the format string "HH:mm:ss:SSS".
+	 * @return the instance of DateFormat
 	 */
 	public synchronized static DateFormat getMillisecondTimeFormat()
 	{
@@ -854,11 +858,11 @@ public class TimeUtil
 	}
 	
 	/**
-	 * Calculate date time
-	 * @param date    the src date time
-	 * @param field   the calendar field
-	 * @param amount  the amount of date or time to be added to the field
-	 * @return        the dest date
+	 * Calculates date time.
+	 * @param dateTime the src date time
+	 * @param field the calendar field
+	 * @param amount the amount of the date or time to be added to the field
+	 * @return the dest date
 	 */
 	public static Date calculateDateTime(Date dateTime, int field, int amount)
 	{
@@ -870,11 +874,15 @@ public class TimeUtil
 	}
 	
 	/**
-	 * Delimit date time
-	 * @param startDateTime    the start date time
-	 * @param endDateTime      the end date time
-	 * @param delimitedSecond  the delimited second
-	 * @return                 the instance of List
+	 * Delimits to the date time list by a startDateTime, endDateTime and delimitedSecond.
+	 * For example : the startDateTime is "2010-01-01 00:00:00", the endDateTime is "2010-01-01 00:02:00", the delimitedSecond is 60, so
+	 * the return list is [2010-01-01 00:00:00, 2010-01-01 00:01:00, 2010-01-01 00:02:00];
+	 * Another situation the startDateTime is "2010-01-01 00:00:00", the endDateTime is "2010-01-01 00:01:50", the delimitedSecond is 60,
+	 * the return list is also [2010-01-01 00:00:00, 2010-01-01 00:01:00, 2010-01-01 00:02:00].
+	 * @param startDateTime the start date time
+	 * @param endDateTime the end date time
+	 * @param delimitedSecond the delimited second
+	 * @return the instance of List
 	 * @throws IllegalArgumentException
 	 */
 	public static List delimitDateTime(Date startDateTime, Date endDateTime, int delimitedSecond)
@@ -912,10 +920,11 @@ public class TimeUtil
 	}
 	
 	/**
-	 * Get the rang date times
-	 * @param dateTimes  the all range date time list
-	 * @param dateTime   the date time
-	 * @return           the range date time list
+	 * Gets the rang date array.
+	 * @param dateTimes the date time list
+	 * @param dateTime the date time
+	 * @param millisecondIgnored the boolean value whether millisecond is ignored or not
+	 * @return the range date array.
 	 */
 	public static Date[] getRangeDateTimes(List dateTimes, Date dateTime, boolean millisecondIgnored)
 	{
