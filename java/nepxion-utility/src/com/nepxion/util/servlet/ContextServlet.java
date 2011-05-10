@@ -34,6 +34,10 @@ public class ContextServlet
 		initQuartz();
 	}
 	
+	/**
+	 * Initializes Logger context.
+	 * If the logger path isn't configured in web.xml in the web server, the logger context won't be initialized.
+	 */
 	private void initLogger()
 	{
 		String loggerPath = getInitParameter("loggerPath");
@@ -72,11 +76,21 @@ public class ContextServlet
 		}
 	}
 	
+	/**
+	 * Initializes the service Logger context.
+	 * If it is overridden by the child class, the method will be executed. 
+	 * @param properties the instance of Properties.It will be registered to LoggerContext 
+	 * @param loggerPath the logger file path.It is configured in web.xml in the web server
+	 */
 	public void initServiceLogger(Properties properties, String loggerPath)
 	{
 		
 	}
 	
+	/**
+	 * Initializes Proxool context.
+	 * If the Proxool path isn't configured in web.xml in the web server, the Proxool context won't be initialized.
+	 */
 	private void initProxool()
 	{
 		String proxoolPath = getInitParameter("proxoolPath");
@@ -94,6 +108,10 @@ public class ContextServlet
 		}
 	}
 	
+	/**
+	 * Initializes Quartz context.
+	 * If the Quartz path isn't configured in web.xml in the web server, the Quartz context won't be initialized.
+	 */
 	private void initQuartz()
 	{
 		String quartzPath = getInitParameter("quartzPath");

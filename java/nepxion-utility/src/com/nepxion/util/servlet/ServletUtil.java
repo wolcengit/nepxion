@@ -17,6 +17,13 @@ import javax.servlet.http.HttpServletRequest;
 public class ServletUtil
 	implements ServletConstants
 {
+	/**
+	 * Gets the date info for http request.
+	 * If it includes the password, the password won't be shown.
+	 * @param request the instance of HttpServletRequest
+	 * @param dataType the data type
+	 * @return the data info string
+	 */
 	public static String getDataInfo(HttpServletRequest request, String dataType)
 	{
 		StringBuffer stringBuffer = new StringBuffer();

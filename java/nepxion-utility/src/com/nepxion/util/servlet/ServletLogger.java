@@ -21,12 +21,24 @@ public class ServletLogger
 {
 	private static Log log = LogFactory.getLog(ServletLogger.class);
 	
+	/**
+	 * Prints the http request info.
+	 * @param method the method  
+	 * @param dataType the data type
+	 * @param request the instance of HttpServletRequest
+	 */
 	public static void requestInfo(String method, String dataType, HttpServletRequest request)
 	{
 		String dataInfo = ServletUtil.getDataInfo(request, dataType);
 		requestInfo(method, dataType, dataInfo);
 	}
 	
+	/**
+	 * Prints the http request info.
+	 * @param method the method  
+	 * @param dataType the data type
+	 * @param dataInfo the data info object
+	 */
 	public static void requestInfo(String method, String dataType, Object dataInfo)
 	{
 		log.info("--------- Http Server Invoker Start ---------");
@@ -36,6 +48,13 @@ public class ServletLogger
 		log.info("---------- Http Server Invoker End ----------");
 	}
 	
+	/**
+	 * Prints the string of object.
+	 * If the object is instance of List and its size is more than 10, it will be print as
+	 * "List (Class:the className, Size:the size)".
+	 * @param dataInfo the data info object
+	 * @return the data info string
+	 */
 	public static String paser(Object dataInfo)
 	{
 		if (dataInfo instanceof List)

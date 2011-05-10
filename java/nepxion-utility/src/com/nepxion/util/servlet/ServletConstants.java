@@ -15,9 +15,23 @@ import java.io.Serializable;
 public interface ServletConstants
 	extends Serializable
 {
+	/**
+	 * The Parameter string.
+	 */
 	public static final String PARAMETER = "Parameter";
+	
+	/**
+	 * The Attribute String.
+	 */
 	public static final String ATTRIBUTE = "Attribute";
 	
+	/**
+	 * The Get String.
+	 */
 	public static final String GET = "Get";
+	
+	/**
+	 * The Post String
+	 */
 	public static final String POST = "Post";
 }
