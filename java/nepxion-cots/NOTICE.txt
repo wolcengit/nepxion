@@ -1,5 +1,5 @@
-Nepxion Cots
-Copyright 1999-2012 The Nepxion Studio
+Nepxion Cots 
+Copyright 1999-2012 The Nepxion Studio 
 
-This product includes software developed at
+This product includes software developed at 
 The Nepxion Studio (http://code.google.com/p/nepxion/).
