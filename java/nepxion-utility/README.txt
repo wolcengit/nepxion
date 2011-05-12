@@ -1,13 +1,13 @@
 File list
 ===================
-  * [doc]        the api document
-  * [lib]        the binary library
-  * [locale]     the i18n file for en_US and zh_CN
-  * [reference]  the MANIFEST.MF packed into the built binary
-  * [src]        the source code
-  * [.classpath] the eclipse classpath file
-  * [.project]   the eclipse project file
-  * [build.xml]  the ant build file
+  * [doc]        api document
+  * [lib]        binary library
+  * [locale]     i18n file for en_US and zh_CN
+  * [reference]  MANIFEST.MF packed into the built binary
+  * [src]        source code
+  * [.classpath] eclipse classpath file
+  * [.project]   eclipse project file
+  * [build.xml]  ant build file
 
 Eclipse project
 ===================
