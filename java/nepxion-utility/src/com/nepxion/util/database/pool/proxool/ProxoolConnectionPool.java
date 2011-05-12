@@ -23,7 +23,7 @@ public class ProxoolConnectionPool
 	private static Log log = LogFactory.getLog(ProxoolConnectionPool.class);
 	
 	/**
-	 * Returns the default Connection.
+	 * Gets the default Connection.
 	 * If you want to get the default connection, the alias must be defined with DEFAULT_ALIAS.
 	 * @return the instance of Connection
 	 * @throws SQLException
@@ -37,7 +37,7 @@ public class ProxoolConnectionPool
 	}
 	
 	/**
-	 * Returns the connection by an alias.
+	 * Gets the connection by an alias.
 	 * A connection is corresponded to an alias, all of them can be defined in the config file of "proxool.properties".
 	 * The detail usage of configuration is referred to the proxool site
 	 * @param alias the alias string

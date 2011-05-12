@@ -18,24 +18,43 @@ import org.apache.log4j.PropertyConfigurator;
 public class LoggerContext
 	implements LoggerConstants
 {	
+	/**
+	 * Registers the logger by the default config file path.
+	 * @throws Exception
+	 */
 	public static void register()
 		throws Exception
 	{
 		register(CONFIG_FILE_PATH);
 	}
 	
+	/**
+	 * Registers the logger by a config file path.
+	 * @param filePath
+	 * @throws Exception
+	 */
 	public static void register(String filePath)
 		throws Exception
 	{		
 		PropertyConfigurator.configure(filePath);
 	}
 	
+	/**
+	 * Registers the logger by a properties object.
+	 * @param properties the instance of Properties
+	 * @throws Exception
+	 */
 	public static void register(Properties properties)
 		throws Exception
 	{
 		PropertyConfigurator.configure(properties);
 	}
 	
+	/**
+	 * Registers the logger by an url.
+	 * @param codeBase
+	 * @throws Exception
+	 */
 	public static void register(URL codeBase)
 		throws Exception
 	{

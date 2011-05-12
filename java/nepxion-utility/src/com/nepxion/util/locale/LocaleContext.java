@@ -15,22 +15,39 @@ import java.util.Locale;
 public class LocaleContext
 	implements LocaleConstants
 {
+	/**
+	 * Registers the locale.
+	 * @param locale the instance of Locale
+	 */
 	public static void registerLocale(Locale locale)
 	{
 		Locale.setDefault(locale);
 	}
 	
+	/**
+	 * Registers the locale by a language.
+	 * @param language the language value
+	 */
 	public static void registerLocale(String language)
 	{
 		Locale locale = getLocale(language);
 		Locale.setDefault(locale);
 	}
 	
+	/**
+	 * Gets the default locale.
+	 * @return the instance of Locale
+	 */
 	public static Locale getLocale()
 	{
 		return Locale.getDefault();
 	}
 	
+	/**
+	 * Gets the locale by a language.
+	 * @param language the language value
+	 * @return the instance of Locale
+	 */
 	public static Locale getLocale(String language)
 	{
 		for (int i = 0; i < LOCALE_LIST.length; i++)

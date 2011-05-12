@@ -12,5 +12,8 @@ package com.nepxion.util.log;
 
 public interface LoggerConstants
 {
+	/**
+	 * The path for config file of "log4j.properties".
+	 */
 	public static final String CONFIG_FILE_PATH = "conf/log4j.properties";
 }

@@ -24,6 +24,11 @@ import com.nepxion.util.scheduler.quartz.QuartzContext;
 public class ContextServlet
 	extends HttpServlet
 {
+	/**
+	 * Initializes the servlet context.
+	 * It is overridden from HttpServlet
+	 * @param config the instance of ServletConfig
+	 */
 	public void init(ServletConfig config)
 		throws ServletException
 	{
@@ -35,7 +40,7 @@ public class ContextServlet
 	}
 	
 	/**
-	 * Initializes Logger context.
+	 * Initializes the logger context.
 	 * If the logger path isn't configured in web.xml in the web server, the logger context won't be initialized.
 	 */
 	private void initLogger()
@@ -77,7 +82,7 @@ public class ContextServlet
 	}
 	
 	/**
-	 * Initializes the service Logger context.
+	 * Initializes the service logger context.
 	 * If it is overridden by the child class, the method will be executed. 
 	 * @param properties the instance of Properties.It will be registered to LoggerContext 
 	 * @param loggerPath the logger file path.It is configured in web.xml in the web server
@@ -88,7 +93,7 @@ public class ContextServlet
 	}
 	
 	/**
-	 * Initializes Proxool context.
+	 * Initializes the proxool context.
 	 * If the Proxool path isn't configured in web.xml in the web server, the Proxool context won't be initialized.
 	 */
 	private void initProxool()
@@ -109,8 +114,8 @@ public class ContextServlet
 	}
 	
 	/**
-	 * Initializes Quartz context.
-	 * If the Quartz path isn't configured in web.xml in the web server, the Quartz context won't be initialized.
+	 * Initializes the quartz context.
+	 * If the quartz path isn't configured in web.xml in the web server, the quartz context won't be initialized.
 	 */
 	private void initQuartz()
 	{
