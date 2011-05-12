@@ -42,7 +42,7 @@ public class TimeUtil
 	}
 	
 	/**
-	 * Gets the current day
+	 * Gets the current day.
 	 * @return the current day
 	 */
 	public static int getCurrentDay()
@@ -607,9 +607,9 @@ public class TimeUtil
 	
 	/**
 	 * Gets the millisecond time array.
-	 * @param timeString  the time string.Its format is example "day, hour, minute ,second, milliSecond"
-	 * @param delimiter   the time delimiter, example ", "
-	 * @return            the millisecond time array
+	 * @param timeString the time string.Its format is example "day, hour, minute ,second, milliSecond"
+	 * @param delimiter the time delimiter, example ", "
+	 * @return the millisecond time array
 	 */
 	public static int[] parseMillisecondTimeArray(String timeString, String delimiter)
 	{
@@ -764,7 +764,7 @@ public class TimeUtil
 	 * Gets the date time string by a format string.
 	 * @param date the instance of Date
 	 * @param formatString the format string
-	 * @return  the date time string
+	 * @return the date time string
 	 */
 	public static String getDateTimeString(Date date, String formatString)
 	{

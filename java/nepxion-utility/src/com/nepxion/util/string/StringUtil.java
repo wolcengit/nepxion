@@ -328,6 +328,11 @@ public class StringUtil
 		return doubleArray;
 	}
 	
+	/**
+	 * Parses to the two-dimensional double array by a text.
+	 * @param text the text value
+	 * @return the two-dimensional double array
+	 */
 	public static double[][] parseDouble2Array(String text)
 	{
 		text = StringUtils.deleteWhitespace(text);

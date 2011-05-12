@@ -33,7 +33,7 @@ public class Dom4JWriter
 	}
 	
 	/**
-	 * Get the xml text by a document.
+	 * Gets the xml text by a document.
 	 * The charset is registered in EncoderContext.
 	 * @param document the instanceof Document
 	 * @return the xml text value
@@ -47,7 +47,7 @@ public class Dom4JWriter
 	}
 	
 	/**
-	 * Get the xml text with a document and charset.
+	 * Gets the xml text with a document and charset.
 	 * @param document the instanceof Document.
 	 * @param charset the charset value
 	 * @return the xml text value

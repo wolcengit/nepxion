@@ -37,7 +37,7 @@ public class ProxoolContext
 	
 	/**
 	 * Registers the proxool by a config file path.
-	 * @param filePath the config file path 
+	 * @param filePath the config file path
 	 * @throws ProxoolException
 	 */
 	public static void register(String filePath)

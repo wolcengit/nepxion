@@ -18,17 +18,30 @@ import org.quartz.impl.StdSchedulerFactory;
 public class QuartzSchedulerFactory
 	extends StdSchedulerFactory
 {
+	/**
+	 * Constructs with the default.
+	 */
 	public QuartzSchedulerFactory()
 	{
 		super();
 	}
 	
+	/**
+	 * Constructs with the specified initial file path.
+	 * @param filePath the file path
+	 * @throws SchedulerException
+	 */
 	public QuartzSchedulerFactory(String filePath)
 		throws SchedulerException
 	{
 		super(filePath);
 	}
 	
+	/**
+	 * Constructs with the specified initial properties.
+	 * @param properties the instance of Properties
+	 * @throws SchedulerException
+	 */
 	public QuartzSchedulerFactory(Properties properties)
 		throws SchedulerException
 	{

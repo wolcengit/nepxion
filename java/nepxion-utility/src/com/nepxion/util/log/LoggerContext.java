@@ -30,7 +30,7 @@ public class LoggerContext
 	
 	/**
 	 * Registers the logger by a config file path.
-	 * @param filePath
+	 * @param filePath the config file path 
 	 * @throws Exception
 	 */
 	public static void register(String filePath)
@@ -52,7 +52,7 @@ public class LoggerContext
 	
 	/**
 	 * Registers the logger by an url.
-	 * @param codeBase
+	 * @param codeBase the instance of URL
 	 * @throws Exception
 	 */
 	public static void register(URL codeBase)

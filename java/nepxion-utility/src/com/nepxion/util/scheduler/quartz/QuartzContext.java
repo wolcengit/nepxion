@@ -26,12 +26,21 @@ public class QuartzContext
 	private static QuartzSchedulerFactory factory;
 	private static Scheduler scheduler;
 	
+	/**
+	 * Registers the quartz scheduler by the default config file path.
+	 * @throws SchedulerException
+	 */
 	public static void register()
 		throws SchedulerException
 	{
 		register(CONFIG_FILE_PATH);
 	}
 	
+	/**
+	 * Registers the quartz scheduler by a config file path.
+	 * @param filePath the config file path
+	 * @throws SchedulerException
+	 */
 	public static void register(String filePath)
 		throws SchedulerException
 	{
@@ -54,6 +63,11 @@ public class QuartzContext
 		log.info("---- Quartz Scheduler Initialization End ----");
 	}
 	
+	/**
+	 * Registers the quartz scheduler by a properties object.
+	 * @param properties the instance of Properties
+	 * @throws SchedulerException
+	 */
 	public static void register(Properties properties)
 		throws SchedulerException
 	{
@@ -76,6 +90,11 @@ public class QuartzContext
 		log.info("---- Quartz Scheduler Initialization End ----");
 	}
 	
+	/**
+	 * Registers the quartz scheduler by an url.
+	 * @param codeBase the instance of URL
+	 * @throws Exception
+	 */
 	public static void register(URL codeBase)
 		throws Exception
 	{
@@ -95,11 +114,19 @@ public class QuartzContext
 		}
 	}
 	
+	/**
+	 * Gets the quartz scheduler factory object.
+	 * @return the instance of QuartzSchedulerFactory
+	 */
 	public static QuartzSchedulerFactory getFactory()
 	{
 		return factory;
 	}
 	
+	/**
+	 * Gets the quartz scheduler object.
+	 * @return the instance of Scheduler
+	 */
 	public static Scheduler getScheduler()
 	{
 		return scheduler;
