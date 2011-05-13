@@ -14,16 +14,39 @@ import java.net.URI;
 
 public interface IClientRequest
 	extends HttpConstants
-{					
+{			
+	/**
+	 * Gets the http config object.
+	 * @return the instance of HttpConfig
+	 */
 	public HttpConfig getHttpConfig();
 	
+	/**
+	 * Sets the http config object.
+	 * @param httpConfig the instance of HttpConfig
+	 */
 	public void setHttpConfig(HttpConfig httpConfig);
 	
+	/**
+	 * Gets the uri object.
+	 * @return the instance of URI
+	 */
 	public URI getURI();
 	
+	/**
+	 * Sets the uri object.
+	 * @param uri the instance of URI
+	 */
 	public void setURI(URI uri);
 	
+	/**
+	 * Gets the url parameter.
+	 * @return the url parameter
+	 */
 	public String getURLParameter();
 	
+	/**
+	 * Aborts the invoker.
+	 */
 	public void abort();
 }

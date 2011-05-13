@@ -20,6 +20,10 @@ public class HttpLogger
 {
 	private static Log log = LogFactory.getLog(HttpLogger.class);
 	
+	/**
+	 * Prints the http logger info.
+	 * @param httpConfigMap the instance of LinkedHashMap
+	 */
 	public static void info(LinkedHashMap httpConfigMap)
 	{
 		int index = 0;

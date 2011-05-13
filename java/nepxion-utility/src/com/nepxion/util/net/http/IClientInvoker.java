@@ -12,7 +12,13 @@ package com.nepxion.util.net.http;
 
 public interface IClientInvoker
 	extends HttpConstants
-{		
-	public Object invoke(IClientRequest clientRequest) 
+{
+	/**
+	 * Invokes the web server to get the serializable object.
+	 * @param clientRequest the instance of IClientRequest
+	 * @return the serializable object
+	 * @throws Exception
+	 */
+	public Object invoke(IClientRequest clientRequest)
 		throws Exception;
 }
