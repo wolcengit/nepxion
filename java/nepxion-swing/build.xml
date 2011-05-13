@@ -6,7 +6,7 @@
 	<property name="class" value="class"/>
 	<property name="jar" value="nepxion-swing.jar"/>
 	<property name="manifest" value="reference/MANIFEST.MF"/>
-	<property name="dependence.path" value="../nepxion-utility/lib"/>
+	<property name="dependence.util.path" value="../nepxion-utility/lib"/>
 	<property name="release.path" value="lib"/>
 	<property name="release.application.path" value="../nepxion-swing-demo/release/application"/>
 	<property name="release.applet.path" value="../nepxion-swing-demo/release/applet"/>
@@ -16,7 +16,7 @@
 	<property name="storepass" value="888888"/>
 	
 	<path id="classpath">
-		<fileset dir="${dependence.path}">
+		<fileset dir="${dependence.util.path}">
 			<include name="*.jar"/>
 		</fileset>
 		<fileset dir="${release.path}">
