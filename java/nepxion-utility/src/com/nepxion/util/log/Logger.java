@@ -17,7 +17,7 @@ public class Logger
 {		
 	/**
 	 * Prints the log info with the currently time.
-	 * @param message the message value
+	 * @param message the message object
 	 */
 	public static void print(Object message)
 	{

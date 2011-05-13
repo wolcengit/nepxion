@@ -25,7 +25,7 @@ public class QuartzJobDetail
 	
 	/**
 	 * Constructs with the specified initial name and job class.
-	 * @param name the name value
+	 * @param name the name string
 	 * @param jobClass the job class
 	 */
 	public QuartzJobDetail(String name, Class jobClass)
@@ -35,8 +35,8 @@ public class QuartzJobDetail
 	
 	/**
 	 * Constructs with the specified initial name, group and job class.
-	 * @param name the name value
-	 * @param group the group value
+	 * @param name the name string
+	 * @param group the group string
 	 * @param jobClass the job class
 	 */
 	public QuartzJobDetail(String name, String group, Class jobClass)
@@ -46,8 +46,8 @@ public class QuartzJobDetail
 	
 	/**
 	 * Constructs with the specified initial name, group, job class, volatility, durability and recover.
-	 * @param name the name value
-	 * @param group the group value
+	 * @param name the name string
+	 * @param group the group string
 	 * @param jobClass the job class
 	 * @param volatility the boolean value
 	 * @param durability the boolean value

@@ -33,10 +33,10 @@ public class Dom4JWriter
 	}
 	
 	/**
-	 * Gets the xml text by a document.
+	 * Gets the xml string by a document.
 	 * The charset is registered in EncoderContext.
 	 * @param document the instanceof Document
-	 * @return the xml text value
+	 * @return the xml string string
 	 * @throws IOException
 	 * @throws UnsupportedEncodingException
 	 */
@@ -47,10 +47,10 @@ public class Dom4JWriter
 	}
 	
 	/**
-	 * Gets the xml text with a document and charset.
+	 * Gets the xml string with a document and charset.
 	 * @param document the instanceof Document.
-	 * @param charset the charset value
-	 * @return the xml text value
+	 * @param charset the charset string
+	 * @return the xml string string
 	 * @throws IOException
 	 * @throws UnsupportedEncodingException
 	 */

@@ -21,10 +21,10 @@ public class LocaleManager
 	private static Map resourceBundleMap;
 	
 	/**
-	 * Gets the locale string by a bundle class and key.
+	 * Gets the i18n string by a bundle class and key.
 	 * @param bundleClazz the bundle class
-	 * @param key the key value
-	 * @return the locale string
+	 * @param key the key string
+	 * @return the i18n string
 	 */
 	public static String getString(Class bundleClazz, String key)
 	{
@@ -34,11 +34,11 @@ public class LocaleManager
 	}
 	
 	/**
-	 * Gets the locale string with the given locale by a bundle class, key.
+	 * Gets the i18n string with the given locale by a bundle class, key.
 	 * @param bundleClazz the bundle class
-	 * @param key the key value
+	 * @param key the key string
 	 * @param locale the instance of Locale
-	 * @return the locale string
+	 * @return the i18n string
 	 */
 	public static String getString(Class bundleClazz, String key, Locale locale)
 	{
@@ -48,10 +48,10 @@ public class LocaleManager
 	}
 	
 	/**
-	 * Gets the locale string by a bundle name and key.
+	 * Gets the i18n string by a bundle name and key.
 	 * @param bundleClazz the bundle class
-	 * @param key the key value
-	 * @return the locale string
+	 * @param key the key string
+	 * @return the i18n string
 	 */
 	public static String getString(String bundleName, String key)
 	{
@@ -61,11 +61,11 @@ public class LocaleManager
 	}
 	
 	/**
-	 * Gets the locale string with the given locale by a bundle name and key.
+	 * Gets the i18n string with the given locale by a bundle name and key.
 	 * @param bundleName the bundle name
-	 * @param key the key value
+	 * @param key the key string
 	 * @param locale the instance of Locale
-	 * @return the locale string
+	 * @return the i18n string
 	 */
 	public static String getString(String bundleName, String key, Locale locale)
 	{
@@ -143,7 +143,7 @@ public class LocaleManager
 	/**
 	 * Gets the bundle name by a bundle class.
 	 * @param bundleClazz the bundle class
-	 * @return the bundle name
+	 * @return the bundle name string
 	 */
 	public static String getBundleName(Class bundleClazz)
 	{

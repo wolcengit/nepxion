@@ -20,8 +20,8 @@ public class EncryptionUtil
 {
 	/**
 	 * Encrypts the text with MD5.
-	 * @param text the text value
-	 * @return the encrypted text value
+	 * @param text the text string
+	 * @return the encrypted text string
 	 * @throws Exception
 	 */
 	public static String encryptMD5(String text)
@@ -32,9 +32,9 @@ public class EncryptionUtil
 	
 	/**
 	 * Encrypts the text by a charset with MD5.
-	 * @param text the text value
-	 * @param charset the charset value
-	 * @return the encrypted text value
+	 * @param text the text string
+	 * @param charset the charset string
+	 * @return the encrypted text string
 	 * @throws Exception
 	 * @see #encrypt
 	 */
@@ -46,8 +46,8 @@ public class EncryptionUtil
 	
 	/**
 	 * Encrypts the text with SHA.
-	 * @param text the text value
-	 * @return the encrypted text value
+	 * @param text the text string
+	 * @return the encrypted text string
 	 * @throws Exception
 	 */
 	public static String encryptSHA(String text)
@@ -58,9 +58,9 @@ public class EncryptionUtil
 	
 	/**
 	 * Encrypts the text by a charset with SHA.
-	 * @param text the text value
-	 * @param charset the charset value
-	 * @return the encrypted text value
+	 * @param text the text string
+	 * @param charset the charset string
+	 * @return the encrypted text string
 	 * @throws Exception
 	 * @see #encrypt
 	 */
@@ -72,8 +72,8 @@ public class EncryptionUtil
 	
 	/**
 	 * Encrypts the text with SHA_256.
-	 * @param text the text value
-	 * @return the encrypted text value
+	 * @param text the text string
+	 * @return the encrypted text string
 	 * @throws Exception
 	 */
 	public static String encryptSHA256(String text)
@@ -84,9 +84,9 @@ public class EncryptionUtil
 	
 	/**
 	 * Encrypts the text by a charset with SHA_256.
-	 * @param text the text value
-	 * @param charset the charset value
-	 * @return the encrypted text value
+	 * @param text the text string
+	 * @param charset the charset string
+	 * @return the encrypted text string
 	 * @throws Exception
 	 * @see #encrypt
 	 */
@@ -98,8 +98,8 @@ public class EncryptionUtil
 	
 	/**
 	 * Encrypts the text with SHA_512.
-	 * @param text the text value
-	 * @return the encrypted text value
+	 * @param text the text string
+	 * @return the encrypted text string
 	 * @throws Exception
 	 */
 	public static String encryptSHA512(String text)
@@ -110,9 +110,9 @@ public class EncryptionUtil
 	
 	/**
 	 * Encrypts the text by a charset with SHA_512.
-	 * @param text the text value
-	 * @param charset the charset value
-	 * @return the encrypted text value
+	 * @param text the text string
+	 * @param charset the charset string
+	 * @return the encrypted text string
 	 * @throws Exception
 	 * @see #encrypt
 	 */
@@ -124,9 +124,9 @@ public class EncryptionUtil
 	
 	/**
 	 * Encrypts the text by an algorithm and UTF-8 charset.
-	 * @param text the text value
+	 * @param text the text string
 	 * @param algorithm the algorithm value
-	 * @return the encrypted text value
+	 * @return the encrypted text string
 	 * @throws Exception
 	 */
 	public static String encrypt(String text, String algorithm)
@@ -137,10 +137,10 @@ public class EncryptionUtil
 	
 	/**
 	 * Encrypts the text by an algorithm and charset.
-	 * @param text the text value
+	 * @param text the text string
 	 * @param algorithm the algorithm value
-	 * @param charset the charset value
-	 * @return the encrypted text value
+	 * @param charset the charset string
+	 * @return the encrypted text string
 	 * @throws Exception
 	 */
 	public static String encrypt(String text, String algorithm, String charset)
@@ -155,7 +155,7 @@ public class EncryptionUtil
 	/**
 	 * Encrypts the byte array with BASE64.
 	 * @param bytes the byte array
-	 * @return the encrypted text value
+	 * @return the encrypted text string
 	 * @throws Exception
 	 */
 	public static String encryptBASE64(byte[] bytes)
@@ -168,7 +168,7 @@ public class EncryptionUtil
 	
 	/**
 	 * Decrypts the text with BASE64.
-	 * @param text the text value
+	 * @param text the text string
 	 * @return the decrypted byte array
 	 * @throws Exception
 	 */

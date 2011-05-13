@@ -20,7 +20,7 @@ public class StringUtil
 {
 	/**
 	 * Parses to the int array by a text.
-	 * @param text the text value
+	 * @param text the text string
 	 * @return the int array
 	 */
 	public static int[] parseIntArray(String text)
@@ -40,7 +40,7 @@ public class StringUtil
 	
 	/**
 	 * Parses to the two-dimensional int array by a text.
-	 * @param text the text value
+	 * @param text the text string
 	 * @return the two-dimensional int array
 	 */
 	public static int[][] parseInt2Array(String text)
@@ -78,7 +78,7 @@ public class StringUtil
 	
 	/**
 	 * Parses to the byte array by a text.
-	 * @param text the text value
+	 * @param text the text string
 	 * @return the byte array
 	 */
 	public static byte[] parseByteArray(String text)
@@ -98,7 +98,7 @@ public class StringUtil
 	
 	/**
 	 * Parses to the two-dimensional byte array by a text.
-	 * @param text the text value
+	 * @param text the text string
 	 * @return the two-dimensional byte array
 	 */
 	public static byte[][] parseByte2Array(String text)
@@ -136,7 +136,7 @@ public class StringUtil
 	
 	/**
 	 * Parses to the short array by a text.
-	 * @param text the text value
+	 * @param text the text string
 	 * @return the short array
 	 */
 	public static short[] parseShortArray(String text)
@@ -156,7 +156,7 @@ public class StringUtil
 	
 	/**
 	 * Parses to the two-dimensional short array by a text.
-	 * @param text the text value
+	 * @param text the text string
 	 * @return the two-dimensional short array
 	 */
 	public static short[][] parseShort2Array(String text)
@@ -194,7 +194,7 @@ public class StringUtil
 	
 	/**
 	 * Parses to the long array by a text.
-	 * @param text the text value
+	 * @param text the text string
 	 * @return the long array
 	 */
 	public static long[] parseLongArray(String text)
@@ -214,7 +214,7 @@ public class StringUtil
 	
 	/**
 	 * Parses to the two-dimensional long array by a text.
-	 * @param text the text value
+	 * @param text the text string
 	 * @return the two-dimensional long array
 	 */
 	public static long[][] parseLong2Array(String text)
@@ -252,7 +252,7 @@ public class StringUtil
 	
 	/**
 	 * Parses to the float array by a text.
-	 * @param text the text value
+	 * @param text the text string
 	 * @return the float array
 	 */
 	public static float[] parseFloatArray(String text)
@@ -272,7 +272,7 @@ public class StringUtil
 	
 	/**
 	 * Parses to the two-dimensional float array by a text.
-	 * @param text the text value
+	 * @param text the text string
 	 * @return the two-dimensional float array
 	 */
 	public static float[][] parseFloat2Array(String text)
@@ -310,7 +310,7 @@ public class StringUtil
 	
 	/**
 	 * Parses to the double array by a text.
-	 * @param text the text value
+	 * @param text the text string
 	 * @return the double array
 	 */
 	public static double[] parseDoubleArray(String text)
@@ -330,7 +330,7 @@ public class StringUtil
 	
 	/**
 	 * Parses to the two-dimensional double array by a text.
-	 * @param text the text value
+	 * @param text the text string
 	 * @return the two-dimensional double array
 	 */
 	public static double[][] parseDouble2Array(String text)

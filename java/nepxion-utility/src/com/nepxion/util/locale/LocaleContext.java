@@ -26,7 +26,7 @@ public class LocaleContext
 	
 	/**
 	 * Registers the locale by a language.
-	 * @param language the language value
+	 * @param language the language string
 	 */
 	public static void registerLocale(String language)
 	{
@@ -45,7 +45,7 @@ public class LocaleContext
 	
 	/**
 	 * Gets the locale by a language.
-	 * @param language the language value
+	 * @param language the language string
 	 * @return the instance of Locale
 	 */
 	public static Locale getLocale(String language)

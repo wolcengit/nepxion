@@ -124,7 +124,7 @@ public class IOUtil
 	
 	/**
 	 * Gets the inputStream by a text.
-	 * @param text the text value
+	 * @param text the text string
 	 * @return the instance of ByteArrayInputStream
 	 */
 	public static ByteArrayInputStream getInputStream(String text)
@@ -138,7 +138,7 @@ public class IOUtil
 	 * Gets the text by an inputStream.
 	 * The charset is registered in EncoderContext.
 	 * @param inputStream the instance of InputStream
-	 * @return the text value
+	 * @return the text string
 	 * @throws IOException
 	 * @throws UnsupportedEncodingException
 	 */
@@ -151,8 +151,8 @@ public class IOUtil
 	/**
 	 * Gets the text by an inputStream with the charset formatted.
 	 * @param inputStream the instance of InputStream
-	 * @param charset the charset value
-	 * @return the text value
+	 * @param charset the charset string
+	 * @return the text string
 	 * @throws IOException
 	 * @throws UnsupportedEncodingException
 	 */
@@ -179,7 +179,7 @@ public class IOUtil
 	 * Reads the text from an inputStream.
 	 * The charset is registered in EncoderContext.
 	 * @param inputStream the instance of InputStream
-	 * @return the text value
+	 * @return the text string
 	 * @throws IOException
 	 * @throws UnsupportedEncodingException
 	 */
@@ -192,8 +192,8 @@ public class IOUtil
 	/**
 	 * Reads the text from an inputStream with the charset formatted.
 	 * @param inputStream the instance of InputStream
-	 * @param charset the charset value
-	 * @return the text value
+	 * @param charset the charset string
+	 * @return the text string
 	 * @throws IOException
 	 * @throws UnsupportedEncodingException
 	 */

@@ -31,8 +31,8 @@ import com.nepxion.util.encoder.EncoderUtil;
 public class Dom4JReader
 {
 	/**
-	 * Gets the document by a xml text.
-	 * @param text the xml text value
+	 * Gets the document by a xml string.
+	 * @param text the xml string string
 	 * @return the instance of Document
 	 * @throws DocumentException
 	 */
@@ -43,9 +43,9 @@ public class Dom4JReader
 	}
 		
 	/**
-	 * Gets the document by a xml text and charset.
+	 * Gets the document by a xml string and charset.
 	 * The charset is registered in EncoderContext.
-	 * @param text the xml text value
+	 * @param text the xml string string
 	 * @return the instance of Document
 	 * @throws DocumentException
 	 * @throws UnsupportedEncodingException
@@ -57,9 +57,9 @@ public class Dom4JReader
 	}
 	
 	/**
-	 * Gets the document by a xml text and charset.
-	 * @param text the xml text value
-	 * @param charset the charset value
+	 * Gets the document by a xml string and charset.
+	 * @param text the xml string string
+	 * @param charset the charset string
 	 * @return the instance of Document
 	 * @throws DocumentException
 	 * @throws UnsupportedEncodingException
@@ -105,7 +105,7 @@ public class Dom4JReader
 	/**
 	 * Gets the document by a file and charset.
 	 * @param file the instance of File
-	 * @param charset the charset value
+	 * @param charset the charset string
 	 * @return the instance of Document
 	 * @throws DocumentException
 	 * @throws FileNotFoundException 
@@ -149,7 +149,7 @@ public class Dom4JReader
 	/**
 	 * Gets the document by an inputSource and charset.
 	 * @param inputSource the instance of InputSource
-	 * @param charset the charset value
+	 * @param charset the charset string
 	 * @return the instance of Document
 	 * @throws DocumentException
 	 */
@@ -192,7 +192,7 @@ public class Dom4JReader
 	/**
 	 * Gets the document by an inputStream and charset.
 	 * @param inputStream the instance of InputStream
-	 * @param charset the charset value
+	 * @param charset the charset string
 	 * @return the instance of Document
 	 * @throws DocumentException
 	 * @throws UnsupportedEncodingException 

@@ -44,7 +44,7 @@ public class ApplicationUtil
 	
 	/**
 	 * Calls the application of Windows or Unix platform.
-	 * @param url the url value
+	 * @param url the url string
 	 * @throws Exception
 	 */
 	public static void callApplication(String url)
@@ -78,7 +78,7 @@ public class ApplicationUtil
 	
 	/**
 	 * Calls the Internet Explorer of Windows platform.
-	 * @param url the url value
+	 * @param url the url string
 	 * @throws Exception
 	 */
 	public static void callInternetExplorer(String url)

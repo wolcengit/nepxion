@@ -16,8 +16,8 @@ public class EncoderUtil
 {
 	/**
 	 * Formats the text with GB2312 charset.
-	 * @param text the text value
-	 * @return the formatted text value
+	 * @param text the text string
+	 * @return the formatted text string
 	 * @throws UnsupportedEncodingException
 	 * @see #format
 	 */
@@ -29,8 +29,8 @@ public class EncoderUtil
 	
 	/**
 	 * Formats the text with GBK charset.
-	 * @param text the text value
-	 * @return the formatted text value
+	 * @param text the text string
+	 * @return the formatted text string
 	 * @throws UnsupportedEncodingException
 	 * @see #format
 	 */
@@ -42,8 +42,8 @@ public class EncoderUtil
 	
 	/**
 	 * Formats the text with UTF-8 charset.
-	 * @param text the text value
-	 * @return the formatted text value
+	 * @param text the text string
+	 * @return the formatted text string
 	 * @throws UnsupportedEncodingException
 	 * @see #format
 	 */
@@ -56,9 +56,9 @@ public class EncoderUtil
 	/**
 	 * Formats the text by a charset.
 	 * The original charset is ISO-8859-1.
-	 * @param text the text value
+	 * @param text the text string
 	 * @param transferCharset the transfer charset
-	 * @return the formatted text value
+	 * @return the formatted text string
 	 * @throws UnsupportedEncodingException
 	 */
 	public static String format(String text, String transferCharset)
@@ -69,10 +69,10 @@ public class EncoderUtil
 	
 	/**
 	 * Formats the text by a charset.
-	 * @param text the text value
+	 * @param text the text string
 	 * @param originCharset the origin charset
 	 * @param transferCharset the transfer charset
-	 * @return the formatted text value
+	 * @return the formatted text string
 	 * @throws UnsupportedEncodingException
 	 */
 	public static String format(String text, String originCharset, String transferCharset)

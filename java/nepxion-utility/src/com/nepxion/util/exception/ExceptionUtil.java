@@ -20,7 +20,7 @@ public class ExceptionUtil
 	 * SubString for the exception.
 	 * It only gets the part after first colon of the exception string.
 	 * @param e the instance of Exception
-	 * @return the text value
+	 * @return the text string
 	 */
 	public static String subString(Exception e)
 	{
@@ -38,7 +38,7 @@ public class ExceptionUtil
 	/**
 	 * Gets the text for an exception.
 	 * @param e the instance of Exception
-	 * @return the text value
+	 * @return the text string
 	 */
 	public static String getText(Exception e)
 	{

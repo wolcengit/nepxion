@@ -24,9 +24,9 @@ public class UtilityLocale
 	public static final Class BUNDLE_CLASS = UtilityLocale.class;
 	
 	/**
-	 * Gets the i18n value by a key.
-	 * @param key the key value.
-	 * @return the i18n value
+	 * Gets the i18n string by a key.
+	 * @param key the key string.
+	 * @return the i18n string
 	 */
 	public static String getString(String key)
 	{
@@ -34,9 +34,9 @@ public class UtilityLocale
 	}
 	
 	/**
-	 * Gets the i18n value withe the given locale by a key.
-	 * @param key the key value.
-	 * @return the i18n value
+	 * Gets the i18n string withe the given locale by a key.
+	 * @param key the key string.
+	 * @return the i18n string
 	 */
 	public static String getString(String key, Locale locale)
 	{

@@ -27,7 +27,7 @@ public class EncoderContext
 	
 	/**
 	 * Registers the io charset.
-	 * @param customIOCharset the io charset value
+	 * @param customIOCharset the io charset string
 	 */
 	public static void registerIOCharset(String customIOCharset)
 	{
@@ -36,7 +36,7 @@ public class EncoderContext
 	
 	/**
 	 * Gets the io charset.
-	 * @return the registered io charset value
+	 * @return the registered io charset string
 	 */
 	public static String getIOCharset()
 	{
@@ -45,7 +45,7 @@ public class EncoderContext
 	
 	/**
 	 * Registers the http charset.
-	 * @param customHttpCharset the http charset value
+	 * @param customHttpCharset the http charset string
 	 */
 	public static void registerHttpCharset(String customHttpCharset)
 	{
@@ -54,7 +54,7 @@ public class EncoderContext
 	
 	/**
 	 * Gets the http charset.
-	 * @return the registered http charset value
+	 * @return the registered http charset string
 	 */
 	public static String getHttpCharset()
 	{
