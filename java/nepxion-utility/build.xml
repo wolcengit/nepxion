@@ -5,6 +5,7 @@
 	<property name="class" value="class"/>
 	<property name="jar" value="nepxion-util.jar"/>
 	<property name="manifest" value="reference/MANIFEST.MF"/>
+	<property name="release.path" value="lib"/>
 	<property name="release.application.path" value="../nepxion-swing-demo/release/application"/>
 	<property name="release.applet.path" value="../nepxion-swing-demo/release/applet"/>
 	<property name="release.net.path" value="../nepxion-net-demo/WebContent/WEB-INF"/>
@@ -14,7 +15,7 @@
 	<property name="storepass" value="888888"/>
 	
 	<path id="classpath">
-		<fileset dir="${release.application.path}/lib/util">
+		<fileset dir="${release.path}">
 			<include name="*.jar"/>
 		</fileset>
 	</path>
@@ -35,7 +36,7 @@
 			<classpath refid="classpath"/>
 			<!-- compilerarg value="-Xlint:unchecked"/ -->
 		</javac>
-		<jar jarfile="lib/${jar}" manifest="${manifest}">
+		<jar jarfile="${release.path}/${jar}" manifest="${manifest}">
 			<fileset dir="${class}">
 				<include name="**/*.*"/>
 			</fileset>
@@ -48,17 +49,17 @@
   
 	<target name="deploy" depends="build">
 		<copy todir="${release.application.path}/lib" preservelastmodified="true">
-			<fileset dir="lib">
+			<fileset dir="${release.path}">
 				<include name="*${jar}"/>
 			</fileset>
 		</copy>	
 		<copy todir="${release.applet.path}/lib" preservelastmodified="true">
-			<fileset dir="lib">
+			<fileset dir="${release.path}">
 				<include name="*${jar}"/>
 			</fileset>
 		</copy>
 		<copy todir="${release.net.path}/lib" preservelastmodified="true">
-			<fileset dir="lib">
+			<fileset dir="${release.path}">
 				<include name="*${jar}"/>
 			</fileset>
 		</copy>		
@@ -70,7 +71,7 @@
 	</target>  
   
 	<target name="clean">
-		<delete file="lib/${jar}"/>
+		<delete file="${release.path}/${jar}"/>
 		<delete file="${release.application.path}/lib/${jar}"/>
 		<delete file="${release.applet.path}/lib/${jar}"/>
 		<delete file="${release.net.path}/lib/${jar}"/>
