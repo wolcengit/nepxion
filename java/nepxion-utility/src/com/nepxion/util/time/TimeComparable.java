@@ -15,7 +15,14 @@ import java.util.Date;
 public class TimeComparable
 	implements Comparable, TimeConstants
 {
+	/**
+	 * The date time.
+	 */
 	private Date dateTime;
+	
+	/**
+	 * The format string
+	 */
 	private String formatString;
 	
 	/**

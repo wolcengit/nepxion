@@ -17,6 +17,9 @@ import java.util.Map;
 
 public class FileContext
 {
+	/**
+	 * The file cache map.
+	 */
 	private static Map map = new HashMap();
 	
 	/**

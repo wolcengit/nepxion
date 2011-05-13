@@ -18,6 +18,9 @@ import java.util.ResourceBundle;
 public class LocaleManager
 	implements LocaleConstants
 {
+	/**
+	 * The resource bundle cache map.
+	 */
 	private static Map resourceBundleMap;
 	
 	/**

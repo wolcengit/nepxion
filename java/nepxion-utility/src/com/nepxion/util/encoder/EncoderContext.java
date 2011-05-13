@@ -14,13 +14,13 @@ public class EncoderContext
 	implements EncoderConstants
 {	
 	/**
-	 * The io charset.
+	 * The io charset string.
 	 * It is mainly used for getting the io-stream with the native file and object. 
 	 */
 	private static String ioCharset = DEFAULT_CHARSET;
 	
 	/**
-	 * The http charset.
+	 * The http charset string.
 	 * It is mainly used for getting the io-stream with the remote file and object. Currently it is only support http mode.
 	 */
 	private static String httpCharset = DEFAULT_CHARSET;
