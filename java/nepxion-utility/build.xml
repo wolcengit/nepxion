@@ -24,6 +24,7 @@
 		<echo message=""/>
 		<echo message="where options include:"/>
 		<echo message="build  - compile java source code and build with jar"/>
+		<echo message="deploy - build and deploy to demo release path"/>
 		<echo message="clean  - clean all deployments"/>		
 	</target>
 	
