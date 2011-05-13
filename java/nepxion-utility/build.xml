@@ -34,7 +34,7 @@
 			<classpath refid="classpath"/>
 			<!-- compilerarg value="-Xlint:unchecked"/ -->
 		</javac>
-  	<jar jarfile="${release.application.path}/lib/${jar}" manifest="${manifest}">
+		<jar jarfile="lib/${jar}" manifest="${manifest}">
 			<fileset dir="${class}">
 				<include name="**/*.*"/>
 			</fileset>
@@ -42,13 +42,22 @@
 				<include name="**/*.*"/>
 			</fileset>
 		</jar>
+		<delete dir="${class}"/>
+	</target>
+  
+	<target name="deploy" depends="build">
+		<copy todir="${release.application.path}/lib" preservelastmodified="true">
+			<fileset dir="lib">
+				<include name="*${jar}"/>
+			</fileset>
+		</copy>	
 		<copy todir="${release.applet.path}/lib" preservelastmodified="true">
-			<fileset dir="${release.application.path}/lib">
+			<fileset dir="lib">
 				<include name="*${jar}"/>
 			</fileset>
 		</copy>
 		<copy todir="${release.net.path}/lib" preservelastmodified="true">
-			<fileset dir="${release.application.path}/lib">
+			<fileset dir="lib">
 				<include name="*${jar}"/>
 			</fileset>
 		</copy>		
@@ -57,10 +66,10 @@
 				<include name="*${jar}"/>
 			</fileset>
 		</signjar>
-		<delete dir="${class}"/>
-  </target>
+	</target>  
   
 	<target name="clean">
+		<delete file="lib/${jar}"/>
 		<delete file="${release.application.path}/lib/${jar}"/>
 		<delete file="${release.applet.path}/lib/${jar}"/>
 		<delete file="${release.net.path}/lib/${jar}"/>
