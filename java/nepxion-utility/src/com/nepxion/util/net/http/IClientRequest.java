@@ -40,8 +40,8 @@ public interface IClientRequest
 	public void setURI(URI uri);
 	
 	/**
-	 * Gets the url parameter.
-	 * @return the url parameter
+	 * Gets the url parameter string.
+	 * @return the url parameter string
 	 */
 	public String getURLParameter();
 	

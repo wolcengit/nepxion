@@ -25,14 +25,26 @@ public class HttpContext
 {
 	private static Log log = LogFactory.getLog(HttpContext.class);
 	
+	/**
+	 * The instance of LinkedHashMap.
+	 */
 	private static LinkedHashMap httpConfigMap;
 	
+	/**
+	 * Registers the http config by the default config file path.
+	 * @throws Exception
+	 */
 	public static void register()
 		throws Exception
 	{
 		register(CONFIG_FILE_PATH);
 	}
 	
+	/**
+	 * Registers the http config by a config file path.
+	 * @param filePath the config file path
+	 * @throws Exception
+	 */
 	public static void register(String filePath)
 		throws Exception
 	{
@@ -58,6 +70,11 @@ public class HttpContext
 		log.info("------ Http Context Initialization End ------");
 	}
 	
+	/**
+	 * Registers the http config by a properties object.
+	 * @param properties the instance of Properties
+	 * @throws Exception
+	 */
 	public static void register(Properties properties)
 		throws Exception
 	{
@@ -77,6 +94,12 @@ public class HttpContext
 		log.info("------ Http Context Initialization End ------");
 	}
 	
+	/**
+	 * Registers the http config by an url.
+	 * @param codeBase the instance of URL
+	 * @param codeBase
+	 * @throws Exception
+	 */
 	public static void register(URL codeBase)
 		throws Exception
 	{
@@ -101,11 +124,20 @@ public class HttpContext
 		log.info("------ Http Context Initialization End ------");
 	}
 	
+	/**
+	 * Gets the default http config.
+	 * @return the instance of HttpConfig
+	 */
 	public static HttpConfig getDefaultHttpConfig()
 	{
 		return getHttpConfig(DEFAULT_ALIAS);
 	}
 	
+	/**
+	 * Gets the http config by an alias.
+	 * @param alias tha alias string
+	 * @return the instance of HttpConfig
+	 */
 	public static HttpConfig getHttpConfig(String alias)
 	{
 		HttpConfig httpConfig = (HttpConfig) httpConfigMap.get(alias);
@@ -117,12 +149,23 @@ public class HttpContext
 		return httpConfig;
 	}
 	
+	/**
+	 * Parses the properties to http config map.
+	 * @param properties the instance of Properties
+	 * @throws Exception
+	 */
 	private static void parseConfig(Properties properties)
 		throws Exception
 	{
 		parseConfig(properties, null);
 	}
 	
+	/**
+	 * Parse the properties to http config map with an url.
+	 * @param properties the instance of Properties
+	 * @param url the instance of URL
+	 * @throws Exception
+	 */
 	private static void parseConfig(Properties properties, URL url)
 		throws Exception
 	{
@@ -162,14 +205,20 @@ public class HttpContext
 		HttpLogger.info(httpConfigMap);
 	}
 	
-	private static HttpConfig createConfig(Properties configProperties, URL url)
+	/**
+	 * Creates the http config by a configProperties and url.
+	 * @param properties the instance of Properties
+	 * @param url the instance of URL
+	 * @return the instance of HttpConfig
+	 */
+	private static HttpConfig createConfig(Properties properties, URL url)
 	{
 		HttpConfig httpConfig = new HttpConfig();
 		
-		httpConfig.setAlias(configProperties.getProperty(ALIAS));
-		if (!configProperties.getProperty(HOST).equals(""))
+		httpConfig.setAlias(properties.getProperty(ALIAS));
+		if (!properties.getProperty(HOST).equals(""))
 		{
-			httpConfig.setHost(configProperties.getProperty(HOST));
+			httpConfig.setHost(properties.getProperty(HOST));
 		}
 		else
 		{
@@ -178,9 +227,9 @@ public class HttpContext
 				httpConfig.setHost(url.getHost());
 			}
 		}
-		if (!configProperties.getProperty(PORT).equals(""))
+		if (!properties.getProperty(PORT).equals(""))
 		{
-			httpConfig.setPort(Integer.parseInt(configProperties.getProperty(PORT)));
+			httpConfig.setPort(Integer.parseInt(properties.getProperty(PORT)));
 		}
 		else
 		{
@@ -189,11 +238,11 @@ public class HttpContext
 				httpConfig.setPort(url.getPort());
 			}
 		}
-		httpConfig.setPath(configProperties.getProperty(PATH));
+		httpConfig.setPath(properties.getProperty(PATH));
 		
-		httpConfig.setConnectionTimeOut(Integer.parseInt(configProperties.getProperty(CONNECTION_TIMEOUT)));
-		httpConfig.setResponseTimeOut(Integer.parseInt(configProperties.getProperty(RESPONSE_TIMEOUT)));
-		httpConfig.setBufferSize(Integer.parseInt(configProperties.getProperty(BUFFER_SIZE)));
+		httpConfig.setConnectionTimeOut(Integer.parseInt(properties.getProperty(CONNECTION_TIMEOUT)));
+		httpConfig.setResponseTimeOut(Integer.parseInt(properties.getProperty(RESPONSE_TIMEOUT)));
+		httpConfig.setBufferSize(Integer.parseInt(properties.getProperty(BUFFER_SIZE)));
 		
 		return httpConfig;
 	}
