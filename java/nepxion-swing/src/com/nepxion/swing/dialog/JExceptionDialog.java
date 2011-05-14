@@ -28,6 +28,7 @@ import javax.swing.JPanel;
 
 import com.nepxion.swing.button.JClassicButton;
 import com.nepxion.swing.dimension.DimensionManager;
+import com.nepxion.swing.handle.HandleManager;
 import com.nepxion.swing.icon.IconFactory;
 import com.nepxion.swing.keystroke.KeyStrokeManager;
 import com.nepxion.swing.layout.filed.FiledLayout;
@@ -69,6 +70,10 @@ public class JExceptionDialog
 			else if (owner instanceof Frame)
 			{
 				exceptionDialog = new JExceptionDialog((Frame) owner);
+			}
+			else
+			{
+				exceptionDialog = new JExceptionDialog(HandleManager.getFrame(owner));
 			}
 		}
 		if (exceptionDialog == null)

@@ -18,6 +18,7 @@ import com.nepxion.swing.action.JSecurityAction;
 import com.nepxion.swing.exception.ExceptionTracer;
 import com.nepxion.swing.framework.ribbon.IRibbonComponent;
 import com.nepxion.swing.framework.ribbon.JRibbonContainer;
+import com.nepxion.swing.handle.HandleManager;
 import com.nepxion.swing.locale.SwingLocale;
 
 public class JRibbonAction
@@ -30,7 +31,7 @@ public class JRibbonAction
 	private Icon ribbonIcon;
 	private String ribbonToolTipText;
 	
-	private Class ribbonComponentClass;
+	private String ribbonComponentClass;
 	private IRibbonComponent ribbonComponent;
 	
 	public JRibbonAction()
@@ -128,12 +129,12 @@ public class JRibbonAction
 		this.ribbonToolTipText = ribbonToolTipText;
 	}
 	
-	public Class getRibbonComponentClass()
+	public String getRibbonComponentClass()
 	{
 		return ribbonComponentClass;
 	}
 	
-	public void setRibbonComponentClass(Class ribbonComponentClass)
+	public void setRibbonComponentClass(String ribbonComponentClass)
 	{
 		this.ribbonComponentClass = ribbonComponentClass;
 	}
@@ -151,26 +152,32 @@ public class JRibbonAction
 	public void execute(ActionEvent e)
 	{		
 		if (ribbonComponent == null)
-		{
+		{			
 			try
 			{
-				ribbonComponent = (IRibbonComponent) ribbonComponentClass.newInstance();
+				ribbonComponent = (IRibbonComponent) Class.forName(ribbonComponentClass).newInstance();
 			}
 			catch (NullPointerException ex)
-			{
-				ExceptionTracer.traceException(ribbonContainer, SwingLocale.getString("component_initialization_failed") + " [" + ribbonComponentClass + "]", ex);
+			{				
+				ExceptionTracer.traceException(HandleManager.getFrame(ribbonContainer), SwingLocale.getString("component_initialization_failed") + " [" + ribbonComponentClass + "]", ex);
+			
+				ex.printStackTrace();
 				
 				return;
 			}
 			catch (ClassCastException ex)
 			{
-				ExceptionTracer.traceException(ribbonContainer, SwingLocale.getString("component_implementation_failed") + " " + IRibbonComponent.class.getSimpleName() + " [" + ribbonComponentClass + "]", ex);
+				ExceptionTracer.traceException(HandleManager.getFrame(ribbonContainer), SwingLocale.getString("component_implementation_failed") + " " + IRibbonComponent.class.getSimpleName() + " [" + ribbonComponentClass + "]", ex);
+				
+				ex.printStackTrace();
 				
 				return;
 			}
 			catch (Exception ex)
 			{
-				ExceptionTracer.traceException(ribbonContainer, SwingLocale.getString("component_instantiation_failed") + " [" + ribbonComponentClass + "]", ex);
+				ExceptionTracer.traceException(HandleManager.getFrame(ribbonContainer), SwingLocale.getString("component_instantiation_failed") + " [" + ribbonComponentClass + "]", ex);
+				
+				ex.printStackTrace();
 				
 				return;
 			}
