@@ -22,14 +22,28 @@ import com.nepxion.util.net.http.IClientRequest;
 public class ClientRequestGet
 	extends HttpGet implements IClientRequest
 {	
+	/**
+	 * The instance of HttpConfig.
+	 */
 	private HttpConfig httpConfig;
+	
+	/**
+	 * The url parameter string.
+	 */
 	private String urlParameter = "";
 	
+	/**
+	 * Constructs with the default.
+	 */
 	public ClientRequestGet()
 	{
 		super();
 	}
 	
+	/**
+	 * Constructs with the specified initial http config.
+	 * @param httpConfig the isntance of HttpConfig
+	 */
 	public ClientRequestGet(HttpConfig httpConfig)
 	{
 		super(httpConfig.toURI());
@@ -37,11 +51,19 @@ public class ClientRequestGet
 		this.httpConfig = httpConfig;
 	}
 	
+	/**
+	 * Gets the http config.
+	 * @return the instance of HttpConfig
+	 */
 	public HttpConfig getHttpConfig()
 	{
 		return httpConfig;
 	}
 
+	/**
+	 * Sets the http config.
+	 * @param httpConfig the instance of HttpConfig
+	 */
 	public void setHttpConfig(HttpConfig httpConfig)
 	{
 		this.httpConfig = httpConfig;
@@ -49,16 +71,30 @@ public class ClientRequestGet
 		setURI(httpConfig.toURI());
 	}	
 	
+	/**
+	 * Gets the url parameter.
+	 * @return the url parameter string
+	 */
 	public String getURLParameter()
 	{
 		return urlParameter;
 	}
 	
+	/**
+	 * Sets the parameter entity.
+	 * The charset is registered in EncoderContext.
+	 * @param parameterEntity the parameter entity
+	 */
 	public void setParameterEntity(List parameterEntity)
 	{
 		setParameterEntity(parameterEntity, EncoderContext.getHttpCharset());
 	}
 	
+	/**
+	 * Sets the parameter entity by a charset.
+	 * @param parameterEntity the parameter entity
+	 * @param charset the charset string
+	 */
 	public void setParameterEntity(List parameterEntity, String charset)
 	{		
 		ClientLogger.requestInfo(GET, charset, "List - [URL Parameter]", parameterEntity);

@@ -36,13 +36,23 @@ import com.nepxion.util.net.http.IClientRequest;
 public class ClientRequestPost
 	extends HttpPost implements IClientRequest
 {
+	/**
+	 * The instance of HttpConfig.
+	 */
 	private HttpConfig httpConfig;
 	
+	/**
+	 * Constructs with the default.
+	 */
 	public ClientRequestPost()
 	{
 		super();
 	}
 	
+	/**
+	 * Constructs with the specified initial httpConfig.
+	 * @param httpConfig the instance of HttpConfig
+	 */	
 	public ClientRequestPost(HttpConfig httpConfig)
 	{
 		super(httpConfig.toURI());
@@ -50,11 +60,19 @@ public class ClientRequestPost
 		this.httpConfig = httpConfig;
 	}
 	
+	/**
+	 * Gets the http config.
+	 * @return the instance of HttpConfig
+	 */
 	public HttpConfig getHttpConfig()
 	{
 		return httpConfig;
 	}
 
+	/**
+	 * Sets the http config.
+	 * @param httpConfig the instance of HttpConfig
+	 */
 	public void setHttpConfig(HttpConfig httpConfig)
 	{
 		this.httpConfig = httpConfig;
@@ -62,16 +80,32 @@ public class ClientRequestPost
 		setURI(httpConfig.toURI());
 	}
 	
+	/**
+	 * Gets the url parameter.
+	 * @return the url parameter string
+	 */
 	public String getURLParameter()
 	{
 		return "";
 	}	
 	
+	/**
+	 * Sets the parameter entity.
+	 * The charset is registered in EncoderContext.
+	 * @param parameterEntity the parameter entity
+	 * @return the instance of UrlEncodedFormEntity
+	 */
 	public UrlEncodedFormEntity setParameterEntity(List parameterEntity)
 	{
 		return setParameterEntity(parameterEntity, EncoderContext.getHttpCharset());
 	}
 	
+	/**
+	 * Sets the parameter entity by a charset.
+	 * @param parameterEntity the parameter entity
+	 * @param charset the charset string
+	 * @return the instance of UrlEncodedFormEntity
+	 */
 	public UrlEncodedFormEntity setParameterEntity(List parameterEntity, String charset)
 	{		
 		ClientLogger.requestInfo(POST, charset, "List - [URL Parameter]", parameterEntity);
@@ -91,6 +125,12 @@ public class ClientRequestPost
 		return entity;
 	}
 		
+	/**
+	 * Sets the serializable entity.
+	 * @param serializable the serializable object
+	 * @param bufferize the boolean value
+	 * @return the instance of SerializableEntity
+	 */
 	public SerializableEntity setSerializableEntity(Serializable serializable, boolean bufferize)
 	{		
 		ClientLogger.requestInfo(POST, "Serializable Entity", serializable);
@@ -110,11 +150,22 @@ public class ClientRequestPost
 		return entity;
 	}
 	
+	/**
+	 * Sets the inputStream entity.
+	 * @param inputStream the instance of InputStream
+	 * @return the instance of InputStreamEntity
+	 */
 	public InputStreamEntity setInputStreamEntity(InputStream inputStream)
 	{
 		return setInputStreamEntity(inputStream, -1);
 	}
 	
+	/**
+	 * Sets the inputStream entity.
+	 * @param inputStream the instance of InputStream
+	 * @param length the length
+	 * @return the instance of InputStreamEntity
+	 */
 	public InputStreamEntity setInputStreamEntity(InputStream inputStream, long length)
 	{		
 		ClientLogger.requestInfo(POST, "InputStream Entity", inputStream);
@@ -127,11 +178,23 @@ public class ClientRequestPost
 		return entity;
 	}
 	
+	/**
+	 * Sets the string entity.
+	 * The charset is registered in EncoderContext.
+	 * @param text the text string
+	 * @return the instance of StringEntity
+	 */
 	public StringEntity setStringEntity(String text)
 	{
 		return setStringEntity(text, EncoderContext.getHttpCharset());
 	}
 	
+	/**
+	 * Sets the string entity by a chartset.
+	 * @param text the text string
+	 * @param charset the charset string
+	 * @return the instance of StringEntity
+	 */
 	public StringEntity setStringEntity(String text, String charset)
 	{		
 		ClientLogger.requestInfo(POST, charset, "String - [Text, XML, JSON, Properties ...]", text);
@@ -151,6 +214,11 @@ public class ClientRequestPost
 		return entity;
 	}
 	
+	/**
+	 * Sets the file entity.
+	 * @param file the instance of File
+	 * @return the instance of FileEntity
+	 */
 	public FileEntity setFileEntity(File file)
 	{		
 		ClientLogger.requestInfo(POST, "File Entity", file);
@@ -162,6 +230,12 @@ public class ClientRequestPost
 		return entity;
 	}
 	
+	/**
+	 * Sets the file entity by  a content type.
+	 * @param file the instance of File
+	 * @param contentType the content type string
+	 * @return the instance of FileEntity
+	 */
 	public FileEntity setFileEntity(File file, String contentType)
 	{		
 		ClientLogger.requestInfo(POST, "File Entity", file);
@@ -173,6 +247,11 @@ public class ClientRequestPost
 		return entity;
 	}	
 	
+	/**
+	 * Sets the buffered entity.
+	 * @param httpEntity the instance of HttpEntity
+	 * @return
+	 */
 	public BufferedHttpEntity setBufferedEntity(HttpEntity httpEntity)
 	{		
 		ClientLogger.requestInfo(POST, "Buffered Entity", httpEntity);
@@ -191,6 +270,11 @@ public class ClientRequestPost
 		return entity;
 	}
 	
+	/**
+	 * Sets the byte array entity.
+	 * @param bytes the byte array
+	 * @return the instance of ByteArrayEntity
+	 */
 	public ByteArrayEntity setByteArrayEntity(byte[] bytes)
 	{		
 		ClientLogger.requestInfo(POST, "ByteArray Entity", bytes);
@@ -202,6 +286,11 @@ public class ClientRequestPost
 		return entity;
 	}
 	
+	/**
+	 * Sets the entity template.
+	 * @param contentProducer the instance of ContentProducer
+	 * @return the instance of EntityTemplate
+	 */
 	public EntityTemplate setEntityTemplate(ContentProducer contentProducer)
 	{
 		EntityTemplate entityTemplate = new EntityTemplate(contentProducer);

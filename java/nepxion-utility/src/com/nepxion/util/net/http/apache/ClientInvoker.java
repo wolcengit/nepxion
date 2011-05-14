@@ -29,6 +29,12 @@ import com.nepxion.util.net.http.IClientRequest;
 public class ClientInvoker
 	extends DefaultHttpClient implements IClientInvoker
 {
+	/**
+	 * Invokes the web server to get the serializable object by a client request.
+	 * @param clientRequest the instance of IClientRequest
+	 * @return the serializable object
+	 * @throws Exception
+	 */
 	public Object invoke(IClientRequest clientRequest)
 		throws Exception
 	{		
@@ -72,6 +78,12 @@ public class ClientInvoker
 		return response;
 	}
 	
+	/**
+	 * Gets the response entity by a client request.
+	 * @param clientRequest the instance of IClientRequest
+	 * @return the instance of HttpEntity
+	 * @throws Exception
+	 */
 	public HttpEntity getResponseEntity(IClientRequest clientRequest)
 		throws Exception
 	{
@@ -81,6 +93,12 @@ public class ClientInvoker
 		return entity;
 	}
 	
+	/**
+	 * Gets the response object by a client request.
+	 * @param clientRequest the instance of IClientRequest
+	 * @return the response object
+	 * @throws Exception
+	 */
 	public Object getResponseObject(IClientRequest clientRequest)
 		throws Exception
 	{
@@ -110,12 +128,26 @@ public class ClientInvoker
 		return object;
 	}
 	
+	/**
+	 * Gets the response text by a client request.
+	 * The charset is registered in EncoderContext.
+	 * @param clientRequest the instance of IClientRequest
+	 * @return the response text
+	 * @throws Exception
+	 */
 	public String getResponseText(IClientRequest clientRequest)
 		throws Exception
 	{
 		return getResponseText(clientRequest, EncoderContext.getHttpCharset());
 	}
 	
+	/**
+	 * Gets the response text by a client request and charset.
+	 * @param clientRequest the instance of IClientRequest
+	 * @param charset the charset string
+	 * @return the response text
+	 * @throws Exception
+	 */
 	public String getResponseText(IClientRequest clientRequest, String charset)
 		throws Exception
 	{		
@@ -129,6 +161,9 @@ public class ClientInvoker
 		return text;
 	}	
 	
+	/**
+	 * Shuts down the client invoker.
+	 */
 	public void shutdown()
 	{
 		getConnectionManager().shutdown();

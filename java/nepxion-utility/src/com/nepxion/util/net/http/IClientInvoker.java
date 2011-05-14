@@ -14,7 +14,7 @@ public interface IClientInvoker
 	extends HttpConstants
 {
 	/**
-	 * Invokes the web server to get the serializable object.
+	 * Invokes the web server to get the serializable object by a client request.
 	 * @param clientRequest the instance of IClientRequest
 	 * @return the serializable object
 	 * @throws Exception

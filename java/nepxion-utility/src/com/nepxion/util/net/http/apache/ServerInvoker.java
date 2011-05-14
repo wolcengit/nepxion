@@ -28,25 +28,67 @@ import com.nepxion.util.net.http.HttpConstants;
 public class ServerInvoker
 	extends HttpServlet implements HttpConstants
 {
+	/**
+	 * The request entity type for parameter.
+	 * The client is allowed to send parameter list to server.It supports GET and POST mode.
+	 * This function is mostly like the url parameter transfer ("http://localhost:8080?key1=value1&key2=value2")
+	 */
 	public static final int REQUEST_ENTITY_TYPE_PARAMETER = 0;
+	
+	/**
+	 * The request entity type for string.
+	 * The client is allowed to send string(Text, XML, JSON, Properties...) to server.It only supports POST mode.
+	 */
 	public static final int REQUEST_ENTITY_TYPE_STRING = 1;
+	
+	/**
+	 * The request entity type for serializable.
+	 * The client is allowed to send serializable object to server.It only supports POST mode.
+	 */
 	public static final int REQUEST_ENTITY_TYPE_SERIALIZABLE = 2;
 	
+	/**
+	 * The request entity type.
+	 */
 	private int requestEntityType = REQUEST_ENTITY_TYPE_SERIALIZABLE;
+	
+	/**
+	 * The charset string.
+	 */
 	private String charset = EncoderContext.getHttpCharset();
 	
+	/**
+	 * Doget.
+	 * @param request the instance of HttpServletRequest
+	 * @param response the instance of HttpServletResponse
+	 * It is overridden from HttpServlet
+	 */
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 		throws ServletException, IOException
 	{
 		doExecute(request, response, GET);
 	}
 	
+	/**
+	 * Dopost.
+	 * @param request the instance of HttpServletRequest
+	 * @param response the instance of HttpServletResponse
+	 * It is overridden from HttpServlet
+	 */
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 		throws ServletException, IOException
 	{
 		doExecute(request, response, POST);
 	}
 	
+	/**
+	 * Executes the server invoker.
+	 * @param request the instance of HttpServletRequest
+	 * @param response the instance of HttpServletResponse
+	 * @param method the method, the value should be GET or POST
+	 * @throws ServletException
+	 * @throws IOException
+	 */
 	public void doExecute(HttpServletRequest request, HttpServletResponse response, String method)
 		throws ServletException, IOException
 	{
@@ -113,27 +155,53 @@ public class ServerInvoker
 		}
 	}
 	
+	/**
+	 * Invokes the web server to get the serializable object. 
+	 * If it is overridden by the child class, the method will be executed. 
+	 * @param requestObject the request object
+	 * @param request the instance of HttpServletRequest
+	 * @param response the instance of HttpServletResponse
+	 * @return the response object
+	 * @throws ServletException
+	 * @throws IOException
+	 */
 	public Object invoke(Object requestObject, HttpServletRequest request, HttpServletResponse response)
 		throws ServletException, IOException
 	{
 		return null;
 	}
 	
+	/**
+	 * Gets the request entity type
+	 * @return the request entity type value
+	 */
 	public int getRequestEntityType()
 	{
 		return requestEntityType;
 	}
 	
+	/**
+	 * Sets the request entity type
+	 * @param requestEntityType the request entity type value
+	 */
 	public void setRequestEntityType(int requestEntityType)
 	{
 		this.requestEntityType = requestEntityType;
 	}
 	
+	/**
+	 * Gets the charset.
+	 * @return the charset string.
+	 */
 	public String getCharset()
 	{
 		return charset;
 	}
 	
+	/**
+	 * Sets the charset.
+	 * @param charset the charset string
+	 */
 	public void setCharset(String charset)
 	{
 		this.charset = charset;

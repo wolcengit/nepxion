@@ -201,7 +201,7 @@ public class HttpConfig
 	}
 	
 	/**
-	 * To uri
+	 * To uri.
 	 * @return the instance of URI
 	 */
 	public URI toURI()

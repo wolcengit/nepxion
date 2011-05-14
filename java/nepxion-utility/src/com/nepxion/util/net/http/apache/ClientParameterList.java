@@ -16,15 +16,28 @@ import java.util.Iterator;
 public class ClientParameterList
 	extends ArrayList
 {
+	/**
+	 * Constructs with the default.
+	 */
 	public ClientParameterList()
 	{
 	}
 	
+	/**
+	 * Puts the key and value.
+	 * @param key the key string
+	 * @param value the value string
+	 */
 	public void put(String key, String value)
 	{
 		add(new ClientParameter(key, value));
 	}
 	
+	/**
+	 * Gets the value.
+	 * @param key the key string
+	 * @return the value string
+	 */
 	public String get(String key)
 	{
 		for (Iterator iterator = iterator(); iterator.hasNext();)

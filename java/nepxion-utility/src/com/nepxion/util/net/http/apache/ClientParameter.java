@@ -15,6 +15,11 @@ import org.apache.http.message.BasicNameValuePair;
 public class ClientParameter
 	extends BasicNameValuePair
 {
+	/**
+	 * Constructs with the specified initial name and value.
+	 * @param name the name string
+	 * @param value the value string
+	 */	
 	public ClientParameter(String name, String value) 
 	{
 		super(name, value);
