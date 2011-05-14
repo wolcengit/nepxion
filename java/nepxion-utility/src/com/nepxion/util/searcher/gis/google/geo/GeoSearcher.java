@@ -30,21 +30,45 @@ import com.nepxion.util.xml.dom4j.Dom4JReader;
 public class GeoSearcher
 	implements GeoConstants, LocaleConstants
 {
+	/**
+	 * The language string.
+	 */
 	private String language = ZH_CN;
+	
+	/**
+	 * The charset string.
+	 */
 	private String charset = "UTF-8";
 	
+	/**
+	 * The instance of ClientInvoker
+	 */
 	private ClientInvoker clientInvoker;
 	
+	/**
+	 * Constructs with the default.
+	 * The language string is ZH_CN.
+	 */
 	public GeoSearcher()
 	{
 		this(ZH_CN);
 	}
 	
+	/**
+	 * Constructs with the specified language.
+	 * The charset String is "UTF-8".
+	 * @param language the language string
+	 */
 	public GeoSearcher(String language)
 	{
 		this(language, "UTF-8");
 	}
 	
+	/**
+	 * Constructs with the specified language and charset.
+	 * @param language the language string
+	 * @param charset the charset string
+	 */
 	public GeoSearcher(String language, String charset)
 	{
 		this.language = language;
@@ -53,6 +77,12 @@ public class GeoSearcher
 		this.clientInvoker = new ClientInvoker();
 	}
 	
+	/**
+	 * Searchs the geo entity list by an address.	
+	 * @param address the address string
+	 * @return the instance of List
+	 * @throws Exception
+	 */
 	public List search(String address)
 		throws Exception
 	{
@@ -61,6 +91,11 @@ public class GeoSearcher
 		return createEntityList(xml);
 	}
 	
+	/**
+	 * Creates the geo entity list by a xml.
+	 * @param xml the xml string
+	 * @return the instance of List
+	 */
 	private List createEntityList(String xml)
 	{
 		List list = new ArrayList();
@@ -128,6 +163,12 @@ public class GeoSearcher
 		return list;
 	}
 	
+	/**
+	 * Gets the xml by an address.
+	 * @param address the address string
+	 * @return the xml string
+	 * @throws Exception
+	 */
 	public String getXML(String address)
 		throws Exception
 	{

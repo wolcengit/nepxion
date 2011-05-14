@@ -12,6 +12,13 @@ package com.nepxion.util.searcher.id.netease;
 
 public interface NeteaseIDConstants
 {
+	/**
+	 * The url of youdao id.
+	 */
 	public static final String URL = "http://www.youdao.com/smartresult-xml/search.s";
+	
+	/**
+	 * The type string.
+	 */
 	public static final String TYPE = "id";
 }

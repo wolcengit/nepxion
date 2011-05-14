@@ -12,5 +12,8 @@ package com.nepxion.util.searcher.mobile.locating;
 
 public interface LocatingMobileConstants
 {
+	/**
+	 * The url of showji mobile.
+	 */
 	public static final String URL = "http://api.showji.com/locating/";
 }

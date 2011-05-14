@@ -12,6 +12,13 @@ package com.nepxion.util.searcher.mobile.netease;
 
 public interface NeteaseMobileConstants
 {
+	/**
+	 * The url of youdao mobile.
+	 */
 	public static final String URL = "http://www.youdao.com/smartresult-xml/search.s";
+	
+	/**
+	 * The type string.
+	 */
 	public static final String TYPE = "mobile";
 }

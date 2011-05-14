@@ -22,37 +22,82 @@ import com.nepxion.util.net.http.apache.ClientRequestPost;
 public class LocSearcher
 	implements LocConstants, LocaleConstants
 {	
+	/**
+	 * The language string.
+	 */
 	private String language = ZH_CN;
+	
+	/**
+	 * The charset string.
+	 */
 	private String charset = "UTF-8";
+	
+	/**
+	 * The boolean value of requestAddress.
+	 */
 	private boolean requestAddress = true;
 	
+	/**
+	 * The instance of ClientInvoker.
+	 */
 	private ClientInvoker clientInvoker;
 	
+	/**
+	 * Constructs with the default.
+	 */
 	public LocSearcher()
 	{
 		this(true);
 	}
 	
+	/**
+	 * Constructs with the specified requestAddress.
+	 * The language is ZH_CN.
+	 * @param requestAddress boolean value of requestAddress 
+	 */
 	public LocSearcher(boolean requestAddress)
 	{
 		this(ZH_CN, requestAddress);
 	}
 	
+	/**
+	 * Constructs with the specified language.
+	 * The requestAddress is true.
+	 * @param language the language string
+	 */
 	public LocSearcher(String language)
 	{
 		this(language, true);
 	}
 	
+	/**
+	 * Constructs with the specified language and requestAddress.
+	 * The charset is "UTF-8".
+	 * @param language the language string 
+	 * @param requestAddress the boolean value of requestAddress
+	 */
 	public LocSearcher(String language, boolean requestAddress)
 	{
 		this(language, "UTF-8", requestAddress);
 	}
 	
+	/**
+	 * Constructs with the specified language and charset.
+	 * The requestAddress is true.
+	 * @param language the language string
+	 * @param charset the charset string
+	 */
 	public LocSearcher(String language, String charset)
 	{
 		this(language, charset, true);
 	}
 	
+	/**
+	 * Constructs with the specified language, charset and requestAddress.
+	 * @param language the language string
+	 * @param charset the charset string
+	 * @param requestAddress the boolean value of requestAddress
+	 */
 	public LocSearcher(String language, String charset, boolean requestAddress)
 	{
 		this.language = language;
@@ -62,6 +107,13 @@ public class LocSearcher
 		this.clientInvoker = new ClientInvoker();
 	}
 	
+	/**
+	 * Searchs the loc entity by a latitude and longitude.
+	 * @param latitude the latitude value
+	 * @param longitude the longitude value
+	 * @return the instance of LocEntity
+	 * @throws Exception
+	 */
 	public LocEntity search(double latitude, double longitude)
 		throws Exception
 	{
@@ -71,6 +123,15 @@ public class LocSearcher
 		return createEntity(responseJSON);
 	}
 	
+	/**
+	 * Searchs the loc entity by a cell id, lac, mcc and mnc.
+	 * @param cellID the cell id value
+	 * @param lac the lac value
+	 * @param mcc the mcc value
+	 * @param mnc the mnc value
+	 * @return the instance of LocEntity
+	 * @throws Exception
+	 */
 	public LocEntity search(int cellID, int lac, int mcc, int mnc)
 		throws Exception
 	{
@@ -81,8 +142,10 @@ public class LocSearcher
 	}
 	
 	/**
-	 * @param latitude   纬度
-	 * @param longitude  经度
+	 * Creates the coordinate json string by a latitude and longitude.
+	 * @param latitude the latitude value
+	 * @param longitude the longitude value
+	 * @return the coordinate json string 
 	 */
 	public String createCoordinateJSON(double latitude, double longitude)
 	{
@@ -105,10 +168,12 @@ public class LocSearcher
 	}
 	
 	/**
-	 * @param cellID  全球唯一的小区ID
-	 * @param lac     全球唯一的位置码
-	 * @param mcc     移动国家号码，中国为460
-	 * @param mnc     移动网号，中国移动为00，中国中国联通为01
+	 * Creates the cell json string by a cell id, lac, mcc and mnc.
+	 * @param cellID the cell id value - 全球唯一的小区ID
+	 * @param lac the lac value - 全球唯一的位置码
+	 * @param mcc the mcc value - 移动国家号码，中国为460
+	 * @param mnc the mnc value - 移动网号，中国移动为00，中国中国联通为01
+	 * @return the cell json string
 	 */
 	public String createCellJSON(int cellID, int lac, int mcc, int mnc)
 	{
@@ -134,6 +199,11 @@ public class LocSearcher
 		return stringBuffer.toString();
 	}
 	
+	/**
+	 * Creates loc entity by a request json.
+	 * @param requestJSON the request json string
+	 * @return the instance of LocEntity
+	 */
 	private LocEntity createEntity(String requestJSON)
 	{
 		if (requestJSON == null || requestJSON.equals("") || requestJSON.equals("{}"))
@@ -195,6 +265,12 @@ public class LocSearcher
 		return locEntity;
 	}
 	
+	/**
+	 * Gets the json string by a request json.
+	 * @param requestJSON the request json string
+	 * @return the json string
+	 * @throws Exception
+	 */
 	public String getJSON(String requestJSON)
 		throws Exception
 	{

@@ -24,14 +24,28 @@ import com.nepxion.util.xml.dom4j.Dom4JReader;
 public class NeteaseMobileSearcher
 	implements NeteaseMobileConstants
 {
+	/**
+	 * The charset string.
+	 */
 	private String charset = "GBK";
+	
+	/**
+	 * The instance of ClientInvoker.
+	 */
 	private ClientInvoker clientInvoker;
 	
+	/**
+	 * Constructs with the default.
+	 * The charset string is "GBK".
+	 */
 	public NeteaseMobileSearcher()
 	{
 		this("GBK");
 	}
-	
+	/**
+	 * Constructs with the specified charset.
+	 * @param charset the charset string
+	 */
 	public NeteaseMobileSearcher(String charset)
 	{
 		this.charset = charset;
@@ -39,6 +53,12 @@ public class NeteaseMobileSearcher
 		this.clientInvoker = new ClientInvoker();
 	}
 	
+	/**
+	 * Searchs the mobile entity by a mobile.
+	 * @param mobile the mobile string
+	 * @return the instance of NeteaseMobileEntity
+	 * @throws Exception
+	 */
 	public NeteaseMobileEntity search(String mobile)
 		throws Exception
 	{
@@ -47,6 +67,11 @@ public class NeteaseMobileSearcher
 		return createEntity(xml);
 	}
 	
+	/**
+	 * Creates the mobile entity by a xml.
+	 * @param xml the xml string
+	 * @return the instance of NeteaseMobileEntity
+	 */
 	private NeteaseMobileEntity createEntity(String xml)
 	{
 		if (xml == null || xml.equals(""))
@@ -92,6 +117,12 @@ public class NeteaseMobileSearcher
 		return mobileEntity;
 	}
 	
+	/**
+	 * Gets the xml by a mobile.
+	 * @param mobile the mobile string
+	 * @return the xml string
+	 * @throws Exception
+	 */
 	public String getXML(String mobile)
 		throws Exception
 	{

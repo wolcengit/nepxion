@@ -31,7 +31,7 @@ import com.nepxion.util.encoder.EncoderUtil;
 public class Dom4JReader
 {
 	/**
-	 * Gets the document by a xml string.
+	 * Gets the document by a xml.
 	 * @param text the xml string string
 	 * @return the instance of Document
 	 * @throws DocumentException
@@ -43,7 +43,7 @@ public class Dom4JReader
 	}
 		
 	/**
-	 * Gets the document by a xml string and charset.
+	 * Gets the document by a xml and charset.
 	 * The charset is registered in EncoderContext.
 	 * @param text the xml string string
 	 * @return the instance of Document
@@ -57,7 +57,7 @@ public class Dom4JReader
 	}
 	
 	/**
-	 * Gets the document by a xml string and charset.
+	 * Gets the document by a xml and charset.
 	 * @param text the xml string string
 	 * @param charset the charset string
 	 * @return the instance of Document

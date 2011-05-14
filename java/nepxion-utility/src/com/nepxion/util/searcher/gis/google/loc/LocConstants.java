@@ -12,8 +12,18 @@ package com.nepxion.util.searcher.gis.google.loc;
 
 public interface LocConstants
 {
+	/**
+	 * The url of google loc.
+	 */
 	public static final String URL = "http://www.google.com/loc/json";
 	
+	/**
+	 * The default mcc value.
+	 */
 	public static final int DEFAULT_MCC = 460;
+	
+	/**
+	 * The default mnc value.
+	 */
 	public static final int DEFAULT_MNC = 0;	
 }

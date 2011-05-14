@@ -25,14 +25,29 @@ import com.nepxion.util.xml.dom4j.Dom4JReader;
 public class NeteaseIDSearcher
 	implements NeteaseIDConstants
 {
+	/**
+	 * The chaset string.
+	 */
 	private String charset = "GBK";
+	
+	/**
+	 * The instance of ClientInvoker.
+	 */
 	private ClientInvoker clientInvoker;
 	
+	/**
+	 * Constructs with the default.
+	 * The charset string is "GBK".
+	 */
 	public NeteaseIDSearcher()
 	{
 		this("GBK");
 	}
 	
+	/**
+	 * Constructs with the specified charset.
+	 * @param charset the charset string
+	 */
 	public NeteaseIDSearcher(String charset)
 	{
 		this.charset = charset;
@@ -40,6 +55,12 @@ public class NeteaseIDSearcher
 		this.clientInvoker = new ClientInvoker();
 	}
 	
+	/**
+	 * Searchs the id entity by an id.
+	 * @param id the id string
+	 * @return the instance of NeteaseIDEntity
+	 * @throws Exception
+	 */
 	public NeteaseIDEntity search(String id)
 		throws Exception
 	{
@@ -48,6 +69,11 @@ public class NeteaseIDSearcher
 		return createEntity(xml);
 	}
 	
+	/**
+	 * Creates the id entity by a xml.
+	 * @param xml the xml string
+	 * @return the instance of NeteaseIDEntity
+	 */
 	private NeteaseIDEntity createEntity(String xml)
 	{
 		if (xml == null || xml.equals(""))
@@ -99,6 +125,12 @@ public class NeteaseIDSearcher
 		return idEntity;
 	}
 	
+	/**
+	 * Gets the xml by an id.
+	 * @param id the id string
+	 * @return the xml string
+	 * @throws Exception
+	 */
 	public String getXML(String id)
 		throws Exception
 	{

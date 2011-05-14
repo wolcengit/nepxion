@@ -17,40 +17,78 @@ public class NeteaseMobileEntity
 {
 	private static final long serialVersionUID = -7882805926860233586L;
 	
+	/**
+	 * The mobile string.
+	 */
 	private String mobile;
+	
+	/**
+	 * The province string.
+	 */
 	private String province;
+	
+	/**
+	 * The city string.
+	 */
 	private String city;
 	
+	/**
+	 * Constructs with the default.
+	 */
 	public NeteaseMobileEntity()
 	{
 		
 	}
 	
+	/**
+	 * Gets the mobile.
+	 * @return the mobile string
+	 */
 	public String getMobile()
 	{
 		return mobile;
 	}
 	
+	/**
+	 * Sets the moblile
+	 * @param mobile the mobile string
+	 */
 	public void setMobile(String mobile)
 	{
 		this.mobile = mobile;
 	}
 	
+	/**
+	 * Gets the province.
+	 * @return the province string
+	 */
 	public String getProvince()
 	{
 		return province;
 	}
 	
+	/**
+	 * Sets the province.
+	 * @param province the province string
+	 */
 	public void setProvince(String province)
 	{
 		this.province = province;
 	}
 	
+	/**
+	 * Gets the city.
+	 * @return the city string
+	 */
 	public String getCity()
 	{
 		return city;
 	}
 	
+	/**
+	 * Set the city.
+	 * @param city the city string
+	 */
 	public void setCity(String city)
 	{
 		this.city = city;
