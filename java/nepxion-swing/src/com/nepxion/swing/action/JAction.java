@@ -17,23 +17,52 @@ import javax.swing.Icon;
 public abstract class JAction
 	extends AbstractAction
 {	
+	/**
+	 * The action name string.
+	 */
 	private String name;
 	
+	/**
+	 * The small icon.
+	 */
+	private Icon smallIcon;
+	
+	/**
+	 * The large icon.
+	 */
+	private Icon largeIcon;
+	
+	/**
+	 * Constructs with the default.
+	 */
 	public JAction()
 	{
 		super();
 	}
 	
+	/**
+	 * Constructs with the specified initial text.
+	 * @param text the text string
+	 */
 	public JAction(String text)
 	{
 		super(text);
 	}
 	
+	/**
+	 * Constructs with the specified initial icon.
+	 * @param icon the instance of Icon
+	 */
 	public JAction(Icon icon)
 	{
 		super(null, icon);
 	}
 	
+	/**
+	 * Constructs with the specified initial icon and tooltip text.
+	 * @param icon the instance of Icon
+	 * @param toolTipText the tooltip text string
+	 */
 	public JAction(Icon icon, String toolTipText)
 	{
 		super(null, icon);
@@ -41,6 +70,11 @@ public abstract class JAction
 		setToolTipText(toolTipText);
 	}
 	
+	/**
+	 * Constructs with the specified initial text and tooltip text.
+	 * @param text the text string
+	 * @param toolTipText the tooltip text string
+	 */
 	public JAction(String text, String toolTipText)
 	{
 		super(text);
@@ -48,11 +82,22 @@ public abstract class JAction
 		setToolTipText(toolTipText);
 	}
 	
+	/**
+	 * Constructs with the specified initial text and icon.
+	 * @param text the text string
+	 * @param icon the instance of Icon
+	 */
 	public JAction(String text, Icon icon)
 	{
 		super(text, icon);
 	}
 
+	/**
+	 * Constructs with the specified initial text, icon and tooltip text.
+	 * @param text the text string
+	 * @param icon the instance of Icon
+	 * @param toolTipText the tooltip text string
+	 */
 	public JAction(String text, Icon icon, String toolTipText)
 	{
 		super(text, icon);
@@ -60,6 +105,12 @@ public abstract class JAction
 		setToolTipText(toolTipText);
 	}
 	
+	/**
+	 * Constructs with the specified initial name, text and tooltip text.
+	 * @param name the name string
+	 * @param text the text string
+	 * @param toolTipText the tooltip text string
+	 */
 	public JAction(String name, String text, String toolTipText)
 	{
 		super(text);
@@ -68,6 +119,13 @@ public abstract class JAction
 		setToolTipText(toolTipText);
 	}
 	
+	/**
+	 * Constructs with the specified initial name, text, icon and tooltip text.
+	 * @param name the name string
+	 * @param text the text string
+	 * @param icon the instance of Icon
+	 * @param toolTipText the tooltip text string
+	 */
 	public JAction(String name, String text, Icon icon, String toolTipText)
 	{
 		super(text, icon);
@@ -76,46 +134,139 @@ public abstract class JAction
 		setToolTipText(toolTipText);
 	}
 	
+	/**
+	 * Gets the name.
+	 * @return the name string
+	 */
 	public String getName()
 	{
 		return name;
 	}
 	
+	/**
+	 * Sets the name.
+	 * @param name the name string
+	 */
 	public void setName(String name)
 	{
 		this.name = name;
 	}
 	
+	/**
+	 * Gets the text.
+	 * @return the text string
+	 */
 	public String getText()
 	{
 		return (String) getValue(Action.NAME);
 	}
 	
+	/**
+	 * Sets the text.
+	 * @param text the text string
+	 */
 	public void setText(String text)
 	{
 		putValue(Action.NAME, text);
 	}
 	
+	/**
+	 * Gets the tooltip text.
+	 * @return the tooltip text string
+	 */
 	public String getToolTipText()
 	{
 		return (String) getValue(Action.SHORT_DESCRIPTION);
 	}
 	
+	/**
+	 * Sets the tooltip text.
+	 * @param toolTipText the tooltip text string
+	 */
 	public void setToolTipText(String toolTipText)
 	{
 		putValue(Action.SHORT_DESCRIPTION, toolTipText);
 	}
 	
+	/**
+	 * Gets the icon.
+	 * @return the instance of Icon
+	 */
 	public Icon getIcon()
 	{
 		return (Icon) getValue(Action.SMALL_ICON);
 	}
 	
+	/**
+	 * Sets the icon.
+	 * @param icon the instance of Icon.
+	 */
 	public void setIcon(Icon icon)
 	{
 		putValue(Action.SMALL_ICON, icon);
 	}
 	
+	/**
+	 * Gets the small icon.
+	 * @return the small icon
+	 */
+	public Icon getSmallIcon()
+	{
+		return smallIcon;
+	}
+
+	/**
+	 * Sets the small icon.
+	 * @param smallIcon the small icon
+	 */
+	public void setSmallIcon(Icon smallIcon)
+	{
+		this.smallIcon = smallIcon;
+	}
+
+	/**
+	 * Gets the large icon.
+	 * @return the large icon
+	 */
+	public Icon getLargeIcon()
+	{
+		return largeIcon;
+	}
+
+	/**
+	 * Sets the large icon.
+	 * @param largeIcon the large icon
+	 */
+	public void setLargeIcon(Icon largeIcon)
+	{
+		this.largeIcon = largeIcon;
+	}
+	
+	/**
+	 * Toggle the icon between the small icon and the large icon. 
+	 */
+	public void toggleIcon()
+	{
+		if (largeIcon == null)
+		{
+			return;
+		}
+		
+		Icon icon = getIcon();
+		if (icon == smallIcon)
+		{
+			setIcon(largeIcon);
+		}
+		else
+		{
+			setIcon(smallIcon);
+		}
+	}
+	
+	/**
+	 * To string.
+	 * @return the string
+	 */
 	public String toString()
 	{
 		return getValue(Action.NAME).toString();

@@ -14,6 +14,11 @@ import javax.swing.AbstractButton;
 
 public class ActionManager
 {
+	/**
+	 * Sets the button enabled.
+	 * @param button the instance of AbstractButton
+	 * @param enabled the boolean value if the button is enabled
+	 */
 	public static void setEnabled(AbstractButton button, boolean enabled)
 	{
 		if (button != null)
