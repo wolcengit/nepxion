@@ -24,14 +24,29 @@ import com.nepxion.util.xml.dom4j.Dom4JReader;
 public class NeteaseIPSearcher
 	implements NeteaseIPConstants
 {
+	/**
+	 * The charset string.
+	 */
 	private String charset = "GBK";
+	
+	/**
+	 * The instance of ClientInvoker.
+	 */
 	private ClientInvoker clientInvoker;
 	
+	/**
+	 * Constructs with the default.
+	 * The charset string is "GBK".
+	 */
 	public NeteaseIPSearcher()
 	{
 		this("GBK");
 	}
 	
+	/**
+	 * Constructs with the specified charset.
+	 * @param charset the charset string
+	 */
 	public NeteaseIPSearcher(String charset)
 	{
 		this.charset = charset;
@@ -39,6 +54,12 @@ public class NeteaseIPSearcher
 		this.clientInvoker = new ClientInvoker();
 	}
 	
+	/**
+	 * Searchs the ip entity by an ip.
+	 * @param ip the ip string
+	 * @return the instance of NeteaseIPEntity
+	 * @throws Exception
+	 */
 	public NeteaseIPEntity search(String ip)
 		throws Exception
 	{
@@ -47,6 +68,11 @@ public class NeteaseIPSearcher
 		return createEntity(xml);
 	}
 	
+	/**
+	 * Creates the ip entity by a xml.
+	 * @param xml the xml string
+	 * @return the instance of NeteaseIPEntity
+	 */
 	private NeteaseIPEntity createEntity(String xml)
 	{
 		if (xml == null || xml.equals(""))
@@ -92,6 +118,12 @@ public class NeteaseIPSearcher
 		return ipEntity;
 	}
 	
+	/**
+	 * Gets the xml.
+	 * @param ip the ip string
+	 * @return the xml string
+	 * @throws Exception
+	 */
 	public String getXML(String ip)
 		throws Exception
 	{

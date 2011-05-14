@@ -12,6 +12,13 @@ package com.nepxion.util.searcher.ip.netease;
 
 public interface NeteaseIPConstants
 {
+	/**
+	 * The url of netease ip.
+	 */
 	public static final String URL = "http://www.youdao.com/smartresult-xml/search.s";
+	
+	/**
+	 * The ip string.
+	 */
 	public static final String TYPE = "ip";
 }

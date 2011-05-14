@@ -16,7 +16,7 @@ public interface HttpConstants
 	extends ServletConstants
 {
 	/**
-	 * The path for config file of "http.properties".
+	 * The path of config file for "http.properties".
 	 */
 	public static final String CONFIG_FILE_PATH = "conf/http.properties";
 	

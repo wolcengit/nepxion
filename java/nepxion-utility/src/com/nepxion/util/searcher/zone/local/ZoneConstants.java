@@ -13,7 +13,7 @@ package com.nepxion.util.searcher.zone.local;
 public interface ZoneConstants
 {
 	/**
-	 * The path for config file of "zone.xml".
+	 * The path of config file for "zone.xml".
 	 */
 	public static final String CONFIG_FILE_PATH = "data/zone.xml";
 }

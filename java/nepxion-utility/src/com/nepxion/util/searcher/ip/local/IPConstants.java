@@ -14,10 +14,28 @@ import com.nepxion.util.io.FileUtil;
 
 public interface IPConstants
 {
+	/**
+	 * The path of data file for "ip.dat".
+	 */
 	public static final String DATA_FILE_PATH = "data/ip.dat";
-	public static final String DATA_FILE_TEMP_PATH = FileUtil.getTempDirectory() + "ip.dat";
 	
-	public static final String VERSION_DATE = "2010-07-10 19:12:10";
-	public static final int TOTAL_COUNT = 379809;
+	/**
+	 * The cache path of data file for "ip.dat".
+	 */
+	public static final String DATA_FILE_CACHE_PATH = FileUtil.getTempDirectory() + "ip.dat";
+	
+	/**
+	 * The version date string.
+	 */
+	public static final String VERSION_DATE = "2011-05-10";
+	
+	/**
+	 * The total count value.
+	 */
+	public static final int TOTAL_COUNT = 425675;
+	
+	/**
+	 * The initialized count value.
+	 */
 	public static final int INITIALIZED_COUNT = 0;
 }

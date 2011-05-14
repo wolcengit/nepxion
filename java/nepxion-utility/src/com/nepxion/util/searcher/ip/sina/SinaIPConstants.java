@@ -12,5 +12,8 @@ package com.nepxion.util.searcher.ip.sina;
 
 public interface SinaIPConstants
 {
+	/**
+	 * The url of sina ip.
+	 */
 	public static final String URL = "http://counter.sina.com.cn/ip";
 }

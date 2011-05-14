@@ -21,14 +21,29 @@ import com.nepxion.util.net.http.apache.ClientRequestGet;
 public class TencentIPSearcher
 	implements TencentIPConstants
 {
+	/**
+	 * The charset string.
+	 */
 	private String charset = "GBK";
+	
+	/**
+	 * The instance of ClientInvoker.
+	 */
 	private ClientInvoker clientInvoker;
 	
+	/**
+	 * Constructs with the default.
+	 * The charset string is "GBK".
+	 */
 	public TencentIPSearcher()
 	{
 		this("GBK");
 	}
 	
+	/**
+	 * Constructs with the specified charset.
+	 * @param charset the charset string
+	 */
 	public TencentIPSearcher(String charset)
 	{
 		this.charset = charset;
@@ -36,6 +51,11 @@ public class TencentIPSearcher
 		this.clientInvoker = new ClientInvoker();
 	}
 	
+	/**
+	 * Searchs the ip entity.
+	 * @return the instance of TencentIPEntity
+	 * @throws Exception
+	 */
 	public TencentIPEntity search()
 		throws Exception
 	{
@@ -44,6 +64,11 @@ public class TencentIPSearcher
 		return createEntity(text);
 	}
 	
+	/**
+	 * Creates the ip entity by a text.
+	 * @param text the text string
+	 * @return the instance of TencentIPEntity
+	 */
 	private TencentIPEntity createEntity(String text)
 	{
 		if (text == null || text.equals(""))
@@ -74,6 +99,11 @@ public class TencentIPSearcher
 		return ipEntity;
 	}
 	
+	/**
+	 * Gets the text.
+	 * @return the text string
+	 * @throws Exception
+	 */
 	public String getText()
 		throws Exception
 	{

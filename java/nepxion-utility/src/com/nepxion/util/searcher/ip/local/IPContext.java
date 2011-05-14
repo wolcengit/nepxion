@@ -19,25 +19,39 @@ import com.nepxion.util.io.FileUtil;
 public class IPContext
 	implements IPConstants
 {
+	/**
+	 * The instance of File.
+	 */
 	private static File file;
 	
+	/**
+	 * Registers the native ip context by the default config file path.
+	 */
 	public static void register()
 	{
 		register(DATA_FILE_PATH);
 	}
 	
+	/**
+	 * Registers the native ip context by a config file path.
+	 * @param filePath
+	 */
 	public static void register(String filePath)
 	{
 		file = new File(filePath);
 	}
 	
+	/**
+	 * Registers the native ip context by an url.
+	 * @param codeBase the instance of URL
+	 */
 	public static void register(URL codeBase)
 	{				
 		String url = codeBase + DATA_FILE_PATH;
 		
 		try
 		{
-			file = FileUtil.download(url, DATA_FILE_TEMP_PATH);
+			file = FileUtil.download(url, DATA_FILE_CACHE_PATH);
 		}
 		catch (IOException e)
 		{
@@ -45,6 +59,10 @@ public class IPContext
 		}		
 	}
 	
+	/**
+	 * Gets the ip file.
+	 * @return the instance of File
+	 */
 	public static File getFile()
 	{
 		return file;

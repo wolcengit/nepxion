@@ -20,14 +20,29 @@ import com.nepxion.util.net.http.apache.ClientRequestGet;
 public class SinaIPSearcher
 	implements SinaIPConstants
 {
+	/**
+	 * The charset string.
+	 */
 	private String charset = "GBK";
+	
+	/**
+	 * The instance of ClientInvoker.
+	 */
 	private ClientInvoker clientInvoker;
 	
+	/**
+	 * Constructs with the default.
+	 * The charset string is "GBK".
+	 */
 	public SinaIPSearcher()
 	{
 		this("GBK");
 	}
 	
+	/**
+	 * Constructs with the specified charset.
+	 * @param charset the charset string
+	 */
 	public SinaIPSearcher(String charset)
 	{
 		this.charset = charset;
@@ -35,6 +50,12 @@ public class SinaIPSearcher
 		this.clientInvoker = new ClientInvoker();
 	}
 	
+	/**
+	 * Searchs the ip entity by an ip.
+	 * @param ip the ip string
+	 * @return the instance of SinaIPEntity
+	 * @throws Exception
+	 */
 	public SinaIPEntity search(String ip)
 		throws Exception
 	{
@@ -43,6 +64,11 @@ public class SinaIPSearcher
 		return createEntity(text);
 	}
 	
+	/**
+	 * Searchs the ip entity.
+	 * @return the instance of SinaIPEntity
+	 * @throws Exception
+	 */
 	public SinaIPEntity search()
 		throws Exception
 	{
@@ -51,6 +77,11 @@ public class SinaIPSearcher
 		return createEntity(text);
 	}
 	
+	/**
+	 * Creates the ip entity by a text.
+	 * @param text the text string
+	 * @return the instance of SinaIPEntity
+	 */
 	private SinaIPEntity createEntity(String text)
 	{
 		if (text == null || text.equals(""))
@@ -86,6 +117,11 @@ public class SinaIPSearcher
 		return ipEntity;
 	}
 	
+	/**
+	 * Gets the text.
+	 * @return the text string
+	 * @throws Exception
+	 */
 	public String getText(String ip)
 		throws Exception
 	{

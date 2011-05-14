@@ -23,7 +23,14 @@ public class QuartzContext
 {
 	private static Log log = LogFactory.getLog(QuartzContext.class);
 	
+	/**
+	 * The instance of QuartzSchedulerFactory.
+	 */
 	private static QuartzSchedulerFactory factory;
+	
+	/**
+	 * The instance of Scheduler
+	 */
 	private static Scheduler scheduler;
 	
 	/**

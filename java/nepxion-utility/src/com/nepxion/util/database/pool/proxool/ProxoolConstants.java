@@ -13,7 +13,7 @@ package com.nepxion.util.database.pool.proxool;
 public interface ProxoolConstants
 {
 	/**
-	 * The path for config file of "proxool.properties".
+	 * The path of config file for "proxool.properties".
 	 */
 	public static final String CONFIG_FILE_PATH = "conf/proxool.properties";
 	

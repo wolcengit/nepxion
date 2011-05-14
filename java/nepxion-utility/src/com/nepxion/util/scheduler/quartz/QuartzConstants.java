@@ -13,7 +13,7 @@ package com.nepxion.util.scheduler.quartz;
 public interface QuartzConstants
 {
 	/**
-	 * The path for config file of "quartz.properties".
+	 * The path of config file for "quartz.properties".
 	 */
 	public static final String CONFIG_FILE_PATH = "conf/quartz.properties";
 	

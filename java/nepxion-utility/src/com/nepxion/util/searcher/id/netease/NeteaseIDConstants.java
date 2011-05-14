@@ -13,7 +13,7 @@ package com.nepxion.util.searcher.id.netease;
 public interface NeteaseIDConstants
 {
 	/**
-	 * The url of youdao id.
+	 * The url of netease id.
 	 */
 	public static final String URL = "http://www.youdao.com/smartresult-xml/search.s";
 	

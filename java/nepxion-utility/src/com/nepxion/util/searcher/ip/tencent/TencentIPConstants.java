@@ -12,5 +12,8 @@ package com.nepxion.util.searcher.ip.tencent;
 
 public interface TencentIPConstants
 {
+	/**
+	 * The url of tencent ip.
+	 */
 	public static final String URL = "http://fw.qq.com/ipaddress";
 }
