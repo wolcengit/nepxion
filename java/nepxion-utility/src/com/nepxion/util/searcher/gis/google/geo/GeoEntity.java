@@ -88,7 +88,7 @@ public class GeoEntity
 	}
 	
 	/**
-	 * Set the center latitude.
+	 * Sets the center latitude.
 	 * @param centerLatitude the center latitude value
 	 */
 	public void setCenterLatitude(double centerLatitude)

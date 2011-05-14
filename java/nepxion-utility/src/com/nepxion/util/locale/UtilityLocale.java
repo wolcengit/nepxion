@@ -25,7 +25,7 @@ public class UtilityLocale
 	
 	/**
 	 * Gets the i18n string by a key.
-	 * @param key the key string.
+	 * @param key the key string
 	 * @return the i18n string
 	 */
 	public static String getString(String key)
@@ -35,7 +35,7 @@ public class UtilityLocale
 	
 	/**
 	 * Gets the i18n string withe the given locale by a key.
-	 * @param key the key string.
+	 * @param key the key string
 	 * @return the i18n string
 	 */
 	public static String getString(String key, Locale locale)

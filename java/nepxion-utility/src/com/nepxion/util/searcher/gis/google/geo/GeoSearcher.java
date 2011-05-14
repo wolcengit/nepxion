@@ -41,7 +41,7 @@ public class GeoSearcher
 	private String charset = "UTF-8";
 	
 	/**
-	 * The instance of ClientInvoker
+	 * The instance of ClientInvoker.
 	 */
 	private ClientInvoker clientInvoker;
 	
@@ -56,7 +56,7 @@ public class GeoSearcher
 	
 	/**
 	 * Constructs with the specified language.
-	 * The charset String is "UTF-8".
+	 * The charset is "UTF-8".
 	 * @param language the language string
 	 */
 	public GeoSearcher(String language)

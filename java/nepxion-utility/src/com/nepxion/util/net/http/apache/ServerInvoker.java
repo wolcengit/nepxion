@@ -31,7 +31,7 @@ public class ServerInvoker
 	/**
 	 * The request entity type for parameter.
 	 * The client is allowed to send parameter list to server.It supports GET and POST mode.
-	 * This function is mostly like the url parameter transfer ("http://localhost:8080?key1=value1&key2=value2")
+	 * This function is mostly like the url parameter transfer as ("http://localhost:8080?key1=value1&key2=value2").
 	 */
 	public static final int REQUEST_ENTITY_TYPE_PARAMETER = 0;
 	
@@ -161,7 +161,7 @@ public class ServerInvoker
 	 * @param requestObject the request object
 	 * @param request the instance of HttpServletRequest
 	 * @param response the instance of HttpServletResponse
-	 * @return the response object
+	 * @return the response object which should be serializabled
 	 * @throws ServletException
 	 * @throws IOException
 	 */
@@ -172,7 +172,7 @@ public class ServerInvoker
 	}
 	
 	/**
-	 * Gets the request entity type
+	 * Gets the request entity type.
 	 * @return the request entity type value
 	 */
 	public int getRequestEntityType()
@@ -181,7 +181,7 @@ public class ServerInvoker
 	}
 	
 	/**
-	 * Sets the request entity type
+	 * Sets the request entity type.
 	 * @param requestEntityType the request entity type value
 	 */
 	public void setRequestEntityType(int requestEntityType)

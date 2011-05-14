@@ -18,7 +18,7 @@ import com.jacob.com.Variant;
 public class JacobUtil
 {
 	/**
-	 * Calls the Internet Explorer of Windows platform by Jacob ActiveX.
+	 * Calls the Internet Explorer of Windows platform by Jacob activeX.
 	 * @param url the url string
 	 * @throws Exception
 	 */
@@ -50,7 +50,7 @@ public class JacobUtil
 	}
 	
 	/**
-	 * Calls the Word application of Windows Office by Jacob ActiveX.
+	 * Calls the Word application of Windows Office by Jacob activeX.
 	 * @param filePath the file path
 	 * @param readOnly the boolean value of readOnly
 	 * @throws Exception
@@ -82,7 +82,7 @@ public class JacobUtil
 	}
 	
 	/**
-	 * Calls the Excel application of Windows Office by Jacob ActiveX.
+	 * Calls the Excel application of Windows Office by Jacob activeX.
 	 * @param filePath the file path
 	 * @param readOnly the boolean value of readOnly
 	 * @throws Exception
@@ -114,7 +114,7 @@ public class JacobUtil
 	}
 	
 	/**
-	 * Calls the PowerPoint application of Windows Office by Jacob ActiveX.
+	 * Calls the PowerPoint application of Windows Office by Jacob activeX.
 	 * @param filePath the file path
 	 * @param readOnly the boolean value of readOnly
 	 * @param fullScreen the boolean value of fullScreen
@@ -153,7 +153,7 @@ public class JacobUtil
 	}
 	
 	/**
-	 * Transforms the Word file To the Html file by Jacob ActiveX.
+	 * Transforms the Word file To the Html file by Jacob activeX.
 	 * @param wordFilePath the word file path
 	 * @param htmlFilePath the html file path
 	 * @throws Exception
@@ -188,7 +188,7 @@ public class JacobUtil
 	}
 	
 	/**
-	 * Transforms the Excel file To the Html file by Jacob ActiveX.
+	 * Transforms the Excel file To the Html file by Jacob activeX.
 	 * @param excelFilePath the excel file path
 	 * @param htmlFilePath the html file path
 	 * @throws Exception

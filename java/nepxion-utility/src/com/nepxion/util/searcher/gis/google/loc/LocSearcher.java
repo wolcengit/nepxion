@@ -200,7 +200,7 @@ public class LocSearcher
 	}
 	
 	/**
-	 * Creates loc entity by a request json.
+	 * Creates the loc entity by a request json.
 	 * @param requestJSON the request json string
 	 * @return the instance of LocEntity
 	 */

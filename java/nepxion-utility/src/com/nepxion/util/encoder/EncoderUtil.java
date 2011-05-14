@@ -57,7 +57,7 @@ public class EncoderUtil
 	 * Formats the text by a charset.
 	 * The original charset is ISO-8859-1.
 	 * @param text the text string
-	 * @param transferCharset the transfer charset
+	 * @param transferCharset the transfer charset string
 	 * @return the formatted text string
 	 * @throws UnsupportedEncodingException
 	 */
@@ -70,8 +70,8 @@ public class EncoderUtil
 	/**
 	 * Formats the text by a charset.
 	 * @param text the text string
-	 * @param originCharset the origin charset
-	 * @param transferCharset the transfer charset
+	 * @param originCharset the origin charset string
+	 * @param transferCharset the transfer charset string
 	 * @return the formatted text string
 	 * @throws UnsupportedEncodingException
 	 */

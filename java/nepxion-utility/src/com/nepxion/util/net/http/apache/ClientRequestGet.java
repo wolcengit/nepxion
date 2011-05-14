@@ -42,7 +42,7 @@ public class ClientRequestGet
 	
 	/**
 	 * Constructs with the specified initial http config.
-	 * @param httpConfig the isntance of HttpConfig
+	 * @param httpConfig the instance of HttpConfig
 	 */
 	public ClientRequestGet(HttpConfig httpConfig)
 	{

@@ -21,7 +21,7 @@ public class TimeComparable
 	private Date dateTime;
 	
 	/**
-	 * The format string
+	 * The format string.
 	 */
 	private String formatString;
 	
@@ -88,6 +88,10 @@ public class TimeComparable
 		return dateTime.toString().compareTo(dateTime.toString());
 	}
 	
+	/**
+	 * To string.
+	 * @return the string
+	 */
 	public String toString()
 	{		
 		return TimeUtil.getDateTimeString(dateTime, formatString);

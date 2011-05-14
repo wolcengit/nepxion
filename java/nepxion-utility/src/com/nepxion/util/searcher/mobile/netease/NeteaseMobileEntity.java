@@ -50,7 +50,7 @@ public class NeteaseMobileEntity
 	}
 	
 	/**
-	 * Sets the moblile
+	 * Sets the moblile.
 	 * @param mobile the mobile string
 	 */
 	public void setMobile(String mobile)
@@ -86,7 +86,7 @@ public class NeteaseMobileEntity
 	}
 	
 	/**
-	 * Set the city.
+	 * Sets the city.
 	 * @param city the city string
 	 */
 	public void setCity(String city)

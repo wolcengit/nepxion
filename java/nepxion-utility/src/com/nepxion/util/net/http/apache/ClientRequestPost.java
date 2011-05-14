@@ -50,7 +50,7 @@ public class ClientRequestPost
 	}
 	
 	/**
-	 * Constructs with the specified initial httpConfig.
+	 * Constructs with the specified initial http config.
 	 * @param httpConfig the instance of HttpConfig
 	 */	
 	public ClientRequestPost(HttpConfig httpConfig)
@@ -231,7 +231,7 @@ public class ClientRequestPost
 	}
 	
 	/**
-	 * Sets the file entity by  a content type.
+	 * Sets the file entity by a content type.
 	 * @param file the instance of File
 	 * @param contentType the content type string
 	 * @return the instance of FileEntity

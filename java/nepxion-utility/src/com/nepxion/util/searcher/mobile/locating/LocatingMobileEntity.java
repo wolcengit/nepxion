@@ -70,7 +70,7 @@ public class LocatingMobileEntity
 	}
 	
 	/**
-	 * Sets the moblile
+	 * Sets the moblile.
 	 * @param mobile the mobile string
 	 */
 	public void setMobile(String mobile)

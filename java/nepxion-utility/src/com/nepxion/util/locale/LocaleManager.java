@@ -37,7 +37,7 @@ public class LocaleManager
 	}
 	
 	/**
-	 * Gets the i18n string with the given locale by a bundle class, key.
+	 * Gets the i18n string with the given locale by a bundle class and key.
 	 * @param bundleClazz the bundle class
 	 * @param key the key string
 	 * @param locale the instance of Locale

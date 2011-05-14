@@ -36,7 +36,7 @@ public class LocatingMobileSearcher
 	
 	/**
 	 * Constructs with the default.
-	 * The charset string is "UTF-8".
+	 * The charset is "UTF-8".
 	 */
 	public LocatingMobileSearcher()
 	{

@@ -29,7 +29,7 @@ public class QuartzContext
 	private static QuartzSchedulerFactory factory;
 	
 	/**
-	 * The instance of Scheduler
+	 * The instance of Scheduler.
 	 */
 	private static Scheduler scheduler;
 	

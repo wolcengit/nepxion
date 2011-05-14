@@ -25,7 +25,7 @@ public class IPContext
 	private static File file;
 	
 	/**
-	 * Registers the native ip context by the default config file path.
+	 * Registers the ip context by the default config file path.
 	 */
 	public static void register()
 	{
@@ -33,7 +33,7 @@ public class IPContext
 	}
 	
 	/**
-	 * Registers the native ip context by a config file path.
+	 * Registers the ip context by a config file path.
 	 * @param filePath
 	 */
 	public static void register(String filePath)
@@ -42,7 +42,7 @@ public class IPContext
 	}
 	
 	/**
-	 * Registers the native ip context by an url.
+	 * Registers the ip context by an url.
 	 * @param codeBase the instance of URL
 	 */
 	public static void register(URL codeBase)

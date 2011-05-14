@@ -125,7 +125,7 @@ public class EncryptionUtil
 	/**
 	 * Encrypts the text by an algorithm and UTF-8 charset.
 	 * @param text the text string
-	 * @param algorithm the algorithm value
+	 * @param algorithm the algorithm string
 	 * @return the encrypted text string
 	 * @throws Exception
 	 */
@@ -138,7 +138,7 @@ public class EncryptionUtil
 	/**
 	 * Encrypts the text by an algorithm and charset.
 	 * @param text the text string
-	 * @param algorithm the algorithm value
+	 * @param algorithm the algorithm string
 	 * @param charset the charset string
 	 * @return the encrypted text string
 	 * @throws Exception

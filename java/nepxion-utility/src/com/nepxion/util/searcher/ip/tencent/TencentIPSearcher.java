@@ -33,7 +33,7 @@ public class TencentIPSearcher
 	
 	/**
 	 * Constructs with the default.
-	 * The charset string is "GBK".
+	 * The charset is "GBK".
 	 */
 	public TencentIPSearcher()
 	{

@@ -91,7 +91,7 @@ public class TencentIPEntity
 	}
 	
 	/**
-	 * Set the province
+	 * Sets the province.
 	 * @param province the province string
 	 */
 	public void setProvince(String province)

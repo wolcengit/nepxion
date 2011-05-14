@@ -154,7 +154,7 @@ public class IPEntity
 	}
 	
 	/**
-	 * Clonets the ip entity.
+	 * Clones the ip entity.
 	 * @return the instance of IPEntity
 	 */
 	public IPEntity clone()

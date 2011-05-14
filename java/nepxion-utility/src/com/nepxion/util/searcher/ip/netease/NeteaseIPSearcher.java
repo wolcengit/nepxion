@@ -36,7 +36,7 @@ public class NeteaseIPSearcher
 	
 	/**
 	 * Constructs with the default.
-	 * The charset string is "GBK".
+	 * The charset is "GBK".
 	 */
 	public NeteaseIPSearcher()
 	{
@@ -119,7 +119,7 @@ public class NeteaseIPSearcher
 	}
 	
 	/**
-	 * Gets the xml.
+	 * Gets the xml by an ip.
 	 * @param ip the ip string
 	 * @return the xml string
 	 * @throws Exception

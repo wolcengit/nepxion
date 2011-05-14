@@ -49,7 +49,7 @@ public class QuartzJobTrigger
 	/**
 	 * Constructs with the specified initial name and repeat interval.
 	 * @param name the name string
-	 * @param repeatInterval the scheduler timer repeat interval. The scheduler timer will be activated every the repeat interval 
+	 * @param repeatInterval the scheduler timer repeat interval. The scheduler timer will be activated every the repeat interval
 	 */
 	public QuartzJobTrigger(String name, long repeatInterval)
 	{
@@ -59,8 +59,8 @@ public class QuartzJobTrigger
 	/**
 	 * Constructs with the specified initial name, repeat count and repeat interval.
 	 * @param name the name string
-	 * @param repeatCount the scheduler timer repeat count. The scheduler timer will stop if the it arrives the repeat count, but it arrives the end time first, it will also stop.
-	 * @param repeatInterval the scheduler timer repeat interval. The scheduler timer will be activated every the repeat interval 
+	 * @param repeatCount the scheduler timer repeat count. The scheduler timer will stop if the it arrives the repeat count, but it arrives the end time first, it will also stop
+	 * @param repeatInterval the scheduler timer repeat interval. The scheduler timer will be activated every the repeat interval
 	 */
 	public QuartzJobTrigger(String name, int repeatCount, long repeatInterval)
 	{
@@ -80,7 +80,7 @@ public class QuartzJobTrigger
 	/**
 	 * Constructs with the specified initial name, repeat count and repeat interval.
 	 * @param name the name string
-	 * @param repeatCount the scheduler timer repeat count. The scheduler timer will stop if the it arrives the repeat count, but it arrives the end time first, it will also stop.
+	 * @param repeatCount the scheduler timer repeat count. The scheduler timer will stop if the it arrives the repeat count, but it arrives the end time first, it will also stop
 	 * @param repeatInterval the scheduler timer repeat interval and it must be [day, hour, minute, second, milliSecond]. The scheduler timer will be activated every the repeat interval 
 	 */
 	public QuartzJobTrigger(String name, int repeatCount, int[] repeatInterval)
@@ -103,7 +103,7 @@ public class QuartzJobTrigger
 	 * Constructs with the specified initial name, group, repeat count and repeat interval.
 	 * @param name the name string
 	 * @param group the group string
-	 * @param repeatCount the scheduler timer repeat count. The scheduler timer will stop if the it arrives the repeat count, but it arrives the end time first, it will also stop.
+	 * @param repeatCount the scheduler timer repeat count. The scheduler timer will stop if the it arrives the repeat count, but it arrives the end time first, it will also stop
 	 * @param repeatInterval the scheduler timer repeat interval. The scheduler timer will be activated every the repeat interval 
 	 */
 	public QuartzJobTrigger(String name, String group, int repeatCount, long repeatInterval)
@@ -126,7 +126,7 @@ public class QuartzJobTrigger
 	 * Constructs with the specified initial name, group, repeat count and repeat interval.
 	 * @param name the name string
 	 * @param group the group string
-	 * @param repeatCount the scheduler timer repeat count. The scheduler timer will stop if the it arrives the repeat count, but it arrives the end time first, it will also stop.
+	 * @param repeatCount the scheduler timer repeat count. The scheduler timer will stop if the it arrives the repeat count, but it arrives the end time first, it will also stop
 	 * @param repeatInterval the scheduler timer repeat interval and it must be [day, hour, minute, second, milliSecond]. The scheduler timer will be activated every the repeat interval 
 	 */
 	public QuartzJobTrigger(String name, String group, int repeatCount, int[] repeatInterval)
@@ -172,7 +172,7 @@ public class QuartzJobTrigger
 	 * @param name the name string
 	 * @param startTime the scheduler timer start time. If null, the scheduler timer will start at the currently time
 	 * @param endTime the scheduler timer end time. If null, the scheduler timer will always run unless it is interrupted
-	 * @param repeatCount the scheduler timer repeat count. The scheduler timer will stop if the it arrives the repeat count, but it arrives the end time first, it will also stop.
+	 * @param repeatCount the scheduler timer repeat count. The scheduler timer will stop if the it arrives the repeat count, but it arrives the end time first, it will also stop
 	 * @param repeatInterval the scheduler timer repeat interval. The scheduler timer will be activated every the repeat interval 
 	 */
 	public QuartzJobTrigger(String name, Date startTime, Date endTime, int repeatCount, long repeatInterval)
@@ -197,7 +197,7 @@ public class QuartzJobTrigger
 	 * @param name the name string
 	 * @param startTime the scheduler timer start time. If null, the scheduler timer will start at the currently time
 	 * @param endTime the scheduler timer end time. If null, the scheduler timer will always run unless it is interrupted
-	 * @param repeatCount the scheduler timer repeat count. The scheduler timer will stop if the it arrives the repeat count, but it arrives the end time first, it will also stop.
+	 * @param repeatCount the scheduler timer repeat count. The scheduler timer will stop if the it arrives the repeat count, but it arrives the end time first, it will also stop
 	 * @param repeatInterval the scheduler timer repeat interval and it must be [day, hour, minute, second, milliSecond]. The scheduler timer will be activated every the repeat interval 
 	 */
 	public QuartzJobTrigger(String name, Date startTime, Date endTime, int repeatCount, int[] repeatInterval)
@@ -224,7 +224,7 @@ public class QuartzJobTrigger
 	 * @param group the group string
 	 * @param startTime the scheduler timer start time. If null, the scheduler timer will start at the currently time
 	 * @param endTime the scheduler timer end time. If null, the scheduler timer will always run unless it is interrupted
-	 * @param repeatCount the scheduler timer repeat count. The scheduler timer will stop if the it arrives the repeat count, but it arrives the end time first, it will also stop.
+	 * @param repeatCount the scheduler timer repeat count. The scheduler timer will stop if the it arrives the repeat count, but it arrives the end time first, it will also stop
 	 * @param repeatInterval the scheduler timer repeat interval. The scheduler timer will be activated every the repeat interval 
 	 */
 	public QuartzJobTrigger(String name, String group, Date startTime, Date endTime, int repeatCount, long repeatInterval)
@@ -251,7 +251,7 @@ public class QuartzJobTrigger
 	 * @param group the group string
 	 * @param startTime the scheduler timer start time. If null, the scheduler timer will start at the currently time
 	 * @param endTime the scheduler timer end time. If null, the scheduler timer will always run unless it is interrupted
-	 * @param repeatCount the scheduler timer repeat count. The scheduler timer will stop if the it arrives the repeat count, but it arrives the end time first, it will also stop.
+	 * @param repeatCount the scheduler timer repeat count. The scheduler timer will stop if the it arrives the repeat count, but it arrives the end time first, it will also stop
 	 * @param repeatInterval the scheduler timer repeat interval and it must be [day, hour, minute, second, milliSecond]. The scheduler timer will be activated every the repeat interval 
 	 */
 	public QuartzJobTrigger(String name, String group, Date startTime, Date endTime, int repeatCount, int[] repeatInterval)
@@ -282,7 +282,7 @@ public class QuartzJobTrigger
 	 * @param jobGroup the job group string
 	 * @param startTime the scheduler timer start time. If null, the scheduler timer will start at the currently time
 	 * @param endTime the scheduler timer end time. If null, the scheduler timer will always run unless it is interrupted
-	 * @param repeatCount the scheduler timer repeat count. The scheduler timer will stop if the it arrives the repeat count, but it arrives the end time first, it will also stop.
+	 * @param repeatCount the scheduler timer repeat count. The scheduler timer will stop if the it arrives the repeat count, but it arrives the end time first, it will also stop
 	 * @param repeatInterval the scheduler timer repeat interval. The scheduler timer will be activated every the repeat interval 
 	 */
 	public QuartzJobTrigger(String name, String group, String jobName, String jobGroup, Date startTime, Date endTime, int repeatCount, long repeatInterval)
@@ -313,7 +313,7 @@ public class QuartzJobTrigger
 	 * @param jobGroup the job group string
 	 * @param startTime the scheduler timer start time. If null, the scheduler timer will start at the currently time
 	 * @param endTime the scheduler timer end time. If null, the scheduler timer will always run unless it is interrupted
-	 * @param repeatCount the scheduler timer repeat count. The scheduler timer will stop if the it arrives the repeat count, but it arrives the end time first, it will also stop.
+	 * @param repeatCount the scheduler timer repeat count. The scheduler timer will stop if the it arrives the repeat count, but it arrives the end time first, it will also stop
 	 * @param repeatInterval the scheduler timer repeat interval and it must be [day, hour, minute, second, milliSecond]. The scheduler timer will be activated every the repeat interval 
 	 */
 	public QuartzJobTrigger(String name, String group, String jobName, String jobGroup, Date startTime, Date endTime, int repeatCount, int[] repeatInterval)

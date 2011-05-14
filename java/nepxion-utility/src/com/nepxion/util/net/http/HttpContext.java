@@ -161,7 +161,7 @@ public class HttpContext
 	}
 	
 	/**
-	 * Parse the properties to http config map with an url.
+	 * Parses the properties to http config map with an url.
 	 * @param properties the instance of Properties
 	 * @param url the instance of URL
 	 * @throws Exception

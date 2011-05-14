@@ -18,7 +18,7 @@ public class CollectionUtil
 {
 	/**
 	 * Parses the array to the list.
-	 * @param array the array object 
+	 * @param array the array 
 	 * @return the instance of List
 	 */
 	public static List parseList(Object[] array)
@@ -29,7 +29,7 @@ public class CollectionUtil
 	/**
 	 * Parses the list to the array.
 	 * @param list the instance of List 
-	 * @return the array object 
+	 * @return the array 
 	 */	
 	public static Object[] parseArray(List list)
 	{
@@ -38,7 +38,7 @@ public class CollectionUtil
 	
 	/**
 	 * Parses the array to the vector.
-	 * @param array the array object 
+	 * @param array the array
 	 * @return the instance of Vector
 	 */
 	public static Vector parseVector(Object[] array)
@@ -57,9 +57,9 @@ public class CollectionUtil
 	}
 	
 	/**
-	 * Parses the list to the vector.
-	 * @param vector the instance of List
-	 * @return the instance of Vector
+	 * Parses the vector to array.
+	 * @param vector the instance of Vector
+	 * @return the array
 	 */		
 	public static Object[] parseArray(Vector vector)
 	{

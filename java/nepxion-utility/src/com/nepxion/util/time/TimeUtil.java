@@ -858,7 +858,7 @@ public class TimeUtil
 	}
 	
 	/**
-	 * Calculates date time.
+	 * Calculates the date time.
 	 * @param dateTime the src date time
 	 * @param field the calendar field
 	 * @param amount the amount of the date or time to be added to the field

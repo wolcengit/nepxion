@@ -46,7 +46,7 @@ public interface IClientRequest
 	public String getURLParameter();
 	
 	/**
-	 * Aborts the invoker.
+	 * Aborts the client invoker.
 	 */
 	public void abort();
 }

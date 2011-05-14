@@ -38,7 +38,7 @@ public class SinaIPEntity
 	private String city;
 	
 	/**
-	 * The corp string
+	 * The corp string.
 	 */
 	private String corp;
 	
@@ -96,7 +96,7 @@ public class SinaIPEntity
 	}
 	
 	/**
-	 * Set the province
+	 * Sets the province
 	 * @param province the province string
 	 */
 	public void setProvince(String province)
@@ -132,7 +132,7 @@ public class SinaIPEntity
 	}
 	
 	/**
-	 * Set the corp.
+	 * Sets the corp.
 	 * @param corp the corp string
 	 */
 	public void setCorp(String corp)

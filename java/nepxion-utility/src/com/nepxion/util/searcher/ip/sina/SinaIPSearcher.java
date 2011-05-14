@@ -32,7 +32,7 @@ public class SinaIPSearcher
 	
 	/**
 	 * Constructs with the default.
-	 * The charset string is "GBK".
+	 * The charset is "GBK".
 	 */
 	public SinaIPSearcher()
 	{
@@ -118,7 +118,7 @@ public class SinaIPSearcher
 	}
 	
 	/**
-	 * Gets the text.
+	 * Gets the text by an ip.
 	 * @return the text string
 	 * @throws Exception
 	 */
