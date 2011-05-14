@@ -83,7 +83,7 @@ public class IPEntity
 	
 	/**
 	 * Sets the start ip.
-	 * @param ip the start ip string
+	 * @param startIP the start ip string
 	 */
 	public void setStartIP(String startIP)
 	{
@@ -101,7 +101,7 @@ public class IPEntity
 	
 	/**
 	 * Sets the end ip.
-	 * @param ip the end ip string
+	 * @param endIP the end ip string
 	 */
 	public void setEndIP(String endIP)
 	{

@@ -250,7 +250,7 @@ public class ClientRequestPost
 	/**
 	 * Sets the buffered entity.
 	 * @param httpEntity the instance of HttpEntity
-	 * @return
+	 * @return the instance of HttpEntity
 	 */
 	public BufferedHttpEntity setBufferedEntity(HttpEntity httpEntity)
 	{		

@@ -147,8 +147,7 @@ public class QuartzJobTrigger
 	/**
 	 * Constructs with the specified initial name, group and start time.
 	 * @param name the name string
-	 * @param startTime the scheduler timer start time. If null, the scheduler timer will start at the currently time
-	 * @param endTime the scheduler timer end time. If null, the scheduler timer will always run unless it is interrupted
+	 * @param group the group string
 	 */
 	public QuartzJobTrigger(String name, String group, Date startTime)
 	{

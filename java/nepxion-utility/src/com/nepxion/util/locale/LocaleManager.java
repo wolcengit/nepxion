@@ -52,7 +52,7 @@ public class LocaleManager
 	
 	/**
 	 * Gets the i18n string by a bundle name and key.
-	 * @param bundleClazz the bundle class
+	 * @param bundleName the bundle name string
 	 * @param key the key string
 	 * @return the i18n string
 	 */

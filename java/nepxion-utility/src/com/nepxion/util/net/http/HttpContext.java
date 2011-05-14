@@ -97,7 +97,6 @@ public class HttpContext
 	/**
 	 * Registers the http config by an url.
 	 * @param codeBase the instance of URL
-	 * @param codeBase
 	 * @throws Exception
 	 */
 	public static void register(URL codeBase)
