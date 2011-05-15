@@ -28,9 +28,7 @@ import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
 import com.nepxion.cots.twaver.icon.TIconFactory;
-import com.nepxion.swing.border.ComplexEtchedBorder;
-import com.nepxion.swing.border.ComplexSide;
-import com.nepxion.swing.border.ComplexTitleBorder;
+import com.nepxion.swing.border.BorderManager;
 import com.nepxion.swing.button.ButtonManager;
 import com.nepxion.swing.button.JBasicButton;
 import com.nepxion.swing.checkbox.JBasicCheckBox;
@@ -170,7 +168,7 @@ public class TLayoutPanel
 		);
 		
 		JPanel layoutModePanel = new JPanel();
-		layoutModePanel.setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "设置布局类型"));
+		layoutModePanel.setBorder(BorderManager.createComplexTitledBorder("设置布局类型"));
 		layoutModePanel.setLayout(new TableLayout(size1));
 		layoutModePanel.add(typeLabel, "0, 0");
 		layoutModePanel.add(typeComboBox, "1, 0");
@@ -304,7 +302,7 @@ public class TLayoutPanel
 		};
 		
 		JPanel layoutParamPanel = new JPanel();
-		layoutParamPanel.setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "设置布局参数"));
+		layoutParamPanel.setBorder(BorderManager.createComplexTitledBorder("设置布局参数"));
 		layoutParamPanel.setLayout(new TableLayout(size2));
 		
 		layoutParamPanel.add(forceSizeLabel, "0, 0");

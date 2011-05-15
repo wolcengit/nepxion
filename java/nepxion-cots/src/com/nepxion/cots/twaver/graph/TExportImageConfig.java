@@ -23,9 +23,7 @@ import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.ListModel;
 
-import com.nepxion.swing.border.ComplexEtchedBorder;
-import com.nepxion.swing.border.ComplexSide;
-import com.nepxion.swing.border.ComplexTitleBorder;
+import com.nepxion.swing.border.BorderManager;
 import com.nepxion.swing.element.ElementNode;
 import com.nepxion.swing.layout.table.TableLayout;
 import com.nepxion.swing.renderer.list.RadioButtonListCellRenderer;
@@ -60,7 +58,7 @@ public class TExportImageConfig
 		};
 			
 		JPanel areaPanel = new JPanel();
-		areaPanel.setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "设置图片的区域"));
+		areaPanel.setBorder(BorderManager.createComplexTitledBorder("设置图片的区域"));
 		areaPanel.setLayout(new TableLayout(size1));
 		areaPanel.add(new JBasicScrollPane(areaList), "0, 0");
 		
@@ -73,7 +71,7 @@ public class TExportImageConfig
 		};
 				
 		JPanel zoomePanel = new JPanel();
-		zoomePanel.setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "设置图片的缩放比例"));
+		zoomePanel.setBorder(BorderManager.createComplexTitledBorder("设置图片的缩放比例"));
 		zoomePanel.setLayout(new TableLayout(size2));
 		zoomePanel.add(new JLabel("缩放比例"), "0, 0");
 		zoomePanel.add(zoomTextField, "1, 0");
@@ -86,7 +84,7 @@ public class TExportImageConfig
 		};
 		
 		JPanel marginPanel = new JPanel();
-		marginPanel.setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "设置图片的边缘尺寸"));
+		marginPanel.setBorder(BorderManager.createComplexTitledBorder("设置图片的边缘尺寸"));
 		marginPanel.setLayout(new TableLayout(size3));
 		marginPanel.add(new JLabel("边缘尺寸"), "0, 0");
 		marginPanel.add(marginTextField, "1, 0");

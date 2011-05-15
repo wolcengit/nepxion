@@ -19,9 +19,7 @@ import javax.swing.DefaultListModel;
 import javax.swing.JList;
 import javax.swing.JPanel;
 
-import com.nepxion.swing.border.ComplexEtchedBorder;
-import com.nepxion.swing.border.ComplexSide;
-import com.nepxion.swing.border.ComplexTitleBorder;
+import com.nepxion.swing.border.BorderManager;
 import com.nepxion.swing.element.ElementNode;
 import com.nepxion.swing.layout.table.TableLayout;
 import com.nepxion.swing.renderer.list.RadioButtonListCellRenderer;
@@ -45,21 +43,21 @@ public class TLabelConfig
 		nodeLabelList = new JList();
 		
 		JPanel nodeLabelPanel = new JPanel();
-		nodeLabelPanel.setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "节点标签"));
+		nodeLabelPanel.setBorder(BorderManager.createComplexTitledBorder("节点标签"));
 		nodeLabelPanel.setLayout(new TableLayout(size));
 		nodeLabelPanel.add(new JBasicScrollPane(nodeLabelList), "0, 0");
 		
 		groupLabelList = new JList();
 		
 		JPanel groupLabelPanel = new JPanel();
-		groupLabelPanel.setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "组标签"));
+		groupLabelPanel.setBorder(BorderManager.createComplexTitledBorder("组标签"));
 		groupLabelPanel.setLayout(new TableLayout(size));
 		groupLabelPanel.add(new JBasicScrollPane(groupLabelList), "0, 0");
 		
 		linkLabelList = new JList();
 		
 		JPanel linkLabelPanel = new JPanel();
-		linkLabelPanel.setBorder(new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), "连接标签"));
+		linkLabelPanel.setBorder(BorderManager.createComplexTitledBorder("连接标签"));
 		linkLabelPanel.setLayout(new TableLayout(size));
 		linkLabelPanel.add(new JBasicScrollPane(linkLabelList), "0, 0");
 		
