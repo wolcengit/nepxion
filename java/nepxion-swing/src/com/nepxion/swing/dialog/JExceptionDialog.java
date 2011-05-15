@@ -214,6 +214,7 @@ public class JExceptionDialog
 	{
 		summary = (summary == null ? "" : summary + "\n");
 		hintTextField.setText(hint);
+		hintTextField.setCaretPosition(0);
 		
 		String exceptionText = ExceptionUtil.getText(e);
 		detailTextArea.setText(summary + exceptionText + "\n");
