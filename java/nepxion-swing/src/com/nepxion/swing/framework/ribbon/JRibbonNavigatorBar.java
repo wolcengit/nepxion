@@ -24,10 +24,12 @@ public abstract class JRibbonNavigatorBar
 	private int tabHeight = -1;
 	private int navigatorBarHeight = -1;
 
+	private JRibbonContainer ribbonContainer;
 	private ITabbedPane tabbedPane;
 	
-	public JRibbonNavigatorBar(ITabbedPane tabbedPane)
+	public JRibbonNavigatorBar(JRibbonContainer ribbonContainer, ITabbedPane tabbedPane)
 	{
+		this.ribbonContainer = ribbonContainer;
 		this.tabbedPane = tabbedPane;
 		
 		JComponent tabbedComponent = (JComponent) tabbedPane;
@@ -55,6 +57,11 @@ public abstract class JRibbonNavigatorBar
 	public void setNavigatorBarHeight(int navigatorBarHeight)
 	{
 		this.navigatorBarHeight = navigatorBarHeight;
+	}
+	
+	public JRibbonContainer getRibbonContainer()
+	{
+		return ribbonContainer;
 	}
 	
 	public ITabbedPane getTabbedPane()
