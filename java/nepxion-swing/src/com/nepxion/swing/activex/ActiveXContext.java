@@ -13,13 +13,25 @@ package com.nepxion.swing.activex;
 public class ActiveXContext
 	implements ActiveXConstants
 {
+	/**
+	 * The strategy of activeX invoking.
+	 * The value is STRATEGY_APPLICATION or STRATEGY_APPLET
+	 */
 	private static int strategy = STRATEGY_APPLICATION;
 	
-	public static void registerStrategy(int customStrategy)
+	/**
+	 * Registers the strategy.
+	 * @param strategy the strategy value
+	 */
+	public static void registerStrategy(int strategy)
 	{
-		strategy = customStrategy;
+		ActiveXContext.strategy = strategy;
 	}
 	
+	/**
+	 * Gets the strategy.
+	 * @return the strategy value
+	 */
 	public static int getStrategy()
 	{
 		return strategy;

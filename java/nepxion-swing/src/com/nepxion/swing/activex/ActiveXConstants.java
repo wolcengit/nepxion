@@ -12,6 +12,13 @@ package com.nepxion.swing.activex;
 
 public interface ActiveXConstants
 {
+	/**
+	 * The strategy of activeX invoking for application.
+	 */
 	public static final int STRATEGY_APPLICATION = 0;
+	
+	/**
+	 * The strategy of activeX invoking for applet.
+	 */
 	public static final int STRATEGY_APPLET = 1;
 }
