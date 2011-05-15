@@ -26,14 +26,14 @@ public class JRibbonCloseAction
 	
 	public JRibbonCloseAction(JRibbonContainer ribbonContainer)
 	{
-		super(IconFactory.getSwingIcon("item_close.png"), SwingLocale.getString("close_panel"));
+		super(SwingLocale.getString("close_panel"), IconFactory.getSwingIcon("item_close.png"), SwingLocale.getString("close_panel"));
 		
 		this.ribbonContainer = ribbonContainer;
 	}
 	
 	public JRibbonCloseAction(JRibbonHierarchy ribbonHierarchy)
 	{
-		super(IconFactory.getSwingIcon("item_close.png"), SwingLocale.getString("close_panel"));
+		super(SwingLocale.getString("close_panel"), IconFactory.getSwingIcon("item_close.png"), SwingLocale.getString("close_panel"));
 		
 		this.ribbonHierarchy = ribbonHierarchy;
 	}

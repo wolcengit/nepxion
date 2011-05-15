@@ -25,6 +25,7 @@ import com.nepxion.swing.framework.ribbon.action.JRibbonCloseAction;
 import com.nepxion.swing.framework.ribbon.action.JRibbonToggleFacadeAction;
 import com.nepxion.swing.framework.ribbon.action.JRibbonToggleHeightAction;
 import com.nepxion.swing.icon.IconFactory;
+import com.nepxion.swing.locale.SwingLocale;
 import com.nepxion.swing.lookandfeel.LookAndFeelManager;
 import com.nepxion.swing.menuitem.JBasicMenuItem;
 import com.nepxion.swing.popupmenu.JDecorationPopupMenu;
@@ -45,6 +46,7 @@ public class JRibbonStatusBar
 		{
 			closeRibbonComponentButton = new JBasicButton(new JRibbonCloseAction(hierarchy));
 		}
+		closeRibbonComponentButton.setText("");
 		
 		AbstractButton toggleHeightButton = null;
 		if (LookAndFeelManager.isNimbusLookAndFeel())
@@ -55,25 +57,26 @@ public class JRibbonStatusBar
 		{
 			toggleHeightButton = new JBasicButton(new JRibbonToggleHeightAction(hierarchy));
 		}
+		toggleHeightButton.setText("");
 		
 		JDecorationPopupMenu popupMenu = new JDecorationPopupMenu();
-		popupMenu.add(new JBasicMenuItem(new JRibbonToggleFacadeAction("显示单行文字", IconFactory.getSwingIcon("label.png"), "显示单行文字", hierarchy, JRibbonAction.TEXT, JRibbonAction.SHOW_SMALL)));
-		popupMenu.add(new JBasicMenuItem(new JRibbonToggleFacadeAction("显示多行文字", IconFactory.getSwingIcon("label.png"), "显示多行文字", hierarchy, JRibbonAction.TEXT, JRibbonAction.SHOW_LARGE)));
-		popupMenu.add(new JBasicMenuItem(new JRibbonToggleFacadeAction("不显示文字", null, "不显示文字", hierarchy, JRibbonAction.TEXT, JRibbonAction.SHOW_NO)));
+		popupMenu.add(new JBasicMenuItem(new JRibbonToggleFacadeAction(SwingLocale.getString("config_navigatorbar_show_small_text"), IconFactory.getSwingIcon("label.png"), SwingLocale.getString("config_navigatorbar_show_small_text"), hierarchy, JRibbonAction.TEXT, JRibbonAction.SHOW_SMALL)));
+		popupMenu.add(new JBasicMenuItem(new JRibbonToggleFacadeAction(SwingLocale.getString("config_navigatorbar_show_large_text"), IconFactory.getSwingIcon("label.png"), SwingLocale.getString("config_navigatorbar_show_large_text"), hierarchy, JRibbonAction.TEXT, JRibbonAction.SHOW_LARGE)));
+		popupMenu.add(new JBasicMenuItem(new JRibbonToggleFacadeAction(SwingLocale.getString("config_navigatorbar_show_no_text"), IconFactory.getBlankIcon(), SwingLocale.getString("config_navigatorbar_show_no_text"), hierarchy, JRibbonAction.TEXT, JRibbonAction.SHOW_NO)));
 		popupMenu.addSeparator();
-		popupMenu.add(new JBasicMenuItem(new JRibbonToggleFacadeAction("显示大图标", IconFactory.getSwingIcon("icon.png"), "显示大图标", hierarchy, JRibbonAction.ICON, JRibbonAction.SHOW_LARGE)));
-		popupMenu.add(new JBasicMenuItem(new JRibbonToggleFacadeAction("显示小图标", IconFactory.getSwingIcon("icon_1.png"), "显示小图标", hierarchy, JRibbonAction.ICON, JRibbonAction.SHOW_SMALL)));
-		popupMenu.add(new JBasicMenuItem(new JRibbonToggleFacadeAction("不显示图标", null, "不显示图标", hierarchy, JRibbonAction.ICON, JRibbonAction.SHOW_NO)));
+		popupMenu.add(new JBasicMenuItem(new JRibbonToggleFacadeAction(SwingLocale.getString("config_navigatorbar_show_small_icon"), IconFactory.getSwingIcon("rectangle_single.png"), SwingLocale.getString("config_navigatorbar_show_small_icon"), hierarchy, JRibbonAction.ICON, JRibbonAction.SHOW_SMALL)));
+		popupMenu.add(new JBasicMenuItem(new JRibbonToggleFacadeAction(SwingLocale.getString("config_navigatorbar_show_large_icon"), IconFactory.getSwingIcon("rectangle_multi.png"), SwingLocale.getString("config_navigatorbar_show_large_icon"), hierarchy, JRibbonAction.ICON, JRibbonAction.SHOW_LARGE)));
+		popupMenu.add(new JBasicMenuItem(new JRibbonToggleFacadeAction(SwingLocale.getString("config_navigatorbar_show_no_icon"), IconFactory.getBlankIcon(), SwingLocale.getString("config_navigatorbar_show_no_icon"), hierarchy, JRibbonAction.ICON, JRibbonAction.SHOW_NO)));
 		
 		AbstractButton toggleFacadeButton = null;
 		if (LookAndFeelManager.isNimbusLookAndFeel())
 		{
-			toggleFacadeButton = new JClassicMenuButton(IconFactory.getSwingIcon("facade.png"), "外观设置");
+			toggleFacadeButton = new JClassicMenuButton(IconFactory.getSwingIcon("facade.png"), SwingLocale.getString("config_navigatorbar_facade"));
 			((JClassicMenuButton) toggleFacadeButton).setPopupMenu(popupMenu);
 		}
 		else
 		{
-			toggleFacadeButton = new JBasicMenuButton(IconFactory.getSwingIcon("facade.png"), "外观设置");
+			toggleFacadeButton = new JBasicMenuButton(IconFactory.getSwingIcon("facade.png"), SwingLocale.getString("config_navigatorbar_facade"));
 			((JBasicMenuButton) toggleFacadeButton).setPopupMenu(popupMenu);
 		}
 		

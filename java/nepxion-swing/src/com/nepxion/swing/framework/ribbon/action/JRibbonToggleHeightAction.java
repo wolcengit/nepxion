@@ -17,6 +17,7 @@ import java.awt.event.MouseListener;
 
 import javax.swing.JComponent;
 import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
 
 import com.nepxion.swing.action.JSecurityAction;
 import com.nepxion.swing.container.ContainerManager;
@@ -36,14 +37,14 @@ public class JRibbonToggleHeightAction
 	
 	public JRibbonToggleHeightAction(JRibbonNavigatorBar ribbonNavigatorBar)
 	{
-		super(IconFactory.getSwingIcon("toggle_size.png"), SwingLocale.getString("toggle_toolbar_visibility"));
+		super(SwingLocale.getString("toggle_navigatorbar_visibility"), IconFactory.getSwingIcon("toggle_size.png"), SwingLocale.getString("toggle_navigatorbar_visibility"));
 		
 		this.ribbonNavigatorBar = ribbonNavigatorBar;
 	}
 	
 	public JRibbonToggleHeightAction(JRibbonHierarchy ribbonHierarchy)
 	{
-		super(IconFactory.getSwingIcon("toggle_size.png"), SwingLocale.getString("toggle_toolbar_visibility"));
+		super(SwingLocale.getString("toggle_navigatorbar_visibility"), IconFactory.getSwingIcon("toggle_size.png"), SwingLocale.getString("toggle_navigatorbar_visibility"));
 		
 		this.ribbonHierarchy = ribbonHierarchy;
 	}
@@ -55,7 +56,7 @@ public class JRibbonToggleHeightAction
 	
 	public void mouseClicked(MouseEvent e)
 	{
-		if (e.getClickCount() > 1)
+		if (SwingUtilities.isLeftMouseButton(e) && e.getClickCount() > 1)
 		{
 			toggle();
 		}
