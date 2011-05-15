@@ -223,5 +223,5 @@ public class JRibbon
 	public void setCornerBackground(Color cornerBackground)
 	{
 		this.cornerBackground = cornerBackground;
-	}	
+	}
 }

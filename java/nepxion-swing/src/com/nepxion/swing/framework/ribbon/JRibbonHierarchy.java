@@ -18,19 +18,26 @@ import javax.swing.JPanel;
 
 import com.nepxion.swing.button.ButtonManager;
 import com.nepxion.swing.button.JBasicButton;
+import com.nepxion.swing.button.JBasicMenuButton;
 import com.nepxion.swing.button.JClassicButton;
+import com.nepxion.swing.button.JClassicMenuButton;
 import com.nepxion.swing.framework.JFrameWorkHierarchy;
 import com.nepxion.swing.framework.JFrameWorkStatusBar;
+import com.nepxion.swing.framework.ribbon.action.JRibbonAction;
 import com.nepxion.swing.framework.ribbon.action.JRibbonCloseAction;
-import com.nepxion.swing.framework.ribbon.action.JRibbonToggleAction;
+import com.nepxion.swing.framework.ribbon.action.JRibbonToggleFacadeAction;
+import com.nepxion.swing.framework.ribbon.action.JRibbonToggleHeightAction;
+import com.nepxion.swing.icon.IconFactory;
 import com.nepxion.swing.lookandfeel.LookAndFeelManager;
+import com.nepxion.swing.menuitem.JBasicMenuItem;
+import com.nepxion.swing.popupmenu.JDecorationPopupMenu;
 import com.nepxion.swing.statusbar.JStatusBar;
 import com.nepxion.swing.statusbar.JStatusItem;
 
 public class JRibbonHierarchy
 	extends JFrameWorkHierarchy
 {
-	private JPanel toolBar;
+	private JPanel navigatorContainer;
 	
 	private JRibbonContainer container;
 	
@@ -39,13 +46,13 @@ public class JRibbonHierarchy
 		
 	public JRibbonHierarchy()
 	{
-		toolBar = new JPanel();
-		toolBar.setLayout(new BorderLayout());
+		navigatorContainer = new JPanel();
+		navigatorContainer.setLayout(new BorderLayout());
 		
 		container = new JRibbonContainer();
 		
 		setLayout(new BorderLayout());
-		add(toolBar, BorderLayout.NORTH);
+		add(navigatorContainer, BorderLayout.NORTH);
 		add(container, BorderLayout.CENTER);
 	}
 	
@@ -68,29 +75,50 @@ public class JRibbonHierarchy
 			closeRibbonComponentButton = new JBasicButton(new JRibbonCloseAction(this));
 		}
 		
-		AbstractButton toggleRibbonBarButton = null;
+		AbstractButton toggleHeightButton = null;
 		if (LookAndFeelManager.isNimbusLookAndFeel())
 		{
-			toggleRibbonBarButton = new JClassicButton(new JRibbonToggleAction(this));
+			toggleHeightButton = new JClassicButton(new JRibbonToggleHeightAction(this));
 		}
 		else
 		{
-			toggleRibbonBarButton = new JBasicButton(new JRibbonToggleAction(this));
+			toggleHeightButton = new JBasicButton(new JRibbonToggleHeightAction(this));
+		}
+		
+		JDecorationPopupMenu popupMenu = new JDecorationPopupMenu();
+		popupMenu.add(new JBasicMenuItem(new JRibbonToggleFacadeAction("显示文字", IconFactory.getSwingIcon("label.png"), "显示文字", this, JRibbonAction.TEXT, JRibbonAction.SHOW_LARGE)));
+		popupMenu.add(new JBasicMenuItem(new JRibbonToggleFacadeAction("不显示文字", null, "不显示文字", this, JRibbonAction.TEXT, JRibbonAction.SHOW_NO)));
+		popupMenu.addSeparator();
+		popupMenu.add(new JBasicMenuItem(new JRibbonToggleFacadeAction("显示大图标", IconFactory.getSwingIcon("icon.png"), "显示大图标", this, JRibbonAction.ICON, JRibbonAction.SHOW_LARGE)));
+		popupMenu.add(new JBasicMenuItem(new JRibbonToggleFacadeAction("显示小图标", IconFactory.getSwingIcon("icon_1.png"), "显示小图标", this, JRibbonAction.ICON, JRibbonAction.SHOW_SMALL)));
+		popupMenu.add(new JBasicMenuItem(new JRibbonToggleFacadeAction("不显示图标", null, "不显示图标", this, JRibbonAction.ICON, JRibbonAction.SHOW_NO)));
+		
+		AbstractButton toggleFacadeButton = null;
+		if (LookAndFeelManager.isNimbusLookAndFeel())
+		{
+			toggleFacadeButton = new JClassicMenuButton(IconFactory.getSwingIcon("facade.png"), "外观设置");
+			((JClassicMenuButton) toggleFacadeButton).setPopupMenu(popupMenu);
+		}
+		else
+		{
+			toggleFacadeButton = new JBasicMenuButton(IconFactory.getSwingIcon("facade.png"), "外观设置");
+			((JBasicMenuButton) toggleFacadeButton).setPopupMenu(popupMenu);
 		}
 		
 		JStatusItem statusItem = new JStatusItem();
 		statusItem.add(closeRibbonComponentButton);
-		statusItem.add(toggleRibbonBarButton);
+		statusItem.add(toggleHeightButton);
+		statusItem.add(toggleFacadeButton);
 		
 		ButtonManager.updateUI(statusItem, new Dimension(30, 30));
 		
 		statusBar.setSeparatorHeight(14);
-		statusBar.addItem(60, statusItem, JStatusBar.LEFT);
+		statusBar.addItem(90, statusItem, JStatusBar.LEFT);
 	}
 	
-	public JPanel getToolBar()
+	public JPanel getNavigatorContainer()
 	{
-		return toolBar;
+		return navigatorContainer;
 	}
 	
 	public JRibbonContainer getRibbonContainer()

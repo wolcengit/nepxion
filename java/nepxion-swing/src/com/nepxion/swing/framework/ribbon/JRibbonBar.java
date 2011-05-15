@@ -10,6 +10,10 @@ package com.nepxion.swing.framework.ribbon;
  * @version 1.0
  */
 
+import java.awt.Component;
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
@@ -21,17 +25,34 @@ public class JRibbonBar
 	extends JAutoRollScrollPane	implements SwingConstants
 {
 	private JRibbonContainer ribbonContainer;
-	private JPanel panel;
+	private JPanel ribbonView;
 	
 	public JRibbonBar(JRibbonContainer ribbonContainer)
 	{
 		this.ribbonContainer = ribbonContainer;
 		
-		panel = new JPanel();
-		panel.setLayout(new FiledLayout(FiledLayout.ROW, FiledLayout.FULL, 0));
-		panel.setBorder(BorderFactory.createEmptyBorder(3, 3, 3, 3));
+		ribbonView = new JPanel();
+		ribbonView.setLayout(new FiledLayout(FiledLayout.ROW, FiledLayout.FULL, 0));
+		ribbonView.setBorder(BorderFactory.createEmptyBorder(3, 3, 3, 3));
 		
-		setViewportView(panel);
+		setViewportView(ribbonView);
+	}
+	
+	public List getRibbons()
+	{
+		List ribbons = new ArrayList();
+		
+		for (int i = 0; i < ribbonView.getComponentCount(); i++)
+		{
+			Component component = ribbonView.getComponent(i);
+			
+			if(component instanceof JRibbon)
+			{
+				ribbons.add(component);
+			}	
+		}
+		
+		return ribbons;
 	}
 	
 	public JRibbonContainer getRibbonContainer()
@@ -41,6 +62,6 @@ public class JRibbonBar
 	
 	public JPanel getRibbonView()
 	{
-		return panel;
+		return ribbonView;
 	}
 }

@@ -16,9 +16,13 @@ import com.nepxion.swing.framework.ribbon.action.JRibbonAction;
 
 public class RibbonManager
 {		
-	public static JRibbonAction createRibbonAction(String name, String text, Icon icon, String toolTipText, String ribbonName, String ribbonTitle, Icon ribbonIcon, String ribbonToolTipText, String ribbonComponentClass, JRibbonContainer ribbonContainer)
+	public static JRibbonAction createRibbonAction(String name, String text, Icon icon, Icon smallIcon, Icon largeIcon, String toolTipText, String ribbonName, String ribbonTitle, Icon ribbonIcon, String ribbonToolTipText, String ribbonComponentClass, JRibbonContainer ribbonContainer)
 	{
 		JRibbonAction action = new JRibbonAction(name, text, icon, toolTipText);
+		action.setSmallText("");
+		action.setLargeText(text);
+		action.setSmallIcon(smallIcon);
+		action.setLargeIcon(largeIcon);
 		action.setRibbonName(ribbonName);
 		action.setRibbonTitle(ribbonTitle);
 		action.setRibbonIcon(ribbonIcon);
