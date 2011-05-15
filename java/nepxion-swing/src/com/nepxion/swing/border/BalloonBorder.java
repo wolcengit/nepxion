@@ -22,17 +22,30 @@ import javax.swing.border.Border;
 public class BalloonBorder
 	implements Border
 {
+	/**
+	 * The last component size value.
+	 */
 	private Dimension lastComponentSize;
+	
+	/**
+	 * The insets value.
+	 */
 	private Insets insets = new Insets(0, 0, 0, 0);
 	
+	/**
+	 * The fill color.
+	 */
 	private Color fillColor;
+	
+	/**
+	 * the offset value.
+	 */
 	private int offset;
 
 	/**
-	 * Creates a balloon border.
-	 *
-	 * @param fillColor   color which is used to fill the balloon (currently only the triangular tip)
-	 * @param offset   number of pixels between component and balloon body
+	 * Constructs with the specified initial fill color and offset.
+	 * @param fillColor the fill color which is used to fill the balloon (currently only the triangular tip)
+	 * @param offset the offset which is number of pixels between component and balloon body
 	 */
 	public BalloonBorder(Color fillColor, int offset)
 	{
@@ -40,6 +53,15 @@ public class BalloonBorder
 		this.offset = offset;
 	}
 	
+	/**
+	 * Paints border.
+	 * @param c the instance of Component
+	 * @param g the instance of Graphics
+	 * @param x the x value
+	 * @param y the y value
+	 * @param width the width value
+	 * @param height the height value
+	 */
 	public void paintBorder(Component c, Graphics g, int x, int y, int width, int height)
 	{
 		width -= insets.left + insets.right;
@@ -90,6 +112,11 @@ public class BalloonBorder
 		g.fillPolygon(xPoints, yPoints, 3);
 	}
 	
+	/**
+	 * Gets the border insets.
+	 * @param c the instance of Component
+	 * @return the instance of Insets
+	 */
 	public Insets getBorderInsets(Component c)
 	{
 		Dimension currentComponent = c.getSize();
@@ -105,6 +132,9 @@ public class BalloonBorder
 		return insets;
 	}
 	
+	/**
+	 * Returns true if the border is opaque.
+	 */
 	public boolean isBorderOpaque()
 	{
 		return true;

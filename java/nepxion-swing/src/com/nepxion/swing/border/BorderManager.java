@@ -19,8 +19,15 @@ import javax.swing.plaf.metal.MetalBorders.ScrollPaneBorder;
 
 public class BorderManager
 {
+	/**
+	 * The instance of Border for scrollPane border.
+	 */
 	private static Border scrollPaneBorder;
 	
+	/**
+	 * Creates the scrollPane border.
+	 * @return the instance of Border
+	 */
 	public static Border createScrollPaneBorder()
 	{
 		if (scrollPaneBorder == null)
@@ -35,26 +42,64 @@ public class BorderManager
 		return scrollPaneBorder;
 	}
 	
-	public static Border createTitleBorder(String title)
+	/**
+	 * Creates the titled border.
+	 * @param title the title string
+	 * @return the instance of Border
+	 */
+	public static Border createTitledBorder(String title)
 	{
 		return BorderFactory.createTitledBorder(BorderFactory.createEtchedBorder(), title);
 	}
 	
-	public static Border createTitleBorder(String title, int top, int left, int bottom, int right)
+	/**
+	 * Creates the titled border with the empty border inside.
+	 * @param title the title string
+	 * @param top the top value
+	 * @param left the left value
+	 * @param bottom the bottom value
+	 * @param right the right value
+	 * @return the instance of Border
+	 */
+	public static Border createTitledBorder(String title, int top, int left, int bottom, int right)
 	{
-		return BorderFactory.createCompoundBorder(createTitleBorder(title), BorderFactory.createEmptyBorder(top, left, bottom, right));
+		return BorderFactory.createCompoundBorder(createTitledBorder(title), BorderFactory.createEmptyBorder(top, left, bottom, right));
 	}
 	
-	public static Border createComplexTitleBorder(String title)
+	/**
+	 * Creates the complex titled border.
+	 * @param title the title string
+	 * @return the instance of Border
+	 */
+	public static Border createComplexTitledBorder(String title)
 	{
-		return new ComplexTitleBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), title);
+		return new ComplexTitledBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), title);
 	}
 	
-	public static Border createComplexTitleBorder(String title, int top, int left, int bottom, int right)
+	/**
+	 * Creates the complex titled border with the empty border outside.
+	 * @param title the title string
+	 * @param top the top value
+	 * @param left the left value
+	 * @param bottom the bottom value
+	 * @param right the right value
+	 * @return the instance of Border
+	 */
+	public static Border createComplexTitledBorder(String title, int top, int left, int bottom, int right)
 	{
-		return BorderFactory.createCompoundBorder(BorderFactory.createEmptyBorder(top, left, bottom, right), createComplexTitleBorder(title));
+		return BorderFactory.createCompoundBorder(BorderFactory.createEmptyBorder(top, left, bottom, right), createComplexTitledBorder(title));
 	}
 	
+	/**
+	 * Creates the line border with the empty border outside.
+	 * @param color the instance of Color
+	 * @param top the top value
+	 * @param left the left value
+	 * @param bottom the bottom value
+	 * @param right the right value
+	 * @return the instance of Border
+	 * @return
+	 */
 	public static Border createLineBorder(Color color, int top, int left, int bottom, int right)
 	{
 		return BorderFactory.createCompoundBorder(BorderFactory.createEmptyBorder(top, left, bottom, right), BorderFactory.createLineBorder(color));
