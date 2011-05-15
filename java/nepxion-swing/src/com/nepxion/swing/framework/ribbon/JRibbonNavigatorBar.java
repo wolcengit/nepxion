@@ -10,8 +10,12 @@ package com.nepxion.swing.framework.ribbon;
  * @version 1.0
  */
 
+import java.awt.BorderLayout;
+
+import javax.swing.JComponent;
 import javax.swing.JPanel;
 
+import com.nepxion.swing.framework.ribbon.action.JRibbonToggleHeightAction;
 import com.nepxion.swing.tabbedpane.ITabbedPane;
 
 public abstract class JRibbonNavigatorBar
@@ -20,9 +24,17 @@ public abstract class JRibbonNavigatorBar
 	private int tabHeight = -1;
 	private int navigatorBarHeight = -1;
 
-	public JRibbonNavigatorBar()
+	private ITabbedPane tabbedPane;
+	
+	public JRibbonNavigatorBar(ITabbedPane tabbedPane)
 	{
+		this.tabbedPane = tabbedPane;
 		
+		JComponent tabbedComponent = (JComponent) tabbedPane;
+		tabbedComponent.addMouseListener(new JRibbonToggleHeightAction(this));
+		
+		setLayout(new BorderLayout());
+		add(tabbedComponent, BorderLayout.CENTER);
 	}
 	
 	public int getTabHeight()
@@ -45,5 +57,8 @@ public abstract class JRibbonNavigatorBar
 		this.navigatorBarHeight = navigatorBarHeight;
 	}
 	
-	public abstract ITabbedPane getTabbedPane();
+	public ITabbedPane getTabbedPane()
+	{
+		return tabbedPane;
+	}
 }

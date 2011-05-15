@@ -39,6 +39,7 @@ import com.nepxion.swing.button.JClassicMenuButton;
 import com.nepxion.swing.framework.ribbon.JRibbon;
 import com.nepxion.swing.framework.ribbon.JRibbonBar;
 import com.nepxion.swing.framework.ribbon.JRibbonContainer;
+import com.nepxion.swing.framework.ribbon.JRibbonNavigatorBar;
 import com.nepxion.swing.framework.ribbon.RibbonManager;
 import com.nepxion.swing.framework.ribbon.action.JRibbonAction;
 import com.nepxion.swing.icon.IconFactory;
@@ -61,20 +62,20 @@ public class Dom4JRibbonParser
 	protected int textShowValue = JRibbonAction.SHOW_LARGE;
 	protected int iconShowValue = JRibbonAction.SHOW_LARGE;
 	
-	public Dom4JRibbonParser(JRibbonContainer ribbonContainer, ITabbedPane tabbedPane)
+	public Dom4JRibbonParser(JRibbonContainer ribbonContainer, JRibbonNavigatorBar ribbonNavigatorBar)
 	{
-		this(ribbonContainer, tabbedPane, JRibbonAction.SHOW_LARGE, JRibbonAction.SHOW_LARGE);
+		this(ribbonContainer, ribbonNavigatorBar, JRibbonAction.SHOW_LARGE, JRibbonAction.SHOW_LARGE);
 	}
 	
-	public Dom4JRibbonParser(JRibbonContainer ribbonContainer, ITabbedPane tabbedPane, int textShowValue, int iconShowValue)
+	public Dom4JRibbonParser(JRibbonContainer ribbonContainer, JRibbonNavigatorBar ribbonNavigatorBar, int textShowValue, int iconShowValue)
 	{
-		this(ribbonContainer, tabbedPane, true, textShowValue, iconShowValue);
+		this(ribbonContainer, ribbonNavigatorBar, true, textShowValue, iconShowValue);
 	}
 	
-	public Dom4JRibbonParser(JRibbonContainer ribbonContainer, ITabbedPane tabbedPane, boolean isContextIcon, int textShowValue, int iconShowValue)
+	public Dom4JRibbonParser(JRibbonContainer ribbonContainer, JRibbonNavigatorBar ribbonNavigatorBar, boolean isContextIcon, int textShowValue, int iconShowValue)
 	{
 		this.ribbonContainer = ribbonContainer;
-		this.tabbedPane = tabbedPane;
+		this.tabbedPane = ribbonNavigatorBar.getTabbedPane();
 		this.isContextIcon = isContextIcon;
 		this.textShowValue = textShowValue;
 		this.iconShowValue = iconShowValue;
