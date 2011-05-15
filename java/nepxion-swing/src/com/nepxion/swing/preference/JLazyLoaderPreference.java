@@ -37,7 +37,7 @@ public class JLazyLoaderPreference
 		
 		JPanel loadStrategyPanel = new JPanel();
 		loadStrategyPanel.setLayout(new FiledLayout(FiledLayout.ROW, FiledLayout.LEFT, 5));
-		loadStrategyPanel.setBorder(BorderManager.createComplexTitleBorder(SwingLocale.getString("loader_strategy")));
+		loadStrategyPanel.setBorder(BorderManager.createComplexTitledBorder(SwingLocale.getString("loader_strategy")));
 		loadStrategyPanel.add(syncLoadStrategyRadioButton);
 		loadStrategyPanel.add(asynLoadStrategyRadioButton);
 		

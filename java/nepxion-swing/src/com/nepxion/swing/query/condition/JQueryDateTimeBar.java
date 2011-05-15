@@ -66,7 +66,7 @@ public class JQueryDateTimeBar
 				tableLayout.setHGap(5);
 				tableLayout.setVGap(5);
 				setLayout(tableLayout);
-				setBorder(BorderManager.createComplexTitleBorder(SwingLocale.getString("time_parameter"), 0, 2, 0, 2));
+				setBorder(BorderManager.createComplexTitledBorder(SwingLocale.getString("time_parameter"), 0, 2, 0, 2));
 				
 				add(startDateTimeLabel, "0, 0");
 				add(startDateTimeSelector, "1, 0");

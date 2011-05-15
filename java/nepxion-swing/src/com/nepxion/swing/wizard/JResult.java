@@ -65,7 +65,7 @@ public class JResult
 			// textArea.setEnabled(false);
 			
 			setPreferredSize(new Dimension(250, 250));
-			setBorder(BorderManager.createComplexTitleBorder("结果信息"));
+			setBorder(BorderManager.createComplexTitledBorder("结果信息"));
 			setLayout(new BorderLayout());
 			add(new JBasicScrollPane(textArea), BorderLayout.CENTER);
 		}

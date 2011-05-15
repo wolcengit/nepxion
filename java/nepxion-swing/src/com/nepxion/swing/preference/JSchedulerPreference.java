@@ -33,14 +33,14 @@ public class JSchedulerPreference
 		timePanel = new JTimePanel(JTimePanel.VERTICAL);
 		timePanel.setInterval(new int[] {0, 0, 0, 15, 0});
 		timePanel.showMilliSecond(false);
-		timePanel.setBorder(BorderManager.createComplexTitleBorder(SwingLocale.getString("timer_interval")));
+		timePanel.setBorder(BorderManager.createComplexTitledBorder(SwingLocale.getString("timer_interval")));
 		
 		bubbleTipCheckBox = new JBasicCheckBox(SwingLocale.getString("timer_bubble_tip"), true);
 		bubbleTipCheckBox.setBorder(BorderFactory.createEmptyBorder());
 		
 		JPanel scheduleMessagePanel = new JPanel();
 		scheduleMessagePanel.setLayout(new FiledLayout(FiledLayout.COLUMN, FiledLayout.LEFT, 5));
-		scheduleMessagePanel.setBorder(BorderManager.createComplexTitleBorder(SwingLocale.getString("timer_message_hint")));
+		scheduleMessagePanel.setBorder(BorderManager.createComplexTitledBorder(SwingLocale.getString("timer_message_hint")));
 		scheduleMessagePanel.add(bubbleTipCheckBox);
 		
 		setLayout(new FiledLayout(FiledLayout.COLUMN, FiledLayout.FULL, 5));

@@ -26,7 +26,7 @@ public class JUserPreference
 	public JUserPreference()
 	{		
 		passwordPanel = new JPasswordPanel();
-		passwordPanel.setBorder(BorderManager.createComplexTitleBorder(SwingLocale.getString("modify_password")));
+		passwordPanel.setBorder(BorderManager.createComplexTitledBorder(SwingLocale.getString("modify_password")));
 
 		setLayout(new FiledLayout(FiledLayout.COLUMN, FiledLayout.FULL, 5));
 		add(passwordPanel);
