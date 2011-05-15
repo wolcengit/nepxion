@@ -15,10 +15,17 @@ import javax.swing.JApplet;
 public class JBasicApplet
 	extends JApplet
 {			
+	/**
+	 * Constructs with the default.
+	 */
 	public JBasicApplet()
 	{
 	}
 	
+	/**
+	 * Initializes the applet.
+	 * It is overridden from JApplet.
+	 */
 	public void init()
 	{
 		super.init();
@@ -26,6 +33,10 @@ public class JBasicApplet
 		initContext();
 	}
 	
+	/**
+	 * Initializes the applet context.
+	 * If it is overridden by the child class, the method will be executed.
+	 */
 	public void initContext()
 	{
 		
