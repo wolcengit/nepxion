@@ -61,7 +61,7 @@ public class DemoPieChartPanel
 				{TableLayout.PREFERRED, 300, 300}
 			};
 			setLayout(new TableLayout(size));
-			setBorder(BorderManager.createComplexTitleBorder("计算机性能实时统计图"));
+			setBorder(BorderManager.createComplexTitledBorder("计算机性能实时统计图"));
 
 			add(new DemoChartSchedulerToolBar(DemoPieChartSchedulerJob.class), "0, 0, 2, 0");
 			add(new CPUPieChart3DPanel(), "0, 1");

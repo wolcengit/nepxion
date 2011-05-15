@@ -44,7 +44,7 @@ public class DemoBasicTabbedPanePanel
 		public BasicTabbedPanePanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(BorderManager.createComplexTitleBorder("Basic TabbedPane"));
+			setBorder(BorderManager.createComplexTitledBorder("Basic TabbedPane"));
 			
 			final JBasicTabbedPane basicTabbedPane = new JBasicTabbedPane()
 			{

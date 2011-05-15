@@ -37,7 +37,7 @@ public class DemoCheckBoxPanel
 		public StyleCheckBoxPanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(BorderManager.createComplexTitleBorder("Flat ButtonUI"));
+			setBorder(BorderManager.createComplexTitledBorder("Flat ButtonUI"));
 		
 			JLiteCheckBox styleCheckBox = new JLiteCheckBox("Style CheckBox", true);
 			add(styleCheckBox);

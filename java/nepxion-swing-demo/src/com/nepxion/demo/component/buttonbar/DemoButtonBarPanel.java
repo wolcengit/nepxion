@@ -70,7 +70,7 @@ public class DemoButtonBarPanel
 		public ButtonBarPanel(BasicButtonBarUI buttonBarUI, String text)
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(BorderManager.createComplexTitleBorder(text));						
+			setBorder(BorderManager.createComplexTitledBorder(text));						
 			
 			JBasicButtonBar buttonBar = new JBasicButtonBar(JBasicButtonBar.VERTICAL);	
 			buttonBar.setPreferredSize(new Dimension(75, buttonBar.getPreferredSize().height));

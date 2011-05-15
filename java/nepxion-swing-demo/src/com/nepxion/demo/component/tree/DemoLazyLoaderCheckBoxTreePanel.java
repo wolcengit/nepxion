@@ -70,7 +70,7 @@ public class DemoLazyLoaderCheckBoxTreePanel
 		public LazyLoaderTreePanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(BorderManager.createComplexTitleBorder("LazyLoader CheckBox Tree"));
+			setBorder(BorderManager.createComplexTitledBorder("LazyLoader CheckBox Tree"));
 			
 			fileSystemView = FileSystemView.getFileSystemView();
 			

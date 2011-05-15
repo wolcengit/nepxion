@@ -37,7 +37,7 @@ public class DemoElementTreePanel
 		public ElementTreePanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(BorderManager.createComplexTitleBorder("Element Tree"));
+			setBorder(BorderManager.createComplexTitledBorder("Element Tree"));
 			
 			JBasicTree elementTree = new JBasicTree(DemoDataFactory.getRootElementNode());
 			elementTree.setCellRenderer(new ElementTreeCellRenderer(20));

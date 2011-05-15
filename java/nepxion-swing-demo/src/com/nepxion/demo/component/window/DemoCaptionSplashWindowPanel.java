@@ -41,7 +41,7 @@ public class DemoCaptionSplashWindowPanel
 		public CaptionSplashWindowPanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(BorderManager.createComplexTitleBorder("Caption Splash Window"));
+			setBorder(BorderManager.createComplexTitledBorder("Caption Splash Window"));
 			
 			JBasicButton captionSplashWindowButton = new JBasicButton("Caption Splash Window", IconFactory.getSwingIcon("component/internal_frame_16.png"), "Caption Splash Window");
 			captionSplashWindowButton.addActionListener(new ActionListener()

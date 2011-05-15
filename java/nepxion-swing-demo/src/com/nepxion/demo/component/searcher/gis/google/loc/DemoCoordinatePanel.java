@@ -34,7 +34,7 @@ public class DemoCoordinatePanel
 		public CoordinatePanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(BorderManager.createComplexTitleBorder("根据经纬度查询地理位置"));
+			setBorder(BorderManager.createComplexTitledBorder("根据经纬度查询地理位置"));
 			
 			JCoordinatePanel coordinatePanel = new JCoordinatePanel();
 			coordinatePanel.setLatitude(31.231849);

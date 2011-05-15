@@ -50,7 +50,7 @@ public class DemoCheckBoxSelectorPanel
 		public CheckBoxSelectorPanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(BorderManager.createComplexTitleBorder("CheckBox Selector"));
+			setBorder(BorderManager.createComplexTitledBorder("CheckBox Selector"));
 			
 			JBasicButton checkBoxSelectorButton = new JBasicButton("CheckBox Selector", IconFactory.getSwingIcon("component/check_box_16.png"), "CheckBox Selector");
 			checkBoxSelectorButton.addActionListener(new ActionListener()

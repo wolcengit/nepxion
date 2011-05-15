@@ -47,7 +47,7 @@ public class DemoBasicDialogPanel
 		public BasicDialogPanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(BorderManager.createComplexTitleBorder("Basic Dialog"));
+			setBorder(BorderManager.createComplexTitledBorder("Basic Dialog"));
 			
 			JBasicButton basicDialogButton = new JBasicButton("Basic Dialog", IconFactory.getSwingIcon("component/dialog_16.png"), "Basic Dialog");
 			basicDialogButton.addActionListener(new ActionListener()
@@ -77,7 +77,7 @@ public class DemoBasicDialogPanel
 		public ConfigPanel()
 		{
 			setLayout(new FiledLayout(FiledLayout.COLUMN, FiledLayout.FULL, 0));
-			setBorder(BorderManager.createComplexTitleBorder("Configuration"));
+			setBorder(BorderManager.createComplexTitledBorder("Configuration"));
 			
 	        final JBasicCheckBox adaptableCheckBox = new JBasicCheckBox("Adapt the size while resizing the dialog", "Adapt the size while resizing the dialog", true);	
 	        adaptableCheckBox.addActionListener(new ActionListener()

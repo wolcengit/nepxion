@@ -40,7 +40,7 @@ public class DemoCheckBoxListPanel
 		public CheckBoxListPanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(BorderManager.createComplexTitleBorder("CheckBox List"));
+			setBorder(BorderManager.createComplexTitledBorder("CheckBox List"));
 			
 			List componentElementNodes = DemoDataFactory.getComponentElementNodes();
 			

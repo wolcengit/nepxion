@@ -39,7 +39,7 @@ public class DemoNumberTextFieldPanel
 		public NumberTextFieldPanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(BorderManager.createComplexTitleBorder("Number TextField"));
+			setBorder(BorderManager.createComplexTitledBorder("Number TextField"));
 			
 			JNumberTextField numberTextField = new JNumberTextField(5, 2, -1000.05, 1000.95);
 			numberTextField.setMaximumSize(new Dimension(350, numberTextField.getPreferredSize().height));

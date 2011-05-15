@@ -41,7 +41,7 @@ public class DemoSplashWindowPanel
 		public SplashWindowPanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(BorderManager.createComplexTitleBorder("Splash Window"));
+			setBorder(BorderManager.createComplexTitledBorder("Splash Window"));
 			
 			JBasicButton splashWindowButton = new JBasicButton("Splash Window", IconFactory.getSwingIcon("component/internal_frame_16.png"), "Splash Window");
 			splashWindowButton.addActionListener(new ActionListener()

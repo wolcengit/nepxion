@@ -37,7 +37,7 @@ public class DemoTabbedListPanel
 		public TabbedListPanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(BorderManager.createComplexTitleBorder("Tabbed List"));
+			setBorder(BorderManager.createComplexTitledBorder("Tabbed List"));
 			
 			String[] componentDescriptonDatas = DemoDataFactory.getComponentDescriptonDatas();
 			

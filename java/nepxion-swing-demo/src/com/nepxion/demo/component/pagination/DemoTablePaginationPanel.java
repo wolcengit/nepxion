@@ -40,7 +40,7 @@ public class DemoTablePaginationPanel
 		public TablePaginationPanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(BorderManager.createComplexTitleBorder("Table Pagination"));			
+			setBorder(BorderManager.createComplexTitledBorder("Table Pagination"));			
 		}
 	}
 	

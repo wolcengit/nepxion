@@ -35,7 +35,7 @@ public class DemoIPPropertyPanel
 		public IPPropertyPanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(BorderManager.createComplexTitleBorder("IP Property Panel"));
+			setBorder(BorderManager.createComplexTitledBorder("IP Property Panel"));
 			
 			JIPPropertyPanel ipPropertyPanel = new JIPPropertyPanel();
 			ipPropertyPanel.setIPAddress("192.168.0.8");

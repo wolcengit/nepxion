@@ -39,7 +39,7 @@ public class DemoIPAddressPanel
 		public IPAddressPanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(BorderManager.createComplexTitleBorder("IP Address TextField"));
+			setBorder(BorderManager.createComplexTitledBorder("IP Address TextField"));
 			
 			JIPAddressTextField ipAddressTextField = new JIPAddressTextField();
 			ipAddressTextField.setIPAddress("192.168.0.8");

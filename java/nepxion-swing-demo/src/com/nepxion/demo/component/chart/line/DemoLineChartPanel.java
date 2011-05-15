@@ -46,7 +46,7 @@ public class DemoLineChartPanel
 		public CombinedLineChartPanel()
 		{
 			setLayout(new BorderLayout());
-			setBorder(BorderManager.createComplexTitleBorder("计算机性能实时统计图"));
+			setBorder(BorderManager.createComplexTitledBorder("计算机性能实时统计图"));
 			
 			XYPlot xyPlot1 = LineChartFactory.createTimeXYPlot("CPU", "计算机性能指标", true);
 			XYPlot xyPlot2 = LineChartFactory.createTimeXYPlot("内存", "计算机性能指标", true);

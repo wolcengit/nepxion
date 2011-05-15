@@ -17,6 +17,9 @@ import com.nepxion.swing.context.DataContextManager;
 import com.nepxion.swing.context.UIContextManager;
 import com.nepxion.swing.framework.JFrameWorkFrame;
 import com.nepxion.swing.icon.IconFactory;
+import com.nepxion.swing.lookandfeel.LookAndFeelManager;
+import com.nepxion.swing.style.framework.JNimbusStyle;
+import com.nepxion.swing.style.framework.StyleContext;
 import com.nepxion.swing.tray.JTray;
 
 public class DemoFrame
@@ -35,8 +38,8 @@ public class DemoFrame
 		DataContextManager.initialize();
 		UIContextManager.initialize();	
 		
-		// StyleContext.registerStyle(JNimbusStyle.ID);
-		// LookAndFeelManager.setNimbusLookAndFeel();
+		StyleContext.registerStyle(JNimbusStyle.ID);
+		LookAndFeelManager.setNimbusLookAndFeel();
 		
 		// DemoDataContext.initialize();
 		// DemoUIContext.initialize();

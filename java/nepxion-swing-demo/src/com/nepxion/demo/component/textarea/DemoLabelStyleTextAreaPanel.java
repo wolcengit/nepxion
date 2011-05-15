@@ -35,7 +35,7 @@ public class DemoLabelStyleTextAreaPanel
 		public LabelStyleTextAreaPanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(BorderManager.createComplexTitleBorder("Label Style TextArea"));
+			setBorder(BorderManager.createComplexTitledBorder("Label Style TextArea"));
 			
 			JBasicTextArea labelStyleTextArea = new JBasicTextArea();
 			labelStyleTextArea.setLabelStyle();

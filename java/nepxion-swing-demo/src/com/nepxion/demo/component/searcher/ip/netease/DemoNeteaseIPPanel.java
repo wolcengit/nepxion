@@ -34,7 +34,7 @@ public class DemoNeteaseIPPanel
 		public NeteaseIPPanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(BorderManager.createComplexTitleBorder("根据IP地址查询地理位置"));
+			setBorder(BorderManager.createComplexTitledBorder("根据IP地址查询地理位置"));
 			
 			JNeteaseIPPanel ipPanel = new JNeteaseIPPanel();
 			add(ipPanel);

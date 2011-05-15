@@ -37,7 +37,7 @@ public class DemoCheckBoxTreePanel
 		public CheckBoxTreePanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(BorderManager.createComplexTitleBorder("CheckBox Tree"));
+			setBorder(BorderManager.createComplexTitledBorder("CheckBox Tree"));
 			
 			JCheckBoxTree checkBoxTree = new JCheckBoxTree(DemoDataFactory.getRootElementNode());
 			checkBoxTree.setCellRenderer(new ElementTreeCellRenderer(20));

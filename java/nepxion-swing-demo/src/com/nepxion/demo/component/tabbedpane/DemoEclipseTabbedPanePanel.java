@@ -59,7 +59,7 @@ public class DemoEclipseTabbedPanePanel
 		public EclipseTabbedPanePanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(BorderManager.createComplexTitleBorder("Eclipse TabbedPane"));
+			setBorder(BorderManager.createComplexTitledBorder("Eclipse TabbedPane"));
 			
 			eclipseTabbedPane = new JEclipseTabbedPane()
 			{			    
@@ -105,7 +105,7 @@ public class DemoEclipseTabbedPanePanel
 		public PublicConfigPanel()
 		{
 			setLayout(new FiledLayout(FiledLayout.COLUMN, FiledLayout.FULL, 0));
-			setBorder(BorderManager.createComplexTitleBorder("Public Configuration"));
+			setBorder(BorderManager.createComplexTitledBorder("Public Configuration"));
 			
 			List tabShapeElementNodes = DemoDataFactory.getEclipseTabShapeElementNodes();
 			
@@ -243,7 +243,7 @@ public class DemoEclipseTabbedPanePanel
 		public PrivateConfigPanel()
 		{
 			setLayout(new FiledLayout(FiledLayout.COLUMN, FiledLayout.FULL, 0));
-			setBorder(BorderManager.createComplexTitleBorder("Private Configuration"));	
+			setBorder(BorderManager.createComplexTitledBorder("Private Configuration"));	
 	        
 			final JBasicCheckBox showCloseButtonCheckBox = new JBasicCheckBox("Show Close Button", "Show Close Button", true);
 			showCloseButtonCheckBox.addActionListener(new ActionListener()

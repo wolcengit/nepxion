@@ -70,7 +70,7 @@ public class DemoLazyLoaderTreePanel
 		public LazyLoaderTreePanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(BorderManager.createComplexTitleBorder("LazyLoader Tree"));
+			setBorder(BorderManager.createComplexTitledBorder("LazyLoader Tree"));
 			
 			fileSystemView = FileSystemView.getFileSystemView();			
 			

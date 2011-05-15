@@ -33,7 +33,7 @@ public class DemoSelectionValuePanel
 	public DemoSelectionValuePanel(int textFieldWidth)
 	{
 		setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-		setBorder(BorderManager.createComplexTitleBorder("Selection Value"));
+		setBorder(BorderManager.createComplexTitledBorder("Selection Value"));
 		
 		textField = new JBasicTextField();
 		textField.setOpaque(false);

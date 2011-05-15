@@ -36,7 +36,7 @@ public class DemoAutoResizableTextAreaPanel
 		public AutoResizableTextAreaPanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(BorderManager.createComplexTitleBorder("Auto Resizable TextArea"));
+			setBorder(BorderManager.createComplexTitledBorder("Auto Resizable TextArea"));
 			
 			JAutoResizableTextArea autoResizableTextArea = new JAutoResizableTextArea();
 			autoResizableTextArea.setMinRows(10);

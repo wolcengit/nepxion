@@ -43,7 +43,7 @@ public class DemoOptionPanePanel
 		public OptionPanePanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(BorderManager.createComplexTitleBorder("OptionPane"));
+			setBorder(BorderManager.createComplexTitledBorder("OptionPane"));
 			
 			JBasicButton optionPaneButton = new JBasicButton("OptionPane", IconFactory.getSwingIcon("component/option_pane_16.png"), "OptionPane");
 			optionPaneButton.addActionListener(new ActionListener()

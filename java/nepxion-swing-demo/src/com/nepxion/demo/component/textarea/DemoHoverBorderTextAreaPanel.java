@@ -36,7 +36,7 @@ public class DemoHoverBorderTextAreaPanel
 		public HoverBorderTextAreaPanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(BorderManager.createComplexTitleBorder("Hover Border TextArea"));
+			setBorder(BorderManager.createComplexTitledBorder("Hover Border TextArea"));
 			
 			JBasicTextArea hoverBorderTextArea = new JBasicTextArea();
 			new HoverBorderDecoration(hoverBorderTextArea);

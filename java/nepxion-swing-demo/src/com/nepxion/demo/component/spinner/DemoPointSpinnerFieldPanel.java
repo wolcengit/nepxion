@@ -37,7 +37,7 @@ public class DemoPointSpinnerFieldPanel
 		public PointSpinnerFieldPanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(BorderManager.createComplexTitleBorder("Point SpinnerField"));
+			setBorder(BorderManager.createComplexTitledBorder("Point SpinnerField"));
 			
 			JPointSpinnerField pointSpinnerField = new JPointSpinnerField();
 			pointSpinnerField.setMaximumSize(new Dimension(350, pointSpinnerField.getPreferredSize().height));

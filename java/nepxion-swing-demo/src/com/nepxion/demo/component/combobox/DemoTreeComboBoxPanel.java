@@ -47,7 +47,7 @@ public class DemoTreeComboBoxPanel
 		public TreeComboBoxPanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(BorderManager.createComplexTitleBorder("Group ComboBox"));
+			setBorder(BorderManager.createComplexTitledBorder("Group ComboBox"));
 			
 			List comboBoxElementNodes = new ArrayList();
 			

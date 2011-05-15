@@ -54,7 +54,7 @@ public class DemoButtonPanel
 		public FlatStyleButtonPanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(BorderManager.createComplexTitleBorder("Flat ButtonUI"));
+			setBorder(BorderManager.createComplexTitledBorder("Flat ButtonUI"));
 
 			JBasicButton flatStyleButton = new JBasicButton("JFlat Style", IconFactory.getSwingIcon("component/button_16.png"), "JFlat Style");
 			flatStyleButton.setUI(new FlatButtonUI());
@@ -68,7 +68,7 @@ public class DemoButtonPanel
 		public AlloyStyleButtonPanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(BorderManager.createComplexTitleBorder("Alloy ButtonUI"));
+			setBorder(BorderManager.createComplexTitledBorder("Alloy ButtonUI"));
 			
 			JBasicButton alloyStyleButton = new JBasicButton("JAlloy Style", IconFactory.getSwingIcon("component/button_16.png"), "JAlloy Style");
 			alloyStyleButton.setUI(new LiteButtonUI(new JAlloyLiteButtonStyle()));
@@ -94,7 +94,7 @@ public class DemoButtonPanel
 		public EclipseStyleButtonPanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(BorderManager.createComplexTitleBorder("Eclipse ButtonUI"));
+			setBorder(BorderManager.createComplexTitledBorder("Eclipse ButtonUI"));
 			
 			JBasicButton eclipseStyleButton = new JBasicButton("JEclipse Style", IconFactory.getSwingIcon("component/button_16.png"), "JEclipse Style");
 			eclipseStyleButton.setUI(new LiteButtonUI(new JEclipseLiteButtonStyle()));
@@ -108,7 +108,7 @@ public class DemoButtonPanel
 		public BorlandStyleButtonPanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(BorderManager.createComplexTitleBorder("Borland ButtonUI"));
+			setBorder(BorderManager.createComplexTitledBorder("Borland ButtonUI"));
 			
 			JBasicButton borlandStyleButton = new JBasicButton("JBorland Style", IconFactory.getSwingIcon("component/button_16.png"), "JBorland Style");
 			borlandStyleButton.setUI(new LiteButtonUI(new JBorlandLiteButtonStyle()));
@@ -122,7 +122,7 @@ public class DemoButtonPanel
 		public NimbusStyleButtonPanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(BorderManager.createComplexTitleBorder("Nimbus ButtonUI"));
+			setBorder(BorderManager.createComplexTitledBorder("Nimbus ButtonUI"));
 			
 			JBasicButton nimbusStyleButton = new JBasicButton("JNimbus Style", IconFactory.getSwingIcon("component/button_16.png"), "JNimbus Style");
 			nimbusStyleButton.setUI(new LiteButtonUI(new JNimbusLiteButtonStyle()));
@@ -136,7 +136,7 @@ public class DemoButtonPanel
 		public ColorStyleButtonPanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(BorderManager.createComplexTitleBorder("Color ButtonUI"));
+			setBorder(BorderManager.createComplexTitledBorder("Color ButtonUI"));
 			
 			JBasicButton blueStyleButton = new JBasicButton("JBlue Style", IconFactory.getSwingIcon("component/button_16.png"), "JBlue Style");
 			blueStyleButton.setUI(new LiteButtonUI(new JBlueLiteButtonStyle()));
@@ -154,7 +154,7 @@ public class DemoButtonPanel
 		public StyleButtonPanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(BorderManager.createComplexTitleBorder("Style ButtonUI"));
+			setBorder(BorderManager.createComplexTitledBorder("Style ButtonUI"));
 			
 			JStyleButton flatStyleButton = new JStyleButton("Flat Style", IconFactory.getSwingIcon("component/button_16.png"), "Flat Style");
 			flatStyleButton.setButtonStyle(JStyleButton.FLAT_STYLE);

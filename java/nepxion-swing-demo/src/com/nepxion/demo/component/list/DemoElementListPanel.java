@@ -42,7 +42,7 @@ public class DemoElementListPanel
 		public SingleIconElementListPanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(BorderManager.createComplexTitleBorder("Single Icon Element List"));
+			setBorder(BorderManager.createComplexTitledBorder("Single Icon Element List"));
 			
 			String[] componentNameDatas = DemoDataFactory.getComponentNameDatas();
 			
@@ -61,7 +61,7 @@ public class DemoElementListPanel
 		public MultiIconElementListPanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(BorderManager.createComplexTitleBorder("Multi Icon Element List"));
+			setBorder(BorderManager.createComplexTitledBorder("Multi Icon Element List"));
 			
 			List componentElementNodes = DemoDataFactory.getComponentElementNodes();
 			

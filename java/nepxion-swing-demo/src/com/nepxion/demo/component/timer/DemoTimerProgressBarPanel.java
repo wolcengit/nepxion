@@ -46,7 +46,7 @@ public class DemoTimerProgressBarPanel
 		public TimerProgressBarPanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(BorderManager.createComplexTitleBorder("Timer Progress Bar"));
+			setBorder(BorderManager.createComplexTitledBorder("Timer Progress Bar"));
 			
 			final JTimerProgressBar timerProgressBar = new JTimerProgressBar();
 			DimensionManager.setDimension(timerProgressBar, new Dimension(150, timerProgressBar.getPreferredSize().height));

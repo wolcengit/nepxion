@@ -43,7 +43,7 @@ public class DemoTaskBarPanel
 		public TaskBarPanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(BorderManager.createComplexTitleBorder("TaskBar"));
+			setBorder(BorderManager.createComplexTitledBorder("TaskBar"));
 			
 			final JTaskBar taskBar = new JTaskBar();
 			

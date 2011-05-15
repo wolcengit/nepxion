@@ -41,7 +41,7 @@ public class DemoSplashDialogPanel
 		public SplashDialogPanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(BorderManager.createComplexTitleBorder("Splash Dialog"));
+			setBorder(BorderManager.createComplexTitledBorder("Splash Dialog"));
 			
 			JBasicButton splashDialogButton = new JBasicButton("Splash Dialog", IconFactory.getSwingIcon("component/dialog_16.png"), "Splash Dialog");
 			splashDialogButton.addActionListener(new ActionListener()

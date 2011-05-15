@@ -34,7 +34,7 @@ public class DemoLocatingMobilePanel
 		public LocatingMobilePanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(BorderManager.createComplexTitleBorder("手机归属地查询"));
+			setBorder(BorderManager.createComplexTitledBorder("手机归属地查询"));
 			
 			JLocatingMobilePanel mobilePanel = new JLocatingMobilePanel();			
 			add(mobilePanel);

@@ -34,7 +34,7 @@ public class DemoAddressPanel
 		public AddressPanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(BorderManager.createComplexTitleBorder("模糊查询地理位置"));
+			setBorder(BorderManager.createComplexTitledBorder("模糊查询地理位置"));
 			
 			JAddressPanel addressPanel = new JAddressPanel();			
 			add(addressPanel);

@@ -34,7 +34,7 @@ public class DemoRangeSliderPanel
 		public RangeSliderPanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(BorderManager.createComplexTitleBorder("Point Spinner"));
+			setBorder(BorderManager.createComplexTitledBorder("Point Spinner"));
 			
 
 		}

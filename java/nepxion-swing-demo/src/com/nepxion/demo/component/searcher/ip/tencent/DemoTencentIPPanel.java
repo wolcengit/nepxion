@@ -34,7 +34,7 @@ public class DemoTencentIPPanel
 		public TencentIPPanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(BorderManager.createComplexTitleBorder("根据IP地址查询地理位置"));
+			setBorder(BorderManager.createComplexTitledBorder("根据IP地址查询地理位置"));
 			
 			JTencentIPPanel ipPanel = new JTencentIPPanel();
 			add(ipPanel);

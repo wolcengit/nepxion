@@ -46,7 +46,7 @@ public class DemoSelectorMenuButtonPanel
 		public SelectorMenuButtonPanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(BorderManager.createComplexTitleBorder("Flat ButtonUI"));
+			setBorder(BorderManager.createComplexTitledBorder("Flat ButtonUI"));
 			
 			JBasicTextField textField = new JBasicTextField();
 			SelectorMenuButton selectorButton = new SelectorMenuButton(textField);

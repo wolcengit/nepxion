@@ -56,7 +56,7 @@ public class DemoCylinderBarChart3DPanel
 				{TableLayout.PREFERRED, 500}
 			};
 			setLayout(new TableLayout(size));
-			setBorder(BorderManager.createComplexTitleBorder("计算机性能实时统计图"));
+			setBorder(BorderManager.createComplexTitledBorder("计算机性能实时统计图"));
 			
 			verticalBarChartPanel = new BarChartPanel(PlotOrientation.VERTICAL);
 			horizontalBarChartPanel = new BarChartPanel(PlotOrientation.HORIZONTAL); 

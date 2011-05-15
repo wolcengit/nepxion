@@ -44,7 +44,7 @@ public class DemoElementComboBoxPanel
 		public SingleIconElementComboBoxPanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(BorderManager.createComplexTitleBorder("Single Icon Element ComboBox"));
+			setBorder(BorderManager.createComplexTitledBorder("Single Icon Element ComboBox"));
 			
 			String[] componentNameDatas = DemoDataFactory.getComponentNameDatas();
 			
@@ -61,7 +61,7 @@ public class DemoElementComboBoxPanel
 		public MultiIconElementComboBoxPanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(BorderManager.createComplexTitleBorder("Multi Icon Element ComboBox"));
+			setBorder(BorderManager.createComplexTitledBorder("Multi Icon Element ComboBox"));
 			
 			List componentElementNodes = DemoDataFactory.getComponentElementNodes();
 			

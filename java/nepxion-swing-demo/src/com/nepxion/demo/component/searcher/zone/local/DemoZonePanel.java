@@ -35,7 +35,7 @@ public class DemoZonePanel
 		public ZonePanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(BorderManager.createComplexTitleBorder("区号查询"));
+			setBorder(BorderManager.createComplexTitledBorder("区号查询"));
 			
 			JZoneSelectorPanel zoneSelectorPanel = new JZoneSelectorPanel();		
 			add(zoneSelectorPanel);

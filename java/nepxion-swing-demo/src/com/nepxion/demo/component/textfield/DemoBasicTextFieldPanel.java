@@ -39,7 +39,7 @@ public class DemoBasicTextFieldPanel
 		public BasicTextFieldPanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(BorderManager.createComplexTitleBorder("Basic TextField"));
+			setBorder(BorderManager.createComplexTitledBorder("Basic TextField"));
 
 			JBasicTextField basicTextField = new JBasicTextField();
 			basicTextField.setText("Right-clicked popupMenu to 'Copy' 'Paste' 'Cut' & 'Clean'");

@@ -39,7 +39,7 @@ public class DemoBorderLayoutPanel
 		public BorderLayoutPanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(BorderManager.createComplexTitleBorder("Border"));
+			setBorder(BorderManager.createComplexTitledBorder("Border"));
 			
 			JPanel panel = new JPanel();
 			panel.setLayout(new BorderLayout(5, 10));

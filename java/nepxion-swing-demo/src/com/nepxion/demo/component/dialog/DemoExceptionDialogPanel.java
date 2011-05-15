@@ -42,7 +42,7 @@ public class DemoExceptionDialogPanel
 		public ExceptionDialogPanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(BorderManager.createComplexTitleBorder("Exception Dialog"));
+			setBorder(BorderManager.createComplexTitledBorder("Exception Dialog"));
 			
 			JBasicButton exceptionDialogButton = new JBasicButton("Exception Dialog", IconFactory.getSwingIcon("component/dialog_16.png"), "Exception Dialog");
 			exceptionDialogButton.addActionListener(new ActionListener()

@@ -57,7 +57,7 @@ public class DemoFileSelectorPanel
 		public FileSelectorPanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(BorderManager.createComplexTitleBorder("File Selector"));
+			setBorder(BorderManager.createComplexTitledBorder("File Selector"));
 			
 			JBasicButton openFileButton = new JBasicButton("Open File", IconFactory.getSwingIcon("component/file_chooser_16.png"), "Open File");
 			openFileButton.addActionListener(new ActionListener()
@@ -161,7 +161,7 @@ public class DemoFileSelectorPanel
 		public FolderSelectorPanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(BorderManager.createComplexTitleBorder("Folder Selector"));
+			setBorder(BorderManager.createComplexTitledBorder("Folder Selector"));
 			
 			JBasicButton openFolderButton = new JBasicButton("Open Folder", IconFactory.getSwingIcon("component/file_chooser_16.png"), "Open Folder");
 			openFolderButton.addActionListener(new ActionListener()

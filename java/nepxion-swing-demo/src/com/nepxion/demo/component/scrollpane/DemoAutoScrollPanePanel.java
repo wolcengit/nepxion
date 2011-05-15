@@ -38,7 +38,7 @@ public class DemoAutoScrollPanePanel
 		public AutoScrollPanePanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(BorderManager.createComplexTitleBorder("Auto ScrollPane"));
+			setBorder(BorderManager.createComplexTitledBorder("Auto ScrollPane"));
 			
 			JSortableTable table = new JSortableTable(new AbstractTableModel()
 			{

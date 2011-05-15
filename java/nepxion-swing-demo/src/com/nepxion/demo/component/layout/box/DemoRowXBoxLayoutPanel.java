@@ -38,7 +38,7 @@ public class DemoRowXBoxLayoutPanel
 		public BoxedLayoutPanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(BorderManager.createComplexTitleBorder("Row"));
+			setBorder(BorderManager.createComplexTitledBorder("Row"));
 			
 			JPanel panel = new JPanel();
 			panel.setLayout(new XBoxLayout(panel, XBoxLayout.X_AXIS, 5));

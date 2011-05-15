@@ -41,7 +41,7 @@ public class DemoGroupComboBoxPanel
 		public GroupComboBoxPanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(BorderManager.createComplexTitleBorder("Group ComboBox"));
+			setBorder(BorderManager.createComplexTitledBorder("Group ComboBox"));
 			
 			List componentElementNodes = DemoDataFactory.getComponentElementNodes();
 			componentElementNodes.add(3, GroupComboBoxCellRenderer.SEPARATOR);

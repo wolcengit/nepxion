@@ -40,7 +40,7 @@ public class DemoRadioButtonListPanel
 		public RadioButtonListPanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(BorderManager.createComplexTitleBorder("RadioButton List"));
+			setBorder(BorderManager.createComplexTitledBorder("RadioButton List"));
 			
 			List componentElementNodes = DemoDataFactory.getComponentElementNodes();
 			

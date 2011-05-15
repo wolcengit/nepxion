@@ -46,7 +46,7 @@ public class DemoBasicFramePanel
 		public BasicFramePanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(BorderManager.createComplexTitleBorder("Basic Frame"));
+			setBorder(BorderManager.createComplexTitledBorder("Basic Frame"));
 			
 			JBasicButton frameButton = new JBasicButton("Basic Frame", IconFactory.getSwingIcon("component/dialog_16.png"), "Basic Frame");
 			frameButton.addActionListener(new ActionListener()
@@ -73,7 +73,7 @@ public class DemoBasicFramePanel
 		public ConfigPanel()
 		{
 			setLayout(new FiledLayout(FiledLayout.COLUMN, FiledLayout.FULL, 0));
-			setBorder(BorderManager.createComplexTitleBorder("Configuration"));
+			setBorder(BorderManager.createComplexTitledBorder("Configuration"));
 	        
 	        final JBasicCheckBox hintCheckBox = new JBasicCheckBox("Show hint while closing the dialog", "Show hint while closing the dialog", true);	
 	        hintCheckBox.addActionListener(new ActionListener()

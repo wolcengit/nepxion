@@ -42,7 +42,7 @@ public class DemoCornerScrollPanePanel
 		public CornerScrollPanePanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(BorderManager.createComplexTitleBorder("Corner ScrollPane"));
+			setBorder(BorderManager.createComplexTitledBorder("Corner ScrollPane"));
 			
 			JPanel leadingToolBar = new JPanel();
 			leadingToolBar.setLayout(new BoxLayout(leadingToolBar, BoxLayout.X_AXIS));

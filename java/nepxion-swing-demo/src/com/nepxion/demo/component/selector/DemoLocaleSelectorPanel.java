@@ -52,7 +52,7 @@ public class DemoLocaleSelectorPanel
 		public LocaleSelectorPanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(BorderManager.createComplexTitleBorder("Locale Selector"));
+			setBorder(BorderManager.createComplexTitledBorder("Locale Selector"));
 			
 			JBasicButton dialogStyleButton = createDialogStyleButton();
 			dialogStyleButton.addActionListener(new ActionListener()

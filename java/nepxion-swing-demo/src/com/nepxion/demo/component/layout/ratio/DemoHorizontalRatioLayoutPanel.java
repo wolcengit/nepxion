@@ -39,7 +39,7 @@ public class DemoHorizontalRatioLayoutPanel
 		public HorizontalRatioLayoutPanel(String text)
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(BorderManager.createComplexTitleBorder(text));
+			setBorder(BorderManager.createComplexTitledBorder(text));
 			
 			JPanel panel = new JPanel();
 			panel.setLayout(new RatioLayout(RatioLayout.HORIZONTAL, 5));

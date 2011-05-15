@@ -40,7 +40,7 @@ public class DemoRowFiledLayoutPanel
 		public FiledLayoutPanel(int justification, String text)
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(BorderManager.createComplexTitleBorder(text));
+			setBorder(BorderManager.createComplexTitledBorder(text));
 			
 			JPanel panel = new JPanel();			
 			panel.setLayout(new FiledLayout(FiledLayout.ROW, justification, 5));

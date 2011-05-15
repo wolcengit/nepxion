@@ -37,7 +37,7 @@ public class DemoNumberSpinnerFieldPanel
 		public NumberSpinnerFieldPanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(BorderManager.createComplexTitleBorder("Number SpinnerField"));
+			setBorder(BorderManager.createComplexTitledBorder("Number SpinnerField"));
 			
 			JNumberSpinnerField numberSpinnerField = new JNumberSpinnerField();
 			numberSpinnerField.setMaximumSize(new Dimension(350, numberSpinnerField.getPreferredSize().height));

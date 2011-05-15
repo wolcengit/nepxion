@@ -53,7 +53,7 @@ public class DemoActiveXPanel
 		public CallWebToolBar()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(BorderManager.createComplexTitleBorder("Call Web"));
+			setBorder(BorderManager.createComplexTitledBorder("Call Web"));
 			
 			final JBasicTextField textField = new JBasicTextField("http://www.google.com");
 			textField.setBackground(Color.white);
@@ -120,7 +120,7 @@ public class DemoActiveXPanel
 		public CallWordToolBar()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(BorderManager.createComplexTitleBorder("Call Word File - Only supported in application"));
+			setBorder(BorderManager.createComplexTitledBorder("Call Word File - Only supported in application"));
 			
 			final JBasicTextField textField = new JBasicTextField();
 			textField.setBackground(Color.white);
@@ -180,7 +180,7 @@ public class DemoActiveXPanel
 		public CallExcelToolBar()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(BorderManager.createComplexTitleBorder("Call Excel File - Only supported in application"));
+			setBorder(BorderManager.createComplexTitledBorder("Call Excel File - Only supported in application"));
 			
 			final JBasicTextField textField = new JBasicTextField();
 			textField.setBackground(Color.white);
@@ -250,7 +250,7 @@ public class DemoActiveXPanel
 		public CallPowerPointToolBar()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(BorderManager.createComplexTitleBorder("Call PowerPoint File - Only supported in application"));
+			setBorder(BorderManager.createComplexTitledBorder("Call PowerPoint File - Only supported in application"));
 			
 			final JBasicTextField textField = new JBasicTextField();
 			textField.setBackground(Color.white);

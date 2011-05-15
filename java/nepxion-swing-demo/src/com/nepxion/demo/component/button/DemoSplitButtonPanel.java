@@ -53,7 +53,7 @@ public class DemoSplitButtonPanel
 		public FlatStyleButtonPanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(BorderManager.createComplexTitleBorder("Flat ButtonUI"));
+			setBorder(BorderManager.createComplexTitledBorder("Flat ButtonUI"));
 			
 			JBasicSplitButton flatStyleButton = new JBasicSplitButton("JFlat Style", IconFactory.getSwingIcon("component/button_16.png"), "JFlat Style");
 			flatStyleButton.setUI(new FlatSplitButtonUI());
@@ -68,7 +68,7 @@ public class DemoSplitButtonPanel
 		public AlloyStyleButtonPanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(BorderManager.createComplexTitleBorder("Alloy ButtonUI"));
+			setBorder(BorderManager.createComplexTitledBorder("Alloy ButtonUI"));
 			
 			JBasicSplitButton alloyStyleButton = new JBasicSplitButton("JAlloy Style", IconFactory.getSwingIcon("component/button_16.png"), "JAlloy Style");
 			alloyStyleButton.setUI(new LiteSplitButtonUI(new JAlloyLiteButtonStyle()));
@@ -98,7 +98,7 @@ public class DemoSplitButtonPanel
 		public EclipseStyleButtonPanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(BorderManager.createComplexTitleBorder("Eclipse ButtonUI"));
+			setBorder(BorderManager.createComplexTitledBorder("Eclipse ButtonUI"));
 			
 			JBasicSplitButton eclipseStyleButton = new JBasicSplitButton("JEclipse Style", IconFactory.getSwingIcon("component/button_16.png"));
 			eclipseStyleButton.setUI(new LiteSplitButtonUI(new JEclipseLiteButtonStyle()));
@@ -113,7 +113,7 @@ public class DemoSplitButtonPanel
 		public BorlandStyleButtonPanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(BorderManager.createComplexTitleBorder("Borland ButtonUI"));
+			setBorder(BorderManager.createComplexTitledBorder("Borland ButtonUI"));
 			
 			JBasicSplitButton borlandStyleButton = new JBasicSplitButton("JBorland Style", IconFactory.getSwingIcon("component/button_16.png"), "JBorland Style");
 			borlandStyleButton.setUI(new LiteSplitButtonUI(new JBorlandLiteButtonStyle()));
@@ -128,7 +128,7 @@ public class DemoSplitButtonPanel
 		public NimbusStyleButtonPanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(BorderManager.createComplexTitleBorder("Nimbus ButtonUI"));
+			setBorder(BorderManager.createComplexTitledBorder("Nimbus ButtonUI"));
 			
 			JBasicSplitButton nimbusStyleButton = new JBasicSplitButton("JNimbus Style", IconFactory.getSwingIcon("component/button_16.png"), "JNimbus Style");
 			nimbusStyleButton.setUI(new LiteSplitButtonUI(new JNimbusLiteButtonStyle()));
@@ -143,7 +143,7 @@ public class DemoSplitButtonPanel
 		public ColorStyleButtonPanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(BorderManager.createComplexTitleBorder("Color ButtonUI"));
+			setBorder(BorderManager.createComplexTitledBorder("Color ButtonUI"));
 			
 			JBasicSplitButton blueStyleButton = new JBasicSplitButton("JBlue Style", IconFactory.getSwingIcon("component/button_16.png"), "JBlue Style");
 			blueStyleButton.setUI(new LiteSplitButtonUI(new JBlueLiteButtonStyle()));

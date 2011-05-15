@@ -51,7 +51,7 @@ public class DemoOptionPanel
 		public ButtonPanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(BorderManager.createComplexTitleBorder("Button Panel"));
+			setBorder(BorderManager.createComplexTitledBorder("Button Panel"));
 			
 			JBasicButton yesNoApplyOptionButton = new JBasicButton("Yes & No & Apply Option Panel", IconFactory.getSwingIcon("component/button_16.png"), "Yes & No & Apply Option Panel");
 			yesNoApplyOptionButton.addActionListener(new ActionListener()

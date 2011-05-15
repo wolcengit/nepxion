@@ -87,7 +87,7 @@ public class DemoCalendarSelectorPanel
 		public CalendarSelectorPanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(BorderManager.createComplexTitleBorder("Calendar Selector"));
+			setBorder(BorderManager.createComplexTitledBorder("Calendar Selector"));
 						
 			JBasicButton dialogStyleButton = createDialogStyleButton();
 			dialogStyleButton.addActionListener(new ActionListener()
@@ -176,7 +176,7 @@ public class DemoCalendarSelectorPanel
 		public DateTimeSelectorPanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(BorderManager.createComplexTitleBorder("Date Time Selector"));
+			setBorder(BorderManager.createComplexTitledBorder("Date Time Selector"));
 			
 			JBasicButton dialogStyleButton = createDialogStyleButton();
 			dialogStyleButton.addActionListener(new ActionListener()
@@ -281,7 +281,7 @@ public class DemoCalendarSelectorPanel
 		public DateSelectorPanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(BorderManager.createComplexTitleBorder("Date Selector"));
+			setBorder(BorderManager.createComplexTitledBorder("Date Selector"));
 		
 			JBasicButton dialogStyleButton = createDialogStyleButton();
 			dialogStyleButton.addActionListener(new ActionListener()
@@ -383,7 +383,7 @@ public class DemoCalendarSelectorPanel
 		public YearSelectorPanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(BorderManager.createComplexTitleBorder("Year Selector"));
+			setBorder(BorderManager.createComplexTitledBorder("Year Selector"));
 			
 			JBasicButton dialogStyleButton = createDialogStyleButton();
 			dialogStyleButton.addActionListener(new ActionListener()
@@ -458,7 +458,7 @@ public class DemoCalendarSelectorPanel
 		public MonthSelectorPanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(BorderManager.createComplexTitleBorder("Month Selector"));
+			setBorder(BorderManager.createComplexTitledBorder("Month Selector"));
 			
 			JBasicButton dialogStyleButton = createDialogStyleButton();
 			dialogStyleButton.addActionListener(new ActionListener()
@@ -533,7 +533,7 @@ public class DemoCalendarSelectorPanel
 		public DaySelectorPanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(BorderManager.createComplexTitleBorder("Day Selector"));
+			setBorder(BorderManager.createComplexTitledBorder("Day Selector"));
 			
 			JBasicButton dialogStyleButton = createDialogStyleButton();
 			dialogStyleButton.addActionListener(new ActionListener()
@@ -608,7 +608,7 @@ public class DemoCalendarSelectorPanel
 		public TimeSelectorPanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(BorderManager.createComplexTitleBorder("Time Selector"));
+			setBorder(BorderManager.createComplexTitledBorder("Time Selector"));
 			
 			JBasicButton dialogStyleButton = createDialogStyleButton();
 			dialogStyleButton.addActionListener(new ActionListener()

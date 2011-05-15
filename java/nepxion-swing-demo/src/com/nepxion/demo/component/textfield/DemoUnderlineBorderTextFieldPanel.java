@@ -37,7 +37,7 @@ public class DemoUnderlineBorderTextFieldPanel
 		public UnderlineBorderTextFieldPanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(BorderManager.createComplexTitleBorder("Underline Border TextField"));
+			setBorder(BorderManager.createComplexTitledBorder("Underline Border TextField"));
 
 			JBasicTextField underlineBorderTextField = new JBasicTextField();
 			new UnderlineBorderDecoration(underlineBorderTextField);

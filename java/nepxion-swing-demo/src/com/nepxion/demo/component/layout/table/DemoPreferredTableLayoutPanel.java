@@ -39,7 +39,7 @@ public class DemoPreferredTableLayoutPanel
 		public RegularTableLayoutPanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(BorderManager.createComplexTitleBorder("Regular"));
+			setBorder(BorderManager.createComplexTitledBorder("Regular"));
 			
 			double[][] size = 
 			{ 
@@ -93,7 +93,7 @@ public class DemoPreferredTableLayoutPanel
 		public ComplexTableLayoutPanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(BorderManager.createComplexTitleBorder("Complex"));			
+			setBorder(BorderManager.createComplexTitledBorder("Complex"));			
 
 			double[][] size = 
 			{ 

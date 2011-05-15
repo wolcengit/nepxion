@@ -79,7 +79,7 @@ public class DemoDecorationPopupMenuPanel
 		public WindowsStylePopupMenuPanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(BorderManager.createComplexTitleBorder("Windows Style"));
+			setBorder(BorderManager.createComplexTitledBorder("Windows Style"));
 
 			JBasicButton flatStyleButton = new JBasicButton("JWindows Style", IconFactory.getSwingIcon("component/popup_menu_16.png"), "JWindows Style");
 			flatStyleButton.setUI(new FlatButtonUI());
@@ -94,7 +94,7 @@ public class DemoDecorationPopupMenuPanel
 		public LiteStylePopupMenuPanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(BorderManager.createComplexTitleBorder("Lite Style"));
+			setBorder(BorderManager.createComplexTitledBorder("Lite Style"));
 			
 			JBasicButton alloyStyleButton = new JBasicButton("JLite Style", IconFactory.getSwingIcon("component/popup_menu_16.png"), "JLite Style");
 			alloyStyleButton.setUI(new LiteButtonUI(new JAlloyLiteButtonStyle()));
@@ -109,7 +109,7 @@ public class DemoDecorationPopupMenuPanel
 		public AlloyStylePopupMenuPanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(BorderManager.createComplexTitleBorder("Alloy Style"));
+			setBorder(BorderManager.createComplexTitledBorder("Alloy Style"));
 			
 			JBasicButton alloyStyleButton = new JBasicButton("JAlloy Style", IconFactory.getSwingIcon("component/popup_menu_16.png"), "JAlloy Style");
 			alloyStyleButton.setUI(new LiteButtonUI(new JAlloyLiteButtonStyle()));
@@ -139,7 +139,7 @@ public class DemoDecorationPopupMenuPanel
 		public EclipseStylePopupMenuPanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(BorderManager.createComplexTitleBorder("Eclipse Style"));
+			setBorder(BorderManager.createComplexTitledBorder("Eclipse Style"));
 			
 			JBasicButton eclipseStyleButton = new JBasicButton("JEclipse Style", IconFactory.getSwingIcon("component/popup_menu_16.png"), "JEclipse Style");
 			eclipseStyleButton.setUI(new LiteButtonUI(new JEclipseLiteButtonStyle()));
@@ -154,7 +154,7 @@ public class DemoDecorationPopupMenuPanel
 		public BorlandStylePopupMenuPanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(BorderManager.createComplexTitleBorder("Borland Style"));
+			setBorder(BorderManager.createComplexTitledBorder("Borland Style"));
 			
 			JBasicButton borlandStyleButton = new JBasicButton("JBorland Style", IconFactory.getSwingIcon("component/popup_menu_16.png"), "JBorland Style");
 			borlandStyleButton.setUI(new LiteButtonUI(new JBorlandLiteButtonStyle()));
@@ -169,7 +169,7 @@ public class DemoDecorationPopupMenuPanel
 		public NimbusStylePopupMenuPanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(BorderManager.createComplexTitleBorder("Nimbus Style"));
+			setBorder(BorderManager.createComplexTitledBorder("Nimbus Style"));
 			
 			JBasicButton nimbusStyleButton = new JBasicButton("JNimbus Style", IconFactory.getSwingIcon("component/popup_menu_16.png"), "JNimbus Style");
 			nimbusStyleButton.setUI(new LiteButtonUI(new JNimbusLiteButtonStyle()));
@@ -184,7 +184,7 @@ public class DemoDecorationPopupMenuPanel
 		public ColorStylePopupMenuPanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(BorderManager.createComplexTitleBorder("Color Style"));
+			setBorder(BorderManager.createComplexTitledBorder("Color Style"));
 			
 			JBasicButton blueStyleButton = new JBasicButton("JBlue Style", IconFactory.getSwingIcon("component/popup_menu_16.png"), "JBlue Style");
 			blueStyleButton.setUI(new LiteButtonUI(new JBlueLiteButtonStyle()));
@@ -204,7 +204,7 @@ public class DemoDecorationPopupMenuPanel
 		public PlasticStylePopupMenuPanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(BorderManager.createComplexTitleBorder("Plastic Style"));
+			setBorder(BorderManager.createComplexTitledBorder("Plastic Style"));
 			
 			JBasicButton eclipseStyleButton = new JBasicButton("JPlastic Style", IconFactory.getSwingIcon("component/popup_menu_16.png"), "JPlastic Style");
 			eclipseStyleButton.setUI(new LiteButtonUI(new JEclipseLiteButtonStyle()));
@@ -219,7 +219,7 @@ public class DemoDecorationPopupMenuPanel
 		public FervencyStylePopupMenuPanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(BorderManager.createComplexTitleBorder("Fervency Style"));
+			setBorder(BorderManager.createComplexTitledBorder("Fervency Style"));
 			
 			JBasicButton blueStyleButton = new JBasicButton("JFervency Style", IconFactory.getSwingIcon("component/popup_menu_16.png"), "JFervency Style");
 			blueStyleButton.setUI(new LiteButtonUI(new JEclipseLiteButtonStyle()));

@@ -50,7 +50,7 @@ public class DemoTimerLabelPanel
 		public TimerLabelPanel(String icon, String text)
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(BorderManager.createComplexTitleBorder(text));
+			setBorder(BorderManager.createComplexTitledBorder(text));
 			
 			final JTimerLabel timerLabel = new JTimerLabel(icon);
 			DimensionManager.setDimension(timerLabel, new Dimension(150, timerLabel.getPreferredSize().height));

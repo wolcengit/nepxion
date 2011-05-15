@@ -47,7 +47,7 @@ public class DemoDropDownSelectorPanel
 		public TreeDropDownSelectorPanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(BorderManager.createComplexTitleBorder("Tree DropDown Selector"));
+			setBorder(BorderManager.createComplexTitledBorder("Tree DropDown Selector"));
 			
 			JBasicButton popupMenuStyleButton = new JBasicButton("PopupMenu Style", IconFactory.getSwingIcon("component/tree_16.png"), "PopupMenu Style");
 			popupMenuStyleButton.addActionListener(new ActionListener()
@@ -117,7 +117,7 @@ public class DemoDropDownSelectorPanel
 		public TableDropDownSelectorPanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(BorderManager.createComplexTitleBorder("Table DropDown Selector"));
+			setBorder(BorderManager.createComplexTitledBorder("Table DropDown Selector"));
 			
 			JBasicButton popupMenuStyleButton = new JBasicButton("PopupMenu Style", IconFactory.getSwingIcon("component/table_16.png"), "PopupMenu Style");
 			popupMenuStyleButton.addActionListener(new ActionListener()
@@ -187,7 +187,7 @@ public class DemoDropDownSelectorPanel
 		public ListDropDownSelectorPanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(BorderManager.createComplexTitleBorder("List DropDown Selector"));
+			setBorder(BorderManager.createComplexTitledBorder("List DropDown Selector"));
 			
 			JBasicButton popupMenuStyleButton = new JBasicButton("PopupMenu Style", IconFactory.getSwingIcon("component/list_16.png"), "PopupMenu Style");
 			popupMenuStyleButton.addActionListener(new ActionListener()

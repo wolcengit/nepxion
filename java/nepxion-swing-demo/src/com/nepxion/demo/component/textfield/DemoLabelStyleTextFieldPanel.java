@@ -36,7 +36,7 @@ public class DemoLabelStyleTextFieldPanel
 		public LabelStyleTextFieldPanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(BorderManager.createComplexTitleBorder("Label Style TextField"));
+			setBorder(BorderManager.createComplexTitledBorder("Label Style TextField"));
 
 			JBasicTextField labelStyleTextField = new JBasicTextField();
 			labelStyleTextField.setLabelStyle();

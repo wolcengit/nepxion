@@ -35,7 +35,7 @@ public class DemoBasicTextAreaPanel
 		public BasicTextAreaPanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(BorderManager.createComplexTitleBorder("Basic TextArea"));
+			setBorder(BorderManager.createComplexTitledBorder("Basic TextArea"));
 			
 			JBasicTextArea basicTextArea = new JBasicTextArea();
 			basicTextArea.setText("Right-clicked popupMenu to 'Copy' 'Paste' 'Cut' & 'Clean'");

@@ -58,7 +58,7 @@ public class DemoThreadDialoglPanel
 		public ThreadDialoglPanel()
 		{
 			setLayout(new BorderLayout());
-			setBorder(BorderManager.createComplexTitleBorder("File Loader"));
+			setBorder(BorderManager.createComplexTitledBorder("File Loader"));
 			
 			JSortableTable fileTable = new JSortableTable(new FileTableModel(new ArrayList()));
 			fileTable.setRowHeight(20);

@@ -34,7 +34,7 @@ public class DemoNeteaseMobilePanel
 		public NeteaseMobilePanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(BorderManager.createComplexTitleBorder("手机归属地查询"));
+			setBorder(BorderManager.createComplexTitledBorder("手机归属地查询"));
 			
 			JNeteaseMobilePanel mobilePanel = new JNeteaseMobilePanel();			
 			add(mobilePanel);

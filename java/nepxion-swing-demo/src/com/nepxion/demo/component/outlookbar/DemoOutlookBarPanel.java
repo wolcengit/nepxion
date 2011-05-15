@@ -67,7 +67,7 @@ public class DemoOutlookBarPanel
 		public OutlookBarPanel(AbstractButtonUI buttonUI, String text)
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(BorderManager.createComplexTitleBorder(text));
+			setBorder(BorderManager.createComplexTitledBorder(text));
 			
 			JFlatOutlookBar outlookBar = new JFlatOutlookBar();
 			outlookBar.setPreferredSize(new Dimension(115, outlookBar.getPreferredSize().height));			

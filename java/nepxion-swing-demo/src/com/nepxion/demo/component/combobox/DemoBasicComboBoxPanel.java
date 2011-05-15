@@ -43,7 +43,7 @@ public class DemoBasicComboBoxPanel
 		public BasicComboBoxPanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(BorderManager.createComplexTitleBorder("Basic ComboBox"));
+			setBorder(BorderManager.createComplexTitledBorder("Basic ComboBox"));
 			
 			String[] items = new String[] {"The standard JComboBox doesn't support the long width for combobox's popupmenu", "The popupmenu item width is only determinded by combobox width", "The JBasicComboBox will help you to resolve the issue.You can set its length by api"};
 			comboBox = new JBasicComboBox(items);
@@ -60,7 +60,7 @@ public class DemoBasicComboBoxPanel
 		public ConfigPanel()
 		{
 			setLayout(new FiledLayout(FiledLayout.COLUMN, FiledLayout.FULL, 0));
-			setBorder(BorderManager.createComplexTitleBorder("Configuration"));
+			setBorder(BorderManager.createComplexTitledBorder("Configuration"));
 			
 			final JBasicCheckBox popupMenuWithCheckBox = new JBasicCheckBox("Set PopupMenu width (=500)", "Set PopupMenu width (=500)", true);
 			popupMenuWithCheckBox.addActionListener(new ActionListener()

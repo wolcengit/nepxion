@@ -54,7 +54,7 @@ public class DemoRadioButtonSelectorPanel
 		public RadioButtonSelectorPanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(BorderManager.createComplexTitleBorder("RadioButton Selector"));
+			setBorder(BorderManager.createComplexTitledBorder("RadioButton Selector"));
 			
 			JBasicButton radioButtonSelectorButton = new JBasicButton("RadioButton Selector", IconFactory.getSwingIcon("component/radio_button_16.png"), "RadioButton Selector");
 			radioButtonSelectorButton.addActionListener(new ActionListener()
@@ -87,7 +87,7 @@ public class DemoRadioButtonSelectorPanel
 		public MultiRadioButtonSelectorPanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(BorderManager.createComplexTitleBorder("Multi RadioButton Selector"));
+			setBorder(BorderManager.createComplexTitledBorder("Multi RadioButton Selector"));
 			
 			JBasicButton radioButtonSelectorButton = new JBasicButton("Multi RadioButton Selector", IconFactory.getSwingIcon("component/radio_button_16.png"), "RadioButton Selector");
 			radioButtonSelectorButton.addActionListener(new ActionListener()
