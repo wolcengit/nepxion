@@ -18,9 +18,44 @@ public abstract class JAction
 	extends AbstractAction
 {	
 	/**
+	 * The string of text.
+	 */
+	public static final String TEXT = "text";
+	
+	/**
+	 * The string of icon.
+	 */
+	public static final String ICON = "icon";
+	
+	/**
+	 * The value of showing small for text or icon.
+	 */
+	public static final int SHOW_SMALL = 0;
+	
+	/**
+	 * The value of showing large for text or icon.
+	 */
+	public static final int SHOW_LARGE = 1;
+	
+	/**
+	 * The value of showing no for text or icon.
+	 */
+	public static final int SHOW_NO = 2;
+	
+	/**
 	 * The action name string.
 	 */
 	private String name;
+	
+	/**
+	 * The small text.
+	 */
+	private String smallText;
+	
+	/**
+	 * The large text.
+	 */
+	private String largeText;
 	
 	/**
 	 * The small icon.
@@ -171,6 +206,68 @@ public abstract class JAction
 	}
 	
 	/**
+	 * Gets the small text.
+	 * @return the small text
+	 */
+	public String getSmallText()
+	{
+		return smallText;
+	}
+
+	/**
+	 * Sets the small text.
+	 * @param smallText the small text
+	 */
+	public void setSmallText(String smallText)
+	{
+		this.smallText = smallText;
+	}
+
+	/**
+	 * Gets the large text.
+	 * @return the large text
+	 */
+	public String getLargeText()
+	{
+		return largeText;
+	}
+
+	/**
+	 * Sets the large icon.
+	 * @param largeIcon the large icon
+	 */
+	public void setLargeText(String largeText)
+	{
+		this.largeText = largeText;
+	}
+	
+	/**
+	 * Shows the text by a show value.
+	 * @param showValue the show value
+	 */
+	public void showText(int showValue)
+	{		
+		switch (showValue)
+		{
+			case SHOW_SMALL : 
+			{
+				setText(smallText);
+				break;
+			}
+			case SHOW_LARGE : 
+			{
+				setText(largeText);
+				break;
+			}
+			case SHOW_NO : 
+			{
+				setText(null);
+				break;
+			}
+		}
+	}
+	
+	/**
 	 * Gets the tooltip text.
 	 * @return the tooltip text string
 	 */
@@ -243,23 +340,28 @@ public abstract class JAction
 	}
 	
 	/**
-	 * Toggle the icon between the small icon and the large icon. 
+	 * Shows the text by a show value.
+	 * @param showValue the show value
 	 */
-	public void toggleIcon()
-	{
-		if (largeIcon == null)
+	public void showIcon(int showValue)
+	{		
+		switch (showValue)
 		{
-			return;
-		}
-		
-		Icon icon = getIcon();
-		if (icon == smallIcon)
-		{
-			setIcon(largeIcon);
-		}
-		else
-		{
-			setIcon(smallIcon);
+			case SHOW_SMALL : 
+			{
+				setIcon(smallIcon);
+				break;
+			}
+			case SHOW_LARGE : 
+			{
+				setIcon(largeIcon);
+				break;
+			}
+			case SHOW_NO : 
+			{
+				setIcon(null);
+				break;
+			}
 		}
 	}
 	
