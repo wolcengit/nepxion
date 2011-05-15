@@ -86,7 +86,8 @@ public class JRibbonHierarchy
 		}
 		
 		JDecorationPopupMenu popupMenu = new JDecorationPopupMenu();
-		popupMenu.add(new JBasicMenuItem(new JRibbonToggleFacadeAction("显示文字", IconFactory.getSwingIcon("label.png"), "显示文字", this, JRibbonAction.TEXT, JRibbonAction.SHOW_LARGE)));
+		popupMenu.add(new JBasicMenuItem(new JRibbonToggleFacadeAction("显示单行文字", IconFactory.getSwingIcon("label.png"), "显示单行文字", this, JRibbonAction.TEXT, JRibbonAction.SHOW_SMALL)));
+		popupMenu.add(new JBasicMenuItem(new JRibbonToggleFacadeAction("显示多行文字", IconFactory.getSwingIcon("label.png"), "显示多行文字", this, JRibbonAction.TEXT, JRibbonAction.SHOW_LARGE)));
 		popupMenu.add(new JBasicMenuItem(new JRibbonToggleFacadeAction("不显示文字", null, "不显示文字", this, JRibbonAction.TEXT, JRibbonAction.SHOW_NO)));
 		popupMenu.addSeparator();
 		popupMenu.add(new JBasicMenuItem(new JRibbonToggleFacadeAction("显示大图标", IconFactory.getSwingIcon("icon.png"), "显示大图标", this, JRibbonAction.ICON, JRibbonAction.SHOW_LARGE)));
@@ -110,10 +111,10 @@ public class JRibbonHierarchy
 		statusItem.add(toggleHeightButton);
 		statusItem.add(toggleFacadeButton);
 		
-		ButtonManager.updateUI(statusItem, new Dimension(30, 30));
+		ButtonManager.updateUI(statusItem, new Dimension(35, 35));
 		
 		statusBar.setSeparatorHeight(14);
-		statusBar.addItem(90, statusItem, JStatusBar.LEFT);
+		statusBar.addItem(105, statusItem, JStatusBar.LEFT);
 	}
 	
 	public JPanel getNavigatorContainer()
