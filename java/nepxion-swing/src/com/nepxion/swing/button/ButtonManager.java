@@ -441,6 +441,11 @@ public class ButtonManager
 	 */
 	public static String getStyleText(String text)
 	{
+		if (text == null)
+		{
+			return null;
+		}	
+		
 		String delimiter = "\n";
 		
 		if (text.indexOf(delimiter) > -1)
