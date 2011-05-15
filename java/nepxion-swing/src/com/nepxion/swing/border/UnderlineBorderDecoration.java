@@ -16,6 +16,10 @@ import com.nepxion.swing.color.ColorUtil;
 
 public class UnderlineBorderDecoration
 {
+	/**
+	 * Constructs with the specified initial component.
+	 * @param component the instance of JComponent
+	 */
 	public UnderlineBorderDecoration(JComponent component)
 	{
 		component.setBorder(new UnderlineBorder());

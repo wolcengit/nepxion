@@ -28,7 +28,7 @@ public class BalloonBorder
 	private Dimension lastComponentSize;
 	
 	/**
-	 * The insets value.
+	 * The instance of Insets.
 	 */
 	private Insets insets = new Insets(0, 0, 0, 0);
 	

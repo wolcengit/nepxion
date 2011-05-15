@@ -20,23 +20,44 @@ import javax.swing.border.Border;
 public class UnderlineBorder
 	implements Border
 {
+	/**
+	 * Constructs with the default.
+	 */
 	public UnderlineBorder()
 	{
+		
 	}
 	
-	public void paintBorder(Component c, Graphics g, int x, int y, int width, int height)
-	{
-		g.setColor(Color.gray);
-		g.drawLine(x, y + height - 3, x + width, y + height - 3);
-	}
-	
+	/**
+	 * Gets the border insets.
+	 * @param c the instance of Component
+	 * @return the instance of Insets
+	 */
 	public Insets getBorderInsets(Component c)
 	{
 		return new Insets(1, 3, 5, 3);
 	}
 	
+	/**
+	 * Returns true if the border is opaque.
+	 */
 	public boolean isBorderOpaque()
 	{
 		return true;
+	}
+	
+	/**
+	 * Paints border.
+	 * @param c the instance of Component
+	 * @param g the instance of Graphics
+	 * @param x the x value
+	 * @param y the y value
+	 * @param width the width value
+	 * @param height the height value
+	 */
+	public void paintBorder(Component c, Graphics g, int x, int y, int width, int height)
+	{
+		g.setColor(Color.gray);
+		g.drawLine(x, y + height - 3, x + width, y + height - 3);
 	}
 }
