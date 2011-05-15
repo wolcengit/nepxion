@@ -27,11 +27,11 @@ public class EncoderContext
 	
 	/**
 	 * Registers the io charset.
-	 * @param customIOCharset the io charset string
+	 * @param ioCharset the io charset string
 	 */
-	public static void registerIOCharset(String customIOCharset)
+	public static void registerIOCharset(String ioCharset)
 	{
-		ioCharset = customIOCharset;
+		EncoderContext.ioCharset = ioCharset;
 	}
 	
 	/**
@@ -45,11 +45,11 @@ public class EncoderContext
 	
 	/**
 	 * Registers the http charset.
-	 * @param customHttpCharset the http charset string
+	 * @param httpCharset the http charset string
 	 */
-	public static void registerHttpCharset(String customHttpCharset)
+	public static void registerHttpCharset(String httpCharset)
 	{
-		httpCharset = customHttpCharset;
+		EncoderContext.httpCharset = httpCharset;
 	}
 	
 	/**

@@ -60,7 +60,12 @@ public class FileContext
 	 */
 	public static String getContent(String filePath)
 	{
-		String content = (String) map.get(filePath);
+		if (!map.containsKey(filePath))
+		{
+			throw new IllegalArgumentException(filePath + " hasn't been registered in FileContext");
+		}
+		
+		String content = (String) map.get(filePath);	
 		
 		return content;
 	}

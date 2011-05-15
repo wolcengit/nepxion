@@ -18,7 +18,7 @@ import com.jacob.com.Variant;
 public class JacobUtil
 {
 	/**
-	 * Calls the Internet Explorer of Windows platform by Jacob activeX.
+	 * Calls the Internet Explorer by Jacob activeX.
 	 * @param url the url string
 	 * @throws Exception
 	 */
@@ -153,7 +153,7 @@ public class JacobUtil
 	}
 	
 	/**
-	 * Transforms the Word file To the Html file by Jacob activeX.
+	 * Transforms the Word file to the Html file by Jacob activeX.
 	 * @param wordFilePath the word file path
 	 * @param htmlFilePath the html file path
 	 * @throws Exception
@@ -188,7 +188,7 @@ public class JacobUtil
 	}
 	
 	/**
-	 * Transforms the Excel file To the Html file by Jacob activeX.
+	 * Transforms the Excel file to the Html file by Jacob activeX.
 	 * @param excelFilePath the excel file path
 	 * @param htmlFilePath the html file path
 	 * @throws Exception
