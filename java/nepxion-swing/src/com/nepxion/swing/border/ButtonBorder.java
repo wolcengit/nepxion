@@ -21,77 +21,138 @@ import javax.swing.border.Border;
 public class ButtonBorder
 	implements Border
 {
+	/**
+	 * The border raised value.
+	 */
 	public static final int BORDER_RAISED = 0;
+	
+	/**
+	 * The border lowered value.
+	 */
 	public static final int BORDER_LOWERED = 1;
 	
-	private Color brighter = UIManager.getColor("Button.background").brighter();
-	private Color darker = UIManager.getColor("Button.background").darker();
+	/**
+	 * The brighter color.
+	 */
+	private Color brighterColor = UIManager.getColor("Button.background").brighter();
 	
-	private Color top;
-	private Color left;
-	private Color bottom;
-	private Color right;
+	/**
+	 * The darker color.
+	 */
+	private Color darkerColor = UIManager.getColor("Button.background").darker();
 	
+	/**
+	 * The top color.
+	 */
+	private Color topColor;
+	
+	/**
+	 * The left color.
+	 */
+	private Color leftColor;
+	
+	/**
+	 * The bottom color.
+	 */
+	private Color bottomColor;
+	
+	/**
+	 * The right color.
+	 */
+	private Color rightColor;
+	
+	/**
+	 * 
+	 * @param borderType
+	 */
 	public ButtonBorder(int borderType)
 	{
 		switch (borderType)
 		{
 			case BORDER_RAISED:
-				top = brighter;
-				left = brighter;
-				bottom = darker;
-				right = darker;
+			{	
+				topColor = brighterColor;
+				leftColor = brighterColor;
+				bottomColor = darkerColor;
+				rightColor = darkerColor;
 				break;
+			}
 			case BORDER_LOWERED:
-				top = darker;
-				left = darker;
-				bottom = brighter;
-				right = brighter;
+			{
+				topColor = darkerColor;
+				leftColor = darkerColor;
+				bottomColor = brighterColor;
+				rightColor = brighterColor;
 				break;
+			}
 		}
 	}
 	
-	public ButtonBorder(Color top, Color left, Color bottom, Color right)
+	/**
+	 * Constructs with the specified initial top color, left color, bottom color and right color.
+	 * @param topColor the top color
+	 * @param leftColor the left color
+	 * @param bottomColor the bottom color
+	 * @param rightColor the right color
+	 */
+	public ButtonBorder(Color topColor, Color leftColor, Color bottomColor, Color rightColor)
 	{
-		this.top = top;
-		this.left = left;
-		this.bottom = bottom;
-		this.right = right;
+		this.topColor = topColor;
+		this.leftColor = leftColor;
+		this.bottomColor = bottomColor;
+		this.rightColor = rightColor;
 	}
 	
+	/**
+	 * Gets the border insets.
+	 * @param c the instance of Component
+	 * @return the instance of Insets
+	 */
 	public Insets getBorderInsets(Component c)
 	{
-		return new Insets(top == null ? 0 : 1, left == null ? 0 : 1, bottom == null ? 0 : 1, right == null ? 0 : 1);
+		return new Insets(topColor == null ? 0 : 1, leftColor == null ? 0 : 1, bottomColor == null ? 0 : 1, rightColor == null ? 0 : 1);
 	}
 	
+	/**
+	 * Returns true if the border is opaque.
+	 */
 	public boolean isBorderOpaque()
 	{
 		return true;
 	}
 	
+	/**
+	 * Paints border.
+	 * @param c the instance of Component
+	 * @param g the instance of Graphics
+	 * @param x the x value
+	 * @param y the y value
+	 * @param width the width value
+	 * @param height the height value
+	 */
 	public void paintBorder(Component c, Graphics g, int x, int y, int width, int height)
 	{
-		if (bottom != null)
+		if (bottomColor != null)
 		{
-			g.setColor(bottom);
+			g.setColor(bottomColor);
 			g.drawLine(x, y + height - 1, x + width - 1, y + height - 1);
 		}
 		
-		if (right != null)
+		if (rightColor != null)
 		{
-			g.setColor(right);
+			g.setColor(rightColor);
 			g.drawLine(x + width - 1, y, x + width - 1, y + height - 1);
 		}
 		
-		if (top != null)
+		if (topColor != null)
 		{
-			g.setColor(top);
+			g.setColor(topColor);
 			g.drawLine(x, y, x + width - 1, y);
 		}
 		
-		if (left != null)
+		if (leftColor != null)
 		{
-			g.setColor(left);
+			g.setColor(leftColor);
 			g.drawLine(x, y, x, y + height - 1);
 		}
 	}

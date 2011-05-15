@@ -54,65 +54,6 @@ public class BalloonBorder
 	}
 	
 	/**
-	 * Paints border.
-	 * @param c the instance of Component
-	 * @param g the instance of Graphics
-	 * @param x the x value
-	 * @param y the y value
-	 * @param width the width value
-	 * @param height the height value
-	 */
-	public void paintBorder(Component c, Graphics g, int x, int y, int width, int height)
-	{
-		width -= insets.left + insets.right;
-		height -= insets.top + insets.bottom;
-		
-		Point iPoint = new Point(); // initial point
-		Point ePoint = new Point(); // end point
-		
-		iPoint.x = x;
-		iPoint.y = y;
-		ePoint.x = x + width + 1;
-		ePoint.y = y;
-		g.drawLine(iPoint.x, iPoint.y, ePoint.x, ePoint.y);
-		
-		iPoint.setLocation(ePoint);
-		ePoint.x = x + width + 1;
-		ePoint.y = y + height + 1;
-		g.drawLine(iPoint.x, iPoint.y, ePoint.x, ePoint.y);
-		
-		iPoint.setLocation(ePoint);
-		ePoint.x = x + offset * 2;
-		ePoint.y = y + height + 1;
-		g.drawLine(iPoint.x, iPoint.y, ePoint.x, ePoint.y);
-		
-		iPoint.setLocation(ePoint);
-		ePoint.x = x + offset;
-		ePoint.y = y + height + offset + 1;
-		g.drawLine(iPoint.x, iPoint.y, ePoint.x, ePoint.y);
-		
-		iPoint.setLocation(ePoint);
-		ePoint.x = x + offset;
-		ePoint.y = y + height + 1;
-		g.drawLine(iPoint.x, iPoint.y, ePoint.x, ePoint.y);
-		
-		iPoint.setLocation(ePoint);
-		ePoint.x = x;
-		ePoint.y = y + height + 1;
-		g.drawLine(iPoint.x, iPoint.y, ePoint.x, ePoint.y);
-		
-		iPoint.setLocation(ePoint);
-		ePoint.x = x;
-		ePoint.y = y;
-		g.drawLine(iPoint.x, iPoint.y, ePoint.x, ePoint.y);
-		
-		int[] xPoints = {x + offset + 1, x + offset * 2 /*-1?*/, x + offset + 1};
-		int[] yPoints = {y + height + 1, y + height + 1, y + height + offset /*-1?*/};
-		g.setColor(fillColor);
-		g.fillPolygon(xPoints, yPoints, 3);
-	}
-	
-	/**
 	 * Gets the border insets.
 	 * @param c the instance of Component
 	 * @return the instance of Insets
@@ -138,5 +79,64 @@ public class BalloonBorder
 	public boolean isBorderOpaque()
 	{
 		return true;
+	}
+	
+	/**
+	 * Paints border.
+	 * @param c the instance of Component
+	 * @param g the instance of Graphics
+	 * @param x the x value
+	 * @param y the y value
+	 * @param width the width value
+	 * @param height the height value
+	 */
+	public void paintBorder(Component c, Graphics g, int x, int y, int width, int height)
+	{
+		width -= insets.left + insets.right;
+		height -= insets.top + insets.bottom;
+		
+		Point startPoint = new Point();
+		Point endPoint = new Point();
+		
+		startPoint.x = x;
+		startPoint.y = y;
+		endPoint.x = x + width + 1;
+		endPoint.y = y;
+		g.drawLine(startPoint.x, startPoint.y, endPoint.x, endPoint.y);
+		
+		startPoint.setLocation(endPoint);
+		endPoint.x = x + width + 1;
+		endPoint.y = y + height + 1;
+		g.drawLine(startPoint.x, startPoint.y, endPoint.x, endPoint.y);
+		
+		startPoint.setLocation(endPoint);
+		endPoint.x = x + offset * 2;
+		endPoint.y = y + height + 1;
+		g.drawLine(startPoint.x, startPoint.y, endPoint.x, endPoint.y);
+		
+		startPoint.setLocation(endPoint);
+		endPoint.x = x + offset;
+		endPoint.y = y + height + offset + 1;
+		g.drawLine(startPoint.x, startPoint.y, endPoint.x, endPoint.y);
+		
+		startPoint.setLocation(endPoint);
+		endPoint.x = x + offset;
+		endPoint.y = y + height + 1;
+		g.drawLine(startPoint.x, startPoint.y, endPoint.x, endPoint.y);
+		
+		startPoint.setLocation(endPoint);
+		endPoint.x = x;
+		endPoint.y = y + height + 1;
+		g.drawLine(startPoint.x, startPoint.y, endPoint.x, endPoint.y);
+		
+		startPoint.setLocation(endPoint);
+		endPoint.x = x;
+		endPoint.y = y;
+		g.drawLine(startPoint.x, startPoint.y, endPoint.x, endPoint.y);
+		
+		int[] xPoints = {x + offset + 1, x + offset * 2 /*-1?*/, x + offset + 1};
+		int[] yPoints = {y + height + 1, y + height + 1, y + height + offset /*-1?*/};
+		g.setColor(fillColor);
+		g.fillPolygon(xPoints, yPoints, 3);
 	}
 }
