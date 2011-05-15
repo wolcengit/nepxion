@@ -21,8 +21,8 @@ public class ComplexTitledBorder
 	extends JideTitledBorder
 {
 	/**
-	 * 
-	 * @param title
+	 * Constructs with the specified title.
+	 * @param title the title string
 	 */
 	public ComplexTitledBorder(String title)
 	{
@@ -30,8 +30,8 @@ public class ComplexTitledBorder
 	}
 	
 	/**
-	 * 
-	 * @param border
+	 * Constructs with the specified border.
+	 * @param border the instance of Border
 	 */
 	public ComplexTitledBorder(Border border)
 	{
@@ -39,9 +39,9 @@ public class ComplexTitledBorder
 	}
 	
 	/**
-	 * 
-	 * @param border
-	 * @param title
+	 * Constructs with the specified border and title.
+	 * @param border the instance of Border
+	 * @param title the title string
 	 */
 	public ComplexTitledBorder(Border border, String title)
 	{
@@ -49,11 +49,11 @@ public class ComplexTitledBorder
 	}
 	
 	/**
-	 * 
-	 * @param border
-	 * @param title
-	 * @param titleJustification
-	 * @param titlePosition
+	 * Constructs with the specified border, title, title justification and title position.
+	 * @param border the instance of Border
+	 * @param title the title string
+	 * @param titleJustification the title justification value
+	 * @param titlePosition the title position value
 	 */
 	public ComplexTitledBorder(Border border, String title, int titleJustification, int titlePosition)
 	{
@@ -61,12 +61,12 @@ public class ComplexTitledBorder
 	}
 	
 	/**
-	 * 
-	 * @param border
-	 * @param title
-	 * @param titleJustification
-	 * @param titlePosition
-	 * @param titleFont
+	 * Constructs with the specified border, title, title justification, title position and title font.
+	 * @param border the instance of Border
+	 * @param title the title string
+	 * @param titleJustification the title justification value
+	 * @param titlePosition the title position value
+	 * @param titleFont the title font
 	 */
 	public ComplexTitledBorder(Border border, String title, int titleJustification, int titlePosition, Font titleFont)
 	{
@@ -74,13 +74,13 @@ public class ComplexTitledBorder
 	}
 	
 	/**
-	 * 
-	 * @param border
-	 * @param title
-	 * @param titleJustification
-	 * @param titlePosition
-	 * @param titleFont
-	 * @param titleColor
+	 * Constructs with the specified border, title, title justification, title position, title font and title color.
+	 * @param border the instance of Border
+	 * @param title the title string
+	 * @param titleJustification the title justification value
+	 * @param titlePosition the title position value
+	 * @param titleFont the title font
+	 * @param titleColor the title color
 	 */
 	public ComplexTitledBorder(Border border, String title, int titleJustification, int titlePosition, Font titleFont, Color titleColor)
 	{

@@ -17,16 +17,31 @@ import com.jidesoft.swing.PartialGradientLineBorder;
 public class ComplexGradientLineBorder
 	extends PartialGradientLineBorder
 {
+	/**
+	 * Constructs with the specified colors.
+	 * @param colors the color array
+	 */
 	public ComplexGradientLineBorder(Color[] colors)
 	{
 		super(colors);
 	}
 	
+	/**
+	 * Constructs with the specified colors and thickness.
+	 * @param colors the color array
+	 * @param thickness the thickness value
+	 */
 	public ComplexGradientLineBorder(Color[] colors, int thickness)
 	{
 		super(colors, thickness);
 	}
 	
+	/**
+	 * Constructs with the specified colors, thickness and sides.
+	 * @param colors the color array
+	 * @param thickness the thickness value
+	 * @param sides the sides value
+	 */
 	public ComplexGradientLineBorder(Color[] colors, int thickness, int sides)
 	{
 		super(colors, thickness, sides);

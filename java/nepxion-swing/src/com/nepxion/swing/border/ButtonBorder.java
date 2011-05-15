@@ -34,12 +34,12 @@ public class ButtonBorder
 	/**
 	 * The brighter color.
 	 */
-	private Color brighterColor = UIManager.getColor("Button.background").brighter();
+	private Color brighter = UIManager.getColor("Button.background").brighter();
 	
 	/**
 	 * The darker color.
 	 */
-	private Color darkerColor = UIManager.getColor("Button.background").darker();
+	private Color darker = UIManager.getColor("Button.background").darker();
 	
 	/**
 	 * The top color.
@@ -71,18 +71,18 @@ public class ButtonBorder
 		{
 			case BORDER_RAISED:
 			{	
-				topColor = brighterColor;
-				leftColor = brighterColor;
-				bottomColor = darkerColor;
-				rightColor = darkerColor;
+				topColor = brighter;
+				leftColor = brighter;
+				bottomColor = darker;
+				rightColor = darker;
 				break;
 			}
 			case BORDER_LOWERED:
 			{
-				topColor = darkerColor;
-				leftColor = darkerColor;
-				bottomColor = brighterColor;
-				rightColor = brighterColor;
+				topColor = darker;
+				leftColor = darker;
+				bottomColor = brighter;
+				rightColor = brighter;
 				break;
 			}
 		}
