@@ -24,23 +24,46 @@ import javax.swing.border.TitledBorder;
 public class ComponentTitledBorder
 	extends TitledBorder
 {
+	/**
+	 * The instance of JComponent.
+	 */
 	private JComponent component;
 	
+	/**
+	 * Constructs with the specified initial component.
+	 * @param component the instance of JComponent
+	 */
 	public ComponentTitledBorder(JComponent component)
 	{
 		this(null, component, LEFT, TOP);
 	}
 	
+	/**
+	 * Constructs with the specified initial border.
+	 * @param border the instance of Border
+	 */
 	public ComponentTitledBorder(Border border)
 	{
 		this(border, null, LEFT, TOP);
 	}
 	
+	/**
+	 * Constructs with the specified initial border and component.
+	 * @param border the instance of Border
+	 * @param component the instance of JComponent
+	 */
 	public ComponentTitledBorder(Border border, JComponent component)
 	{
 		this(border, component, LEFT, TOP);
 	}
 	
+	/**
+	 * Constructs with the specified initial border, component, title justification and title position.
+	 * @param border the instance of Border
+	 * @param component the instance of JComponent
+	 * @param titleJustification the title justification value
+	 * @param titlePosition the title position value
+	 */
 	public ComponentTitledBorder(Border border, JComponent component, int titleJustification, int titlePosition)
 	{
 		super(border, null, titleJustification, titlePosition, null, null);
@@ -53,66 +76,78 @@ public class ComponentTitledBorder
 		}
 	}
 	
+	/**
+	 * Gets the component.
+	 * @return the instance of JComponent
+	 */
 	public JComponent getComponent()
 	{
 		return component;
 	}
 	
+	/**
+	 * Sets the component.
+	 * @param component the instance of JComponent
+	 */
 	public void setComponent(JComponent component)
 	{
 		this.component = component;
 	}
 	
-	public void paintBorder(Component c, Graphics g, int x, int y, int width, int height)
+	/**
+	 * Gets the component Rectangle by a rectangle and borderInsets.
+	 * @param rect the instance of Rectangle
+	 * @param insets the instance of Insets
+	 * @return the instance of Rectangle
+	 */
+	public Rectangle getComponentRectangle(Rectangle rect, Insets insets)
 	{
-		Rectangle borderRectangle = new Rectangle(x + EDGE_SPACING, y + EDGE_SPACING, width - (EDGE_SPACING * 2), height - (EDGE_SPACING * 2));
-		Insets borderInsets;
-		if (border != null)
-		{
-			borderInsets = border.getBorderInsets(c);
-		}
-		else
-		{
-			borderInsets = new Insets(0, 0, 0, 0);
-		}
-		
-		Rectangle rectangle = new Rectangle(x, y, width, height);
-		Insets insets = getBorderInsets(c);
-		Rectangle componentRectangle = getComponentRectangle(rectangle, insets);
-		int diff;
+		Dimension dimension = component.getPreferredSize();
+		Rectangle rectangle = new Rectangle(0, 0, dimension.width, dimension.height);
 		switch (titlePosition)
 		{
 			case ABOVE_TOP:
-				diff = componentRectangle.height + TEXT_SPACING;
-				borderRectangle.y += diff;
-				borderRectangle.height -= diff;
+				rectangle.y = EDGE_SPACING;
 				break;
 			case TOP:
 			case DEFAULT_POSITION:
-				diff = insets.top / 2 - borderInsets.top - EDGE_SPACING;
-				borderRectangle.y += diff;
-				borderRectangle.height -= diff;
+				rectangle.y = EDGE_SPACING + (insets.top - EDGE_SPACING - TEXT_SPACING - dimension.height) / 2;
 				break;
 			case BELOW_TOP:
+				rectangle.y = insets.top - dimension.height - TEXT_SPACING;
+				break;
 			case ABOVE_BOTTOM:
+				rectangle.y = rect.height - insets.bottom + TEXT_SPACING;
 				break;
 			case BOTTOM:
-				diff = insets.bottom / 2 - borderInsets.bottom - EDGE_SPACING;
-				borderRectangle.height -= diff;
+				rectangle.y = rect.height - insets.bottom + TEXT_SPACING + (insets.bottom - EDGE_SPACING - TEXT_SPACING - dimension.height) / 2;
 				break;
 			case BELOW_BOTTOM:
-				diff = componentRectangle.height + TEXT_SPACING;
-				borderRectangle.height -= diff;
+				rectangle.y = rect.height - dimension.height - EDGE_SPACING;
 				break;
 		}
-		border.paintBorder(c, g, borderRectangle.x, borderRectangle.y, borderRectangle.width, borderRectangle.height);
-		Color color = g.getColor();
-		g.setColor(c.getBackground());
-		g.fillRect(componentRectangle.x, componentRectangle.y, componentRectangle.width, componentRectangle.height);
-		g.setColor(color);
-		component.repaint();
+		switch (titleJustification)
+		{
+			case LEFT:
+			case DEFAULT_JUSTIFICATION:
+				rectangle.x = TEXT_INSET_H + insets.left;
+				break;
+			case RIGHT:
+				rectangle.x = rect.width - insets.right - TEXT_INSET_H - rectangle.width;
+				break;
+			case CENTER:
+				rectangle.x = (rect.width - rectangle.width) / 2;
+				break;
+		}
+		
+		return rectangle;
 	}
 	
+	/**
+	 * Gets the border insets.
+	 * @param c the instance of Component
+	 * @return the instance of Insets
+	 */
 	public Insets getBorderInsets(Component c, Insets insets)
 	{
 		Insets borderInsets;
@@ -166,46 +201,62 @@ public class ComponentTitledBorder
 		return insets;
 	}
 	
-	public Rectangle getComponentRectangle(Rectangle rect, Insets borderInsets)
+	/**
+	 * Paints border.
+	 * @param c the instance of Component
+	 * @param g the instance of Graphics
+	 * @param x the x value
+	 * @param y the y value
+	 * @param width the width value
+	 * @param height the height value
+	 */
+	public void paintBorder(Component c, Graphics g, int x, int y, int width, int height)
 	{
-		Dimension dimension = component.getPreferredSize();
-		Rectangle rectangle = new Rectangle(0, 0, dimension.width, dimension.height);
+		Rectangle borderRectangle = new Rectangle(x + EDGE_SPACING, y + EDGE_SPACING, width - (EDGE_SPACING * 2), height - (EDGE_SPACING * 2));
+		Insets borderInsets;
+		if (border != null)
+		{
+			borderInsets = border.getBorderInsets(c);
+		}
+		else
+		{
+			borderInsets = new Insets(0, 0, 0, 0);
+		}
+		
+		Rectangle rectangle = new Rectangle(x, y, width, height);
+		Insets insets = getBorderInsets(c);
+		Rectangle componentRectangle = getComponentRectangle(rectangle, insets);
+		int diff;
 		switch (titlePosition)
 		{
 			case ABOVE_TOP:
-				rectangle.y = EDGE_SPACING;
+				diff = componentRectangle.height + TEXT_SPACING;
+				borderRectangle.y += diff;
+				borderRectangle.height -= diff;
 				break;
 			case TOP:
 			case DEFAULT_POSITION:
-				rectangle.y = EDGE_SPACING + (borderInsets.top - EDGE_SPACING - TEXT_SPACING - dimension.height) / 2;
+				diff = insets.top / 2 - borderInsets.top - EDGE_SPACING;
+				borderRectangle.y += diff;
+				borderRectangle.height -= diff;
 				break;
 			case BELOW_TOP:
-				rectangle.y = borderInsets.top - dimension.height - TEXT_SPACING;
-				break;
 			case ABOVE_BOTTOM:
-				rectangle.y = rect.height - borderInsets.bottom + TEXT_SPACING;
 				break;
 			case BOTTOM:
-				rectangle.y = rect.height - borderInsets.bottom + TEXT_SPACING + (borderInsets.bottom - EDGE_SPACING - TEXT_SPACING - dimension.height) / 2;
+				diff = insets.bottom / 2 - borderInsets.bottom - EDGE_SPACING;
+				borderRectangle.height -= diff;
 				break;
 			case BELOW_BOTTOM:
-				rectangle.y = rect.height - dimension.height - EDGE_SPACING;
+				diff = componentRectangle.height + TEXT_SPACING;
+				borderRectangle.height -= diff;
 				break;
 		}
-		switch (titleJustification)
-		{
-			case LEFT:
-			case DEFAULT_JUSTIFICATION:
-				rectangle.x = TEXT_INSET_H + borderInsets.left;
-				break;
-			case RIGHT:
-				rectangle.x = rect.width - borderInsets.right - TEXT_INSET_H - rectangle.width;
-				break;
-			case CENTER:
-				rectangle.x = (rect.width - rectangle.width) / 2;
-				break;
-		}
-		
-		return rectangle;
+		border.paintBorder(c, g, borderRectangle.x, borderRectangle.y, borderRectangle.width, borderRectangle.height);
+		Color color = g.getColor();
+		g.setColor(c.getBackground());
+		g.fillRect(componentRectangle.x, componentRectangle.y, componentRectangle.width, componentRectangle.height);
+		g.setColor(color);
+		component.repaint();
 	}
 }

@@ -21,32 +21,247 @@ import javax.swing.border.AbstractBorder;
 public class LineBorder
 	extends AbstractBorder implements SwingConstants
 {
+	/**
+	 * The north thickness. 
+	 */
 	private int northThickness;
+	
+	/**
+	 * The south thickness.
+	 */
 	private int southThickness;
+	
+	/**
+	 * The east thickness.
+	 */
 	private int eastThickness;
+	
+	/**
+	 * The west thickness.
+	 */
 	private int westThickness;
+	
+	/**
+	 * The north color.
+	 */
 	private Color northColor;
+	
+	/**
+	 * The south color.
+	 */
 	private Color southColor;
+	
+	/**
+	 * The east color.
+	 */
 	private Color eastColor;
+	
+	/**
+	 * The west color.
+	 */
 	private Color westColor;
 	
+	/**
+	 * Constructs with the specified initial color.
+	 * @param color the instance of Color
+	 */
 	public LineBorder(Color color)
 	{
 		this(color, 1);
 	}
 	
+	/**
+	 * Constructs with the specified initial color and thickness.
+	 * @param color the instance of Color
+	 * @param thickness the thickness value
+	 */
 	public LineBorder(Color color, int thickness)
 	{
 		setColor(color);
 		setThickness(thickness);
 	}
 	
+	/**
+	 * Constructs with the specified initial color and insets.
+	 * @param color the instance of Color
+	 * @param insets the instance of Insets
+	 */
 	public LineBorder(Color color, Insets insets)
 	{
 		setColor(color);
 		setThickness(insets);
 	}
 	
+	/**
+	 * Sets the color.
+	 * @param color the instance of Color
+	 */
+	public void setColor(Color color)
+	{
+		northColor = color;
+		southColor = color;
+		eastColor = color;
+		westColor = color;
+	}
+	
+	/**
+	 * Sets the color by a direction.
+	 * @param color the instance of Color
+	 * @param direction the direction value
+	 */
+	public void setColor(Color color, int direction)
+	{
+		switch (direction)
+		{
+			case NORTH:
+				northColor = color;
+				break;
+			case SOUTH:
+				southColor = color;
+				break;
+			case EAST:
+				eastColor = color;
+				break;
+			case WEST:
+				westColor = color;
+				break;
+			default:
+		}
+	}
+	
+	/**
+	 * Sets the thickness.
+	 * @param thickness the thickness value
+	 */
+	public void setThickness(int thickness)
+	{
+		northThickness = thickness;
+		southThickness = thickness;
+		eastThickness = thickness;
+		westThickness = thickness;
+	}
+	
+	/**
+	 * Sets the thickness by a insets.
+	 * @param insets the instance of Insets
+	 */
+	public void setThickness(Insets insets)
+	{
+		northThickness = insets.top;
+		southThickness = insets.bottom;
+		eastThickness = insets.right;
+		westThickness = insets.left;
+	}
+	
+	/**
+	 * Sets the thickness by a direction.
+	 * @param thickness the thickness value
+	 * @param direction the direction value
+	 */
+	public void setThickness(int thickness, int direction)
+	{
+		switch (direction)
+		{
+			case NORTH:
+				northThickness = thickness;
+				break;
+			case SOUTH:
+				southThickness = thickness;
+				break;
+			case EAST:
+				eastThickness = thickness;
+				break;
+			case WEST:
+				westThickness = thickness;
+				break;
+			default:
+		}
+	}
+	
+	/**
+	 * Appends by a border.
+	 * @param border the instance of LineBorder
+	 * @param replaced the boolean value of replaced
+	 */
+	public void append(LineBorder border, boolean replaced)
+	{
+		if (replaced)
+		{
+			northThickness = border.northThickness;
+			southThickness = border.southThickness;
+			eastThickness = border.eastThickness;
+			westThickness = border.westThickness;
+		}
+		else
+		{
+			northThickness = Math.max(northThickness, border.northThickness);
+			southThickness = Math.max(southThickness, border.southThickness);
+			eastThickness = Math.max(eastThickness, border.eastThickness);
+			westThickness = Math.max(westThickness, border.westThickness);
+		}
+	}
+	
+	/**
+	 * Appends by a insets.
+	 * @param insets the instance of Insets
+	 * @param replaced the boolean value of replaced
+	 */
+	public void append(Insets insets, boolean replaced)
+	{
+		if (replaced)
+		{
+			northThickness = insets.top;
+			southThickness = insets.bottom;
+			eastThickness = insets.right;
+			westThickness = insets.left;
+		}
+		else
+		{
+			northThickness = Math.max(northThickness, insets.top);
+			southThickness = Math.max(southThickness, insets.bottom);
+			eastThickness = Math.max(eastThickness, insets.right);
+			westThickness = Math.max(westThickness, insets.left);
+		}
+	}
+		
+	/**
+	 * Gets the border insets.
+	 * @param c the instance of Component
+	 * @return the instance of Insets
+	 */
+	public Insets getBorderInsets(Component c)
+	{
+		return new Insets(northThickness, westThickness, southThickness, eastThickness);
+	}
+	
+	/**
+	 * Gets the border insets.
+	 * @param c the instance of Component
+	 * @param insets the instance of Insets
+	 * @return the instance of Insets
+	 */
+	public Insets getBorderInsets(Component c, Insets insets)
+	{
+		return new Insets(northThickness, westThickness, southThickness, eastThickness);
+	}
+	
+	/**
+	 * Returns true if the border is opaque.
+	 */
+	public boolean isBorderOpaque()
+	{
+		return true;
+	}
+	
+	/**
+	 * Paints border.
+	 * @param c the instance of Component
+	 * @param g the instance of Graphics
+	 * @param x the x value
+	 * @param y the y value
+	 * @param width the width value
+	 * @param height the height value
+	 */
 	public void paintBorder(Component c, Graphics g, int x, int y, int width, int height)
 	{
 		Color oldColor = g.getColor();
@@ -73,120 +288,5 @@ public class LineBorder
 		}
 		
 		g.setColor(oldColor);
-	}
-	
-	public Insets getBorderInsets(Component c)
-	{
-		return new Insets(northThickness, westThickness, southThickness, eastThickness);
-	}
-	
-	public Insets getBorderInsets(Component c, Insets insets)
-	{
-		return new Insets(northThickness, westThickness, southThickness, eastThickness);
-	}
-	
-	public boolean isBorderOpaque()
-	{
-		return true;
-	}
-	
-	public void setColor(Color c)
-	{
-		northColor = c;
-		southColor = c;
-		eastColor = c;
-		westColor = c;
-	}
-	
-	public void setColor(Color c, int direction)
-	{
-		switch (direction)
-		{
-			case NORTH:
-				northColor = c;
-				break;
-			case SOUTH:
-				southColor = c;
-				break;
-			case EAST:
-				eastColor = c;
-				break;
-			case WEST:
-				westColor = c;
-				break;
-			default:
-		}
-	}
-	
-	public void setThickness(int n)
-	{
-		northThickness = n;
-		southThickness = n;
-		eastThickness = n;
-		westThickness = n;
-	}
-	
-	public void setThickness(Insets insets)
-	{
-		northThickness = insets.top;
-		southThickness = insets.bottom;
-		eastThickness = insets.right;
-		westThickness = insets.left;
-	}
-	
-	public void setThickness(int n, int direction)
-	{
-		switch (direction)
-		{
-			case NORTH:
-				northThickness = n;
-				break;
-			case SOUTH:
-				southThickness = n;
-				break;
-			case EAST:
-				eastThickness = n;
-				break;
-			case WEST:
-				westThickness = n;
-				break;
-			default:
-		}
-	}
-	
-	public void append(LineBorder b, boolean isReplace)
-	{
-		if (isReplace)
-		{
-			northThickness = b.northThickness;
-			southThickness = b.southThickness;
-			eastThickness = b.eastThickness;
-			westThickness = b.westThickness;
-		}
-		else
-		{
-			northThickness = Math.max(northThickness, b.northThickness);
-			southThickness = Math.max(southThickness, b.southThickness);
-			eastThickness = Math.max(eastThickness, b.eastThickness);
-			westThickness = Math.max(westThickness, b.westThickness);
-		}
-	}
-	
-	public void append(Insets insets, boolean isReplace)
-	{
-		if (isReplace)
-		{
-			northThickness = insets.top;
-			southThickness = insets.bottom;
-			eastThickness = insets.right;
-			westThickness = insets.left;
-		}
-		else
-		{
-			northThickness = Math.max(northThickness, insets.top);
-			southThickness = Math.max(southThickness, insets.bottom);
-			eastThickness = Math.max(eastThickness, insets.right);
-			westThickness = Math.max(westThickness, insets.left);
-		}
 	}
 }

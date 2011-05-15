@@ -24,16 +24,45 @@ import javax.swing.border.LineBorder;
 public class HoverBorderDecoration
 	extends MouseAdapter
 {
+	/**
+	 * The hover background color.
+	 */
 	private Color hoverBackground;
+	
+	/**
+	 * The background color.
+	 */
 	private Color background;
+	
+	/**
+	 * The hover border color.
+	 */
 	private Color hoverBorderColor;
+	
+	/**
+	 * The border color.
+	 */
 	private Color borderColor;
 	
+	/**
+	 * The hover border.
+	 */
 	private Border hoverBorder;
+	
+	/**
+	 * The border.
+	 */
 	private Border border;
 	
+	/**
+	 * The instance of JComponent.
+	 */
 	private JComponent component;
 	
+	/**
+	 * Constructs with the specified initial component.
+	 * @param component the instance of JComponent
+	 */
 	public HoverBorderDecoration(JComponent component)
 	{
 		this.component = component;
@@ -52,6 +81,10 @@ public class HoverBorderDecoration
 		component.addMouseListener(this);
 	}
 	
+	/**
+	 * Mouse entered.
+	 * @param e the instance of MouseEvent
+	 */
 	public void mouseEntered(MouseEvent e)
 	{
 		component.setBorder(hoverBorder);
@@ -59,6 +92,10 @@ public class HoverBorderDecoration
 		component.repaint();
 	}
 	
+	/**
+	 * Mouse exited.
+	 * @param e the instance of MouseEvent
+	 */
 	public void mouseExited(MouseEvent e)
 	{
 		component.setBorder(border);
