@@ -23,11 +23,6 @@ public class JToggleActionButton
 	private JToggleContentPanel toggleContentPanel;
 	private ITogglePanel togglePanel;
 	
-	public JToggleActionButton(ITogglePanel togglePanel)
-	{
-		this(ToggleContext.getContentPanel(), togglePanel);
-	}
-	
 	public JToggleActionButton(JToggleContentPanel toggleContentPanel, ITogglePanel togglePanel)
 	{
 		this.toggleContentPanel = toggleContentPanel;
