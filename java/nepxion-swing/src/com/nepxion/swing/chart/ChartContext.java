@@ -16,9 +16,9 @@ public class ChartContext
 	private static String chartPDFAuthor = DEFAULT_CHART_PDF_AUTHOR;
 	private static String chartPDFSubject = DEFAULT_CHART_PDF_SUBJECT;
 	
-	public static void registerChartPDFAuthor(String customChartPDFAuthor)
+	public static void registerChartPDFAuthor(String chartPDFAuthor)
 	{
-		chartPDFAuthor = customChartPDFAuthor;
+		ChartContext.chartPDFAuthor = chartPDFAuthor;
 	}
 	
 	public static String getChartPDFAuthor()
@@ -26,9 +26,9 @@ public class ChartContext
 		return chartPDFAuthor;
 	}
 	
-	public static void registerChartPDFSubject(String customChartPDFSubject)
+	public static void registerChartPDFSubject(String chartPDFSubject)
 	{
-		chartPDFSubject = customChartPDFSubject;
+		ChartContext.chartPDFSubject = chartPDFSubject;
 	}
 	
 	public static String getChartPDFSubject()
