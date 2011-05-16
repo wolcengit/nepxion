@@ -21,16 +21,27 @@ import com.nepxion.swing.style.buttonbar.IButtonBarUI;
 public class JBasicButtonBar
 	extends JButtonBar
 {
+	/**
+	 * Constructs with the default.
+	 */
 	public JBasicButtonBar()
 	{
 		super();
 	}
 	
+	/**
+	 * Constructs with the specified initial orientation.
+	 * @param orientation the orientation value
+	 */
 	public JBasicButtonBar(int orientation)
 	{
 		super(orientation);
 	}
 	
+	/**
+	 * Sets the ui.
+	 * @param buttonBarUI the instance of ButtonBarUI
+	 */
 	public void setUI(ButtonBarUI buttonBarUI)
 	{
 		super.setUI(buttonBarUI);
