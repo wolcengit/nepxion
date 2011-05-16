@@ -16,18 +16,18 @@ public class TopicContext
 {
 	private static Component topicComponent;
 	
-	public static void registerTopicComponent(Component customTopicComponent)
+	public static void registerTopicComponent(Component topicComponent)
 	{
-		topicComponent = customTopicComponent;
+		TopicContext.topicComponent = topicComponent;
 	}
 	
-	public static void registerTopicComponent(String customTopicComponentClass)
+	public static void registerTopicComponent(String topicComponentClass)
 	{
-		if (customTopicComponentClass != null)
+		if (topicComponentClass != null)
 		{
 			try
 			{
-				topicComponent = (Component) Class.forName(customTopicComponentClass).newInstance();
+				topicComponent = (Component) Class.forName(topicComponentClass).newInstance();
 			}
 			catch (InstantiationException e)
 			{

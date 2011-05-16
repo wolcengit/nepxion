@@ -15,9 +15,9 @@ public class IconContext
 {
 	private static String iconFolder = "";
 	
-	public static void registerIconFolder(String customIconFolder)
+	public static void registerIconFolder(String iconFolder)
 	{
-		iconFolder = customIconFolder;
+		IconContext.iconFolder = iconFolder;
 	}
 	
 	public static String getIconFolder()

@@ -46,66 +46,66 @@ public class FontContext
 	
 	private static Font chartTickLabelFont = new Font(chartTickLabelFontName, chartTickLabelFontStyle, chartTickLabelFontSize);
 	
-	public static void registerFont(String customFontName, int customFontStyle, int customFontSize)
+	public static void registerFont(String fontName, int fontStyle, int fontSize)
 	{
-		boolean isRetrieved = retrieveFont(customFontName);
+		boolean isRetrieved = retrieveFont(fontName);
 		if (isRetrieved)
 		{
-			fontName = customFontName;
-			fontStyle = customFontStyle;
-			fontSize = customFontSize;
+			FontContext.fontName = fontName;
+			FontContext.fontStyle = fontStyle;
+			FontContext.fontSize = fontSize;
 			
 			font = new Font(fontName, fontStyle, fontSize);
 		}
 	}
 	
-	public static void registerChartTitleFont(String customChartTitleFontName, int customChartTitleFontStyle, int customChartTitleFontSize)
+	public static void registerChartTitleFont(String chartTitleFontName, int chartTitleFontStyle, int chartTitleFontSize)
 	{
-		boolean isRetrieved = retrieveFont(customChartTitleFontName);
+		boolean isRetrieved = retrieveFont(chartTitleFontName);
 		if (isRetrieved)
 		{
-			chartTitleFontName = customChartTitleFontName;
-			chartTitleFontStyle = customChartTitleFontStyle;
-			chartTitleFontSize = customChartTitleFontSize;
+			FontContext.chartTitleFontName = chartTitleFontName;
+			FontContext.chartTitleFontStyle = chartTitleFontStyle;
+			FontContext.chartTitleFontSize = chartTitleFontSize;
 			
 			chartTitleFont = new Font(chartTitleFontName, chartTitleFontStyle, chartTitleFontSize);
 		}		
 	}
 	
-	public static void registerChartSubTitleFont(String customChartSubTitleFontName, int customChartSubTitleFontStyle, int customChartSubTitleFontSize)
+	public static void registerChartSubTitleFont(String chartSubTitleFontName, int chartSubTitleFontStyle, int chartSubTitleFontSize)
 	{
-		boolean isRetrieved = retrieveFont(customChartSubTitleFontName);
+		boolean isRetrieved = retrieveFont(chartSubTitleFontName);
 		if (isRetrieved)
 		{
-			chartSubTitleFontName = customChartSubTitleFontName;
-			chartSubTitleFontStyle = customChartSubTitleFontStyle;
-			chartSubTitleFontSize = customChartSubTitleFontSize;
+			FontContext.chartSubTitleFontName = chartSubTitleFontName;
+			FontContext.chartSubTitleFontStyle = chartSubTitleFontStyle;
+			FontContext.chartSubTitleFontSize = chartSubTitleFontSize;
 			
 			chartSubTitleFont = new Font(chartSubTitleFontName, chartSubTitleFontStyle, chartSubTitleFontSize);			
 		}
 	}
 	
-	public static void registerChartLabelFont(String customChartLabelFontName, int customChartLabelFontStyle, int customChartLabelFontSize)
+	public static void registerChartLabelFont(String chartLabelFontName, int chartLabelFontStyle, int chartLabelFontSize)
 	{
-		boolean isRetrieved = retrieveFont(customChartLabelFontName);
+		boolean isRetrieved = retrieveFont(chartLabelFontName);
 		if (isRetrieved)
 		{
-			chartLabelFontName = customChartLabelFontName;
-			chartLabelFontStyle = customChartLabelFontStyle;
-			chartLabelFontSize = customChartLabelFontSize;
+			FontContext.chartLabelFontName = chartLabelFontName;
+			FontContext.chartLabelFontStyle = chartLabelFontStyle;
+			FontContext.chartLabelFontSize = chartLabelFontSize;
 			
 			chartLabelFont = new Font(chartLabelFontName, chartLabelFontStyle, chartLabelFontSize);			
 		}
 	}
 	
-	public static void registerChartTickLabelFont(String customChartTickLabelFontName, int customChartTickLabelFontStyle, int customChartTickLabelFontSize)
+	public static void registerChartTickLabelFont(String chartTickLabelFontName, int chartTickLabelFontStyle, int chartTickLabelFontSize)
 	{
-		boolean isRetrieved = retrieveFont(customChartTickLabelFontName);
+		boolean isRetrieved = retrieveFont(chartTickLabelFontName);
 		if (isRetrieved)
 		{
-			chartTickLabelFontName = customChartTickLabelFontName;
-			chartTickLabelFontStyle = customChartTickLabelFontStyle;
-			chartTickLabelFontSize = customChartTickLabelFontSize;
+			FontContext.chartTickLabelFontName = chartTickLabelFontName;
+			FontContext.chartTickLabelFontStyle = chartTickLabelFontStyle;
+			FontContext.chartTickLabelFontSize = chartTickLabelFontSize;
 			
 			chartTickLabelFont = new Font(chartTickLabelFontName, chartTickLabelFontStyle, chartTickLabelFontSize);			
 		}

@@ -287,7 +287,7 @@ public class UIContextRegister
 		
 		if (isValid(buttonUI))
 		{
-			String buttonUIPrefix = ButtonContext.getButtonUIPrefix(buttonUI);
+			String buttonUIPrefix = ButtonContext.getButtonUIClassPrefix(buttonUI);
 			buttonUI = DEFAULT_BUTTON_STYLE_PACKAGE + "." + buttonUIPrefix.toLowerCase() + "." + buttonUIPrefix + "ButtonUI";
 			
 			if (isValid(buttonStyle))
@@ -303,7 +303,7 @@ public class UIContextRegister
 			}
 			else if (isValid(customButtonStyle))
 			{
-				String buttonUIPrefix = ButtonContext.getButtonUIPrefix(customButtonUI);
+				String buttonUIPrefix = ButtonContext.getButtonUIClassPrefix(customButtonUI);
 				
 				customButtonUI = buttonUIPrefix + "ButtonUI";
 			}

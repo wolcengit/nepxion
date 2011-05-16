@@ -18,29 +18,29 @@ public class StyleContext
 	private static boolean isDialogDecorated = false;
 	private static boolean isTabbedPaneDecorated = true;
 	
-	public static void registerStyle(String customStyleClass)
+	public static void registerStyle(String styleClass)
 	{
-		styleClass = customStyleClass;
+		StyleContext.styleClass = styleClass;
 	}
 	
-	public static void registerThemeDecorated(boolean isCustomThemeDecorated)
+	public static void registerThemeDecorated(boolean isThemeDecorated)
 	{
-		isThemeDecorated = isCustomThemeDecorated;
+		StyleContext.isThemeDecorated = isThemeDecorated;
 	}
 	
-	public static void registerFrameDecorated(boolean isCustomFrameDecorated)
+	public static void registerFrameDecorated(boolean isFrameDecorated)
 	{
-		isFrameDecorated = isCustomFrameDecorated;
+		StyleContext.isFrameDecorated = isFrameDecorated;
 	}
 	
-	public static void registerDialogDecorated(boolean isCustomDialogDecorated)
+	public static void registerDialogDecorated(boolean isDialogDecorated)
 	{
-		isDialogDecorated = isCustomDialogDecorated;
+		StyleContext.isDialogDecorated = isDialogDecorated;
 	}
 	
-	public static void registerTabbedPaneDecorated(boolean isCustomTabbedPaneDecorated)
+	public static void registerTabbedPaneDecorated(boolean isTabbedPaneDecorated)
 	{
-		isTabbedPaneDecorated = isCustomTabbedPaneDecorated;
+		StyleContext.isTabbedPaneDecorated = isTabbedPaneDecorated;
 	}
 	
 	public static String getStyleClass()

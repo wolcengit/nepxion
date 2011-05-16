@@ -14,9 +14,9 @@ public class ToggleContext
 {
 	private static JToggleContentPanel contentPanel;
 	
-	public static void registerContentPanel(JToggleContentPanel customContentPanel)
+	public static void registerContentPanel(JToggleContentPanel contentPanel)
 	{
-		contentPanel = customContentPanel;
+		ToggleContext.contentPanel = contentPanel;
 	}
 	
 	public static JToggleContentPanel getContentPanel()

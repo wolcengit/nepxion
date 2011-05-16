@@ -15,9 +15,9 @@ public class PopupMenuContext
 {	
 	private static String title = DEFAULT_TITLE;
 	
-	public static void registerTitle(String customTitle)
+	public static void registerTitle(String title)
 	{
-		title = customTitle;
+		PopupMenuContext.title = title;
 	}
 	
 	public static String getTitle()

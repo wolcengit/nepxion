@@ -14,9 +14,9 @@ public class ExceptionTracerContext
 {
 	private static boolean debug = false;
 	
-	public static void registerDebug(boolean customDebug)
+	public static void registerDebug(boolean debug)
 	{
-		debug = customDebug;
+		ExceptionTracerContext.debug = debug;
 	}
 	
 	public static boolean isDebug()
