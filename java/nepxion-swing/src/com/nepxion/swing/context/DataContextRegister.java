@@ -16,6 +16,7 @@ import java.util.Properties;
 import com.nepxion.swing.activex.ActiveXConstants;
 import com.nepxion.swing.activex.ActiveXContext;
 import com.nepxion.swing.exception.ExceptionTracerContext;
+import com.nepxion.swing.framework.ribbon.xml.Dom4JRibbonConstants;
 import com.nepxion.util.database.pool.proxool.ProxoolContext;
 import com.nepxion.util.encoder.EncoderConstants;
 import com.nepxion.util.encoder.EncoderContext;
@@ -52,6 +53,7 @@ public class DataContextRegister
 		initQuartz();
 		initIp();
 		initZone();
+		initRibbon();
 		initException();
 	}
 	
@@ -283,6 +285,37 @@ public class DataContextRegister
 				else
 				{
 					FileContext.register(codeBase, ZoneConstants.CONFIG_FILE_PATH);
+				}
+			}
+			catch (Exception e)
+			{
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	private void initRibbon()
+	{
+		String ribbonEnabled = properties.getProperty("ribbon-3rd-enabled");
+		
+		boolean isRibbonEnabled = false;
+		
+		if (isValid(ribbonEnabled))
+		{
+			isRibbonEnabled = ribbonEnabled.equals("true");
+		}
+		
+		if (isRibbonEnabled)
+		{	
+			try
+			{
+				if (codeBase == null)
+				{
+					FileContext.register(Dom4JRibbonConstants.CONFIG_FILE_PATH);
+				}	
+				else
+				{
+					FileContext.register(codeBase, Dom4JRibbonConstants.CONFIG_FILE_PATH);
 				}
 			}
 			catch (Exception e)
