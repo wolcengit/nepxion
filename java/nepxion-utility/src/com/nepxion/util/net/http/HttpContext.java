@@ -127,17 +127,17 @@ public class HttpContext
 	 * Gets the default http config.
 	 * @return the instance of HttpConfig
 	 */
-	public static HttpConfig getDefaultHttpConfig()
+	public static HttpConfig getDefaultConfig()
 	{
-		return getHttpConfig(DEFAULT_ALIAS);
+		return getConfig(DEFAULT_ALIAS);
 	}
 	
 	/**
 	 * Gets the http config by an alias.
-	 * @param alias tha alias string
+	 * @param alias the alias string
 	 * @return the instance of HttpConfig
 	 */
-	public static HttpConfig getHttpConfig(String alias)
+	public static HttpConfig getConfig(String alias)
 	{
 		HttpConfig httpConfig = (HttpConfig) httpConfigMap.get(alias);
 		if (httpConfig == null)
