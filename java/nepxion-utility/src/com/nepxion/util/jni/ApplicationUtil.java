@@ -43,7 +43,7 @@ public class ApplicationUtil
 	public static final String UNIX_BROWSER_PROCESS = "-remote openURL";
 	
 	/**
-	 * Calls the application of Windows or Unix platform.
+	 * Calls the application of Windows or Unix platform by an url.
 	 * @param url the url string
 	 * @throws Exception
 	 */
@@ -77,7 +77,7 @@ public class ApplicationUtil
 	}
 	
 	/**
-	 * Calls the Internet Explorer of Windows platform.
+	 * Calls the Internet Explorer of Windows platform by an url.
 	 * @param url the url string
 	 * @throws Exception
 	 */
