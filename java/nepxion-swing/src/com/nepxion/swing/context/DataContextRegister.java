@@ -24,6 +24,7 @@ import com.nepxion.util.io.FileContext;
 import com.nepxion.util.locale.LocaleContext;
 import com.nepxion.util.log.LoggerContext;
 import com.nepxion.util.net.http.HttpContext;
+import com.nepxion.util.net.url.URLConstants;
 import com.nepxion.util.scheduler.quartz.QuartzContext;
 import com.nepxion.util.searcher.ip.local.IPContext;
 import com.nepxion.util.searcher.zone.local.ZoneConstants;
@@ -52,6 +53,7 @@ public class DataContextRegister
 		initProxool();
 		initQuartz();
 		initIp();
+		initURL();
 		initZone();
 		initRibbon();
 		initException();
@@ -262,6 +264,37 @@ public class DataContextRegister
 			}
 		}
 	}	
+	
+	private void initURL()
+	{
+		String urlEnabled = properties.getProperty("url-3rd-enabled");
+		
+		boolean isURLEnabled = false;
+		
+		if (isValid(urlEnabled))
+		{
+			isURLEnabled = urlEnabled.equals("true");
+		}
+		
+		if (isURLEnabled)
+		{	
+			try
+			{
+				if (codeBase == null)
+				{
+					FileContext.register(URLConstants.CONFIG_FILE_PATH);
+				}	
+				else
+				{
+					FileContext.register(codeBase, URLConstants.CONFIG_FILE_PATH);
+				}
+			}
+			catch (Exception e)
+			{
+				e.printStackTrace();
+			}
+		}
+	}
 	
 	private void initZone()
 	{
