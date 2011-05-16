@@ -15,7 +15,7 @@ import com.nepxion.util.jni.JacobUtil;
 public class ApplicationXManager
 {
 	/**
-	 * Calls the Internet Explorer in application.
+	 * Calls the Internet Explorer in application by an url.
 	 * @param url the url string
 	 * @throws Exception
 	 */
@@ -26,7 +26,7 @@ public class ApplicationXManager
 	}
 	
 	/**
-	 * Calls the Word application of Windows Office in application.
+	 * Calls the Word application of Windows Office in application by a file path.
 	 * @param filePath the file path
 	 * @param readOnly the boolean value of readOnly
 	 * @throws Exception
@@ -38,7 +38,7 @@ public class ApplicationXManager
 	}
 	
 	/**
-	 * Calls the Excel application of Windows Office in application.
+	 * Calls the Excel application of Windows Office in application by a file path.
 	 * @param filePath the file path
 	 * @param readOnly the boolean value of readOnly
 	 * @throws Exception
@@ -50,7 +50,7 @@ public class ApplicationXManager
 	}
 	
 	/**
-	 * Calls the PowerPoint application of Windows Office in application.
+	 * Calls the PowerPoint application of Windows Office in application by a file path.
 	 * @param filePath the file path
 	 * @param readOnly the boolean value of readOnly
 	 * @param fullScreen the boolean value of fullScreen

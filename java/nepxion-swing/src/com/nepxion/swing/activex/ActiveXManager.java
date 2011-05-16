@@ -12,13 +12,44 @@ package com.nepxion.swing.activex;
 
 import java.awt.Component;
 
+import com.nepxion.swing.applet.JBasicApplet;
+import com.nepxion.swing.handle.HandleManager;
 import com.nepxion.util.jni.ApplicationUtil;
+import com.nepxion.util.net.url.URLConfig;
 
 public class ActiveXManager
 	implements ActiveXConstants
 {
 	/**
-	 * Calls the web application.
+	 * Calls the web application by an url config.
+	 * The web application is InternetExplorer, FireFox etc.
+	 * The calling in application or applet depends on the strategy in ActiveXContext.
+	 * @param component the instance of Component who's top component is JFrame or JApplet
+	 * @param urlConfig the instance of URLConfig
+	 * @throws Exception
+	 */
+	public static void callWeb(Component component, URLConfig urlConfig)
+		throws Exception
+	{
+		String url = "";
+		
+		String host = urlConfig.getHost();
+		if (host != null && !host.equals(""))
+		{
+			url = urlConfig.toURL();
+		}
+		else
+		{
+			JBasicApplet applet = (JBasicApplet) HandleManager.getApplet(component);
+			
+			url = "http://" + applet != null ? applet.getHost() : "localhost" + ":" + urlConfig.getPort() + urlConfig.getPath();
+		}
+
+		ActiveXManager.callWeb(component, url);
+	}
+	
+	/**
+	 * Calls the web application by an url.
 	 * The web application is InternetExplorer, FireFox etc.
 	 * The calling in application or applet depends on the strategy in ActiveXContext.
 	 * @param component the instance of Component who's top component is JFrame or JApplet
@@ -40,7 +71,7 @@ public class ActiveXManager
 	}
 	
 	/**
-	 * Calls the Word application of Windows Office.
+	 * Calls the Word application of Windows Office by a file path.
 	 * The calling in application or applet depends on the strategy in ActiveXContext.
 	 * @param component the instance of Component who's top component is JFrame or JApplet
 	 * @param filePath the file path
@@ -61,7 +92,7 @@ public class ActiveXManager
 	}
 	
 	/**
-	 * Calls the Excel application of Windows Office.
+	 * Calls the Excel application of Windows Office by a file path.
 	 * The calling in application or applet depends on the strategy in ActiveXContext.
 	 * @param component the instance of Component who's top component is JFrame or JApplet
 	 * @param filePath the file path
@@ -82,7 +113,7 @@ public class ActiveXManager
 	}
 	
 	/**
-	 * Calls the PowerPoint application of Windows Office.
+	 * Calls the PowerPoint application of Windows Office by a file path.
 	 * The calling in application or applet depends on the strategy in ActiveXContext.
 	 * @param component the instance of Component who's top component is JFrame or JApplet
 	 * @param filePath the file path

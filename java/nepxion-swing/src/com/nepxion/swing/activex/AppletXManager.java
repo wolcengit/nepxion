@@ -19,7 +19,7 @@ import com.nepxion.swing.handle.HandleManager;
 public class AppletXManager
 {
 	/**
-	 * Calls the web application in applet.
+	 * Calls the web application in applet by an url.
 	 * The web application is InternetExplorer, FireFox etc.
 	 * @param component the instance of Component who's top component is JApplet
 	 * @param url the url string
@@ -33,7 +33,7 @@ public class AppletXManager
 	}
 	
 	/**
-	 * Calls the Word application of Windows Office in applet.
+	 * Calls the Word application of Windows Office in applet by a file path.
 	 * @param component the instance of Component who's top component is JApplet
 	 * @param filePath the file path
 	 * @param readOnly the boolean value of readOnly
@@ -47,7 +47,7 @@ public class AppletXManager
 	}
 	
 	/**
-	 * Calls the Excel application of Windows Office in applet.
+	 * Calls the Excel application of Windows Office in applet by a file path.
 	 * @param component the instance of Component who's top component is JApplet
 	 * @param filePath the file path
 	 * @param readOnly the boolean value of readOnly
@@ -61,7 +61,7 @@ public class AppletXManager
 	}
 	
 	/**
-	 * Calls the PowerPoint application of Windows Office in applet.
+	 * Calls the PowerPoint application of Windows Office in applet by a file path.
 	 * @param component the instance of Component who's top component is JApplet
 	 * @param filePath the file path
 	 * @param readOnly the boolean value of readOnly

@@ -10,6 +10,8 @@ package com.nepxion.swing.applet;
  * @version 1.0
  */
 
+import java.net.URL;
+
 import javax.swing.JApplet;
 
 public class JBasicApplet
@@ -40,5 +42,18 @@ public class JBasicApplet
 	public void initContext()
 	{
 		
+	}
+	
+	/**
+	 * Gets the host.
+	 * @return the host string
+	 */
+	public String getHost()
+	{
+		URL codeBase = getCodeBase();
+		String url = codeBase.toString();
+		String host = url.substring(0, url.lastIndexOf(":"));
+		
+		return host;
 	}
 }
