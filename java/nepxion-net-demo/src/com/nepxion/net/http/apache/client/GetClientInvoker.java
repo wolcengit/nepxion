@@ -27,7 +27,7 @@ public class GetClientInvoker
 		clientParameterList.put("target", "服务调用");
 		clientParameterList.put("entity", "参数");
 		
-		HttpConfig httpConfig = HttpContext.getHttpConfig("ParameterServerInvoker");
+		HttpConfig httpConfig = HttpContext.getConfig("ParameterServerInvoker");
 		
 		ClientRequestGet clientRequestGet = new ClientRequestGet(httpConfig);
 		clientRequestGet.setParameterEntity(clientParameterList);

@@ -35,7 +35,7 @@ public class PostClientInvoker
 		clientParameterList.put("target", "服务调用");
 		clientParameterList.put("entity", "参数");
 		
-		HttpConfig httpConfig = HttpContext.getHttpConfig("ParameterServerInvoker");
+		HttpConfig httpConfig = HttpContext.getConfig("ParameterServerInvoker");
 		
 		ClientRequestPost clientRequestPost = new ClientRequestPost(httpConfig);
 		clientRequestPost.setParameterEntity(clientParameterList);
@@ -58,7 +58,7 @@ public class PostClientInvoker
 		map.put("target", "服务调用");
 		map.put("entity", "序列化");
 		
-		HttpConfig httpConfig = HttpContext.getHttpConfig("SerializableServerInvoker");
+		HttpConfig httpConfig = HttpContext.getConfig("SerializableServerInvoker");
 		
 		ClientRequestPost clientRequestPost = new ClientRequestPost(httpConfig);
 		clientRequestPost.setSerializableEntity(map, false);
@@ -91,7 +91,7 @@ public class PostClientInvoker
 			e.printStackTrace();
 		}
 		
-		HttpConfig httpConfig = HttpContext.getHttpConfig("SerializableServerInvoker");
+		HttpConfig httpConfig = HttpContext.getConfig("SerializableServerInvoker");
 		
 		ClientRequestPost clientRequestPost = new ClientRequestPost(httpConfig);
 		clientRequestPost.setInputStreamEntity(inputStream);
@@ -112,7 +112,7 @@ public class PostClientInvoker
 	{
 		String text = "[目标为服务调用，实体为字符串]";
 		
-		HttpConfig httpConfig = HttpContext.getHttpConfig("StringServerInvoker");
+		HttpConfig httpConfig = HttpContext.getConfig("StringServerInvoker");
 		
 		ClientRequestPost clientRequestPost = new ClientRequestPost(httpConfig);
 		clientRequestPost.setStringEntity(text);
@@ -133,7 +133,7 @@ public class PostClientInvoker
 	{
 		File file = new File("conf/http.properties");
 		
-		HttpConfig httpConfig = HttpContext.getHttpConfig("StringServerInvoker");
+		HttpConfig httpConfig = HttpContext.getConfig("StringServerInvoker");
 		
 		ClientRequestPost clientRequestPost = new ClientRequestPost(httpConfig);
 		clientRequestPost.setFileEntity(file);
@@ -155,7 +155,7 @@ public class PostClientInvoker
 	{
 		File file = new File("conf/http.properties");
 		
-		HttpConfig httpConfig = HttpContext.getHttpConfig("SerializableServerInvoker");
+		HttpConfig httpConfig = HttpContext.getConfig("SerializableServerInvoker");
 		
 		ClientRequestPost clientRequestPost = new ClientRequestPost(httpConfig);
 		try
