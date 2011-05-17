@@ -7,7 +7,7 @@
 	</classpathentry>
 	<classpathentry excluding="**/.svn/**|**/CVS/**|**/Thumbs.db" kind="src" path="locale"/>
 	<classpathentry excluding="**/.svn/**|**/CVS/**|**/Thumbs.db" kind="src" path="asset"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JDK1.5.0_22"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JDK1.6.0_21"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/Nepxion-Utility"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Nepxion-Swing"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Nepxion-Util"/>
