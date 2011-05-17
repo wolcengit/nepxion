@@ -15,7 +15,7 @@
 @title Nepxion Signature
 @color 0a
 
-set JAVA_HOME=D:\Software\JDK\JDK1.5
+set JAVA_HOME=D:\Software\JDK\JDK1.6\6U21
 
 %JAVA_HOME%\bin\jarsigner -keystore security.store -storepass 888888 ../lib/util/commons-lang-3-3.0-beta.jar security
 %JAVA_HOME%\bin\jarsigner -keystore security.store -storepass 888888 ../lib/util/commons-logging-1.1.1.jar security
