@@ -19,6 +19,10 @@ import javax.swing.event.AncestorListener;
 public class ButtonAncestorListener
 	implements AncestorListener
 {
+	/**
+	 * Fires the ancestor added event.
+	 * @param e the instance of AncestorEvent
+	 */
 	public void ancestorAdded(AncestorEvent e)
 	{
 		JButton defaultButton = (JButton) e.getComponent();
@@ -29,10 +33,18 @@ public class ButtonAncestorListener
 		}
 	}
 	
+	/**
+	 * Fires the ancestor removed event.
+	 * @param e the instance of AncestorEvent
+	 */
 	public void ancestorRemoved(AncestorEvent event)
 	{
 	}
 	
+	/**
+	 * Fires the ancestor moved event.
+	 * @param e the instance of AncestorEvent
+	 */
 	public void ancestorMoved(AncestorEvent event)
 	{
 	}

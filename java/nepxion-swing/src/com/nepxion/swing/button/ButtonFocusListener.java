@@ -21,19 +21,38 @@ import javax.swing.RootPaneContainer;
 public class ButtonFocusListener
 	extends FocusAdapter
 {
+	/**
+	 * The instance of RootPaneContainer.
+	 */
 	private RootPaneContainer container;
+	
+	/**
+	 * The instance of JComponent.
+	 */
 	private JComponent component;
 	
+	/**
+	 * Constructs with the specified initial container.
+	 * @param container the instance of RootPaneContainer
+	 */
 	public ButtonFocusListener(RootPaneContainer container)
 	{
 		this.container = container;
 	}
 	
+	/**
+	 * Constructs with the specified initial component.
+	 * @param container the instance of JComponent
+	 */
 	public ButtonFocusListener(JComponent component)
 	{
 		this.component = component;
 	}
 	
+	/**
+	 * Fires the focus gained event.
+	 * @param e the instance of FocusEvent
+	 */
 	public void focusGained(FocusEvent e)
 	{
 		JButton button = (JButton) e.getSource();

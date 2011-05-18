@@ -12,7 +12,16 @@ package com.nepxion.swing.button;
 
 public interface IToggleButton
 {
+	/**
+	 * Return true if the button is grouped.
+	 * If true, the toggle button will be added to a ButtonGroup automatically.
+	 * @return Return true if the button is grouped
+	 */
 	public boolean isGrouped();
 	
+	/**
+	 * Sets the boolean value of isGrouped.
+	 * @param isGrouped the boolean value of isGrouped
+	 */
 	public void setGrouped(boolean isGrouped);
 }
