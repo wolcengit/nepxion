@@ -23,10 +23,25 @@ import com.nepxion.swing.listener.DisplayAbilityListener;
 public class JStyleButton
 	extends JideButton implements IButton
 {
+	/**
+	 * The button width inset value.
+	 */
 	protected int widthInset = ButtonContext.getButtonWidthInset();
+	
+	/**
+	 * The button height inset value.
+	 */
 	protected int heightInset = ButtonContext.getButtonHeightInset();
+	
+	/**
+	 * The boolean value of the button dimension is adaptive.
+	 * If true, It will be executed to set the button dimension by its preferred size and inset fitly.
+	 */
 	protected boolean isDimensionAdaptive = true;
 	
+	/**
+	 * Constructs with the default.
+	 */
 	public JStyleButton()
 	{
 		super();
@@ -34,20 +49,10 @@ public class JStyleButton
 		initComponents();
 	}
 	
-	public JStyleButton(Icon icon)
-	{
-		super(icon);
-		
-		initComponents();
-	}
-	
-	public JStyleButton(String text)
-	{
-		super(text);
-		
-		initComponents();
-	}
-	
+	/**
+	 * Constructs with the specified initial action.
+	 * @param action the instance of Action
+	 */
 	public JStyleButton(Action action)
 	{
 		super(action);
@@ -55,15 +60,45 @@ public class JStyleButton
 		initComponents();
 	}
 	
-	public JStyleButton(Icon icon, String toolTipText)
+	/**
+	 * Constructs with the specified initial text.
+	 * @param text the text string
+	 */
+	public JStyleButton(String text)
+	{
+		super(text);
+		
+		initComponents();
+	}
+	
+	/**
+	 * Constructs with the specified initial icon.
+	 * @param icon the instance of Icon
+	 */
+	public JStyleButton(Icon icon)
 	{
 		super(icon);
 		
 		initComponents();
-		
-		setToolTipText(toolTipText);
 	}
 	
+	/**
+	 * Constructs with the specified initial text and icon.
+	 * @param text the text string 
+	 * @param icon the icon of Icon
+	 */
+	public JStyleButton(String text, Icon icon)
+	{
+		super(text, icon);
+		
+		initComponents();
+	}
+	
+	/**
+	 * Constructs with the specified initial text and tooltip text.
+	 * @param text the text string
+	 * @param toolTipText the tooltip text string
+	 */
 	public JStyleButton(String text, String toolTipText)
 	{
 		super(text);
@@ -73,13 +108,25 @@ public class JStyleButton
 		setToolTipText(toolTipText);
 	}
 	
-	public JStyleButton(String text, Icon icon)
+	/**
+	 * Constructs with the specified initial icon and tooltip text.
+	 * @param icon the instance of Icon
+	 * @param toolTipText the tooltip text string
+	 */
+	public JStyleButton(Icon icon, String toolTipText)
 	{
-		super(text, icon);
+		super(icon);
 		
 		initComponents();
+		
+		setToolTipText(toolTipText);
 	}
 	
+	/**
+	 * Constructs with the specified initial text and icon.
+	 * @param text the text string 
+	 * @param icon the icon of Icon
+	 */
 	public JStyleButton(String text, Icon icon, String toolTipText)
 	{
 		super(text, icon);
@@ -89,6 +136,9 @@ public class JStyleButton
 		setToolTipText(toolTipText);
 	}
 	
+	/**
+	 * Initializes the components.
+	 */
 	private void initComponents()
 	{
 		addHierarchyListener(new DisplayAbilityListener()
@@ -103,6 +153,11 @@ public class JStyleButton
 		);
 	}
 	
+	/**
+	 * Adapts the dimension.
+	 * If the boolean value of isDimensionAdaptive is true, 
+	 * it will be executed to set the button dimension by its preferred size and inset fitly. 
+	 */
 	private void adaptDimension()
 	{
 		if (isDimensionAdaptive)
@@ -135,26 +190,46 @@ public class JStyleButton
 		}
 	}
 	
+	/**
+	 * Gets the width inset.
+	 * @return the width inset value
+	 */
 	public int getWidthInset()
 	{
 		return widthInset;
 	}
 	
+	/**
+	 * Sets the width inset.
+	 * @param widthInset the width inset value
+	 */
 	public void setWidthInset(int widthInset)
 	{
 		this.widthInset = widthInset;
 	}
 	
+	/**
+	 * Gets the height inset.
+	 * @return the height inset value
+	 */
 	public int getHeightInset()
 	{
 		return heightInset;
 	}
 	
+	/**
+	 * Sets the height inset.
+	 * @param heightInset the height inset value
+	 */
 	public void setHeightInset(int heightInset)
 	{
 		this.heightInset = heightInset;
 	}
 	
+	/**
+	 * Sets the dimension.
+	 * @param dimension the instance of Dimension
+	 */
 	public void setDimension(Dimension dimension)
 	{
 		DimensionManager.setDimension(this, dimension);

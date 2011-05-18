@@ -24,10 +24,25 @@ import com.nepxion.swing.listener.DisplayAbilityListener;
 public class JBasicButton
 	extends JButton	implements IButton
 {
+	/**
+	 * The button width inset value.
+	 */
 	protected int widthInset = ButtonContext.getButtonWidthInset();
+	
+	/**
+	 * The button height inset value.
+	 */
 	protected int heightInset = ButtonContext.getButtonHeightInset();
+	
+	/**
+	 * The boolean value of the button dimension is adaptive.
+	 * If true, It will be executed to set the button dimension by its preferred size and inset fitly.
+	 */
 	protected boolean isDimensionAdaptive = true;
 	
+	/**
+	 * Constructs with the default.
+	 */
 	public JBasicButton()
 	{
 		super();
@@ -35,6 +50,10 @@ public class JBasicButton
 		initComponents();
 	}
 	
+	/**
+	 * Constructs with the specified initial action.
+	 * @param action the instance of Action
+	 */
 	public JBasicButton(Action action)
 	{
 		super(action);
@@ -42,6 +61,10 @@ public class JBasicButton
 		initComponents();
 	}
 	
+	/**
+	 * Constructs with the specified initial text.
+	 * @param text the text string
+	 */
 	public JBasicButton(String text)
 	{
 		super(text);
@@ -49,6 +72,10 @@ public class JBasicButton
 		initComponents();
 	}
 	
+	/**
+	 * Constructs with the specified initial icon.
+	 * @param icon the instance of Icon
+	 */
 	public JBasicButton(Icon icon)
 	{
 		super(icon);
@@ -56,15 +83,23 @@ public class JBasicButton
 		initComponents();
 	}
 	
-	public JBasicButton(Icon icon, String toolTipText)
+	/**
+	 * Constructs with the specified initial text and icon.
+	 * @param text the text string 
+	 * @param icon the icon of Icon
+	 */
+	public JBasicButton(String text, Icon icon)
 	{
-		super(icon);
+		super(text, icon);
 		
 		initComponents();
-		
-		setToolTipText(toolTipText);
 	}
 	
+	/**
+	 * Constructs with the specified initial text and tooltip text.
+	 * @param text the text string
+	 * @param toolTipText the tooltip text string
+	 */
 	public JBasicButton(String text, String toolTipText)
 	{
 		super(text);
@@ -74,13 +109,25 @@ public class JBasicButton
 		setToolTipText(toolTipText);
 	}
 	
-	public JBasicButton(String text, Icon icon)
+	/**
+	 * Constructs with the specified initial icon and tooltip text.
+	 * @param icon the instance of Icon
+	 * @param toolTipText the tooltip text string
+	 */
+	public JBasicButton(Icon icon, String toolTipText)
 	{
-		super(text, icon);
+		super(icon);
 		
 		initComponents();
+		
+		setToolTipText(toolTipText);
 	}
 	
+	/**
+	 * Constructs with the specified initial text and icon.
+	 * @param text the text string 
+	 * @param icon the icon of Icon
+	 */
 	public JBasicButton(String text, Icon icon, String toolTipText)
 	{
 		super(text, icon);
@@ -90,6 +137,9 @@ public class JBasicButton
 		setToolTipText(toolTipText);
 	}
 	
+	/**
+	 * Initializes the components.
+	 */
 	private void initComponents()
 	{
 		setModel(new BasicButtonModel());
@@ -106,6 +156,11 @@ public class JBasicButton
 		);
 	}
 	
+	/**
+	 * Adapts the dimension.
+	 * If the boolean value of isDimensionAdaptive is true, 
+	 * it will be executed to set the button dimension by its preferred size and inset fitly. 
+	 */
 	private void adaptDimension()
 	{
 		if (isDimensionAdaptive)
@@ -138,26 +193,46 @@ public class JBasicButton
 		}
 	}
 	
+	/**
+	 * Gets the width inset.
+	 * @return the width inset value
+	 */
 	public int getWidthInset()
 	{
 		return widthInset;
 	}
 	
+	/**
+	 * Sets the width inset.
+	 * @param widthInset the width inset value
+	 */
 	public void setWidthInset(int widthInset)
 	{
 		this.widthInset = widthInset;
 	}
 	
+	/**
+	 * Gets the height inset.
+	 * @return the height inset value
+	 */
 	public int getHeightInset()
 	{
 		return heightInset;
 	}
 	
+	/**
+	 * Sets the height inset.
+	 * @param heightInset the height inset value
+	 */
 	public void setHeightInset(int heightInset)
 	{
 		this.heightInset = heightInset;
 	}
 	
+	/**
+	 * Sets the dimension.
+	 * @param dimension the instance of Dimension
+	 */
 	public void setDimension(Dimension dimension)
 	{
 		DimensionManager.setDimension(this, dimension);
@@ -165,6 +240,10 @@ public class JBasicButton
 		isDimensionAdaptive = false;
 	}
 	
+	/**
+	 * Sets ui.
+	 * @param buttonUI the instance of ButtonUI
+	 */
 	public void setUI(ButtonUI buttonUI)
 	{
 		super.setUI(buttonUI);
@@ -172,6 +251,9 @@ public class JBasicButton
 		setOpaque(false);
 	}
 	
+	/**
+	 * Updates ui.
+	 */
 	public void updateUI()
 	{
 		setUI(getUI());

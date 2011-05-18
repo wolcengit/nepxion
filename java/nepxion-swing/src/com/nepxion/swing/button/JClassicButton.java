@@ -17,6 +17,9 @@ import javax.swing.JButton;
 public class JClassicButton
 	extends JButton
 {
+	/**
+	 * Constructs with the default.
+	 */
 	public JClassicButton()
 	{
 		super();
@@ -24,6 +27,10 @@ public class JClassicButton
 		initComponents();
 	}
 	
+	/**
+	 * Constructs with the specified initial action.
+	 * @param action the instance of Action
+	 */
 	public JClassicButton(Action action)
 	{
 		super(action);
@@ -31,6 +38,10 @@ public class JClassicButton
 		initComponents();
 	}
 	
+	/**
+	 * Constructs with the specified initial text.
+	 * @param text the text string
+	 */
 	public JClassicButton(String text)
 	{
 		super(text);
@@ -38,6 +49,10 @@ public class JClassicButton
 		initComponents();
 	}
 	
+	/**
+	 * Constructs with the specified initial icon.
+	 * @param icon the instance of Icon
+	 */
 	public JClassicButton(Icon icon)
 	{
 		super(icon);
@@ -45,15 +60,23 @@ public class JClassicButton
 		initComponents();
 	}
 	
-	public JClassicButton(Icon icon, String toolTipText)
+	/**
+	 * Constructs with the specified initial text and icon.
+	 * @param text the text string 
+	 * @param icon the icon of Icon
+	 */
+	public JClassicButton(String text, Icon icon)
 	{
-		super(icon);
+		super(text, icon);
 		
 		initComponents();
-		
-		setToolTipText(toolTipText);
 	}
 	
+	/**
+	 * Constructs with the specified initial text and tooltip text.
+	 * @param text the text string
+	 * @param toolTipText the tooltip text string
+	 */
 	public JClassicButton(String text, String toolTipText)
 	{
 		super(text);
@@ -63,13 +86,25 @@ public class JClassicButton
 		setToolTipText(toolTipText);
 	}
 	
-	public JClassicButton(String text, Icon icon)
+	/**
+	 * Constructs with the specified initial icon and tooltip text.
+	 * @param icon the instance of Icon
+	 * @param toolTipText the tooltip text string
+	 */
+	public JClassicButton(Icon icon, String toolTipText)
 	{
-		super(text, icon);
+		super(icon);
 		
 		initComponents();
+		
+		setToolTipText(toolTipText);
 	}
 	
+	/**
+	 * Constructs with the specified initial text and icon.
+	 * @param text the text string 
+	 * @param icon the icon of Icon
+	 */
 	public JClassicButton(String text, Icon icon, String toolTipText)
 	{
 		super(text, icon);
@@ -79,6 +114,9 @@ public class JClassicButton
 		setToolTipText(toolTipText);
 	}
 	
+	/**
+	 * Initializes the components.
+	 */
 	private void initComponents()
 	{
 		ButtonManager.setPreferenceStyle(this);
