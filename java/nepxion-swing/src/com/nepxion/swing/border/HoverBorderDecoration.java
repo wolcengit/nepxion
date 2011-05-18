@@ -82,7 +82,7 @@ public class HoverBorderDecoration
 	}
 	
 	/**
-	 * Mouse entered.
+	 * Fires the mouse entered event.
 	 * @param e the instance of MouseEvent
 	 */
 	public void mouseEntered(MouseEvent e)
@@ -93,7 +93,7 @@ public class HoverBorderDecoration
 	}
 	
 	/**
-	 * Mouse exited.
+	 * Fires the mouse exited event.
 	 * @param e the instance of MouseEvent
 	 */
 	public void mouseExited(MouseEvent e)

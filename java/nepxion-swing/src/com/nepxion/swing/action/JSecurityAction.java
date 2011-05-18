@@ -139,7 +139,7 @@ public abstract class JSecurityAction
 	}
 	
 	/**
-	 * Action performed.
+	 * Fires the action performed event.
 	 * It is overridden from Action and judge if isPermitted is false the action event won't be triggered.
 	 * @param e the instance of ActionEvent
 	 */
@@ -166,7 +166,7 @@ public abstract class JSecurityAction
 	}
 	
 	/**
-	 * Executes the action event.
+	 * Execute the action performed event.
 	 * @param e the instance of ActionEvent
 	 */
 	public abstract void execute(ActionEvent e);
