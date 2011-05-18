@@ -19,6 +19,9 @@ import com.nepxion.swing.icon.paint.ArrowIcon;
 public class JArrowButton
 	extends JButton
 {
+	/**
+	 * Constructs with the default.
+	 */
 	public JArrowButton()
 	{
 		super(new ArrowIcon(5, ArrowIcon.SOUTH));
