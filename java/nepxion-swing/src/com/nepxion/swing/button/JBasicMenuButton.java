@@ -23,8 +23,14 @@ import javax.swing.event.PopupMenuListener;
 public class JBasicMenuButton
 	extends JBasicButton implements MouseListener, PopupMenuListener
 {
+	/**
+	 * The instance of JPopupMenu.
+	 */
 	protected JPopupMenu popupMenu;
 	
+	/**
+	 * Constructs with the default.
+	 */
 	public JBasicMenuButton()
 	{
 		super();
@@ -32,6 +38,10 @@ public class JBasicMenuButton
 		initComponents();
 	}
 	
+	/**
+	 * Constructs with the specified initial action.
+	 * @param action the instance of Action
+	 */
 	public JBasicMenuButton(Action action)
 	{
 		super(action);
@@ -39,6 +49,10 @@ public class JBasicMenuButton
 		initComponents();
 	}
 	
+	/**
+	 * Constructs with the specified initial text.
+	 * @param text the text string
+	 */
 	public JBasicMenuButton(String text)
 	{
 		super(text);
@@ -46,6 +60,10 @@ public class JBasicMenuButton
 		initComponents();
 	}
 	
+	/**
+	 * Constructs with the specified initial icon.
+	 * @param icon the instance of Icon
+	 */
 	public JBasicMenuButton(Icon icon)
 	{
 		super(icon);
@@ -53,15 +71,23 @@ public class JBasicMenuButton
 		initComponents();
 	}
 	
-	public JBasicMenuButton(Icon icon, String toolTipText)
+	/**
+	 * Constructs with the specified initial text and icon.
+	 * @param text the text string 
+	 * @param icon the icon of Icon
+	 */
+	public JBasicMenuButton(String text, Icon icon)
 	{
-		super(icon);
+		super(text, icon);
 		
 		initComponents();
-		
-		setToolTipText(toolTipText);
 	}
 	
+	/**
+	 * Constructs with the specified initial text and tooltip text.
+	 * @param text the text string
+	 * @param toolTipText the tooltip text string
+	 */
 	public JBasicMenuButton(String text, String toolTipText)
 	{
 		super(text);
@@ -71,13 +97,26 @@ public class JBasicMenuButton
 		setToolTipText(toolTipText);
 	}
 	
-	public JBasicMenuButton(String text, Icon icon)
+	/**
+	 * Constructs with the specified initial icon and tooltip text.
+	 * @param icon the instance of Icon
+	 * @param toolTipText the tooltip text string
+	 */
+	public JBasicMenuButton(Icon icon, String toolTipText)
 	{
-		super(text, icon);
+		super(icon);
 		
 		initComponents();
+		
+		setToolTipText(toolTipText);
 	}
 	
+	/**
+	 * Constructs with the specified initial text and icon.
+	 * @param text the text string 
+	 * @param icon the icon of Icon
+	 * @param toolTipText the tooltip text string
+	 */
 	public JBasicMenuButton(String text, Icon icon, String toolTipText)
 	{
 		super(text, icon);
@@ -87,6 +126,9 @@ public class JBasicMenuButton
 		setToolTipText(toolTipText);
 	}
 	
+	/**
+	 * Initializes the components.
+	 */
 	private void initComponents()
 	{
 		widthInset += 7;
@@ -94,21 +136,37 @@ public class JBasicMenuButton
 		addMouseListener(this);
 	}
 	
+	/**
+	 * Gets the popup menu.
+	 * @return the instance of JPopupMenu
+	 */
 	public JPopupMenu getPopupMenu()
 	{
 		return popupMenu;
 	}
 	
+	/**
+	 * Sets the popup menu.
+	 * @param popupMenu the instance of JPopupMenu 
+	 */
 	public void setPopupMenu(JPopupMenu popupMenu)
 	{
 		this.popupMenu = popupMenu;
 		this.popupMenu.addPopupMenuListener(this);
 	}
 	
+	/**
+	 * Fires the mouse clicked event.
+	 * @param e the instance of MouseEvent
+	 */
 	public void mouseClicked(MouseEvent e)
 	{
 	}
 	
+	/**
+	 * Fires the mouse pressed event.
+	 * @param e the instance of MouseEvent
+	 */
 	public void mousePressed(MouseEvent e)
 	{
 		BasicButtonModel buttonModel = (BasicButtonModel) getModel();
@@ -126,18 +184,34 @@ public class JBasicMenuButton
 		}
 	}
 	
+	/**
+	 * Fires the mouse released event.
+	 * @param e the instance of MouseEvent
+	 */
 	public void mouseReleased(MouseEvent e)
 	{
 	}
 	
+	/**
+	 * Fires the mouse entered event.
+	 * @param e the instance of MouseEvent
+	 */
 	public void mouseEntered(MouseEvent e)
 	{
 	}
 	
+	/**
+	 * Fires the mouse exited event.
+	 * @param e the instance of MouseEvent
+	 */
 	public void mouseExited(MouseEvent e)
 	{
 	}
 	
+	/**
+	 * Fires the popup menu will become visible event.
+	 * @param e the instance of PopupMenuEvent
+	 */
 	public void popupMenuWillBecomeVisible(PopupMenuEvent e)
 	{
 		BasicButtonModel buttonModel = (BasicButtonModel) getModel();
@@ -146,6 +220,10 @@ public class JBasicMenuButton
 		repaint();
 	}
 	
+	/**
+	 * Fires the popup menu will become invisible event.
+	 * @param e the instance of PopupMenuEvent
+	 */
 	public void popupMenuWillBecomeInvisible(PopupMenuEvent e)
 	{
 		BasicButtonModel buttonModel = (BasicButtonModel) getModel();
@@ -154,6 +232,10 @@ public class JBasicMenuButton
 		repaint();
 	}
 	
+	/**
+	 * Fires the popup menu canceled event.
+	 * @param e the instance of PopupMenuEvent
+	 */
 	public void popupMenuCanceled(PopupMenuEvent e)
 	{
 	}

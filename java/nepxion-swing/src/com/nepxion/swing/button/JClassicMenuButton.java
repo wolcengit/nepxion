@@ -31,13 +31,29 @@ import com.nepxion.swing.listener.DisplayAbilityListener;
 public class JClassicMenuButton
 	extends JClassicButton implements MouseListener, PopupMenuListener
 {
+	/**
+	 * The button width inset value.
+	 */
 	protected int widthInset = ButtonContext.getButtonWidthInset();
 	
+	/**
+	 * The instance of JPopupMenu.
+	 */
 	protected JPopupMenu popupMenu;
 	
+	/**
+	 * The boolean value of arrow shown
+	 */
 	protected boolean isShowArrow = true;
+	
+	/**
+	 * The boolean value of arrow at right position.
+	 */
 	protected boolean isShowArrowRight = true;
 
+	/**
+	 * Constructs with the default.
+	 */
 	public JClassicMenuButton()
 	{
 		super();
@@ -45,6 +61,10 @@ public class JClassicMenuButton
 		initComponents();
 	}
 	
+	/**
+	 * Constructs with the specified initial action.
+	 * @param action the instance of Action
+	 */
 	public JClassicMenuButton(Action action)
 	{
 		super(action);
@@ -52,6 +72,10 @@ public class JClassicMenuButton
 		initComponents();
 	}
 	
+	/**
+	 * Constructs with the specified initial text.
+	 * @param text the text string
+	 */
 	public JClassicMenuButton(String text)
 	{
 		super(text);
@@ -59,6 +83,10 @@ public class JClassicMenuButton
 		initComponents();
 	}
 	
+	/**
+	 * Constructs with the specified initial icon.
+	 * @param icon the instance of Icon
+	 */
 	public JClassicMenuButton(Icon icon)
 	{
 		super(icon);
@@ -66,15 +94,23 @@ public class JClassicMenuButton
 		initComponents();
 	}
 	
-	public JClassicMenuButton(Icon icon, String toolTipText)
+	/**
+	 * Constructs with the specified initial text and icon.
+	 * @param text the text string 
+	 * @param icon the icon of Icon
+	 */
+	public JClassicMenuButton(String text, Icon icon)
 	{
-		super(icon);
+		super(text, icon);
 		
 		initComponents();
-		
-		setToolTipText(toolTipText);
 	}
 	
+	/**
+	 * Constructs with the specified initial text and tooltip text.
+	 * @param text the text string
+	 * @param toolTipText the tooltip text string
+	 */
 	public JClassicMenuButton(String text, String toolTipText)
 	{
 		super(text);
@@ -84,13 +120,26 @@ public class JClassicMenuButton
 		setToolTipText(toolTipText);
 	}
 	
-	public JClassicMenuButton(String text, Icon icon)
+	/**
+	 * Constructs with the specified initial icon and tooltip text.
+	 * @param icon the instance of Icon
+	 * @param toolTipText the tooltip text string
+	 */
+	public JClassicMenuButton(Icon icon, String toolTipText)
 	{
-		super(text, icon);
+		super(icon);
 		
 		initComponents();
+		
+		setToolTipText(toolTipText);
 	}
 	
+	/**
+	 * Constructs with the specified initial text and icon.
+	 * @param text the text string 
+	 * @param icon the icon of Icon
+	 * @param toolTipText the tooltip text string
+	 */
 	public JClassicMenuButton(String text, Icon icon, String toolTipText)
 	{
 		super(text, icon);
@@ -100,6 +149,9 @@ public class JClassicMenuButton
 		setToolTipText(toolTipText);
 	}
 	
+	/**
+	 * Initializes the components.
+	 */
 	private void initComponents()
 	{				
 		addMouseListener(this);
@@ -116,6 +168,11 @@ public class JClassicMenuButton
 		);
 	}
 	
+	/**
+	 * Adapts the dimension.
+	 * If the boolean value of isShowArrow and isShowArrowRight are true, 
+	 * it will be executed to set the button dimension by its preferred size and inset fitly. 
+	 */
 	private void adaptDimension()
 	{
 		if (!isShowArrow)
@@ -146,41 +203,73 @@ public class JClassicMenuButton
 		}
 	}
 	
+	/**
+	 * Gets the popup menu.
+	 * @return the instance of JPopupMenu
+	 */
 	public JPopupMenu getPopupMenu()
 	{
 		return popupMenu;
 	}
 	
+	/**
+	 * Sets the popup menu.
+	 * @param popupMenu the instance of JPopupMenu 
+	 */
 	public void setPopupMenu(JPopupMenu popupMenu)
 	{
 		this.popupMenu = popupMenu;
 		this.popupMenu.addPopupMenuListener(this);
 	}
 	
+	/**
+	 * Return true if the arrow is shown on the button.
+	 * @return true if the arrow is shown on the button
+	 */
 	public boolean isShowArrow()
 	{
 		return isShowArrow;
 	}
 
+	/**
+	 * Sets the boolean value of arrow shown.
+	 * @param isShowArrow the boolean value of arrow shown
+	 */
 	public void setShowArrow(boolean isShowArrow)
 	{
 		this.isShowArrow = isShowArrow;
 	}
 	
+	/**
+	 * Return true if the arrow is shown at right position on the button.
+	 * @return true if the arrow is shown at right position on the button
+	 */
 	public boolean isShowArrowRight()
 	{
 		return isShowArrowRight;
 	}
 
+	/**
+	 * Sets the boolean value of arrow at right position.
+	 * @param isShowArrow the boolean value of arrow at right position
+	 */
 	public void setShowArrowRight(boolean isShowArrowRight)
 	{
 		this.isShowArrowRight = isShowArrowRight;
 	}
 	
+	/**
+	 * Fires the mouse clicked event.
+	 * @param e the instance of MouseEvent
+	 */
 	public void mouseClicked(MouseEvent e)
 	{
 	}
 	
+	/**
+	 * Fires the mouse pressed event.
+	 * @param e the instance of MouseEvent
+	 */
 	public void mousePressed(MouseEvent e)
 	{
 		ButtonModel buttonModel = getModel();
@@ -198,32 +287,60 @@ public class JClassicMenuButton
 		}
 	}
 	
+	/**
+	 * Fires the mouse released event.
+	 * @param e the instance of MouseEvent
+	 */
 	public void mouseReleased(MouseEvent e)
 	{
 	}
 	
+	/**
+	 * Fires the mouse entered event.
+	 * @param e the instance of MouseEvent
+	 */
 	public void mouseEntered(MouseEvent e)
 	{
 	}
 	
+	/**
+	 * Fires the mouse exited event.
+	 * @param e the instance of MouseEvent
+	 */
 	public void mouseExited(MouseEvent e)
 	{
 	}
 	
+	/**
+	 * Fires the popup menu will become visible event.
+	 * @param e the instance of PopupMenuEvent
+	 */
 	public void popupMenuWillBecomeVisible(PopupMenuEvent e)
 	{
 
 	}
 	
+	/**
+	 * Fires the popup menu will become invisible event.
+	 * @param e the instance of PopupMenuEvent
+	 */
 	public void popupMenuWillBecomeInvisible(PopupMenuEvent e)
 	{
 
 	}
 	
+	/**
+	 * Fires the popup menu canceled event.
+	 * @param e the instance of PopupMenuEvent
+	 */
 	public void popupMenuCanceled(PopupMenuEvent e)
 	{
 	}
 	
+	/**
+	 * Paints the graphics.
+	 * @param g the instance of Graphics
+	 */
 	public void paint(Graphics g)
 	{
 		super.paint(g);
