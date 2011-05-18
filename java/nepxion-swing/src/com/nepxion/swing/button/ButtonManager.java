@@ -626,14 +626,14 @@ public class ButtonManager
 	}
 		
 	/**
-	 * Parses to the html text by a text.
+	 * Gets the html text by a text.
 	 * If the text is from XML, the parsing relations are as below:
 	 * XML ["&#x0A;"] -> HTML ["\n"],
 	 * XML ["&amp;nbsp;] -> HTML [&nbsp;].
 	 * @param text the text string
 	 * @return the html text
 	 */
-	public static String parseHtmlText(String text)
+	public static String getHtmlText(String text)
 	{
 		if (text == null)
 		{
