@@ -452,7 +452,7 @@ public class Dom4JRibbonParser
 		{
 			if (element.elements().size() == 0)
 			{
-				JRibbonAction ribbonAction = createRibbonAction(name, ButtonManager.getStyleText(text), ButtonManager.getStyleText(smallText), ButtonManager.getStyleText(largeText), icon, smallIcon, largeIcon, toolTipText, ribbonName, ribbonTitle, ribbonIcon, ribbonToolTipText, ribbonComponentClass);
+				JRibbonAction ribbonAction = createRibbonAction(name, ButtonManager.parseHtmlText(text), ButtonManager.parseHtmlText(smallText), ButtonManager.parseHtmlText(largeText), icon, smallIcon, largeIcon, toolTipText, ribbonName, ribbonTitle, ribbonIcon, ribbonToolTipText, ribbonComponentClass);
 				if (LookAndFeelManager.isNimbusLookAndFeel())
 				{
 					component = new JClassicButton(ribbonAction);
@@ -466,15 +466,15 @@ public class Dom4JRibbonParser
 			{
 				JDecorationPopupMenu popupMenu = new JDecorationPopupMenu();
 				
-				JSecurityAction action = new JSecurityAction(ButtonManager.getStyleText(text), icon, toolTipText)
+				JSecurityAction action = new JSecurityAction(ButtonManager.parseHtmlText(text), icon, toolTipText)
 				{
 					public void execute(ActionEvent e)
 					{
 						
 					}
 				};
-				action.setSmallText(ButtonManager.getStyleText(smallText));
-				action.setLargeText(ButtonManager.getStyleText(largeText));
+				action.setSmallText(ButtonManager.parseHtmlText(smallText));
+				action.setLargeText(ButtonManager.parseHtmlText(largeText));
 				action.setSmallIcon(smallIcon);
 				action.setLargeIcon(largeIcon);
 				
@@ -603,13 +603,13 @@ public class Dom4JRibbonParser
 			MenuElement childMenu = null;
 			if (element.elements().size() == 0)
 			{
-				JRibbonAction ribbonAction = createRibbonAction(name, ButtonManager.getStyleText(text), null, null, icon, null, null, toolTipText, ribbonName, ribbonTitle, ribbonIcon, ribbonToolTipText, ribbonComponentClass);
+				JRibbonAction ribbonAction = createRibbonAction(name, ButtonManager.parseHtmlText(text), null, null, icon, null, null, toolTipText, ribbonName, ribbonTitle, ribbonIcon, ribbonToolTipText, ribbonComponentClass);
 				
 				childMenu = new JBasicMenuItem(ribbonAction);
 			}
 			else
 			{
-				childMenu = new JBasicMenu(ButtonManager.getStyleText(text), icon, toolTipText);
+				childMenu = new JBasicMenu(ButtonManager.parseHtmlText(text), icon, toolTipText);
 				
 				parseMenuElement(element, childMenu);
 			}
