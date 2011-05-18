@@ -23,11 +23,31 @@ import com.nepxion.swing.listener.DisplayAbilityListener;
 public class JStyleToggleButton
 	extends JideToggleButton implements IButton, IToggleButton
 {
+	/**
+	 * The button width inset value.
+	 */
 	protected int widthInset = ButtonContext.getButtonWidthInset();
+	
+	/**
+	 * The button height inset value.
+	 */
 	protected int heightInset = ButtonContext.getButtonHeightInset();
+	
+	/**
+	 * The boolean value of the button dimension is adaptive.
+	 * If true, It will be executed to set the button dimension by its preferred size and inset fitly.
+	 */
 	protected boolean isDimensionAdaptive = true;
+	
+	/**
+	 * The boolean value of the button is grouped.
+	 * If true, the toggle button will be added to a ButtonGroup automatically.
+	 */
 	protected boolean isGrouped = true;
 	
+	/**
+	 * Constructs with the default.
+	 */
 	public JStyleToggleButton()
 	{
 		super();
@@ -35,6 +55,10 @@ public class JStyleToggleButton
 		initComponents();
 	}
 	
+	/**
+	 * Constructs with the specified initial action.
+	 * @param action the instance of Action
+	 */
 	public JStyleToggleButton(Action action)
 	{
 		super(action);
@@ -42,13 +66,10 @@ public class JStyleToggleButton
 		initComponents();
 	}
 	
-	public JStyleToggleButton(Icon icon)
-	{
-		super(icon);
-		
-		initComponents();
-	}
-	
+	/**
+	 * Constructs with the specified initial text.
+	 * @param text the text string
+	 */
 	public JStyleToggleButton(String text)
 	{
 		super(text);
@@ -56,24 +77,34 @@ public class JStyleToggleButton
 		initComponents();
 	}
 	
-	public JStyleToggleButton(Icon icon, String toolTipText)
+	/**
+	 * Constructs with the specified initial icon.
+	 * @param icon the instance of Icon
+	 */
+	public JStyleToggleButton(Icon icon)
 	{
 		super(icon);
 		
 		initComponents();
-		
-		setToolTipText(toolTipText);
 	}
 	
-	public JStyleToggleButton(Icon icon, boolean selected)
+	/**
+	 * Constructs with the specified initial text and icon.
+	 * @param text the text string 
+	 * @param icon the icon of Icon
+	 */
+	public JStyleToggleButton(String text, Icon icon)
 	{
-		super(icon);
+		super(text, icon);
 		
 		initComponents();
-		
-		setSelected(selected);
 	}
 	
+	/**
+	 * Constructs with the specified initial text and tooltip text.
+	 * @param text the text string
+	 * @param toolTipText the tooltip text string
+	 */
 	public JStyleToggleButton(String text, String toolTipText)
 	{
 		super(text);
@@ -83,6 +114,11 @@ public class JStyleToggleButton
 		setToolTipText(toolTipText);
 	}
 	
+	/**
+	 * Constructs with the specified initial text and selected.
+	 * @param text the text string
+	 * @param selected the boolean value of selected
+	 */
 	public JStyleToggleButton(String text, boolean selected)
 	{
 		super(text);
@@ -92,23 +128,70 @@ public class JStyleToggleButton
 		setSelected(selected);
 	}
 	
-	public JStyleToggleButton(String text, Icon icon)
+	/**
+	 * Constructs with the specified initial icon and tooltip text.
+	 * @param icon the instance of Icon
+	 * @param toolTipText the tooltip text string
+	 */
+	public JStyleToggleButton(Icon icon, String toolTipText)
 	{
-		super(text, icon);
+		super(icon);
 		
 		initComponents();
+		
+		setToolTipText(toolTipText);
 	}
 	
-	public JStyleToggleButton(Icon icon, String toolTipText, boolean selected)
+	/**
+	 * Constructs with the specified initial icon and selected.
+	 * @param icon the instance of Icon
+	 * @param selected the boolean value of selected
+	 */
+	public JStyleToggleButton(Icon icon, boolean selected)
 	{
 		super(icon);
 		
 		initComponents();
 		
 		setSelected(selected);
+	}
+	
+	/**
+	 * Constructs with the specified initial text, icon and tooltip text.
+	 * @param text the text string
+	 * @param icon the instance of Icon
+	 * @param toolTipText the tooltip text string
+	 */
+	public JStyleToggleButton(String text, Icon icon, String toolTipText)
+	{
+		super(text, icon);
+		
+		initComponents();
+		
 		setToolTipText(toolTipText);
 	}
 	
+	/**
+	 * Constructs with the specified initial text, icon and selected.
+	 * @param text the text string
+	 * @param icon the instance of Icon
+	 * @param selected the boolean value of selected
+	 */
+	public JStyleToggleButton(String text, Icon icon, boolean selected)
+	{
+		super(text, icon);
+		
+		initComponents();
+		
+		setSelected(selected);
+	}
+		
+	/**
+	 * Constructs with the specified initial text, tooltip text and selected.
+	 * @param text the text string
+	 * @param toolTipText the tooltip text string
+	 * @param selected the boolean value of selected
+	 */
 	public JStyleToggleButton(String text, String toolTipText, boolean selected)
 	{
 		super(text);
@@ -119,24 +202,29 @@ public class JStyleToggleButton
 		setToolTipText(toolTipText);
 	}
 	
-	public JStyleToggleButton(String text, Icon icon, String toolTipText)
+	/**
+	 * Constructs with the specified initial icon, tooltip text and selected.
+	 * @param icon the instance of Icon
+	 * @param toolTipText the tooltip text string
+	 * @param selected the boolean value of selected
+	 */
+	public JStyleToggleButton(Icon icon, String toolTipText, boolean selected)
 	{
-		super(text, icon);
-		
-		initComponents();
-		
-		setToolTipText(toolTipText);
-	}
-	
-	public JStyleToggleButton(String text, Icon icon, boolean selected)
-	{
-		super(text, icon);
+		super(icon);
 		
 		initComponents();
 		
 		setSelected(selected);
+		setToolTipText(toolTipText);
 	}
 	
+	/**
+	 * Constructs with the specified initial text, icon, tooltip text and selected.
+	 * @param text the text string
+	 * @param icon the instance of Icon
+	 * @param toolTipText the tooltip text string
+	 * @param selected the boolean value of selected
+	 */
 	public JStyleToggleButton(String text, Icon icon, String toolTipText, boolean selected)
 	{
 		super(text, icon);
@@ -147,6 +235,9 @@ public class JStyleToggleButton
 		setToolTipText(toolTipText);
 	}
 	
+	/**
+	 * Initializes the components.
+	 */
 	private void initComponents()
 	{
 		addHierarchyListener(new DisplayAbilityListener()
@@ -161,6 +252,11 @@ public class JStyleToggleButton
 		);
 	}
 	
+	/**
+	 * Adapts the dimension.
+	 * If the boolean value of isDimensionAdaptive is true, 
+	 * it will be executed to set the button dimension by its preferred size and inset fitly. 
+	 */
 	private void adaptDimension()
 	{
 		if (isDimensionAdaptive)
@@ -193,26 +289,46 @@ public class JStyleToggleButton
 		}
 	}
 	
+	/**
+	 * Gets the width inset.
+	 * @return the width inset value
+	 */
 	public int getWidthInset()
 	{
 		return widthInset;
 	}
 	
+	/**
+	 * Sets the width inset.
+	 * @param widthInset the width inset value
+	 */
 	public void setWidthInset(int widthInset)
 	{
 		this.widthInset = widthInset;
 	}
 	
+	/**
+	 * Gets the height inset.
+	 * @return the height inset value
+	 */
 	public int getHeightInset()
 	{
 		return heightInset;
 	}
 	
+	/**
+	 * Sets the height inset.
+	 * @param heightInset the height inset value
+	 */
 	public void setHeightInset(int heightInset)
 	{
 		this.heightInset = heightInset;
 	}
 	
+	/**
+	 * Sets the dimension.
+	 * @param dimension the instance of Dimension
+	 */
 	public void setDimension(Dimension dimension)
 	{
 		DimensionManager.setDimension(this, dimension);
@@ -220,11 +336,20 @@ public class JStyleToggleButton
 		isDimensionAdaptive = false;
 	}
 	
+	/**
+	 * Return true if the button is grouped.
+	 * If true, the toggle button will be added to a ButtonGroup automatically.
+	 * @return Return true if the button is grouped
+	 */
 	public boolean isGrouped()
 	{
 		return isGrouped;
 	}
 	
+	/**
+	 * Sets the boolean value of isGrouped.
+	 * @param isGrouped the boolean value of isGrouped
+	 */
 	public void setGrouped(boolean isGrouped)
 	{
 		this.isGrouped = isGrouped;

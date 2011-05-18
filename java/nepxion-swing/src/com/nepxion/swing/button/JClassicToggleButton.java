@@ -17,8 +17,15 @@ import javax.swing.JToggleButton;
 public class JClassicToggleButton
 	extends JToggleButton implements IToggleButton
 {
+	/**
+	 * The boolean value of the button is grouped.
+	 * If true, the toggle button will be added to a ButtonGroup automatically.
+	 */
 	protected boolean isGrouped = true;
 	
+	/**
+	 * Constructs with the default.
+	 */
 	public JClassicToggleButton()
 	{
 		super();
@@ -26,6 +33,10 @@ public class JClassicToggleButton
 		initComponents();
 	}
 	
+	/**
+	 * Constructs with the specified initial action.
+	 * @param action the instance of Action
+	 */
 	public JClassicToggleButton(Action action)
 	{
 		super(action);
@@ -33,13 +44,10 @@ public class JClassicToggleButton
 		initComponents();
 	}
 	
-	public JClassicToggleButton(Icon icon)
-	{
-		super(icon);
-		
-		initComponents();
-	}
-	
+	/**
+	 * Constructs with the specified initial text.
+	 * @param text the text string
+	 */
 	public JClassicToggleButton(String text)
 	{
 		super(text);
@@ -47,24 +55,34 @@ public class JClassicToggleButton
 		initComponents();
 	}
 	
-	public JClassicToggleButton(Icon icon, String toolTipText)
+	/**
+	 * Constructs with the specified initial icon.
+	 * @param icon the instance of Icon
+	 */
+	public JClassicToggleButton(Icon icon)
 	{
 		super(icon);
 		
 		initComponents();
-		
-		setToolTipText(toolTipText);
 	}
 	
-	public JClassicToggleButton(Icon icon, boolean selected)
+	/**
+	 * Constructs with the specified initial text and icon.
+	 * @param text the text string 
+	 * @param icon the icon of Icon
+	 */
+	public JClassicToggleButton(String text, Icon icon)
 	{
-		super(icon);
+		super(text, icon);
 		
 		initComponents();
-		
-		setSelected(selected);
 	}
 	
+	/**
+	 * Constructs with the specified initial text and tooltip text.
+	 * @param text the text string
+	 * @param toolTipText the tooltip text string
+	 */
 	public JClassicToggleButton(String text, String toolTipText)
 	{
 		super(text);
@@ -74,6 +92,11 @@ public class JClassicToggleButton
 		setToolTipText(toolTipText);
 	}
 	
+	/**
+	 * Constructs with the specified initial text and selected.
+	 * @param text the text string
+	 * @param selected the boolean value of selected
+	 */
 	public JClassicToggleButton(String text, boolean selected)
 	{
 		super(text);
@@ -83,23 +106,70 @@ public class JClassicToggleButton
 		setSelected(selected);
 	}
 	
-	public JClassicToggleButton(String text, Icon icon)
+	/**
+	 * Constructs with the specified initial icon and tooltip text.
+	 * @param icon the instance of Icon
+	 * @param toolTipText the tooltip text string
+	 */
+	public JClassicToggleButton(Icon icon, String toolTipText)
 	{
-		super(text, icon);
+		super(icon);
 		
 		initComponents();
+		
+		setToolTipText(toolTipText);
 	}
 	
-	public JClassicToggleButton(Icon icon, String toolTipText, boolean selected)
+	/**
+	 * Constructs with the specified initial icon and selected.
+	 * @param icon the instance of Icon
+	 * @param selected the boolean value of selected
+	 */
+	public JClassicToggleButton(Icon icon, boolean selected)
 	{
 		super(icon);
 		
 		initComponents();
 		
 		setSelected(selected);
+	}
+	
+	/**
+	 * Constructs with the specified initial text, icon and tooltip text.
+	 * @param text the text string
+	 * @param icon the instance of Icon
+	 * @param toolTipText the tooltip text string
+	 */
+	public JClassicToggleButton(String text, Icon icon, String toolTipText)
+	{
+		super(text, icon);
+		
+		initComponents();
+		
 		setToolTipText(toolTipText);
 	}
 	
+	/**
+	 * Constructs with the specified initial text, icon and selected.
+	 * @param text the text string
+	 * @param icon the instance of Icon
+	 * @param selected the boolean value of selected
+	 */
+	public JClassicToggleButton(String text, Icon icon, boolean selected)
+	{
+		super(text, icon);
+		
+		initComponents();
+		
+		setSelected(selected);
+	}
+		
+	/**
+	 * Constructs with the specified initial text, tooltip text and selected.
+	 * @param text the text string
+	 * @param toolTipText the tooltip text string
+	 * @param selected the boolean value of selected
+	 */
 	public JClassicToggleButton(String text, String toolTipText, boolean selected)
 	{
 		super(text);
@@ -110,24 +180,29 @@ public class JClassicToggleButton
 		setToolTipText(toolTipText);
 	}
 	
-	public JClassicToggleButton(String text, Icon icon, String toolTipText)
+	/**
+	 * Constructs with the specified initial icon, tooltip text and selected.
+	 * @param icon the instance of Icon
+	 * @param toolTipText the tooltip text string
+	 * @param selected the boolean value of selected
+	 */
+	public JClassicToggleButton(Icon icon, String toolTipText, boolean selected)
 	{
-		super(text, icon);
-		
-		initComponents();
-		
-		setToolTipText(toolTipText);
-	}
-	
-	public JClassicToggleButton(String text, Icon icon, boolean selected)
-	{
-		super(text, icon);
+		super(icon);
 		
 		initComponents();
 		
 		setSelected(selected);
+		setToolTipText(toolTipText);
 	}
 	
+	/**
+	 * Constructs with the specified initial text, icon, tooltip text and selected.
+	 * @param text the text string
+	 * @param icon the instance of Icon
+	 * @param toolTipText the tooltip text string
+	 * @param selected the boolean value of selected
+	 */
 	public JClassicToggleButton(String text, Icon icon, String toolTipText, boolean selected)
 	{
 		super(text, icon);
@@ -138,16 +213,28 @@ public class JClassicToggleButton
 		setToolTipText(toolTipText);
 	}
 	
+	/**
+	 * Initializes the components.
+	 */
 	private void initComponents()
 	{
 		ButtonManager.setPreferenceStyle(this);
 	}
 	
+	/**
+	 * Return true if the button is grouped.
+	 * If true, the toggle button will be added to a ButtonGroup automatically.
+	 * @return Return true if the button is grouped
+	 */
 	public boolean isGrouped()
 	{
 		return isGrouped;
 	}
 	
+	/**
+	 * Sets the boolean value of isGrouped.
+	 * @param isGrouped the boolean value of isGrouped
+	 */
 	public void setGrouped(boolean isGrouped)
 	{
 		this.isGrouped = isGrouped;
