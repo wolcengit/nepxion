@@ -40,17 +40,51 @@ import com.nepxion.swing.style.buttonbar.ButtonBarUI;
 public class ButtonManager
 	implements SwingConstants
 {
+	/**
+	 * The button ui
+	 */
 	private static IButtonUI buttonUI;
+	
+	/**
+	 * The menu button ui.
+	 */
 	private static IButtonUI menuButtonUI;
+	
+	/**
+	 * The split button ui.
+	 */
 	private static IButtonUI splitButtonUI;
+	
+	/**
+	 * The button style.
+	 */
 	private static IButtonStyle buttonStyle;
 	
+	/**
+	 * The flat button ui.
+	 */
 	private static FlatButtonUI flatButtonUI;
-	private static FlatMenuButtonUI flatMenuButtonUI;	
+	
+	/**
+	 * The flat menu button ui. 
+	 */
+	private static FlatMenuButtonUI flatMenuButtonUI;
+	
+	/**
+	 * The flat split button ui.
+	 */
 	private static FlatSplitButtonUI flatSplitButtonUI;
 	
+	/**
+	 * The button bar ui.
+	 */
 	private static ButtonBarUI buttonBarUI;
 	
+
+	/**
+	 * Sets the preference style by a button.
+	 * @param button the instance of AbstractButton
+	 */
 	public static void setPreferenceStyle(AbstractButton button)
 	{
 		if (LookAndFeelManager.isNimbusLookAndFeel())
@@ -64,113 +98,240 @@ public class ButtonManager
 		}
 	}
 	
+	/**
+	 * Updates ui for buttons components which are added in the container.
+	 * @param container the instance of Container. It is mainly JToolBar, JPanel etc.
+	 */
 	public static void updateUI(Container container)
 	{
 		updateUI(container, (Insets) null);
 	}
 	
+	/**
+	 * Updates ui for buttons components which are added in the container.
+	 * @param container the instance of Container. It is mainly JToolBar, JPanel etc.
+	 * @param insets the instance of Insets
+	 */
 	public static void updateUI(Container container, Insets insets)
 	{
 		updateUI(container, insets, new int[] {HORIZONTAL, CENTER});
 	}
 	
+	/**
+	 * Updates ui for buttons components which are added in the container.
+	 * @param container the instance of Container. It is mainly JToolBar, JPanel etc.
+	 * @param isFlatButtonUI the boolean value of isFlatButtonUI
+	 */
 	public static void updateUI(Container container, boolean isFlatButtonUI)
 	{
 		updateUI(container, new int[] {HORIZONTAL, CENTER}, isFlatButtonUI);
 	}	
 	
+	/**
+	 * Updates ui for buttons components which are added in the container.
+	 * @param container the instance of Container. It is mainly JToolBar, JPanel etc.
+	 * @param layout the layout array
+	 */
 	public static void updateUI(Container container, int[] layout)
 	{
 		updateUI(container, (Insets) null, layout);
 	}		
 	
+	/**
+	 * Updates ui for buttons components which are added in the container.
+	 * @param container the instance of Container. It is mainly JToolBar, JPanel etc.
+	 * @param insets the instance of Insets
+	 * @param layout the layout array
+	 */
 	public static void updateUI(Container container, Insets insets, int[] layout)
 	{
 		updateUI(container, insets, null, layout);
 	}
 	
-	
+	/**
+	 * Updates ui for buttons components which are added in the container.
+	 * @param container the instance of Container. It is mainly JToolBar, JPanel etc.
+	 * @param buttonGroup the instance of ButtonGroup
+	 */
 	public static void updateUI(Container container, ButtonGroup buttonGroup)
 	{
 		updateUI(container, (Insets) null, buttonGroup);
 	}
 	
+	/**
+	 * Updates ui for buttons components which are added in the container.
+	 * @param container the instance of Container. It is mainly JToolBar, JPanel etc.
+	 * @param insets the instance of Insets
+	 * @param buttonGroup the instance of ButtonGroup
+	 */
 	public static void updateUI(Container container, Insets insets, ButtonGroup buttonGroup)
 	{
 		updateUI(container, insets, buttonGroup, new int[] {HORIZONTAL, CENTER});
 	}
 	
-	
+	/**
+	 * Updates ui for buttons components which are added in the container.
+	 * @param container the instance of Container. It is mainly JToolBar, JPanel etc.
+	 * @param dimension the instance of Dimension
+	 */
 	public static void updateUI(Container container, Dimension dimension)
 	{
 		updateUI(container, dimension, false);
 	}
 	
-	
+	/**
+	 * Updates ui for buttons components which are added in the container.
+	 * @param container the instance of Container. It is mainly JToolBar, JPanel etc.
+	 * @param layout the layout array
+	 * @param isFlatButtonUI the boolean value of isFlatButtonUI
+	 */
 	public static void updateUI(Container container, int[] layout, boolean isFlatButtonUI)
 	{
 		updateUI(container, (Dimension) null, layout, isFlatButtonUI);
 	}
 		
-		
+	/**
+	 * Updates ui for buttons components which are added in the container.
+	 * @param container the instance of Container. It is mainly JToolBar, JPanel etc.
+	 * @param buttonGroup the instance of ButtonGroup
+	 * @param isFlatButtonUI the boolean value of isFlatButtonUI
+	 */	
 	public static void updateUI(Container container, ButtonGroup buttonGroup, boolean isFlatButtonUI)
 	{
 		updateUI(container, null, buttonGroup, isFlatButtonUI);
 	}		
 	
+	/**
+	 * Updates ui for buttons components which are added in the container.
+	 * @param container the instance of Container. It is mainly JToolBar, JPanel etc.
+	 * @param dimension the instance of Dimension
+	 * @param isFlatButtonUI the boolean value of isFlatButtonUI
+	 */
 	public static void updateUI(Container container, Dimension dimension, boolean isFlatButtonUI)
 	{
 		updateUI(container, dimension, (ButtonGroup) null, isFlatButtonUI);
 	}	
 		
-	
+	/**
+	 * Updates ui for buttons components which are added in the container.
+	 * @param container the instance of Container. It is mainly JToolBar, JPanel etc.
+	 * @param buttonGroup the instance of ButtonGroup
+	 * @param layout the layout array
+	 */
 	public static void updateUI(Container container, ButtonGroup buttonGroup, int[] layout)
 	{
 		updateUI(container, (Insets) null, buttonGroup, layout);
 	}	
 	
+	/**
+	 * Updates ui for buttons components which are added in the container.
+	 * @param container the instance of Container. It is mainly JToolBar, JPanel etc.
+	 * @param insets the instance of Insets
+	 * @param buttonGroup the instance of ButtonGroup
+	 * @param layout the layout array
+	 */
 	public static void updateUI(Container container, Insets insets, ButtonGroup buttonGroup, int[] layout)
 	{
 		updateUI(container, null, insets, buttonGroup, layout, false);
 	}		
 	
+	/**
+	 * Updates ui for buttons components which are added in the container.
+	 * @param container the instance of Container. It is mainly JToolBar, JPanel etc.
+	 * @param dimension the instance of Dimension
+	 * @param layout the layout array
+	 */
 	public static void updateUI(Container container, Dimension dimension, int[] layout)
 	{
 		updateUI(container, dimension, null, layout);
 	}
 	
+	/**
+	 * Updates ui for buttons components which are added in the container.
+	 * @param container the instance of Container. It is mainly JToolBar, JPanel etc.
+	 * @param dimension the instance of Dimension
+	 * @param buttonGroup the instance of ButtonGroup
+	 */
 	public static void updateUI(Container container, Dimension dimension, ButtonGroup buttonGroup)
 	{
 		updateUI(container, dimension, buttonGroup, new int[] {HORIZONTAL, CENTER});
 	}	
 	
-	
+	/**
+	 * Updates ui for buttons components which are added in the container.
+	 * @param container the instance of Container. It is mainly JToolBar, JPanel etc.
+	 * @param buttonGroup the instance of ButtonGroup
+	 * @param layout the layout array
+	 * @param isFlatButtonUI the boolean value of isFlatButtonUI
+	 */
 	public static void updateUI(Container container, ButtonGroup buttonGroup, int[] layout, boolean isFlatButtonUI)
 	{
 		updateUI(container, null, buttonGroup, layout, isFlatButtonUI);
 	}
 	
+	/**
+	 * Updates ui for buttons components which are added in the container.
+	 * @param container the instance of Container. It is mainly JToolBar, JPanel etc.
+	 * @param dimension the instance of Dimension
+	 * @param layout the layout array
+	 * @param isFlatButtonUI the boolean value of isFlatButtonUI
+	 */
 	public static void updateUI(Container container, Dimension dimension, int[] layout, boolean isFlatButtonUI)
 	{
 		updateUI(container, dimension, null, layout, isFlatButtonUI);
 	}
 	
+	/**
+	 * Updates ui for buttons components which are added in the container.
+	 * @param container the instance of Container. It is mainly JToolBar, JPanel etc.
+	 * @param dimension the instance of Dimension
+	 * @param buttonGroup the instance of ButtonGroup
+	 * @param isFlatButtonUI the boolean value of isFlatButtonUI
+	 */
 	public static void updateUI(Container container, Dimension dimension, ButtonGroup buttonGroup, boolean isFlatButtonUI)
 	{
 		updateUI(container, dimension, buttonGroup, new int[] {HORIZONTAL, CENTER}, isFlatButtonUI);
 	}
 	
+	/**
+	 * Updates ui for buttons components which are added in the container.
+	 * @param container the instance of Container. It is mainly JToolBar, JPanel etc.
+	 * @param dimension the instance of Dimension
+	 * @param buttonGroup the instance of ButtonGroup
+	 * @param layout the layout array
+	 */
 	public static void updateUI(Container container, Dimension dimension, ButtonGroup buttonGroup, int[] layout)
 	{
 		updateUI(container, dimension, buttonGroup, layout, false);
 	}
 	
-	
+	/**
+	 * Updates ui for buttons components which are added in the container.
+	 * @param container the instance of Container. It is mainly JToolBar, JPanel etc.
+	 * @param dimension the instance of Dimension
+	 * @param buttonGroup the instance of ButtonGroup
+	 * @param layout the layout array
+	 * @param isFlatButtonUI the boolean value of isFlatButtonUI
+	 */
 	public static void updateUI(Container container, Dimension dimension, ButtonGroup buttonGroup, int[] layout, boolean isFlatButtonUI)
 	{
 		updateUI(container, dimension, null, buttonGroup, layout, isFlatButtonUI);
 	}
 		
+	/**
+	 * Updates ui for buttons components which are added in the container.
+	 * The button component includes Button, ToggleButton, MenuButton, SplitButton, Separator.
+	 * When the specified dimension and insets is not null, it will be distributed to all buttons.
+	 * When the specified buttonGroup is not null, all of toggle buttons will be added in it. (The attribute of "isGrouped" in the toggle button should be true).
+	 * The layout array is [iconTextLayout, horizontalAlignment].
+	 * The isFlatButtonUI will be distributed to the button as flat button ui style.
+	 * @param container the instance of Container. It is mainly JToolBar, JPanel etc.
+	 * @param dimension the instance of Dimension
+	 * @param insets the instance of Insets
+	 * @param buttonGroup the instance of ButtonGroup
+	 * @param layout the layout array
+	 * @param isFlatButtonUI the boolean value of isFlatButtonUI
+	 */
 	public static void updateUI(Container container, Dimension dimension, Insets insets, ButtonGroup buttonGroup, int[] layout, boolean isFlatButtonUI)
 	{
 		for (int i = 0; i < container.getComponentCount(); i++)
@@ -356,11 +517,22 @@ public class ButtonManager
 		}
 	}
 	
+	/**
+	 * Update ui for the button bar.
+	 * @param buttonBar the instance of JBasicButtonBar
+	 */
 	public static void updateUI(JBasicButtonBar buttonBar)
 	{
 		buttonBar.setUI(buttonBarUI);
 	}
 	
+	/**
+	 * Sets ui by a button ui class, menu button ui class, split button ui class and button style class.
+	 * @param buttonUIClass the button ui class string
+	 * @param menuButtonUIClass the menu button ui class string
+	 * @param splitButtonUIClass the split button ui class string
+	 * @param buttonStyleClass the button style class string
+	 */
 	public static void setUI(String buttonUIClass, String menuButtonUIClass, String splitButtonUIClass, String buttonStyleClass)
 	{
 		try
@@ -408,38 +580,60 @@ public class ButtonManager
 		}
 	}
 	
+	/**
+	 * Gets the button ui.
+	 * @return the instance of IButtonUI
+	 */
 	public static IButtonUI getButtonUI()
 	{
 		return buttonUI;
 	}
 	
+	/**
+	 * Gets the menu button ui.
+	 * @return the instance of IButtonUI
+	 */
 	public static IButtonUI getMenuButtonUI()
 	{
 		return menuButtonUI;
 	}
 	
+	/**
+	 * Gets the split button ui.
+	 * @return the instance of IButtonUI
+	 */
 	public static IButtonUI getSplitButtonUI()
 	{
 		return splitButtonUI;
 	}
 	
+	/**
+	 * Gets the button style.
+	 * @return the instance of IButtonStyle
+	 */
 	public static IButtonStyle getButtonStyle()
 	{
 		return buttonStyle;
 	}
 	
+	/**
+	 * Gets the button bar ui.
+	 * @return the instance of ButtonBarUI
+	 */
 	public static ButtonBarUI getButtonBarUI()
 	{
 		return buttonBarUI;
 	}
-	
+		
 	/**
-	 * XML : "&#x0A;" -> HTML: "\n"
-	 * XML : "&amp;nbsp;" -> HTML : "&nbsp;"
-	 * @param text
-	 * @return
+	 * Parses to the html text by a text.
+	 * If the text is from XML, the parsing relations are as below:
+	 * XML ["&#x0A;"] -> HTML ["\n"],
+	 * XML ["&amp;nbsp;] -> HTML [&nbsp;].
+	 * @param text the text string
+	 * @return the html text
 	 */
-	public static String getStyleText(String text)
+	public static String parseHtmlText(String text)
 	{
 		if (text == null)
 		{
