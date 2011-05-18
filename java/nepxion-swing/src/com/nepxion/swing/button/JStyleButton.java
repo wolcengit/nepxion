@@ -126,6 +126,7 @@ public class JStyleButton
 	 * Constructs with the specified initial text and icon.
 	 * @param text the text string 
 	 * @param icon the icon of Icon
+	 * @param toolTipText the tooltip text string
 	 */
 	public JStyleButton(String text, Icon icon, String toolTipText)
 	{

@@ -104,6 +104,7 @@ public class JClassicButton
 	 * Constructs with the specified initial text and icon.
 	 * @param text the text string 
 	 * @param icon the icon of Icon
+	 * @param toolTipText the tooltip text string
 	 */
 	public JClassicButton(String text, Icon icon, String toolTipText)
 	{
