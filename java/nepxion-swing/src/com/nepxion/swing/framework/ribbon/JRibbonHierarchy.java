@@ -12,6 +12,7 @@ package com.nepxion.swing.framework.ribbon;
 
 import java.awt.BorderLayout;
 
+import javax.swing.BoxLayout;
 import javax.swing.JPanel;
 
 import com.nepxion.swing.framework.JFrameWorkHierarchy;
@@ -30,7 +31,7 @@ public class JRibbonHierarchy
 	public JRibbonHierarchy()
 	{
 		navigatorContainer = new JPanel();
-		navigatorContainer.setLayout(new BorderLayout());
+		navigatorContainer.setLayout(new BoxLayout(navigatorContainer, BoxLayout.Y_AXIS));
 		
 		container = new JRibbonContainer();
 		
