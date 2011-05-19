@@ -268,13 +268,13 @@ public class Dom4JRibbonParser
 		
 		if (layout != null)
 		{
-			ribbon.getContainer().setLayout(layout);
+			ribbon.getToolBar().setLayout(layout);
 		}
 		ribbonBar.getRibbonView().add(ribbon);
 		
 		parseButtonElement(element, ribbon);
 		
-		ButtonManager.updateUI(ribbon.getContainer(), buttonInsets, buttonLayout);
+		ButtonManager.updateUI(ribbon.getToolBar(), buttonInsets, buttonLayout);
 	}
 	
 	public void parseButtonElement(Element element, JRibbon ribbon)
@@ -501,11 +501,11 @@ public class Dom4JRibbonParser
 		
 		if (constraints != null)
 		{
-			ribbon.getContainer().add(component, constraints);
+			ribbon.getToolBar().add(component, constraints);
 		}
 		else
 		{
-			ribbon.getContainer().add(component);
+			ribbon.getToolBar().add(component);
 		}
 	}
 	

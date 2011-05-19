@@ -10,26 +10,14 @@ package com.nepxion.swing.framework.ribbon.action;
  * @version 1.0
  */
 
-import java.awt.Component;
 import java.awt.event.ActionEvent;
-import java.util.Iterator;
-import java.util.List;
 
-import javax.swing.AbstractButton;
-import javax.swing.Action;
 import javax.swing.Icon;
-import javax.swing.JComponent;
 import javax.swing.JPanel;
 
-import com.nepxion.swing.action.JAction;
 import com.nepxion.swing.action.JSecurityAction;
-import com.nepxion.swing.container.ContainerManager;
-import com.nepxion.swing.framework.ribbon.JRibbon;
-import com.nepxion.swing.framework.ribbon.JRibbonBar;
 import com.nepxion.swing.framework.ribbon.JRibbonHierarchy;
 import com.nepxion.swing.framework.ribbon.JRibbonNavigatorBar;
-import com.nepxion.swing.tabbedpane.ITabbedPane;
-import com.nepxion.swing.toolbar.JBasicToolBar;
 
 public class JRibbonToggleFacadeAction
 	extends JSecurityAction
@@ -78,55 +66,6 @@ public class JRibbonToggleFacadeAction
 			return;
 		}
 		
-		ITabbedPane tabbedPane = ribbonNavigatorBar.getTabbedPane();
-		
-		JComponent tabbedComponent = (JComponent) tabbedPane;
-		
-		for (int i = 0; i < tabbedPane.getTabCount(); i++)
-		{
-			JRibbonBar ribbonBar = (JRibbonBar) tabbedPane.getComponentAt(i);
-			toggle(ribbonBar);
-		}
-		
-		tabbedComponent.setPreferredSize(null);
-		ContainerManager.update(tabbedComponent);
-	}
-	
-	private void toggle(JRibbonBar ribbonBar)
-	{
-		List ribbons = ribbonBar.getRibbons();
-		for (Iterator iterator = ribbons.iterator(); iterator.hasNext();)
-		{
-			JRibbon ribbon = (JRibbon) iterator.next();
-			
-			toogleIcon(ribbon);
-		}
-	}
-	
-	private void toogleIcon(JRibbon ribbon)
-	{
-		JBasicToolBar container = ribbon.getContainer();
-		
-		for (int i = 0; i < container.getComponentCount(); i++)
-		{
-			Component ribbonComponent = container.getComponent(i);
-			if (ribbonComponent instanceof AbstractButton)
-			{
-				AbstractButton button = (AbstractButton) ribbonComponent;
-				
-				Action action = button.getAction();
-				if (action instanceof JAction)
-				{
-					if (showType.equals(JAction.TEXT))
-					{
-						((JAction) action).showText(showValue);
-					}
-					else if (showType.equals(JAction.ICON))
-					{
-						((JAction) action).showIcon(showValue);
-					}					
-				}
-			}
-		}
+		ribbonNavigatorBar.toggleFacade(showType, showValue);
 	}
 }

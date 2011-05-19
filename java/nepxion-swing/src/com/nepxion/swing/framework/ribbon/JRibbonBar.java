@@ -12,6 +12,7 @@ package com.nepxion.swing.framework.ribbon;
 
 import java.awt.Component;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import javax.swing.BorderFactory;
@@ -54,7 +55,7 @@ public class JRibbonBar
 		
 		return ribbons;
 	}
-	
+			
 	public JRibbonContainer getRibbonContainer()
 	{
 		return ribbonContainer;
@@ -63,5 +64,16 @@ public class JRibbonBar
 	public JPanel getRibbonView()
 	{
 		return ribbonView;
+	}
+	
+	public void toggleFacade(String showType, int showValue)
+	{
+		List ribbons = getRibbons();
+		for (Iterator iterator = ribbons.iterator(); iterator.hasNext();)
+		{
+			JRibbon ribbon = (JRibbon) iterator.next();
+			
+			ribbon.toggleFacade(showType, showValue);
+		}
 	}
 }

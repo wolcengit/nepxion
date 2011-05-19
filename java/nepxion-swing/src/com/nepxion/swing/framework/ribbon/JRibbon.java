@@ -12,16 +12,20 @@ package com.nepxion.swing.framework.ribbon;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 
+import javax.swing.AbstractButton;
+import javax.swing.Action;
 import javax.swing.BorderFactory;
 import javax.swing.Icon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.UIManager;
 
+import com.nepxion.swing.action.JAction;
 import com.nepxion.swing.border.ShadowBorder;
 import com.nepxion.swing.gradient.JGradientPainter;
 import com.nepxion.swing.lookandfeel.LookAndFeelManager;
@@ -37,7 +41,7 @@ public class JRibbon
 	private Color labelBackground = new Color(193, 216, 241);
 	private Color cornerBackground = new Color(0, 0, 18); // new Color(102, 142, 175);
 	
-	private JBasicToolBar container;
+	private JBasicToolBar toolBar;
 	private JLabel label;
 	
 	public JRibbon()
@@ -52,7 +56,7 @@ public class JRibbon
 	
 	public JRibbon(String title, Icon icon, String toolTipText)
 	{
-		container = new JBasicToolBar()
+		toolBar = new JBasicToolBar()
 		{
 			public void paint(Graphics g)
 			{
@@ -121,13 +125,13 @@ public class JRibbon
 		setLayout(new BorderLayout());
 		setBorder(BorderFactory.createCompoundBorder(BorderFactory.createEmptyBorder(1, 1, 1, 1), new ShadowBorder(borderBackground)));
 		
-		add(container, BorderLayout.CENTER);
+		add(toolBar, BorderLayout.CENTER);
 		add(label, BorderLayout.SOUTH);
 	}
 	
-	public JBasicToolBar getContainer()
+	public JBasicToolBar getToolBar()
 	{
-		return container;
+		return toolBar;
 	}
 	
 	public JLabel getLabel()
@@ -223,5 +227,30 @@ public class JRibbon
 	public void setCornerBackground(Color cornerBackground)
 	{
 		this.cornerBackground = cornerBackground;
+	}
+	
+	public void toggleFacade(String showType, int showValue)
+	{
+		for (int i = 0; i < toolBar.getComponentCount(); i++)
+		{
+			Component ribbonComponent = toolBar.getComponent(i);
+			if (ribbonComponent instanceof AbstractButton)
+			{
+				AbstractButton button = (AbstractButton) ribbonComponent;
+				
+				Action action = button.getAction();
+				if (action instanceof JAction)
+				{
+					if (showType.equals(JAction.TEXT))
+					{
+						((JAction) action).showText(showValue);
+					}
+					else if (showType.equals(JAction.ICON))
+					{
+						((JAction) action).showIcon(showValue);
+					}
+				}
+			}
+		}
 	}
 }
