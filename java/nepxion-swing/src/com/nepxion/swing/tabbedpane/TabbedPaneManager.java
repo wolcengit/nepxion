@@ -66,18 +66,49 @@ public class TabbedPaneManager
 	
 	public static int getTabHeight(JTabbedPane tabbedPane)
 	{
-		int tabHeight = -1;
-
+		int maxContentHeight = getMaxContentHeight(tabbedPane);
+		int tabHeight = tabbedPane.getSize().height - maxContentHeight;
+		
+		return tabHeight;
+	}
+	
+	public static int getPreferredTabHeight(JTabbedPane tabbedPane)
+	{
+		int maxContentHeight = getMaxPreferredContentHeight(tabbedPane);
+		int tabHeight = tabbedPane.getPreferredSize().height - maxContentHeight;
+		
+		return tabHeight;
+	}
+	
+	public static int getMaxContentHeight(JTabbedPane tabbedPane)
+	{
+		int contentHeight = -1;
+		
 		for (int i = 0; i < tabbedPane.getTabCount(); i++)
 		{
-			Component component = (Component) tabbedPane.getComponentAt(i);
-			int h = tabbedPane.getSize().height - component.getSize().height;
-			if (h < tabHeight || tabHeight == -1)
-			{				
-				tabHeight = h;
+			Component component = tabbedPane.getComponentAt(i);
+			if (component.getSize().height > contentHeight)
+			{
+				contentHeight = component.getSize().height;
 			}
 		}
 		
-		return tabHeight;
+		return contentHeight;
+	}
+	
+	public static int getMaxPreferredContentHeight(JTabbedPane tabbedPane)
+	{
+		int contentHeight = -1;
+		
+		for (int i = 0; i < tabbedPane.getTabCount(); i++)
+		{
+			Component component = tabbedPane.getComponentAt(i);
+			if (component.getPreferredSize().height > contentHeight)
+			{
+				contentHeight = component.getPreferredSize().height;
+			}
+		}
+		
+		return contentHeight;
 	}
 }
