@@ -63,4 +63,21 @@ public class TabbedPaneManager
 			}
 		}
 	}
+	
+	public static int getTabHeight(JTabbedPane tabbedPane)
+	{
+		int tabHeight = -1;
+
+		for (int i = 0; i < tabbedPane.getTabCount(); i++)
+		{
+			Component component = (Component) tabbedPane.getComponentAt(i);
+			int h = tabbedPane.getSize().height - component.getSize().height;
+			if (h < tabHeight || tabHeight == -1)
+			{				
+				tabHeight = h;
+			}
+		}
+		
+		return tabHeight;
+	}
 }
