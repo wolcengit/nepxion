@@ -36,13 +36,13 @@ import com.nepxion.swing.toolbar.JBasicToolBar;
 public class DemoDockableHierarchy
 	extends JDockableHierarchy
 {
-    public final static String TREE_TITLE = "Tree View";
-    public final static String TABLE_TITLE = "Table View";
-    public final static String TEXT_AREA_TITLE = "TextArea View";   
-    public final static String TABBED_PANE_TITLE = "TabbedPane View";   
-    public final static String LIST_TITLE = "List View"; 
-    public final static String CHECK_BOX_SELECTOR_TITLE = "CheckBox Selector View";    
-    public final static String RADIO_BUTTON_SELECTOR_TITLE = "RadioButton Selector View";        
+    public static final String TREE_TITLE = "Tree View";
+    public static final String TABLE_TITLE = "Table View";
+    public static final String TEXT_AREA_TITLE = "TextArea View";   
+    public static final String TABBED_PANE_TITLE = "TabbedPane View";   
+    public static final String LIST_TITLE = "List View"; 
+    public static final String CHECK_BOX_SELECTOR_TITLE = "CheckBox Selector View";    
+    public static final String RADIO_BUTTON_SELECTOR_TITLE = "RadioButton Selector View";        
     
     public DemoDockableHierarchy()
     {

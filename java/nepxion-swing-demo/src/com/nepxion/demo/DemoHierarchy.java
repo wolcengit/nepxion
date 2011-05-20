@@ -30,8 +30,8 @@ import com.nepxion.swing.toolbar.JBasicToolBar;
 public class DemoHierarchy
 	extends JDockableHierarchy
 {
-    public final static String EXPLORER_TITLE = "Explorer";
-    public final static String CONTENT_PANE_TITLE = "ContentPane";
+    public static final String EXPLORER_TITLE = "Explorer";
+    public static final String CONTENT_PANE_TITLE = "ContentPane";
     
     public DemoHierarchy()
     {
