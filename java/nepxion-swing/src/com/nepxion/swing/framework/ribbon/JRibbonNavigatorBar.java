@@ -68,7 +68,10 @@ public abstract class JRibbonNavigatorBar
 		{
 			public void componentResized(ComponentEvent e)
 			{
-				adaptDimension();
+				if (isBarShown)
+				{	
+					adaptDimension();
+				}
 			}
 		}
 		);
