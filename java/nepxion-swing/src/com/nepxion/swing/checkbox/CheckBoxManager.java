@@ -16,6 +16,10 @@ import com.nepxion.swing.lookandfeel.LookAndFeelManager;
 
 public class CheckBoxManager
 {
+	/**
+	 * Sets the preference style for the check box.
+	 * @param checkBox the instance of JCheckBox
+	 */
 	public static void setPreferenceStyle(JCheckBox checkBox)
 	{
 		if (!LookAndFeelManager.isNimbusLookAndFeel())

@@ -15,6 +15,9 @@ import javax.swing.JToggleButton;
 public class LiteCheckBoxModel
 	extends JToggleButton.ToggleButtonModel	implements ILiteCheckBoxModel
 {
+	/**
+	 * Constructs with the default.
+	 */
 	public LiteCheckBoxModel()
 	{
 		super();
