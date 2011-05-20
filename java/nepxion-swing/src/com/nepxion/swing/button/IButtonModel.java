@@ -18,12 +18,12 @@ public abstract interface IButtonModel
 	/**
 	 * Returns true if the menu drop down.
 	 * The value is only used in MenuButton or SplitButton.
-	 * @return true if isMenuDropDown
+	 * @return true if the menu drops down
 	 */
 	public boolean isMenuDropDown();
 	
 	/**
-	 * Sets the boolean value of isMenuDropDown.
+	 * Sets the menu dropped down.
 	 * @param isMenuDropDown the boolean value of isMenuDropDown
 	 */
 	public void setMenuDropDown(boolean isMenuDropDown);
@@ -35,7 +35,7 @@ public abstract interface IButtonModel
 	public boolean isActionButtonPressed();
 	
 	/**
-	 * Sets the boolean value of isActionButtonPressed.
+	 * Sets the action button pressed.
 	 * @param the boolean value of isActionButtonPressed
 	 */
 	public void setActionButtonPressed(boolean isActionButtonPressed);

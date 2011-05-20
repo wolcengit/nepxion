@@ -20,7 +20,7 @@ public interface IToggleButton
 	public boolean isGrouped();
 	
 	/**
-	 * Sets the boolean value of isGrouped.
+	 * Sets the button grouped.
 	 * @param isGrouped the boolean value of isGrouped
 	 */
 	public void setGrouped(boolean isGrouped);

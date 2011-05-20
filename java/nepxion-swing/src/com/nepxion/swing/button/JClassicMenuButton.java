@@ -232,7 +232,7 @@ public class JClassicMenuButton
 	}
 
 	/**
-	 * Sets the boolean value of arrow shown.
+	 * Sets the arrow shown.
 	 * @param isShowArrow the boolean value of arrow shown
 	 */
 	public void setShowArrow(boolean isShowArrow)
@@ -250,8 +250,8 @@ public class JClassicMenuButton
 	}
 
 	/**
-	 * Sets the boolean value of arrow at right position.
-	 * @param isShowArrow the boolean value of arrow at right position
+	 * Sets the arrow shown at right position on the button.
+	 * @param isShowArrow the boolean value of arrow shown at right position on the button
 	 */
 	public void setShowArrowRight(boolean isShowArrowRight)
 	{
