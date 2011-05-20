@@ -33,15 +33,36 @@ import org.jfree.ui.RectangleEdge;
 public class CylinderBarRenderer3D
 	extends RectangleBarRenderer3D
 {
+	/**
+	 * Constructs with the default.
+	 */
 	public CylinderBarRenderer3D()
 	{
 	}
 	
+	/**
+	 * Constructs with the specified initial x offset and y offset.
+	 * @param xOffset the x offset value
+	 * @param yOffset the y offset value
+	 */
 	public CylinderBarRenderer3D(double xOffset, double yOffset)
 	{
 		super(xOffset, yOffset);
 	}
 	
+	/**
+	 * Draws the item for the chart.
+	 * @param graphics2D the instance of Graphics2D
+	 * @param categoryItemRendererState the instance of CategoryItemRendererState
+	 * @param rectangle2D the instance of Rectangle2D
+	 * @param categoryPlot the instance of CategoryPlot
+	 * @param categoryAxis the instance of CategoryAxis
+	 * @param valueAxis the instance of ValueAxis
+	 * @param categoryDataset the instance of CategoryDataset
+	 * @param i the i value
+	 * @param j the j value
+	 * @param k the k value
+	 */
 	public void drawItem(Graphics2D graphics2D, CategoryItemRendererState categoryItemRendererState, Rectangle2D rectangle2D, CategoryPlot categoryPlot, CategoryAxis categoryAxis, ValueAxis valueAxis, CategoryDataset categoryDataset, int i, int j, int k)
 	{
 		Number number = categoryDataset.getValue(i, j);

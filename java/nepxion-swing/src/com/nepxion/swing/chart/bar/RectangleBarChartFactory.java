@@ -48,6 +48,18 @@ import com.nepxion.swing.font.FontContext;
 
 public class RectangleBarChartFactory
 {
+	/**
+	 * Creates the category plot.
+	 * @param categoryDataset the instance of CategoryDataset
+	 * @param orientation the instance of PlotOrientation
+	 * @param categoryAxisLabel the category axis label string
+	 * @param valueAxisLabel the value axis label string
+	 * @param toolTipText the tooltip text string
+	 * @param legendToolTipText the legend tooltip text string
+	 * @param isStacked the boolean value of isStacked
+	 * @param isCategoryLabelRotated the boolean value of isCategoryLabelRotated
+	 * @return the instance of CategoryPlot
+	 */
 	public static CategoryPlot createCategoryPlot(CategoryDataset categoryDataset, PlotOrientation orientation, String categoryAxisLabel, String valueAxisLabel, String toolTipText, String legendToolTipText, boolean isStacked, boolean isCategoryLabelRotated)
 	{
 		CategoryPlot categoryPlot = createCategoryPlot(categoryDataset, orientation, categoryAxisLabel, valueAxisLabel, isStacked, true, true, false);
@@ -57,7 +69,19 @@ public class RectangleBarChartFactory
 		return categoryPlot;
 	}
 	
-	public static CategoryPlot createCategoryPlot(CategoryDataset dataset, PlotOrientation orientation, String categoryAxisLabel, String valueAxisLabel, boolean stacked, boolean labels, boolean tooltips, boolean urls)
+	/**
+	 * Creates the category plot.
+	 * @param categoryDataset the instance of CategoryDataset
+	 * @param orientation the instance of PlotOrientation
+	 * @param categoryAxisLabel the category axis label string
+	 * @param valueAxisLabel the value axis label string
+	 * @param stacked the boolean value of isStacked
+	 * @param labels the boolean value of label shown
+	 * @param tooltips the boolean value of tooltip shown
+	 * @param urls the boolean value of url shown
+	 * @return the instance of CategoryPlot
+	 */
+	public static CategoryPlot createCategoryPlot(CategoryDataset categoryDataset, PlotOrientation orientation, String categoryAxisLabel, String valueAxisLabel, boolean stacked, boolean labels, boolean tooltips, boolean urls)
 	{
 		if (orientation == null)
 		{
@@ -109,12 +133,24 @@ public class RectangleBarChartFactory
 			barRenderer.setBaseItemURLGenerator(new StandardCategoryURLGenerator());
 		}
 		
-		CategoryPlot categoryPlot = new CategoryPlot(dataset, categoryAxis, valueAxis, barRenderer);
+		CategoryPlot categoryPlot = new CategoryPlot(categoryDataset, categoryAxis, valueAxis, barRenderer);
 		categoryPlot.setOrientation(orientation);
 		
 		return categoryPlot;
 	}
 	
+	/**
+	 * Creates the category plot 3D.
+	 * @param categoryDataset the instance of CategoryDataset
+	 * @param orientation the instance of PlotOrientation
+	 * @param categoryAxisLabel the category axis label string
+	 * @param valueAxisLabel the value axis label string
+	 * @param toolTipText the tooltip text string
+	 * @param legendToolTipText the legend tooltip text string
+	 * @param isStacked the boolean value of isStacked
+	 * @param isCategoryLabelRotated the boolean value of isCategoryLabelRotated
+	 * @return the instance of CategoryPlot
+	 */
 	public static CategoryPlot createCategoryPlot3D(CategoryDataset categoryDataset, PlotOrientation orientation, String categoryAxisLabel, String valueAxisLabel, String toolTipText, String legendToolTipText, boolean isStacked, boolean isCategoryLabelRotated)
 	{	
 		CategoryPlot categoryPlot = createCategoryPlot3D(categoryDataset, orientation, categoryAxisLabel, valueAxisLabel, isStacked, true, true, false);
@@ -123,7 +159,19 @@ public class RectangleBarChartFactory
 		
 		return categoryPlot;
 	}
-	
+		
+	/**
+	 * Creates the category plot 3D.
+	 * @param categoryDataset the instance of CategoryDataset
+	 * @param orientation the instance of PlotOrientation
+	 * @param categoryAxisLabel the category axis label string
+	 * @param valueAxisLabel the value axis label string
+	 * @param stacked the boolean value of isStacked
+	 * @param labels the boolean value of label shown
+	 * @param tooltips the boolean value of tooltip shown
+	 * @param urls the boolean value of url shown
+	 * @return the instance of CategoryPlot
+	 */
 	public static CategoryPlot createCategoryPlot3D(CategoryDataset categoryDataset, PlotOrientation orientation, String categoryAxisLabel, String valueAxisLabel, boolean isStacked, boolean labels, boolean tooltips, boolean urls)
 	{
 		if (orientation == null)
@@ -183,6 +231,15 @@ public class RectangleBarChartFactory
 		return categoryPlot;
 	}
 	
+	/**
+	 * Sets the category plot preference.
+	 * @param categoryPlot the instance of CategoryPlot
+	 * @param orientation the instance of PlotOrientation
+	 * @param toolTipText the tooltip text string
+	 * @param legendToolTipText the legend tooltip text string
+	 * @param isCategoryLabelRotated the boolean value of isCategoryLabelRotated
+	 * @param foregroundAlpha the foreground alpha value
+	 */
 	public static void setCategoryPlotPreference(CategoryPlot categoryPlot, PlotOrientation orientation, String toolTipText, String legendToolTipText, boolean isCategoryLabelRotated, float foregroundAlpha)
 	{
 		// CategoryAxis categoryAxis = (CategoryAxis) categoryPlot.getDomainAxis();
@@ -224,6 +281,24 @@ public class RectangleBarChartFactory
 		categoryPlot.setBackgroundPaint(new Color(128, 128, 128, 30));
 	}
 	
+	/**
+	 * Gets the section paint.
+	 * @param categoryPlot the instance of categoryPlot
+	 * @param index the index value
+	 * @return the instance of Paint
+	 */
+	public static Paint getSectionPaint(CategoryPlot categoryPlot, int index)
+	{
+		BarRenderer barRenderer = (BarRenderer) categoryPlot.getRenderer();
+		
+		return barRenderer.getSeriesPaint(index);
+	}
+	
+	/**
+	 * Sets the section paint.
+	 * @param categoryPlot the instance of CategoryPlot
+	 * @param is3D the boolean value of is3D
+	 */
 	public static void setSectionPaint(CategoryPlot categoryPlot, boolean is3D)
 	{	
 		for (int i = 0; i < categoryPlot.getDataset().getRowCount(); i++)
@@ -232,6 +307,13 @@ public class RectangleBarChartFactory
 		}	
 	}
 	
+	/**
+	 * Sets the section paint.
+	 * @param categoryPlot the instance of CategoryPlot
+	 * @param is3D the boolean value of is3D
+	 * @param seriesIndex the series index value
+	 * @param colorIndex the color index value
+	 */
 	public static void setSectionPaint(CategoryPlot categoryPlot, boolean is3D, int seriesIndex, int colorIndex)
 	{				
 		Paint paint = null;
@@ -245,36 +327,66 @@ public class RectangleBarChartFactory
 		}
 		setSectionPaint(categoryPlot, seriesIndex, paint);
 	}
-		
-	public static Paint getSectionPaint(CategoryPlot categoryPlot, int index)
-	{
-		BarRenderer barRenderer = (BarRenderer) categoryPlot.getRenderer();
-		
-		return barRenderer.getSeriesPaint(index);
-	}
 	
+	/**
+	 * Sets the section paint. 
+	 * @param categoryPlot the instance of CategoryPlot
+	 * @param index the index value
+	 * @param paint the instance of Paint
+	 */
 	public static void setSectionPaint(CategoryPlot categoryPlot, int index, Paint paint)
 	{
 		BarRenderer barRenderer = (BarRenderer) categoryPlot.getRenderer();
 		barRenderer.setSeriesPaint(index, paint);
 	}
 	
+	/**
+	 * Sets the section paint. 
+	 * @param categoryPlot the instance of CategoryPlot
+	 * @param index the index value
+	 * @param color1 the instance of Color
+	 * @param color2 the instance of Color
+	 */
 	public static void setSectionPaint(CategoryPlot categoryPlot, int index, Color color1, Color color2)
 	{
 		BarRenderer barRenderer = (BarRenderer) categoryPlot.getRenderer();
 		barRenderer.setSeriesPaint(index, new GradientPaint(0.0F, 0.0F, color1, 0.0F, 0.0F, color2));
 	}
 	
+	/**
+	 * Sets the value marker.
+	 * @param categoryPlot the instance of CategoryPlot 
+	 * @param category the instance of Comparable
+	 * @param text the text string
+	 * @param value the value
+	 */
 	public static void setValueMarker(CategoryPlot categoryPlot, Comparable category, String text, double value)
 	{
 		setValueMarker(categoryPlot, category, text, value, new Color(221, 221, 221));
 	}
 	
+	/**
+	 * Sets the value marker.
+	 * @param categoryPlot the instance of CategoryPlot 
+	 * @param category the instance of Comparable
+	 * @param text the text string
+	 * @param value the value
+	 * @param paint the instance of Paint
+	 */
 	public static void setValueMarker(CategoryPlot categoryPlot, Comparable category, String text, double value, Paint paint)
 	{
 		setValueMarker(categoryPlot, category, text, value, paint, Color.gray);
 	}
 	
+	/**
+	 * Sets the value marker.
+	 * @param categoryPlot the instance of CategoryPlot 
+	 * @param category the instance of Comparable
+	 * @param text the text string
+	 * @param value the value
+	 * @param paint the instance of Paint
+	 * @param outlinePaint the instance of Paint
+	 */
 	public static void setValueMarker(CategoryPlot categoryPlot, Comparable category, String text, double value, Paint paint, Paint outlinePaint)
 	{
 		ValueMarker valueMarker = new ValueMarker(value, paint, new BasicStroke(1.0F), outlinePaint, new BasicStroke(1.0F), 0.75F);
@@ -287,6 +399,11 @@ public class RectangleBarChartFactory
 		categoryPlot.addAnnotation(categoryTextAnnotation);
 	}
 	
+	/**
+	 * Gets the category plot selection index array.
+	 * @param chartPanel the instance of JChartPanel
+	 * @return the category plot selection index array 
+	 */
 	public static int[] getCategoryPlotSelectionIndexes(JChartPanel chartPanel)
 	{
 		JFreeChart chart = chartPanel.getChart();	
@@ -294,6 +411,11 @@ public class RectangleBarChartFactory
 		return getCategoryPlotSelectionIndexes(chart);
 	}
 	
+	/**
+	 * Gets the category plot selection index array.
+	 * @param chart the instance of JFreeChart
+	 * @return the category plot selection index array
+	 */
 	public static int[] getCategoryPlotSelectionIndexes(JFreeChart chart)
 	{
 		CategoryItemRenderer itemRenderer = chart.getCategoryPlot().getRenderer();

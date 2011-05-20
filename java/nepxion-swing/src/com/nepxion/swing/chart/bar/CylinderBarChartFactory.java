@@ -30,6 +30,17 @@ import org.jfree.ui.TextAnchor;
 public class CylinderBarChartFactory
 	extends RectangleBarChartFactory
 {
+	/**
+	 * Creates the category plot 3D.
+	 * @param categoryDataset the instance of CategoryDataset
+	 * @param orientation the instance of PlotOrientation
+	 * @param categoryAxisLabel the category axis label string
+	 * @param valueAxisLabel the value axis label string
+	 * @param toolTipText the tooltip text string
+	 * @param legendToolTipText the legend tooltip text string
+	 * @param isCategoryLabelRotated the boolean value of isCategoryLabelRotated
+	 * @return the instance of CategoryPlot
+	 */
 	public static CategoryPlot createCategoryPlot3D(CategoryDataset categoryDataset, PlotOrientation orientation, String categoryAxisLabel, String valueAxisLabel, String toolTipText, String legendToolTipText, boolean isCategoryLabelRotated)
 	{
 		CategoryPlot categoryPlot = createCategoryPlot3D(categoryDataset, orientation, categoryAxisLabel, valueAxisLabel, true, true, false);
@@ -39,6 +50,17 @@ public class CylinderBarChartFactory
 		return categoryPlot;
 	}
 	
+	/**
+	 * Creates the category plot 3D.
+	 * @param categoryDataset the instance of CategoryDataset
+	 * @param orientation the instance of PlotOrientation
+	 * @param categoryAxisLabel the category axis label string
+	 * @param valueAxisLabel the value axis label string
+	 * @param labels the boolean value of label shown
+	 * @param tooltips the boolean value of tooltip shown
+	 * @param urls the boolean value of url shown
+	 * @return the instance of CategoryPlot
+	 */
 	public static CategoryPlot createCategoryPlot3D(CategoryDataset categoryDataset, PlotOrientation orientation, String categoryAxisLabel, String valueAxisLabel, boolean labels, boolean tooltips, boolean urls)
 	{
 		if (orientation == null)

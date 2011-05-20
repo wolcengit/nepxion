@@ -21,23 +21,42 @@ import org.jfree.data.category.CategoryDataset;
 public class BarSelectionAdapter
 	implements ChartMouseListener
 {
+	/**
+	 * The instance of IBarRenderer.
+	 */
 	private IBarRenderer chartRenderer;
 	
+	/**
+	 * Constructs with the default.
+	 */
 	public BarSelectionAdapter()
 	{
 		
 	}
 	
+    /**
+     * Invoked when the mouse moves on a chart.
+     * @param e the instance of ChartMouseEvent
+     */
 	public void chartMouseMoved(ChartMouseEvent e)
 	{
 		adaptSelection(e, true);
 	}
 	
+    /**
+     * Invoked when the mouse button has been clicked (pressed and released) on a chart.
+     * @param e the instance of ChartMouseEvent
+     */
 	public void chartMouseClicked(ChartMouseEvent e)
 	{
 		adaptSelection(e, false);
 	}
 	
+	/**
+	 * Adapts the selections.
+	 * @param e the instance of ChartMouseEvent
+	 * @param isMouseOver the boolean value of isMouseOver
+	 */
 	private void adaptSelection(ChartMouseEvent e, boolean isMouseOver)
 	{
 		JFreeChart chart = e.getChart();

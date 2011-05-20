@@ -19,8 +19,14 @@ import org.jfree.chart.renderer.category.StackedBarRenderer3D;
 public class StackedRectangleBarRenderer3D
 	extends StackedBarRenderer3D implements IBarRenderer
 {
+	/**
+	 * The instance of BarRendererAdapter.
+	 */
 	private BarRendererAdapter adapter;
 	
+	/**
+	 * Constructs with the default.
+	 */
 	public StackedRectangleBarRenderer3D()
 	{
 		super();
@@ -28,6 +34,11 @@ public class StackedRectangleBarRenderer3D
 		adapter = new BarRendererAdapter();
 	}
 	
+	/**
+	 * Constructs with the specified initial x offset and y offset.
+	 * @param xOffset the x offset value
+	 * @param yOffset the y offset value
+	 */
 	public StackedRectangleBarRenderer3D(double xOffset, double yOffset)
 	{
 		super(xOffset, yOffset);
@@ -35,6 +46,11 @@ public class StackedRectangleBarRenderer3D
 		adapter = new BarRendererAdapter();
 	}
 	
+	/**
+	 * Dispatched when the mouse is over a chart. 
+	 * @param row the row index
+	 * @param column the column index
+	 */
 	public void dispatchMouseOver(int row, int column)
 	{
 		adapter.dispatchMouseOver(row, column);
@@ -42,6 +58,11 @@ public class StackedRectangleBarRenderer3D
 		notifyListeners(new RendererChangeEvent(this));
 	}
 	
+	/**
+	 * Dispatched when the mouse is down a chart. 
+	 * @param row the row index
+	 * @param column the column index
+	 */
 	public void dispatchMouseDown(int row, int column)
 	{
 		adapter.dispatchMouseDown(row, column);
@@ -49,6 +70,12 @@ public class StackedRectangleBarRenderer3D
 		notifyListeners(new RendererChangeEvent(this));
 	}
 	
+	/**
+	 * Gets the item outline stroke by a row and column.
+	 * @param row the row index
+	 * @param column the column index
+	 * @return the instance of Stroke
+	 */
 	public Stroke getItemOutlineStroke(int row, int column)
 	{
 		Stroke stroke = adapter.getItemOutlineStroke(row, column);
@@ -60,6 +87,12 @@ public class StackedRectangleBarRenderer3D
 		return super.getItemOutlineStroke(row, column);
 	}
 	
+	/**
+	 * Gets the item outline paint by a row and column.
+	 * @param row the row index
+	 * @param column the column index
+	 * @return the instance of Paint
+	 */
 	public Paint getItemOutlinePaint(int row, int column)
 	{
 		Paint paint = adapter.getItemOutlinePaint(row, column);
@@ -71,16 +104,28 @@ public class StackedRectangleBarRenderer3D
 		return super.getItemOutlinePaint(row, column);
 	}
 	
+	/**
+	 * Gets the selection row.
+	 * @return the selection row index
+	 */
 	public int getSelectionRow()
 	{
 		return adapter.getSelectionRow();
 	}
 	
+	/**
+	 * Gets the selection column.
+	 * @return the selection column index
+	 */
 	public int getSelectionColumn()
 	{
 		return adapter.getSelectionColumn();
 	}
 	
+	/**
+	 * Gets the adapter object.
+	 * @return the instance of BarRendererAdapter
+	 */
 	public BarRendererAdapter getAdapter()
 	{
 		return adapter;
