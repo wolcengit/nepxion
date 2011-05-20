@@ -127,7 +127,7 @@ public class JBasicSplitButton
 	}
 	
 	/**
-	 * Fires the mouse pressed event.
+	 * Invoked when a mouse button has been pressed on a component.
 	 * @param e the instance of MouseEvent
 	 */
 	public void mousePressed(MouseEvent e)
@@ -153,7 +153,7 @@ public class JBasicSplitButton
 	}
 	
 	/**
-	 * Fires the action performed event.
+	 * Invoked when an action occurs.
 	 * @param e the instance of ActionEvent
 	 */
 	protected void fireActionPerformed(ActionEvent e)

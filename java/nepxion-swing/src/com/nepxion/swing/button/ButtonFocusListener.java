@@ -50,7 +50,7 @@ public class ButtonFocusListener
 	}
 	
 	/**
-	 * Fires the focus gained event.
+	 * Invoked when a component gains the keyboard focus.
 	 * @param e the instance of FocusEvent
 	 */
 	public void focusGained(FocusEvent e)

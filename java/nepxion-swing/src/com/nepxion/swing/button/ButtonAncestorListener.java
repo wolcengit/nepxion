@@ -20,7 +20,7 @@ public class ButtonAncestorListener
 	implements AncestorListener
 {
 	/**
-	 * Fires the ancestor added event.
+	 * Invoked when the ancestor has been added.
 	 * @param e the instance of AncestorEvent
 	 */
 	public void ancestorAdded(AncestorEvent e)
@@ -34,7 +34,7 @@ public class ButtonAncestorListener
 	}
 	
 	/**
-	 * Fires the ancestor removed event.
+	 * Invoked when the ancestor has been removed.
 	 * @param e the instance of AncestorEvent
 	 */
 	public void ancestorRemoved(AncestorEvent event)
@@ -42,7 +42,7 @@ public class ButtonAncestorListener
 	}
 	
 	/**
-	 * Fires the ancestor moved event.
+	 * Invoked when the ancestor has been moved.
 	 * @param e the instance of AncestorEvent
 	 */
 	public void ancestorMoved(AncestorEvent event)

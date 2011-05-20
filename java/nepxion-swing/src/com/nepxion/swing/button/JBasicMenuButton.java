@@ -156,7 +156,7 @@ public class JBasicMenuButton
 	}
 	
 	/**
-	 * Fires the mouse clicked event.
+	 * Invoked when the mouse button has been clicked (pressed and released) on a component.
 	 * @param e the instance of MouseEvent
 	 */
 	public void mouseClicked(MouseEvent e)
@@ -164,7 +164,7 @@ public class JBasicMenuButton
 	}
 	
 	/**
-	 * Fires the mouse pressed event.
+	 * Invoked when a mouse button has been pressed on a component.
 	 * @param e the instance of MouseEvent
 	 */
 	public void mousePressed(MouseEvent e)
@@ -185,7 +185,7 @@ public class JBasicMenuButton
 	}
 	
 	/**
-	 * Fires the mouse released event.
+	 * Invoked when a mouse button has been released on a component.
 	 * @param e the instance of MouseEvent
 	 */
 	public void mouseReleased(MouseEvent e)
@@ -193,7 +193,7 @@ public class JBasicMenuButton
 	}
 	
 	/**
-	 * Fires the mouse entered event.
+	 * Invoked when the mouse enters a component.
 	 * @param e the instance of MouseEvent
 	 */
 	public void mouseEntered(MouseEvent e)
@@ -201,7 +201,7 @@ public class JBasicMenuButton
 	}
 	
 	/**
-	 * Fires the mouse exited event.
+	 * Invoked when the mouse exits a component.
 	 * @param e the instance of MouseEvent
 	 */
 	public void mouseExited(MouseEvent e)
@@ -209,7 +209,7 @@ public class JBasicMenuButton
 	}
 	
 	/**
-	 * Fires the popup menu will become visible event.
+	 * Invoked before the popup menu becomes visible.
 	 * @param e the instance of PopupMenuEvent
 	 */
 	public void popupMenuWillBecomeVisible(PopupMenuEvent e)
@@ -221,7 +221,7 @@ public class JBasicMenuButton
 	}
 	
 	/**
-	 * Fires the popup menu will become invisible event.
+	 * Invoked before the popup menu becomes invisible.
 	 * @param e the instance of PopupMenuEvent
 	 */
 	public void popupMenuWillBecomeInvisible(PopupMenuEvent e)
@@ -233,7 +233,7 @@ public class JBasicMenuButton
 	}
 	
 	/**
-	 * Fires the popup menu canceled event.
+	 * Invoked when the popup menu is canceled.
 	 * @param e the instance of PopupMenuEvent
 	 */
 	public void popupMenuCanceled(PopupMenuEvent e)
