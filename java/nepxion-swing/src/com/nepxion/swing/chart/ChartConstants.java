@@ -20,17 +20,17 @@ public interface ChartConstants
 	/**
 	 * The bar chart type string.
 	 */
-	public final static String CHART_TYPE_BAR = "BarChart";
+	public static final String CHART_TYPE_BAR = "BarChart";
 	
 	/**
 	 * The pie chart type string.
 	 */
-	public final static String CHART_TYPE_PIE = "PieChart";
+	public static final String CHART_TYPE_PIE = "PieChart";
 	
 	/**
 	 * The line chart type string.
 	 */
-	public final static String CHART_TYPE_LINE = "LineChart";
+	public static final String CHART_TYPE_LINE = "LineChart";
 	
 	/**
 	 * The default string of author for the chart pdf file. 
