@@ -30,8 +30,15 @@ import com.nepxion.swing.popupmenu.JDecorationPopupMenu;
 public class JChartPanel
 	extends ChartPanel
 {
+	/**
+	 * The instance of ChartPDFWriter.
+	 */
 	private ChartPDFWriter chartPDFWriter;
 	
+	/**
+	 * Constructs with the specified initial chart.
+	 * @param chart the instance of JFreeChart
+	 */
 	public JChartPanel(JFreeChart chart)
 	{
 		super(chart);
@@ -39,6 +46,11 @@ public class JChartPanel
 		initComponents();
 	}
 	
+	/**
+	 * Constructs with the specified initial chart.
+	 * @param chart the instance of JFreeChart
+	 * @param useBuffer the boolean value of useBuffer
+	 */
 	public JChartPanel(JFreeChart chart, boolean useBuffer)
 	{
 		super(chart, useBuffer);
@@ -46,6 +58,15 @@ public class JChartPanel
 		initComponents();
 	}
 	
+	/**
+	 * Constructs with the specified initial chart.
+	 * @param chart the instance of JFreeChart
+	 * @param properties the boolean value of properties
+	 * @param save the boolean value of save
+	 * @param print the boolean value of print
+	 * @param zoom the boolean value of zoom
+	 * @param tooltips the boolean value of tooltips
+	 */
 	public JChartPanel(JFreeChart chart, boolean properties, boolean save, boolean print, boolean zoom, boolean tooltips)
 	{
 		super(chart, properties, save, print, zoom, tooltips);
@@ -53,6 +74,22 @@ public class JChartPanel
 		initComponents();
 	}
 	
+	/**
+	 * Constructs with the specified initial chart.
+	 * @param chart the instance of JFreeChart
+	 * @param width the width value
+	 * @param height the height value
+	 * @param minimumDrawWidth the minimum draw width
+	 * @param minimumDrawHeight the minimum draw height
+	 * @param maximumDrawWidth the maximum draw width
+	 * @param maximumDrawHeight maximum draw height
+	 * @param useBuffer the boolean value of useBuffer
+	 * @param properties the boolean value of properties
+	 * @param save the boolean value of save
+	 * @param print the boolean value of print
+	 * @param zoom the boolean value of zoom
+	 * @param tooltips the boolean value of tooltips
+	 */
 	public JChartPanel(JFreeChart chart, int width, int height, int minimumDrawWidth, int minimumDrawHeight, int maximumDrawWidth, int maximumDrawHeight, boolean useBuffer, boolean properties, boolean save, boolean print, boolean zoom, boolean tooltips)
 	{
 		super(chart, width, height, minimumDrawWidth, minimumDrawHeight, maximumDrawWidth, maximumDrawHeight, useBuffer, properties, save, print, zoom, tooltips);
@@ -60,6 +97,23 @@ public class JChartPanel
 		initComponents();
 	}
 	
+	/**
+	 * Constructs with the specified initial chart.
+	 * @param chart the instance of JFreeChart
+	 * @param width the width value
+	 * @param height the height value
+	 * @param minimumDrawWidth the minimum draw width
+	 * @param minimumDrawHeight the minimum draw height
+	 * @param maximumDrawWidth the maximum draw width
+	 * @param maximumDrawHeight maximum draw height
+	 * @param useBuffer the boolean value of useBuffer
+	 * @param properties the boolean value of properties
+	 * @param copy the boolean value of copy
+	 * @param save the boolean value of save
+	 * @param print the boolean value of print
+	 * @param zoom the boolean value of zoom
+	 * @param tooltips the boolean value of tooltips
+	 */
 	public JChartPanel(JFreeChart chart, int width, int height, int minimumDrawWidth, int minimumDrawHeight, int maximumDrawWidth, int maximumDrawHeight, boolean useBuffer, boolean properties, boolean copy, boolean save, boolean print, boolean zoom, boolean tooltips)
 	{
 		super(chart, width, height, minimumDrawWidth, minimumDrawHeight, maximumDrawWidth, maximumDrawHeight, useBuffer, properties, copy, save, print, zoom, tooltips);
@@ -67,11 +121,18 @@ public class JChartPanel
 		initComponents();
 	}
 	
+	/**
+	 * Initializes the components.
+	 */
 	private void initComponents()
 	{
 		setMouseWheelEnabled(true);
 	}
 	
+    /**
+     * Invoked when a mouse button has been released on a component.
+     * @param e the instance of MouseEvent
+     */
 	public void mouseReleased(MouseEvent e)
 	{
 		super.mouseReleased(e);
@@ -83,6 +144,14 @@ public class JChartPanel
 		}	
 	}
 	
+	/**
+	 * Creates the popup menu.
+	 * @param properties the boolean value whether the popup menu shows "Properties" menu item or not
+	 * @param copy the boolean value whether the popup menu shows "Copy" menu item or not
+	 * @param save the boolean value whether the popup menu shows "Save" menu item or not
+	 * @param print the boolean value whether the popup menu shows "Print" menu item or not
+	 * @param zoom the boolean value whether the popup menu shows "Zoom" menu item or not
+	 */
     protected JPopupMenu createPopupMenu(boolean properties, boolean copy, boolean save, boolean print, boolean zoom)
     {
     	JPopupMenu popupMenu = super.createPopupMenu(properties, copy, save, print, zoom);
@@ -184,6 +253,9 @@ public class JChartPanel
 		return decorationPopupMenu;
 	}
 	
+    /**
+     * Exports the pdf file.
+     */
 	public void exportPDF()
 	{
 		if (chartPDFWriter == null)
@@ -193,6 +265,9 @@ public class JChartPanel
 		chartPDFWriter.write(ChartContext.getChartPDFAuthor(), ChartContext.getChartPDFSubject());
 	}
 	
+	/**
+	 * Exports the png file.
+	 */
 	public void exportPNG()
 	{
 		try
@@ -205,6 +280,12 @@ public class JChartPanel
 		}
 	}
 	
+	/**
+	 * Gets the menu item at the popup menu by a text.
+	 * @param popupMenu the instance of JPopupMenu
+	 * @param text the text string
+	 * @return the instance of JMenuItem
+	 */
 	private JMenuItem getMenuItem(JPopupMenu popupMenu, String text)
 	{		
 		for (int i = 0; i < popupMenu.getComponentCount(); i++)

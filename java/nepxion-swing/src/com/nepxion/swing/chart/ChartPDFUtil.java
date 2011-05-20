@@ -29,18 +29,51 @@ import com.lowagie.text.pdf.PdfWriter;
 
 public class ChartPDFUtil
 {
+	/**
+	 * Writes the chart as the pdf file.
+	 * @param filePath the file path
+	 * @param chart the instance of JFreeChart
+	 * @param width the pdf graphics width value
+	 * @param height the pdf graphics height value
+	 * @param author the pdf author string
+	 * @param subject the pdf subject string
+	 * @throws IOException
+	 * @throws DocumentException
+	 */
 	public static void writeChartAsPDF(String filePath, JFreeChart chart, int width, int height, String author, String subject)
 		throws IOException, DocumentException
 	{
 		writeChartAsPDF(new File(filePath), chart, width, height, author, subject);
 	}
 	
+	/**
+	 * Writes the chart as the pdf file.
+	 * @param file the instance of File
+	 * @param chart the instance of JFreeChart
+	 * @param width the pdf graphics width value
+	 * @param height the pdf graphics height value
+	 * @param author the pdf author string
+	 * @param subject the pdf subject string
+	 * @throws IOException
+	 * @throws DocumentException
+	 */
 	public static void writeChartAsPDF(File file, JFreeChart chart, int width, int height, String author, String subject)
 		throws IOException, DocumentException
 	{
 		writeChartAsPDF(new FileOutputStream(file), chart, width, height, author, subject);
 	}
 	
+	/**
+	 * Writes the chart as the pdf file.
+	 * @param fileOutputStream the instance of FileOutputStream
+	 * @param chart the instance of JFreeChart
+	 * @param width the pdf graphics width value
+	 * @param height the pdf graphics height value
+	 * @param author the pdf author string
+	 * @param subject the pdf subject string
+	 * @throws IOException
+	 * @throws DocumentException
+	 */
 	public static void writeChartAsPDF(FileOutputStream fileOutputStream, JFreeChart chart, int width, int height, String author, String subject)
 		throws IOException, DocumentException
 	{

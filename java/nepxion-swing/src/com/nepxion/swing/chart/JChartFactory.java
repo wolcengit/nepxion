@@ -36,8 +36,16 @@ import com.nepxion.swing.font.FontContext;
 
 public class JChartFactory
 {
+	/**
+	 * The default chart paint list.
+	 */
 	public static final Paint[] CHART_PAINT_LIST = ChartColor.createDefaultPaintArray();
 	
+	/**
+	 * Creates the chart pane by a chart.
+	 * @param chart the instance of JFreeChart
+	 * @return the instance of JChartPanel
+	 */
 	public static JChartPanel createChartPanel(JFreeChart chart)
 	{
 		JChartPanel chartPanel = new JChartPanel(chart);
@@ -45,6 +53,13 @@ public class JChartFactory
 		return chartPanel;
 	}
 	
+	/**
+	 * Creates the chart by a title, sub title and plot.
+	 * @param title the title string
+	 * @param subTitle the sub title string
+	 * @param plot the instance of Plot
+	 * @return the instance of JFreeChart
+	 */
 	public static JFreeChart createChart(String title, String subTitle, Plot plot)
 	{
 		JFreeChart chart = new JFreeChart(plot);
@@ -57,6 +72,10 @@ public class JChartFactory
 		return chart;
 	}
 	
+	/**
+	 * Sets the chart preference.
+	 * @param chart the instance of JFreeChart
+	 */
 	public static void setChartPreference(JFreeChart chart)
 	{
 		chart.setBackgroundPaint(Color.white);
@@ -148,6 +167,12 @@ public class JChartFactory
 		}
 	}
 	
+	/**
+	 * Fixes the range for the chart.
+	 * @param rangeAxis the instance of ValueAxis
+	 * @param lowerFixedPercent the lower fixed percent
+	 * @param upperFixedPercent the upper fixed percent
+	 */
 	public static void fixRange(ValueAxis rangeAxis, double lowerFixedPercent, double upperFixedPercent)
 	{
 		Range range = rangeAxis.getRange();
@@ -158,6 +183,11 @@ public class JChartFactory
 		rangeAxis.setRange(new Range(lowerFixedValue, upperFixedValue));
 	}
 	
+	/**
+	 * Gets the paint by an index.
+	 * @param index the index value
+	 * @return the instance of Paint
+	 */
 	public static Paint getPaint(int index)
 	{
 		Paint[] chartPaintList = CHART_PAINT_LIST;
@@ -193,11 +223,24 @@ public class JChartFactory
 		return paint;
 	}
 	
+	/**
+	 * Gets the gradient paint by an index.
+	 * The boolean value of isAsc is true.
+	 * @param index the index value
+	 * @return the instance of Paint
+	 */
 	public static Paint getGradientPaint(int index)
 	{
 		return getGradientPaint(index, true);
 	}
 	
+	/**
+	 * Gets the gradient paint by an index.
+	 * If the boolean value of isAsc is true, it will be gradient painted ascending, otherwise descending.
+	 * @param index the index value
+	 * @param isAsc the boolean value of isAsc
+	 * @return
+	 */
 	public static Paint getGradientPaint(int index, boolean isAsc)
 	{
 		Color color1 = (Color) getPaint(index);

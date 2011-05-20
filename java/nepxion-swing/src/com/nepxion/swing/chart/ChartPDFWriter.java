@@ -26,9 +26,20 @@ import com.nepxion.util.data.CollectionUtil;
 
 public class ChartPDFWriter
 {
+	/**
+	 * The instance of JChartPanel.
+	 */
 	private JChartPanel chartPanel;
+	
+	/**
+	 * The instance of JFileSelector.
+	 */
 	private JFileSelector fileSelector;
 	
+	/**
+	 * Constructs with the specified initial chartPanel.
+	 * @param chartPanel The instance of JChartPanel
+	 */
 	public ChartPDFWriter(JChartPanel chartPanel)
 	{
 		this.chartPanel = chartPanel;
@@ -42,11 +53,20 @@ public class ChartPDFWriter
 		fileSelector.setFileFilter(filterFilter);
 	}
 	
+	/**
+	 * Writes the chart as the pdf file.
+	 * The author and subject are null.
+	 */
 	public void write()
 	{
 		write(null, null);
 	}
 	
+	/**
+	 * Writes the chart as the pdf file by an author and subject.
+	 * @param author the pdf author string
+	 * @param subject the pdf subject string
+	 */
 	public void write(final String author, final String subject)
 	{
 		JFreeChart chart = chartPanel.getChart();
