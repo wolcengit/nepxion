@@ -20,8 +20,8 @@ import com.nepxion.swing.scrollpane.JBasicScrollPane;
 public class UIDefaultsHierarchy
 	extends JDockableHierarchy
 {
-	public final static String EXPLORER_TITLE = SwingLocale.getString("explorer");
-	public final static String CONTENT_PANE_TITLE = SwingLocale.getString("content_pane");
+	public static final String EXPLORER_TITLE = SwingLocale.getString("explorer");
+	public static final String CONTENT_PANE_TITLE = SwingLocale.getString("content_pane");
 	
 	public UIDefaultsHierarchy()
 	{

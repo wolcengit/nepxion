@@ -82,7 +82,7 @@ public class JComplexTable
 		initComponents();
 	}
 	
-	public JComplexTable(Object[][] rowData, Object[] columnNames)
+	public JComplexTable(final Object[][] rowData, final Object[] columnNames)
 	{
 		super(rowData, columnNames);
 		

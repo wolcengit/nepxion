@@ -26,7 +26,7 @@ public class ComboBoxTableCellRenderer
 		super(model);
 	}
 	
-	public ComboBoxTableCellRenderer(Object items[])
+	public ComboBoxTableCellRenderer(final Object items[])
 	{
 		super(items);
 	}

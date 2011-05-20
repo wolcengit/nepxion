@@ -79,7 +79,7 @@ public class JBasicTable
 		initComponents();
 	}
 	
-	public JBasicTable(Object[][] rowData, Object[] columnNames)
+	public JBasicTable(final Object[][] rowData, final Object[] columnNames)
 	{
 		super(rowData, columnNames);
 		

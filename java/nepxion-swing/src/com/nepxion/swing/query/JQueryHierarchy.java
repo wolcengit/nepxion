@@ -21,8 +21,8 @@ import com.nepxion.swing.query.result.JQueryResult;
 public class JQueryHierarchy
 	extends JDockableHierarchy
 {
-	public final static String QUERY_CONDITION_TITLE = SwingLocale.getString("query_condition");
-	public final static String QUERY_RESULT_TITLE = SwingLocale.getString("query_result");
+	public static final String QUERY_CONDITION_TITLE = SwingLocale.getString("query_condition");
+	public static final String QUERY_RESULT_TITLE = SwingLocale.getString("query_result");
 	
 	private JQueryCondition queryCondition;
 	private JQueryResult queryResult;
