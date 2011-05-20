@@ -111,7 +111,7 @@ public class StackedRectangleBarRenderer
 	}
 	
 	/**
-	 * Gets the adapter object.
+	 * Gets the adapter.
 	 * @return the instance of BarRendererAdapter
 	 */
 	public BarRendererAdapter getAdapter()

@@ -22,12 +22,29 @@ import org.jfree.data.general.PieDataset;
 public class PieChartPlot
 	extends PiePlot	implements IPieChartPlot
 {
+	/**
+	 * The instance of PieChartPlotAdapter.
+	 */
 	private PieChartPlotAdapter adapter;
 	
+	/**
+	 * The section outline stroke map.
+	 */
 	private Map sectionOutlineStrokeMap = new HashMap();
+	
+	/**
+	 * The section outline paint map.
+	 */
 	private Map sectionOutlinePaintMap = new HashMap();
+	
+	/**
+	 * The explode percent map.
+	 */
 	private Map explodePercentMap = new HashMap();
 	
+	/**
+	 * Constructs with the default.
+	 */
 	public PieChartPlot()
 	{
 		super();
@@ -37,6 +54,10 @@ public class PieChartPlot
 		updateSelectionData();
 	}
 	
+	/**
+	 * Constructs with the specified initial dataset.
+	 * @param dataset the instance of PieDataset
+	 */
 	public PieChartPlot(PieDataset dataset)
 	{
 		super(dataset);
@@ -46,6 +67,9 @@ public class PieChartPlot
 		updateSelectionData();
 	}
 	
+	/**
+	 * Updates the selection data.
+	 */
 	public void updateSelectionData()
 	{
 		sectionOutlineStrokeMap.clear();
@@ -81,6 +105,9 @@ public class PieChartPlot
 		}
 	}
 	
+	/**
+	 * Updates the selection ui.
+	 */
 	public void updateSelectionUI()
 	{
 		for (Iterator iterator = getDataset().getKeys().iterator(); iterator.hasNext();)
@@ -113,6 +140,10 @@ public class PieChartPlot
 		}
 	}
 	
+	/**
+	 * Dispatched when the mouse is over a chart.
+	 * @param key the instance of Comparable
+	 */
 	public void dispatchMouseOver(Comparable key)
 	{
 		adapter.dispatchMouseOver(key);
@@ -120,6 +151,10 @@ public class PieChartPlot
 		updateSelectionUI();
 	}
 	
+	/**
+	 * Dispatched when the mouse is down a chart.
+	 * @param key the instance of Comparable
+	 */
 	public void dispatchMouseDown(Comparable key)
 	{
 		adapter.dispatchMouseDown(key);
@@ -127,6 +162,11 @@ public class PieChartPlot
 		updateSelectionUI();
 	}
 	
+	/**
+	 * Set the section outline stroke.
+	 * @param key the instance of Comparable
+	 * @param stroke the instance of Stroke
+	 */
 	public void setSectionOutlineStroke(Comparable key, Stroke stroke)
 	{
 		super.setSectionOutlineStroke(key, stroke);
@@ -134,6 +174,11 @@ public class PieChartPlot
 		sectionOutlineStrokeMap.put(key, stroke);
 	}
 	
+	/**
+	 * Sets the section outline paint.
+	 * @param key the instance of Comparable
+	 * @param paint the instance of Paint
+	 */
 	public void setSectionOutlinePaint(Comparable key, Paint paint)
 	{
 		super.setSectionOutlinePaint(key, paint);
@@ -141,6 +186,11 @@ public class PieChartPlot
 		sectionOutlinePaintMap.put(key, paint);
 	}
 	
+	/**
+	 * Sets the explode percent.
+	 * @param key the instance of Comparable
+	 * @param explodePercent the boolean value of explodePercent
+	 */
 	public void setExplodePercent(Comparable key, double explodePercent)
 	{
 		super.setExplodePercent(key, explodePercent);
@@ -148,11 +198,19 @@ public class PieChartPlot
 		explodePercentMap.put(key, Double.valueOf(explodePercent));
 	}
 	
+	/**
+	 * Gets the selection key.
+	 * @return the instance of Comparable
+	 */
 	public Comparable getSelectionKey()
 	{
 		return adapter.getSelectionKey();
 	}
 	
+	/**
+	 * Gets the adapter.
+	 * @return the instance of PieChartPlotAdapter
+	 */
 	public PieChartPlotAdapter getAdapter()
 	{
 		return adapter;

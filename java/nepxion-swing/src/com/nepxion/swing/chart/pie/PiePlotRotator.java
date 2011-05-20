@@ -25,15 +25,33 @@ import com.nepxion.swing.chart.JChartPanel;
 public class PiePlotRotator
 	extends Timer implements ActionListener
 {
+	/**
+	 * The instance of PiePlot.
+	 */
 	private PiePlot piePlot;
+	
+	/**
+	 * The rotation angle value.
+	 */
 	private int angle;
 	
+	/**
+	 * Constructs with the specified initial chartPanel and isClickingStarted.
+	 * @param chartPanel the instance of JChartPanel
+	 * @param isClickingStarted the boolean value of isClickingStarted
+	 */
 	public PiePlotRotator(JChartPanel chartPanel, boolean isClickingStarted)
 	{
-		this(100, chartPanel, isClickingStarted);
+		this(chartPanel, 100, isClickingStarted);
 	}
 	
-	public PiePlotRotator(int delay, JChartPanel chartPanel, boolean isClickingStarted)
+	/**
+	 * Constructs with the specified initial chartPanel, delay and isClickingStarted.
+	 * @param chartPanel the instance of JChartPanel
+	 * @param delay the delay value
+	 * @param isClickingStarted the boolean value of isClickingStarted
+	 */
+	public PiePlotRotator(JChartPanel chartPanel, int delay, boolean isClickingStarted)
 	{
 		super(delay, null);
 		
@@ -57,6 +75,10 @@ public class PiePlotRotator
 		addActionListener(this);
 	}
 	
+    /**
+     * Invoked when an action occurs.
+     * @param e the instance of ActionEvent
+     */
 	public void actionPerformed(ActionEvent e)
 	{
 		piePlot.setStartAngle(angle);
@@ -67,6 +89,9 @@ public class PiePlotRotator
 		}
 	}
 	
+	/**
+	 * Executes the timer.
+	 */
 	public void execute()
 	{
 		if (!isRunning())

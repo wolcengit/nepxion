@@ -30,6 +30,13 @@ import com.nepxion.swing.locale.SwingLocale;
 
 public class LineChartFactory
 {
+	/**
+	 * Creates the time xyPlot.
+	 * @param title the title string 
+	 * @param legendToolTipText the legend tooltip text string
+	 * @param isShapesVisible the boolean value of isShapesVisible
+	 * @return the instance of XYPlot
+	 */
 	public static XYPlot createTimeXYPlot(String title, String legendToolTipText, boolean isShapesVisible)
 	{
 		TimeSeries timeSeries = new TimeSeries(title);
@@ -46,6 +53,11 @@ public class LineChartFactory
 		return xyPlot;
 	}
 	
+	/**
+	 * Creates the combined domain xyPlot.
+	 * @param title the title string
+	 * @return the instance of CombinedDomainXYPlot
+	 */
 	public static CombinedDomainXYPlot createCombinedDomainXYPlot(String title)
 	{
 		DateAxis dateAxis = new DateAxis(title);
@@ -54,6 +66,12 @@ public class LineChartFactory
 		return combinedDomainXYPlot;
 	}
 	
+	/**
+	 * Sets the xyPlot preference.
+	 * @param xyPlot the instance of XYPlot
+	 * @param legendToolTipText the legend tooltip text string 
+	 * @param isShapesVisible the boolean value of isShapesVisible
+	 */
 	public static void setXYPlotPreference(XYPlot xyPlot, String legendToolTipText, boolean isShapesVisible)
 	{
 		xyPlot.setBackgroundPaint(new GradientPaint(0.0F, 0.0F, Color.gray, 0.0F, 0.0F, new Color(251, 251, 251), true));

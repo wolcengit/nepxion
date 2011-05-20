@@ -33,6 +33,14 @@ import com.nepxion.swing.locale.SwingLocale;
 
 public class PieChartFactory
 {
+	/**
+	 * Creates the pie plot.
+	 * @param pieDataset the instance of PieDataset
+	 * @param toolTipText the tooltip text string
+	 * @param legendToolTipText the legend tooltip text string
+	 * @param isParticularLabel the boolean value of isParticularLabel
+	 * @return the instance of PiePlot
+	 */
 	public static PiePlot createPiePlot(PieDataset pieDataset, String toolTipText, String legendToolTipText, boolean isParticularLabel)
 	{
 		PiePlot piePlot = createPiePlot(pieDataset, false, false, false);
@@ -42,6 +50,14 @@ public class PieChartFactory
 		return piePlot;
 	}
 	
+	/**
+	 * Creates the pie plot.
+	 * @param pieDataset the instance of PieDataset
+	 * @param labels the boolean value of label shown
+	 * @param tooltips the boolean value of tooltip shown
+	 * @param urls the boolean value of url shown
+	 * @return the instance of PiePlot
+	 */
 	public static PiePlot createPiePlot(PieDataset pieDataset, boolean labels, boolean tooltips, boolean urls)
 	{
 		PiePlot piePlot = new PieChartPlot(pieDataset);
@@ -62,6 +78,14 @@ public class PieChartFactory
 		return piePlot;
 	}
 	
+	/**
+	 * Creates the pie plot 3D.
+	 * @param pieDataset the instance of PieDataset
+	 * @param toolTipText the tooltip text string
+	 * @param legendToolTipText the legend tooltip text string
+	 * @param isParticularLabel the boolean value of isParticularLabel
+	 * @return the instance of PiePlot
+	 */
 	public static PiePlot createPiePlot3D(PieDataset pieDataset, String toolTipText, String legendToolTipText, boolean isParticularLabel)
 	{
 		PiePlot piePlot = createPiePlot3D(pieDataset, false, false, false);
@@ -71,6 +95,14 @@ public class PieChartFactory
 		return piePlot;
 	}
 	
+	/**
+	 * Creates the pie plot 3D.
+	 * @param pieDataset the instance of PieDataset
+	 * @param labels the boolean value of label shown
+	 * @param tooltips the boolean value of tooltip shown
+	 * @param urls the boolean value of url shown
+	 * @return the instance of PiePlot
+	 */
 	public static PiePlot createPiePlot3D(PieDataset pieDataset, boolean labels, boolean tooltips, boolean urls)
 	{
 		PiePlot piePlot = new PieChartPlot3D(pieDataset);
@@ -91,6 +123,13 @@ public class PieChartFactory
 		return piePlot;
 	}
 	
+	/**
+	 * Sets the pie plot preference.
+	 * @param piePlot the instance of PiePlot
+	 * @param toolTipText the tooltip text string
+	 * @param legendToolTipText the legend tooltip text string
+	 * @param isParticularLabel the boolean value of isParticularLabel
+	 */
 	public static void setPiePlotPreference(PiePlot piePlot, String toolTipText, String legendToolTipText, boolean isParticularLabel)
 	{
 		piePlot.setLabelGenerator(new StandardPieSectionLabelGenerator(isParticularLabel ? "{0} : {2}, {1}" : "{1}", NumberFormat.getNumberInstance(), new DecimalFormat("0.00%")));
@@ -105,14 +144,24 @@ public class PieChartFactory
 		piePlot.setBackgroundPaint(new GradientPaint(0.0F, 0.0F, Color.gray, 0.0F, 0.0F, new Color(251, 251, 251), true));
 	}
 	
-	public static Comparable getPiePlotSelectionkey(JChartPanel chartPanel)
+	/**
+	 * Gets the pie plot selection key.
+	 * @param chartPanel the instance of JChartPanel
+	 * @return the pie plot selection key.
+	 */
+	public static Comparable getPiePlotSelectionKey(JChartPanel chartPanel)
 	{
 		JFreeChart chart = chartPanel.getChart();	
 	
-		return getPiePlotSelectionkey(chart);
+		return getPiePlotSelectionKey(chart);
 	}
 	
-	public static Comparable getPiePlotSelectionkey(JFreeChart chart)
+	/**
+	 * Gets the pir plot selection key.
+	 * @param chart the instance of JFreeChart
+	 * @return the pie plot selection key.
+	 */
+	public static Comparable getPiePlotSelectionKey(JFreeChart chart)
 	{
 		Plot plot = chart.getPlot();
 		
@@ -128,6 +177,10 @@ public class PieChartFactory
 		return null;
 	}
 	
+	/**
+	 * Sets the section paint.
+	 * @param piePlot the instance of PiePlot
+	 */
 	public static void setSectionPaint(PiePlot piePlot)
 	{	
 		int colorIndex = 0;
@@ -142,6 +195,12 @@ public class PieChartFactory
 		}	
 	}
 	
+	/**
+	 * Sets the section paint.
+	 * @param piePlot the instance of PiePlot
+	 * @param key the instance of Comparable
+	 * @param colorIndex the color index value
+	 */
 	public static void setSectionPaint(PiePlot piePlot, Comparable key, int colorIndex)
 	{				
 		Paint paint = JChartFactory.getPaint(colorIndex);

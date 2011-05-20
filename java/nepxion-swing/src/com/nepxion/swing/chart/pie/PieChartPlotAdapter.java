@@ -18,24 +18,42 @@ import com.nepxion.swing.chart.ChartConstants;
 public class PieChartPlotAdapter
 	implements ChartConstants
 {
-	private Comparable mouserOverKey;
+	/**
+	 * The mouse over key value.
+	 */
+	private Comparable mouseOverKey;
+	
+	/**
+	 * The mouse down key value.
+	 */
 	private Comparable mouseDownKey;
 		
+	/**
+	 * Constructs with the default.
+	 */
 	public PieChartPlotAdapter()
 	{
 
 	}
 	
+	/**
+	 * Dispatched when the mouse is over a chart.
+	 * @param key the instance of Comparable
+	 */
 	public void dispatchMouseOver(Comparable key)
 	{
-		if (mouserOverKey != null && mouserOverKey.equals(key))
+		if (mouseOverKey != null && mouseOverKey.equals(key))
 		{
 			return;
 		}
 		
-		mouserOverKey = key;
+		mouseOverKey = key;
 	}
 	
+	/**
+	 * Dispatched when the mouse is down a chart.
+	 * @param key the instance of Comparable
+	 */
 	public void dispatchMouseDown(Comparable key)
 	{
 		if (mouseDownKey != null && mouseDownKey.equals(key))
@@ -46,6 +64,11 @@ public class PieChartPlotAdapter
 		mouseDownKey = key;
 	}
 	
+	/**
+	 * Gets the section outline stroke.
+	 * @param key the instance of Comparable
+	 * @return the instance of Stroke
+	 */
 	public Stroke getSectionOutlineStroke(Comparable key)
 	{
 		if (mouseDownKey != null && mouseDownKey.equals(key))
@@ -53,7 +76,7 @@ public class PieChartPlotAdapter
 			return MOUSE_DOWN_STROKE;
 		}
 		
-		if (mouserOverKey != null && mouserOverKey.equals(key))
+		if (mouseOverKey != null && mouseOverKey.equals(key))
 		{
 			return MOUSE_OVER_STROKE;
 		}
@@ -61,6 +84,11 @@ public class PieChartPlotAdapter
 		return null;
 	}
 	
+	/**
+	 * Gets the section outline paint.
+	 * @param key the instance of Comparable
+	 * @return the instance of Paint
+	 */
 	public Paint getSectionOutlinePaint(Comparable key)
 	{
 		if (mouseDownKey != null && mouseDownKey.equals(key))
@@ -68,7 +96,7 @@ public class PieChartPlotAdapter
 			return MOUSE_DOWN_PAINT;
 		}
 		
-		if (mouserOverKey != null && mouserOverKey.equals(key))
+		if (mouseOverKey != null && mouseOverKey.equals(key))
 		{
 			return MOUSE_OVER_PAINT;
 		}
@@ -76,6 +104,11 @@ public class PieChartPlotAdapter
 		return null;
 	}
 	
+	/**
+	 * Gets the explode percent.
+	 * @param key the instance of Comparable
+	 * @return the explode percent value
+	 */
 	public Double getExplodePercent(Comparable key)
 	{
 		if (mouseDownKey != null && mouseDownKey.equals(key))
@@ -83,7 +116,7 @@ public class PieChartPlotAdapter
 			return MOUSE_DOWN_EXPLODE_PERCENT;
 		}
 		
-		if (mouserOverKey != null && mouserOverKey.equals(key))
+		if (mouseOverKey != null && mouseOverKey.equals(key))
 		{
 			return MOUSE_OVER_EXPLODE_PERCENT;
 		}
@@ -91,6 +124,10 @@ public class PieChartPlotAdapter
 		return null;
 	}
 	
+	/**
+	 * Gets the selection key.
+	 * @return the instance of Comparable
+	 */
 	public Comparable getSelectionKey()
 	{
 		return mouseDownKey;
