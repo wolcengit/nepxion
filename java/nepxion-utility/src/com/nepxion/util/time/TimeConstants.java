@@ -18,32 +18,32 @@ public interface TimeConstants
 	/**
 	 * The date time format string.
 	 */
-	public final static String DATE_TIME_FORMAT_STRING = "yyyy-MM-dd HH:mm:ss";
+	public static final String DATE_TIME_FORMAT_STRING = "yyyy-MM-dd HH:mm:ss";
 	
 	/**
 	 * The millisecond date time format string.
 	 */
-	public final static String MILLISECOND_DATE_TIME_FORMAT_STRING = "yyyy-MM-dd HH:mm:ss:SSS";
+	public static final String MILLISECOND_DATE_TIME_FORMAT_STRING = "yyyy-MM-dd HH:mm:ss:SSS";
 	
 	/**
 	 * The time zone date time format string.
 	 */
-	public final static String TIME_ZONE_DATE_TIME_FORMAT_STRING = "yyyy-MM-dd HH:mm:ss zzzz";
+	public static final String TIME_ZONE_DATE_TIME_FORMAT_STRING = "yyyy-MM-dd HH:mm:ss zzzz";
 	
 	/**
 	 * The date format string.
 	 */
-	public final static String DATE_FORMAT_STRING = "yyyy-MM-dd";
+	public static final String DATE_FORMAT_STRING = "yyyy-MM-dd";
 	
 	/**
 	 * The time format string.
 	 */
-	public final static String TIME_FORMAT_STRING = "HH:mm:ss";
+	public static final String TIME_FORMAT_STRING = "HH:mm:ss";
 	
 	/**
 	 * The millisecond time format string.
 	 */
-	public final static String MILLISECOND_TIME_FORMAT_STRING = "HH:mm:ss:SSS";
+	public static final String MILLISECOND_TIME_FORMAT_STRING = "HH:mm:ss:SSS";
 	
 	/**
 	 * The date time format.
