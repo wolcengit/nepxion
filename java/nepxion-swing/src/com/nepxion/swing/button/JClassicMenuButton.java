@@ -267,7 +267,7 @@ public class JClassicMenuButton
 	}
 	
 	/**
-	 * Invoked when a mouse button has been pressed on a component.
+	 * Invoked when the mouse button has been pressed on a component.
 	 * @param e the instance of MouseEvent
 	 */
 	public void mousePressed(MouseEvent e)
@@ -288,7 +288,7 @@ public class JClassicMenuButton
 	}
 	
 	/**
-	 * Invoked when a mouse button has been released on a component.
+	 * Invoked when the mouse button has been released on a component.
 	 * @param e the instance of MouseEvent
 	 */
 	public void mouseReleased(MouseEvent e)
