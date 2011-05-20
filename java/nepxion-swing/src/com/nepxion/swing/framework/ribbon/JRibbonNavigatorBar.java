@@ -14,7 +14,6 @@ import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
-import java.awt.event.HierarchyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -26,7 +25,6 @@ import com.nepxion.swing.framework.ribbon.action.JRibbonAction;
 import com.nepxion.swing.framework.ribbon.action.JRibbonToggleFacadeAction;
 import com.nepxion.swing.framework.ribbon.action.JRibbonToggleHeightAction;
 import com.nepxion.swing.icon.IconFactory;
-import com.nepxion.swing.listener.VisibilityListener;
 import com.nepxion.swing.locale.SwingLocale;
 import com.nepxion.swing.menu.JBasicMenu;
 import com.nepxion.swing.menuitem.JBasicMenuItem;
@@ -71,17 +69,6 @@ public abstract class JRibbonNavigatorBar
 			public void componentResized(ComponentEvent e)
 			{
 				adaptDimension();
-			}
-		}
-		);
-		
-		addHierarchyListener(new VisibilityListener()
-		{
-			public void visibilityChanged(HierarchyEvent e)
-			{
-				adaptDimension();
-				
-				removeHierarchyListener(this);
 			}
 		}
 		);
