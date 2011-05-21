@@ -64,14 +64,15 @@ public class ContextRegister
 		initLogger();
 		initHttp();
 		initURL();
-		initProxool();
-		initQuartz();
+		initDBConnectionPool();
+		initScheduler();
 		initIp();
 		initZone();
 	}
 	
 	/**
-	 * Initialize for the encoder config.
+	 * Initialize the encoder config.
+	 * The encoder values are configured in data.properties.
 	 * The encoder config includes the io charset and http charset.
 	 */
 	private void initEncoder()
@@ -93,7 +94,8 @@ public class ContextRegister
 	}
 	
 	/**
-	 * Initialize for the locale config.
+	 * Initialize the locale config.
+	 * The locale value is configured in data.properties.
 	 */
 	private void initLocale()
 	{
@@ -105,7 +107,10 @@ public class ContextRegister
 	}
 	
 	/**
-	 * Initialize for the logger config.
+	 * Initialize the logger config.
+	 * Currently the logger config is applied for Apache Log4J.
+	 * The logger value is configured in data.properties.
+	 * If the value of boolean is false, the logger function will be disabled.
 	 */
 	private void initLogger()
 	{
@@ -139,7 +144,10 @@ public class ContextRegister
 	}
 	
 	/**
-	 * Initialize for the http config.
+	 * Initialize the http config.
+	 * Currently the http config is applied for Apache HttpComponent.
+	 * The http values are configured in data.properties.
+	 * If the value of boolean is false, the http function will be disabled.
 	 */
 	private void initHttp()
 	{
@@ -173,7 +181,9 @@ public class ContextRegister
 	}
 	
 	/**
-	 * Initialize for the url config.
+	 * Initialize the url config.
+	 * The url value is configured in data.properties.
+	 * If the value of boolean is false, the url function will be disabled.
 	 */
 	private void initURL()
 	{
@@ -207,20 +217,23 @@ public class ContextRegister
 	}
 	
 	/**
-	 * Initialize for the proxool config.
+	 * Initialize the database connection pool config.
+	 * Currently the database connection pool config is applied for Proxool.
+	 * The database connection pool value is configured in data.properties.
+	 * If the value of boolean is false, the database connection pool function will be disabled.
 	 */
-	private void initProxool()
+	private void initDBConnectionPool()
 	{
-		String proxoolEnabled = properties.getProperty("proxool-3rd-enabled");
+		String dbConnectionPoolEnabled = properties.getProperty("dbConnectionPool-3rd-enabled");
 		
-		boolean isProxoolEnabled = false;
+		boolean isDBConnectionPoolEnabled = false;
 		
-		if (isValid(proxoolEnabled))
+		if (isValid(dbConnectionPoolEnabled))
 		{
-			isProxoolEnabled = proxoolEnabled.equals("true");
+			isDBConnectionPoolEnabled = dbConnectionPoolEnabled.equals("true");
 		}
 		
-		if (isProxoolEnabled)
+		if (isDBConnectionPoolEnabled)
 		{
 			try
 			{
@@ -241,20 +254,23 @@ public class ContextRegister
 	}
 	
 	/**
-	 * Initialize for the quartz config.
+	 * Initialize the scheduler config.
+	 * Currently the scheduler config is applied for Quartz.
+	 * The scheduler value is configured in data.properties.
+	 * If the value of boolean is false, the scheduler function will be disabled.
 	 */
-	private void initQuartz()
+	private void initScheduler()
 	{
-		String quartzEnabled = properties.getProperty("quartz-3rd-enabled");
+		String schedulerEnabled = properties.getProperty("scheduler-3rd-enabled");
 		
-		boolean isQuartzEnabled = false;
+		boolean isSchedulerEnabled = false;
 		
-		if (isValid(quartzEnabled))
+		if (isValid(schedulerEnabled))
 		{
-			isQuartzEnabled = quartzEnabled.equals("true");
+			isSchedulerEnabled = schedulerEnabled.equals("true");
 		}
 		
-		if (isQuartzEnabled)
+		if (isSchedulerEnabled)
 		{
 			try
 			{
@@ -275,7 +291,9 @@ public class ContextRegister
 	}
 	
 	/**
-	 * Initialize for the ip config.
+	 * Initialize the ip config.
+	 * The ip value is configured in data.properties.
+	 * If the value of boolean is false, the ip function will be disabled.
 	 */
 	private void initIp()
 	{
@@ -309,7 +327,9 @@ public class ContextRegister
 	}
 	
 	/**
-	 * Initialize for the zone config.
+	 * Initialize the zone config.
+	 * The zone value is configured in data.properties.
+	 * If the value of boolean is false, the zone function will be disabled.
 	 */
 	private void initZone()
 	{
