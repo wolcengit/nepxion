@@ -10,7 +10,10 @@ package com.nepxion.swing.context;
  * @version 1.0
  */
 
+import com.nepxion.util.context.ContextConstants;
+
 public interface DataContextConstants
+	extends ContextConstants
 {
-	public static final String CONTEXT_FILE_PATH = "context/data.properties";
+
 }
