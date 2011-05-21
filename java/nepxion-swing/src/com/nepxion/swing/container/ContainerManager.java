@@ -16,40 +16,77 @@ import javax.swing.JComponent;
 
 public class ContainerManager
 {
-	public static void add(JComponent component, Component addedComponent)
+	/**
+	 * Adds the component to a container.
+	 * The container will remove all child components before adding a new component.
+	 * @param container the container
+	 * @param addedComponent the added component
+	 */
+	public static void add(JComponent container, Component addedComponent)
 	{
-		add(component, addedComponent, null);
+		add(container, addedComponent, null);
 	}
 	
-	public static void add(JComponent component, Component addedComponent, Object constraints)
+	/**
+	 * Adds the component to a container.
+	 * The container will remove all child components before adding a new component.
+	 * @param container the container
+	 * @param addedComponent the added component
+	 * @param constraints constraints the constraints object
+	 */
+	public static void add(JComponent container, Component addedComponent, Object constraints)
 	{
-		add(component, addedComponent, null, constraints);
+		add(container, addedComponent, null, constraints);
 	}
 	
-	public static void add(JComponent component, Component addedComponent, Component removedComponent, Object constraints)
+	/**
+	 * Adds the component to a container.
+	 * The container will remove the specified component before adding a new component.
+	 * @param container the container
+	 * @param addedComponent the added component
+	 * @param removedComponent the removed component
+	 */
+	public static void add(JComponent container, Component addedComponent, Component removedComponent)
+	{
+		add(container, addedComponent, removedComponent, null);
+	}
+	
+	/**
+	 * Adds the component to a container.
+	 * The container will remove the specified component before adding a new component.
+	 * @param container the container
+	 * @param addedComponent the added component
+	 * @param removedComponent the removed component
+	 * @param constraints constraints the constraints object
+	 */
+	public static void add(JComponent container, Component addedComponent, Component removedComponent, Object constraints)
 	{
 		if (removedComponent != null)
 		{
-			component.remove(removedComponent);			
+			container.remove(removedComponent);			
 		}	
 		else
 		{
-			component.removeAll();
+			container.removeAll();
 		}
 		if (constraints != null)
 		{	
-			component.add(addedComponent, constraints);
+			container.add(addedComponent, constraints);
 		}
 		else
 		{
-			component.add(addedComponent);
+			container.add(addedComponent);
 		}
-		update(component);			
+		update(container);			
 	}	
 	
-	public static void update(JComponent component)
+	/**
+	 * Updates the container.
+	 * @param container the container
+	 */
+	public static void update(JComponent container)
 	{
-		component.revalidate();
-		component.repaint();		
+		container.revalidate();
+		container.repaint();		
 	}
 }
