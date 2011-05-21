@@ -14,8 +14,8 @@ import java.net.URL;
 
 import javax.swing.SwingUtilities;
 
-import com.nepxion.swing.context.DataContextManager;
-import com.nepxion.swing.context.UIContextManager;
+import com.nepxion.swing.context.DataContextInitializer;
+import com.nepxion.swing.context.UIContextInitializer;
 import com.nepxion.swing.framework.JFrameWorkApplet;
 
 public class DemoApplet
@@ -40,10 +40,7 @@ public class DemoApplet
 	{		
 		URL codeBase = getCodeBase();
 		
-		DataContextManager.initialize(codeBase);
-		UIContextManager.initialize(codeBase);	
-		
-		// DemoDataContext.initialize(codeBase);
-		// DemoUIContext.initialize();	
+		new DataContextInitializer().initialize(codeBase);
+		new UIContextInitializer().initialize(codeBase);
 	}
 }
