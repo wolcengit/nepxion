@@ -19,11 +19,22 @@ import com.nepxion.util.exception.ExceptionUtil;
 
 public class ExceptionTracer
 {
+	/**
+	 * Traces the exception.
+	 * @param owner the owner component
+	 * @param e the instance of Exception
+	 */
 	public static void traceException(Component owner, Exception e)
 	{
 		traceException(owner, null, e);
 	}
 	
+	/**
+	 * Traces the exception.
+	 * @param owner the owner component 
+	 * @param hint the hint string
+	 * @param e the instance of Exception
+	 */
 	public static void traceException(Component owner, String hint, Exception e)
 	{
 		boolean isDebug = ExceptionTracerContext.isDebug();

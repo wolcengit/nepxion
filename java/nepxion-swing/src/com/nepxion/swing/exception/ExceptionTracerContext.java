@@ -10,15 +10,36 @@ package com.nepxion.swing.exception;
  * @version 1.0
  */
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+
 public class ExceptionTracerContext
 {
+	private static Log log = LogFactory.getLog(ExceptionTracerContext.class);
+	
+	/**
+	 * The boolean value of debug.
+	 */
 	private static boolean debug = false;
 	
-	public static void registerDebug(boolean debug)
+	/**
+	 * Register the debug.
+	 * @param debug the boolean value of debug
+	 */
+	public static void register(boolean debug)
 	{
+		log.info("----- Exception Tracer Context Initialization Start -----");
+		
 		ExceptionTracerContext.debug = debug;
+		
+		log.info("Exception Tracer Debug : " + debug);
+		log.info("------ Exception Tracer Context Initialization End ------");
 	}
 	
+	/**
+	 * Returns true if debug.
+	 * @return true if debug
+	 */
 	public static boolean isDebug()
 	{
 		return debug;
