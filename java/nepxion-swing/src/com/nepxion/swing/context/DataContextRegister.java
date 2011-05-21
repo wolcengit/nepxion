@@ -107,19 +107,19 @@ public class DataContextRegister
 	 * Initialize for the exception print config.
 	 * The exception print value is configured in data.properties.
 	 * If the value of boolean is false, it will show exception on JOptionPane, otherwise on JExceptionDialog particularly.
-	 * It isn't a good idea for the user to see the exception detail information, so you can disable tracer debug. 
+	 * It isn't a good idea for the user to see the exception detail information, so you can disable exception debug. 
 	 */
 	private void initException()
 	{
-		String exceptionTracerEnabled = properties.getProperty("exception-tracer-enabled");
+		String exceptionDebugEnabled = properties.getProperty("exception-debug-enabled");
 		
-		boolean isTracerEnabled = false;
+		boolean isExceptionDebugEnabled = false;
 		
-		if (isValid(exceptionTracerEnabled))
+		if (isValid(exceptionDebugEnabled))
 		{
-			isTracerEnabled = exceptionTracerEnabled.equals("true");
+			isExceptionDebugEnabled = exceptionDebugEnabled.equals("true");
 		}
 		
-		ExceptionTracerContext.registerDebug(isTracerEnabled);
+		ExceptionTracerContext.register(isExceptionDebugEnabled);
 	}
 }
