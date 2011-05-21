@@ -306,6 +306,7 @@ public class Dom4JRibbonParser
 		Icon ribbonIcon = null;
 		String ribbonToolTipText = null;
 		int orientation = 1;
+		int arrowPosition = 1;
 		String constraints = null;
 		String ribbonComponentClass = null;
 		
@@ -367,6 +368,10 @@ public class Dom4JRibbonParser
 			else if (attributeName.equals(TAG_ORIENTATION))
 			{
 				orientation = Integer.parseInt(attributeText);
+			}
+			else if (attributeName.equals(TAG_ARROW_POSITION))
+			{
+				arrowPosition = Integer.parseInt(attributeText);
 			}
 			else if (attributeName.equals(TAG_CONSTRAINTS))
 			{
@@ -481,7 +486,7 @@ public class Dom4JRibbonParser
 				if (LookAndFeelManager.isNimbusLookAndFeel())
 				{
 					component = new JClassicMenuButton(action);
-					((JClassicMenuButton) component).setShowArrowRight(false);
+					((JClassicMenuButton) component).setShowArrowRight(arrowPosition == 0);
 					((JClassicMenuButton) component).setPopupMenu(popupMenu);
 				}
 				else

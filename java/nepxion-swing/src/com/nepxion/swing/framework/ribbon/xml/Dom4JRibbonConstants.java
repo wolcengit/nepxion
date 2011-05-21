@@ -32,6 +32,7 @@ public interface Dom4JRibbonConstants
 	public static final String TAG_RIBBON_TOOL_TIP_TEXT = "ribbontooltip";
 	public static final String TAG_SEPARATOR = "separator";
 	public static final String TAG_ORIENTATION = "orientation";
+	public static final String TAG_ARROW_POSITION = "arrowposition";
 	public static final String TAG_CLOSABLE = "closable";
 	public static final String TAG_LAYOUT = "layout";
 	public static final String TAG_BUTTON_LAYOUT = "buttonlayout";
