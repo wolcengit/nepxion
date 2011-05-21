@@ -10,9 +10,14 @@ package com.nepxion.swing.activex;
  * @version 1.0
  */
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+
 public class ActiveXContext
 	implements ActiveXConstants
 {
+	private static Log log = LogFactory.getLog(ActiveXContext.class);
+	
 	/**
 	 * The strategy of activeX invoking.
 	 * The value is STRATEGY_APPLICATION or STRATEGY_APPLET
@@ -25,7 +30,24 @@ public class ActiveXContext
 	 */
 	public static void registerStrategy(int strategy)
 	{
+		log.info("----- ActiveX Context Initialization Start -----");
+		
 		ActiveXContext.strategy = strategy;
+		
+		if (strategy == STRATEGY_APPLICATION)
+		{
+			log.info("ActiveX Invoker Strategy : Application");
+		}
+		else if (strategy == STRATEGY_APPLET)
+		{
+			log.info("ActiveX Invoker Strategy : Applet");
+		}
+		else
+		{
+			log.info("ActiveX Invoker Strategy : Unknown");
+		}
+		
+		log.info("------ ActiveX Context Initialization End ------");
 	}
 	
 	/**
