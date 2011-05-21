@@ -17,6 +17,9 @@ import com.nepxion.swing.toggle.JToggleContentPanel;
 public class JConfigContentPanel
 	extends JToggleContentPanel
 {
+	/**
+	 * Constructs with the default.
+	 */
 	public JConfigContentPanel()
 	{
 		super(true);
