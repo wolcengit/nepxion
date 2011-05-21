@@ -202,6 +202,7 @@ public class LookAndFeelManager
 		{
 			setSystemLookAndFeel();
 		}
+		
 		setStyle(style);
 		setFont();
 		setButtonUI(buttonUI, menuButtonUI, splitButtonUI, buttonStyle);
