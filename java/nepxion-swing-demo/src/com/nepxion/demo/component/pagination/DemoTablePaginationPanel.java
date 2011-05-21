@@ -12,11 +12,9 @@ package com.nepxion.demo.component.pagination;
 
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
-import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTable;
 
-import com.nepxion.demo.DemoUIContext;
 import com.nepxion.swing.border.BorderManager;
 import com.nepxion.swing.element.ElementNode;
 import com.nepxion.swing.pagination.PaginationBar;
