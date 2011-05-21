@@ -22,6 +22,10 @@ import com.nepxion.swing.renderer.combobox.GroupComboBoxCellRenderer;
 public class JGroupComboBox
 	extends JBasicComboBox
 {
+	/**
+	 * Constructs with the specified initial combo box model.
+	 * @param aModel the instance of ComboBoxModel
+	 */
 	public JGroupComboBox(ComboBoxModel aModel)
 	{
 		super(aModel);
@@ -29,6 +33,10 @@ public class JGroupComboBox
 		addActionListener(new ComboBoxGroupActionListener());
 	}
 	
+	/**
+	 * Constructs with the specified initial items.
+	 * @param items the object array
+	 */
 	public JGroupComboBox(final Object items[])
 	{
 		super(items);
@@ -36,6 +44,10 @@ public class JGroupComboBox
 		addActionListener(new ComboBoxGroupActionListener());
 	}
 	
+	/**
+	 * Constructs with the specified initial items.
+	 * @param items the instance of Vector
+	 */
 	public JGroupComboBox(Vector items)
 	{
 		super(items);
@@ -43,6 +55,9 @@ public class JGroupComboBox
 		addActionListener(new ComboBoxGroupActionListener());
 	}
 	
+	/**
+	 * Constructs with the default.
+	 */
 	public JGroupComboBox()
 	{
 		super();
@@ -53,14 +68,24 @@ public class JGroupComboBox
 	public class ComboBoxGroupActionListener
 		implements ActionListener
 	{
+		/**
+		 * The current item object.
+		 */
 		private Object currentItem;
 		
+		/**
+		 * Constructs with the default.
+		 */
 		public ComboBoxGroupActionListener()
 		{
 			setSelectedIndex(0);
 			currentItem = getSelectedItem();
 		}
-		
+
+	    /**
+	     * Invoked when an action occurs.
+	     * @param e the instance of ActionEvent
+	     */
 		public void actionPerformed(ActionEvent e)
 		{
 			Object selectedItem = getSelectedItem();

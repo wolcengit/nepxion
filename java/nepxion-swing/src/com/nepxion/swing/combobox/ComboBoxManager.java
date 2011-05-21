@@ -18,6 +18,10 @@ import com.nepxion.swing.lookandfeel.LookAndFeelManager;
 
 public class ComboBoxManager
 {
+	/**
+	 * Sets the preference style for the combo box.
+	 * @param comboBox the instance of JComboBox
+	 */
 	public static void setPreferenceStyle(JComboBox comboBox)
 	{
 		if (!LookAndFeelManager.isNimbusLookAndFeel())
