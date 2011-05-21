@@ -17,16 +17,27 @@ import com.l2fprod.common.swing.tips.DefaultTipModel;
 public class TipModel
     extends DefaultTipModel
 {
+	/**
+	 * Constructs with the default.
+	 */
     public TipModel()
     {
         super();
     }
 
+    /**
+     * Constructs with the specified initial tip array.
+     * @param tips the tip array
+     */
     public TipModel(TipModel.Tip[] tips)
     {
         super(tips);
     }
 
+    /**
+     * Constructs with the specified initial tip list.
+     * @param tips the instance of Collection
+     */
     public TipModel(Collection tips)
     {
         super(tips);
