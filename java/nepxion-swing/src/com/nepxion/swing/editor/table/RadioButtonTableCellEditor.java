@@ -25,8 +25,15 @@ import com.nepxion.swing.selector.radiobutton.JRadioButtonSelectorBar;
 public class RadioButtonTableCellEditor
 	extends AbstractCellEditor implements TableCellEditor
 {
+	/**
+	 * The instance of JRadioButtonSelectorBar.
+	 */
 	private JRadioButtonSelectorBar radioButtonSelectorBar;
 	
+	/**
+	 * Constructs with the specified initial all element nodes.
+	 * @param allElementNodes the instance of List
+	 */
 	public RadioButtonTableCellEditor(List allElementNodes)
 	{
 		radioButtonSelectorBar = new JRadioButtonSelectorBar(allElementNodes, true);
@@ -35,11 +42,19 @@ public class RadioButtonTableCellEditor
 		menuButton.setShowArrow(false);
 	}
 	
+	/**
+	 * Constructs with the specified initial radio button selector bar.
+	 * @param radioButtonSelectorBar the instance of JRadioButtonSelectorBar
+	 */
 	public RadioButtonTableCellEditor(JRadioButtonSelectorBar radioButtonSelectorBar)
 	{
 		this.radioButtonSelectorBar = radioButtonSelectorBar;
 	}
 	
+	/**
+	 * Returns true if the cell is editable.
+	 * @param e the instance of EventObject
+	 */
 	public boolean isCellEditable(EventObject e)
 	{
 		if (e instanceof MouseEvent)
@@ -52,11 +67,23 @@ public class RadioButtonTableCellEditor
 		return true;
 	}
 	
+	/**
+	 * Gets the cell editor value.
+	 * @param the cell editor value
+	 */
 	public Object getCellEditorValue()
 	{
 		return radioButtonSelectorBar.getValue();
 	}
 	
+	/**
+	 * Gets the table cell editor component.
+	 * @param table the instance of JTable
+	 * @param value the value object
+	 * @param isSelected the boolean of isSelected
+	 * @param row the row index value
+	 * @param column the column index value
+	 */
 	public Component getTableCellEditorComponent(JTable table, Object value, boolean isSelected, int row, int column)
 	{
 		radioButtonSelectorBar.setValue(value);

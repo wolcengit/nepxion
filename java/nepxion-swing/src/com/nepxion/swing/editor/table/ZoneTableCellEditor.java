@@ -24,8 +24,14 @@ import com.nepxion.swing.selector.button.JClassicSelectorMenuButton;
 public class ZoneTableCellEditor
 	extends AbstractCellEditor implements TableCellEditor
 {
+	/**
+	 * The instance of JZoneSelectorPanel.
+	 */
 	private JZoneSelectorPanel zoneSelectorPanel;
 	
+	/**
+	 * Constructs with the default.
+	 */
 	public ZoneTableCellEditor()
 	{
 		zoneSelectorPanel = new JZoneSelectorPanel(true);
@@ -34,6 +40,10 @@ public class ZoneTableCellEditor
 		menuButton.setShowArrow(false);
 	}
 	
+	/**
+	 * Constructs with the specified initial maximum length.
+	 * @param maximumLength the maximum length value
+	 */
 	public ZoneTableCellEditor(int maximumLength)
 	{
 		zoneSelectorPanel = new JZoneSelectorPanel(maximumLength, true);
@@ -42,11 +52,19 @@ public class ZoneTableCellEditor
 		menuButton.setShowArrow(false);
 	}
 	
+	/**
+	 * Constructs with the specified initial zone selector panel.
+	 * @param zoneSelectorPanel
+	 */
 	public ZoneTableCellEditor(JZoneSelectorPanel zoneSelectorPanel)
 	{
 		this.zoneSelectorPanel = zoneSelectorPanel;
 	}
 	
+	/**
+	 * Returns true if the cell is editable.
+	 * @param e the instance of EventObject
+	 */
 	public boolean isCellEditable(EventObject e)
 	{
 		if (e instanceof MouseEvent)
@@ -59,11 +77,23 @@ public class ZoneTableCellEditor
 		return true;
 	}
 	
+	/**
+	 * Gets the cell editor value.
+	 * @param the cell editor value
+	 */
 	public Object getCellEditorValue()
 	{
 		return zoneSelectorPanel.getValue();
 	}
 	
+	/**
+	 * Gets the table cell editor component.
+	 * @param table the instance of JTable
+	 * @param value the value object
+	 * @param isSelected the boolean of isSelected
+	 * @param row the row index value
+	 * @param column the column index value
+	 */
 	public Component getTableCellEditorComponent(JTable table, Object value, boolean isSelected, int row, int column)
 	{
 		zoneSelectorPanel.setValue(value);

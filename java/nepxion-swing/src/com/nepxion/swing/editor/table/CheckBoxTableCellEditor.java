@@ -25,8 +25,15 @@ import com.nepxion.swing.selector.checkbox.JCheckBoxSelectorBar;
 public class CheckBoxTableCellEditor
 	extends AbstractCellEditor implements TableCellEditor
 {
+	/**
+	 * The instance of JCheckBoxSelectorBar.
+	 */
 	private JCheckBoxSelectorBar checkBoxSelectorBar;
 	
+	/**
+	 * Constructs with the specified initial all element nodes.
+	 * @param allElementNodes the instance of List
+	 */
 	public CheckBoxTableCellEditor(List allElementNodes)
 	{
 		checkBoxSelectorBar = new JCheckBoxSelectorBar(allElementNodes, true);
@@ -35,11 +42,19 @@ public class CheckBoxTableCellEditor
 		menuButton.setShowArrow(false);
 	}
 	
+	/**
+	 * Constructs with the specified initial check box selector bar.
+	 * @param checkBoxSelectorBar the instance of JCheckBoxSelectorBar
+	 */
 	public CheckBoxTableCellEditor(JCheckBoxSelectorBar checkBoxSelectorBar)
 	{
 		this.checkBoxSelectorBar = checkBoxSelectorBar;
 	}
 	
+	/**
+	 * Returns true if the cell is editable.
+	 * @param e the instance of EventObject
+	 */
 	public boolean isCellEditable(EventObject e)
 	{
 		if (e instanceof MouseEvent)
@@ -52,11 +67,23 @@ public class CheckBoxTableCellEditor
 		return true;
 	}
 	
+	/**
+	 * Gets the cell editor value.
+	 * @param the cell editor value
+	 */
 	public Object getCellEditorValue()
 	{
 		return checkBoxSelectorBar.getValue();
 	}
 	
+	/**
+	 * Gets the table cell editor component.
+	 * @param table the instance of JTable
+	 * @param value the value object
+	 * @param isSelected the boolean of isSelected
+	 * @param row the row index value
+	 * @param column the column index value
+	 */
 	public Component getTableCellEditorComponent(JTable table, Object value, boolean isSelected, int row, int column)
 	{
 		checkBoxSelectorBar.setValue(value);
