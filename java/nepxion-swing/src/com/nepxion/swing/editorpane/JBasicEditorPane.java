@@ -20,8 +20,14 @@ import com.nepxion.swing.textcomponent.PopupMenuAdapter;
 public class JBasicEditorPane
 	extends JEditorPane
 {
+	/**
+	 * The instance of PopupMenuAdapter.
+	 */
 	private PopupMenuAdapter popupMenuAdapter;
 	
+	/**
+	 * Constructs with the default.
+	 */
 	public JBasicEditorPane()
 	{
 		super();
@@ -29,6 +35,11 @@ public class JBasicEditorPane
 		popupMenuAdapter = new PopupMenuAdapter(this);
 	}
 	
+	/**
+	 * Constructs with the specified initial initialPage.
+	 * @param initialPage the instance of URL
+	 * @throws IOException
+	 */
 	public JBasicEditorPane(URL initialPage)
 		throws IOException
 	{
@@ -37,6 +48,11 @@ public class JBasicEditorPane
 		popupMenuAdapter = new PopupMenuAdapter(this);
 	}
 	
+	/**
+	 * Constructs with the specified initial url.
+	 * @param url the ur string
+	 * @throws IOException
+	 */
 	public JBasicEditorPane(String url)
 		throws IOException
 	{
@@ -45,6 +61,11 @@ public class JBasicEditorPane
 		popupMenuAdapter = new PopupMenuAdapter(this);
 	}
 	
+	/**
+	 * Constructs with the specified initial type and text.
+	 * @param type the type string
+	 * @param text the text string
+	 */
 	public JBasicEditorPane(String type, String text)
 	{
 		super(type, text);
@@ -52,11 +73,19 @@ public class JBasicEditorPane
 		popupMenuAdapter = new PopupMenuAdapter(this);
 	}
 	
+	/**
+	 * Gets the popup menu adapter.
+	 * @return the instance of PopupMenuAdapter
+	 */
 	public PopupMenuAdapter getPopupMenuAdapter()
 	{
 		return popupMenuAdapter;
 	}
 	
+	/**
+	 * Sets enabled.
+	 * @param enabled the boolean value of enabled
+	 */
 	public void setEnabled(boolean enabled)
 	{
 		super.setEnabled(enabled);
@@ -69,5 +98,5 @@ public class JBasicEditorPane
 		{
 			removeMouseListener(popupMenuAdapter);
 		}
-	}	
+	}
 }
