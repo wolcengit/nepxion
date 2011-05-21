@@ -49,7 +49,7 @@ public class DemoBasicComboBoxPanel
 			comboBox = new JBasicComboBox(items);
 			comboBox.setMaximumSize(new Dimension(350, comboBox.getPreferredSize().height));
 			comboBox.setPopupMenuWidth(500);
-			comboBox.setPopupMenuShowUp(true);	
+			comboBox.setPopupMenuShownUp(true);	
 			add(comboBox);
 		}
 	}
@@ -78,7 +78,7 @@ public class DemoBasicComboBoxPanel
 			{
 				public void actionPerformed(ActionEvent e)
 				{
-					comboBox.setPopupMenuShowUp(popupMenuShowUpCheckBox.isSelected());
+					comboBox.setPopupMenuShownUp(popupMenuShowUpCheckBox.isSelected());
 				}				
 			}
 			);				
