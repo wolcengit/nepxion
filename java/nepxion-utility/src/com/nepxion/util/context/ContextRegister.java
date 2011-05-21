@@ -71,8 +71,8 @@ public class ContextRegister
 	}
 	
 	/**
-	 * Initialize for the encoder.
-	 * The encoder includes the io charset and http charset.
+	 * Initialize for the encoder config.
+	 * The encoder config includes the io charset and http charset.
 	 */
 	private void initEncoder()
 	{
@@ -93,7 +93,7 @@ public class ContextRegister
 	}
 	
 	/**
-	 * Initialize for the locale.
+	 * Initialize for the locale config.
 	 */
 	private void initLocale()
 	{
@@ -105,7 +105,7 @@ public class ContextRegister
 	}
 	
 	/**
-	 * Initialize for the logger.
+	 * Initialize for the logger config.
 	 */
 	private void initLogger()
 	{
@@ -139,7 +139,7 @@ public class ContextRegister
 	}
 	
 	/**
-	 * Initialize for the http.
+	 * Initialize for the http config.
 	 */
 	private void initHttp()
 	{
@@ -173,7 +173,7 @@ public class ContextRegister
 	}
 	
 	/**
-	 * Initialize for the url.
+	 * Initialize for the url config.
 	 */
 	private void initURL()
 	{
@@ -207,7 +207,7 @@ public class ContextRegister
 	}
 	
 	/**
-	 * Initialize for the proxool.
+	 * Initialize for the proxool config.
 	 */
 	private void initProxool()
 	{
@@ -241,7 +241,7 @@ public class ContextRegister
 	}
 	
 	/**
-	 * Initialize for the quartz.
+	 * Initialize for the quartz config.
 	 */
 	private void initQuartz()
 	{
@@ -275,7 +275,7 @@ public class ContextRegister
 	}
 	
 	/**
-	 * Initialize for the ip.
+	 * Initialize for the ip config.
 	 */
 	private void initIp()
 	{
@@ -309,7 +309,7 @@ public class ContextRegister
 	}
 	
 	/**
-	 * Initialize for the zone.
+	 * Initialize for the zone config.
 	 */
 	private void initZone()
 	{
