@@ -341,19 +341,24 @@ public class ButtonManager
 			{
 				AbstractButton abstractButton = (AbstractButton) component;
 				
-				int iconTextLayout = layout[0];
-				int horizontalAlignment = layout[1];
-				if (iconTextLayout == VERTICAL)
+				if (layout != null)
 				{
-					abstractButton.setHorizontalTextPosition(CENTER);
-					abstractButton.setVerticalTextPosition(BOTTOM);
-				}
-				else if (iconTextLayout == HORIZONTAL)
-				{
-					abstractButton.setHorizontalTextPosition(TRAILING);
-					abstractButton.setVerticalTextPosition(CENTER);
-					
-					abstractButton.setHorizontalAlignment(horizontalAlignment);
+					int iconTextLayout = layout[0];
+					int alignmentLayout = layout[1];
+					if (iconTextLayout == VERTICAL)
+					{
+						abstractButton.setHorizontalTextPosition(CENTER);
+						abstractButton.setVerticalTextPosition(BOTTOM);
+						
+						abstractButton.setVerticalAlignment(alignmentLayout);
+					}
+					else if (iconTextLayout == HORIZONTAL)
+					{
+						abstractButton.setHorizontalTextPosition(TRAILING);
+						abstractButton.setVerticalTextPosition(CENTER);
+						
+						abstractButton.setHorizontalAlignment(alignmentLayout);
+					}
 				}
 				
 				if (container instanceof JToolBar)
