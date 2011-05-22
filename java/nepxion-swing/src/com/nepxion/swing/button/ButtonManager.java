@@ -343,22 +343,7 @@ public class ButtonManager
 				
 				if (layout != null)
 				{
-					int iconTextLayout = layout[0];
-					int alignmentLayout = layout[1];
-					if (iconTextLayout == VERTICAL)
-					{
-						abstractButton.setHorizontalTextPosition(CENTER);
-						abstractButton.setVerticalTextPosition(BOTTOM);
-						
-						abstractButton.setVerticalAlignment(alignmentLayout);
-					}
-					else if (iconTextLayout == HORIZONTAL)
-					{
-						abstractButton.setHorizontalTextPosition(TRAILING);
-						abstractButton.setVerticalTextPosition(CENTER);
-						
-						abstractButton.setHorizontalAlignment(alignmentLayout);
-					}
+					setButtonLayout(abstractButton, layout);
 				}
 				
 				if (container instanceof JToolBar)
@@ -529,6 +514,26 @@ public class ButtonManager
 	public static void updateUI(JBasicButtonBar buttonBar)
 	{
 		buttonBar.setUI(buttonBarUI);
+	}
+	
+	public static void setButtonLayout(AbstractButton button, int[] layout)
+	{
+		int iconTextLayout = layout[0];
+		int alignmentLayout = layout[1];
+		if (iconTextLayout == VERTICAL)
+		{
+			button.setHorizontalTextPosition(CENTER);
+			button.setVerticalTextPosition(BOTTOM);
+			
+			button.setVerticalAlignment(alignmentLayout);
+		}
+		else if (iconTextLayout == HORIZONTAL)
+		{
+			button.setHorizontalTextPosition(TRAILING);
+			button.setVerticalTextPosition(CENTER);
+			
+			button.setHorizontalAlignment(alignmentLayout);
+		}
 	}
 	
 	/**
