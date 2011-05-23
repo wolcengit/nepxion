@@ -132,13 +132,14 @@
     </ribbon>    
     <ribbon title="Ribbon" icon="" tooltip="Ribbon" layout="TableLayout({-1, -1, -1}, {-1, -1, -1})" buttonlayout="0, 2" buttoninsets="0, 0, 0, 0">
       <button name="Button" text="Button" icon="component/button_16.png" tooltip="Button" constraints="0, 0" class="com.nepxion.swing.framework.ribbon.DefaultRibbonComponent"/>
-      <menubutton name="MenuButton" text="Menu&#x0A;Button" icon="component/menu_16.png" tooltip="MenuButton" arrowposition="0" constraints="0, 1, 0, 2">
+      <menubutton name="MenuButton" text="MenuButton" largetext="Menu&#x0A;Button" icon="component/menu_16.png" tooltip="MenuButton" arrowposition="0" constraints="0, 1, 0, 2">
       	<menuitem name="MenuItem" text="MenuItem" icon="component/menu_item_16.png" tooltip="MenuItem" class="com.nepxion.swing.framework.ribbon.DefaultRibbonComponent"/>
-      </menubutton>        <menubutton name="MenuButton" text="Menu&#x0A;Button" icon="component/menu_16.png" tooltip="MenuButton" arrowposition="1" constraints="1, 0, 1, 2">
+      </menubutton>
+      <menubutton name="MenuButton" text="MenuButton" largetext="Menu&#x0A;Button" icon="component/menu_16.png" tooltip="MenuButton" arrowposition="1" constraints="1, 0, 1, 2">
       	<menuitem name="MenuItem" text="MenuItem" icon="component/menu_item_16.png" tooltip="MenuItem" class="com.nepxion.swing.framework.ribbon.DefaultRibbonComponent"/>
       </menubutton>
       <button name="Button" text="Button" icon="component/button_16.png" tooltip="Button" constraints="2, 0" class="com.nepxion.swing.framework.ribbon.DefaultRibbonComponent"/>
-      <menubutton name="MenuButton" text="Menu&#x0A;Button" icon="component/menu_16.png" tooltip="MenuButton" arrowposition="0" constraints="2, 1, 2, 2">
+      <menubutton name="MenuButton" text="MenuButton" largetext="Menu&#x0A;Button" icon="component/menu_16.png" tooltip="MenuButton" arrowposition="0" constraints="2, 1, 2, 2">
       	<menuitem name="MenuItem" text="MenuItem" icon="component/menu_item_16.png" tooltip="MenuItem" class="com.nepxion.swing.framework.ribbon.DefaultRibbonComponent"/>
       </menubutton>
     </ribbon>
