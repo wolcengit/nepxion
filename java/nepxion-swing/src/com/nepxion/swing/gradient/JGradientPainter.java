@@ -21,11 +21,28 @@ import com.jidesoft.swing.JideSwingUtilities;
 
 public class JGradientPainter
 {
+	/**
+	 * Fast gradient fills for the graphics 2D.
+	 * It is recommended to gradient paint
+	 * @param g2d the instance of Graphics2D
+	 * @param shape the instance of Shape
+	 * @param startColor the start color
+	 * @param endColor the end color
+	 * @param isVertical the boolean value of isVertical
+	 */
 	public static void fastFill(Graphics2D g2d, Shape shape, Color startColor, Color endColor, boolean isVertical)
 	{
 		JideSwingUtilities.fillGradient(g2d, shape, startColor, endColor, isVertical);
 	}
 	
+	/**
+	 * Fills gradient for the graphics 2D.
+	 * @param g2d the instance of Graphics2D
+	 * @param shape the instance of Shape
+	 * @param startColor the start color
+	 * @param endColor the end color
+	 * @param isVertical the boolean value of isVertical
+	 */
 	public static void fill(Graphics2D g2d, Shape shape, Color startColor, Color endColor, boolean isVertical)
 	{
 		Rectangle rect = shape.getBounds();
