@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="GB2312"?>
+<!--
+  Parameter usage:
+  1. text : "&#x0A;" transforms to "&#x0A;" in HTML
+            "&amp;nbsp;" transforms to "&nbsp;" in HTML
+  2. buttonlayout : [iconTextLayout, alignmentLayout]
+                    "iconTextLayout" provides "HORIZONTAL(value=0)", "VERTICAL(value=1)"
+                    if "iconTextLayout" is "HORIZONTAL"
+                    "alignmentLayout" provides "LEFT(value=2)", "CENTER(value=0)", "RIGHT(value=4)", "LEADING(value=10)", "TRAILING(value=11)"
+                    if "iconTextLayout" is "VERTACAL"
+                    "alignmentLayout" provides "TOP(value=1)", "CENTER(value=0)", "BOTTON(value=3)"
+  3. separator : provides "HORIZONTAL(value=0)", "VERTICAL(value=1)"
+  4. arrowposition (only for JClassicMenuButton) : provides "RIGHT(value=0)", "BOTTOM(value=1)"
+ -->
+<container>
+  <ribbonbar title="Button" icon="" tooltip="Button Control" closable="false">
+    <ribbon title="Button Series" icon="" tooltip="Button Series" layout="" buttonlayout="1, 0" buttoninsets="8, 2, 8, 2">
+      <button name="Button" text="Button" largetext="Button&#x0A;&amp;nbsp;" icon="component/button_16.png" largeicon="component/button_32.png" tooltip="Button" class="com.nepxion.demo.control.button.DemoButtonTogglePanel"/>
+      <button name="CheckBox" text="CheckBox" largetext="Check&#x0A;Box" icon="component/check_box_16.png" largeicon="component/check_box_32.png" tooltip="CheckBox" class="com.tektronix.client.service.workspace.monitor.realtime.MonitorRibbonPane"/>
+      <button name="RadioButton" text="RadioButton" largetext="Radio&#x0A;Button" icon="component/radio_button_16.png" largeicon="component/radio_button_32.png" tooltip="RadioButton" class="com.tektronix.client.service.workspace.monitor.realtime.MonitorRibbonPane"/>
+    </ribbon>
+    <ribbon title="Combo Series" icon="" tooltip="Combo Series" layout="" buttonlayout="1, 0" buttoninsets="8, 2, 8, 2">
+      <button name="ComboBox" text="ComboBox" largetext="Combo&#x0A;Box" icon="component/combo_box_16.png" largeicon="component/combo_box_32.png" tooltip="ComboBox" class="com.tektronix.client.service.workspace.monitor.realtime.MonitorRibbonPane"/>
+      <button name="Spinner" text="Spinner" largetext="Spinner&#x0A;&amp;nbsp;" icon="component/spinner_16.png" largeicon="component/spinner_32.png" tooltip="Spinner" class="com.tektronix.client.service.workspace.monitor.realtime.MonitorRibbonPane"/>
+      <button name="Slider" text="Slider" largetext="Slider&#x0A;&amp;nbsp;" icon="component/slider_16.png" largeicon="component/slider_32.png" tooltip="Slider" class="com.tektronix.client.service.workspace.monitor.realtime.MonitorRibbonPane"/>
+    </ribbon>
+  </ribbonbar>
+  <ribbonbar title="Text" icon="" tooltip="Text Control" closable="false">
+    <ribbon title="Label Series" icon="" tooltip="Label Series" layout="" buttonlayout="1, 0" buttoninsets="8, 2, 8, 2">
+      <button name="Label" text="Label" largetext="Label&#x0A;&amp;nbsp;" icon="component/label_16.png" largeicon="component/label_32.png" tooltip="Label" class="com.nepxion.demo.control.button.DemoButtonTogglePanel"/>
+    </ribbon>
+    <ribbon title="TextField Series" icon="" tooltip="TextField Series" layout="" buttonlayout="1, 0" buttoninsets="8, 2, 8, 2">
+      <button name="TextField" text="TextField" largetext="TextField&#x0A;&amp;nbsp;" icon="component/text_field_16.png" largeicon="component/text_field_32.png" tooltip="TextField" class="com.tektronix.client.service.workspace.monitor.realtime.MonitorRibbonPane"/>
+      <button name="Formatted TextField" text="Formatted TextField" largetext="Formatted&#x0A;TextField" icon="component/formatted_field_16.png" largeicon="component/formatted_field_32.png" tooltip="Formatted TextField" class="com.tektronix.client.service.workspace.monitor.realtime.MonitorRibbonPane"/>
+      <button name="Password Field" text="Password Field" largetext="Password&#x0A;Field" icon="component/password_field_16.png" largeicon="component/password_field_32.png" tooltip="Password Field" class="com.tektronix.client.service.workspace.monitor.realtime.MonitorRibbonPane"/>
+    </ribbon>
+    <ribbon title="TextArea Series" icon="" tooltip="TextArea Series" layout="" buttonlayout="1, 0" buttoninsets="8, 2, 8, 2">
+      <button name="TextArea" text="TextArea" largetext="Text&#x0A;Area" icon="component/text_area_16.png" largeicon="component/text_area_32.png" tooltip="TextArea" class="com.tektronix.client.service.workspace.monitor.realtime.MonitorRibbonPane"/>
+      <button name="TextPane" text="TextPane" largetext="Text&#x0A;Pane" icon="component/text_area_16.png" largeicon="component/text_area_32.png" tooltip="TextPane" class="com.tektronix.client.service.workspace.monitor.realtime.MonitorRibbonPane"/>
+      <button name="EditorPane" text="EditorPane" largetext="Editor&#x0A;Pane" icon="component/editor_pane_16.png" largeicon="component/editor_pane_32.png" tooltip="EditorPane" class="com.tektronix.client.service.workspace.monitor.realtime.MonitorRibbonPane"/>
+    </ribbon>
+  </ribbonbar>
+  <ribbonbar title="Menu" icon="" tooltip="Menu Control" closable="false">
+    <ribbon title="Menu Series" icon="" tooltip="Menu Series" layout="" buttonlayout="1, 0" buttoninsets="8, 2, 8, 2">
+      <button name="Menu" text="Menu" largetext="Menu&#x0A;&amp;nbsp;" icon="component/menu_16.png" largeicon="component/menu_32.png" tooltip="Menu" class="com.tektronix.client.service.workspace.monitor.realtime.MonitorRibbonPane"/>
+      <button name="PopupMenu" text="PopupMenu" largetext="Popup&#x0A;Menu" icon="component/popup_menu_16.png" largeicon="component/popup_menu_32.png" tooltip="PopupMenu" class="com.tektronix.client.service.workspace.monitor.realtime.MonitorRibbonPane"/>
+    </ribbon>
+  </ribbonbar>
+  <ribbonbar title="Border" icon="" tooltip="Border Control" closable="false">
+  </ribbonbar>
+  <ribbonbar title="Container" icon="" tooltip="Container Control" closable="false">
+  </ribbonbar>
+  <ribbonbar title="Bar" icon="" tooltip="Bar Control" closable="false">
+  </ribbonbar>
+  <ribbonbar title="Data" icon="" tooltip="Data Control" closable="false">
+  </ribbonbar>  
+  <ribbonbar title="Selector" icon="" tooltip="Selector Control" closable="false">
+  </ribbonbar>
+  <ribbonbar title="UI" icon="" tooltip="UI Control" closable="false">
+  </ribbonbar>
+  <ribbonbar title="Thread" icon="" tooltip="Thread Control" closable="false">
+  </ribbonbar>
+  <ribbonbar title="Chart" icon="" tooltip="Chart Control" closable="false">
+  </ribbonbar>
+  <ribbonbar title="FrameWork" icon="" tooltip="FrameWork Control" closable="false">
+  </ribbonbar>
+  <ribbonbar title="Advanced" icon="" tooltip="Advanced Control" closable="false">
+  </ribbonbar>
+  <ribbonbar title="Application" icon="" tooltip="Application Control" closable="false">
+  </ribbonbar>
+  <ribbonbar title="Ribbon - Xml" icon="" tooltip="Ribbon Control" closable="false">
+    <ribbon title="Ribbon" icon="" tooltip="Ribbon" layout="" buttonlayout="1, 0" buttoninsets="8, 2, 8, 2">
+      <menubutton name="MenuButton" text="MenuButton" largetext="Menu&#x0A;Button" icon="component/menu_16.png" largeicon="component/menu_32.png" tooltip="MenuButton" arrowposition="1">
+      	<menuitem name="MenuItem" text="MenuItem" icon="component/menu_item_16.png" tooltip="MenuItem" class="com.nepxion.swing.framework.ribbon.DefaultRibbonComponent"/>
+      	<separator/>
+      	<menu text="Menu" icon="component/menu_16.png" tooltip="Menu">
+      	  <menu text="Menu" icon="component/menu_16.png" tooltip="Menu">
+      	    <menuitem name="MenuItem" text="MenuItem" icon="component/menu_item_16.png" tooltip="MenuItem" class="com.nepxion.swing.framework.ribbon.DefaultRibbonComponent"/>
+      	    <separator/>
+      	    <menuitem name="MenuItem" text="MenuItem" icon="component/menu_item_16.png" tooltip="MenuItem" class="com.nepxion.swing.framework.ribbon.DefaultRibbonComponent"/>
+      	  </menu>
+      	  <menu text="Menu" icon="component/menu_16.png" tooltip="Menu">
+      	    <menuitem name="MenuItem" text="MenuItem" icon="component/menu_item_16.png" tooltip="MenuItem" class="com.nepxion.swing.framework.ribbon.DefaultRibbonComponent"/>
+      	    <separator/>
+      	    <menuitem name="MenuItem" text="MenuItem" icon="component/menu_item_16.png" tooltip="MenuItem" class="com.nepxion.swing.framework.ribbon.DefaultRibbonComponent"/>
+      	  </menu>
+      	</menu>
+      </menubutton>
+      <separator orientation="1"/>
+      <menubutton name="MenuButton" text="MenuButton" largetext="Menu&#x0A;Button" icon="component/menu_16.png" largeicon="component/menu_32.png" tooltip="MenuButton" arrowposition="1">
+      	<menuitem name="MenuItem" text="MenuItem" icon="component/menu_item_16.png" tooltip="MenuItem" class="com.nepxion.swing.framework.ribbon.DefaultRibbonComponent"/>
+      	<separator/>
+      	<menu text="Menu" icon="component/menu_16.png" tooltip="Menu">
+      	  <menu text="Menu" icon="component/menu_16.png" tooltip="Menu">
+      	    <menuitem name="MenuItem" text="MenuItem" icon="component/menu_item_16.png" tooltip="MenuItem" class="com.nepxion.swing.framework.ribbon.DefaultRibbonComponent"/>
+      	    <separator/>
+      	    <menuitem name="MenuItem" text="MenuItem" icon="component/menu_item_16.png" tooltip="MenuItem" class="com.nepxion.swing.framework.ribbon.DefaultRibbonComponent"/>
+      	  </menu>
+      	  <menu text="Menu" icon="component/menu_16.png" tooltip="Menu">
+      	    <menuitem name="MenuItem" text="MenuItem" icon="component/menu_item_16.png" tooltip="MenuItem" class="com.nepxion.swing.framework.ribbon.DefaultRibbonComponent"/>
+      	    <separator/>
+      	    <menuitem name="MenuItem" text="MenuItem" icon="component/menu_item_16.png" tooltip="MenuItem" class="com.nepxion.swing.framework.ribbon.DefaultRibbonComponent"/>
+      	  </menu>
+      	</menu>
+      </menubutton>
+    </ribbon>
+    <ribbon title="Ribbon" icon="" tooltip="Ribbon" layout="TableLayout({-1, -1}, {-1, 10, -1})" buttonlayout="0, 0" buttoninsets="0, 0, 0, 0">
+      <menubutton name="MenuButton" text="MenuButton" largetext="Menu&#x0A;Button" icon="component/menu_16.png" largeicon="component/menu_32.png" tooltip="MenuButton" arrowposition="0" constraints="0, 0">
+      	<menuitem name="MenuItem" text="MenuItem" icon="component/menu_item_16.png" tooltip="MenuItem" class="com.nepxion.swing.framework.ribbon.DefaultRibbonComponent"/>
+      </menubutton>
+      <menubutton name="MenuButton" text="MenuButton" largetext="Menu&#x0A;Button" icon="component/menu_16.png" largeicon="component/menu_32.png" tooltip="MenuButton" arrowposition="0" constraints="0, 2">
+      	<menuitem name="MenuItem" text="MenuItem" icon="component/menu_item_16.png" tooltip="MenuItem" class="com.nepxion.swing.framework.ribbon.DefaultRibbonComponent"/>
+      </menubutton>
+      <separator orientation="0" constraints="0, 1, 1, 1"/>
+      <menubutton name="MenuButton" text="MenuButton" largetext="Menu&#x0A;Button" icon="component/menu_16.png" largeicon="component/menu_32.png" tooltip="MenuButton" arrowposition="0" constraints="1, 0">
+      	<menuitem name="MenuItem" text="MenuItem" icon="component/menu_item_16.png" tooltip="MenuItem" class="com.nepxion.swing.framework.ribbon.DefaultRibbonComponent"/>
+      </menubutton>
+      <menubutton name="MenuButton" text="MenuButton" largetext="Menu&#x0A;Button" icon="component/menu_16.png" largeicon="component/menu_32.png" tooltip="MenuButton" arrowposition="0" constraints="1, 2">
+      	<menuitem name="MenuItem" text="MenuItem" icon="component/menu_item_16.png" tooltip="MenuItem" class="com.nepxion.swing.framework.ribbon.DefaultRibbonComponent"/>
+      </menubutton>
+    </ribbon>
+    <ribbon title="Ribbon" icon="" tooltip="Ribbon" layout="TableLayout({90, 80, 70}, {-1, -1, -1})" buttonlayout="0, 4" buttoninsets="0, 0, 0, 0">
+      <button name="Button" text="Button" icon="component/button_16.png" tooltip="Button" constraints="0, 0" class="com.nepxion.swing.framework.ribbon.DefaultRibbonComponent"/>
+      <button name="Button" text="Button" icon="component/button_16.png" tooltip="Button" constraints="0, 1" class="com.nepxion.swing.framework.ribbon.DefaultRibbonComponent"/>
+      <button name="Button" text="Button" icon="component/button_16.png" tooltip="Button" constraints="0, 2" class="com.nepxion.swing.framework.ribbon.DefaultRibbonComponent"/>
+      <button name="Button" text="Button" icon="component/button_16.png" tooltip="Button" constraints="1, 0" class="com.nepxion.swing.framework.ribbon.DefaultRibbonComponent"/>
+      <button name="Button" text="Button" icon="component/button_16.png" tooltip="Button" constraints="1, 1" class="com.nepxion.swing.framework.ribbon.DefaultRibbonComponent"/>
+      <button name="Button" text="Button" icon="component/button_16.png" tooltip="Button" constraints="1, 2" class="com.nepxion.swing.framework.ribbon.DefaultRibbonComponent"/>
+      <button name="Button" text="Button" icon="component/button_16.png" tooltip="Button" constraints="2, 0" class="com.nepxion.swing.framework.ribbon.DefaultRibbonComponent"/>
+      <button name="Button" text="Button" icon="component/button_16.png" tooltip="Button" constraints="2, 1" class="com.nepxion.swing.framework.ribbon.DefaultRibbonComponent"/>
+      <button name="Button" text="Button" icon="component/button_16.png" tooltip="Button" constraints="2, 2" class="com.nepxion.swing.framework.ribbon.DefaultRibbonComponent"/>      
+    </ribbon>    
+    <ribbon title="Ribbon" icon="" tooltip="Ribbon" layout="TableLayout({-1, -1, -1}, {-1, -1, -1})" buttonlayout="0, 2" buttoninsets="0, 0, 0, 0">
+      <button name="Button" text="Button" icon="component/button_16.png" tooltip="Button" constraints="0, 0" class="com.nepxion.swing.framework.ribbon.DefaultRibbonComponent"/>
+      <menubutton name="MenuButton" text="Menu&#x0A;Button" icon="component/menu_16.png" tooltip="MenuButton" arrowposition="0" constraints="0, 1, 0, 2">
+      	<menuitem name="MenuItem" text="MenuItem" icon="component/menu_item_16.png" tooltip="MenuItem" class="com.nepxion.swing.framework.ribbon.DefaultRibbonComponent"/>
+      </menubutton>        <menubutton name="MenuButton" text="Menu&#x0A;Button" icon="component/menu_16.png" tooltip="MenuButton" arrowposition="1" constraints="1, 0, 1, 2">
+      	<menuitem name="MenuItem" text="MenuItem" icon="component/menu_item_16.png" tooltip="MenuItem" class="com.nepxion.swing.framework.ribbon.DefaultRibbonComponent"/>
+      </menubutton>
+      <button name="Button" text="Button" icon="component/button_16.png" tooltip="Button" constraints="2, 0" class="com.nepxion.swing.framework.ribbon.DefaultRibbonComponent"/>
+      <menubutton name="MenuButton" text="Menu&#x0A;Button" icon="component/menu_16.png" tooltip="MenuButton" arrowposition="0" constraints="2, 1, 2, 2">
+      	<menuitem name="MenuItem" text="MenuItem" icon="component/menu_item_16.png" tooltip="MenuItem" class="com.nepxion.swing.framework.ribbon.DefaultRibbonComponent"/>
+      </menubutton>
+    </ribbon>
+  </ribbonbar>
+</container>
