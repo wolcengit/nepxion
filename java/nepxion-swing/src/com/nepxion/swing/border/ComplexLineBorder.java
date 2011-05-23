@@ -37,7 +37,7 @@ public class ComplexLineBorder
 	}
 	
 	/**
-	 * Constructs with the specified color, thickness and roundedCorners.
+	 * Constructs with the specified color, thickness and rounded corners.
 	 * @param color the instance of Color
 	 * @param thickness the thickness value
 	 * @param roundedCorners the boolean value of roundedCorners
@@ -45,6 +45,18 @@ public class ComplexLineBorder
 	public ComplexLineBorder(Color color, int thickness, boolean roundedCorners)
 	{
 		super(color, thickness, roundedCorners);
+	}
+	
+	/**
+	 * Constructs with the specified color, thickness, rounded corners and rounded corner size.
+	 * @param color the instance of Color
+	 * @param thickness the thickness value
+	 * @param roundedCorners the boolean value of roundedCorners
+	 * @param roundedCornerSize the rounded corner size value
+	 */
+	public ComplexLineBorder(Color color, int thickness, boolean roundedCorners, int roundedCornerSize) 
+	{
+		super(color, thickness, roundedCorners, roundedCornerSize);
 	}
 	
 	/**
