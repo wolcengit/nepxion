@@ -11,11 +11,11 @@ package com.nepxion.swing.panel.option;
  */
 
 import java.awt.BorderLayout;
+import java.awt.Component;
 
 import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.Icon;
-import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
@@ -44,8 +44,8 @@ public class JOptionPanel
 		label.setIcon(icon);
 	}
 	
-	public void setComponent(JComponent content)
+	public void setComponent(Component component)
 	{
-		add(content, BorderLayout.CENTER);
+		add(component, BorderLayout.CENTER);
 	}
 }
