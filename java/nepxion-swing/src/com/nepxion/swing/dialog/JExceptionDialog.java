@@ -41,24 +41,65 @@ import com.nepxion.util.exception.ExceptionUtil;
 public class JExceptionDialog
 	extends JBasicDialog
 {
+	/**
+	 * The instance of JExceptionDialog.
+	 */
 	private static JExceptionDialog exceptionDialog;
 	
+	/**
+	 * The hint text field.
+	 */
 	private JBasicTextField hintTextField;
+	
+	/**
+	 * The toggle text field.
+	 */
 	private JBasicTextField toggleTextField;
 	
+	/**
+	 * The close button.
+	 */
 	private JClassicButton closeButton;
+	
+	/**
+	 * The detail button.
+	 */
 	private JClassicButton detailButton;
 	
+	/**
+	 * The detail text area.
+	 */
 	private JBasicTextArea detailTextArea;
+	
+	/**
+	 * The bottom panel.
+	 */
 	private JPanel bottomPanel;
 	
+	/**
+	 * The boolean value of open. 
+	 */
 	private boolean open = false;
 	
+	/**
+	 * Traces the exception.
+	 * @param owner the instance of Component. It is the top component, usually you can get it by HandleManager.getFrame(childComponent).
+	 * @param hint the hint string
+	 * @param e the instance of Exception
+	 */
 	public static void traceException(Component owner, String hint, Exception e)
 	{
 		traceException(owner, hint, SwingLocale.getString("exception_detail"), e);
 	}
 	
+	/**
+	 * Traces the exception.
+	 * The owner should be the top component(JFrame or JApplet), usually you can get it by HandleManager.getFrame(childComponent).
+	 * @param owner the instance of Component
+	 * @param hint the hint string
+	 * @param summary the summary string
+	 * @param e the instance of Exception
+	 */
 	public static void traceException(Component owner, String hint, String summary, Exception e)
 	{
 		if (exceptionDialog == null)
@@ -91,6 +132,10 @@ public class JExceptionDialog
 		}
 	}
 	
+	/**
+	 * Traces the exception.
+	 * @param owner the instance of Dialog
+	 */
 	public JExceptionDialog(Dialog owner)
 	{
 		super(owner, SwingLocale.getString("exception"), new Dimension(440, 110));
@@ -98,6 +143,10 @@ public class JExceptionDialog
 		initComponents();
 	}
 	
+	/**
+	 * Traces the exception.
+	 * @param owner the instance of Frame
+	 */
 	public JExceptionDialog(Frame owner)
 	{
 		super(owner, SwingLocale.getString("exception"), new Dimension(440, 110));
@@ -105,6 +154,9 @@ public class JExceptionDialog
 		initComponents();
 	}
 	
+	/**
+	 * Initializes the components.
+	 */
 	private void initComponents()
 	{
 		JLabel iconLabel = new JLabel(IconFactory.getSwingIcon("warning.png"));
@@ -210,6 +262,12 @@ public class JExceptionDialog
 		}
 	}
 	
+	/**
+	 * Set the exception to the exception dialog.
+	 * @param hint the hint string
+	 * @param summary the summary string
+	 * @param e the instance of Exception
+	 */
 	public void setException(String hint, String summary, Exception e)
 	{
 		summary = (summary == null ? "" : summary + "\n");
@@ -221,6 +279,10 @@ public class JExceptionDialog
 		detailTextArea.setCaretPosition(0);
 	}
 	
+	/**
+	 * Add the exception to the exception dialog.
+	 * @param e the instance of Exception
+	 */
 	public void addException(Exception e)
 	{
 		String exceptionText = ExceptionUtil.getText(e);
@@ -228,6 +290,10 @@ public class JExceptionDialog
 		detailTextArea.setCaretPosition(0);
 	}
 	
+	/**
+	 * Gets the exception text.
+	 * @return the exception text string
+	 */
 	public String getExceptionText()
 	{
 		return detailTextArea.getText();

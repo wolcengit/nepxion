@@ -11,6 +11,7 @@ package com.nepxion.swing.dialog;
  */
 
 import java.awt.BorderLayout;
+import java.awt.Component;
 import java.awt.Container;
 import java.awt.Dialog;
 import java.awt.Dimension;
@@ -18,7 +19,6 @@ import java.awt.Frame;
 
 import javax.swing.BorderFactory;
 import javax.swing.Icon;
-import javax.swing.JComponent;
 
 import com.nepxion.swing.panel.option.JOptionButtonPanel;
 import com.nepxion.swing.panel.option.JOptionPanel;
@@ -27,9 +27,21 @@ import com.nepxion.swing.panel.option.OptionConstants;
 public class JOptionDialog
 	extends JBasicDialog implements OptionConstants
 {
+	/**
+	 * The instance of JOptionPanel.
+	 */
 	private JOptionPanel optionPanel;
+	
+	/**
+	 * The instance of JOptionButtonPanel.
+	 */
 	private JOptionButtonPanel optionButtonPanel;
 	
+	/**
+	 * Constructs with the specified initial owner and title.
+	 * @param owner the instance of Frame
+	 * @param title the title string
+	 */
 	public JOptionDialog(Frame owner, String title)
 	{
 		super(owner, title);
@@ -37,6 +49,11 @@ public class JOptionDialog
 		initComponents();
 	}
 	
+	/**
+	 * Constructs with the specified initial owner and title.
+	 * @param owner the instance of Dialog
+	 * @param title the title string
+	 */
 	public JOptionDialog(Dialog owner, String title)
 	{
 		super(owner, title);
@@ -44,6 +61,12 @@ public class JOptionDialog
 		initComponents();
 	}
 	
+	/**
+	 * Constructs with the specified initial owner, title and dimension.
+	 * @param owner the instance of Frame
+	 * @param title the title string
+	 * @param dimension the instance of Dimension
+	 */
 	public JOptionDialog(Frame owner, String title, Dimension dimension)
 	{
 		super(owner, title, dimension);
@@ -51,6 +74,12 @@ public class JOptionDialog
 		initComponents();
 	}
 	
+	/**
+	 * Constructs with the specified initial owner, title and dimension.
+	 * @param owner the instance of Dialog
+	 * @param title the title string
+	 * @param dimension the instance of Dimension
+	 */
 	public JOptionDialog(Dialog owner, String title, Dimension dimension)
 	{
 		super(owner, title, dimension);
@@ -58,6 +87,12 @@ public class JOptionDialog
 		initComponents();
 	}
 	
+	/**
+	 * Constructs with the specified initial owner, title and modal.
+	 * @param owner the instance of Frame
+	 * @param title the title string
+	 * @param modal the boolean value of modal
+	 */
 	public JOptionDialog(Frame owner, String title, boolean modal)
 	{
 		super(owner, title, modal);
@@ -65,6 +100,12 @@ public class JOptionDialog
 		initComponents();
 	}
 	
+	/**
+	 * Constructs with the specified initial owner, title and modal.
+	 * @param owner the instance of Dialog
+	 * @param title the title string
+	 * @param modal the boolean value of modal
+	 */
 	public JOptionDialog(Dialog owner, String title, boolean modal)
 	{
 		super(owner, title, modal);
@@ -72,6 +113,13 @@ public class JOptionDialog
 		initComponents();
 	}
 	
+	/**
+	 * Constructs with the specified initial owner, title, dimension and modal.
+	 * @param owner the instance of Frame
+	 * @param title the title string
+	 * @param dimension the instance of Dimension
+	 * @param modal the boolean value of modal
+	 */
 	public JOptionDialog(Frame owner, String title, Dimension dimension, boolean modal)
 	{
 		super(owner, title, dimension, modal);
@@ -79,6 +127,13 @@ public class JOptionDialog
 		initComponents();
 	}
 	
+	/**
+	 * Constructs with the specified initial owner, title, dimension and modal.
+	 * @param owner the instance of Dialog
+	 * @param title the title string
+	 * @param dimension the instance of Dimension
+	 * @param modal the boolean value of modal
+	 */
 	public JOptionDialog(Dialog owner, String title, Dimension dimension, boolean modal)
 	{
 		super(owner, title, dimension, modal);
@@ -86,62 +141,129 @@ public class JOptionDialog
 		initComponents();
 	}
 	
-	public JOptionDialog(Frame owner, String title, boolean modal, boolean isHint)
+	/**
+	 * Constructs with the specified initial owner, title, modal and hint.
+	 * @param owner the instance of Frame
+	 * @param title the title string
+	 * @param modal the boolean value of modal
+	 * @param hint the boolean value of hint
+	 */
+	public JOptionDialog(Frame owner, String title, boolean modal, boolean hint)
 	{
-		super(owner, title, modal, isHint);
+		super(owner, title, modal, hint);
 		
 		initComponents();
 	}
 	
-	public JOptionDialog(Dialog owner, String title, boolean modal, boolean isHint)
+	/**
+	 * Constructs with the specified initial owner, title, modal and hint.
+	 * @param owner the instance of Dialog
+	 * @param title the title string
+	 * @param modal the boolean value of modal
+	 * @param hint the boolean value of hint
+	 */
+	public JOptionDialog(Dialog owner, String title, boolean modal, boolean hint)
 	{
-		super(owner, title, modal, isHint);
+		super(owner, title, modal, hint);
 		
 		initComponents();
 	}
 	
-	public JOptionDialog(Frame owner, String title, Dimension dimension, boolean modal, boolean isHint)
+	/**
+	 * Constructs with the specified initial owner, title, dimension, modal and hint.
+	 * @param owner the instance of Frame
+	 * @param title the title string
+	 * @param dimension the instance of Dimension
+	 * @param modal the boolean value of modal
+	 * @param hint the boolean value of hint
+	 */
+	public JOptionDialog(Frame owner, String title, Dimension dimension, boolean modal, boolean hint)
 	{
-		super(owner, title, dimension, modal, isHint);
+		super(owner, title, dimension, modal, hint);
 		
 		initComponents();
 	}
 	
-	public JOptionDialog(Dialog owner, String title, Dimension dimension, boolean modal, boolean isHint)
+	/**
+	 * Constructs with the specified initial owner, title, dimension, modal and hint.
+	 * @param owner the instance of Dialog
+	 * @param title the title string
+	 * @param dimension the instance of Dimension
+	 * @param modal the boolean value of modal
+	 * @param hint the boolean value of hint
+	 */
+	public JOptionDialog(Dialog owner, String title, Dimension dimension, boolean modal, boolean hint)
 	{
-		super(owner, title, dimension, modal, isHint);
+		super(owner, title, dimension, modal, hint);
 		
 		initComponents();
 	}
 	
-	public JOptionDialog(Frame owner, String title, boolean modal, boolean isHint, boolean isAdaptable)
+	/**
+	 * Constructs with the specified initial owner, title, modal, hint and adaptable.
+	 * @param owner the instance of Frame
+	 * @param title the title string
+	 * @param modal the boolean value of modal
+	 * @param hint the boolean value of hint
+	 * @param adaptable the boolean value of adaptable
+	 */
+	public JOptionDialog(Frame owner, String title, boolean modal, boolean hint, boolean adaptable)
 	{
-		super(owner, title, modal, isHint, isAdaptable);
+		super(owner, title, modal, hint, adaptable);
 		
 		initComponents();
 	}
 	
-	public JOptionDialog(Dialog owner, String title, boolean modal, boolean isHint, boolean isAdaptable)
+	/**
+	 * Constructs with the specified initial owner, title, modal, hint and adaptable.
+	 * @param owner the instance of Dialog
+	 * @param title the title string
+	 * @param modal the boolean value of modal
+	 * @param hint the boolean value of hint
+	 * @param adaptable the boolean value of adaptable
+	 */
+	public JOptionDialog(Dialog owner, String title, boolean modal, boolean hint, boolean adaptable)
 	{
-		super(owner, title, modal, isHint, isAdaptable);
+		super(owner, title, modal, hint, adaptable);
 		
 		initComponents();
 	}
 	
-	public JOptionDialog(Frame owner, String title, Dimension dimension, boolean modal, boolean isHint, boolean isAdaptable)
+	/**
+	 * Constructs with the specified initial owner, title, dimension, modal, hint and adaptable.
+	 * @param owner the instance of Frame
+	 * @param title the title string
+	 * @param dimension the instance of Dimension
+	 * @param modal the boolean value of modal
+	 * @param hint the boolean value of hint
+	 * @param adaptable the boolean value of adaptable
+	 */
+	public JOptionDialog(Frame owner, String title, Dimension dimension, boolean modal, boolean hint, boolean adaptable)
 	{
-		super(owner, title, dimension, modal, isHint, isAdaptable);
+		super(owner, title, dimension, modal, hint, adaptable);
 		
 		initComponents();
 	}
 	
-	public JOptionDialog(Dialog owner, String title, Dimension dimension, boolean modal, boolean isHint, boolean isAdaptable)
+	/**
+	 * Constructs with the specified initial owner, title, dimension, modal, hint and adaptable.
+	 * @param owner the instance of Dialog
+	 * @param title the title string
+	 * @param dimension the instance of Dimension
+	 * @param modal the boolean value of modal
+	 * @param hint the boolean value of hint
+	 * @param adaptable the boolean value of adaptable
+	 */
+	public JOptionDialog(Dialog owner, String title, Dimension dimension, boolean modal, boolean hint, boolean adaptable)
 	{
-		super(owner, title, dimension, modal, isHint, isAdaptable);
+		super(owner, title, dimension, modal, hint, adaptable);
 		
 		initComponents();
 	}
 	
+	/**
+	 * Initializes the components.
+	 */	
 	private void initComponents()
 	{
 		optionPanel = new JOptionPanel();
@@ -175,56 +297,100 @@ public class JOptionDialog
 		contentPane.add(optionButtonPanel, BorderLayout.SOUTH);
 	}
 	
+	/**
+	 * Gets the option panel.
+	 * @return the instance of JOptionPanel
+	 */
 	public JOptionPanel getOptionPanel()
 	{
 		return optionPanel;
 	}
 	
+	/**
+	 * Gets the option button panel.
+	 * @return the instance of JOptionButtonPanel
+	 */
 	public JOptionButtonPanel getOptionButtonPanel()
 	{
 		return optionButtonPanel;
 	}
 	
+	/**
+	 * Sets the option.
+	 * @param option the option value
+	 */
 	public void setOption(int option)
 	{
 		optionButtonPanel.setOption(option);
 	}
 	
+	/**
+	 * Sets the icon.
+	 * @param icon the instance of icon
+	 */
 	public void setIcon(Icon icon)
 	{
 		optionPanel.setIcon(icon);
 	}
 	
-	public void setComponent(JComponent component)
+	/**
+	 * Sets the component.
+	 * @param component the instance of Component
+	 */
+	public void setComponent(Component component)
 	{
 		optionPanel.setComponent(component);
 	}
 	
+	/**
+	 * Gets the value.
+	 * @return the value
+	 */
 	public String getValue()
 	{
 		return optionButtonPanel.getValue();
 	}
 	
+	/**
+	 * Returns true if confirmed.
+	 * @return true if confirmed. 
+	 */
 	public boolean confirm()
 	{
 		return true;
 	}
 	
+	/**
+	 * Returns true if cancelled.
+	 * @return true if cancelled. 
+	 */
 	public boolean cancel()
 	{
 		return true;
 	}
 	
+	/**
+	 * Returns true if applied.
+	 * @return true if applied. 
+	 */
 	public boolean apply()
 	{
 		return true;
 	}
 	
+	/**
+	 * Returns true if closed.
+	 * @return true if closed. 
+	 */
 	public boolean close()
 	{
 		return true;
 	}
 	
+	/**
+	 * Returns true if confirmed.
+	 * @return true if confirmed. 
+	 */
 	public boolean isConfirmed()
 	{
 		String value = getValue();
@@ -236,6 +402,10 @@ public class JOptionDialog
 		return false;
 	}
 	
+	/**
+	 * Returns true if cancelled.
+	 * @return true if cancelled. 
+	 */
 	public boolean isCancelled()
 	{
 		String value = getValue();
@@ -247,6 +417,10 @@ public class JOptionDialog
 		return false;
 	}
 	
+	/**
+	 * Returns true if applied.
+	 * @return true if applied. 
+	 */
 	public boolean isApplied()
 	{
 		String value = getValue();
@@ -258,6 +432,10 @@ public class JOptionDialog
 		return false;
 	}
 	
+	/**
+	 * Returns true if closed.
+	 * @return true if closed. 
+	 */
 	public boolean isClosed()
 	{
 		String value = getValue();

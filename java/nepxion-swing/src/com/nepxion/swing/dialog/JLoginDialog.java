@@ -50,32 +50,97 @@ import com.nepxion.util.locale.LocaleContext;
 public abstract class JLoginDialog
 	extends JBasicDialog
 {
+	/**
+	 * The font size value.
+	 */
 	public static final int FONT_SIZE = 12;
+	
+	/**
+	 * The font style value.
+	 */
 	public static final int FONT_STYLE = Font.PLAIN;
+	
+	/**
+	 * The etched border.
+	 */
 	public static final Border ETCHED_BORDER = BorderFactory.createEtchedBorder(Color.white, Color.gray);
 	
+	/**
+	 * The image label.
+	 */
 	protected JLabel imageLabel;
 	
+	/**
+	 * The account label.
+	 */
 	protected JLabel accountLabel;
+	
+	/**
+	 * The account text field.
+	 */
 	protected JBasicTextField accountTextField;
 	
+	/**
+	 * The password label.
+	 */
 	protected JLabel passwordLabel;
+	
+	/**
+	 * The password filed.
+	 */
 	protected JBasicPasswordField passwordField;
 	
+	/**
+	 * The locale label.
+	 */
 	protected JLabel localeLabel;
+	
+	/**
+	 * The locale combo box.
+	 */
 	protected JBasicComboBox localeComboBox;
 	
+	/**
+	 * The login button.
+	 */
 	protected JClassicButton loginButton;
+	
+	/**
+	 * The reset button.
+	 */
 	protected JClassicButton resetButton;
+	
+	/**
+	 * The exit button.
+	 */
 	protected JClassicButton exitButton;
 	
+	/**
+	 * The content panel.
+	 */
 	protected JPanel contentPanel;
+	
+	/**
+	 * The editor panel.
+	 */
 	protected JPanel editorPanel;
+	
+	/**
+	 * The button panel.
+	 */
 	protected JPanel buttonPanel;
 	
+	/**
+	 * The separator.
+	 */
 	protected JBasicSeparator separator;
 	
-	public JLoginDialog(String title, Icon banner)
+	/**
+	 * Constructs with the specified title and icon.
+	 * @param title the title string
+	 * @param icon the instance of Icon
+	 */
+	public JLoginDialog(String title, Icon icon)
 	{
 		super((Frame) null, title);
 		
@@ -207,7 +272,7 @@ public abstract class JLoginDialog
 		separator = new JBasicSeparator(JBasicSeparator.HORIZONTAL, JBasicSeparator.LOWERED_STYLE, 280);
 		//separator.setPreferredSize(new Dimension(280, separator.getPreferredSize().height));
 		
-		imageLabel = new JLabel(banner, JLabel.LEFT);
+		imageLabel = new JLabel(icon, JLabel.LEFT);
 		imageLabel.setBorder(ETCHED_BORDER);
 		
 		initContentPanel();
@@ -235,6 +300,9 @@ public abstract class JLoginDialog
 		initLocale(LocaleContext.getLocale());
 	}
 	
+	/**
+	 * Initializes the content panel.
+	 */
 	protected void initContentPanel()
 	{
 		int margin = (imageLabel.getPreferredSize().height - buttonPanel.getPreferredSize().height - separator.getPreferredSize().height - editorPanel.getPreferredSize().height) / 4;
@@ -257,6 +325,10 @@ public abstract class JLoginDialog
 		}
 	}
 	
+	/**
+	 * Initializes the locale.
+	 * @param locale the instance of Locale
+	 */
 	protected void initLocale(Locale locale)
 	{
 		accountLabel.setText(SwingLocale.getString("account", locale) + SwingLocale.getString("colon", locale));
@@ -283,46 +355,81 @@ public abstract class JLoginDialog
 		exitButton.setToolTipText(SwingLocale.getString("exit", locale));
 	}
 	
+	/**
+	 * Gets the account.
+	 * @return the account string
+	 */
 	public String getAccount()
 	{
 		return accountTextField.getText().trim();
 	}
 	
+	/**
+	 * Sets the account.
+	 * @param account the account string
+	 */
 	public void setAccount(String account)
 	{
 		accountTextField.setText(account.trim());
 	}
 	
+	/**
+	 * Gets the password.
+	 * @return the password string
+	 */
 	public String getPassword()
 	{
 		return passwordField.getPasswordText().trim();
 	}
 	
+	/**
+	 * Sets the password.
+	 * @param password the password string
+	 */
 	public void setPassword(String password)
 	{
 		passwordField.setText(password.trim());
 	}
 	
-	public void setLoginFoucus()
+	/**
+	 * Sets the login focus.
+	 */
+	public void setLoginFocus()
 	{
 		loginButton.requestFocus();
 	}
 	
+	/**
+	 * Gets the the account text field.
+	 * @return the instance of JBasicTextField
+	 */
 	public JBasicTextField getAccountTextField()
 	{
 		return accountTextField;
 	}
 	
+	/**
+	 * Gets the the password field.
+	 * @return the instance of JBasicPasswordField
+	 */
 	public JBasicPasswordField getPasswordField()
 	{
 		return passwordField;
 	}
 	
+	/**
+	 * Gets the locale combo box.
+	 * @return the instance of JBasicComboBox
+	 */
 	public JBasicComboBox getLocaleComboBox()
 	{
 		return localeComboBox;
 	}
 	
+	/**
+	 * Gets the selected locale.
+	 * @return the instance of Locale
+	 */
 	public Locale getSelectedLocale()
 	{
 		ElementNode selectedElementNode = (ElementNode) localeComboBox.getSelectedItem();
@@ -331,21 +438,41 @@ public abstract class JLoginDialog
 		return locale;
 	}
 	
+	/**
+	 * Gets the login button.
+	 * @return the instance of JClassicButton
+	 */
 	public JClassicButton getLoginButton()
 	{
 		return loginButton;
 	}
 	
+	/**
+	 * Gets the reset button.
+	 * @return the instance of JClassicButton
+	 */
 	public JClassicButton getResetButton()
 	{
 		return resetButton;
 	}
 	
+	/**
+	 * Gets the exit button.
+	 * @return the instance of JClassicButton
+	 */
 	public JClassicButton getExitButton()
 	{
 		return exitButton;
 	}
 	
+	/**
+	 * Logins by an account, password and locale.
+	 * @param account the account string
+	 * @param password the password string
+	 * @param locale the instance of Locale
+	 * @return true if logining successfully
+	 * @throws Exception
+	 */
 	public abstract boolean login(String account, String password, Locale locale)
 		throws Exception;
 }
