@@ -17,6 +17,10 @@ import com.jidesoft.hints.FileIntelliHints;
 public class FileIntelliHint
 	extends FileIntelliHints
 {
+	/**
+	 * Constructs with the specified text component.
+	 * @param textComponent the instance of JTextComponent
+	 */
 	public FileIntelliHint(JTextComponent textComponent)
 	{
 		super(textComponent);

@@ -19,13 +19,23 @@ import com.jidesoft.hints.ListDataIntelliHints;
 public class ListIntelliHint
 	extends ListDataIntelliHints
 {
-	public ListIntelliHint(JTextComponent textComponent, List list)
+	/**
+	 * Constructs with the specified text component and completion list.
+	 * @param textComponent the instance of JTextComponent
+	 * @param list the instance of List
+	 */
+	public ListIntelliHint(JTextComponent textComponent, List completionList)
 	{
-		super(textComponent, list);
+		super(textComponent, completionList);
 	}
 	
-	public ListIntelliHint(JTextComponent textComponent, String[] stringArray)
+	/**
+	 * Constructs with the specified text component and completion object array.
+	 * @param textComponent the instance of JTextComponent
+	 * @param completionList the completion object array
+	 */
+	public ListIntelliHint(JTextComponent textComponent, Object[] completionList)
 	{
-		super(textComponent, stringArray);
+		super(textComponent, completionList);
 	}
 }
