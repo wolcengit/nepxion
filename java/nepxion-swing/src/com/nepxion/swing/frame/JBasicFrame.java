@@ -25,75 +25,159 @@ import com.nepxion.swing.window.WindowManager;
 public class JBasicFrame
 	extends JFrame
 {
-	private boolean isHint = true;
-	private boolean isDestroy = true;
+	/**
+	 * the boolean value of hint.
+	 */
+	private boolean hint = true;
 	
+	/**
+	 * the boolean value of destroy.
+	 */
+	private boolean destroy = true;
+	
+	/**
+	 * Constructs with the default.
+	 */
 	public JBasicFrame()
 	{
 		this("");
 	}
 	
+	/**
+	 * Constructs with the specified initial title.
+	 * @param title the title string
+	 */
 	public JBasicFrame(String title)
 	{
 		this(title, true);
 	}
 	
+	/**
+	 * Constructs with the specified initial title and image icon.
+	 * @param title the title string
+	 * @param imageIcon the instance of ImageIcon
+	 */
 	public JBasicFrame(String title, ImageIcon imageIcon)
 	{
 		this(title, imageIcon, true);
 	}
 	
+	/**
+	 * Constructs with the specified initial title and dimension.
+	 * @param title the title string
+	 * @param dimension the instance of Dimension
+	 */
 	public JBasicFrame(String title, Dimension dimension)
 	{
 		this(title, null, dimension);
 	}
 	
-	public JBasicFrame(String title, boolean isDestroy)
+	/**
+	 * Constructs with the specified initial title and destroy.
+	 * @param title the title string
+	 * @param destroy the boolean value of destroy
+	 */
+	public JBasicFrame(String title, boolean destroy)
 	{
-		this(title, (Dimension) null, isDestroy);
+		this(title, (Dimension) null, destroy);
 	}
 	
+	/**
+	 * Constructs with the specified initial title, image icon and dimension.
+	 * @param title the title string
+	 * @param imageIcon the instance of ImageIcon
+	 * @param dimension the instance of Dimension
+	 */
 	public JBasicFrame(String title, ImageIcon imageIcon, Dimension dimension)
 	{
 		this(title, imageIcon, dimension, true);
 	}
 	
-	public JBasicFrame(String title, ImageIcon imageIcon, boolean isDestroy)
+	/**
+	 * Constructs with the specified initial title, image icon and destroy.
+	 * @param title the title string
+	 * @param imageIcon the instance of ImageIcon
+	 * @param destroy the boolean value of destroy
+	 */
+	public JBasicFrame(String title, ImageIcon imageIcon, boolean destroy)
 	{
-		this(title, imageIcon, true, isDestroy);
+		this(title, imageIcon, true, destroy);
 	}
 	
-	public JBasicFrame(String title, Dimension dimension, boolean isDestroy)
+	/**
+	 * Constructs with the specified initial title, dimension and destroy.
+	 * @param title the title string
+	 * @param dimension the instance of Dimension
+	 * @param destroy the boolean value of destroy
+	 */
+	public JBasicFrame(String title, Dimension dimension, boolean destroy)
 	{
-		this(title, dimension, true, isDestroy);
+		this(title, dimension, true, destroy);
 	}
 	
-	public JBasicFrame(String title, boolean isHint, boolean isDestroy)
+	/**
+	 * Constructs with the specified initial title, hint and destroy.
+	 * @param title the title string
+	 * @param hint the boolean value of hint
+	 * @param destroy the boolean value of destroy
+	 */
+	public JBasicFrame(String title, boolean hint, boolean destroy)
 	{
-		this(title, (Dimension) null, isHint, isDestroy);
+		this(title, (Dimension) null, hint, destroy);
 	}
 	
-	public JBasicFrame(String title, ImageIcon imageIcon, Dimension dimension, boolean isDestroy)
+	/**
+	 * Constructs with the specified initial title, image icon, dimension and destroy.
+	 * @param title the title string
+	 * @param imageIcon the instance of ImageIcon
+	 * @param dimension the instance of Dimension
+	 * @param destroy the boolean value of destroy
+	 */
+	public JBasicFrame(String title, ImageIcon imageIcon, Dimension dimension, boolean destroy)
 	{
-		this(title, imageIcon, dimension, true, isDestroy);
+		this(title, imageIcon, dimension, true, destroy);
 	}
 	
-	public JBasicFrame(String title, ImageIcon imageIcon, boolean isHint, boolean isDestroy)
+	/**
+	 * Constructs with the specified initial title, image icon, hint and destroy.
+	 * @param title the title string
+	 * @param imageIcon the instance of ImageIcon
+	 * @param hint the boolean value of hint
+	 * @param destroy the boolean value of destroy
+	 */
+	public JBasicFrame(String title, ImageIcon imageIcon, boolean hint, boolean destroy)
 	{
-		this(title, imageIcon, null, isHint, isDestroy);
+		this(title, imageIcon, null, hint, destroy);
 	}
 	
-	public JBasicFrame(String title, Dimension dimension, boolean isHint, boolean isDestroy)
+	/**
+	 * Constructs with the specified initial title dimension, hint and destroy.
+	 * @param title the title string
+	 * @param dimension the instance of Dimension
+	 * @param hint the boolean value of hint
+	 * @param destroy the boolean value of destroy
+	 */
+	public JBasicFrame(String title, Dimension dimension, boolean hint, boolean destroy)
 	{
-		this(title, null, dimension, isHint, isDestroy);
+		this(title, null, dimension, hint, destroy);
 	}
 	
-	public JBasicFrame(String title, ImageIcon imageIcon, Dimension dimension, boolean isHint, boolean isDestroy)
+	/**
+	 * Constructs with the specified initial title, image icon, dimension, hint and destroy.
+	 * The boolean value of hint means that it will be shown confirming hint or not when closing the dialog.
+	 * The boolean value of hint means that it will kill JVM process when closing the frame.
+	 * @param title the title string
+	 * @param imageIcon the instance of ImageIcon
+	 * @param dimension the instance of Dimension
+	 * @param hint the boolean value of hint
+	 * @param destroy the boolean value of destroy
+	 */
+	public JBasicFrame(String title, ImageIcon imageIcon, Dimension dimension, boolean hint, boolean destroy)
 	{
 		super(title);
 		
-		this.isHint = isHint;
-		this.isDestroy = isDestroy;
+		this.hint = hint;
+		this.destroy = destroy;
 		
 		WindowManager.setCenter(this, dimension);
 		if (imageIcon != null)
@@ -102,29 +186,49 @@ public class JBasicFrame
 		}
 	}
 	
+	/**
+	 * Returns true if hint.
+	 * @return true if hint
+	 */
 	public boolean isHint()
 	{
-		return isHint;
+		return hint;
 	}
 	
-	public void setHint(boolean isHint)
+	/**
+	 * Sets the hint.
+	 * @param hint the boolean value of hint.
+	 */
+	public void setHint(boolean hint)
 	{
-		this.isHint = isHint;
+		this.hint = hint;
 	}
 	
+	/**
+	 * Returns true if destroy.
+	 * @return true if destroy
+	 */
 	public boolean isDestroy()
 	{
-		return isDestroy;
+		return destroy;
 	}
 	
-	public void setDestroy(boolean isDestroy)
+	/**
+	 * Sets the destroy.
+	 * @param destroy the boolean value of destroy.
+	 */
+	public void setDestroy(boolean destroy)
 	{
-		this.isDestroy = isDestroy;
+		this.destroy = destroy;
 	}
 	
+    /**
+     * Invoked when a window event occurs.
+     * @param e the instance of WindowEvent
+     */
 	protected void processWindowEvent(WindowEvent e)
 	{
-		if (isHint)
+		if (hint)
 		{
 			if (e.getID() == WindowEvent.WINDOW_CLOSING)
 			{
@@ -138,7 +242,7 @@ public class JBasicFrame
 		
 		super.processWindowEvent(e);
 		
-		if (isDestroy)
+		if (destroy)
 		{
 			if (e.getID() == WindowEvent.WINDOW_CLOSING)
 			{
@@ -147,6 +251,10 @@ public class JBasicFrame
 		}
 	}
 	
+	/**
+	 * Sets the extended state.
+	 * @param state the state value
+	 */
     public void setExtendedState(int state)
 	{
 		if ((state & MAXIMIZED_BOTH) == MAXIMIZED_BOTH)
