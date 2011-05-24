@@ -15,11 +15,19 @@ import com.jidesoft.swing.JideBorderLayout;
 public class XBorderLayout
 	extends JideBorderLayout
 {
+	/**
+	 * Constructs with the default.
+	 */
 	public XBorderLayout()
 	{
 		super();
 	}
 	
+	/**
+	 * Constructs with the specified initial horizontal gap and vertical gap.
+	 * @param hgap the horizontal gap
+	 * @param vgap the vertical gap
+	 */
 	public XBorderLayout(int hgap, int vgap)
 	{
 		super(hgap, vgap);

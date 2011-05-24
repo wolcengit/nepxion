@@ -15,16 +15,28 @@ import com.l2fprod.common.swing.PercentLayout;
 public class RatioLayout
 	extends PercentLayout
 {
+	/**
+	 * Constructs with the default.
+	 */
 	public RatioLayout()
 	{
 		this(HORIZONTAL);
 	}
 	
+	/**
+	 * Constructs with the specified initial orientation.
+	 * @param orientation the orientation value
+	 */
 	public RatioLayout(int orientation)
 	{
 		this(orientation, 0);
 	}
 	
+	/**
+	 * Constructs with the specified initial orientation and gap.
+	 * @param orientation the orientation value
+	 * @param gap the gap value
+	 */
 	public RatioLayout(int orientation, int gap)
 	{
 		super(orientation, gap);

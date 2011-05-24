@@ -19,31 +19,61 @@ import java.awt.LayoutManager;
 public class ToolBarLayout
 	implements LayoutManager
 {
+	/**
+	 * The x axis value.
+	 */
 	public static final int X_AXIS = 0;
+	
+	/**
+	 * The x axis value.
+	 */
 	public static final int Y_AXIS = 1;
 	
+	/**
+	 * The axis value.
+	 */
 	private int axis;
 	
+	/**
+	 * Constructs with the default.
+	 */
 	public ToolBarLayout()
 	{
 		this(X_AXIS);
 	}
 	
+	/**
+	 * Constructs with the specified initial axis.
+	 * @param axis the axis value
+	 */
 	public ToolBarLayout(int axis)
 	{
 		this.axis = axis;
 	}
 	
+	/**
+	 * Adds the layout component.
+	 * @param name the name string
+	 * @param component the instance of Component
+	 */
 	public void addLayoutComponent(String name, Component component)
 	{
 		
 	}
 	
+	/**
+	 * Removes the layout component.
+	 * @param component the instance of Component
+	 */
 	public void removeLayoutComponent(Component component)
 	{
 		
 	}
 	
+	/**
+     * Calculates the preferred size dimensions for the specified container.
+     * @param parent the instance of Container
+	 */
 	public Dimension preferredLayoutSize(Container parent)
 	{
 		Dimension size = new Dimension();
@@ -87,14 +117,22 @@ public class ToolBarLayout
 		return size;
 	}
 	
+	/**
+     * Calculates the minimum size dimensions for the specified container.
+     * @param parent the instance of Container
+	 */
 	public Dimension minimumLayoutSize(Container parent)
 	{
 		return new Dimension(0, 0);
 	}
 	
+	/**
+	 * Lays out the specified container.
+	 * @param parent the instance of Container
+	 */
 	public void layoutContainer(Container parent)
 	{
-		Dimension componentSize = getComponentSize(parent);
+		Dimension size = calculatesSize(parent);
 		
 		Insets insets = parent.getInsets();
 		int x = insets.left;
@@ -109,14 +147,14 @@ public class ToolBarLayout
 			component.setSize(dimension);
 			if (axis == X_AXIS)
 			{
-				component.setLocation(x, y + (componentSize.height - dimension.height) / 2);
+				component.setLocation(x, y + (size.height - dimension.height) / 2);
 				
 				x += dimension.width;
 				width += dimension.width;
 			}
 			else if (axis == Y_AXIS)
 			{
-				component.setLocation(x + (componentSize.width - dimension.width) / 2, y);
+				component.setLocation(x + (size.width - dimension.width) / 2, y);
 				
 				y += dimension.height;
 				height += dimension.height;
@@ -167,7 +205,12 @@ public class ToolBarLayout
 		}
 	}
 	
-	private Dimension getComponentSize(Container parent)
+	/**
+	 * Calculates the size for the specified container.
+	 * @param parent the instance of Container
+	 * @return the instance of Dimension
+	 */
+	private Dimension calculatesSize(Container parent)
 	{
 		Dimension size = new Dimension();
 		size.width = 0;
