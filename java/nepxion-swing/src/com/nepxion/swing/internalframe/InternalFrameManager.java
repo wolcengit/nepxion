@@ -27,6 +27,11 @@ import com.nepxion.swing.selector.checkbox.JCheckBoxSelector;
 
 public class InternalFrameManager
 {
+	/**
+	 * Closes the internal frames by a checkBox selector.
+	 * @param desktopPane the instance of JDesktopPane
+	 * @param checkBoxSelector the instance of JCheckBoxSelector
+	 */
 	public static void showCloseDialog(JDesktopPane desktopPane, JCheckBoxSelector checkBoxSelector)
 	{
 		Vector slectionElementNodes = new Vector();
