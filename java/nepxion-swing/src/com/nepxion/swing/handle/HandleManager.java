@@ -19,6 +19,12 @@ import java.awt.Window;
 
 public class HandleManager
 {
+	/**
+	 * Gets the parent component by a child component and parent class.
+	 * @param component the child component
+	 * @param clazz the parent class
+	 * @return the instance of Component
+	 */
 	public static Component getComponent(Component component, Class clazz)
 	{
 		if (component == null || clazz == null)
@@ -44,6 +50,11 @@ public class HandleManager
 		return null;
 	}
 	
+	/**
+	 * Gets the top window by a child component.
+	 * @param component the child component
+	 * @return the instance of Window
+	 */
 	public static Window getWindow(Component component)
 	{
 		if (component == null)
@@ -69,6 +80,11 @@ public class HandleManager
 		return null;
 	}
 	
+	/**
+	 * Gets the top frame by a child component.
+	 * @param component the child component
+	 * @return the instance of Frame
+	 */
 	public static Frame getFrame(Component component)
 	{
 		if (component == null)
@@ -94,6 +110,11 @@ public class HandleManager
 		return null;
 	}
 	
+	/**
+	 * Gets the top applet by a child component.
+	 * @param component the child component
+	 * @return the instance of Applet
+	 */
 	public static Applet getApplet(Component component)
 	{
 		if (component == null)
@@ -119,6 +140,11 @@ public class HandleManager
 		return null;
 	}
 	
+	/**
+	 * Gets the top dialog by a child component.
+	 * @param component the child component
+	 * @return the instance of Dialog
+	 */
 	public static Dialog getDialog(Component component)
 	{
 		if (component == null)
@@ -144,7 +170,12 @@ public class HandleManager
 		return null;
 	}
 	
-	public static Window getModalDialog(Window window)
+	/**
+	 * Gets the modal dialog by a window.
+	 * @param window the instance of Window
+	 * @return the instance of Dialog
+	 */
+	public static Dialog getModalDialog(Window window)
 	{
 		Window[] windows = window.getOwnedWindows();
 		for (int i = 0; i < windows.length; i++)
@@ -155,10 +186,15 @@ public class HandleManager
 			}
 		}
 		
-		return window;
+		return (Dialog) window;
 	}
 	
-	public static Component getAncestorComponent(Window window)
+	/**
+	 * Gets the ancestor modal dialog by a window.
+	 * @param window the instance of Window
+	 * @return the instance of Dialog
+	 */
+	public static Dialog getAncestorModalDialog(Window window)
 	{
 		Window[] windows = window.getOwnedWindows();
 		for (int i = 0; i < windows.length; i++)
@@ -169,6 +205,6 @@ public class HandleManager
 			}
 		}
 		
-		return window;
+		return (Dialog) window;
 	}
 }
