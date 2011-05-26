@@ -15,6 +15,10 @@ import com.jidesoft.plaf.LookAndFeelFactory;
 public class LookAndFeelTheme
 	extends LookAndFeelFactory
 {
+	/**
+	 * Sets the theme.
+	 * @param theme the theme value
+	 */
 	public static void setTheme(int theme)
 	{
 		LookAndFeelTheme.installJideExtension(theme);

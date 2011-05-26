@@ -50,11 +50,23 @@ import com.nepxion.swing.style.framework.StyleManager;
 
 public class LookAndFeelManager
 {
+	/**
+	 * Sets the system look and feel. It will be adapted to OS facade.
+	 * The framework style is Lite.
+	 * The button ui is Flat.
+	 * The button style is Flat.
+	 */
 	public static void setSystemLookAndFeel()
 	{
 		setLookAndFeel(UIManager.getSystemLookAndFeelClassName(), JLiteStyle.ID, FlatButtonUI.ID, FlatMenuButtonUI.ID, FlatSplitButtonUI.ID, JFlatButtonStyle.ID);
 	}
 	
+	/**
+	 * Sets the default metal look and feel. It is the JDK 1.4 style.
+	 * The framework style is Lite.
+	 * The button ui is Flat.
+	 * The button style is Flat.
+	 */
 	public static void setDefaultMetalLookAndFeel()
 	{
 		try
@@ -107,91 +119,200 @@ public class LookAndFeelManager
 		setButtonUI(FlatButtonUI.ID, FlatMenuButtonUI.ID, FlatSplitButtonUI.ID, JFlatButtonStyle.ID);
 	}
 	
+	/**
+	 * Sets the metal look and feel. It is the JDK 1.5 style above.
+	 * The framework style is Lite.
+	 * The button ui is Flat.
+	 * The button style is Flat.
+	 */
 	public static void setMetalLookAndFeel()
 	{
 		setLookAndFeel("javax.swing.plaf.metal.MetalLookAndFeel", JLiteStyle.ID, FlatButtonUI.ID, FlatMenuButtonUI.ID, FlatSplitButtonUI.ID, JFlatButtonStyle.ID);
 	}
 	
+	/**
+	 * Sets the windows look and feel.
+	 * The framework style is Windows.
+	 * The button ui is Flat.
+	 * The button style is Flat.
+	 */
 	public static void setWindowsLookAndFeel()
 	{
 		setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel", JWindowsStyle.ID, FlatButtonUI.ID, FlatMenuButtonUI.ID, FlatSplitButtonUI.ID, JFlatButtonStyle.ID);
 	}
 	
+	/**
+	 * Sets the motif look and feel.
+	 * The framework style is Lite.
+	 * The button ui is Flat.
+	 * The button style is Flat.
+	 */
 	public static void setMotifLookAndFeel()
 	{
 		setLookAndFeel("com.sun.java.swing.plaf.motif.MotifLookAndFeel", JLiteStyle.ID, FlatButtonUI.ID, FlatMenuButtonUI.ID, FlatSplitButtonUI.ID, JFlatButtonStyle.ID);
 	}
 	
+	/**
+	 * Sets the gtk look and feel.
+	 * The framework style is Lite.
+	 * The button ui is Flat.
+	 * The button style is Flat.
+	 */
 	public static void setGTKLookAndFeel()
 	{
 		setLookAndFeel("com.sun.java.swing.plaf.gtk.GTKLookAndFeel", JLiteStyle.ID, FlatButtonUI.ID, FlatMenuButtonUI.ID, FlatSplitButtonUI.ID, JFlatButtonStyle.ID);
 	}
 	
+	/**
+	 * Sets the nimbus look and feel. It is only used in JDK 1.6 above.
+	 * The framework style is Nimbus.
+	 * The button ui is Lite.
+	 * The button style is Nimbus.
+	 */
 	public static void setNimbusLookAndFeel()
 	{
 		setLookAndFeel("com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel", JNimbusStyle.ID, LiteButtonUI.ID, LiteMenuButtonUI.ID, LiteSplitButtonUI.ID, JNimbusLiteButtonStyle.ID);
 	}
 	
+	/**
+	 * Sets the alloy look and feel.
+	 * The framework style is Lite.
+	 * The button ui is Lite.
+	 * The button style is Alloy.
+	 */
 	public static void setAlloyLookAndFeel()
 	{
 		setLookAndFeel("com.incors.plaf.alloy.DefaultThemeAlloyLookAndFeel", JLiteStyle.ID, LiteButtonUI.ID, LiteMenuButtonUI.ID, LiteSplitButtonUI.ID, JAlloyLiteButtonStyle.ID);
 	}
 	
+	/**
+	 * Sets the acid look and feel.
+	 * The framework style is Lite.
+	 * The button ui is Lite.
+	 * The button style is Acid.
+	 */
 	public static void setAcidLookAndFeel()
 	{
 		setLookAndFeel("com.incors.plaf.alloy.AcidThemeAlloyLookAndFeel", JLiteStyle.ID, LiteButtonUI.ID, LiteMenuButtonUI.ID, LiteSplitButtonUI.ID, JAcidLiteButtonStyle.ID);
 	}
 	
+	/**
+	 * Sets the bedouin look and feel.
+	 * The framework style is Lite.
+	 * The button ui is Lite.
+	 * The button style is Bedouin.
+	 */
 	public static void setBedouinLookAndFeel()
 	{
 		setLookAndFeel("com.incors.plaf.alloy.BedouinThemeAlloyLookAndFeel", JLiteStyle.ID, LiteButtonUI.ID, LiteMenuButtonUI.ID, LiteSplitButtonUI.ID, JBedouinLiteButtonStyle.ID);
 	}
 	
+	/**
+	 * Sets the glass look and feel.
+	 * The framework style is Lite.
+	 * The button ui is Lite.
+	 * The button style is Glass.
+	 */
 	public static void setGlassLookAndFeel()
 	{
 		setLookAndFeel("com.incors.plaf.alloy.GlassThemeAlloyLookAndFeel", JLiteStyle.ID, LiteButtonUI.ID, LiteMenuButtonUI.ID, LiteSplitButtonUI.ID, JGlassLiteButtonStyle.ID);
 	}
 	
+	/**
+	 * Sets the borland look and feel. It is the JDK 1.5 style above.
+	 * The framework style is Windows.
+	 * The button ui is Lite.
+	 * The button style is Borland.
+	 */
 	public static void setBorlandLookAndFeel()
 	{
 		setLookAndFeel("com.borland.plaf.borland.BorlandLookAndFeel", JWindowsStyle.ID, LiteButtonUI.ID, LiteMenuButtonUI.ID, LiteSplitButtonUI.ID, JBorlandLiteButtonStyle.ID);
 	}
 	
+	/**
+	 * Sets the jgoodies windows look and feel.
+	 * The framework style is Windows.
+	 * The button ui is Lite.
+	 * The button style is Eclipse.
+	 */
 	public static void setJGoodiesWindowsLookAndFeel()
 	{
 		setLookAndFeel("com.jgoodies.looks.windows.WindowsLookAndFeel", JWindowsStyle.ID, LiteButtonUI.ID, LiteMenuButtonUI.ID, LiteSplitButtonUI.ID, JEclipseLiteButtonStyle.ID);
 	}
 	
+	/**
+	 * Sets the plastic look and feel.
+	 * The framework style is Windows.
+	 * The button ui is Lite.
+	 * The button style is Eclipse.
+	 */
 	public static void setPlasticLookAndFeel()
 	{
 		setLookAndFeel("com.jgoodies.looks.plastic.PlasticLookAndFeel", JWindowsStyle.ID, LiteButtonUI.ID, LiteMenuButtonUI.ID, LiteSplitButtonUI.ID, JEclipseLiteButtonStyle.ID);
 	}
 	
+	/**
+	 * Sets the plastic xp look and feel.
+	 * The framework style is Windows.
+	 * The button ui is Lite.
+	 * The button style is Eclipse.
+	 */
 	public static void setPlasticXPLookAndFeel()
 	{
 		setLookAndFeel("com.jgoodies.looks.plastic.PlasticXPLookAndFeel", JWindowsStyle.ID, LiteButtonUI.ID, LiteMenuButtonUI.ID, LiteSplitButtonUI.ID, JEclipseLiteButtonStyle.ID);
 	}
 	
+	/**
+	 * Sets the plastic 3D look and feel.
+	 * The framework style is Windows.
+	 * The button ui is Lite.
+	 * The button style is Eclipse.
+	 */
 	public static void setPlastic3DLookAndFeel()
 	{
 		setLookAndFeel("com.jgoodies.looks.plastic.Plastic3DLookAndFeel", JWindowsStyle.ID, LiteButtonUI.ID, LiteMenuButtonUI.ID, LiteSplitButtonUI.ID, JEclipseLiteButtonStyle.ID);
 	}
 	
+	/**
+	 * Sets the xp look and feel.
+	 * The framework style is Windows.
+	 * The button ui is Flat.
+	 * The button style is Flat.
+	 */
 	public static void setXPLookAndFeel()
 	{
 		setLookAndFeel("com.stefankrause.xplookandfeel.XPLookAndFeel", JWindowsStyle.ID, FlatButtonUI.ID, FlatMenuButtonUI.ID, FlatSplitButtonUI.ID, JFlatButtonStyle.ID);
 	}
 	
+	/**
+	 * Sets the tiny look and feel.
+	 * The framework style is Windows.
+	 * The button ui is Flat.
+	 * The button style is Flat.
+	 */
 	public static void setTinyLookAndFeel()
 	{
 		setLookAndFeel("de.muntjak.tinylookandfeel.TinyLookAndFeel", JWindowsStyle.ID, FlatButtonUI.ID, FlatMenuButtonUI.ID, FlatSplitButtonUI.ID, JFlatButtonStyle.ID);
 	}
 	
+	/**
+	 * Sets look and feel by a look and feel string.
+	 * @param lookAndFeel the look and feel string
+	 */
 	public static void setLookAndFeel(String lookAndFeel)
 	{
 		setLookAndFeel(lookAndFeel, null, null, null, null, null);
 	}
 	
+	/**
+	 * Sets look and feel by a look and feel string, framework style, button ui and button style.
+	 * @param lookAndFeel the look and feel string
+	 * @param style the framework style string
+	 * @param buttonUI the button ui string
+	 * @param menuButtonUI the menu button ui string
+	 * @param splitButtonUI the split button ui string
+	 * @param buttonStyle the button style string
+	 */
 	public static void setLookAndFeel(String lookAndFeel, String style, String buttonUI, String menuButtonUI, String splitButtonUI, String buttonStyle)
 	{
 		try
@@ -208,6 +329,10 @@ public class LookAndFeelManager
 		setButtonUI(buttonUI, menuButtonUI, splitButtonUI, buttonStyle);
 	}
 	
+	/**
+	 * Sets look and feel by a look and feel string in a reflected way. 
+	 * @param lookAndFeel the look and feel string
+	 */
 	public static void invokeLookAndFeel(String lookAndFeel)
 	{
 		try
@@ -240,11 +365,18 @@ public class LookAndFeelManager
 		}
 	}
 	
+	/**
+	 * Returns true if the look and feel is Nimbus.
+	 * @return true if the look and feel is Nimbus
+	 */
 	public static boolean isNimbusLookAndFeel()
 	{
 		return UIManager.getLookAndFeel().getID().equals("Nimbus");
 	}
 	
+	/**
+	 * Adds one the metal look and feel.
+	 */
 	public static void addonMetalLookAndFeel()
 	{
 		try
@@ -261,6 +393,9 @@ public class LookAndFeelManager
 		}
 	}
 	
+	/**
+	 * Adds one the windows look and feel.
+	 */
 	public static void addonWindowsLookAndFeel()
 	{
 		try
@@ -277,6 +412,9 @@ public class LookAndFeelManager
 		}
 	}
 	
+	/**
+	 * Adds one the luna look and feel.
+	 */
 	public static void addonLunaLookAndFeel()
 	{
 		try
@@ -294,6 +432,9 @@ public class LookAndFeelManager
 		}
 	}
 	
+	/**
+	 * Adds one the homestead look and feel.
+	 */
 	public static void addonHomesteadLookAndFeel()
 	{
 		try
@@ -311,6 +452,9 @@ public class LookAndFeelManager
 		}
 	}
 	
+	/**
+	 * Adds one the metallic look and feel.
+	 */
 	public static void addonMetallicLookAndFeel()
 	{
 		try
@@ -328,6 +472,9 @@ public class LookAndFeelManager
 		}
 	}
 	
+	/**
+	 * Adds one the glossy look and feel.
+	 */
 	public static void addonGlossyLookAndFeel()
 	{
 		try
@@ -344,6 +491,10 @@ public class LookAndFeelManager
 		}
 	}
 	
+	/**
+	 * Sets the frame work style by a style class.
+	 * @param styleClass the style class string
+	 */
 	public static void setStyle(String styleClass)
 	{
 		if (!StyleContext.setPriorityContext())
@@ -364,6 +515,13 @@ public class LookAndFeelManager
 		}
 	}
 	
+	/**
+	 * Sets the button ui by a button ui class, menu button ui class, split button ui class and button style class.
+	 * @param buttonUIClass the button ui class string
+	 * @param menuButtonUIClass the menu button ui class string
+	 * @param splitButtonUIClass the split button ui class string
+	 * @param buttonStyleClass the button style class string
+	 */
 	public static void setButtonUI(String buttonUIClass, String menuButtonUIClass, String splitButtonUIClass, String buttonStyleClass)
 	{
 		if (!ButtonContext.setPriorityContext())
@@ -372,6 +530,9 @@ public class LookAndFeelManager
 		}
 	}
 	
+	/**
+	 * Sets the font.
+	 */
 	public static void setFont()
 	{
 		FontManager.setFont(FontContext.getFont());
