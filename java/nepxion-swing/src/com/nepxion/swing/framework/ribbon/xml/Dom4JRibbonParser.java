@@ -149,7 +149,7 @@ public class Dom4JRibbonParser
 	
 	public void parseRibbonBarElement(Element element)
 	{
-		for (Iterator elementIterator = element.elementIterator(TAG_RIBBON_BAR); elementIterator.hasNext();)
+		for (Iterator elementIterator = element.element(TAG_RIBBON_NAVIGATOR).elementIterator(); elementIterator.hasNext();)
 		{
 			Object childElementObject = elementIterator.next();
 			if (childElementObject instanceof Element)
@@ -163,25 +163,16 @@ public class Dom4JRibbonParser
 	
 	public void parseRibbonContainerElement(Element element)
 	{		
-		for (Iterator elementIterator = element.elementIterator(TAG_RIBBON_CONTAINER); elementIterator.hasNext();)
-		{
-			Object childElementObject = elementIterator.next();
-			if (childElementObject instanceof Element)
-			{
-				Element childElement = (Element) childElementObject;
-				
-				Attribute attribute0 = childElement.attribute(0);
-				Attribute attribute1 = childElement.attribute(1);
-				
-				boolean isInternalFrame = Boolean.valueOf(attribute0.getText()).booleanValue();
-				int maximumCount = Integer.valueOf(attribute1.getText()).intValue();
-				
-				ribbonContainer.setInternalFrame(isInternalFrame);
-				ribbonContainer.setMaximumCount(maximumCount);
-				
-				break;
-			}
-		}
+		Element childElement = element.element(TAG_RIBBON_CONTAINER);
+		
+		Attribute attribute0 = childElement.attribute(0);
+		Attribute attribute1 = childElement.attribute(1);
+		
+		boolean isInternalFrame = Boolean.valueOf(attribute0.getText()).booleanValue();
+		int maximumCount = Integer.valueOf(attribute1.getText()).intValue();
+		
+		ribbonContainer.setInternalFrame(isInternalFrame);
+		ribbonContainer.setMaximumCount(maximumCount);
 	}
 	
 	public void parseRibbonBarAttribute(Element element)
