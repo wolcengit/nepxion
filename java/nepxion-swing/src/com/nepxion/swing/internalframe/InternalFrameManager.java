@@ -10,6 +10,7 @@ package com.nepxion.swing.internalframe;
  * @version 1.0
  */
 
+import java.awt.Component;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Vector;
@@ -39,10 +40,13 @@ public class InternalFrameManager
 		for (int i = 0; i < internalFrames.length; i++)
 		{
 			JInternalFrame internalFrame = internalFrames[i];
+						
 			String title = internalFrame.getTitle();
 			String toolTipText = internalFrame.getToolTipText();
 			Icon icon = internalFrame.getFrameIcon();
-			IElementNode elementNode = new ElementNode(title, title, icon, toolTipText, internalFrame);
+			Component component = internalFrame.isIcon() ? internalFrame.getDesktopIcon() : internalFrame;
+			
+			IElementNode elementNode = new ElementNode(title, title, icon, toolTipText, component);
 			slectionElementNodes.add(elementNode);
 		}
 		
@@ -59,8 +63,8 @@ public class InternalFrameManager
 			List selectedComponents = checkBoxSelector.getSelectedUserObjects();
 			for (Iterator iterator = selectedComponents.iterator(); iterator.hasNext();)
 			{
-				JInternalFrame internalFrame = (JInternalFrame) iterator.next();
-				desktopPane.remove(internalFrame);
+				Component component = (Component) iterator.next();
+				desktopPane.remove(component);
 			}
 			
 			ContainerManager.update(desktopPane);
