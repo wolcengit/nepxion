@@ -15,10 +15,19 @@ import javax.swing.JPanel;
 public abstract class JFrameWorkHierarchy
 	extends JPanel
 {
+	/**
+	 * Constructs with the default.
+	 * The hierarchy is the core container of the framework.
+	 * It mainly includes the tool bar, content panel and status bar.
+	 */
 	public JFrameWorkHierarchy()
 	{
 		
 	}
 	
+	/**
+	 * Get the status bar.
+	 * @return the instance of JFrameWorkStatusBar
+	 */
 	public abstract JFrameWorkStatusBar getStatusBar();
 }

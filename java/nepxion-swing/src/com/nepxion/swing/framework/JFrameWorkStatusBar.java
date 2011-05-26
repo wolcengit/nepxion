@@ -23,14 +23,27 @@ import com.nepxion.swing.timer.JTimerProgressBar;
 public class JFrameWorkStatusBar
 	extends JStatusBar
 {
+	/**
+	 * The instance of JTimerProgressBar.
+	 */
 	private JTimerProgressBar timerProgressBar;
+	
+	/**
+	 * The instance of JTimerLabel.
+	 */
 	private JTimerLabel timerLabel;
 	
+	/**
+	 * Constructs with the default.
+	 */
 	public JFrameWorkStatusBar()
 	{
 		setBorderVisible(false);
 	}
 	
+	/**
+	 * Shows the progress status.
+	 */
 	public void showProgressStatus()
 	{
 		timerProgressBar = new JTimerProgressBar(0, 100);
@@ -47,6 +60,9 @@ public class JFrameWorkStatusBar
 		addItem(80, statusItem, RIGHT);
 	}
 	
+	/**
+	 * Starts the progress.
+	 */
 	public void start()
 	{
 		if (timerProgressBar != null)
@@ -60,6 +76,9 @@ public class JFrameWorkStatusBar
 		}	
 	}
 	
+	/**
+	 * Stops the progress.
+	 */
 	public void stop()
 	{
 		if (timerProgressBar != null)
@@ -73,11 +92,19 @@ public class JFrameWorkStatusBar
 		}
 	}
 	
+	/**
+	 * Gets the timer progress bar.
+	 * @return the instance of JTimerProgressBar
+	 */
 	public JTimerProgressBar getTimerProgressBar()
 	{
 		return timerProgressBar;
 	}
 	
+	/**
+	 * Gets the timer label.
+	 * @return the instance of JTimerLabel
+	 */
 	public JTimerLabel getTimerLabel()
 	{
 		return timerLabel;

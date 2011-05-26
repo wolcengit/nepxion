@@ -13,10 +13,13 @@ package com.nepxion.swing.framework;
 import java.awt.Component;
 import java.awt.Container;
 
-import com.nepxion.swing.framework.dockable.JDockableHierarchy;
-
 public class FrameWorkManager
 {
+	/**
+	 * Gets the framework hierarchy by the child component.
+	 * @param component the child component
+	 * @return the instance of JFrameWorkHierarchy
+	 */
 	public static JFrameWorkHierarchy getFrameWorkHierarchy(Component component)
 	{
 		if (component == null)
@@ -26,7 +29,7 @@ public class FrameWorkManager
 		
 		if (component instanceof JFrameWorkHierarchy)
 		{
-			return (JDockableHierarchy) component;
+			return (JFrameWorkHierarchy) component;
 		}
 		
 		Container parent = component.getParent();
@@ -42,6 +45,11 @@ public class FrameWorkManager
 		return null;
 	}
 	
+	/**
+	 * Gets the framework window by the child component.
+	 * @param component the child component
+	 * @return the instance of JFrameWorkWindow
+	 */
 	public static JFrameWorkWindow getFrameWorkWindow(Component component)
 	{
 		if (component == null)

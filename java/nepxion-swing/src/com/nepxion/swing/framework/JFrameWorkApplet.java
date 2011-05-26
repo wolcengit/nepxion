@@ -21,8 +21,15 @@ import com.nepxion.swing.style.framework.StyleManager;
 public class JFrameWorkApplet
 	extends JBasicApplet implements JFrameWorkWindow
 {
+	/**
+	 * The instance of JFrameWorkHierarchy.
+	 */
 	private JFrameWorkHierarchy frameWorkHierarchy;
 	
+	/**
+	 * Initializes the applet.
+	 * It is overridden from JBasicApplet.
+	 */
 	public void init()
 	{
 		super.init();
@@ -34,6 +41,10 @@ public class JFrameWorkApplet
 		contentPane.setBackground(Color.white);
 	}
 	
+	/**
+	 * Sets the hierarchy.
+	 * @param frameWorkHierarchy the instance of JFrameWorkHierarchy
+	 */
 	public void setHierarchy(JFrameWorkHierarchy frameWorkHierarchy)
 	{
 		this.frameWorkHierarchy = frameWorkHierarchy;
@@ -45,6 +56,10 @@ public class JFrameWorkApplet
 		getContentPane().add(frameWorkHierarchy);
 	}
 	
+	/**
+	 * Gets the hierarchy.
+	 * @return the instance of JFrameWorkHierarchy
+	 */
 	public JFrameWorkHierarchy getHierarchy()
 	{
 		return frameWorkHierarchy;

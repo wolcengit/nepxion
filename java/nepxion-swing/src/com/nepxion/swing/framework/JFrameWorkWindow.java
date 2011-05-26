@@ -12,7 +12,17 @@ package com.nepxion.swing.framework;
 
 public interface JFrameWorkWindow
 {
+	/**
+	 * Sets the hierarchy to the framework window.
+	 * The hierarchy is exclusive in the framework window which usually is JFrameWorkFrame, JFrameWorkApplet or JFrameWorkDialog.
+	 * @param frameWorkHierarchy the instance of JFrameWorkHierarchy
+	 */
 	public void setHierarchy(JFrameWorkHierarchy frameWorkHierarchy);
 	
+	/**
+	 * Gets the hierarchy from the framework window.
+	 * The hierarchy is exclusive in the framework window which usually is JFrameWorkFrame, JFrameWorkApplet or JFrameWorkDialog.
+	 * @return the instance of JFrameWorkHierarchy
+	 */
 	public JFrameWorkHierarchy getHierarchy();
 }

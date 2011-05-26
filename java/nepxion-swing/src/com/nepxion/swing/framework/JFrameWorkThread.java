@@ -16,21 +16,41 @@ import java.awt.event.ActionEvent;
 public abstract class JFrameWorkThread
 	extends Thread
 {
+	/**
+	 * The instance of Component.
+	 */
 	private Component component;
 	
+	/**
+	 * The instance of JFrameWorkHierarchy.
+	 */
 	private JFrameWorkHierarchy frameWorkHierarchy;
 	
+	/**
+	 * Constructs with the specified initial framework hierarchy.
+	 * @param frameWorkHierarchy the instance of JFrameWorkHierarchy
+	 */
 	public JFrameWorkThread(JFrameWorkHierarchy frameWorkHierarchy)
 	{
 		this.frameWorkHierarchy = frameWorkHierarchy;
 	}
 	
+	/**
+	 * Constructs with the specified initial framework hierarchy and component.
+	 * @param frameWorkHierarchy the instance of JFrameWorkHierarchy
+	 * @param component the instance of Component
+	 */
 	public JFrameWorkThread(JFrameWorkHierarchy frameWorkHierarchy, Component component)
 	{
 		this.frameWorkHierarchy = frameWorkHierarchy;
 		this.component = component;
 	}
 	
+	/**
+	 * Constructs with the specified initial framework hierarchy and action event.
+	 * @param frameWorkHierarchy the instance of JFrameWorkHierarchy
+	 * @param actionEvent the instance of ActionEvent
+	 */
 	public JFrameWorkThread(JFrameWorkHierarchy frameWorkHierarchy, ActionEvent actionEvent)
 	{
 		this.frameWorkHierarchy = frameWorkHierarchy;
@@ -45,6 +65,9 @@ public abstract class JFrameWorkThread
 		}
 	}
 	
+	/**
+	 * Runs the thread.
+	 */
 	public void run()
 	{
 		try
@@ -65,6 +88,10 @@ public abstract class JFrameWorkThread
 		setComponentEnabled(true);
 	}
 	
+	/**
+	 * Sets the component enabled.
+	 * @param isEnabled the boolean value of isEnabled
+	 */
 	private void setComponentEnabled(boolean isEnabled)
 	{
 		if (component != null)
@@ -73,6 +100,10 @@ public abstract class JFrameWorkThread
 		}
 	}
 	
+	/**
+	 * Sets the thread status.
+	 * @param isStarted the boolean value of isStarted.
+	 */
 	private void setThreadStatus(boolean isStarted)
 	{
 		if (frameWorkHierarchy == null)
@@ -99,5 +130,8 @@ public abstract class JFrameWorkThread
 		}
 	}
 	
+	/**
+	 * Executes.
+	 */
 	public abstract void execute();
 }
