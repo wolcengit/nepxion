@@ -20,14 +20,24 @@ import javax.swing.JMenuBar;
 public class JBasicMenuBar
 	extends JMenuBar
 {
+	/**
+	 * The boolean value of isBorderVisible.
+	 */
 	private boolean isBorderVisible;
 	
+	/**
+	 * Constructs with the default.
+	 */
 	public JBasicMenuBar()
 	{
 		setBorderVisible(false);
 		setPreferredSize(new Dimension(getPreferredSize().width, 25));
 	}
 	
+	/**
+	 * Sets the border visible.
+	 * @param isBorderVisible the boolean value of isBorderVisible
+	 */
 	public void setBorderVisible(boolean isBorderVisible)
 	{
 		this.isBorderVisible = isBorderVisible;
@@ -44,6 +54,10 @@ public class JBasicMenuBar
 		repaint();
 	}
 	
+	/**
+	 * Paints.
+	 * @param g the instance of Graphics
+	 */
 	public void paint(Graphics g)
 	{
 		super.paint(g);
