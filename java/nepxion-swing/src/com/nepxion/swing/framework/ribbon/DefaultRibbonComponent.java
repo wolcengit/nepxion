@@ -15,13 +15,24 @@ import javax.swing.JPanel;
 public class DefaultRibbonComponent
 	extends JPanel implements IRibbonComponent
 {
+	/**
+	 * The user object 
+	 */
 	private Object userObject;
 	
+	/**
+	 * Gets the user object.
+	 * @return the user object
+	 */
 	public Object getUserObject()
 	{
 		return userObject;
 	}
 	
+	/**
+	 * Sets the user object.
+	 * @param userObject the user object
+	 */
 	public void setUserObject(Object userObject)
 	{
 		this.userObject = userObject;

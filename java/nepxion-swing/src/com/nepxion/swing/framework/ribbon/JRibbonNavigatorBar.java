@@ -35,14 +35,36 @@ import com.nepxion.swing.tabbedpane.TabbedPaneManager;
 public abstract class JRibbonNavigatorBar
 	extends JPanel
 {
+	/**
+	 * The instance of JRibbonContainer.
+	 */
 	private JRibbonContainer ribbonContainer;
+	
+	/**
+	 * The instance of ITabbedPane.
+	 */
 	private ITabbedPane tabbedPane;
+	
+	/**
+	 * The instance of JTabbedPane.
+	 */
 	private JTabbedPane tabbedComponent;
 	
+	/**
+	 * The instance of JDecorationPopupMenu.
+	 */
 	private JDecorationPopupMenu popupMenu;
 	
+	/**
+	 * The boolean value of isBarShown.
+	 */
 	private boolean isBarShown = true;
 	
+	/**
+	 * Constructs with the specified initial ribbon container and tabbed pane.
+	 * @param ribbonContainer the instance of JRibbonContainer
+	 * @param tabbedPane the instance of ITabbedPane
+	 */
 	public JRibbonNavigatorBar(JRibbonContainer ribbonContainer, ITabbedPane tabbedPane)
 	{
 		this.ribbonContainer = ribbonContainer;
@@ -82,6 +104,9 @@ public abstract class JRibbonNavigatorBar
 		add(tabbedComponent, BorderLayout.CENTER);
 	}
 	
+	/**
+	 * Initializes the popup menu.
+	 */
 	private void initPopupMenu()
 	{
 		popupMenu = new JDecorationPopupMenu();
@@ -99,16 +124,29 @@ public abstract class JRibbonNavigatorBar
 		popupMenu.add(new JBasicMenuItem(new JRibbonToggleHeightAction(this)));
 	}
 	
+	/**
+	 * Gets the ribbon container.
+	 * @return the instance of JRibbonContainer
+	 */
 	public JRibbonContainer getRibbonContainer()
 	{
 		return ribbonContainer;
 	}
 	
+	/**
+	 * Gets the tabbed pane.
+	 * @return the instance of ITabbedPane
+	 */
 	public ITabbedPane getTabbedPane()
 	{
 		return tabbedPane;
 	}
 	
+	/**
+	 * Adapts the dimension.
+	 * If the items of the tabbed pane is too many, the tabbed pane will give an unnecessary margin to the item which looks ugly.
+	 * So this method will set the suitable size for the tabbed pane.
+	 */
 	public void adaptDimension()
 	{		
 		int tabHeight = TabbedPaneManager.getTabHeight(tabbedComponent);
@@ -117,6 +155,10 @@ public abstract class JRibbonNavigatorBar
 		tabbedComponent.setPreferredSize(new Dimension(tabbedComponent.getSize().width, tabHeight + barHeight));
 	}
 	
+	/**
+	 * Toggles the height for the navigator bar.
+	 * It will show or hide the tabbed pane content.
+	 */
 	public void toggleHeight()
 	{				
 		int tabHeight = TabbedPaneManager.getTabHeight(tabbedComponent);
@@ -136,6 +178,14 @@ public abstract class JRibbonNavigatorBar
 		isBarShown = !isBarShown;
 	}
 	
+	/**
+	 * Toggles the facade by a show type and show value.
+	 * The show type values are "text" and "icon".
+	 * The show value values are SHOW_SMALL, SHOW_LARGE and SHOW_NO. (See JAction definition).
+	 * For example, if the showType is "icon" and the showValue is SHOW_LARGE, the component will display the icon as a large style.
+	 * @param showType the show type
+	 * @param showValue the show value
+	 */
 	public void toggleFacade(String showType, int showValue)
 	{		
 		for (int i = 0; i < tabbedPane.getTabCount(); i++)

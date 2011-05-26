@@ -12,11 +12,27 @@ package com.nepxion.swing.framework.ribbon;
 
 public interface IRibbonComponent
 {
+	/**
+	 * Gets the name.
+	 * @return the name string
+	 */
 	public String getName();
 	
+	/**
+	 * Sets the name.
+	 * @param name the name string
+	 */
 	public void setName(String name);
 	
+	/**
+	 * Gets the user object.
+	 * @return the user object
+	 */
 	public Object getUserObject();
 	
+	/**
+	 * Sets the user object.
+	 * @param userObject the user object
+	 */
 	public void setUserObject(Object userObject);
 }

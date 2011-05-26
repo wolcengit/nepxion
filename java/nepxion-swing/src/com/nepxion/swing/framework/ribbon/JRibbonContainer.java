@@ -33,14 +33,38 @@ import com.nepxion.swing.tabbedpane.TabbedPaneManager;
 public class JRibbonContainer
 	extends JContainer
 {
+	/**
+	 * The instance of JDesktopPane.
+	 */
 	private JDesktopPane desktopPane;
+	
+	/**
+	 * The instance of ITabbedPane.
+	 */
 	private ITabbedPane tabbedPane;
+	
+	/**
+	 * The instance of JCheckBoxSelector.
+	 */
 	private JCheckBoxSelector checkBoxSelector;
 	
+	/**
+	 * The boolean value of isInternalFrame.
+	 * The ribbon components in the JDesktopPane can display for two styles : InternalFrame Style and TabbedPane Style.
+	 * If isInternalFrame is true, it will display as InternalFrame style, otherwise as TabbedPane.
+	 */
 	private boolean isInternalFrame = true;
 	
+	/**
+	 * The maximum count.
+	 * It is limited the count of ribbon components.
+	 * If the count of ribbon components >= the maximum count, a warning dialog will show and it can't open more ribbon components.
+	 */
 	private int maximumCount = 8;
 	
+	/**
+	 * Constructs with the default.
+	 */
 	public JRibbonContainer()
 	{
 		desktopPane = new JDesktopPane();
@@ -50,10 +74,19 @@ public class JRibbonContainer
 		addComponent(desktopPane, BorderLayout.CENTER);
 	}
 	
+	/**
+	 * Adds the ribbon component to the ribbon container.
+	 * If the name is as the handle of ribbon component, it should be exclusive.
+	 * @param name the name string
+	 * @param title the title string
+	 * @param icon the instance of Icon
+	 * @param toolTipText the tooltip text
+	 * @param component the instance of IRibbonComponent and it also is the instanceof JComponent
+	 */
 	public void addRibbonComponent(String name, String title, Icon icon, String toolTipText, IRibbonComponent component)
 	{
 		JComponent ribbonComponent = (JComponent) component;
-		JComponent handler = retrieveRobbinComponent(ribbonComponent);
+		JComponent handler = retrieveRibbonComponent(ribbonComponent);
 		
 		if (isInternalFrame)
 		{
@@ -137,7 +170,10 @@ public class JRibbonContainer
 		}
 	}
 	
-	public void closeRobbinComponent()
+	/**
+	 * Closes the ribbon components by a check box selector.
+	 */
+	public void closeRibbonComponent()
 	{
 		if (isInternalFrame)
 		{
@@ -149,7 +185,13 @@ public class JRibbonContainer
 		}
 	}
 	
-	private JComponent retrieveRobbinComponent(JComponent component)
+	/**
+	 * Retrieves the ribbon component.
+	 * If a given component is existed in the ribbon container, it will return the component, otherwise return null.
+	 * @param component the instance of JComponent
+	 * @return the instance of JComponent
+	 */
+	private JComponent retrieveRibbonComponent(JComponent component)
 	{
 		if (isInternalFrame)
 		{
@@ -185,36 +227,64 @@ public class JRibbonContainer
 		}
 	}
 	
+	/**
+	 * Returns true if it is InternalFrame style.
+	 * @return the boolean value of isInternalFrame
+	 */
 	public boolean isInternalFrame()
 	{
 		return isInternalFrame;
 	}
 	
+	/**
+	 * Sets the InternalFrame style or not.
+	 * @param isInternalFrame the boolean value of isInternalFrame
+	 */
 	public void setInternalFrame(boolean isInternalFrame)
 	{
 		this.isInternalFrame = isInternalFrame;
 	}
 	
+	/**
+	 * Gets the maximum count.
+	 * @return the maximum count value
+	 */
 	public int getMaximumCount()
 	{
 		return maximumCount;
 	}
 	
+	/**
+	 * Sets the maximum count.
+	 * @param maximumCount the maximum count value
+	 */
 	public void setMaximumCount(int maximumCount)
 	{
 		this.maximumCount = maximumCount;
 	}
 	
+	/**
+	 * Gets the desktop pane.
+	 * @return the instance of JDesktopPane
+	 */
 	public JDesktopPane getDesktopPane()
 	{
 		return desktopPane;
 	}
 	
+	/**
+	 * Gets the tabbed pane.
+	 * @return the instance of ITabbedPane
+	 */
 	public ITabbedPane getTabbedPane()
 	{
 		return tabbedPane;
 	}
 	
+	/**
+	 * Sets the tabbed pane.
+	 * @param tabbedPane the instance of ITabbedPane
+	 */
 	public void setTabbedPane(final ITabbedPane tabbedPane)
 	{
 		this.tabbedPane = tabbedPane;

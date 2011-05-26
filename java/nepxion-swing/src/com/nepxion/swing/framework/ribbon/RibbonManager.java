@@ -16,16 +16,60 @@ import com.nepxion.swing.framework.ribbon.action.JRibbonAction;
 
 public class RibbonManager
 {	
+	/**
+	 * Creates the ribbon action.
+	 * @param text the text string
+	 * @param icon the icon
+	 * @param toolTipText the tooltip text string
+	 * @param ribbonTitle the ribbon title string
+	 * @param ribbonIcon the ribbon icon
+	 * @param ribbonToolTipText the ribbon tooltip text string
+	 * @param ribbonComponentClass the ribbon component class string
+	 * @param ribbonContainer the instance of JRibbonContainer
+	 * @return the instance of JRibbonAction
+	 */
 	public static JRibbonAction createRibbonAction(String text, Icon icon, String toolTipText, String ribbonTitle, Icon ribbonIcon, String ribbonToolTipText, String ribbonComponentClass, JRibbonContainer ribbonContainer)
 	{
 		return createRibbonAction(null, text, icon, toolTipText, null, ribbonTitle, ribbonIcon, ribbonToolTipText, ribbonComponentClass, ribbonContainer);
 	}
 	
+	/**
+	 * Creates the ribbon action.
+	 * @param name the name string
+	 * @param text the text string
+	 * @param icon the icon
+	 * @param toolTipText the tooltip text string
+	 * @param ribbonName the ribbon name string
+	 * @param ribbonTitle the ribbon title string
+	 * @param ribbonIcon the ribbon icon
+	 * @param ribbonToolTipText the ribbon tooltip text string
+	 * @param ribbonComponentClass the ribbon component class string
+	 * @param ribbonContainer the instance of JRibbonContainer
+	 * @return the instance of JRibbonAction
+	 */
 	public static JRibbonAction createRibbonAction(String name, String text, Icon icon, String toolTipText, String ribbonName, String ribbonTitle, Icon ribbonIcon, String ribbonToolTipText, String ribbonComponentClass, JRibbonContainer ribbonContainer)
 	{
 		return createRibbonAction(name, text, null, null, icon, null, null, toolTipText, ribbonName, ribbonTitle, ribbonIcon, ribbonToolTipText, ribbonComponentClass, ribbonContainer);
 	}
 	
+	/**
+	 * Creates the ribbon action.
+	 * @param name the name string
+	 * @param text the text string
+	 * @param smallText the small text string
+	 * @param largeText the large text string
+	 * @param icon the icon
+	 * @param smallIcon the small icon
+	 * @param largeIcon the large icon
+	 * @param toolTipText the tooltip text string
+	 * @param ribbonName the ribbon name string
+	 * @param ribbonTitle the ribbon title string
+	 * @param ribbonIcon the ribbon icon
+	 * @param ribbonToolTipText the ribbon tooltip text string
+	 * @param ribbonComponentClass the ribbon component class string
+	 * @param ribbonContainer the instance of JRibbonContainer
+	 * @return the instance of JRibbonAction
+	 */
 	public static JRibbonAction createRibbonAction(String name, String text, String smallText, String largeText, Icon icon, Icon smallIcon, Icon largeIcon, String toolTipText, String ribbonName, String ribbonTitle, Icon ribbonIcon, String ribbonToolTipText, String ribbonComponentClass, JRibbonContainer ribbonContainer)
 	{
 		JRibbonAction action = new JRibbonAction(name, text, icon, toolTipText);

@@ -21,13 +21,30 @@ import com.nepxion.swing.framework.JFrameWorkStatusBar;
 public class JRibbonHierarchy
 	extends JFrameWorkHierarchy
 {
+	/**
+	 * The navigator container.
+	 */
 	private JPanel navigatorContainer;
 	
+	/**
+	 * The ribbon container.
+	 */
 	private JRibbonContainer container;
 	
+	/**
+	 * The status bar.
+	 */
 	private JFrameWorkStatusBar statusBar;
+	
+	/**
+	 * The status bar container.
+	 * It can hold more than one status bars.
+	 */
 	private JPanel statusBarContainer;
 		
+	/**
+	 * Constructs with the default.
+	 */
 	public JRibbonHierarchy()
 	{
 		navigatorContainer = new JPanel();
@@ -40,6 +57,9 @@ public class JRibbonHierarchy
 		add(container, BorderLayout.CENTER);
 	}
 	
+	/**
+	 * Shows the status bar.
+	 */
 	public void showStatusBar()
 	{
 		statusBar = new JRibbonStatusBar(this);
@@ -50,21 +70,37 @@ public class JRibbonHierarchy
 		add(statusBarContainer, BorderLayout.SOUTH);
 	}
 	
+	/**
+	 * Gets the navigator container.
+	 * @return the navigator container
+	 */
 	public JPanel getNavigatorContainer()
 	{
 		return navigatorContainer;
 	}
 	
+	/**
+	 * Gets the ribbon container.
+	 * @return the ribbon container
+	 */
 	public JRibbonContainer getRibbonContainer()
 	{
 		return container;
 	}
 	
+	/**
+	 * Gets the status bar.
+	 * @return the status bar
+	 */
 	public JFrameWorkStatusBar getStatusBar()
 	{
 		return statusBar;
 	}
 	
+	/**
+	 * Gets the status bar container.
+	 * @return the status bar container
+	 */
 	public JPanel getStatusBarContainer()
 	{
 		return statusBarContainer;

@@ -35,6 +35,10 @@ import com.nepxion.swing.statusbar.JStatusItem;
 public class JRibbonStatusBar
 	extends JFrameWorkStatusBar
 {
+	/**
+	 *  Constructs with the specified initial hierarchy.
+	 * @param hierarchy the instance of JRibbonHierarchy
+	 */
 	public JRibbonStatusBar(JRibbonHierarchy hierarchy)
 	{
 		AbstractButton closeRibbonComponentButton = null;
