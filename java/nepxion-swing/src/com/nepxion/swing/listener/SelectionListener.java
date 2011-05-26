@@ -16,6 +16,10 @@ import java.awt.event.ItemListener;
 public class SelectionListener
 	implements ItemListener
 {
+	/**
+	 * Invoked when the item state is changed.
+	 * @param e the instance of ItemEvent
+	 */
 	public void itemStateChanged(ItemEvent e)
 	{
 		if (e.getStateChange() == ItemEvent.SELECTED)
@@ -28,11 +32,19 @@ public class SelectionListener
 		}
 	}
 	
+	/**
+	 * Invoked when the item selection state is changed.
+	 * @param e the instance of ItemEvent
+	 */
 	public void itemSelectionStateChanged(ItemEvent e)
 	{
 		
 	}
 	
+	/**
+	 * Invoked when the item deselection state is changed.
+	 * @param e the instance of ItemEvent
+	 */
 	public void itemDeselectionStateChanged(ItemEvent e)
 	{
 		
