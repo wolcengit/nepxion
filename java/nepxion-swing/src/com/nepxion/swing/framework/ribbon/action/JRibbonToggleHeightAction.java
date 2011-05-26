@@ -26,10 +26,20 @@ import com.nepxion.swing.locale.SwingLocale;
 public class JRibbonToggleHeightAction
 	extends JSecurityAction	implements MouseListener
 {
+	/**
+	 * The instance of JRibbonNavigatorBar.
+	 */
 	private JRibbonNavigatorBar ribbonNavigatorBar;
 	
+	/**
+	 * The instance of JRibbonHierarchy.
+	 */
 	private JRibbonHierarchy ribbonHierarchy;
 	
+	/**
+	 * Constructs with the specified initial ribbon navigator bar.
+	 * @param ribbonNavigatorBar the instance of JRibbonNavigatorBar
+	 */
 	public JRibbonToggleHeightAction(JRibbonNavigatorBar ribbonNavigatorBar)
 	{
 		super(SwingLocale.getString("toggle_navigatorbar_visibility"), IconFactory.getSwingIcon("toggle_size.png"), SwingLocale.getString("toggle_navigatorbar_visibility"));
@@ -37,6 +47,10 @@ public class JRibbonToggleHeightAction
 		this.ribbonNavigatorBar = ribbonNavigatorBar;
 	}
 	
+	/**
+	 * Constructs with the specified initial ribbon hierarchy.
+	 * @param ribbonHierarchy the instance of JRibbonHierarchy
+	 */
 	public JRibbonToggleHeightAction(JRibbonHierarchy ribbonHierarchy)
 	{
 		super(SwingLocale.getString("toggle_navigatorbar_visibility"), IconFactory.getSwingIcon("toggle_size.png"), SwingLocale.getString("toggle_navigatorbar_visibility"));
@@ -44,11 +58,19 @@ public class JRibbonToggleHeightAction
 		this.ribbonHierarchy = ribbonHierarchy;
 	}
 		
+    /**
+     * Invoked when an action occurs.
+     * @param e the instance of ActionEvent
+     */
 	public void execute(ActionEvent e)
 	{
 		toggle();
 	}
 	
+    /**
+     * Invoked when the mouse button has been clicked (pressed and released) on a component.
+     * @param e the instance of MouseEvent
+     */
 	public void mouseClicked(MouseEvent e)
 	{
 		if (SwingUtilities.isLeftMouseButton(e) && e.getClickCount() > 1)
@@ -57,26 +79,45 @@ public class JRibbonToggleHeightAction
 		}
 	}
 	
+    /**
+     * Invoked when the mouse button has been pressed on a component.
+     * @param e the instance of MouseEvent
+     */
 	public void mousePressed(MouseEvent e)
 	{
 		
 	}
 	
+    /**
+     * Invoked when the mouse button has been released on a component.
+     * @param e the instance of MouseEvent
+     */
 	public void mouseReleased(MouseEvent e)
 	{
 		
 	}
 	
+    /**
+     * Invoked when the mouse enters a component.
+     * @param e the instance of MouseEvent
+     */
 	public void mouseEntered(MouseEvent e)
 	{
 		
 	}
 	
+    /**
+     * Invoked when the mouse exits a component.
+     * @param e the instance of MouseEvent
+     */
 	public void mouseExited(MouseEvent e)
 	{
 		
 	}
 	
+	/**
+	 * Toggles the height.
+	 */
 	private void toggle()
 	{
 		if (ribbonNavigatorBar == null)

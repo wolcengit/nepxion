@@ -22,13 +22,35 @@ import com.nepxion.swing.framework.ribbon.JRibbonNavigatorBar;
 public class JRibbonToggleFacadeAction
 	extends JSecurityAction
 {
+	/**
+	 * The instance of JRibbonNavigatorBar.
+	 */
 	private JRibbonNavigatorBar ribbonNavigatorBar;
 	
+	/**
+	 * The instance of JRibbonHierarchy.
+	 */
 	private JRibbonHierarchy ribbonHierarchy;
 	
+	/**
+	 * The show type.
+	 */
 	private String showType;
+	
+	/**
+	 * The show value.
+	 */
 	private int showValue;
 	
+	/**
+	 * Constructs with the specified initial text, icon, tooltip text, ribbon navigator bar, show type and show value.
+	 * @param text the text string
+	 * @param icon the instance of Icon
+	 * @param toolTipText the tooltip text string
+	 * @param ribbonNavigatorBar the instance of JRibbonNavigatorBar
+	 * @param showType the show type
+	 * @param showValue the show value
+	 */
 	public JRibbonToggleFacadeAction(String text, Icon icon, String toolTipText, JRibbonNavigatorBar ribbonNavigatorBar, String showType, int showValue)
 	{
 		super(text, icon, toolTipText);
@@ -38,6 +60,15 @@ public class JRibbonToggleFacadeAction
 		this.showValue = showValue;
 	}
 	
+	/**
+	 * Constructs with the specified initial text, icon, tooltip text, ribbon hierarchy, show type and show value.
+	 * @param text the text string
+	 * @param icon the instance of Icon
+	 * @param toolTipText the tooltip text string
+	 * @param ribbonHierarchy the instance of JRibbonHierarchy
+	 * @param showType the show type
+	 * @param showValue the show value
+	 */
 	public JRibbonToggleFacadeAction(String text, Icon icon, String toolTipText, JRibbonHierarchy ribbonHierarchy, String showType, int showValue)
 	{
 		super(text, icon, toolTipText);
@@ -47,11 +78,18 @@ public class JRibbonToggleFacadeAction
 		this.showValue = showValue;
 	}
 	
+    /**
+     * Invoked when an action occurs.
+     * @param e the instance of ActionEvent
+     */
 	public void execute(ActionEvent e)
 	{
 		toggle();
 	}
 	
+	/**
+	 * Toggles the facade.
+	 */
 	private void toggle()
 	{
 		if (ribbonNavigatorBar == null)

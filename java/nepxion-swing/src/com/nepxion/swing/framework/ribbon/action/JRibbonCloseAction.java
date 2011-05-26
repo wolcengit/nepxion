@@ -21,9 +21,20 @@ import com.nepxion.swing.locale.SwingLocale;
 public class JRibbonCloseAction
 	extends JSecurityAction
 {
+	/**
+	 * The instance of JRibbonContainer.
+	 */
 	private JRibbonContainer ribbonContainer;
+	
+	/**
+	 * The instance of JRibbonHierarchy.
+	 */
 	private JRibbonHierarchy ribbonHierarchy;
 	
+	/**
+	 * Constructs with the specified initial ribbon container.
+	 * @param ribbonContainer the instance of JRibbonContainer
+	 */
 	public JRibbonCloseAction(JRibbonContainer ribbonContainer)
 	{
 		super(SwingLocale.getString("close_panel"), IconFactory.getSwingIcon("item_close.png"), SwingLocale.getString("close_panel"));
@@ -31,6 +42,10 @@ public class JRibbonCloseAction
 		this.ribbonContainer = ribbonContainer;
 	}
 	
+	/**
+	 * Constructs with the specified initial ribbon hierarchy.
+	 * @param ribbonHierarchy the instance of JRibbonHierarchy
+	 */
 	public JRibbonCloseAction(JRibbonHierarchy ribbonHierarchy)
 	{
 		super(SwingLocale.getString("close_panel"), IconFactory.getSwingIcon("item_close.png"), SwingLocale.getString("close_panel"));
@@ -38,6 +53,10 @@ public class JRibbonCloseAction
 		this.ribbonHierarchy = ribbonHierarchy;
 	}
 	
+    /**
+     * Invoked when an action occurs.
+     * @param e the instance of ActionEvent
+     */
 	public void execute(ActionEvent e)
 	{
 		if (ribbonContainer == null)
@@ -50,6 +69,6 @@ public class JRibbonCloseAction
 			return;
 		}
 		
-		ribbonContainer.closeRobbinComponent();
+		ribbonContainer.closeRibbonComponent();
 	}
 }
