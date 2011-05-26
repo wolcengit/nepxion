@@ -57,13 +57,13 @@ public abstract class JSecurityAction
 	}
 	
 	/**
-	 * Constructs with the specified initial icon and tooltip text.
+	 * Constructs with the specified initial text and icon.
+	 * @param text the text string
 	 * @param icon the instance of Icon
-	 * @param toolTipText the tooltip text string
 	 */
-	public JSecurityAction(Icon icon, String toolTipText)
+	public JSecurityAction(String text, Icon icon)
 	{
-		super(icon, toolTipText);
+		super(text, icon);
 	}
 	
 	/**
@@ -77,13 +77,13 @@ public abstract class JSecurityAction
 	}
 	
 	/**
-	 * Constructs with the specified initial text and icon.
-	 * @param text the text string
+	 * Constructs with the specified initial icon and tooltip text.
 	 * @param icon the instance of Icon
+	 * @param toolTipText the tooltip text string
 	 */
-	public JSecurityAction(String text, Icon icon)
+	public JSecurityAction(Icon icon, String toolTipText)
 	{
-		super(text, icon);
+		super(icon, toolTipText);
 	}
 
 	/**

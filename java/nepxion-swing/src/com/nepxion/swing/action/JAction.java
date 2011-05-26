@@ -94,15 +94,13 @@ public abstract class JAction
 	}
 	
 	/**
-	 * Constructs with the specified initial icon and tooltip text.
+	 * Constructs with the specified initial text and icon.
+	 * @param text the text string
 	 * @param icon the instance of Icon
-	 * @param toolTipText the tooltip text string
 	 */
-	public JAction(Icon icon, String toolTipText)
+	public JAction(String text, Icon icon)
 	{
-		super(null, icon);
-		
-		setToolTipText(toolTipText);
+		super(text, icon);
 	}
 	
 	/**
@@ -118,13 +116,15 @@ public abstract class JAction
 	}
 	
 	/**
-	 * Constructs with the specified initial text and icon.
-	 * @param text the text string
+	 * Constructs with the specified initial icon and tooltip text.
 	 * @param icon the instance of Icon
+	 * @param toolTipText the tooltip text string
 	 */
-	public JAction(String text, Icon icon)
+	public JAction(Icon icon, String toolTipText)
 	{
-		super(text, icon);
+		super(null, icon);
+		
+		setToolTipText(toolTipText);
 	}
 
 	/**
