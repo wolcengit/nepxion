@@ -64,21 +64,38 @@ public class Dom4JRibbonParser
 	
 	public Dom4JRibbonParser(JRibbonContainer ribbonContainer, JRibbonNavigatorBar ribbonNavigatorBar)
 	{
-		this(ribbonContainer, ribbonNavigatorBar, JRibbonAction.SHOW_LARGE, JRibbonAction.SHOW_LARGE);
-	}
-	
-	public Dom4JRibbonParser(JRibbonContainer ribbonContainer, JRibbonNavigatorBar ribbonNavigatorBar, int textShowValue, int iconShowValue)
-	{
-		this(ribbonContainer, ribbonNavigatorBar, true, textShowValue, iconShowValue);
-	}
-	
-	public Dom4JRibbonParser(JRibbonContainer ribbonContainer, JRibbonNavigatorBar ribbonNavigatorBar, boolean isContextIcon, int textShowValue, int iconShowValue)
-	{
 		this.ribbonContainer = ribbonContainer;
 		this.tabbedPane = ribbonNavigatorBar.getTabbedPane();
-		this.isContextIcon = isContextIcon;
+	}
+	
+	public int getTextShowValue()
+	{
+		return textShowValue;
+	}
+	
+	public void setTextShowValue(int textShowValue)
+	{
 		this.textShowValue = textShowValue;
+	}
+	
+	public int getIconShowValue()
+	{
+		return iconShowValue;
+	}
+	
+	public void setIconShowValue(int iconShowValue)
+	{
 		this.iconShowValue = iconShowValue;
+	}
+	
+	public boolean isContextIcon()
+	{
+		return isContextIcon;
+	}
+	
+	public void setContextIcon(boolean isContextIcon)
+	{
+		this.isContextIcon = isContextIcon;
 	}
 	
 	public void parse(String text)
@@ -127,11 +144,12 @@ public class Dom4JRibbonParser
 	{
 		Element rootElement = document.getRootElement();
 		parseRibbonBarElement(rootElement);
+		parseRibbonContainerElement(rootElement);
 	}
 	
 	public void parseRibbonBarElement(Element element)
 	{
-		for (Iterator elementIterator = element.elementIterator(); elementIterator.hasNext();)
+		for (Iterator elementIterator = element.elementIterator(TAG_RIBBON_BAR); elementIterator.hasNext();)
 		{
 			Object childElementObject = elementIterator.next();
 			if (childElementObject instanceof Element)
@@ -139,6 +157,29 @@ public class Dom4JRibbonParser
 				Element childElement = (Element) childElementObject;
 				
 				parseRibbonBarAttribute(childElement);
+			}
+		}
+	}
+	
+	public void parseRibbonContainerElement(Element element)
+	{		
+		for (Iterator elementIterator = element.elementIterator(TAG_RIBBON_CONTAINER); elementIterator.hasNext();)
+		{
+			Object childElementObject = elementIterator.next();
+			if (childElementObject instanceof Element)
+			{
+				Element childElement = (Element) childElementObject;
+				
+				Attribute attribute0 = childElement.attribute(0);
+				Attribute attribute1 = childElement.attribute(1);
+				
+				boolean isInternalFrame = Boolean.valueOf(attribute0.getText()).booleanValue();
+				int maximumCount = Integer.valueOf(attribute1.getText()).intValue();
+				
+				ribbonContainer.setInternalFrame(isInternalFrame);
+				ribbonContainer.setMaximumCount(maximumCount);
+				
+				break;
 			}
 		}
 	}

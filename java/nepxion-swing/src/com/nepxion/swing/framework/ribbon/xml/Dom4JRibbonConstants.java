@@ -40,6 +40,12 @@ public interface Dom4JRibbonConstants
 	public static final String TAG_CONSTRAINTS = "constraints";
 	public static final String TAG_CLASS = "class";
 	
+	public static final String TAG_INTERNAL_FRAME = "internalframe";
+	public static final String TAG_MAXIMUM_COUNT = "maximumcount";
+	
+	public static final String TAG_RIBBON_BAR = "ribbonbar";
+	public static final String TAG_RIBBON_CONTAINER = "ribboncontainer";
+	
 	public static final int[] BUTTON_LAYOUT = new int[] {VERTICAL, CENTER};
 	public static final Insets BUTTON_INSETS = new Insets(8, 8, 8, 8);
 }
