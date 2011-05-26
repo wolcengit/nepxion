@@ -12,7 +12,7 @@
   3. separator : provides "HORIZONTAL(value=0)", "VERTICAL(value=1)"
   4. arrowposition (only for JClassicMenuButton) : provides "RIGHT(value=0)", "BOTTOM(value=1)"
  -->
-<container>
+<framework>
   <ribbonbar title="Button" icon="" tooltip="Button Control" closable="false">
     <ribbon title="Button Series" icon="" tooltip="Button Series" layout="" buttonlayout="1, 0" buttoninsets="8, 2, 8, 2">
       <button name="Button" text="Button" largetext="Button&#x0A;&amp;nbsp;" icon="component/button_16.png" largeicon="component/button_32.png" tooltip="Button" class="com.nepxion.demo.control.button.DemoButtonTogglePanel"/>
@@ -129,7 +129,7 @@
       <button name="Button" text="Button" icon="component/button_16.png" tooltip="Button" constraints="2, 0" class="com.nepxion.swing.framework.ribbon.DefaultRibbonComponent"/>
       <button name="Button" text="Button" icon="component/button_16.png" tooltip="Button" constraints="2, 1" class="com.nepxion.swing.framework.ribbon.DefaultRibbonComponent"/>
       <button name="Button" text="Button" icon="component/button_16.png" tooltip="Button" constraints="2, 2" class="com.nepxion.swing.framework.ribbon.DefaultRibbonComponent"/>      
-    </ribbon>    
+    </ribbon>
     <ribbon title="Ribbon" icon="" tooltip="Ribbon" layout="TableLayout({-1, -1, -1}, {-1, -1, -1})" buttonlayout="0, 2" buttoninsets="0, 0, 0, 0">
       <button name="Button" text="Button" icon="component/button_16.png" tooltip="Button" constraints="0, 0" class="com.nepxion.swing.framework.ribbon.DefaultRibbonComponent"/>
       <menubutton name="MenuButton" text="MenuButton" largetext="Menu&#x0A;Button" icon="component/menu_16.png" tooltip="MenuButton" arrowposition="0" constraints="0, 1, 0, 2">
@@ -144,4 +144,6 @@
       </menubutton>
     </ribbon>
   </ribbonbar>
-</container>
+  <ribboncontainer internalframe="false" maximumcount="8">
+  </ribboncontainer>
+</framework>
