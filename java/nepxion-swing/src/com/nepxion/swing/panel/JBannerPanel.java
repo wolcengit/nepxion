@@ -11,7 +11,6 @@ package com.nepxion.swing.panel;
  */
 
 import java.awt.Color;
-import java.awt.Font;
 
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
