@@ -18,12 +18,22 @@ import com.nepxion.swing.container.JContainer;
 public class JDockableContainer
 	extends JContainer
 {
+	/**
+	 * The dock component.
+	 */
 	private Component dockComponent;
 	
+	/**
+	 * Constructs with the default.
+	 */
 	public JDockableContainer()
 	{
 	}
 	
+	/**
+	 * Sets the content pane.
+	 * @param dockComponent the dock component
+	 */
 	public void setContentPane(Component dockComponent)
 	{
 		this.dockComponent = dockComponent;
@@ -32,16 +42,28 @@ public class JDockableContainer
 		setDockComponent(dockComponent);
 	}
 	
+	/**
+	 * Gets the content pane.
+	 * @return the content pane
+	 */
 	public Component getContentPane()
 	{
 		return getComponent(0);
 	}
 	
+	/**
+	 * Sets the dock component.
+	 * @param dockComponent the dock component
+	 */
 	protected void setDockComponent(Component dockComponent)
 	{
 		addComponent(dockComponent, BorderLayout.CENTER);
 	}
 	
+	/**
+	 * Docks the component.
+	 * @param component the dock component
+	 */
 	protected void dock(Component component)
 	{
 		setDockComponent(component != null ? component : dockComponent);

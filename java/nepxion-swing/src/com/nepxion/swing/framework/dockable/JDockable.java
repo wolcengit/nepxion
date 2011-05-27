@@ -13,11 +13,18 @@ package com.nepxion.swing.framework.dockable;
 public class JDockable
 	extends JDockableSplitPane
 {
+	/**
+	 * Constructs with the default.
+	 */
 	public JDockable()
 	{
 		super();
 	}
 	
+	/**
+	 * Constructs with the specified initial new orientation.
+	 * @param newOrientation the new orientation value
+	 */
 	public JDockable(int newOrientation)
 	{
 		super(newOrientation);

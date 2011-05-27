@@ -39,108 +39,241 @@ import com.nepxion.swing.style.framework.StyleManager;
 public class JDockableView
 	extends JDecorationPanel implements FullScreenConstants
 {
-	private boolean isMaximize = false;
+	/**
+	 * The boolean value of isMaximized.
+	 */
+	private boolean isMaximized = false;
+	
+	/**
+	 * The boolean value of isClosable.
+	 */
 	private boolean isClosable = true;
+	
+	/**
+	 * The boolean value of isMaximizable.
+	 */
 	private boolean isMaximizable = true;
 	
+	/**
+	 * The instance of ToolBar.
+	 */
 	private ToolBar toolBar;
+	
+	/**
+	 * The instance of JPopupMenu.
+	 */
 	private JPopupMenu popupMenu;
 	
+	/**
+	 * The instance of JDockable.
+	 */
 	private JDockable dockable;
+	
+	/**
+	 * The instance of JDockableContainer.
+	 */
 	private JDockableContainer dockableContainer;
+	
+	/**
+	 * The dock index value.
+	 */
 	private int dockIndex;
 	
+	/**
+	 * The constraints value.
+	 */
 	private Object constraints;
 	
+	/**
+	 * The foreign button.
+	 */
 	private AbstractButton foreignButton;
 	
+	/**
+	 * Constructs with the default.
+	 */
 	public JDockableView()
 	{
 		this("");
 	}
 	
+	/**
+	 * Constructs with the specified initial title.
+	 * @param title the title string
+	 */
 	public JDockableView(String title)
 	{
 		this(title, null, true, null, (IStyle) StyleManager.getStyle());
 	}
 	
-	public JDockableView(String title, boolean isSelected)
+	/**
+	 * Constructs with the specified initial title and selected.
+	 * @param title the title string
+	 * @param selected the boolean value of selected
+	 */
+	public JDockableView(String title, boolean selected)
 	{
-		this(title, null, isSelected, null, (IStyle) StyleManager.getStyle());
+		this(title, null, selected, null, (IStyle) StyleManager.getStyle());
 	}
 	
+	/**
+	 * Constructs with the specified initial title and style.
+	 * @param title the title string
+	 * @param style the instance of IStyle
+	 */
 	public JDockableView(String title, IStyle style)
 	{
 		this(title, null, true, null, style);
 	}
 	
-	public JDockableView(String title, boolean isSelected, IStyle style)
+	/**
+	 * Constructs with the specified initial title, selected and style.
+	 * @param title the title string 
+	 * @param selected the boolean value of selected
+	 * @param style the instance of IStyle
+	 */
+	public JDockableView(String title, boolean selected, IStyle style)
 	{
-		this(title, null, isSelected, null, style);
+		this(title, null, selected, null, style);
 	}
 	
+	/**
+	 * Constructs with the specified initial icon.
+	 * @param icon the instance of Icon
+	 */
 	public JDockableView(Icon icon)
 	{
 		this("", icon, true, null, (IStyle) StyleManager.getStyle());
 	}
 	
-	public JDockableView(Icon icon, boolean isSelected)
+	/**
+	 * Constructs with the specified initial icon and selected.
+	 * @param icon the instance of Icon
+	 * @param selected the boolean value of selected
+	 */
+	public JDockableView(Icon icon, boolean selected)
 	{
-		this("", icon, isSelected, null, (IStyle) StyleManager.getStyle());
+		this("", icon, selected, null, (IStyle) StyleManager.getStyle());
 	}
 	
+	/**
+	 * Constructs with the specified initial icon and style.
+	 * @param icon the instance of Icon
+	 * @param style the instance of IStyle
+	 */
 	public JDockableView(Icon icon, IStyle style)
 	{
 		this("", icon, true, null, style);
 	}
 	
-	public JDockableView(Icon icon, boolean isSelected, IStyle style)
+	/**
+	 * Constructs with the specified initial icon, selected and style.
+	 * @param icon the instance of Icon
+	 * @param selected the boolean value of selected
+	 * @param style the instance of IStyle
+	 */
+	public JDockableView(Icon icon, boolean selected, IStyle style)
 	{
-		this("", icon, isSelected, null, style);
+		this("", icon, selected, null, style);
 	}
 	
+	/**
+	 * Constructs with the specified initial title and icon.
+	 * @param title the title string
+	 * @param icon the instance of Icon
+	 */
 	public JDockableView(String title, Icon icon)
 	{
 		this(title, icon, true, null, (IStyle) StyleManager.getStyle());
 	}
 	
-	public JDockableView(String title, Icon icon, boolean isSelected)
+	/**
+	 * Constructs with the specified initial title, icon and selected.
+	 * @param title the title string
+	 * @param icon the instance of Icon
+	 * @param selected the boolean value of selected
+	 */
+	public JDockableView(String title, Icon icon, boolean selected)
 	{
-		this(title, icon, isSelected, null, (IStyle) StyleManager.getStyle());
+		this(title, icon, selected, null, (IStyle) StyleManager.getStyle());
 	}
 	
+	/**
+	 * Constructs with the specified initial title, icon and style.
+	 * @param title the title string
+	 * @param icon the instance of Icon
+	 * @param style the instance of IStyle
+	 */
 	public JDockableView(String title, Icon icon, IStyle style)
 	{
 		this(title, icon, true, null, style);
 	}
 	
-	public JDockableView(String title, Icon icon, boolean isSelected, IStyle style)
+	/**
+	 * Constructs with the specified initial title, icon, selected and style.
+	 * @param title the title string
+	 * @param icon the instance of Icon
+	 * @param selected the boolean value of selected
+	 * @param style the instance of IStyle
+	 */
+	public JDockableView(String title, Icon icon, boolean selected, IStyle style)
 	{
-		this(title, icon, isSelected, null, style);
+		this(title, icon, selected, null, style);
 	}
 	
+	/**
+	 * Constructs with the specified initial title, icon and content.
+	 * @param title the title string
+	 * @param icon the instance of Icon
+	 * @param content the instance of JComponent
+	 */
 	public JDockableView(String title, Icon icon, JComponent content)
 	{
 		this(title, icon, true, content, (IStyle) StyleManager.getStyle());
 	}
 	
+	/**
+	 * Constructs with the specified initial title, icon, content and style.
+	 * @param title the title string
+	 * @param icon the instance of Icon
+	 * @param content the instance of JComponent
+	 * @param style the instance of IStyle
+	 */
 	public JDockableView(String title, Icon icon, JComponent content, IStyle style)
 	{
 		this(title, icon, true, content, style);
 	}
 	
-	public JDockableView(String title, Icon icon, boolean isSelected, JComponent content)
+	/**
+	 * Constructs with the specified initial title, icon, selected and content.
+	 * @param title the title string
+	 * @param icon the instance of Icon
+	 * @param selected the boolean value of selected
+	 * @param content the instance of JComponent
+	 */
+	public JDockableView(String title, Icon icon, boolean selected, JComponent content)
 	{
-		this(title, icon, isSelected, content, (IStyle) StyleManager.getStyle());
+		this(title, icon, selected, content, (IStyle) StyleManager.getStyle());
 	}
 	
-	public JDockableView(String title, Icon icon, boolean isSelected, JComponent content, IStyle style)
+	/**
+	 * Constructs with the specified initial title, icon, selected, content and style.
+	 * @param title the title string
+	 * @param icon the instance of Icon
+	 * @param selected the boolean value of selected
+	 * @param content the instance of JComponent
+	 * @param style the instance of IStyle
+	 */
+	public JDockableView(String title, Icon icon, boolean selected, JComponent content, IStyle style)
 	{
-		super(title, icon, isSelected, content, style);
+		super(title, icon, selected, content, style);
 		
 		initComponents();
 	}
 	
+	/**
+	 * Initializes the components.
+	 */
 	private void initComponents()
 	{
 		JDecorationHeader header = getHeader();
@@ -152,6 +285,9 @@ public class JDockableView
 		header.addMouseListener(new MaximizeAndRestoreMouseListener());
 	}
 	
+	/**
+	 * Initializes the dock.
+	 */
 	private void initDock()
 	{
 		if (dockable == null)
@@ -165,6 +301,9 @@ public class JDockableView
 		}
 	}
 	
+	/**
+	 * Restores to the maximize layout.
+	 */
 	protected void restoreToMaximize()
 	{
 		initDock();
@@ -175,6 +314,9 @@ public class JDockableView
 		}
 	}
 	
+	/**
+	 * Maximizes to the restore layout.
+	 */
 	protected void maximizeToRestore()
 	{
 		initDock();
@@ -195,11 +337,14 @@ public class JDockableView
 		}
 	}
 	
-	private void toggleMaximize()
+	/**
+	 * Toggles to the maximum layout.
+	 */
+	private void toggleMaximum()
 	{
 		String text = null;
 		Icon icon = null;
-		if (isMaximize)
+		if (isMaximized)
 		{
 			maximizeToRestore();
 			text = TEXT_MAXIMIZE;
@@ -211,14 +356,14 @@ public class JDockableView
 			text = TEXT_RESTORE;
 			icon = ICON_MAXIMIZE_RESTORE;
 		}
-		isMaximize = !isMaximize;
+		isMaximized = !isMaximized;
 		
 		JBasicButton maximizeButton = toolBar.getMaximizeButton();
 		maximizeButton.setIcon(icon);
 		maximizeButton.setToolTipText(text);
 		if (isClosable)
 		{
-			toolBar.getCloseButton().setVisible(!isMaximize);
+			toolBar.getCloseButton().setVisible(!isMaximized);
 		}
 		
 		JPopupMenu popupMenu = getPopupMenu();
@@ -230,21 +375,33 @@ public class JDockableView
 			maximizeMenuItem.setToolTipText(text);
 			if (isClosable)
 			{
-				((PopupMenu) popupMenu).getCloseMenuItem().setVisible(!isMaximize);
+				((PopupMenu) popupMenu).getCloseMenuItem().setVisible(!isMaximized);
 			}
 		}
 	}
 	
+	/**
+	 * Registers the foreign button.
+	 * @param foreignButton the instance of AbstractButton
+	 */
 	public void registerForeignButton(AbstractButton foreignButton)
 	{
 		this.foreignButton = foreignButton;
 	}
 	
+	/**
+	 * Returns true if it is closable.
+	 * @return true if it is closable
+	 */
 	public boolean isClosable()
 	{
 		return isClosable;
 	}
 	
+	/**
+	 * Sets the closable.
+	 * @param isClosable the boolean value of isClosable
+	 */
 	public void setClosable(boolean isClosable)
 	{
 		this.isClosable = isClosable;
@@ -256,11 +413,19 @@ public class JDockableView
 		}
 	}
 	
+	/**
+	 * Returns true if it is maximizable.
+	 * @return true if it is maximizable
+	 */
 	public boolean isMaximizable()
 	{
 		return isMaximizable;
 	}
 	
+	/**
+	 * Sets the maximizable.
+	 * @param isMaximizable the boolean value of isMaximizable
+	 */
 	public void setMaximizable(boolean isMaximizable)
 	{
 		this.isMaximizable = isMaximizable;
@@ -272,26 +437,46 @@ public class JDockableView
 		}
 	}
 	
+	/**
+	 * Gets the constraints.
+	 * @return the constraints value
+	 */
 	public Object getConstraints()
 	{
 		return constraints;
 	}
 	
+	/**
+	 * Sets the constraints.
+	 * @param constraints the constraints value.
+	 */
 	public void setConstraints(Object constraints)
 	{
 		this.constraints = constraints;
 	}
 	
+	/**
+	 * Gets the tool bar.
+	 * @return the instance of ToolBar
+	 */
 	public ToolBar getToolBar()
 	{
 		return toolBar;
 	}
 	
+	/**
+	 * Sets the popup menu.
+	 * @param popupMenu the instance of JPopupMenu
+	 */
 	public void setPopupMenu(JPopupMenu popupMenu)
 	{
 		this.popupMenu = popupMenu;
 	}
 	
+	/**
+	 * Gets the popup menu.
+	 * @return the instance of JPopupMenu
+	 */
 	public JPopupMenu getPopupMenu()
 	{
 		return popupMenu;
@@ -300,9 +485,19 @@ public class JDockableView
 	public class PopupMenu
 		extends JDecorationPopupMenu
 	{
+		/**
+		 * The maximize menu item.
+		 */
 		private JBasicMenuItem maximizeMenuItem;
+		
+		/**
+		 * The close menu item.
+		 */
 		private JBasicMenuItem closeMenuItem;
 		
+		/**
+		 * Constructs with the default.
+		 */
 		public PopupMenu()
 		{
 			maximizeMenuItem = FullScreenManager.createMaximizeMenuItem();
@@ -310,7 +505,7 @@ public class JDockableView
 			{
 				public void actionPerformed(ActionEvent e)
 				{
-					toggleMaximize();
+					toggleMaximum();
 				}
 			}
 			);
@@ -333,11 +528,19 @@ public class JDockableView
 			add(closeMenuItem);
 		}
 		
+		/**
+		 * Gets the maximize menu item.
+		 * @return the instance of JBasicMenuItem
+		 */
 		public JBasicMenuItem getMaximizeMenuItem()
 		{
 			return maximizeMenuItem;
 		}
 		
+		/**
+		 * Gets the close menu item.
+		 * @return the instance of JBasicMenuItem
+		 */
 		public JBasicMenuItem getCloseMenuItem()
 		{
 			return closeMenuItem;
@@ -347,9 +550,19 @@ public class JDockableView
 	public class ToolBar
 		extends JPanel
 	{
+		/**
+		 * The maximize button.
+		 */
 		private JBasicButton maximizeButton;
+		
+		/**
+		 * The close button.
+		 */
 		private JBasicButton closeButton;
 		
+		/**
+		 * Constructs with the default.
+		 */
 		public ToolBar()
 		{
 			maximizeButton = FullScreenManager.createMaximizeButton(false);
@@ -357,7 +570,7 @@ public class JDockableView
 			{
 				public void actionPerformed(ActionEvent e)
 				{
-					toggleMaximize();
+					toggleMaximum();
 				}
 			}
 			);
@@ -387,11 +600,19 @@ public class JDockableView
 			setOpaque(false);
 		}
 		
+		/**
+		 * Gets the maximize button.
+		 * @return the instance of JBasicButton
+		 */
 		public JBasicButton getMaximizeButton()
 		{
 			return maximizeButton;
 		}
 		
+		/**
+		 * Gets the close button.
+		 * @return the instance of JBasicButton
+		 */
 		public JBasicButton getCloseButton()
 		{
 			return closeButton;
@@ -401,6 +622,10 @@ public class JDockableView
 	public class MaximizeAndRestoreMouseListener
 		extends MouseAdapter
 	{
+		/**
+		 * Invoked when the mouse button has been clicked (pressed and released) on a component.
+		 * @param e the instance of MouseEvent
+		 */
 		public void mouseClicked(MouseEvent e)
 		{
 			if (!isMaximizable)
@@ -409,10 +634,14 @@ public class JDockableView
 			}
 			if (isMaximizable && e.getClickCount() > 1)
 			{
-				toggleMaximize();
+				toggleMaximum();
 			}
 		}
 		
+		/**
+		 * Invoked when the mouse button has been pressed on a component.
+		 * @param e the instance of MouseEvent
+		 */
 		public void mouseReleased(MouseEvent e)
 		{
 			if (!isMaximizable && !isClosable)

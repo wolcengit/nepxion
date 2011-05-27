@@ -31,6 +31,13 @@ import com.nepxion.swing.menuitem.JBasicCheckBoxMenuItem;
 
 public class DockableManager
 {
+	/**
+	 * Gets the dockable tabbed pane by a dockable container, title and tabbed pane name.
+	 * @param dockableContainer the instance of JDockableContainer
+	 * @param title the title string
+	 * @param tabbedPaneName the tabbed pane name string
+	 * @return the instance of JDockableTabbedPane
+	 */
 	public static JDockableTabbedPane getDockableTabbedPane(JDockableContainer dockableContainer, String title, String tabbedPaneName)
 	{
 		List tabbedPanes = getDockableTabbedPanes(dockableContainer, title);
@@ -50,9 +57,12 @@ public class DockableManager
 		return null;
 	}
 	
-	// 获得所有DockableTabbedPane对象，该方法只用于DockableSplitPane布局在DockableTabbedPane中
-	// 当DockableTabbedPane呈现全屏模式时，其直接放置于DockableView，则通过DockableView去获取DockableTabbedPane，
-	// 否则通过DockableSplitPane去获取
+	/**
+	 * Gets the dockable tabbed pane list by a dockable container and title.
+	 * @param dockableContainer the instance of JDockableContainer
+	 * @param title the title string
+	 * @return the instance of List
+	 */
 	public static List getDockableTabbedPanes(JDockableContainer dockableContainer, String title)
 	{
 		JDockableView dockableView = getDockableView(dockableContainer, title);
@@ -60,6 +70,7 @@ public class DockableManager
 		{
 			return null;
 		}
+		
 		Component content = dockableView.getContentPane();
 		if (content instanceof JDockableSplitPane)
 		{
@@ -79,12 +90,18 @@ public class DockableManager
 			return null;
 		}
 	}
-	
-	// 根据JDockableView Title获得指定JDockableContainer中的JDockableView对象
+
+	/**
+	 * Gets the dockable view by a dockable container and title.
+	 * The title should be exclusive.
+	 * @param dockableContainer the instance of JDockableContainer
+	 * @param title the title string
+	 * @return the instance of JDockableView
+	 */
 	public static JDockableView getDockableView(JDockableContainer dockableContainer, String title)
 	{
 		Component component = dockableContainer.getContentPane();
-		if (component instanceof JDockable) // 最大化状态下，Dockable句柄为空
+		if (component instanceof JDockable) // The dockable is null when maximized
 		{
 			JDockable dockable = (JDockable) component;
 			
@@ -102,7 +119,13 @@ public class DockableManager
 		return null;
 	}
 	
-	// 根据JDockableView Title获得指定JDockable中的JDockableView对象
+	/**
+	 * Gets the dockable view by a dockable and title.
+	 * The title should be exclusive.
+	 * @param dockable the instance of JDockable
+	 * @param title the title string
+	 * @return the instance of JDockableView
+	 */
 	public static JDockableView getDockableView(JDockable dockable, String title)
 	{
 		for (int i = 0; i < dockable.getPaneCount(); i++)
@@ -134,14 +157,19 @@ public class DockableManager
 		return null;
 	}
 	
+	/**
+	 * Gets the dockable view list by a dockable container.
+	 * @param dockableContainer the instance of JDockableContainer
+	 * @return the instance of List
+	 */
 	public static List getDockableViews(JDockableContainer dockableContainer)
 	{
 		List dockableViews = new ArrayList();
 		Component component = dockableContainer.getContentPane();
-		if (component instanceof JDockable) // 最大化状态下，Dockable句柄为空
+		if (component instanceof JDockable) // The dockable is null when maximized
 		{
 			JDockable dockable = (JDockable) component;
-			DockableManager.getDockableViews(dockable, dockableViews);
+			DockableManager.putDockableViews(dockable, dockableViews);
 		}
 		else if (component instanceof JDockableView)
 		{
@@ -152,17 +180,25 @@ public class DockableManager
 		return dockableViews;
 	}
 	
-	// 根据获得指定JDockable中的所有的JDockableView对象和嵌套对象
+	/**
+	 * Gets the dockable view list by a dockable.
+	 * @param dockable the instance of JDockable
+	 * @return the instance of List
+	 */
 	public static List getDockableViews(JDockable dockable)
 	{
 		List dockableViews = new ArrayList();
-		getDockableViews(dockable, dockableViews);
+		putDockableViews(dockable, dockableViews);
 		
 		return dockableViews;
 	}
 	
-	// 根据获得指定JDockable中的所有的JDockableView对象和嵌套对象
-	public static void getDockableViews(JDockable dockable, List dockableViews)
+	/**
+	 * Puts the dockable view to the list by a dockable. 
+	 * @param dockable the instance of JDockable
+	 * @param dockableViews the instance of List
+	 */
+	private static void putDockableViews(JDockable dockable, List dockableViews)
 	{
 		for (int i = 0; i < dockable.getPaneCount(); i++)
 		{
@@ -175,15 +211,19 @@ public class DockableManager
 			else if (component instanceof JDockable)
 			{
 				JDockable childDockable = (JDockable) component;
-				getDockableViews(childDockable, dockableViews);
+				putDockableViews(childDockable, dockableViews);
 			}
 		}
 	}
 	
-	// 获得DockableView的附载的最近一级Dockable分割条
-	public static JDockable getDockable(Component dockableView)
+	/**
+	 * Gets the dockable by a inner component.
+	 * @param component the inner component
+	 * @return the instance of JDockable
+	 */
+	public static JDockable getDockable(Component component)
 	{
-		Container container = dockableView.getParent();
+		Container container = component.getParent();
 		if (container == null)
 		{
 			return null;
@@ -198,11 +238,15 @@ public class DockableManager
 			return getDockable(container);
 		}
 	}
-	
-	// 获得DockableView的顶层DockableContainer容器
-	public static JDockableContainer getDockableContainer(Component dockableView)
+
+	/**
+	 * Gets the dockable container by a inner component.
+	 * @param component the inner component
+	 * @return the instance of JDockableContainer
+	 */
+	public static JDockableContainer getDockableContainer(Component component)
 	{
-		Container container = dockableView.getParent();
+		Container container = component.getParent();
 		if (container == null)
 		{
 			return null;
@@ -218,7 +262,12 @@ public class DockableManager
 		}
 	}
 	
-	
+	/**
+	 * Gets the dockable view by a framework window and title.
+	 * @param frameWorkWindow the instance of JFrameWorkWindow
+	 * @param title the title string
+	 * @return the instance of JDockableView
+	 */
 	public static JDockableView getDockableView(JFrameWorkWindow frameWorkWindow, String title)
 	{
 		if (frameWorkWindow == null)
@@ -231,6 +280,12 @@ public class DockableManager
 		return getDockableView(dockableHierarchy, title);
 	}
 	
+	/**
+	 * Gets the dockable view by a dockable hierarchy and title.
+	 * @param dockableHierarchy the instance of JDockableHierarchy
+	 * @param title the title string
+	 * @return the instance of JDockableView
+	 */
 	public static JDockableView getDockableView(JDockableHierarchy dockableHierarchy, String title)
 	{
 		if (dockableHierarchy == null)
@@ -251,7 +306,12 @@ public class DockableManager
 		return null;
 	}
 	
-	public static JBasicMenu getToggleMenu(final JDockableHierarchy hierarchy)
+	/**
+	 * Gets the toggle menu by a dockable hierarchy.
+	 * @param dockableHierarchy the instance of JDockableHierarchy
+	 * @return the instance of JBasicMenu
+	 */
+	public static JBasicMenu getToggleMenu(final JDockableHierarchy dockableHierarchy)
 	{
 		JBasicMenu toggleMenu = new JBasicMenu(SwingLocale.getString("view"), SwingLocale.getString("view") + "(V)");
 		toggleMenu.setMnemonic('V');
@@ -261,7 +321,7 @@ public class DockableManager
 		{
 			public void actionPerformed(ActionEvent e)
 			{
-				JComponent toolBar = hierarchy.getToolBar();
+				JComponent toolBar = dockableHierarchy.getToolBar();
 				toolBar.setVisible(!toolBar.isVisible());
 			}
 		}
@@ -273,7 +333,7 @@ public class DockableManager
 		{
 			public void actionPerformed(ActionEvent e)
 			{
-				JComponent statusBar = hierarchy.getStatusBar();
+				JComponent statusBar = dockableHierarchy.getStatusBar();
 				statusBar.setVisible(!statusBar.isVisible());
 			}
 		}
@@ -282,7 +342,7 @@ public class DockableManager
 		
 		toggleMenu.addSeparator();
 		
-		List dockableViews = hierarchy.getDockableViews();
+		List dockableViews = dockableHierarchy.getDockableViews();
 		for (Iterator iterator = dockableViews.iterator(); iterator.hasNext();)
 		{
 			final JDockableView dockableView = (JDockableView) iterator.next();
@@ -306,10 +366,10 @@ public class DockableManager
 		KeyStrokeManager.registerButton(screenToggleMenuItem, KeyEvent.VK_F12, 'F');
 		toggleMenu.add(screenToggleMenuItem);
 		
-		FullScreenSupport fullScreenSupport = new FullScreenSupport(hierarchy);
+		FullScreenSupport fullScreenSupport = new FullScreenSupport(dockableHierarchy);
 		FullScreenRegister fullScreenRegister = new FullScreenRegister(fullScreenSupport);
-		fullScreenRegister.register(hierarchy.getMenuBar());
-		fullScreenRegister.register(hierarchy.getToolBar());
+		fullScreenRegister.register(dockableHierarchy.getMenuBar());
+		fullScreenRegister.register(dockableHierarchy.getToolBar());
 		fullScreenRegister.register(screenToggleMenuItem);
 		
 		return toggleMenu;

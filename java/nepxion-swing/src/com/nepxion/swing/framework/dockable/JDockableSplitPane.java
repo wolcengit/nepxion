@@ -20,24 +20,49 @@ import com.nepxion.swing.splitpane.JBasicSplitPane;
 
 public class JDockableSplitPane
 	extends JBasicSplitPane
-{
-	// 其父组件可能为JDockableView或一般的Container
+{	
+	/**
+	 * The instance of JDockableView.
+	 */
 	private JDockableView dockableView;
+	
+	/**
+	 * The instance of Container.
+	 */
 	private Container dockableContainer;
 	
+	/**
+	 * The boolean value of isMaximized
+	 */
 	private boolean isMaximized = false;
+	
+	/**
+	 * The index value.
+	 */
 	private int index;
 	
+	/**
+	 * Constructs with the default.
+	 */
 	public JDockableSplitPane()
 	{
 		super();
 	}
 	
+	/**
+	 * Constructs with the specified initial new orientation.
+	 * @param newOrientation the new orientation value
+	 */
 	public JDockableSplitPane(int newOrientation)
 	{
 		super(newOrientation);
 	}
 	
+	/**
+	 * Adds the pane with a constraints.
+	 * @param pane the instance of Component
+	 * @param constraints the constraints value
+	 */
 	public void add(Component pane, Object constraints)
 	{
 		setConstraints(pane, constraints);
@@ -45,6 +70,12 @@ public class JDockableSplitPane
 		super.add(pane, constraints);
 	}
 	
+	/**
+	 * Adds the pane with a constraints and index.
+	 * @param pane the instance of Component
+	 * @param constraints the constraints value
+	 * @param index the index value
+	 */
 	public void add(Component pane, Object constraints, int index)
 	{
 		setConstraints(pane, constraints);
@@ -52,6 +83,12 @@ public class JDockableSplitPane
 		super.add(pane, constraints, index);
 	}
 	
+	/**
+	 * Insets the pane with a constraints and index.
+	 * @param pane the instance of Component
+	 * @param constraints the constraints value
+	 * @param index the index value
+	 */
 	public Component insertPane(Component pane, Object constraints, int index)
 	{
 		setConstraints(pane, constraints);
@@ -59,6 +96,12 @@ public class JDockableSplitPane
 		return super.insertPane(pane, constraints, index);
 	}
 	
+	/**
+	 * Sets the pane with a constraints and index.
+	 * @param pane the instance of Component
+	 * @param constraints the constraints value
+	 * @param index the index value
+	 */
 	public void setPaneAt(Component pane, Object constraints, int index)
 	{
 		setConstraints(pane, constraints);
@@ -66,6 +109,11 @@ public class JDockableSplitPane
 		super.setPaneAt(pane, constraints, index);
 	}
 	
+	/**
+	 * Sets the constraints.
+	 * @param pane the instance of Component
+	 * @param constraints the constraints value
+	 */
 	private void setConstraints(Component pane, Object constraints)
 	{
 		if (pane instanceof JDockableView)
@@ -74,6 +122,10 @@ public class JDockableSplitPane
 		}
 	}
 	
+	/**
+	 * Toggles the view.
+	 * @param component the instance of Component
+	 */
 	public void toggleView(Component component)
 	{
 		init();
@@ -110,6 +162,9 @@ public class JDockableSplitPane
 		isMaximized = !isMaximized;
 	}
 	
+	/**
+	 * Toggles the layout.
+	 */
 	public void toggleLayout()
 	{
 		init();
@@ -131,6 +186,9 @@ public class JDockableSplitPane
 		}
 	}
 	
+	/**
+	 * Initializes.
+	 */
 	private void init()
 	{
 		Container container = getParent();
@@ -150,6 +208,10 @@ public class JDockableSplitPane
 		}
 	}
 	
+	/**
+	 * Gets the tabbed pane list.
+	 * @return the instance of List
+	 */
 	public List getTabbedPanes()
 	{
 		List tabbedPanes = new ArrayList();
