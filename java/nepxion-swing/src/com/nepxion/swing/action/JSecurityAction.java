@@ -24,11 +24,11 @@ public abstract class JSecurityAction
 	extends JAction
 {
 	/**
-	 * The boolean value of isPermitted.
+	 * The boolean value of permitted.
 	 * It is mainly used for security and authentication module.
 	 * If the value is false, a warning dialog will show up and action event won't be triggered.
 	 */
-	private boolean isPermitted = true;
+	private boolean permitted = true;
 	
 	/**
 	 * Constructs with the default.
@@ -126,16 +126,16 @@ public abstract class JSecurityAction
 	 */
 	public boolean isPermitted()
 	{
-		return isPermitted;
+		return permitted;
 	}
 	
 	/**
 	 * Sets the the boolean value of isPermitted.
-	 * @param isPermitted the boolean value of isPermitted
+	 * @param isPermitted the boolean value of permitted
 	 */
-	public void setPermitted(boolean isPermitted)
+	public void setPermitted(boolean permitted)
 	{
-		this.isPermitted = isPermitted;
+		this.permitted = permitted;
 	}
 	
 	/**
