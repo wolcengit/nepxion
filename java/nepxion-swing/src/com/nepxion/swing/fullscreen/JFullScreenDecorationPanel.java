@@ -26,32 +26,62 @@ import com.nepxion.swing.style.framework.IStyle;
 public class JFullScreenDecorationPanel
 	extends JDecorationPanel
 {
+	/**
+	 * The instance of ToolBar.
+	 */
 	private ToolBar toolBar;
 	
+	/**
+	 * Constructs with the specified title and icon.
+	 * @param title the title string
+	 * @param icon the instance of Icon
+	 */
 	public JFullScreenDecorationPanel(String title, Icon icon)
 	{
 		this(title, icon, true);
 	}
 	
-	public JFullScreenDecorationPanel(String title, Icon icon, boolean isSelected)
+	/**
+	 * Constructs with the specified title, icon and selected.
+	 * @param title the title string
+	 * @param icon the instance of Icon
+	 * @param selected the boolean value of selected
+	 */
+	public JFullScreenDecorationPanel(String title, Icon icon, boolean selected)
 	{
-		super(title, icon, isSelected);
+		super(title, icon, selected);
 		
 		initComponents();
 	}
 	
+	/**
+	 * Constructs with the specified title, icon and style.
+	 * @param title the title string
+	 * @param icon the instance of Icon
+	 * @param style the instance of IStyle
+	 */
 	public JFullScreenDecorationPanel(String title, Icon icon, IStyle style)
 	{
 		this(title, icon, true, style);
 	}
 	
-	public JFullScreenDecorationPanel(String title, Icon icon, boolean isSelected, IStyle style)
+	/**
+	 * Constructs with the specified title, icon, selected and style.
+	 * @param title the title string
+	 * @param icon the instance of Icon
+	 * @param selected the boolean value of selected
+	 * @param style the instance of IStyle
+	 */
+	public JFullScreenDecorationPanel(String title, Icon icon, boolean selected, IStyle style)
 	{
-		super(title, icon, isSelected, style);
+		super(title, icon, selected, style);
 		
 		initComponents();
 	}
 	
+	/**
+	 * Initializes the components.
+	 */
 	private void initComponents()
 	{
 		toolBar = new ToolBar();
@@ -63,6 +93,10 @@ public class JFullScreenDecorationPanel
 		fullScreenRegister.register(getToolBar().getMaximizeButton());
 	}
 	
+	/**
+	 * Gets the tool bar.
+	 * @return the instance of ToolBar
+	 */
 	public ToolBar getToolBar()
 	{
 		return toolBar;
@@ -71,8 +105,14 @@ public class JFullScreenDecorationPanel
 	public class ToolBar
 		extends JPanel
 	{
+		/**
+		 * The maximize button.
+		 */
 		private JBasicButton maximizeButton;
 		
+		/**
+		 * Constructs with the default.
+		 */
 		public ToolBar()
 		{
 			maximizeButton = FullScreenManager.createMaximizeButton(false);
@@ -86,6 +126,10 @@ public class JFullScreenDecorationPanel
 			setOpaque(false);
 		}
 		
+		/**
+		 * Gets the maximize button.
+		 * @return the instance of JBasicButton
+		 */
 		public JBasicButton getMaximizeButton()
 		{
 			return maximizeButton;

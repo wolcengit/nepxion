@@ -26,9 +26,20 @@ import javax.swing.JMenuItem;
 public class FullScreenRegister
 	extends MouseAdapter implements ActionListener
 {
+	/**
+	 * The instance of FullScreenSupport.
+	 */
 	private FullScreenSupport fullScreenSupport;
+	
+	/**
+	 * The button list.
+	 */
 	private List buttons;
 	
+	/**
+	 * Constructs with the specified initial fullscreen support.
+	 * @param fullScreenSupport the instance of FullScreenSupport
+	 */
 	public FullScreenRegister(FullScreenSupport fullScreenSupport)
 	{
 		this.fullScreenSupport = fullScreenSupport;
@@ -36,6 +47,10 @@ public class FullScreenRegister
 		buttons = new ArrayList();
 	}
 	
+	/**
+	 * Registers the component.
+	 * @param component the instance of Component
+	 */
 	public void register(Component component)
 	{
 		if (component != null)
@@ -44,6 +59,10 @@ public class FullScreenRegister
 		}
 	}
 	
+	/**
+	 * Registers the button.
+	 * @param button the instance of AbstractButton
+	 */
 	public void register(AbstractButton button)
 	{
 		if (button != null)
@@ -53,17 +72,24 @@ public class FullScreenRegister
 		}
 	}
 	
+	/**
+	 * Toggles the fullscreen facade.
+	 */
 	public void toggleFullScreen()
 	{
 		for (Iterator iterator = buttons.iterator(); iterator.hasNext();)
 		{
 			AbstractButton button = (AbstractButton) iterator.next();
-			adaptButtonUI(button);
+			adaptButtonFacade(button);
 		}
 		fullScreenSupport.toggleFullScreen();
 	}
 
-	private void adaptButtonUI(AbstractButton button)
+	/**
+	 * Adapts the button facade.
+	 * @param button the instance of AbstractButton
+	 */
+	private void adaptButtonFacade(AbstractButton button)
 	{
 		String text = null;
 		Icon icon = null;
@@ -100,6 +126,10 @@ public class FullScreenRegister
 		}		
 	}
     
+    /**
+     * Invoked when the mouse button has been clicked (pressed and released) on a component.
+     * @param e the instance of MouseEvent
+     */
 	public void mouseClicked(MouseEvent e)
 	{
 		if (e.getClickCount() > 1)
@@ -108,6 +138,10 @@ public class FullScreenRegister
 		}
 	}
 	
+    /**
+     * Invoked when an action occurs.
+     * @param e the instance of ActionEvent
+     */
 	public void actionPerformed(ActionEvent e)
 	{
 		toggleFullScreen();

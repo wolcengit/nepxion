@@ -16,6 +16,11 @@ import com.nepxion.swing.menuitem.JBasicMenuItem;
 public class FullScreenManager
 	implements FullScreenConstants
 {
+	/**
+	 * Creates the maximize button.
+	 * @param isTextVisible the boolean value of isTextVisible
+	 * @return the instance of JBasicButton
+	 */
 	public static JBasicButton createMaximizeButton(boolean isTextVisible)
 	{
 		JBasicButton button = null;
@@ -31,6 +36,11 @@ public class FullScreenManager
 		return button;
 	}
 	
+	/**
+	 * Creates the minimize button.
+	 * @param isTextVisible the boolean value of isTextVisible
+	 * @return the instance of JBasicButton
+	 */
 	public static JBasicButton createMinimizeButton(boolean isTextVisible)
 	{
 		JBasicButton button = null;
@@ -46,6 +56,11 @@ public class FullScreenManager
 		return button;
 	}
 	
+	/**
+	 * Creates the close button.
+	 * @param isTextVisible the boolean value of isTextVisible
+	 * @return the instance of JBasicButton
+	 */
 	public static JBasicButton createCloseButton(boolean isTextVisible)
 	{
 		JBasicButton button = null;
@@ -61,6 +76,10 @@ public class FullScreenManager
 		return button;
 	}
 	
+	/**
+	 * Creates the maximize menu item.
+	 * @return the instance of JBasicMenuItem
+	 */
 	public static JBasicMenuItem createMaximizeMenuItem()
 	{
 		JBasicMenuItem menuItem = new JBasicMenuItem(TEXT_MAXIMIZE, ICON_MAXIMIZE, TEXT_MAXIMIZE);
@@ -68,6 +87,10 @@ public class FullScreenManager
 		return menuItem;
 	}
 	
+	/**
+	 * Creates the minimize menu item.
+	 * @return the instance of JBasicMenuItem
+	 */
 	public static JBasicMenuItem createMinimizeMenuItem()
 	{
 		JBasicMenuItem menuItem = new JBasicMenuItem(TEXT_MINIMIZE, ICON_MINIMIZE, TEXT_MINIMIZE);
@@ -75,6 +98,10 @@ public class FullScreenManager
 		return menuItem;
 	}
 	
+	/**
+	 * Creates the close menu item.
+	 * @return the instance of JBasicMenuItem
+	 */
 	public static JBasicMenuItem createCloseMenuItem()
 	{
 		JBasicMenuItem menuItem = new JBasicMenuItem(TEXT_CLOSE, ICON_CLOSE, TEXT_CLOSE);

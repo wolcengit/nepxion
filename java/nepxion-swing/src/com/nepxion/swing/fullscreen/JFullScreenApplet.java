@@ -18,13 +18,27 @@ import com.nepxion.swing.applet.JBasicApplet;
 import com.nepxion.swing.icon.IconFactory;
 
 public class JFullScreenApplet
-	extends JBasicApplet implements FullScreenConstants
+	extends JBasicApplet implements JFullScreenWindow
 {	
+	/**
+	 * The window title string.
+	 */
 	private String windowTitle;
+	
+	/**
+	 * the window icon.
+	 */
 	private Icon windowIcon;
 	
+	/**
+	 * The instance of JFullScreenDecorationPanel.
+	 */
 	private JFullScreenDecorationPanel decorationPanel;
 	
+	/**
+	 * Initializes the applet.
+	 * It is overridden from JApplet.
+	 */
 	public void init()
 	{
 		super.init();
@@ -38,6 +52,9 @@ public class JFullScreenApplet
 		getContentPane().add(decorationPanel);
 	}
 	
+	/**
+	 * Initializes the window title.
+	 */
 	private void initWindowTitle()
 	{
 		windowTitle = getParameter("windowTitle");
@@ -47,6 +64,9 @@ public class JFullScreenApplet
 		}
 	}
 	
+	/**
+	 * Initializes the window icon.
+	 */
 	private void initWindowIcon()
 	{
 		String windowIconName = getParameter("windowIcon");
@@ -60,12 +80,21 @@ public class JFullScreenApplet
 		}
 	}
 	
+	/**
+	 * Returns true if the content is valid.
+	 * @param content the content string
+	 * @return true if the content is valid
+	 */
 	public boolean isValid(String content)
 	{
 		return content != null && !content.trim().equals("");
 	}
 	
-	public JFullScreenDecorationPanel getContainer()
+	/**
+	 * Gets the workspace.
+	 * @return the instance of JFullScreenDecorationPanel
+	 */
+	public JFullScreenDecorationPanel getWorkspace()
 	{
 		return decorationPanel;
 	}

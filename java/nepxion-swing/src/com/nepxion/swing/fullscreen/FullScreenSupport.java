@@ -30,27 +30,61 @@ import com.nepxion.swing.keystroke.KeyStrokeManager;
 
 public class FullScreenSupport
 {
+	/**
+	 * The fullscreen window. 
+	 */
 	private JWindow fullScreenWindow;
+	
+	/**
+	 * The container.
+	 */
 	private Container container;
 	
+	/**
+	 * The fullscreen component.
+	 */
 	private Component fullScreenComponent;
+	
+	/**
+	 * The layout constraints value.
+	 */
 	private Object layoutConstraints;
 	
+	/**
+	 * Constructs with the specified initial fullscreen component.
+	 * @param fullScreenComponent the fullscreen component
+	 */
 	public FullScreenSupport(Component fullScreenComponent)
 	{
 		this(fullScreenComponent, null, null);
 	}
 	
+	/**
+	 * Constructs with the specified initial fullscreen component and layout constraints.
+	 * @param fullScreenComponent the fullscreen component
+	 * @param layoutConstraints the layout constraints value
+	 */
 	public FullScreenSupport(Component fullScreenComponent, Object layoutConstraints)
 	{
 		this(fullScreenComponent, layoutConstraints, null);
 	}
 	
+	/**
+	 * Constructs with the specified initial fullscreen component and toggle fullscreen key stroke.
+	 * @param fullScreenComponent the fullscreen component
+	 * @param toggleFullScreenKeyStroke the toggle fullscreen key stroke
+	 */
 	public FullScreenSupport(Component fullScreenComponent, KeyStroke toggleFullScreenKeyStroke)
 	{
 		this(fullScreenComponent, null, toggleFullScreenKeyStroke);
 	}
 	
+	/**
+	 * Constructs with the specified initial fullscreen component, layout constraints and toggle fullscreen key stroke.
+	 * @param fullScreenComponent the fullscreen component
+	 * @param layoutConstraints the layout constraints value
+	 * @param toggleFullScreenKeyStroke the toggle fullscreen key stroke
+	 */
 	public FullScreenSupport(Component fullScreenComponent, Object layoutConstraints, KeyStroke toggleFullScreenKeyStroke)
 	{
 		this.fullScreenComponent = fullScreenComponent;
@@ -82,6 +116,9 @@ public class FullScreenSupport
 		}
 	}
 	
+	/**
+	 * Toggles the fullscreen facade.
+	 */
 	public void toggleFullScreen()
 	{
 		if (isFullScreen())
@@ -94,6 +131,9 @@ public class FullScreenSupport
 		}
 	}
 	
+	/**
+	 * Shows the full screen facade.
+	 */
 	public void showFullScreen()
 	{
 		if (fullScreenWindow != null || fullScreenComponent == null)
@@ -142,6 +182,9 @@ public class FullScreenSupport
 		fullScreenComponent.requestFocus();
 	}
 	
+	/**
+	 * Exits the full screen facade.
+	 */
 	public void exitFullScreen()
 	{
 		if (fullScreenWindow == null)
@@ -175,6 +218,10 @@ public class FullScreenSupport
 		fullScreenComponent.requestFocus();
 	}
 	
+	/**
+	 * Return true if is full screen.
+	 * @return true if is full screen
+	 */
 	public boolean isFullScreen()
 	{
 		return fullScreenWindow != null;
