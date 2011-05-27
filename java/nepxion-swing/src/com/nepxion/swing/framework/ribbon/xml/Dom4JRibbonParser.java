@@ -56,48 +56,102 @@ import com.nepxion.util.xml.dom4j.Dom4JReader;
 public class Dom4JRibbonParser
 	implements Dom4JRibbonConstants, SwingConstants
 {
+	/**
+	 * The instance of JRibbonContainer.
+	 */
 	protected JRibbonContainer ribbonContainer;
+	
+	/**
+	 * The instance of ITabbedPane.
+	 */
 	protected ITabbedPane tabbedPane;
+	
+	/**
+	 * The boolean value of isContextIcon.
+	 * If true, the icon configured in the xml will be retrieved at the context icon path.
+	 */
 	protected boolean isContextIcon = true;
+	
+	/**
+	 * The text show value.
+	 */
 	protected int textShowValue = JRibbonAction.SHOW_LARGE;
+	
+	/**
+	 * The icon show value.
+	 */
 	protected int iconShowValue = JRibbonAction.SHOW_LARGE;
 	
+	/**
+	 * Constructs with the specified ribbon container ant ribbon navigator bar.
+	 * @param ribbonContainer the instance of JRibbonContainer
+	 * @param ribbonNavigatorBar the instance of JRibbonNavigatorBar
+	 */
 	public Dom4JRibbonParser(JRibbonContainer ribbonContainer, JRibbonNavigatorBar ribbonNavigatorBar)
 	{
 		this.ribbonContainer = ribbonContainer;
 		this.tabbedPane = ribbonNavigatorBar.getTabbedPane();
 	}
 	
+	/**
+	 * Gets the text show value.
+	 * @return the text show value
+	 */
 	public int getTextShowValue()
 	{
 		return textShowValue;
 	}
 	
+	/**
+	 * Sets the text show value.
+	 * @param textShowValue the text show value
+	 */
 	public void setTextShowValue(int textShowValue)
 	{
 		this.textShowValue = textShowValue;
 	}
 	
+	/**
+	 * Gets the icon show value.
+	 * @return the icon show value
+	 */
 	public int getIconShowValue()
 	{
 		return iconShowValue;
 	}
 	
+	/**
+	 * Sets the icon show value.
+	 * @param iconShowValue the icon show value
+	 */
 	public void setIconShowValue(int iconShowValue)
 	{
 		this.iconShowValue = iconShowValue;
 	}
 	
+	/**
+	 * Return true if it is the context icon.
+	 * @return
+	 */
 	public boolean isContextIcon()
 	{
 		return isContextIcon;
 	}
 	
+	/**
+	 * Sets the context icon or not.
+	 * @param isContextIcon the boolean of isContextIcon
+	 */
 	public void setContextIcon(boolean isContextIcon)
 	{
 		this.isContextIcon = isContextIcon;
 	}
 	
+	/**
+	 * Parses the xml by a string.
+	 * @param text the xml string
+	 * @throws DocumentException
+	 */
 	public void parse(String text)
 		throws DocumentException
 	{
@@ -105,6 +159,12 @@ public class Dom4JRibbonParser
 		parse(document);
 	}
 	
+	/**
+	 * Parses the xml with the configured charset by a string.
+	 * @param text the xml string
+	 * @throws DocumentException
+	 * @throws UnsupportedEncodingException
+	 */
 	public void parseFormat(String text)
 		throws DocumentException, UnsupportedEncodingException
 	{
@@ -112,6 +172,13 @@ public class Dom4JRibbonParser
 		parse(document);
 	}
 	
+	/**
+	 * Parses the xml by a file.
+	 * @param file the instance of File
+	 * @throws DocumentException
+	 * @throws FileNotFoundException
+	 * @throws UnsupportedEncodingException
+	 */
 	public void parse(File file)
 		throws DocumentException, FileNotFoundException, UnsupportedEncodingException
 	{
@@ -119,6 +186,13 @@ public class Dom4JRibbonParser
 		parse(document);
 	}
 	
+	/**
+	 * Parses the xml with the configured charset by a file.
+	 * @param file the instance of File
+	 * @throws DocumentException
+	 * @throws FileNotFoundException
+	 * @throws UnsupportedEncodingException
+	 */
 	public void parseFormat(File file)
 		throws DocumentException, FileNotFoundException, UnsupportedEncodingException
 	{
@@ -126,6 +200,11 @@ public class Dom4JRibbonParser
 		parse(document);
 	}
 	
+	/**
+	 * Parses the xml by an inputStream.
+	 * @param inputStream the instance of InputStream
+	 * @throws DocumentException
+	 */
 	public void parse(InputStream inputStream)
 		throws DocumentException
 	{
@@ -133,6 +212,12 @@ public class Dom4JRibbonParser
 		parse(document);
 	}
 	
+	/**
+	 * Parses the xml with the configured charset by an inputStream.
+	 * @param inputStream the instance of InputStream
+	 * @throws DocumentException
+	 * @throws UnsupportedEncodingException
+	 */
 	public void parseFormat(InputStream inputStream)
 		throws DocumentException, UnsupportedEncodingException
 	{
@@ -140,14 +225,22 @@ public class Dom4JRibbonParser
 		parse(document);
 	}
 	
+	/**
+	 * Parses the xml by a document.
+	 * @param document the instance of Document
+	 */
 	public void parse(Document document)
 	{
 		Element rootElement = document.getRootElement();
-		parseRibbonBarElement(rootElement);
+		parseRibbonNavigatorElement(rootElement);
 		parseRibbonContainerElement(rootElement);
 	}
 	
-	public void parseRibbonBarElement(Element element)
+	/**
+	 * Parses the element of "ribbonnavigator".
+	 * @param element the instance of Element
+	 */
+	public void parseRibbonNavigatorElement(Element element)
 	{
 		for (Iterator elementIterator = element.element(TAG_RIBBON_NAVIGATOR).elementIterator(); elementIterator.hasNext();)
 		{
@@ -161,6 +254,10 @@ public class Dom4JRibbonParser
 		}
 	}
 	
+	/**
+	 * Parses the element of "ribboncontainer".
+	 * @param element the instance of Element
+	 */
 	public void parseRibbonContainerElement(Element element)
 	{		
 		Element childElement = element.element(TAG_RIBBON_CONTAINER);
@@ -175,6 +272,10 @@ public class Dom4JRibbonParser
 		ribbonContainer.setMaximumCount(maximumCount);
 	}
 	
+	/**
+	 * Parses the attributes of the element "ribbonbar".
+	 * @param element the instance of Element
+	 */
 	public void parseRibbonBarAttribute(Element element)
 	{
 		JRibbonBar ribbonBar = new JRibbonBar(ribbonContainer);
@@ -219,6 +320,11 @@ public class Dom4JRibbonParser
 		parseRibbonElement(element, ribbonBar);
 	}
 	
+	/**
+	 * Parses the element of "ribbon".
+	 * @param element the instance of Element
+	 * @param ribbonBar the instance of JRibbonBar
+	 */
 	public void parseRibbonElement(Element element, JRibbonBar ribbonBar)
 	{
 		for (Iterator elementIterator = element.elementIterator(); elementIterator.hasNext();)
@@ -233,6 +339,11 @@ public class Dom4JRibbonParser
 		}
 	}
 	
+	/**
+	 * Parses the attributes of the element "ribbon".
+	 * @param element the instance of Element
+	 * @param ribbonBar the instance of JRibbonBar
+	 */
 	public void parseRibbonAttribute(Element element, JRibbonBar ribbonBar)
 	{
 		JRibbon ribbon = new JRibbon();
@@ -309,6 +420,11 @@ public class Dom4JRibbonParser
 		ButtonManager.updateUI(ribbon.getToolBar(), buttonInsets, buttonLayout);
 	}
 	
+	/**
+	 * Parses the element of "button" or "menubutton".
+	 * @param element the instance of Element
+	 * @param ribbon the instance of JRibbon
+	 */
 	public void parseButtonElement(Element element, JRibbon ribbon)
 	{
 		for (Iterator elementIterator = element.elementIterator(); elementIterator.hasNext();)
@@ -323,6 +439,11 @@ public class Dom4JRibbonParser
 		}
 	}
 	
+	/**
+	 * Parses the attributes of the element "button" or "menubutton".
+	 * @param element the instance of Element
+	 * @param ribbon the instance of JRibbon
+	 */
 	public void parseButtonAttribute(Element element, JRibbon ribbon)
 	{
 		String name = null;
@@ -546,6 +667,11 @@ public class Dom4JRibbonParser
 		}
 	}
 	
+	/**
+	 * Parses the element of "menu" or "menuitem".
+	 * @param element the instance of Element
+	 * @param menu the instance of MenuElement
+	 */	
 	public void parseMenuElement(Element element, MenuElement menu)
 	{
 		for (Iterator elementIterator = element.elementIterator(); elementIterator.hasNext();)
@@ -560,6 +686,11 @@ public class Dom4JRibbonParser
 		}
 	}
 	
+	/**
+	 * Parses the attributes of the element "menu" or "menuitem".
+	 * @param element the instance of Element
+	 * @param ribbon the instance of JRibbon
+	 */
 	public void parseMenuAttribute(Element element, MenuElement menu)
 	{
 		String name = null;
@@ -666,6 +797,24 @@ public class Dom4JRibbonParser
 		}
 	}
 	
+	/**
+	 * Creates the ribbon action.
+	 * @param name the name string
+	 * @param text the text string
+	 * @param smallText the small text string
+	 * @param largeText the large text string
+	 * @param icon the icon
+	 * @param smallIcon the small icon
+	 * @param largeIcon the large icon
+	 * @param toolTipText the tooltip text string
+	 * @param ribbonName the ribbon name string
+	 * @param ribbonTitle the ribbon title string
+	 * @param ribbonIcon the ribbon icon
+	 * @param ribbonToolTipText the ribbon tooltip text string
+	 * @param ribbonComponentClass the ribbon component class string
+	 * @param ribbonContainer the instance of JRibbonContainer
+	 * @return the instance of JRibbonAction
+	 */
 	public JRibbonAction createRibbonAction(String name, String text, String smallText, String largeText, Icon icon, Icon smallIcon, Icon largeIcon, String toolTipText, String ribbonName, String ribbonTitle, Icon ribbonIcon, String ribbonToolTipText, String ribbonComponentClass)
 	{		
 		return RibbonManager.createRibbonAction(name, text, smallText, largeText, icon, smallIcon, largeIcon, toolTipText, ribbonName, ribbonTitle, ribbonIcon, ribbonToolTipText, ribbonComponentClass, ribbonContainer);
