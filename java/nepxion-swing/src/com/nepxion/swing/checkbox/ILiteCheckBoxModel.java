@@ -20,9 +20,9 @@ public interface ILiteCheckBoxModel
 	
 	/**
 	 * Sets the check box rollover.
-	 * @param isRollover the boolean value of isRollover
+	 * @param isRollover the boolean value of rollover
 	 */
-	public void setRollover(boolean isRollover);
+	public void setRollover(boolean rollover);
 	
 	/**
 	 * Returns true if the check box is armed.
@@ -32,9 +32,9 @@ public interface ILiteCheckBoxModel
 	
 	/**
 	 * Sets the check box armed. 
-	 * @param isArmed the boolean value of isArmed
+	 * @param isArmed the boolean value of armed
 	 */
-	public void setArmed(boolean isArmed);
+	public void setArmed(boolean armed);
 	
 	/**
 	 * Returns true if the check box is pressed.
@@ -44,9 +44,9 @@ public interface ILiteCheckBoxModel
 	
 	/**
 	 * Sets the check box pressed.
-	 * @param isPressed the boolean value of isPressed
+	 * @param isPressed the boolean value of pressed
 	 */
-	public void setPressed(boolean isPressed);
+	public void setPressed(boolean pressed);
 	
 	/**
 	 * Returns true if the check box is selected.
@@ -56,9 +56,9 @@ public interface ILiteCheckBoxModel
 	
 	/**
 	 * Sets the check box selected.
-	 * @param isSelected the boolean value of isSelected
+	 * @param isSelected the boolean value of selected
 	 */
-	public void setSelected(boolean isSelected);
+	public void setSelected(boolean selected);
 	
 	/**
 	 * Returns true if the check box is enabled.
@@ -68,7 +68,7 @@ public interface ILiteCheckBoxModel
 	
 	/**
 	 * Sets the check box enabled.
-	 * @param isEnabled the boolean value of isEnabled
+	 * @param isEnabled the boolean value of enabled
 	 */
-	public void setEnabled(boolean isEnabled);
+	public void setEnabled(boolean enabled);
 }
