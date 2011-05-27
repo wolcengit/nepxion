@@ -90,21 +90,21 @@ public abstract class JFrameWorkThread
 	
 	/**
 	 * Sets the component enabled.
-	 * @param isEnabled the boolean value of isEnabled
+	 * @param isEnabled the boolean value of enabled
 	 */
-	private void setComponentEnabled(boolean isEnabled)
+	private void setComponentEnabled(boolean enabled)
 	{
 		if (component != null)
 		{
-			component.setEnabled(isEnabled);
+			component.setEnabled(enabled);
 		}
 	}
 	
 	/**
 	 * Sets the thread status.
-	 * @param isStarted the boolean value of isStarted.
+	 * @param isStarted the boolean value of started.
 	 */
-	private void setThreadStatus(boolean isStarted)
+	private void setThreadStatus(boolean started)
 	{
 		if (frameWorkHierarchy == null)
 		{
@@ -119,7 +119,7 @@ public abstract class JFrameWorkThread
 		
 		if (frameWorkStatusBar.isVisible())
 		{
-			if (isStarted)
+			if (started)
 			{
 				frameWorkStatusBar.start();
 			}
