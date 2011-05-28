@@ -23,47 +23,14 @@ import javax.swing.BorderFactory;
 import javax.swing.Icon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.UIManager;
 
 import com.nepxion.swing.action.JAction;
-import com.nepxion.swing.border.ShadowBorder;
 import com.nepxion.swing.gradient.JGradientPainter;
-import com.nepxion.swing.lookandfeel.LookAndFeelManager;
 import com.nepxion.swing.toolbar.JBasicToolBar;
 
 public class JRibbon
 	extends JPanel
 {
-	/**
-	 * The border background.
-	 */
-	private Color borderBackground = new Color(108, 111, 117); // new Color(170, 191, 211);
-	
-	/**
-	 * The container background.
-	 */
-	private Color containerBackground = new Color(220, 231, 244);
-	
-	/**
-	 * The container gradient start background.
-	 */
-	private Color containerGradientStartBackground = new Color(246, 248, 250);
-	
-	/**
-	 * The container gradient end background.
-	 */
-	private Color containerGradientEndBackground = new Color(172, 193, 212);
-	
-	/**
-	 * The label background.
-	 */
-	private Color labelBackground = new Color(193, 216, 241);
-	
-	/**
-	 * The corner background.
-	 */
-	private Color cornerBackground = new Color(0, 0, 18); // new Color(102, 142, 175);
-	
 	/**
 	 * The instance of JBasicToolBar.
 	 */
@@ -102,47 +69,31 @@ public class JRibbon
 	{
 		toolBar = new JBasicToolBar()
 		{
-			public void paint(Graphics g)
+			public void paintComponent(Graphics g)
 			{
-				// Draw Background
-				// g.setColor(toolBarBackground);
-				// g.fillRect(0, 0, getWidth(), getHeight());
-				
 				Graphics2D g2d = (Graphics2D) g;
-				Rectangle rectangle = new Rectangle(0, 0, getWidth(), getHeight());
-				JGradientPainter.fastFill(g2d, rectangle, containerGradientStartBackground, containerGradientEndBackground, true);
 				
-				super.paint(g);
+				// JGradientPainter.fastFill(g2d, new Rectangle(0, 0, getWidth(), 14), new Color(222, 232, 245), new Color(210, 224, 241), true);
+				// JGradientPainter.fastFill(g2d, new Rectangle(0, 14, getWidth(), getHeight() - 14), new Color(199, 216, 237), new Color(216, 232, 245), true);
+				
+				JGradientPainter.fastFill(g2d, new Rectangle(0, 0, getWidth(), 14), new Color(222, 235, 247), new Color(210, 224, 241), true);
+				JGradientPainter.fastFill(g2d, new Rectangle(0, 14, getWidth(), getHeight() - 14), new Color(199, 216, 237), new Color(231, 242, 255), true);
+				
+				super.paintComponent(g);
 			}
 		};
 		
 		label = new JLabel(title, icon, JLabel.CENTER)
 		{
-			public void paint(Graphics g)
+			public void paintComponent(Graphics g)
 			{
-				if (LookAndFeelManager.isNimbusLookAndFeel())
-				{	
-					// Draw Background
-					// g.setColor(labelBackground);
-					// g.fillRect(0, 0, getWidth(), getHeight());
-									
-					Graphics2D g2d = (Graphics2D) g;
-					Rectangle rectangle = new Rectangle(0, 0, getWidth(), getHeight());
-					JGradientPainter.fastFill(g2d, rectangle, containerGradientStartBackground, containerGradientEndBackground, true);
-				}
-				else
-				{
-					// Draw Background
-					// g.setColor(labelBackground);
-					// g.fillRect(0, 0, getWidth(), getHeight());
-									
-					Graphics2D g2d = (Graphics2D) g;
-					Rectangle rectangle = new Rectangle(0, 0, getWidth(), getHeight());
-					JGradientPainter.fastFill(g2d, rectangle, new Color(255, 255, 255, 150), UIManager.getColor("Label.background"), true);
-				}
+				Graphics2D g2d = (Graphics2D) g;
+				
+				Rectangle rectangle = new Rectangle(0, 0, getWidth(), getHeight());
+				JGradientPainter.fastFill(g2d, rectangle, new Color(194, 216, 241), new Color(192, 216, 240), true);
 				
 				// Draw Corner
-				g.setColor(cornerBackground);
+				g.setColor(new Color(102, 142, 175));
 				g.drawLine(getWidth() - 12, getHeight() - 12, getWidth() - 7, getHeight() - 12);
 				g.drawLine(getWidth() - 12, getHeight() - 12, getWidth() - 12, getHeight() - 7);
 				
@@ -160,14 +111,14 @@ public class JRibbon
 				g.drawLine(getWidth() - 8, getHeight() - 5, getWidth() - 6, getHeight() - 5);
 				g.drawLine(getWidth() - 5, getHeight() - 9, getWidth() - 5, getHeight() - 5);
 				
-				super.paint(g);
+				super.paintComponent(g);
 			}
 		};
 		label.setToolTipText(toolTipText);
 		label.setBorder(BorderFactory.createEmptyBorder(0, 10, 0, 23));
 		
 		setLayout(new BorderLayout());
-		setBorder(BorderFactory.createCompoundBorder(BorderFactory.createEmptyBorder(1, 1, 1, 1), new ShadowBorder(borderBackground)));
+		setBorder(BorderFactory.createCompoundBorder(BorderFactory.createEmptyBorder(1, 1, 1, 1), BorderFactory.createEtchedBorder()));
 		
 		add(toolBar, BorderLayout.CENTER);
 		add(label, BorderLayout.SOUTH);
@@ -243,114 +194,6 @@ public class JRibbon
 	public void setToolTipText(String toolTipText)
 	{
 		label.setToolTipText(toolTipText);
-	}
-	
-	/**
-	 * Gets the border background.
-	 * @return the instance of Color
-	 */
-	public Color getBorderBackground()
-	{
-		return borderBackground;
-	}
-
-	/**
-	 * Sets the border background.
-	 * @param borderBackground the instance of Color
-	 */
-	public void setBorderBackground(Color borderBackground)
-	{
-		this.borderBackground = borderBackground;
-	}
-
-	/**
-	 * Gets the container background.
-	 * @return the instance of Color
-	 */
-	public Color getContainerBackground()
-	{
-		return containerBackground;
-	}
-
-	/**
-	 * Sets the container background.
-	 * @param containerBackground the instance of Color
-	 */
-	public void setContainerBackground(Color containerBackground)
-	{
-		this.containerBackground = containerBackground;
-	}
-
-	/**
-	 * Gets the container gradient start background.
-	 * @return the instance of Color
-	 */
-	public Color getContainerGradientStartBackground()
-	{
-		return containerGradientStartBackground;
-	}
-
-	/**
-	 * Sets the container gradient start background. 
-	 * @param containerGradientStartBackground the instance of Color
-	 */
-	public void setContainerGradientStartBackground(Color containerGradientStartBackground)
-	{
-		this.containerGradientStartBackground = containerGradientStartBackground;
-	}
-
-	/**
-	 * Gets the container gradient end background.
-	 * @return the instance of Color
-	 */
-	public Color getContianerGradientEndBackground()
-	{
-		return containerGradientEndBackground;
-	}
-
-	/**
-	 * Sets the container gradient end background. 
-	 * @param containerGradientStartBackground the instance of Color
-	 */
-	public void setContainerGradientEndBackground(Color containerGradientEndBackground)
-	{
-		this.containerGradientEndBackground = containerGradientEndBackground;
-	}
-
-	/**
-	 * Gets the label background.
-	 * @return the instance of Color
-	 */
-	public Color getLabelBackground()
-	{
-		return labelBackground;
-	}
-
-	/**
-	 * Sets the label background.
-	 * @param labelBackground the instance of Color
-	 */
-	public void setLabelBackground(Color labelBackground)
-	{
-		this.labelBackground = labelBackground;
-	}
-
-	/**
-	 * Gets the corner background.
-	 * @return the instance of Color
-	 */
-	public Color getCornerBackground()
-	{
-		return cornerBackground;
-	}
-
-	/**
-	 * Sets the corner background.
-	 * @param cornerBackground the instance of Color
-	 */
-	public void setCornerBackground(Color cornerBackground)
-	{
-		this.cornerBackground = cornerBackground;
 	}
 	
 	/**

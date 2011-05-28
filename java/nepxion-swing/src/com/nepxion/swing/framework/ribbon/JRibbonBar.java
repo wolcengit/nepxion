@@ -10,15 +10,19 @@ package com.nepxion.swing.framework.ribbon;
  * @version 1.0
  */
 
+import java.awt.Color;
 import java.awt.Component;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.Rectangle;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
+import com.nepxion.swing.gradient.JGradientPainter;
 import com.nepxion.swing.layout.filed.FiledLayout;
 import com.nepxion.swing.scrollpane.JAutoRollScrollPane;
 
@@ -43,9 +47,27 @@ public class JRibbonBar
 	{
 		this.ribbonContainer = ribbonContainer;
 		
-		ribbonView = new JPanel();
+		ribbonView = new JPanel()
+		{
+			public void paintComponent(Graphics g)
+			{				
+				Graphics2D g2d = (Graphics2D) g;
+
+				JGradientPainter.fastFill(g2d, new Rectangle(0, 0, getWidth(), 1), new Color(231, 239, 248), new Color(231, 239, 248), true);
+				JGradientPainter.fastFill(g2d, new Rectangle(0, 1, getWidth(), 16), new Color(222, 235, 247), new Color(210, 224, 241), true);
+				JGradientPainter.fastFill(g2d, new Rectangle(0, 17, getWidth(), getHeight() - 18), new Color(199, 216, 237), new Color(231, 242, 255), true);
+				JGradientPainter.fastFill(g2d, new Rectangle(0, getHeight() - 1, getWidth(), 1), new Color(192, 249, 255), new Color(192, 249, 255), true);
+				
+				JGradientPainter.fastFill(g2d, new Rectangle(0, 1, 1, 16), new Color(231, 239, 248), new Color(214, 235, 247), true);
+				JGradientPainter.fastFill(g2d, new Rectangle(0, 17, 1, getHeight() - 1), new Color(204, 232, 245), new Color(192, 249, 255), true);
+				
+				JGradientPainter.fastFill(g2d, new Rectangle(getWidth() - 1, 1, 1, 16), new Color(231, 239, 248), new Color(214, 235, 247), true);
+				JGradientPainter.fastFill(g2d, new Rectangle(getWidth() - 1, 17, 1, getHeight() - 1), new Color(204, 232, 245), new Color(192, 249, 255), true);
+
+			}
+		};
 		ribbonView.setLayout(new FiledLayout(FiledLayout.ROW, FiledLayout.FULL, 0));
-		ribbonView.setBorder(BorderFactory.createEmptyBorder(3, 3, 3, 3));
+		// ribbonView.setBorder(BorderFactory.createEmptyBorder(3, 3, 3, 3));
 		
 		setViewportView(ribbonView);
 	}
