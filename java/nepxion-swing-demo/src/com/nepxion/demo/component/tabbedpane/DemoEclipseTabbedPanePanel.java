@@ -11,7 +11,6 @@ package com.nepxion.demo.component.tabbedpane;
  */
 
 import java.awt.BorderLayout;
-import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
@@ -19,10 +18,7 @@ import java.util.List;
 
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
-import javax.swing.Icon;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.plaf.UIResource;
 
 import com.nepxion.demo.common.DemoDataFactory;
 import com.nepxion.swing.border.BorderManager;
@@ -31,6 +27,7 @@ import com.nepxion.swing.combobox.JBasicComboBox;
 import com.nepxion.swing.element.ElementNode;
 import com.nepxion.swing.handle.HandleManager;
 import com.nepxion.swing.icon.IconFactory;
+import com.nepxion.swing.label.JBasicLabel;
 import com.nepxion.swing.layout.filed.FiledLayout;
 import com.nepxion.swing.listener.SelectionListener;
 import com.nepxion.swing.optionpane.JBasicOptionPane;
@@ -89,13 +86,14 @@ public class DemoEclipseTabbedPanePanel
 			eclipseTabbedPane.setPopupMenu(popupMenu, true);			
 			add(eclipseTabbedPane);	
 
-//	        setTabPlacement(JEclipseTabbedPane.TOP);
-//	        setShowTabButtons(true);
-//	        setShowCloseButton(true);
-//	        setShowCloseButtonOnTab(true);
-//	        setHideOneTab(true);
-//	        setTabEditingAllowed(true);
-//	        setTabClosableAt(2, false);			
+	        /*eclipseTabbedPane.setTabPlacement(JEclipseTabbedPane.TOP);
+	        eclipseTabbedPane.setShowTabButtons(true);
+	        eclipseTabbedPane.setShowCloseButton(true);
+	        eclipseTabbedPane.setShowCloseButtonOnTab(true);
+	        eclipseTabbedPane.setHideOneTab(true);
+	        eclipseTabbedPane.setTabEditingAllowed(true);
+	        eclipseTabbedPane.setTabClosableAt(2, false);	
+			eclipseTabbedPane.setShowTabBorder(false);*/
 		}
 	}
 	
@@ -153,7 +151,18 @@ public class DemoEclipseTabbedPanePanel
 				}				
 			}
 			);	
-	        add(showTabContentCheckBox);		        
+	        add(showTabContentCheckBox);
+	        
+	        final JBasicCheckBox showTabBorderCheckBox = new JBasicCheckBox("Show Tab Border", "Show Tab Border", false);	
+	        showTabBorderCheckBox.addActionListener(new ActionListener()
+			{
+				public void actionPerformed(ActionEvent e)
+				{
+					eclipseTabbedPane.setShowTabBorder(showTabBorderCheckBox.isSelected());
+				}				
+			}
+			);	
+	        add(showTabBorderCheckBox);
 						
 	        final JBasicCheckBox showTabButtonsCheckBox = new JBasicCheckBox("Show Tab Buttons", "Show Tab Buttons", false);	
 	        showTabButtonsCheckBox.addActionListener(new ActionListener()
@@ -184,8 +193,8 @@ public class DemoEclipseTabbedPanePanel
 				{
 	                if (showTabLeadingComponentCheckBox.isSelected())
 					{	             
-	                	Component leadingComponent = new LabelUIResource(IconFactory.getSwingIcon("logo.png"));
-						eclipseTabbedPane.setTabLeadingComponent(leadingComponent);
+	                	JBasicLabel trailingLabel = new JBasicLabel(IconFactory.getSwingIcon("logo.png"), "Nepxion Studio");
+						eclipseTabbedPane.setTabLeadingComponent(trailingLabel);
 					}
 					else
 					{
@@ -203,8 +212,8 @@ public class DemoEclipseTabbedPanePanel
 				{
 	                if (showTabTrailingComponentCheckBox.isSelected())
 					{	             
-	                	Component leadingComponent = new LabelUIResource(IconFactory.getSwingIcon("logo.png"));
-						eclipseTabbedPane.setTabTrailingComponent(leadingComponent);
+	                	JBasicLabel trailingLabel = new JBasicLabel(IconFactory.getSwingIcon("logo.png"), "Nepxion Studio");
+						eclipseTabbedPane.setTabTrailingComponent(trailingLabel);
 					}
 					else
 					{
@@ -256,19 +265,5 @@ public class DemoEclipseTabbedPanePanel
 			);			
 			add(showCloseButtonCheckBox);	
 		}
-	}	
-	
-    public class LabelUIResource
-		extends JLabel implements UIResource
-	{
-		public LabelUIResource(String text)
-		{
-			super(text);
-		}
-		
-		public LabelUIResource(Icon image)
-		{
-			super(image);
-		}		
-	}	
+	}
 }

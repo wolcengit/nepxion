@@ -14,7 +14,7 @@ import java.awt.event.KeyEvent;
 
 import javax.swing.JMenuItem;
 
-import com.nepxion.demo.DemoHierarchyController;
+import com.nepxion.demo.DemoController;
 import com.nepxion.demo.common.DemoComponentFactory;
 import com.nepxion.demo.common.DemoDataFactory;
 import com.nepxion.swing.framework.JFrameWorkStatusBar;
@@ -121,7 +121,7 @@ public class DemoDockableHierarchy
         helpMenu.setMnemonic('H');
         menuBar.add(helpMenu);
 
-        JBasicMenuItem aboutMenuItem = new JBasicMenuItem(DemoHierarchyController.getAboutAction());
+        JBasicMenuItem aboutMenuItem = new JBasicMenuItem(DemoController.getAboutAction());
         KeyStrokeManager.registerButton(aboutMenuItem, KeyEvent.VK_F1, 'U');
         helpMenu.add(aboutMenuItem);
     }
