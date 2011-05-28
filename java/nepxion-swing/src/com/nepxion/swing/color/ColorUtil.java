@@ -12,7 +12,10 @@ package com.nepxion.swing.color;
 
 import java.awt.Color;
 
+import javax.swing.LookAndFeel;
 import javax.swing.UIManager;
+
+import com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel;
 
 public class ColorUtil
 {
@@ -58,5 +61,44 @@ public class ColorUtil
 	public static Color getRandomColor()
 	{
 		return new Color((int) (Math.random() * 256), (int) (Math.random() * 256), (int) (Math.random() * 256));
+	}
+	
+	/**
+	 * Gets the hsb offsets between color1 and color2.
+	 * @param color1 the instance of Color
+	 * @param color2 the instance of Color
+	 * @return the float array
+	 */
+	public static float[] getHSBOffsets(Color color1, Color color2)
+	{
+		float[] colorHSB1 = Color.RGBtoHSB(color1.getRed(), color1.getGreen(), color1.getBlue(), null);
+		float[] colorHSB2 = Color.RGBtoHSB(color2.getRed(), color2.getGreen(), color2.getBlue(), null);
+		
+		return new float[] {colorHSB1[0] - colorHSB2[0], colorHSB1[1] - colorHSB2[1], colorHSB1[2] - colorHSB2[2]};
+	}
+	
+	/**
+	 * Gets the derived color by a color.
+	 * The derived color only supports Nimbus LookAndFeel.
+	 * @param color the instance of Color
+	 * @return the instance of DerivedColor
+	 */
+	public static Color getDerivedColor(Color color)
+	{
+		LookAndFeel lookAndFeel = UIManager.getLookAndFeel();
+		if (!(lookAndFeel instanceof NimbusLookAndFeel))
+		{
+			throw new IllegalArgumentException("The derived color only supports Nimbus LookAndFeel");
+		}
+		
+		NimbusLookAndFeel nimbusLookAndFeel = (NimbusLookAndFeel) lookAndFeel;
+		
+		Color baseColor = UIManager.getColor("nimbusBase");
+		
+		float[] hsbOffsets = getHSBOffsets(color, baseColor);
+		
+		Color derivedColor = nimbusLookAndFeel.getDerivedColor("nimbusBase", hsbOffsets[0], hsbOffsets[1], hsbOffsets[2], 0, true);
+		
+		return derivedColor;
 	}
 }
