@@ -30,6 +30,8 @@ import com.nepxion.swing.menu.JBasicMenu;
 import com.nepxion.swing.menuitem.JBasicMenuItem;
 import com.nepxion.swing.popupmenu.JDecorationPopupMenu;
 import com.nepxion.swing.tabbedpane.ITabbedPane;
+import com.nepxion.swing.tabbedpane.JBasicTabbedPane;
+import com.nepxion.swing.tabbedpane.JEclipseTabbedPane;
 import com.nepxion.swing.tabbedpane.TabbedPaneManager;
 
 public abstract class JRibbonNavigatorBar
@@ -71,7 +73,14 @@ public abstract class JRibbonNavigatorBar
 		this.tabbedPane = tabbedPane;
 		
 		tabbedComponent = (JTabbedPane) tabbedPane;
-		tabbedComponent.setTabLayoutPolicy(JTabbedPane.WRAP_TAB_LAYOUT);
+		if (tabbedPane instanceof JBasicTabbedPane)
+		{	
+			tabbedComponent.setTabLayoutPolicy(JTabbedPane.WRAP_TAB_LAYOUT);
+		}
+		else if (tabbedPane instanceof JEclipseTabbedPane)
+		{
+			tabbedComponent.setTabLayoutPolicy(JTabbedPane.SCROLL_TAB_LAYOUT);
+		}
 		tabbedComponent.addMouseListener(new JRibbonToggleHeightAction(this));
 		tabbedComponent.addMouseListener(new MouseAdapter()
 		{
