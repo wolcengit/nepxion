@@ -52,6 +52,8 @@ public class JEclipseTabbedPane
 	
 	private void initComponents()
 	{
+		TabbedPaneManager.setPreferenceStyle(this);
+		
 		setUseDefaultShowIconsOnTab(false);
 		
 		setShowCloseButton(true);
