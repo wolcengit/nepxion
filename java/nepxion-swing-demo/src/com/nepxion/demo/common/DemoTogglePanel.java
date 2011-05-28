@@ -12,13 +12,12 @@ package com.nepxion.demo.common;
 
 import java.awt.BorderLayout;
 
-import javax.swing.BorderFactory;
-
+import com.nepxion.swing.framework.ribbon.IRibbonComponent;
 import com.nepxion.swing.tabbedpane.JEclipseTabbedPane;
 import com.nepxion.swing.toggle.JTogglePanel;
 
 public abstract class DemoTogglePanel
-	extends JTogglePanel
+	extends JTogglePanel implements IRibbonComponent
 {	
 	private JEclipseTabbedPane toggleTabbedPane;
 	
@@ -27,12 +26,21 @@ public abstract class DemoTogglePanel
 		toggleTabbedPane = new JEclipseTabbedPane();
 		
 		setLayout(new BorderLayout());
-		setBorder(BorderFactory.createEmptyBorder(0, 6, 6, 6));
 		add(toggleTabbedPane, BorderLayout.CENTER);
 	}
 	
 	public JEclipseTabbedPane getToggleTabbedPane()
 	{
 		return toggleTabbedPane;
+	}
+	
+	public Object getUserObject()
+	{
+		return null;
+	}
+
+	public void setUserObject(Object userObject)
+	{
+		
 	}
 }
