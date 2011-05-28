@@ -112,8 +112,8 @@ public class JRibbonContainer
 					y = (25 + 10) * internalFrames.length;
 				}
 				
-				int width = ribbonComponent.getPreferredSize().width;
-				int height = ribbonComponent.getPreferredSize().height;
+				int width = ribbonComponent.getSize().width;
+				int height = ribbonComponent.getSize().height;
 				
 				internalFrame = new JInternalFrame(title, true, true, true, true);
 				internalFrame.setName(name);
