@@ -12,7 +12,6 @@ package com.nepxion.swing.framework.ribbon;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Component;
 import java.awt.Font;
 import java.awt.FontMetrics;
 import java.awt.Graphics;
@@ -23,12 +22,13 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 import javax.swing.BorderFactory;
-import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 import javax.swing.plaf.UIResource;
 
 import com.nepxion.swing.gradient.JGradientPainter;
 import com.nepxion.swing.icon.IconFactory;
+import com.nepxion.swing.icon.paint.CombinatedIcon;
 import com.nepxion.swing.label.JBasicLabel;
 import com.nepxion.swing.menuitem.JBasicMenuItem;
 import com.nepxion.swing.popupmenu.JDecorationPopupMenu;
@@ -70,29 +70,29 @@ public class JRibbonTabbedPane
 		popupMenu.add(new JBasicMenuItem("xxx"));
 		popupMenu.add(new JBasicMenuItem("xxx"));
 		popupMenu.add(new JBasicMenuItem("xxx"));
+
+		final CombinatedIcon logoBackgroundIcon = new CombinatedIcon(IconFactory.getSwingIcon("ribbon/logo.png"), IconFactory.getSwingIcon("ribbon/logo_bg.png"));
+		final CombinatedIcon logoBackgroundHoverIcon = new CombinatedIcon(IconFactory.getSwingIcon("ribbon/logo.png"), IconFactory.getSwingIcon("ribbon/logo_bg_hover.png"));
+		final CombinatedIcon logoBackgroundSelectedIcon = new CombinatedIcon(IconFactory.getSwingIcon("ribbon/logo.png"), IconFactory.getSwingIcon("ribbon/logo_bg_selected.png"));
 		
-		final RibbonIcon buttonIcon = new RibbonIcon(IconFactory.getSwingIcon("ribbon_button.png"));
-		final RibbonIcon buttonHoverIcon = new RibbonIcon(IconFactory.getSwingIcon("ribbon_button_hover.png"));
-		final RibbonIcon buttonSelectedIcon = new RibbonIcon(IconFactory.getSwingIcon("ribbon_button_selected.png"));
-		
-		final JBasicLabel leadingLabel = new JBasicLabel(buttonIcon, "Nepxion Studio");
+		final JBasicLabel leadingLabel = new JBasicLabel(logoBackgroundIcon, "Nepxion Studio");
 		leadingLabel.addMouseListener(new MouseAdapter()
 		{
 			public void mouseEntered(MouseEvent e)
 			{
-				leadingLabel.setIcon(buttonHoverIcon);
+				leadingLabel.setIcon(logoBackgroundHoverIcon);
 			}
 			
 			public void mousePressed(MouseEvent e)
 			{
-				leadingLabel.setIcon(buttonSelectedIcon);
+				leadingLabel.setIcon(logoBackgroundSelectedIcon);
 				
 				popupMenu.show(leadingLabel, e.getX(), e.getY());
 			}
 			
 			public void mouseExited(MouseEvent e)
 			{
-				leadingLabel.setIcon(buttonIcon);
+				leadingLabel.setIcon(logoBackgroundIcon);
 			}
 		}
 		);
@@ -113,37 +113,7 @@ public class JRibbonTabbedPane
 			setOpaque(false);
 		}
 	}
-	
-	public class RibbonIcon
-		implements Icon
-	{
-		private Icon logoIcon;
-		private Icon buttonIcon;
 		
-		public RibbonIcon(Icon buttonIcon)
-		{
-			this.buttonIcon = buttonIcon;
-			
-			logoIcon = IconFactory.getSwingIcon("ribbon_logo.png");
-		}
-		
-		public void paintIcon(Component c, Graphics g, int x, int y)
-		{
-			buttonIcon.paintIcon(c, g, x, y);
-			logoIcon.paintIcon(c, g, x + getIconWidth() / 2 - logoIcon.getIconWidth() / 2, y + getIconHeight() / 2 - logoIcon.getIconHeight() / 2);
-		}
-		
-		public int getIconWidth()
-		{
-			return buttonIcon.getIconWidth();
-		}
-		
-		public int getIconHeight()
-		{
-			return buttonIcon.getIconHeight();
-		}
-	}
-	
 	public void paintComponent(Graphics g)
 	{			
 		Graphics2D g2d = (Graphics2D) g;
@@ -203,22 +173,49 @@ public class JRibbonTabbedPane
 	{
 		int x = 47;
 		int y = 4;
-		int width = 30;
 		
-		g2d.drawImage(IconFactory.getSwingIcon("ribbon_bg_left.png").getImage(), 33, 4, null);
-		g2d.drawImage(IconFactory.getSwingIcon("ribbon_bg_right.png").getImage(), 100, 4, null);
+		int buttonWidth = 22;
+		int buttonCount = 3;
 		
-		g2d.setColor(new Color(246, 249, 252));
-		g2d.drawLine(x, y, x + width, y);
-		g2d.setColor(new Color(186, 204, 226));
-		g2d.drawLine(x, y + 1, x + width, y + 1);
-		g2d.setColor(new Color(222, 231, 244));
-		g2d.drawLine(x, y + 2, x + width, y + 2);
-		g2d.setColor(new Color(230, 238, 249));
-		g2d.drawLine(x, y + 3, x + width, y + 3);		
-		JGradientPainter.fastFill(g2d, new Rectangle(x, y + 4, width, 9), new Color(219, 231, 247), new Color(199, 215, 237), true);
-		JGradientPainter.fastFill(g2d, new Rectangle(x, y + 4 + 9, width, 9), new Color(199, 215, 237), new Color(154, 179, 213), true);
-		g2d.setColor(new Color(154, 179, 213));
-		g2d.drawLine(x, y + 4 + 9 + 9, x + width, y + 4 + 9 + 9);
+		int width = buttonWidth * buttonCount + 1;
+		
+		g2d.drawImage(IconFactory.getSwingIcon("ribbon/toolbar_bg_left.png").getImage(), x - 14, y, null);
+		g2d.drawImage(IconFactory.getSwingIcon("ribbon/toolbar_bg_right.png").getImage(), x + width, y, null);
+		
+		JGradientPainter.fastFill(g2d, new Rectangle(x, y, width, 1), new Color(246, 249, 252), new Color(240, 245, 252), false);
+		JGradientPainter.fastFill(g2d, new Rectangle(x, y + 1, width, 1), new Color(186, 204, 226), new Color(191, 208, 229), false);
+		JGradientPainter.fastFill(g2d, new Rectangle(x, y + 2, width, 1), new Color(222, 231, 244), new Color(216, 227, 241), false);
+		JGradientPainter.fastFill(g2d, new Rectangle(x, y + 3, width, 1), new Color(230, 238, 249), new Color(230, 238, 249), false);
+		JGradientPainter.fastFill(g2d, new Rectangle(x, y + 4, width, 1), new Color(219, 231, 247), new Color(219, 231, 247), false);
+		JGradientPainter.fastFill(g2d, new Rectangle(x, y + 5, width, 1), new Color(216, 229, 245), new Color(216, 229, 245), false);
+		JGradientPainter.fastFill(g2d, new Rectangle(x, y + 6, width, 1), new Color(213, 226, 244), new Color(213, 226, 244), false);
+		JGradientPainter.fastFill(g2d, new Rectangle(x, y + 7, width, 1), new Color(210, 224, 242), new Color(210, 224, 242), false);
+		JGradientPainter.fastFill(g2d, new Rectangle(x, y + 8, width, 1), new Color(206, 222, 241), new Color(206, 222, 241), false);
+		JGradientPainter.fastFill(g2d, new Rectangle(x, y + 9, width, 1), new Color(204, 220, 239), new Color(204, 220, 239), false);
+		JGradientPainter.fastFill(g2d, new Rectangle(x, y + 10, width, 1), new Color(202, 218, 238), new Color(202, 218, 238), false);
+		JGradientPainter.fastFill(g2d, new Rectangle(x, y + 11, width, 1), new Color(200, 216, 238), new Color(200, 216, 238), false);
+		JGradientPainter.fastFill(g2d, new Rectangle(x, y + 12, width, 1), new Color(199, 215, 237), new Color(199, 215, 237), false);
+		JGradientPainter.fastFill(g2d, new Rectangle(x, y + 13, width, 1), new Color(196, 214, 237), new Color(196, 214, 237), false);
+		JGradientPainter.fastFill(g2d, new Rectangle(x, y + 14, width, 1), new Color(196, 214, 236), new Color(196, 214, 236), false);
+		JGradientPainter.fastFill(g2d, new Rectangle(x, y + 15, width, 1), new Color(195, 213, 236), new Color(195, 213, 236), false);
+		JGradientPainter.fastFill(g2d, new Rectangle(x, y + 16, width, 1), new Color(196, 214, 237), new Color(196, 214, 237), false);
+		JGradientPainter.fastFill(g2d, new Rectangle(x, y + 17, width, 1), new Color(196, 213, 237), new Color(196, 213, 237), false);
+		JGradientPainter.fastFill(g2d, new Rectangle(x, y + 18, width, 1), new Color(197, 214, 237), new Color(197, 214, 237), false);
+		JGradientPainter.fastFill(g2d, new Rectangle(x, y + 19, width, 1), new Color(199, 215, 237), new Color(199, 215, 237), false);
+		JGradientPainter.fastFill(g2d, new Rectangle(x, y + 20, width, 1), new Color(201, 216, 238), new Color(201, 216, 238), false);
+		JGradientPainter.fastFill(g2d, new Rectangle(x, y + 21, width, 1), new Color(201, 217, 238), new Color(197, 214, 235), false);
+		JGradientPainter.fastFill(g2d, new Rectangle(x, y + 22, width, 1), new Color(154, 179, 213), new Color(162, 185, 217), false);
+		
+		x += 1;
+		y += 1;
+		for (int i = 0; i < buttonCount; i++)
+		{
+			ImageIcon backgroundIcon = IconFactory.getSwingIcon("ribbon/button_bg_hover.png");
+			ImageIcon foregroundIcon = IconFactory.getSwingIcon("alarm.png");
+			g2d.drawImage(backgroundIcon.getImage(), x, y, null);
+			g2d.drawImage(foregroundIcon.getImage(), x + backgroundIcon.getIconWidth() / 2 - foregroundIcon.getIconWidth() / 2, y + backgroundIcon.getIconHeight() / 2 - foregroundIcon.getIconHeight() / 2, null);
+			
+			x += buttonWidth;
+		}
 	}
 }
