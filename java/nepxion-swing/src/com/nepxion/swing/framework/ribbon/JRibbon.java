@@ -73,11 +73,12 @@ public class JRibbon
 			{
 				Graphics2D g2d = (Graphics2D) g;
 				
-				// JGradientPainter.fastFill(g2d, new Rectangle(0, 0, getWidth(), 14), new Color(222, 232, 245), new Color(210, 224, 241), true);
-				// JGradientPainter.fastFill(g2d, new Rectangle(0, 14, getWidth(), getHeight() - 14), new Color(199, 216, 237), new Color(216, 232, 245), true);
+				int width = getWidth();
+				int height = getHeight();
 				
-				JGradientPainter.fastFill(g2d, new Rectangle(0, 0, getWidth(), 14), new Color(222, 235, 247), new Color(210, 224, 241), true);
-				JGradientPainter.fastFill(g2d, new Rectangle(0, 14, getWidth(), getHeight() - 14), new Color(199, 216, 237), new Color(231, 242, 255), true);
+				// Paint Background
+				JGradientPainter.fastFill(g2d, new Rectangle(0, 0, width, 14), new Color(222, 235, 247), new Color(210, 224, 241), true);
+				JGradientPainter.fastFill(g2d, new Rectangle(0, 14, width, height - 14), new Color(199, 216, 237), new Color(231, 242, 255), true);
 				
 				super.paintComponent(g);
 			}
@@ -89,27 +90,31 @@ public class JRibbon
 			{
 				Graphics2D g2d = (Graphics2D) g;
 				
-				Rectangle rectangle = new Rectangle(0, 0, getWidth(), getHeight());
+				int width = getWidth();
+				int height = getHeight();
+				
+				// Paint Background
+				Rectangle rectangle = new Rectangle(0, 0, width, height);
 				JGradientPainter.fastFill(g2d, rectangle, new Color(194, 216, 241), new Color(192, 216, 240), true);
 				
-				// Draw Corner
+				// Paint Corner Button
 				g.setColor(new Color(102, 142, 175));
-				g.drawLine(getWidth() - 12, getHeight() - 12, getWidth() - 7, getHeight() - 12);
-				g.drawLine(getWidth() - 12, getHeight() - 12, getWidth() - 12, getHeight() - 7);
+				g.drawLine(width - 12, height - 12, width - 7, height - 12);
+				g.drawLine(width - 12, height - 12, width - 12, height - 7);
 				
-				g.drawLine(getWidth() - 9, getHeight() - 9, getWidth() - 9, getHeight() - 9);
-				g.drawLine(getWidth() - 8, getHeight() - 8, getWidth() - 6, getHeight() - 8);
-				g.drawLine(getWidth() - 8, getHeight() - 7, getWidth() - 6, getHeight() - 7);
-				g.drawLine(getWidth() - 9, getHeight() - 6, getWidth() - 6, getHeight() - 6);
-				g.drawLine(getWidth() - 6, getHeight() - 9, getWidth() - 6, getHeight() - 6);
+				g.drawLine(width - 9, height - 9, width - 9, height - 9);
+				g.drawLine(width - 8, height - 8, width - 6, height - 8);
+				g.drawLine(width - 8, height - 7, width - 6, height - 7);
+				g.drawLine(width - 9, height - 6, width - 6, height - 6);
+				g.drawLine(width - 6, height - 9, width - 6, height - 6);
 				
 				g.setColor(Color.white);
-				g.drawLine(getWidth() - 11, getHeight() - 11, getWidth() - 7, getHeight() - 11);
-				g.drawLine(getWidth() - 11, getHeight() - 11, getWidth() - 11, getHeight() - 7);
+				g.drawLine(width - 11, height - 11, width - 7, height - 11);
+				g.drawLine(width - 11, height - 11, width - 11, height - 7);
 				
-				g.drawLine(getWidth() - 8, getHeight() - 9, getWidth() - 8, getHeight() - 9);
-				g.drawLine(getWidth() - 8, getHeight() - 5, getWidth() - 6, getHeight() - 5);
-				g.drawLine(getWidth() - 5, getHeight() - 9, getWidth() - 5, getHeight() - 5);
+				g.drawLine(width - 8, height - 9, width - 8, height - 9);
+				g.drawLine(width - 8, height - 5, width - 6, height - 5);
+				g.drawLine(width - 5, height - 9, width - 5, height - 5);
 				
 				super.paintComponent(g);
 			}

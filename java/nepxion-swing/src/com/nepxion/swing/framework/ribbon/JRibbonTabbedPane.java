@@ -150,14 +150,31 @@ public class JRibbonTabbedPane
 		Color color = g2d.getColor();
 		Font font = g2d.getFont();
 		
-		JGradientPainter.fastFill(g2d, new Rectangle(0, 1, getWidth(), 4), new Color(226, 235, 244), new Color(220, 234, 236), true);
-		JGradientPainter.fastFill(g2d, new Rectangle(0, 5, getWidth(), 4), new Color(213, 229, 250), new Color(216, 231, 250), true);
-		JGradientPainter.fastFill(g2d, new Rectangle(0, 9, getWidth(), 19), new Color(202, 222, 247), new Color(227, 239, 253), true);
-		JGradientPainter.fastFill(g2d, new Rectangle(0, 28, getWidth(), 1), new Color(219, 244, 254), new Color(219, 244, 254), true);
-		JGradientPainter.fastFill(g2d, new Rectangle(0, 29, getWidth(), 1), new Color(176, 207, 247), new Color(176, 207, 247), true);
-		JGradientPainter.fastFill(g2d, new Rectangle(0, 30, getWidth(), 1), new Color(219, 232, 249), new Color(219, 232, 249), true);
-		JGradientPainter.fastFill(g2d, new Rectangle(0, 31, getWidth(), 23), new Color(191, 219, 255), new Color(186, 215, 253), true);
+		paintBackground(g2d);
+		paintTitle(g2d);
+		paintButtonBar(g2d);
 		
+		g2d.setColor(color);
+		g2d.setFont(font);
+		
+		super.paintComponent(g);
+	}
+	
+	private void paintBackground(Graphics2D g2d)
+	{
+		int width = getWidth();
+		
+		JGradientPainter.fastFill(g2d, new Rectangle(0, 1, width, 4), new Color(226, 235, 244), new Color(220, 234, 236), true);
+		JGradientPainter.fastFill(g2d, new Rectangle(0, 5, width, 4), new Color(213, 229, 250), new Color(216, 231, 250), true);
+		JGradientPainter.fastFill(g2d, new Rectangle(0, 9, width, 19), new Color(202, 222, 247), new Color(227, 239, 253), true);
+		JGradientPainter.fastFill(g2d, new Rectangle(0, 28, width, 1), new Color(219, 244, 254), new Color(219, 244, 254), true);
+		JGradientPainter.fastFill(g2d, new Rectangle(0, 29, width, 1), new Color(176, 207, 247), new Color(176, 207, 247), true);
+		JGradientPainter.fastFill(g2d, new Rectangle(0, 30, width, 1), new Color(219, 232, 249), new Color(219, 232, 249), true);
+		JGradientPainter.fastFill(g2d, new Rectangle(0, 31, width, 23), new Color(191, 219, 255), new Color(186, 215, 253), true);
+	}
+	
+	private void paintTitle(Graphics2D g2d)
+	{
 		g2d.setColor(Color.black);
 		g2d.setFont(new Font("Dialog", Font.PLAIN, 12));
 		
@@ -180,10 +197,28 @@ public class JRibbonTabbedPane
 
 		// g2d.setColor(new Color(105, 112, 121));
 		g2d.drawString(title, x, y);
+	}
+	
+	private void paintButtonBar(Graphics2D g2d)
+	{
+		int x = 47;
+		int y = 4;
+		int width = 30;
 		
-		g2d.setColor(color);
-		g2d.setFont(font);
+		g2d.drawImage(IconFactory.getSwingIcon("ribbon_bg_left.png").getImage(), 33, 4, null);
+		g2d.drawImage(IconFactory.getSwingIcon("ribbon_bg_right.png").getImage(), 100, 4, null);
 		
-		super.paintComponent(g);
+		g2d.setColor(new Color(246, 249, 252));
+		g2d.drawLine(x, y, x + width, y);
+		g2d.setColor(new Color(186, 204, 226));
+		g2d.drawLine(x, y + 1, x + width, y + 1);
+		g2d.setColor(new Color(222, 231, 244));
+		g2d.drawLine(x, y + 2, x + width, y + 2);
+		g2d.setColor(new Color(230, 238, 249));
+		g2d.drawLine(x, y + 3, x + width, y + 3);		
+		JGradientPainter.fastFill(g2d, new Rectangle(x, y + 4, width, 9), new Color(219, 231, 247), new Color(199, 215, 237), true);
+		JGradientPainter.fastFill(g2d, new Rectangle(x, y + 4 + 9, width, 9), new Color(199, 215, 237), new Color(154, 179, 213), true);
+		g2d.setColor(new Color(154, 179, 213));
+		g2d.drawLine(x, y + 4 + 9 + 9, x + width, y + 4 + 9 + 9);
 	}
 }
