@@ -60,8 +60,6 @@ public class JRibbonTabbedPane
 	
 	private void initComponents()
 	{
-		setShowTabBorder(false);
-		
 		final JDecorationPopupMenu popupMenu = new JDecorationPopupMenu();
 		popupMenu.add(new JBasicMenuItem("xxx"));
 		popupMenu.add(new JBasicMenuItem("xxx"));
@@ -101,6 +99,62 @@ public class JRibbonTabbedPane
 		leadingPanel.add(leadingLabel, BorderLayout.CENTER);
 		
 		setTabLeadingComponent(leadingPanel);
+		setShowTabBorder(false);
+		setTabColorProvider(new ColorProvider()
+		{
+			public Color getBackgroundAt(int arg0)
+			{
+				return Color.red;
+			}
+
+			public Color getForegroudAt(int arg0)
+			{
+				return Color.black;
+			}
+
+			public float getGradientRatio(int arg0)
+			{
+				return 0.9F;
+			}	
+		}
+		);
+		
+		addMouseListener(new MouseAdapter()
+		{			
+			public void mousePressed(MouseEvent e)
+			{
+				int x = e.getX();
+				int y = e.getY();
+				
+				if (x > startX && x < endX && y > startY && y < endY)
+				{
+					backgroundIcon = IconFactory.getSwingIcon("ribbon/button_bg_selected.png");
+					paintImmediately(startX, startY, endX - startX, endY - startY);
+				}	
+			}
+		}
+		);
+		
+		addMouseMotionListener(new MouseAdapter()
+		{
+			public void mouseMoved(MouseEvent e)
+			{
+				int x = e.getX();
+				int y = e.getY();
+				
+				if (x >= startX && x <= endX && y >= startY && y <= endY)
+				{
+					backgroundIcon = IconFactory.getSwingIcon("ribbon/button_bg_hover.png");
+				}
+				else
+				{
+					backgroundIcon = null;
+				}
+				
+				paintImmediately(startX, startY, endX - startX, endY - startY);
+			}
+		}
+		);
 	}
 	
 	public class LeadingPanel
@@ -115,7 +169,7 @@ public class JRibbonTabbedPane
 	}
 		
 	public void paintComponent(Graphics g)
-	{			
+	{
 		Graphics2D g2d = (Graphics2D) g;
 		Color color = g2d.getColor();
 		Font font = g2d.getFont();
@@ -174,6 +228,9 @@ public class JRibbonTabbedPane
 		int x = 47;
 		int y = 4;
 		
+		startX = x;
+		startY = y;
+		
 		int buttonWidth = 22;
 		int buttonCount = 3;
 		
@@ -210,12 +267,24 @@ public class JRibbonTabbedPane
 		y += 1;
 		for (int i = 0; i < buttonCount; i++)
 		{
-			ImageIcon backgroundIcon = IconFactory.getSwingIcon("ribbon/button_bg_hover.png");
 			ImageIcon foregroundIcon = IconFactory.getSwingIcon("alarm.png");
-			g2d.drawImage(backgroundIcon.getImage(), x, y, null);
-			g2d.drawImage(foregroundIcon.getImage(), x + backgroundIcon.getIconWidth() / 2 - foregroundIcon.getIconWidth() / 2, y + backgroundIcon.getIconHeight() / 2 - foregroundIcon.getIconHeight() / 2, null);
+			if (backgroundIcon != null)
+			{	
+				g2d.drawImage(backgroundIcon.getImage(), x, y, null);
+			}
+			g2d.drawImage(foregroundIcon.getImage(), x + 22 / 2 - foregroundIcon.getIconWidth() / 2, y + 22 / 2 - foregroundIcon.getIconHeight() / 2, null);
 			
 			x += buttonWidth;
 		}
+		
+		endX = x;
+		endY = y + 22;
 	}
+	
+	int startX = -1;
+	int startY = -1;
+	int endX = -1;
+	int endY = -1;
+	
+	ImageIcon backgroundIcon = null;
 }
