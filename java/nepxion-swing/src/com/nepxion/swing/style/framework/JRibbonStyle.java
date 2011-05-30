@@ -43,7 +43,5 @@ public class JRibbonStyle
 		border = new ShadowBorder(new Color(167, 172, 180));
 		headerBorder = new RaisedHeaderBorder(Color.white, new Color(182, 186, 194)); // new Color(167, 172, 180)
 		labelBorder = BorderFactory.createEmptyBorder(2, 4, 2, 1);
-		
-		UIManager.put("control", new Color(231, 239, 248));
 	}
 }
