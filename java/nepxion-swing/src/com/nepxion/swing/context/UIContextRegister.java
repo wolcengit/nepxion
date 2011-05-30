@@ -16,7 +16,6 @@ import java.util.Properties;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-import com.nepxion.swing.button.ButtonConstants;
 import com.nepxion.swing.button.ButtonContext;
 import com.nepxion.swing.chart.ChartConstants;
 import com.nepxion.swing.chart.ChartContext;
@@ -57,7 +56,6 @@ public class UIContextRegister
 		initFont();
 		initPDF();
 		initButtonUI();
-		initButtonInset();
 		initPopupMenuTitle();
 		initIconPath();
 		initTopicComponent();		
@@ -371,33 +369,6 @@ public class UIContextRegister
 		log.info("Parameter - buttonStyle : [" + buttonStyle + "]");
 		log.info("Parameter - customButtonUI : [" + customButtonUI + "]");
 		log.info("Parameter - customButtonStyle : [" + customButtonStyle + "]");
-	}
-	
-	/**
-	 * Initializes the button inset.
-	 * The button inset values are configured in ui.properties.
-	 * The button inset config includes button width inset and button height inset.
-	 * The values will be applied for the all buttons in the ui.
-	 */
-	private void initButtonInset()
-	{
-		int buttonWidthInset = -1;
-		int buttonHeightInset = -1;
-		try
-		{
-			buttonWidthInset = Integer.parseInt(properties.getProperty("buttonWidthInset"));
-			buttonHeightInset = Integer.parseInt(properties.getProperty("buttonHeightInset"));
-		}
-		catch (Exception e)
-		{
-			buttonWidthInset = ButtonConstants.DEFAULT_BUTTON_WIDTH_INSET;
-			buttonHeightInset = ButtonConstants.DEFAULT_BUTTON_HEIGHT_INSET;
-		}
-		
-		ButtonContext.registerInset(buttonWidthInset, buttonHeightInset);
-		
-		log.info("Parameter - buttonWidthInset : [" + buttonWidthInset + "]");
-		log.info("Parameter - buttonHeightInset : [" + buttonHeightInset + "]");
 	}
 	
 	/**
