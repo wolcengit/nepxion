@@ -19,6 +19,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
@@ -77,8 +78,8 @@ public class JRibbonBar
 				// JGradientPainter.fastFill(g2d, new Rectangle(width - 1, 17, 1, height - 1), new Color(204, 232, 245), new Color(192, 249, 255), true);
 			}
 		};
-		ribbonView.setLayout(new FiledLayout(FiledLayout.ROW, FiledLayout.FULL, 0));
-		// ribbonView.setBorder(BorderFactory.createEmptyBorder(3, 3, 3, 3));
+		ribbonView.setLayout(new FiledLayout(FiledLayout.ROW, FiledLayout.FULL, 2));
+		ribbonView.setBorder(BorderFactory.createEmptyBorder(1, 1, 1, 1));
 		
 		setViewportView(ribbonView);
 	}

@@ -28,6 +28,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import com.nepxion.swing.action.JAction;
+import com.nepxion.swing.border.RoundBorder;
 import com.nepxion.swing.gradient.JGradientPainter;
 import com.nepxion.swing.icon.IconFactory;
 import com.nepxion.swing.toolbar.JBasicToolBar;
@@ -224,7 +225,7 @@ public class JRibbon
 		label.setBorder(BorderFactory.createEmptyBorder(0, 10, 0, 23));
 		
 		setLayout(new BorderLayout());
-		setBorder(BorderFactory.createCompoundBorder(BorderFactory.createEmptyBorder(1, 1, 1, 1), BorderFactory.createEtchedBorder()));
+		setBorder(new RoundBorder(new Color(225, 234, 244), new Color(175, 195, 213)));
 		
 		add(toolBar, BorderLayout.CENTER);
 		add(label, BorderLayout.SOUTH);
