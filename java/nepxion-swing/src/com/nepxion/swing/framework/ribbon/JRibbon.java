@@ -225,7 +225,7 @@ public class JRibbon
 		label.setBorder(BorderFactory.createEmptyBorder(0, 10, 0, 23));
 		
 		setLayout(new BorderLayout());
-		setBorder(new RoundBorder(new Color(225, 234, 244), new Color(175, 195, 213)));
+		setBorder(new RoundBorder(new Color(175, 195, 213), new Color(225, 234, 244)));
 		
 		add(toolBar, BorderLayout.CENTER);
 		add(label, BorderLayout.SOUTH);
