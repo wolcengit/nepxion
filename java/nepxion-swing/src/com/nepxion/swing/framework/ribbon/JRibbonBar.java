@@ -56,15 +56,25 @@ public class JRibbonBar
 				int width = getWidth();
 				int height = getHeight();
 
-				// Paint Background
+				// Paint Top Line
 				JGradientPainter.fastFill(g2d, new Rectangle(0, 0, width, 1), new Color(231, 239, 248), new Color(231, 239, 248), true);
+				
+				// Paint Top Body
 				JGradientPainter.fastFill(g2d, new Rectangle(0, 1, width, 16), new Color(222, 235, 247), new Color(210, 224, 241), true);
+				
+				// Paint Bottom Body
 				JGradientPainter.fastFill(g2d, new Rectangle(0, 17, width, height - 18), new Color(199, 216, 237), new Color(231, 242, 255), true);
-				JGradientPainter.fastFill(g2d, new Rectangle(0, height - 1, width, 1), new Color(192, 249, 255), new Color(192, 249, 255), true);
-				JGradientPainter.fastFill(g2d, new Rectangle(0, 1, 1, 16), new Color(231, 239, 248), new Color(214, 235, 247), true);
-				JGradientPainter.fastFill(g2d, new Rectangle(0, 17, 1, height - 1), new Color(204, 232, 245), new Color(192, 249, 255), true);
-				JGradientPainter.fastFill(g2d, new Rectangle(width - 1, 1, 1, 16), new Color(231, 239, 248), new Color(214, 235, 247), true);
-				JGradientPainter.fastFill(g2d, new Rectangle(width - 1, 17, 1, height - 1), new Color(204, 232, 245), new Color(192, 249, 255), true);
+				
+				// Paint Bottom Line
+				// JGradientPainter.fastFill(g2d, new Rectangle(0, height - 1, width, 1), new Color(192, 249, 255), new Color(192, 249, 255), true);
+				
+				// Paint Left Line
+				// JGradientPainter.fastFill(g2d, new Rectangle(0, 1, 1, 16), new Color(231, 239, 248), new Color(214, 235, 247), true);
+				// JGradientPainter.fastFill(g2d, new Rectangle(0, 17, 1, height - 1), new Color(204, 232, 245), new Color(192, 249, 255), true);
+				
+				// Paint Right Line
+				// JGradientPainter.fastFill(g2d, new Rectangle(width - 1, 1, 1, 16), new Color(231, 239, 248), new Color(214, 235, 247), true);
+				// JGradientPainter.fastFill(g2d, new Rectangle(width - 1, 17, 1, height - 1), new Color(204, 232, 245), new Color(192, 249, 255), true);
 			}
 		};
 		ribbonView.setLayout(new FiledLayout(FiledLayout.ROW, FiledLayout.FULL, 0));
