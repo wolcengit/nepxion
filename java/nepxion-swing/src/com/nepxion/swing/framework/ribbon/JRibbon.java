@@ -16,21 +16,25 @@ import java.awt.Component;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 import javax.swing.AbstractButton;
 import javax.swing.Action;
 import javax.swing.BorderFactory;
 import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import com.nepxion.swing.action.JAction;
 import com.nepxion.swing.gradient.JGradientPainter;
+import com.nepxion.swing.icon.IconFactory;
 import com.nepxion.swing.toolbar.JBasicToolBar;
 
 public class JRibbon
 	extends JPanel
-{
+{	
 	/**
 	 * The instance of JBasicToolBar.
 	 */
@@ -40,6 +44,16 @@ public class JRibbon
 	 * The instance of JLabel.
 	 */
 	private JLabel label;
+
+	/**
+	 * The icon at the corner of the label.
+	 */
+	private ImageIcon cornerBackgroundIcon;
+	
+	/**
+	 * The corner action.
+	 */
+	private JAction cornerAction;
 	
 	/**
 	 * Constructs with the default.
@@ -98,6 +112,11 @@ public class JRibbon
 				JGradientPainter.fastFill(g2d, rectangle, new Color(194, 216, 241), new Color(192, 216, 240), true);
 				
 				// Paint Corner Button
+				if (cornerBackgroundIcon != null)
+				{
+					g2d.drawImage(cornerBackgroundIcon.getImage(), width - 16, height - 15, null);
+				}
+				
 				g.setColor(new Color(102, 142, 175));
 				g.drawLine(width - 12, height - 12, width - 7, height - 12);
 				g.drawLine(width - 12, height - 12, width - 12, height - 7);
@@ -119,6 +138,54 @@ public class JRibbon
 				super.paintComponent(g);
 			}
 		};
+		label.addMouseListener(new MouseAdapter()
+		{
+			public void mousePressed(MouseEvent e)
+			{
+				boolean isAtCorner = isAtCorner(e);
+				if (isAtCorner)
+				{
+					cornerBackgroundIcon = IconFactory.getSwingIcon("ribbon/button_bg_selected_small.png");
+					label.repaint();
+					
+					cornerAction.actionPerformed(null);
+				}	
+			}
+			
+			public void mouseReleased(MouseEvent e)
+			{
+				boolean isAtCorner = isAtCorner(e);
+				if (isAtCorner)
+				{	
+					cornerBackgroundIcon = IconFactory.getSwingIcon("ribbon/button_bg_hover_small.png");
+					label.repaint();
+				}
+			}
+			
+			public void mouseExited(MouseEvent e)
+			{				
+				cornerBackgroundIcon = null;
+				label.repaint();
+			}
+		}
+		);
+		label.addMouseMotionListener(new MouseAdapter()
+		{
+			public void mouseMoved(MouseEvent e)
+			{
+				boolean isAtCorner = isAtCorner(e);
+				if (isAtCorner)
+				{	
+					cornerBackgroundIcon = IconFactory.getSwingIcon("ribbon/button_bg_hover_small.png");
+				}
+				else
+				{
+					cornerBackgroundIcon = null;
+				}
+				label.repaint();
+			}
+		}
+		);
 		label.setToolTipText(toolTipText);
 		label.setBorder(BorderFactory.createEmptyBorder(0, 10, 0, 23));
 		
@@ -127,6 +194,40 @@ public class JRibbon
 		
 		add(toolBar, BorderLayout.CENTER);
 		add(label, BorderLayout.SOUTH);
+	}
+	
+	/**
+	 * Return true if the mouse point is at the corner.
+	 * @param e the instance of MouseEvent
+	 * @return true if the mouse point is at the corner
+	 */
+	private boolean isAtCorner(MouseEvent e)
+	{
+		int width = label.getWidth();
+		int height = label.getHeight();
+		
+		int x = e.getX();
+		int y = e.getY();
+		
+		return x >= width - 16 && x <= width - 2 && y >= 1 && y <= height - 2;
+	}
+	
+	/**
+	 * Sets the corner action.
+	 * @param cornerAction the instance of JAction
+	 */
+	public void setCornerAction(JAction cornerAction)
+	{
+		this.cornerAction = cornerAction;
+	}
+	
+	/**
+	 * Gets the corner action.
+	 * @return the instance of JAction
+	 */
+	public JAction getCornerAction()
+	{
+		return cornerAction;
 	}
 	
 	/**
