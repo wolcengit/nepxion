@@ -50,7 +50,7 @@ public class StyleManager
 				"DockableFrame.activeTitleBackground2", style.getTabbedPaneBackground(),
 				"JideTabbedPane.background", UIManager.getColor("Panel.background"),
 				"JideTabbedPane.selectedTabTextForeground", style.getTabbedPaneSelectionForeground(),
-				"JideTabbedPane.tabTextForeground", style.getTabbedPaneForeground()          	
+				"JideTabbedPane.unselectedTabTextForeground", style.getTabbedPaneForeground()          	
 			};
 			UIManager.getLookAndFeelDefaults().putDefaults(uiDefaults);
 		}
