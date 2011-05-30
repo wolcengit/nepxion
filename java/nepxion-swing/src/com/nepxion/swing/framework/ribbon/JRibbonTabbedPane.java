@@ -60,6 +60,12 @@ public class JRibbonTabbedPane
 	
 	private void initComponents()
 	{
+		setShowTabBorder(false);
+		setTabGradientColor(new Color(255, 239, 191)); // Color.white
+		setTabBackground(new Color(231, 239, 248));
+		setTabForeground(Color.black);
+		setTabSelectionForeground(Color.black);
+		
 		final JDecorationPopupMenu popupMenu = new JDecorationPopupMenu();
 		popupMenu.add(new JBasicMenuItem("xxx"));
 		popupMenu.add(new JBasicMenuItem("xxx"));
@@ -97,27 +103,7 @@ public class JRibbonTabbedPane
 		
 		LeadingPanel leadingPanel = new LeadingPanel();
 		leadingPanel.add(leadingLabel, BorderLayout.CENTER);
-		
 		setTabLeadingComponent(leadingPanel);
-		setShowTabBorder(false);
-		setTabColorProvider(new ColorProvider()
-		{
-			public Color getBackgroundAt(int arg0)
-			{
-				return Color.red;
-			}
-
-			public Color getForegroudAt(int arg0)
-			{
-				return Color.black;
-			}
-
-			public float getGradientRatio(int arg0)
-			{
-				return 0.9F;
-			}	
-		}
-		);
 		
 		addMouseListener(new MouseAdapter()
 		{			
