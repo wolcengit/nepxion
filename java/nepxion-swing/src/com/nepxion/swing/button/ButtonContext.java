@@ -34,16 +34,6 @@ public class ButtonContext
 	private static String buttonStyleClass;
 	
 	/**
-	 * The button width inset value.
-	 */
-	private static int buttonWidthInset = DEFAULT_BUTTON_WIDTH_INSET;
-	
-	/**
-	 * The button height inset value.
-	 */
-	private static int buttonHeightInset = DEFAULT_BUTTON_HEIGHT_INSET;
-	
-	/**
 	 * Gets the button ui class prefix string.
 	 * @param buttonUIClass the button ui class string
 	 * @return the button ui prefix class string
@@ -99,17 +89,6 @@ public class ButtonContext
 	}
 	
 	/**
-	 * Registers the inset by a button width inset and button height inset. 
-	 * @param buttonWidthInset the button width inset value
-	 * @param buttonHeightInset the button height inset value
-	 */
-	public static void registerInset(int buttonWidthInset, int buttonHeightInset)
-	{
-		ButtonContext.buttonWidthInset = buttonWidthInset;
-		ButtonContext.buttonHeightInset = buttonHeightInset;
-	}
-	
-	/**
 	 * Gets the button ui class.
 	 * @return the the button ui class string
 	 */
@@ -143,24 +122,6 @@ public class ButtonContext
 	public static String getButtonStyleClass()
 	{
 		return buttonStyleClass;
-	}
-	
-	/**
-	 * Gets the button width inset.
-	 * @return the button width inset value
-	 */
-	public static int getButtonWidthInset()
-	{
-		return buttonWidthInset;
-	}
-	
-	/**
-	 * Gets the button height inset.
-	 * @return the button height inset value
-	 */
-	public static int getButtonHeightInset()
-	{
-		return buttonHeightInset;
 	}
 	
 	/**

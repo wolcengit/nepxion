@@ -27,12 +27,12 @@ public class JBasicButton
 	/**
 	 * The button width inset value.
 	 */
-	protected int widthInset = ButtonContext.getButtonWidthInset();
+	protected int widthInset = ButtonConstants.DEFAULT_BUTTON_WIDTH_INSET;
 	
 	/**
 	 * The button height inset value.
 	 */
-	protected int heightInset = ButtonContext.getButtonHeightInset();
+	protected int heightInset = ButtonConstants.DEFAULT_BUTTON_HEIGHT_INSET;
 	
 	/**
 	 * The boolean value of the button dimension is adaptive.

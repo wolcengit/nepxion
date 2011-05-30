@@ -34,7 +34,12 @@ public class JClassicMenuButton
 	/**
 	 * The button width inset value.
 	 */
-	protected int widthInset = ButtonContext.getButtonWidthInset();
+	protected int widthInset = ButtonConstants.DEFAULT_BUTTON_WIDTH_INSET;
+	
+	/**
+	 * The button height inset value.
+	 */
+	protected int heightInset = ButtonConstants.DEFAULT_BUTTON_HEIGHT_INSET;
 	
 	/**
 	 * The instance of JPopupMenu.
