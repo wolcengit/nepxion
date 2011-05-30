@@ -16,6 +16,7 @@ import java.awt.Component;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
+import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -23,7 +24,6 @@ import javax.swing.AbstractButton;
 import javax.swing.Action;
 import javax.swing.BorderFactory;
 import javax.swing.Icon;
-import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
@@ -36,6 +36,26 @@ public class JRibbon
 	extends JPanel
 {	
 	/**
+	 * The button style of plain.
+	 */
+	public static final int BUTTON_STYLE_PLAIN = 0;
+	
+	/**
+	 * The button style of hover.
+	 */
+	public static final int BUTTON_STYLE_HOVER = 1;
+	
+	/**
+	 * The button style of selected.
+	 */
+	public static final int BUTTON_STYLE_SELECTED = 2;
+	
+	/**
+	 * The button style string.
+	 */
+	public static final String BUTTON_STYLE = "buttonStyle";	
+	
+	/**
 	 * The instance of JBasicToolBar.
 	 */
 	private JBasicToolBar toolBar;
@@ -44,11 +64,6 @@ public class JRibbon
 	 * The instance of JLabel.
 	 */
 	private JLabel label;
-
-	/**
-	 * The icon at the corner of the label.
-	 */
-	private ImageIcon cornerBackgroundIcon;
 	
 	/**
 	 * The corner action.
@@ -112,28 +127,48 @@ public class JRibbon
 				JGradientPainter.fastFill(g2d, rectangle, new Color(194, 216, 241), new Color(192, 216, 240), true);
 				
 				// Paint Corner Button
-				if (cornerBackgroundIcon != null)
-				{
-					g2d.drawImage(cornerBackgroundIcon.getImage(), width - 16, height - 15, null);
+				if (cornerAction != null)
+				{	
+					Integer buttonStyle = (Integer) cornerAction.getValue(BUTTON_STYLE);
+					if (buttonStyle != null)
+					{	
+						switch (buttonStyle.intValue())
+						{
+							case BUTTON_STYLE_PLAIN :
+							{
+								break;
+							}
+							case BUTTON_STYLE_HOVER :
+							{
+								g2d.drawImage(IconFactory.getSwingIcon("ribbon/button_bg_hover_small.png").getImage(), width - 16, height - 15, null);
+								break;
+							}	
+							case BUTTON_STYLE_SELECTED :
+							{
+								g2d.drawImage(IconFactory.getSwingIcon("ribbon/button_bg_selected_small.png").getImage(), width - 16, height - 15, null);
+								break;
+							}
+						}
+					}
+					
+					g.setColor(new Color(102, 142, 175));
+					g.drawLine(width - 12, height - 12, width - 7, height - 12);
+					g.drawLine(width - 12, height - 12, width - 12, height - 7);
+					
+					g.drawLine(width - 9, height - 9, width - 9, height - 9);
+					g.drawLine(width - 8, height - 8, width - 6, height - 8);
+					g.drawLine(width - 8, height - 7, width - 6, height - 7);
+					g.drawLine(width - 9, height - 6, width - 6, height - 6);
+					g.drawLine(width - 6, height - 9, width - 6, height - 6);
+					
+					g.setColor(Color.white);
+					g.drawLine(width - 11, height - 11, width - 7, height - 11);
+					g.drawLine(width - 11, height - 11, width - 11, height - 7);
+					
+					g.drawLine(width - 8, height - 9, width - 8, height - 9);
+					g.drawLine(width - 8, height - 5, width - 6, height - 5);
+					g.drawLine(width - 5, height - 9, width - 5, height - 5);
 				}
-				
-				g.setColor(new Color(102, 142, 175));
-				g.drawLine(width - 12, height - 12, width - 7, height - 12);
-				g.drawLine(width - 12, height - 12, width - 12, height - 7);
-				
-				g.drawLine(width - 9, height - 9, width - 9, height - 9);
-				g.drawLine(width - 8, height - 8, width - 6, height - 8);
-				g.drawLine(width - 8, height - 7, width - 6, height - 7);
-				g.drawLine(width - 9, height - 6, width - 6, height - 6);
-				g.drawLine(width - 6, height - 9, width - 6, height - 6);
-				
-				g.setColor(Color.white);
-				g.drawLine(width - 11, height - 11, width - 7, height - 11);
-				g.drawLine(width - 11, height - 11, width - 11, height - 7);
-				
-				g.drawLine(width - 8, height - 9, width - 8, height - 9);
-				g.drawLine(width - 8, height - 5, width - 6, height - 5);
-				g.drawLine(width - 5, height - 9, width - 5, height - 5);
 				
 				super.paintComponent(g);
 			}
@@ -144,15 +179,14 @@ public class JRibbon
 			{
 				boolean isAtCorner = isAtCorner(e);
 				if (isAtCorner)
-				{
-					cornerBackgroundIcon = IconFactory.getSwingIcon("ribbon/button_bg_selected_small.png");
-					label.repaint();
+				{					
+					paintCorner(BUTTON_STYLE_SELECTED);
 					
 					if (cornerAction != null)
 					{	
 						cornerAction.actionPerformed(null);
 					}
-				}	
+				}
 			}
 			
 			public void mouseReleased(MouseEvent e)
@@ -160,15 +194,13 @@ public class JRibbon
 				boolean isAtCorner = isAtCorner(e);
 				if (isAtCorner)
 				{	
-					cornerBackgroundIcon = IconFactory.getSwingIcon("ribbon/button_bg_hover_small.png");
-					label.repaint();
+					paintCorner(BUTTON_STYLE_HOVER);
 				}
 			}
 			
 			public void mouseExited(MouseEvent e)
 			{				
-				cornerBackgroundIcon = null;
-				label.repaint();
+				paintCorner(BUTTON_STYLE_PLAIN);
 			}
 		}
 		);
@@ -178,14 +210,13 @@ public class JRibbon
 			{
 				boolean isAtCorner = isAtCorner(e);
 				if (isAtCorner)
-				{	
-					cornerBackgroundIcon = IconFactory.getSwingIcon("ribbon/button_bg_hover_small.png");
+				{						
+					paintCorner(BUTTON_STYLE_HOVER);
 				}
 				else
 				{
-					cornerBackgroundIcon = null;
+					paintCorner(BUTTON_STYLE_PLAIN);
 				}
-				label.repaint();
 			}
 		}
 		);
@@ -197,10 +228,20 @@ public class JRibbon
 		
 		add(toolBar, BorderLayout.CENTER);
 		add(label, BorderLayout.SOUTH);
+		
+		JAction a1 = new JAction(IconFactory.getSwingIcon("save.png"), "Save")
+		{
+			public void actionPerformed(ActionEvent e)
+			{
+				System.out.println("11111111111111");
+				
+			}
+		};
+		setCornerAction(a1);
 	}
 	
 	/**
-	 * Return true if the mouse point is at the corner.
+	 * Returns true if the mouse point is at the corner.
 	 * @param e the instance of MouseEvent
 	 * @return true if the mouse point is at the corner
 	 */
@@ -213,6 +254,21 @@ public class JRibbon
 		int y = e.getY();
 		
 		return x >= width - 16 && x <= width - 2 && y >= 1 && y <= height - 2;
+	}
+	
+	/**
+	 * Paints the corner.
+	 * @param buttonStyle the button style value
+	 */
+	private void paintCorner(int buttonStyle)
+	{
+		if (cornerAction == null)
+		{
+			return;
+		}
+		
+		cornerAction.putValue(BUTTON_STYLE, Integer.valueOf(buttonStyle));
+		label.repaint();
 	}
 	
 	/**

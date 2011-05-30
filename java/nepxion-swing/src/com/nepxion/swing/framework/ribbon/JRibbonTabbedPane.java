@@ -18,14 +18,20 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.awt.RenderingHints;
+import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
 import javax.swing.BorderFactory;
+import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 import javax.swing.plaf.UIResource;
 
+import com.nepxion.swing.action.JAction;
 import com.nepxion.swing.gradient.JGradientPainter;
 import com.nepxion.swing.icon.IconFactory;
 import com.nepxion.swing.icon.paint.CombinatedIcon;
@@ -36,7 +42,33 @@ import com.nepxion.swing.tabbedpane.JEclipseTabbedPane;
 
 public class JRibbonTabbedPane
 	extends JEclipseTabbedPane
-{
+{	
+	/**
+	 * The button style of plain.
+	 */
+	public static final int BUTTON_STYLE_PLAIN = 0;
+	
+	/**
+	 * The button style of hover.
+	 */
+	public static final int BUTTON_STYLE_HOVER = 1;
+	
+	/**
+	 * The button style of selected.
+	 */
+	public static final int BUTTON_STYLE_SELECTED = 2;
+	
+	/**
+	 * The button style string.
+	 */
+	public static final String BUTTON_STYLE = "buttonStyle";
+	
+	private String title = "";
+	private Font titleFont = new Font("Dialog", Font.PLAIN, 12);
+	private Color titleColor = Color.black;
+	
+	private List actionList;
+	
 	public JRibbonTabbedPane()
 	{
 		super();
@@ -108,41 +140,264 @@ public class JRibbonTabbedPane
 		addMouseListener(new MouseAdapter()
 		{			
 			public void mousePressed(MouseEvent e)
-			{
-				int x = e.getX();
-				int y = e.getY();
+			{			
+				JAction action = getAction(e);
 				
-				if (x > startX && x < endX && y > startY && y < endY)
+				paintToolBar(e, action, BUTTON_STYLE_SELECTED);
+				
+				if (action != null)
 				{
-					backgroundIcon = IconFactory.getSwingIcon("ribbon/button_bg_selected.png");
-					paintImmediately(startX, startY, endX - startX, endY - startY);
-				}	
+					action.actionPerformed(null);
+				}
+			}
+			
+			public void mouseReleased(MouseEvent e)
+			{
+				JAction action = getAction(e);
+				
+				paintToolBar(e, action, BUTTON_STYLE_HOVER);
+			}
+			
+			public void mouseExited(MouseEvent e)
+			{							
+				paintToolBar(e, null, BUTTON_STYLE_PLAIN);
 			}
 		}
 		);
-		
 		addMouseMotionListener(new MouseAdapter()
 		{
 			public void mouseMoved(MouseEvent e)
 			{
-				int x = e.getX();
-				int y = e.getY();
-				
-				if (x >= startX && x <= endX && y >= startY && y <= endY)
+				JAction action = getAction(e);
+				if (action != null)
 				{
-					backgroundIcon = IconFactory.getSwingIcon("ribbon/button_bg_hover.png");
+					paintToolBar(e, action, BUTTON_STYLE_HOVER);
 				}
 				else
 				{
-					backgroundIcon = null;
+					paintToolBar(e, null, BUTTON_STYLE_PLAIN);
 				}
-				
-				paintImmediately(startX, startY, endX - startX, endY - startY);
 			}
 		}
 		);
+		
+		JAction a1 = new JAction(IconFactory.getSwingIcon("save.png"), "Save")
+		{
+			public void actionPerformed(ActionEvent e)
+			{
+				System.out.println("11111111111111");
+				
+			}
+		};
+		
+		JAction a2 = new JAction(IconFactory.getSwingIcon("delete.png"), "Delete")
+		{
+			public void actionPerformed(ActionEvent e)
+			{
+				System.out.println("222222222222222");
+				
+			}
+		};
+		
+		JAction a3 = new JAction(IconFactory.getSwingIcon("edit.png"), "Edit")
+		{
+			public void actionPerformed(ActionEvent e)
+			{
+				System.out.println("333333333333333");
+				
+			}
+		};
+		
+		List actionList = new ArrayList();
+		actionList.add(a1);
+		actionList.add(a2);
+		actionList.add(a3);
+		
+		setActionList(actionList);
 	}
 	
+	private JAction getAction(MouseEvent e)
+	{
+		if (actionList == null || actionList.isEmpty())
+		{
+			return null;
+		}
+		
+		int x = e.getX();
+		int y = e.getY();
+		
+		for (Iterator iterator = actionList.iterator(); iterator.hasNext();)
+		{
+			JAction action = (JAction) iterator.next();
+			
+			int startX = ((Integer) action.getValue("startX")).intValue();
+			int startY = ((Integer) action.getValue("startY")).intValue();
+			
+			int endX = ((Integer) action.getValue("endX")).intValue();
+			int endY = ((Integer) action.getValue("endY")).intValue();
+			
+			if (x >= startX && x <= endX && y >= startY && y <= endY)
+			{
+				return action;
+			}	
+		}	
+		
+		return null;
+	}
+		
+	private void paintToolBar(MouseEvent e, JAction action, int buttonStyle)
+	{
+		if (actionList == null || actionList.isEmpty())
+		{
+			return;
+		}
+				
+		for (Iterator iterator = actionList.iterator(); iterator.hasNext();)
+		{
+			JAction a = (JAction) iterator.next();
+			switch (buttonStyle)
+			{
+				case BUTTON_STYLE_PLAIN :
+				{
+					a.putValue(BUTTON_STYLE, Integer.valueOf(BUTTON_STYLE_PLAIN));
+					break;
+				}
+				case BUTTON_STYLE_HOVER :
+				{
+					if (a == action)
+					{	
+						a.putValue(BUTTON_STYLE, Integer.valueOf(BUTTON_STYLE_HOVER));
+					}
+					else
+					{
+						a.putValue(BUTTON_STYLE, Integer.valueOf(BUTTON_STYLE_PLAIN));
+					}
+					break;
+				}	
+				case BUTTON_STYLE_SELECTED :
+				{
+					if (a == action)
+					{	
+						a.putValue(BUTTON_STYLE, Integer.valueOf(BUTTON_STYLE_SELECTED));
+					}
+					else
+					{
+						a.putValue(BUTTON_STYLE, Integer.valueOf(BUTTON_STYLE_PLAIN));
+					}
+					break;
+				}
+			}
+		}
+		
+		JAction firstAction = (JAction) actionList.get(0);
+		JAction lastAction = (JAction) actionList.get(actionList.size() - 1);
+		
+		int startX  = ((Integer) firstAction.getValue("startX")).intValue();
+		int startY = ((Integer) firstAction.getValue("startY")).intValue();
+		
+		int endX = ((Integer) lastAction.getValue("endX")).intValue();
+		int endY = ((Integer) lastAction.getValue("endY")).intValue();
+		
+		paintImmediately(startX, startY, endX - startX, endY - startY);
+	}
+
+	public String getTitle()
+	{
+		return title;
+	}
+	
+	public void setTitle(String title)
+	{
+		this.title = title;
+		
+		repaint();
+	}
+	
+	public Font getTitleFont()
+	{
+		return titleFont;
+	}
+
+	public void setTitleFont(Font titleFont)
+	{
+		this.titleFont = titleFont;
+		
+		repaint();
+	}
+
+	public Color getTitleColor()
+	{
+		return titleColor;
+	}
+
+	public void setTitleColor(Color titleColor)
+	{
+		this.titleColor = titleColor;
+		
+		repaint();
+	}
+	
+	public List getActionList()
+	{
+		return actionList;
+	}
+	
+	public void setActionList(List actionList)
+	{
+		this.actionList = actionList;
+		
+		repaint();
+	}
+	
+	public void addAction(JAction action)
+	{
+		actionList.add(action);
+		
+		repaint();
+	}
+	
+	public void addAction(int index, JAction action)
+	{
+		actionList.add(index, action);
+		
+		repaint();
+	}
+	
+	public void addActions(List actions)
+	{
+		actionList.addAll(actions);
+		
+		repaint();
+	}
+	
+	public void addActions(int index, List actions)
+	{
+		actionList.addAll(index, actions);
+		
+		repaint();
+	}
+	
+	public void removeAction(JAction action)
+	{
+		actionList.remove(action);
+		
+		repaint();
+	}
+	
+	public void removeAction(int index)
+	{
+		actionList.remove(index);
+		
+		repaint();
+	}
+	
+	public void removeActions(List actions)
+	{
+		actionList.removeAll(actions);
+		
+		repaint();
+	}
+		
 	public class LeadingPanel
 		extends JPanel implements UIResource
 	{
@@ -185,10 +440,8 @@ public class JRibbonTabbedPane
 	
 	private void paintTitle(Graphics2D g2d)
 	{
-		g2d.setColor(Color.black);
-		g2d.setFont(new Font("Dialog", Font.PLAIN, 12));
-		
-		String title = "Nepxion Swing";
+		g2d.setColor(titleColor);
+		g2d.setFont(titleFont);
 		
 		int width = getWidth();
 		int height = 28;
@@ -205,7 +458,6 @@ public class JRibbonTabbedPane
 		g2d.setRenderingHint(RenderingHints.KEY_COLOR_RENDERING, RenderingHints.VALUE_COLOR_RENDER_QUALITY);
 		g2d.setRenderingHint(RenderingHints.KEY_ALPHA_INTERPOLATION, RenderingHints.VALUE_ALPHA_INTERPOLATION_QUALITY);
 
-		// g2d.setColor(new Color(105, 112, 121));
 		g2d.drawString(title, x, y);
 	}
 	
@@ -214,11 +466,8 @@ public class JRibbonTabbedPane
 		int x = 47;
 		int y = 4;
 		
-		startX = x;
-		startY = y;
-		
 		int buttonWidth = 22;
-		int buttonCount = 3;
+		int buttonCount = (actionList != null ? actionList.size() : 0);
 		
 		int width = buttonWidth * buttonCount + 1;
 		
@@ -249,28 +498,52 @@ public class JRibbonTabbedPane
 		JGradientPainter.fastFill(g2d, new Rectangle(x, y + 21, width, 1), new Color(201, 217, 238), new Color(197, 214, 235), false);
 		JGradientPainter.fastFill(g2d, new Rectangle(x, y + 22, width, 1), new Color(154, 179, 213), new Color(162, 185, 217), false);
 		
-		x += 1;
-		y += 1;
-		for (int i = 0; i < buttonCount; i++)
-		{
-			ImageIcon foregroundIcon = IconFactory.getSwingIcon("alarm.png");
-			if (backgroundIcon != null)
-			{	
-				g2d.drawImage(backgroundIcon.getImage(), x, y, null);
-			}
-			g2d.drawImage(foregroundIcon.getImage(), x + 22 / 2 - foregroundIcon.getIconWidth() / 2, y + 22 / 2 - foregroundIcon.getIconHeight() / 2, null);
+		if (buttonCount > 0)
+		{	
+			x += 1;
+			y += 1;
 			
-			x += buttonWidth;
+			for (Iterator iterator = actionList.iterator(); iterator.hasNext();)
+			{
+				JAction action = (JAction) iterator.next();
+				
+				Integer buttonStyle = (Integer) action.getValue(BUTTON_STYLE);
+				if (buttonStyle != null)
+				{	
+					switch (buttonStyle.intValue())
+					{
+						case BUTTON_STYLE_PLAIN :
+						{
+							break;
+						}
+						case BUTTON_STYLE_HOVER :
+						{
+							g2d.drawImage(IconFactory.getSwingIcon("ribbon/button_bg_hover.png").getImage(), x, y, null);
+							break;
+						}	
+						case BUTTON_STYLE_SELECTED :
+						{
+							g2d.drawImage(IconFactory.getSwingIcon("ribbon/button_bg_selected.png").getImage(), x, y, null);
+							break;
+						}
+					}
+				}
+				
+				Icon actionIcon = action.getIcon();
+				if (actionIcon instanceof ImageIcon)
+				{
+					ImageIcon actionImageIcon = (ImageIcon) actionIcon;
+					g2d.drawImage(actionImageIcon.getImage(), x + 22 / 2 - actionIcon.getIconWidth() / 2, y + 22 / 2 - actionIcon.getIconHeight() / 2, null);
+				}
+				
+				action.putValue("startX", Integer.valueOf(x));
+				action.putValue("startY", Integer.valueOf(y));
+				
+				x += buttonWidth;
+				
+				action.putValue("endX", Integer.valueOf(x));
+				action.putValue("endY", Integer.valueOf(y + 22));
+			}
 		}
-		
-		endX = x;
-		endY = y + 22;
 	}
-	
-	int startX = -1;
-	int startY = -1;
-	int endX = -1;
-	int endY = -1;
-	
-	ImageIcon backgroundIcon = null;
 }
