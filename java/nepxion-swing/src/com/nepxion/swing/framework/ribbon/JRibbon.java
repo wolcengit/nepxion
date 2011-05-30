@@ -148,7 +148,10 @@ public class JRibbon
 					cornerBackgroundIcon = IconFactory.getSwingIcon("ribbon/button_bg_selected_small.png");
 					label.repaint();
 					
-					cornerAction.actionPerformed(null);
+					if (cornerAction != null)
+					{	
+						cornerAction.actionPerformed(null);
+					}
 				}	
 			}
 			
