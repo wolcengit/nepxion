@@ -48,7 +48,6 @@ import com.nepxion.swing.label.JBasicLabel;
 import com.nepxion.swing.locale.SwingLocale;
 import com.nepxion.swing.menu.JBasicMenu;
 import com.nepxion.swing.menuitem.JBasicCheckBoxMenuItem;
-import com.nepxion.swing.menuitem.JBasicMenuItem;
 import com.nepxion.swing.popupmenu.JDecorationPopupMenu;
 import com.nepxion.swing.tabbedpane.JEclipseTabbedPane;
 import com.nepxion.swing.tabbedpane.TabbedPaneManager;
@@ -152,6 +151,11 @@ public class JRibbonTabbedPane
 	private TabComponent tabTrailingComponent;
 	
 	/**
+	 * The toggle height action.
+	 */
+	private ToggleHeightAction toggleHeightAction;
+	
+	/**
 	 * The shortcut action list.
 	 */
 	private List shortcutActionList = new ArrayList();
@@ -225,6 +229,12 @@ public class JRibbonTabbedPane
 		
 		tabTrailingComponent = new TabComponent();
 		setTabTrailingComponent(tabTrailingComponent);
+		
+		toggleHeightAction = new ToggleHeightAction();
+		addShortcutAction(toggleHeightAction);
+		
+		CloseRibbonAction closeRibbonAction = new CloseRibbonAction();
+		addShortcutAction(closeRibbonAction);
 	}
 	
 	private void initPopupMenu()
@@ -263,9 +273,6 @@ public class JRibbonTabbedPane
 		toggleIconButtonGroup.add(toggleNoIconMenuItem);
 		
 		navigatorPopupMenu.add(navigatorBarFacadeConfigMenu);
-		
-		JBasicMenuItem toggleHeightMenuItem = new JBasicMenuItem(new ToggleHeightAction());
-		navigatorPopupMenu.add(toggleHeightMenuItem);
 	}
 	
 	private void initListener()
@@ -276,7 +283,7 @@ public class JRibbonTabbedPane
 			{
 				JAction shortcutAction = getShortcutAction(e);
 				
-				paintShortcutBar(e, shortcutAction, BUTTON_STYLE_SELECTED);
+				updateShortcutBar(e, shortcutAction, BUTTON_STYLE_SELECTED);
 				
 				if (shortcutAction != null)
 				{
@@ -288,12 +295,12 @@ public class JRibbonTabbedPane
 			{
 				JAction shortcutAction = getShortcutAction(e);
 				
-				paintShortcutBar(e, shortcutAction, BUTTON_STYLE_HOVER);
+				updateShortcutBar(e, shortcutAction, BUTTON_STYLE_HOVER);
 			}
 			
 			public void mouseExited(MouseEvent e)
 			{
-				paintShortcutBar(e, null, BUTTON_STYLE_PLAIN);
+				updateShortcutBar(e, null, BUTTON_STYLE_PLAIN);
 			}
 			
 			public void mouseClicked(MouseEvent e)
@@ -306,7 +313,7 @@ public class JRibbonTabbedPane
 				
 				if (SwingUtilities.isLeftMouseButton(e) && e.getClickCount() > 1)
 				{
-					toggleHeight();
+					toggleHeightAction.actionPerformed(null);
 				}
 			}
 		}
@@ -318,11 +325,11 @@ public class JRibbonTabbedPane
 				JAction shortcutAction = getShortcutAction(e);
 				if (shortcutAction != null)
 				{
-					paintShortcutBar(e, shortcutAction, BUTTON_STYLE_HOVER);
+					updateShortcutBar(e, shortcutAction, BUTTON_STYLE_HOVER);
 				}
 				else
 				{
-					paintShortcutBar(e, null, BUTTON_STYLE_PLAIN);
+					updateShortcutBar(e, null, BUTTON_STYLE_PLAIN);
 				}
 			}
 		}
@@ -592,7 +599,7 @@ public class JRibbonTabbedPane
 		ContainerManager.update(this);
 	}
 	
-	private void paintShortcutBar(MouseEvent e, JAction shortcutAction, int buttonStyle)
+	private void updateShortcutBar(MouseEvent e, JAction shortcutAction, int buttonStyle)
 	{
 		if (shortcutActionList == null || shortcutActionList.isEmpty())
 		{
@@ -636,6 +643,11 @@ public class JRibbonTabbedPane
 			}
 		}
 		
+		updateShortcutBar();
+	}
+	
+	private void updateShortcutBar()
+	{
 		JAction firstShortcutAction = (JAction) shortcutActionList.get(0);
 		JAction lastShortcutAction = (JAction) shortcutActionList.get(shortcutActionList.size() - 1);
 		
@@ -656,7 +668,7 @@ public class JRibbonTabbedPane
 		
 		paintBackground(g2d);
 		paintTitle(g2d);
-		paintButtonBar(g2d);
+		paintShortcutBar(g2d);
 		
 		g2d.setColor(color);
 		g2d.setFont(font);
@@ -700,7 +712,7 @@ public class JRibbonTabbedPane
 		g2d.drawString(title, x, y);
 	}
 	
-	private void paintButtonBar(Graphics2D g2d)
+	private void paintShortcutBar(Graphics2D g2d)
 	{
 		int x = 47;
 		int y = 4;
@@ -786,12 +798,31 @@ public class JRibbonTabbedPane
 		}
 	}
 	
+	public class CloseRibbonAction
+		extends JAction
+	{
+		public CloseRibbonAction()
+		{
+			super(SwingLocale.getString("close_panel"), IconFactory.getSwingIcon("ribbon/close.png"), SwingLocale.getString("close_panel"));
+		}
+		
+		/**
+		 * Invoked when an action occurs.
+		 * @param e the instance of ActionEvent
+		 */
+		public void actionPerformed(ActionEvent e)
+		{
+			JRibbonContainer ribbonContainer = getRibbonContainer();
+			ribbonContainer.closeRibbonComponent();
+		}
+	}
+	
 	public class ToggleHeightAction
 		extends JAction
 	{
 		public ToggleHeightAction()
 		{
-			super(SwingLocale.getString("toggle_navigatorbar_visibility"), IconFactory.getSwingIcon("toggle_size.png"), SwingLocale.getString("toggle_navigatorbar_visibility"));
+			super(SwingLocale.getString("toggle_navigatorbar_visibility"), IconFactory.getSwingIcon("ribbon/toggle_up.png"), SwingLocale.getString("toggle_navigatorbar_visibility"));
 		}
 		
 		/**
@@ -801,6 +832,17 @@ public class JRibbonTabbedPane
 		public void actionPerformed(ActionEvent e)
 		{
 			toggleHeight();
+			
+			if (isMinimum)
+			{	
+				setIcon(IconFactory.getSwingIcon("ribbon/toggle_down.png"));
+			}
+			else
+			{
+				setIcon(IconFactory.getSwingIcon("ribbon/toggle_up.png"));
+			}
+			
+			updateShortcutBar();
 		}
 	}
 	
