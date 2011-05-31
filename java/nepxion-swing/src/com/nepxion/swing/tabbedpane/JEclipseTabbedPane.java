@@ -20,7 +20,6 @@ import java.util.List;
 import javax.swing.Icon;
 import javax.swing.JPopupMenu;
 
-import com.jidesoft.plaf.JideTabbedPaneUI;
 import com.jidesoft.swing.JideTabbedPane;
 
 public class JEclipseTabbedPane
@@ -107,14 +106,6 @@ public class JEclipseTabbedPane
 		super.addTab(title, icon, component, toolTipText);
 		
 		setTabClosableAt(indexOfComponent(component), isClosable);
-	}
-	
-	public int getTabIndex(MouseEvent e)
-	{
-		JideTabbedPaneUI tabbedPaneUI = (JideTabbedPaneUI) getUI();
-		int tabIndex = tabbedPaneUI.tabForCoordinate(this, e.getX(), e.getY());
-		
-		return tabIndex;
 	}
 	
 	public String getSelectedTitle()
@@ -244,30 +235,27 @@ public class JEclipseTabbedPane
 	
 	public void mouseReleased(MouseEvent e)
 	{
-		if (popupMenu != null && getTabIndex(e) != -1)
+		if (popupMenu != null)
 		{
+			int index = indexAtLocation(e.getX(), e.getY());
+			if (index < 0)
+			{
+				return;
+			}
+			
 			if (!e.isPopupTrigger())
 			{
 				return;
 			}
 			
-			int selectedIndex = getSelectedIndex();
-			if (selectedIndex == -1)
-			{
-				return;
-			}
+			setSelectedIndex(index);
 			
 			if (popupMenuAdapter != null)
 			{
-				popupMenuAdapter.adaptClosableItem(selectedIndex);
+				popupMenuAdapter.adaptClosableItem(index);
 			}
 			
 			popupMenu.show(e.getComponent(), e.getX(), e.getY());
-			
-			/*if (indexAtLocation(e.getX(), e.getY()) != -1)
-			{
-				popupMenu.show(e.getComponent(), e.getX(), e.getY());
-			}*/
 		}
 	}
 }

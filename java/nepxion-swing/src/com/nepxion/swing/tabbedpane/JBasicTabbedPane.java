@@ -378,7 +378,7 @@ public class JBasicTabbedPane
 			return;
 		}
 		
-		int index = getUI().tabForCoordinate(this, e.getX(), e.getY());
+		int index = indexAtLocation(e.getX(), e.getY());
 		if (index < 0)
 		{
 			return;
@@ -410,7 +410,7 @@ public class JBasicTabbedPane
 			return;
 		}
 		
-		int index = getUI().tabForCoordinate(this, e.getX(), e.getY());
+		int index = indexAtLocation(e.getX(), e.getY());
 		if (index < 0)
 		{
 			return;
@@ -446,28 +446,25 @@ public class JBasicTabbedPane
 		
 		if (popupMenu != null)
 		{
+			int index = indexAtLocation(e.getX(), e.getY());
+			if (index < 0)
+			{
+				return;
+			}
+			
 			if (!e.isPopupTrigger())
 			{
 				return;
 			}
 			
-			int selectedIndex = getSelectedIndex();
-			if (selectedIndex == -1)
-			{
-				return;
-			}
+			setSelectedIndex(index);
 			
 			if (popupMenuAdapter != null)
 			{
-				popupMenuAdapter.adaptClosableItem(selectedIndex);
-			}
+				popupMenuAdapter.adaptClosableItem(index);
+			}			
 			
 			popupMenu.show(e.getComponent(), e.getX(), e.getY());
-			
-			/*if (indexAtLocation(e.getX(), e.getY()) != -1)
-			{
-				popupMenu.show(e.getComponent(), e.getX(), e.getY());
-			}*/
 		}
 	}
 }
