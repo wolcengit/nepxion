@@ -55,7 +55,7 @@ import com.nepxion.swing.tabbedpane.TabbedPaneManager;
 
 public class JRibbonTabbedPane
 	extends JEclipseTabbedPane
-{	
+{
 	/**
 	 * The button style of plain.
 	 */
@@ -132,11 +132,6 @@ public class JRibbonTabbedPane
 	private JBasicLabel navigatorLabel;
 		
 	/**
-	 * The ribbon hierarchy.
-	 */
-	private JRibbonHierarchy ribbonHierarchy;
-	
-	/**
 	 * The toggle text button group.
 	 */
 	private ButtonGroup toggleTextButtonGroup;
@@ -167,11 +162,16 @@ public class JRibbonTabbedPane
 	private boolean isMinimum = false;
 	
 	/**
+	 * The ribbon hierarchy.
+	 */
+	private JRibbonHierarchy ribbonHierarchy;
+	
+	/**
 	 * 
 	 * @param ribbonHierarchy
 	 */
 	public JRibbonTabbedPane(JRibbonHierarchy ribbonHierarchy)
-	{		
+	{
 		this.ribbonHierarchy = ribbonHierarchy;
 		
 		initNavigator();
@@ -183,7 +183,7 @@ public class JRibbonTabbedPane
 	}
 
 	private void initNavigator()
-	{		
+	{
 		navigatorLabel = new JBasicLabel(navigatorCombinationIcon, navigatorToolTipText);
 		navigatorLabel.addMouseListener(new MouseAdapter()
 		{
@@ -203,7 +203,7 @@ public class JRibbonTabbedPane
 				navigatorLabel.repaint();
 				
 				if (navigatorPopupMenu != null)
-				{	
+				{
 					navigatorPopupMenu.show(navigatorLabel, 0, navigatorLabel.getHeight());
 				}
 			}
@@ -226,7 +226,7 @@ public class JRibbonTabbedPane
 		tabTrailingComponent = new TabComponent();
 		setTabTrailingComponent(tabTrailingComponent);
 	}
-
+	
 	private void initPopupMenu()
 	{
 		navigatorPopupMenu = new JDecorationPopupMenu();
@@ -234,7 +234,7 @@ public class JRibbonTabbedPane
 		JBasicMenu navigatorBarFacadeConfigMenu = new JBasicMenu(SwingLocale.getString("config_navigatorbar_facade"), IconFactory.getSwingIcon("facade.png"), SwingLocale.getString("config_navigatorbar_facade"));
 		toggleTextButtonGroup = new ButtonGroup();
 		
-		JBasicCheckBoxMenuItem toggleLargTextMenuItem = new JBasicCheckBoxMenuItem(new ToggleFacadeAction(SwingLocale.getString("config_navigatorbar_show_large_text"), IconFactory.getSwingIcon("component/label_16.png"), SwingLocale.getString("config_navigatorbar_show_large_text"), JRibbonAction.TEXT, JRibbonAction.SHOW_LARGE));		
+		JBasicCheckBoxMenuItem toggleLargTextMenuItem = new JBasicCheckBoxMenuItem(new ToggleFacadeAction(SwingLocale.getString("config_navigatorbar_show_large_text"), IconFactory.getSwingIcon("component/label_16.png"), SwingLocale.getString("config_navigatorbar_show_large_text"), JRibbonAction.TEXT, JRibbonAction.SHOW_LARGE));
 		navigatorBarFacadeConfigMenu.add(toggleLargTextMenuItem);
 		toggleTextButtonGroup.add(toggleLargTextMenuItem);
 		
@@ -271,9 +271,9 @@ public class JRibbonTabbedPane
 	private void initListener()
 	{
 		addMouseListener(new MouseAdapter()
-		{			
+		{
 			public void mousePressed(MouseEvent e)
-			{			
+			{
 				JAction shortcutAction = getShortcutAction(e);
 				
 				paintShortcutBar(e, shortcutAction, BUTTON_STYLE_SELECTED);
@@ -292,7 +292,7 @@ public class JRibbonTabbedPane
 			}
 			
 			public void mouseExited(MouseEvent e)
-			{							
+			{
 				paintShortcutBar(e, null, BUTTON_STYLE_PLAIN);
 			}
 			
@@ -354,26 +354,26 @@ public class JRibbonTabbedPane
 	{
 		return titleFont;
 	}
-
+	
 	public void setTitleFont(Font titleFont)
 	{
 		this.titleFont = titleFont;
 		
 		repaint();
 	}
-
+	
 	public Color getTitleColor()
 	{
 		return titleColor;
 	}
-
+	
 	public void setTitleColor(Color titleColor)
 	{
 		this.titleColor = titleColor;
 		
 		repaint();
 	}
-		
+	
 	public Icon getNavigatorIcon()
 	{
 		return navigatorIcon;
@@ -382,7 +382,7 @@ public class JRibbonTabbedPane
 	public void setNavigatorIcon(Icon navigatorIcon)
 	{
 		this.navigatorIcon = navigatorIcon;
-
+		
 		CombinationIcon combinationIcon = (CombinationIcon) navigatorLabel.getIcon();
 		combinationIcon.setSmallIcon(navigatorIcon);
 		
@@ -412,12 +412,12 @@ public class JRibbonTabbedPane
 	}
 	
 	public void setRibbonTrailingComponent(JComponent ribbonTrailingComponent)
-	{		
-		int gap = 54 - ribbonTrailingComponent.getPreferredSize().height; 
+	{
+		int gap = 54 - ribbonTrailingComponent.getPreferredSize().height;
 		tabTrailingComponent.setBorder(BorderFactory.createEmptyBorder(gap / 2, 0, gap / 2, 0));
 		tabTrailingComponent.add(ribbonTrailingComponent, BorderLayout.CENTER);
 	}
-		
+	
 	public List getShortcutActionList()
 	{
 		return shortcutActionList;
@@ -502,8 +502,8 @@ public class JRibbonTabbedPane
 			if (x >= startX && x <= endX && y >= startY && y <= endY)
 			{
 				return shortcutAction;
-			}	
-		}	
+			}
+		}
 		
 		return null;
 	}
@@ -512,7 +512,7 @@ public class JRibbonTabbedPane
 	{
 		return ribbonHierarchy;
 	}
-
+	
 	public void setRibbonHierarchy(JRibbonHierarchy ribbonHierarchy)
 	{
 		this.ribbonHierarchy = ribbonHierarchy;
@@ -528,7 +528,7 @@ public class JRibbonTabbedPane
 	 * It will show or hide the tabbed pane content.
 	 */
 	public void toggleHeight()
-	{				
+	{
 		int tabHeight = TabbedPaneManager.getTabHeight(this);
 		int contentHeight = TabbedPaneManager.getMaxPreferredContentHeight(this);
 		
@@ -582,7 +582,7 @@ public class JRibbonTabbedPane
 	 * @param showValue the show value
 	 */
 	public void toggleFacade(String showType, int showValue)
-	{		
+	{
 		for (int i = 0; i < getTabCount(); i++)
 		{
 			JRibbonBar ribbonBar = (JRibbonBar) getComponentAt(i);
@@ -598,7 +598,7 @@ public class JRibbonTabbedPane
 		{
 			return;
 		}
-				
+		
 		for (Iterator iterator = shortcutActionList.iterator(); iterator.hasNext();)
 		{
 			JAction action = (JAction) iterator.next();
@@ -612,7 +612,7 @@ public class JRibbonTabbedPane
 				case BUTTON_STYLE_HOVER :
 				{
 					if (action == shortcutAction)
-					{	
+					{
 						action.putValue(BUTTON_STYLE, Integer.valueOf(BUTTON_STYLE_HOVER));
 					}
 					else
@@ -620,11 +620,11 @@ public class JRibbonTabbedPane
 						action.putValue(BUTTON_STYLE, Integer.valueOf(BUTTON_STYLE_PLAIN));
 					}
 					break;
-				}	
+				}
 				case BUTTON_STYLE_SELECTED :
 				{
 					if (action == shortcutAction)
-					{	
+					{
 						action.putValue(BUTTON_STYLE, Integer.valueOf(BUTTON_STYLE_SELECTED));
 					}
 					else
@@ -639,7 +639,7 @@ public class JRibbonTabbedPane
 		JAction firstShortcutAction = (JAction) shortcutActionList.get(0);
 		JAction lastShortcutAction = (JAction) shortcutActionList.get(shortcutActionList.size() - 1);
 		
-		int startX  = ((Integer) firstShortcutAction.getValue("startX")).intValue();
+		int startX = ((Integer) firstShortcutAction.getValue("startX")).intValue();
 		int startY = ((Integer) firstShortcutAction.getValue("startY")).intValue();
 		
 		int endX = ((Integer) lastShortcutAction.getValue("endX")).intValue();
@@ -647,7 +647,7 @@ public class JRibbonTabbedPane
 		
 		paintImmediately(startX, startY, endX - startX, endY - startY);
 	}
-
+	
 	public void paintComponent(Graphics g)
 	{
 		Graphics2D g2d = (Graphics2D) g;
@@ -696,7 +696,7 @@ public class JRibbonTabbedPane
 		// g2d.setRenderingHint(RenderingHints.KEY_STROKE_CONTROL, RenderingHints.VALUE_STROKE_PURE);
 		g2d.setRenderingHint(RenderingHints.KEY_COLOR_RENDERING, RenderingHints.VALUE_COLOR_RENDER_QUALITY);
 		g2d.setRenderingHint(RenderingHints.KEY_ALPHA_INTERPOLATION, RenderingHints.VALUE_ALPHA_INTERPOLATION_QUALITY);
-
+		
 		g2d.drawString(title, x, y);
 	}
 	
@@ -738,7 +738,7 @@ public class JRibbonTabbedPane
 		JGradientPainter.fastFill(g2d, new Rectangle(x, y + 22, width, 1), new Color(154, 179, 213), new Color(162, 185, 217), false);
 		
 		if (buttonCount > 0)
-		{	
+		{
 			x += 1;
 			y += 1;
 			
@@ -748,7 +748,7 @@ public class JRibbonTabbedPane
 				
 				Integer buttonStyle = (Integer) shortcutAction.getValue(BUTTON_STYLE);
 				if (buttonStyle != null)
-				{	
+				{
 					switch (buttonStyle.intValue())
 					{
 						case BUTTON_STYLE_PLAIN :
@@ -759,7 +759,7 @@ public class JRibbonTabbedPane
 						{
 							g2d.drawImage(IconFactory.getSwingIcon("ribbon/button_bg_hover.png").getImage(), x, y, null);
 							break;
-						}	
+						}
 						case BUTTON_STYLE_SELECTED :
 						{
 							g2d.drawImage(IconFactory.getSwingIcon("ribbon/button_bg_selected.png").getImage(), x, y, null);
@@ -838,23 +838,23 @@ public class JRibbonTabbedPane
 		{
 			return showType;
 		}
-
+		
 		public void setShowType(String showType)
 		{
 			this.showType = showType;
 		}
-
+		
 		public int getShowValue()
 		{
 			return showValue;
 		}
-
+		
 		public void setShowValue(int showValue)
 		{
 			this.showValue = showValue;
 		}
 		
-	    /**
+		/**
 		 * Invoked when an action occurs.
 		 * @param e the instance of ActionEvent
 		 */
@@ -862,7 +862,7 @@ public class JRibbonTabbedPane
 		{
 			toggleFacade(showType, showValue);
 		}
-	}	
+	}
 	
 	public class TabComponent
 		extends JPanel implements UIResource
