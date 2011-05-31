@@ -86,6 +86,12 @@ public abstract class JRibbonNavigatorBar
 		{
 			public void mouseReleased(MouseEvent e)
 			{
+				int index = tabbedComponent.indexAtLocation(e.getX(), e.getY());
+				if (index < 0)
+				{
+					return;
+				}
+				
 				if (!e.isPopupTrigger())
 				{
 					return;
@@ -121,12 +127,12 @@ public abstract class JRibbonNavigatorBar
 		popupMenu = new JDecorationPopupMenu();
 		
 		JBasicMenu navigatorBarFacadeConfigMenu = new JBasicMenu(SwingLocale.getString("config_navigatorbar_facade"), IconFactory.getSwingIcon("facade.png"), SwingLocale.getString("config_navigatorbar_facade"));
-		navigatorBarFacadeConfigMenu.add(new JBasicMenuItem(new JRibbonToggleFacadeAction(SwingLocale.getString("config_navigatorbar_show_small_text"), IconFactory.getSwingIcon("label.png"), SwingLocale.getString("config_navigatorbar_show_small_text"), this, JRibbonAction.TEXT, JRibbonAction.SHOW_SMALL)));
 		navigatorBarFacadeConfigMenu.add(new JBasicMenuItem(new JRibbonToggleFacadeAction(SwingLocale.getString("config_navigatorbar_show_large_text"), IconFactory.getSwingIcon("label.png"), SwingLocale.getString("config_navigatorbar_show_large_text"), this, JRibbonAction.TEXT, JRibbonAction.SHOW_LARGE)));
+		navigatorBarFacadeConfigMenu.add(new JBasicMenuItem(new JRibbonToggleFacadeAction(SwingLocale.getString("config_navigatorbar_show_small_text"), IconFactory.getSwingIcon("label.png"), SwingLocale.getString("config_navigatorbar_show_small_text"), this, JRibbonAction.TEXT, JRibbonAction.SHOW_SMALL)));
 		navigatorBarFacadeConfigMenu.add(new JBasicMenuItem(new JRibbonToggleFacadeAction(SwingLocale.getString("config_navigatorbar_show_no_text"), IconFactory.getBlankIcon(), SwingLocale.getString("config_navigatorbar_show_no_text"), this, JRibbonAction.TEXT, JRibbonAction.SHOW_NO)));
 		navigatorBarFacadeConfigMenu.addSeparator();
-		navigatorBarFacadeConfigMenu.add(new JBasicMenuItem(new JRibbonToggleFacadeAction(SwingLocale.getString("config_navigatorbar_show_small_icon"), IconFactory.getSwingIcon("rectangle_single.png"), SwingLocale.getString("config_navigatorbar_show_small_icon"), this, JRibbonAction.ICON, JRibbonAction.SHOW_SMALL)));
-		navigatorBarFacadeConfigMenu.add(new JBasicMenuItem(new JRibbonToggleFacadeAction(SwingLocale.getString("config_navigatorbar_show_large_icon"), IconFactory.getSwingIcon("rectangle_multi.png"), SwingLocale.getString("config_navigatorbar_show_large_icon"), this, JRibbonAction.ICON, JRibbonAction.SHOW_LARGE)));
+		navigatorBarFacadeConfigMenu.add(new JBasicMenuItem(new JRibbonToggleFacadeAction(SwingLocale.getString("config_navigatorbar_show_large_icon"), IconFactory.getSwingIcon("rectangle_single.png"), SwingLocale.getString("config_navigatorbar_show_large_icon"), this, JRibbonAction.ICON, JRibbonAction.SHOW_LARGE)));
+		navigatorBarFacadeConfigMenu.add(new JBasicMenuItem(new JRibbonToggleFacadeAction(SwingLocale.getString("config_navigatorbar_show_small_icon"), IconFactory.getSwingIcon("rectangle_multi.png"), SwingLocale.getString("config_navigatorbar_show_small_icon"), this, JRibbonAction.ICON, JRibbonAction.SHOW_SMALL)));
 		navigatorBarFacadeConfigMenu.add(new JBasicMenuItem(new JRibbonToggleFacadeAction(SwingLocale.getString("config_navigatorbar_show_no_icon"), IconFactory.getBlankIcon(), SwingLocale.getString("config_navigatorbar_show_no_icon"), this, JRibbonAction.ICON, JRibbonAction.SHOW_NO)));
 		
 		popupMenu.add(navigatorBarFacadeConfigMenu);

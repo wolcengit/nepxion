@@ -18,7 +18,6 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.awt.RenderingHints;
-import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
@@ -29,6 +28,7 @@ import javax.swing.BorderFactory;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
+import javax.swing.JPopupMenu;
 import javax.swing.plaf.UIResource;
 
 import com.nepxion.swing.action.JAction;
@@ -36,8 +36,6 @@ import com.nepxion.swing.gradient.JGradientPainter;
 import com.nepxion.swing.icon.IconFactory;
 import com.nepxion.swing.icon.paint.CombinatedIcon;
 import com.nepxion.swing.label.JBasicLabel;
-import com.nepxion.swing.menuitem.JBasicMenuItem;
-import com.nepxion.swing.popupmenu.JDecorationPopupMenu;
 import com.nepxion.swing.tabbedpane.JEclipseTabbedPane;
 
 public class JRibbonTabbedPane
@@ -67,25 +65,12 @@ public class JRibbonTabbedPane
 	private Font titleFont = new Font("Dialog", Font.PLAIN, 12);
 	private Color titleColor = Color.black;
 	
-	private List actionList;
+	private JPopupMenu popupMenu;
+	private List actionList = new ArrayList();
 	
 	public JRibbonTabbedPane()
 	{
 		super();
-		
-		initComponents();
-	}
-	
-	public JRibbonTabbedPane(int tabPlacement)
-	{
-		super(tabPlacement);
-		
-		initComponents();
-	}
-	
-	public JRibbonTabbedPane(int tabPlacement, int tabLayoutPolicy)
-	{
-		super(tabPlacement, tabLayoutPolicy);
 		
 		initComponents();
 	}
@@ -98,15 +83,6 @@ public class JRibbonTabbedPane
 		setTabForeground(Color.black);
 		setTabSelectionForeground(Color.black);
 		
-		final JDecorationPopupMenu popupMenu = new JDecorationPopupMenu();
-		popupMenu.add(new JBasicMenuItem("xxx"));
-		popupMenu.add(new JBasicMenuItem("xxx"));
-		popupMenu.add(new JBasicMenuItem("xxx"));
-		popupMenu.add(new JBasicMenuItem("xxx"));
-		popupMenu.add(new JBasicMenuItem("xxx"));
-		popupMenu.add(new JBasicMenuItem("xxx"));
-		popupMenu.add(new JBasicMenuItem("xxx"));
-
 		final CombinatedIcon logoBackgroundIcon = new CombinatedIcon(IconFactory.getSwingIcon("ribbon/logo.png"), IconFactory.getSwingIcon("ribbon/logo_bg.png"));
 		final CombinatedIcon logoBackgroundHoverIcon = new CombinatedIcon(IconFactory.getSwingIcon("ribbon/logo.png"), IconFactory.getSwingIcon("ribbon/logo_bg_hover.png"));
 		final CombinatedIcon logoBackgroundSelectedIcon = new CombinatedIcon(IconFactory.getSwingIcon("ribbon/logo.png"), IconFactory.getSwingIcon("ribbon/logo_bg_selected.png"));
@@ -123,7 +99,10 @@ public class JRibbonTabbedPane
 			{
 				leadingLabel.setIcon(logoBackgroundSelectedIcon);
 				
-				popupMenu.show(leadingLabel, e.getX(), e.getY());
+				if (popupMenu != null)
+				{	
+					popupMenu.show(leadingLabel, 0, leadingLabel.getHeight());
+				}
 			}
 			
 			public void mouseExited(MouseEvent e)
@@ -180,40 +159,6 @@ public class JRibbonTabbedPane
 			}
 		}
 		);
-		
-		JAction a1 = new JAction(IconFactory.getSwingIcon("save.png"), "Save")
-		{
-			public void actionPerformed(ActionEvent e)
-			{
-				System.out.println("11111111111111");
-				
-			}
-		};
-		
-		JAction a2 = new JAction(IconFactory.getSwingIcon("delete.png"), "Delete")
-		{
-			public void actionPerformed(ActionEvent e)
-			{
-				System.out.println("222222222222222");
-				
-			}
-		};
-		
-		JAction a3 = new JAction(IconFactory.getSwingIcon("edit.png"), "Edit")
-		{
-			public void actionPerformed(ActionEvent e)
-			{
-				System.out.println("333333333333333");
-				
-			}
-		};
-		
-		List actionList = new ArrayList();
-		actionList.add(a1);
-		actionList.add(a2);
-		actionList.add(a3);
-		
-		setActionList(actionList);
 	}
 	
 	private JAction getAction(MouseEvent e)
@@ -335,6 +280,16 @@ public class JRibbonTabbedPane
 		this.titleColor = titleColor;
 		
 		repaint();
+	}
+	
+	public JPopupMenu getPopupMenu()
+	{
+		return popupMenu;
+	}
+	
+	public void setPopupMenu(JPopupMenu popupMenu)
+	{
+		this.popupMenu = popupMenu;
 	}
 	
 	public List getActionList()

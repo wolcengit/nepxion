@@ -230,15 +230,14 @@ public class JRibbon
 		add(toolBar, BorderLayout.CENTER);
 		add(label, BorderLayout.SOUTH);
 		
-		JAction a1 = new JAction(IconFactory.getSwingIcon("save.png"), "Save")
+		setCornerAction(new JAction()
 		{
 			public void actionPerformed(ActionEvent e)
 			{
-				System.out.println("11111111111111");
 				
 			}
-		};
-		setCornerAction(a1);
+		}
+		);
 	}
 	
 	/**
