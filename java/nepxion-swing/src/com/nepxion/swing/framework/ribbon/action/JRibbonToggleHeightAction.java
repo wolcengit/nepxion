@@ -15,6 +15,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 import javax.swing.JPanel;
+import javax.swing.JTabbedPane;
 import javax.swing.SwingUtilities;
 
 import com.nepxion.swing.action.JSecurityAction;
@@ -73,9 +74,27 @@ public class JRibbonToggleHeightAction
      */
 	public void mouseClicked(MouseEvent e)
 	{
-		if (SwingUtilities.isLeftMouseButton(e) && e.getClickCount() > 1)
+		Object source = e.getSource();
+		if (source instanceof JTabbedPane)
 		{
-			toggle();
+			JTabbedPane tabbedPane = (JTabbedPane) source;
+			int index = tabbedPane.indexAtLocation(e.getX(), e.getY());
+			if (index < 0)
+			{
+				return;
+			}
+			
+			if (SwingUtilities.isLeftMouseButton(e) && e.getClickCount() > 1)
+			{
+				toggle();
+			}
+		}
+		else
+		{
+			if (SwingUtilities.isLeftMouseButton(e) && e.getClickCount() > 1)
+			{
+				toggle();
+			}
 		}
 	}
 	
