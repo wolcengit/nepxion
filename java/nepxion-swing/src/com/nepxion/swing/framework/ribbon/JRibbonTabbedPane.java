@@ -704,6 +704,11 @@ public class JRibbonTabbedPane
 	
 	private void updateShortcutBar()
 	{
+		if (shortcutActionList == null || shortcutActionList.isEmpty())
+		{
+			return;
+		}
+		
 		JAction firstShortcutAction = (JAction) shortcutActionList.get(0);
 		JAction lastShortcutAction = dropDownShortcutAction;
 		
