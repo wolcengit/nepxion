@@ -571,18 +571,41 @@ public class JRibbonTabbedPane
 		int tabHeight = TabbedPaneManager.getTabHeight(this);
 		int contentHeight = TabbedPaneManager.getMaxPreferredContentHeight(this);
 		
-		if (isMinimum)
+		if (!isMinimum)
 		{
-			setPreferredSize(new Dimension(getSize().width, tabHeight + contentHeight));
+			setPreferredSize(new Dimension(getSize().width, tabHeight));	
 		}
 		else
 		{
-			setPreferredSize(new Dimension(getSize().width, tabHeight));
+			setPreferredSize(new Dimension(getSize().width, tabHeight + contentHeight));	
 		}
 		
 		ContainerManager.update(this);
 		
 		isMinimum = !isMinimum;
+	}
+	
+	/**
+	 * Toggles the facade by a show type and show value.
+	 * The show type values are "text" and "icon".
+	 * The show value values are SHOW_SMALL, SHOW_LARGE and SHOW_NO. (See JAction definition).
+	 * For example, if the showType is "icon" and the showValue is SHOW_LARGE, the component will display the icon as a large style.
+	 * @param showType the show type
+	 * @param showValue the show value
+	 */
+	public void toggleFacade(String showType, int showValue)
+	{
+		for (int i = 0; i < getTabCount(); i++)
+		{
+			JRibbonBar ribbonBar = (JRibbonBar) getComponentAt(i);
+			ribbonBar.toggleFacade(showType, showValue);
+		}
+		
+		if (!isMinimum)
+		{	
+			setPreferredSize(null);
+			ContainerManager.update(this);
+		}
 	}
 	
 	public void toggleFacade(int textShowValue, int iconShowValue)
@@ -610,25 +633,6 @@ public class JRibbonTabbedPane
 				break;
 			}
 		}
-	}
-	
-	/**
-	 * Toggles the facade by a show type and show value.
-	 * The show type values are "text" and "icon".
-	 * The show value values are SHOW_SMALL, SHOW_LARGE and SHOW_NO. (See JAction definition).
-	 * For example, if the showType is "icon" and the showValue is SHOW_LARGE, the component will display the icon as a large style.
-	 * @param showType the show type
-	 * @param showValue the show value
-	 */
-	public void toggleFacade(String showType, int showValue)
-	{
-		for (int i = 0; i < getTabCount(); i++)
-		{
-			JRibbonBar ribbonBar = (JRibbonBar) getComponentAt(i);
-			ribbonBar.toggleFacade(showType, showValue);
-		}
-		
-		ContainerManager.update(this);
 	}
 	
 	private void updateShortcutBar(MouseEvent e, JAction shortcutAction, int buttonStyle)
