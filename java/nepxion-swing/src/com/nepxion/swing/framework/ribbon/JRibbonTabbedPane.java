@@ -20,14 +20,16 @@ import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.awt.RenderingHints;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
+import java.util.Enumeration;
 import java.util.Iterator;
 import java.util.List;
 
+import javax.swing.AbstractButton;
 import javax.swing.BorderFactory;
+import javax.swing.ButtonGroup;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
@@ -44,6 +46,7 @@ import com.nepxion.swing.icon.paint.CombinationIcon;
 import com.nepxion.swing.label.JBasicLabel;
 import com.nepxion.swing.locale.SwingLocale;
 import com.nepxion.swing.menu.JBasicMenu;
+import com.nepxion.swing.menuitem.JBasicCheckBoxMenuItem;
 import com.nepxion.swing.menuitem.JBasicMenuItem;
 import com.nepxion.swing.popupmenu.JDecorationPopupMenu;
 import com.nepxion.swing.tabbedpane.JEclipseTabbedPane;
@@ -142,6 +145,10 @@ public class JRibbonTabbedPane
 	 */
 	private JRibbonHierarchy ribbonHierarchy;
 	
+	private ButtonGroup toggleTextButtonGroup;
+	
+	private ButtonGroup toggleIconButtonGroup;
+	
 	/**
 	 * 
 	 * @param ribbonHierarchy
@@ -198,31 +205,45 @@ public class JRibbonTabbedPane
 		navigatorPanel.add(navigatorLabel, BorderLayout.CENTER);
 		setTabLeadingComponent(navigatorPanel);
 	}
-	
+
 	private void initPopupMenu()
 	{
 		navigatorPopupMenu = new JDecorationPopupMenu();
 		
 		JBasicMenu navigatorBarFacadeConfigMenu = new JBasicMenu(SwingLocale.getString("config_navigatorbar_facade"), IconFactory.getSwingIcon("facade.png"), SwingLocale.getString("config_navigatorbar_facade"));
-		navigatorBarFacadeConfigMenu.add(new JBasicMenuItem(new ToggleFacadeAction(SwingLocale.getString("config_navigatorbar_show_large_text"), IconFactory.getSwingIcon("label.png"), SwingLocale.getString("config_navigatorbar_show_large_text"), JRibbonAction.TEXT, JRibbonAction.SHOW_LARGE)));
-		navigatorBarFacadeConfigMenu.add(new JBasicMenuItem(new ToggleFacadeAction(SwingLocale.getString("config_navigatorbar_show_small_text"), IconFactory.getSwingIcon("label.png"), SwingLocale.getString("config_navigatorbar_show_small_text"), JRibbonAction.TEXT, JRibbonAction.SHOW_SMALL)));
-		navigatorBarFacadeConfigMenu.add(new JBasicMenuItem(new ToggleFacadeAction(SwingLocale.getString("config_navigatorbar_show_no_text"), IconFactory.getBlankIcon(), SwingLocale.getString("config_navigatorbar_show_no_text"), JRibbonAction.TEXT, JRibbonAction.SHOW_NO)));
+		toggleTextButtonGroup = new ButtonGroup();
+		
+		JBasicCheckBoxMenuItem toggleLargTextMenuItem = new JBasicCheckBoxMenuItem(new ToggleFacadeAction(SwingLocale.getString("config_navigatorbar_show_large_text"), IconFactory.getSwingIcon("component/label_16.png"), SwingLocale.getString("config_navigatorbar_show_large_text"), JRibbonAction.TEXT, JRibbonAction.SHOW_LARGE));		
+		navigatorBarFacadeConfigMenu.add(toggleLargTextMenuItem);
+		toggleTextButtonGroup.add(toggleLargTextMenuItem);
+		
+		JBasicCheckBoxMenuItem toggleSmallTextMenuItem = new JBasicCheckBoxMenuItem(new ToggleFacadeAction(SwingLocale.getString("config_navigatorbar_show_small_text"), IconFactory.getSwingIcon("component/label_multi_16.png"), SwingLocale.getString("config_navigatorbar_show_small_text"), JRibbonAction.TEXT, JRibbonAction.SHOW_SMALL));
+		navigatorBarFacadeConfigMenu.add(toggleSmallTextMenuItem);
+		toggleTextButtonGroup.add(toggleSmallTextMenuItem);
+		
+		JBasicCheckBoxMenuItem toggleNoTextMenuItem = new JBasicCheckBoxMenuItem(new ToggleFacadeAction(SwingLocale.getString("config_navigatorbar_show_no_text"), IconFactory.getBlankIcon(), SwingLocale.getString("config_navigatorbar_show_no_text"), JRibbonAction.TEXT, JRibbonAction.SHOW_NO));
+		navigatorBarFacadeConfigMenu.add(toggleNoTextMenuItem);
+		toggleTextButtonGroup.add(toggleNoTextMenuItem);
+		
 		navigatorBarFacadeConfigMenu.addSeparator();
-		navigatorBarFacadeConfigMenu.add(new JBasicMenuItem(new ToggleFacadeAction(SwingLocale.getString("config_navigatorbar_show_large_icon"), IconFactory.getSwingIcon("rectangle_single.png"), SwingLocale.getString("config_navigatorbar_show_large_icon"), JRibbonAction.ICON, JRibbonAction.SHOW_LARGE)));
-		navigatorBarFacadeConfigMenu.add(new JBasicMenuItem(new ToggleFacadeAction(SwingLocale.getString("config_navigatorbar_show_small_icon"), IconFactory.getSwingIcon("rectangle_multi.png"), SwingLocale.getString("config_navigatorbar_show_small_icon"), JRibbonAction.ICON, JRibbonAction.SHOW_SMALL)));
-		navigatorBarFacadeConfigMenu.add(new JBasicMenuItem(new ToggleFacadeAction(SwingLocale.getString("config_navigatorbar_show_no_icon"), IconFactory.getBlankIcon(), SwingLocale.getString("config_navigatorbar_show_no_icon"), JRibbonAction.ICON, JRibbonAction.SHOW_NO)));
+		
+		toggleIconButtonGroup = new ButtonGroup();
+		
+		JBasicCheckBoxMenuItem toggleLargIconMenuItem = new JBasicCheckBoxMenuItem(new ToggleFacadeAction(SwingLocale.getString("config_navigatorbar_show_large_icon"), IconFactory.getSwingIcon("rectangle_single.png"), SwingLocale.getString("config_navigatorbar_show_large_icon"), JRibbonAction.ICON, JRibbonAction.SHOW_LARGE));
+		navigatorBarFacadeConfigMenu.add(toggleLargIconMenuItem);
+		toggleIconButtonGroup.add(toggleLargIconMenuItem);
+		
+		JBasicCheckBoxMenuItem toggleSmallIconMenuItem = new JBasicCheckBoxMenuItem(new ToggleFacadeAction(SwingLocale.getString("config_navigatorbar_show_small_icon"), IconFactory.getSwingIcon("rectangle_multi.png"), SwingLocale.getString("config_navigatorbar_show_small_icon"), JRibbonAction.ICON, JRibbonAction.SHOW_SMALL));
+		navigatorBarFacadeConfigMenu.add(toggleSmallIconMenuItem);
+		toggleIconButtonGroup.add(toggleSmallIconMenuItem);
+		
+		JBasicCheckBoxMenuItem toggleNoIconMenuItem = new JBasicCheckBoxMenuItem(new ToggleFacadeAction(SwingLocale.getString("config_navigatorbar_show_no_icon"), IconFactory.getBlankIcon(), SwingLocale.getString("config_navigatorbar_show_no_icon"), JRibbonAction.ICON, JRibbonAction.SHOW_NO));
+		navigatorBarFacadeConfigMenu.add(toggleNoIconMenuItem);
+		toggleIconButtonGroup.add(toggleNoIconMenuItem);
 		
 		navigatorPopupMenu.add(navigatorBarFacadeConfigMenu);
 		
-		JBasicMenuItem toggleHeightMenuItem = new JBasicMenuItem(SwingLocale.getString("toggle_navigatorbar_visibility"), IconFactory.getSwingIcon("toggle_size.png"), SwingLocale.getString("toggle_navigatorbar_visibility"));
-		toggleHeightMenuItem.addActionListener(new ActionListener()
-		{
-			public void actionPerformed(ActionEvent e)
-			{
-				toggleHeight();
-			}
-		}
-		);
+		JBasicMenuItem toggleHeightMenuItem = new JBasicMenuItem(new ToggleHeightAction());
 		navigatorPopupMenu.add(toggleHeightMenuItem);
 	}
 	
@@ -497,6 +518,33 @@ public class JRibbonTabbedPane
 		isMinimum = !isMinimum;
 	}
 	
+	public void toggleFacade(int textShowValue, int iconShowValue)
+	{
+		for (Enumeration enumeration = toggleTextButtonGroup.getElements(); enumeration.hasMoreElements();)
+		{
+			AbstractButton button = (AbstractButton) enumeration.nextElement();
+			ToggleFacadeAction action = (ToggleFacadeAction) button.getAction();
+			if (action.getShowValue() == textShowValue)
+			{
+				button.doClick();
+				
+				break;
+			}
+		}
+		
+		for (Enumeration enumeration = toggleIconButtonGroup.getElements(); enumeration.hasMoreElements();)
+		{
+			AbstractButton button = (AbstractButton) enumeration.nextElement();
+			ToggleFacadeAction action = (ToggleFacadeAction) button.getAction();
+			if (action.getShowValue() == iconShowValue)
+			{
+				button.doClick();
+				
+				break;
+			}
+		}
+	}
+	
 	/**
 	 * Toggles the facade by a show type and show value.
 	 * The show type values are "text" and "icon".
@@ -710,6 +758,24 @@ public class JRibbonTabbedPane
 		}
 	}
 	
+	public class ToggleHeightAction
+		extends JAction
+	{
+		public ToggleHeightAction()
+		{
+			super(SwingLocale.getString("toggle_navigatorbar_visibility"), IconFactory.getSwingIcon("toggle_size.png"), SwingLocale.getString("toggle_navigatorbar_visibility"));
+		}
+		
+		/**
+		 * Invoked when an action occurs.
+		 * @param e the instance of ActionEvent
+		 */
+		public void actionPerformed(ActionEvent e)
+		{
+			toggleHeight();
+		}
+	}
+	
 	public class ToggleFacadeAction
 		extends JAction
 	{
@@ -739,7 +805,31 @@ public class JRibbonTabbedPane
 			this.showType = showType;
 			this.showValue = showValue;
 		}
+		
+		public String getShowType()
+		{
+			return showType;
+		}
 
+		public void setShowType(String showType)
+		{
+			this.showType = showType;
+		}
+
+		public int getShowValue()
+		{
+			return showValue;
+		}
+
+		public void setShowValue(int showValue)
+		{
+			this.showValue = showValue;
+		}
+		
+	    /**
+		 * Invoked when an action occurs.
+		 * @param e the instance of ActionEvent
+		 */
 		public void actionPerformed(ActionEvent e)
 		{
 			toggleFacade(showType, showValue);
