@@ -61,61 +61,101 @@ public class JRibbonTabbedPane
 	 */
 	public static final String BUTTON_STYLE = "buttonStyle";
 	
+	/**
+	 * The navigator icon.
+	 */
+	private Icon navigatorIcon = IconFactory.getSwingIcon("ribbon/navigator.png");
+	
+	/**
+	 * The navigator background icon.
+	 */
+	private CombinatedIcon navigatorBackgroundIcon = new CombinatedIcon(navigatorIcon, IconFactory.getSwingIcon("ribbon/navigator_bg.png"));
+	
+	/**
+	 * The navigator background hover icon.
+	 */
+	private CombinatedIcon navigatorBackgroundHoverIcon = new CombinatedIcon(navigatorIcon, IconFactory.getSwingIcon("ribbon/navigator_bg_hover.png"));
+
+	/**
+	 * The navigator background selected icon.
+	 */
+	private CombinatedIcon navigatorBackgroundSelectedIcon = new CombinatedIcon(navigatorIcon, IconFactory.getSwingIcon("ribbon/navigator_bg_selected.png"));
+
+	/**
+	 * The title string.
+	 */
 	private String title = "";
+	
+	/**
+	 * The title font.
+	 */
 	private Font titleFont = new Font("Dialog", Font.PLAIN, 12);
+	
+	/**
+	 * The title color.
+	 */
 	private Color titleColor = Color.black;
 	
+	/**
+	 * The popup menu of navigator.
+	 */
 	private JPopupMenu popupMenu;
+	
+	/**
+	 * The action list of tool bar.
+	 */
 	private List actionList = new ArrayList();
 	
 	public JRibbonTabbedPane()
-	{
-		super();
-		
-		initComponents();
+	{		
+		initStyle();
+		initNavigator();
+		initToolBar();
 	}
 	
-	private void initComponents()
+	private void initStyle()
 	{
 		setShowTabBorder(false);
 		setTabGradientColor(new Color(255, 239, 191)); // Color.white
 		setTabBackground(new Color(231, 239, 248));
 		setTabForeground(Color.black);
 		setTabSelectionForeground(Color.black);
-		
-		final CombinatedIcon logoBackgroundIcon = new CombinatedIcon(IconFactory.getSwingIcon("ribbon/logo.png"), IconFactory.getSwingIcon("ribbon/logo_bg.png"));
-		final CombinatedIcon logoBackgroundHoverIcon = new CombinatedIcon(IconFactory.getSwingIcon("ribbon/logo.png"), IconFactory.getSwingIcon("ribbon/logo_bg_hover.png"));
-		final CombinatedIcon logoBackgroundSelectedIcon = new CombinatedIcon(IconFactory.getSwingIcon("ribbon/logo.png"), IconFactory.getSwingIcon("ribbon/logo_bg_selected.png"));
-		
-		final JBasicLabel leadingLabel = new JBasicLabel(logoBackgroundIcon, "Nepxion Studio");
-		leadingLabel.addMouseListener(new MouseAdapter()
+	}
+	
+	private void initNavigator()
+	{		
+		final JBasicLabel navigatorLabel = new JBasicLabel(navigatorBackgroundIcon, "Nepxion Studio");
+		navigatorLabel.addMouseListener(new MouseAdapter()
 		{
 			public void mouseEntered(MouseEvent e)
 			{
-				leadingLabel.setIcon(logoBackgroundHoverIcon);
+				navigatorLabel.setIcon(navigatorBackgroundHoverIcon);
 			}
 			
 			public void mousePressed(MouseEvent e)
 			{
-				leadingLabel.setIcon(logoBackgroundSelectedIcon);
+				navigatorLabel.setIcon(navigatorBackgroundSelectedIcon);
 				
 				if (popupMenu != null)
 				{	
-					popupMenu.show(leadingLabel, 0, leadingLabel.getHeight());
+					popupMenu.show(navigatorLabel, 0, navigatorLabel.getHeight());
 				}
 			}
 			
 			public void mouseExited(MouseEvent e)
 			{
-				leadingLabel.setIcon(logoBackgroundIcon);
+				navigatorLabel.setIcon(navigatorBackgroundIcon);
 			}
 		}
 		);
 		
-		LeadingPanel leadingPanel = new LeadingPanel();
-		leadingPanel.add(leadingLabel, BorderLayout.CENTER);
-		setTabLeadingComponent(leadingPanel);
-		
+		NavigatorPanel navigatorPanel = new NavigatorPanel();
+		navigatorPanel.add(navigatorLabel, BorderLayout.CENTER);
+		setTabLeadingComponent(navigatorPanel);
+	}
+	
+	private void initToolBar()
+	{
 		addMouseListener(new MouseAdapter()
 		{			
 			public void mousePressed(MouseEvent e)
@@ -352,18 +392,9 @@ public class JRibbonTabbedPane
 		
 		repaint();
 	}
-		
-	public class LeadingPanel
-		extends JPanel implements UIResource
-	{
-		public LeadingPanel()
-		{
-			setBorder(BorderFactory.createEmptyBorder(5, 2, 10, 2));
-			setLayout(new BorderLayout());
-			setOpaque(false);
-		}
-	}
-		
+	
+	
+
 	public void paintComponent(Graphics g)
 	{
 		Graphics2D g2d = (Graphics2D) g;
@@ -499,6 +530,17 @@ public class JRibbonTabbedPane
 				action.putValue("endX", Integer.valueOf(x));
 				action.putValue("endY", Integer.valueOf(y + 22));
 			}
+		}
+	}
+	
+	public class NavigatorPanel
+		extends JPanel implements UIResource
+	{
+		public NavigatorPanel()
+		{
+			setBorder(BorderFactory.createEmptyBorder(5, 2, 10, 2));
+			setLayout(new BorderLayout());
+			setOpaque(false);
 		}
 	}
 }
