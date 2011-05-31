@@ -46,7 +46,6 @@ import com.nepxion.swing.icon.IconFactory;
 import com.nepxion.swing.icon.paint.CombinationIcon;
 import com.nepxion.swing.label.JBasicLabel;
 import com.nepxion.swing.locale.SwingLocale;
-import com.nepxion.swing.menu.JBasicMenu;
 import com.nepxion.swing.menuitem.JBasicCheckBoxMenuItem;
 import com.nepxion.swing.popupmenu.JDecorationPopupMenu;
 import com.nepxion.swing.tabbedpane.JEclipseTabbedPane;
@@ -130,6 +129,16 @@ public class JRibbonTabbedPane
 	 */
 	private JBasicLabel navigatorLabel;
 		
+	/**
+	 * The arrow shortcut action.
+	 */
+	private ArrowShortcutAction arrowShortcutAction;
+	
+	/**
+	 * The arrow popup menu.
+	 */
+	private JPopupMenu arrowPopupMenu;
+	
 	/**
 	 * The toggle text button group.
 	 */
@@ -235,44 +244,43 @@ public class JRibbonTabbedPane
 		
 		CloseRibbonAction closeRibbonAction = new CloseRibbonAction();
 		addShortcutAction(closeRibbonAction);
+		
+		arrowShortcutAction = new ArrowShortcutAction();
 	}
 	
 	private void initPopupMenu()
 	{
-		navigatorPopupMenu = new JDecorationPopupMenu();
+		arrowPopupMenu = new JDecorationPopupMenu();
 		
-		JBasicMenu navigatorBarFacadeConfigMenu = new JBasicMenu(SwingLocale.getString("config_navigatorbar_facade"), IconFactory.getSwingIcon("facade.png"), SwingLocale.getString("config_navigatorbar_facade"));
 		toggleTextButtonGroup = new ButtonGroup();
 		
 		JBasicCheckBoxMenuItem toggleLargTextMenuItem = new JBasicCheckBoxMenuItem(new ToggleFacadeAction(SwingLocale.getString("config_navigatorbar_show_large_text"), IconFactory.getSwingIcon("component/label_16.png"), SwingLocale.getString("config_navigatorbar_show_large_text"), JRibbonAction.TEXT, JRibbonAction.SHOW_LARGE));
-		navigatorBarFacadeConfigMenu.add(toggleLargTextMenuItem);
+		arrowPopupMenu.add(toggleLargTextMenuItem);
 		toggleTextButtonGroup.add(toggleLargTextMenuItem);
 		
 		JBasicCheckBoxMenuItem toggleSmallTextMenuItem = new JBasicCheckBoxMenuItem(new ToggleFacadeAction(SwingLocale.getString("config_navigatorbar_show_small_text"), IconFactory.getSwingIcon("component/label_multi_16.png"), SwingLocale.getString("config_navigatorbar_show_small_text"), JRibbonAction.TEXT, JRibbonAction.SHOW_SMALL));
-		navigatorBarFacadeConfigMenu.add(toggleSmallTextMenuItem);
+		arrowPopupMenu.add(toggleSmallTextMenuItem);
 		toggleTextButtonGroup.add(toggleSmallTextMenuItem);
 		
 		JBasicCheckBoxMenuItem toggleNoTextMenuItem = new JBasicCheckBoxMenuItem(new ToggleFacadeAction(SwingLocale.getString("config_navigatorbar_show_no_text"), IconFactory.getBlankIcon(), SwingLocale.getString("config_navigatorbar_show_no_text"), JRibbonAction.TEXT, JRibbonAction.SHOW_NO));
-		navigatorBarFacadeConfigMenu.add(toggleNoTextMenuItem);
+		arrowPopupMenu.add(toggleNoTextMenuItem);
 		toggleTextButtonGroup.add(toggleNoTextMenuItem);
 		
-		navigatorBarFacadeConfigMenu.addSeparator();
+		arrowPopupMenu.addSeparator();
 		
 		toggleIconButtonGroup = new ButtonGroup();
 		
 		JBasicCheckBoxMenuItem toggleLargIconMenuItem = new JBasicCheckBoxMenuItem(new ToggleFacadeAction(SwingLocale.getString("config_navigatorbar_show_large_icon"), IconFactory.getSwingIcon("rectangle_single.png"), SwingLocale.getString("config_navigatorbar_show_large_icon"), JRibbonAction.ICON, JRibbonAction.SHOW_LARGE));
-		navigatorBarFacadeConfigMenu.add(toggleLargIconMenuItem);
+		arrowPopupMenu.add(toggleLargIconMenuItem);
 		toggleIconButtonGroup.add(toggleLargIconMenuItem);
 		
 		JBasicCheckBoxMenuItem toggleSmallIconMenuItem = new JBasicCheckBoxMenuItem(new ToggleFacadeAction(SwingLocale.getString("config_navigatorbar_show_small_icon"), IconFactory.getSwingIcon("rectangle_multi.png"), SwingLocale.getString("config_navigatorbar_show_small_icon"), JRibbonAction.ICON, JRibbonAction.SHOW_SMALL));
-		navigatorBarFacadeConfigMenu.add(toggleSmallIconMenuItem);
+		arrowPopupMenu.add(toggleSmallIconMenuItem);
 		toggleIconButtonGroup.add(toggleSmallIconMenuItem);
 		
 		JBasicCheckBoxMenuItem toggleNoIconMenuItem = new JBasicCheckBoxMenuItem(new ToggleFacadeAction(SwingLocale.getString("config_navigatorbar_show_no_icon"), IconFactory.getBlankIcon(), SwingLocale.getString("config_navigatorbar_show_no_icon"), JRibbonAction.ICON, JRibbonAction.SHOW_NO));
-		navigatorBarFacadeConfigMenu.add(toggleNoIconMenuItem);
+		arrowPopupMenu.add(toggleNoIconMenuItem);
 		toggleIconButtonGroup.add(toggleNoIconMenuItem);
-		
-		navigatorPopupMenu.add(navigatorBarFacadeConfigMenu);
 	}
 	
 	private void initListener()
@@ -418,6 +426,16 @@ public class JRibbonTabbedPane
 		this.navigatorPopupMenu = navigatorPopupMenu;
 	}
 	
+	public JPopupMenu getArrowPopupMenu()
+	{
+		return arrowPopupMenu;
+	}
+	
+	public void setArrowPopupMenu(JPopupMenu arrowPopupMenu)
+	{
+		this.arrowPopupMenu = arrowPopupMenu;
+	}
+	
 	public void setRibbonTrailingComponent(JComponent ribbonTrailingComponent)
 	{
 		int gap = 54 - ribbonTrailingComponent.getPreferredSize().height;
@@ -487,29 +505,38 @@ public class JRibbonTabbedPane
 	}
 	
 	public JAction getShortcutAction(MouseEvent e)
-	{
-		if (shortcutActionList == null || shortcutActionList.isEmpty())
-		{
-			return null;
-		}
-		
+	{		
 		int x = e.getX();
 		int y = e.getY();
 		
-		for (Iterator iterator = shortcutActionList.iterator(); iterator.hasNext();)
+		if (shortcutActionList != null && !shortcutActionList.isEmpty())
 		{
-			JAction shortcutAction = (JAction) iterator.next();
-			
-			int startX = ((Integer) shortcutAction.getValue("startX")).intValue();
-			int startY = ((Integer) shortcutAction.getValue("startY")).intValue();
-			
-			int endX = ((Integer) shortcutAction.getValue("endX")).intValue();
-			int endY = ((Integer) shortcutAction.getValue("endY")).intValue();
-			
-			if (x >= startX && x <= endX && y >= startY && y <= endY)
+			for (Iterator iterator = shortcutActionList.iterator(); iterator.hasNext();)
 			{
-				return shortcutAction;
+				JAction shortcutAction = (JAction) iterator.next();
+				
+				int startX = ((Integer) shortcutAction.getValue("startX")).intValue();
+				int startY = ((Integer) shortcutAction.getValue("startY")).intValue();
+				
+				int endX = ((Integer) shortcutAction.getValue("endX")).intValue();
+				int endY = ((Integer) shortcutAction.getValue("endY")).intValue();
+				
+				if (x >= startX && x <= endX && y >= startY && y <= endY)
+				{
+					return shortcutAction;
+				}
 			}
+		}
+		
+		int startX = ((Integer) arrowShortcutAction.getValue("startX")).intValue();
+		int startY = ((Integer) arrowShortcutAction.getValue("startY")).intValue();
+		
+		int endX = ((Integer) arrowShortcutAction.getValue("endX")).intValue();
+		int endY = ((Integer) arrowShortcutAction.getValue("endY")).intValue();
+		
+		if (x >= startX && x <= endX && y >= startY && y <= endY)
+		{
+			return arrowShortcutAction;
 		}
 		
 		return null;
@@ -601,46 +628,70 @@ public class JRibbonTabbedPane
 	
 	private void updateShortcutBar(MouseEvent e, JAction shortcutAction, int buttonStyle)
 	{
-		if (shortcutActionList == null || shortcutActionList.isEmpty())
+		if (shortcutActionList != null && !shortcutActionList.isEmpty())
 		{
-			return;
+			for (Iterator iterator = shortcutActionList.iterator(); iterator.hasNext();)
+			{
+				JAction action = (JAction) iterator.next();
+				switch (buttonStyle)
+				{
+					case BUTTON_STYLE_PLAIN :
+					{
+						action.putValue(BUTTON_STYLE, Integer.valueOf(BUTTON_STYLE_PLAIN));
+						break;
+					}
+					case BUTTON_STYLE_HOVER :
+					{
+						if (action == shortcutAction)
+						{
+							action.putValue(BUTTON_STYLE, Integer.valueOf(BUTTON_STYLE_HOVER));
+						}
+						else
+						{
+							action.putValue(BUTTON_STYLE, Integer.valueOf(BUTTON_STYLE_PLAIN));
+						}
+						break;
+					}
+					case BUTTON_STYLE_SELECTED :
+					{
+						if (action == shortcutAction)
+						{
+							action.putValue(BUTTON_STYLE, Integer.valueOf(BUTTON_STYLE_SELECTED));
+						}
+						else
+						{
+							action.putValue(BUTTON_STYLE, Integer.valueOf(BUTTON_STYLE_PLAIN));
+						}
+						break;
+					}
+				}
+			}
 		}
 		
-		for (Iterator iterator = shortcutActionList.iterator(); iterator.hasNext();)
+		if (shortcutAction == arrowShortcutAction)
 		{
-			JAction action = (JAction) iterator.next();
 			switch (buttonStyle)
 			{
 				case BUTTON_STYLE_PLAIN :
 				{
-					action.putValue(BUTTON_STYLE, Integer.valueOf(BUTTON_STYLE_PLAIN));
+					shortcutAction.putValue(BUTTON_STYLE, Integer.valueOf(BUTTON_STYLE_PLAIN));
 					break;
 				}
 				case BUTTON_STYLE_HOVER :
 				{
-					if (action == shortcutAction)
-					{
-						action.putValue(BUTTON_STYLE, Integer.valueOf(BUTTON_STYLE_HOVER));
-					}
-					else
-					{
-						action.putValue(BUTTON_STYLE, Integer.valueOf(BUTTON_STYLE_PLAIN));
-					}
+					shortcutAction.putValue(BUTTON_STYLE, Integer.valueOf(BUTTON_STYLE_HOVER));
 					break;
 				}
 				case BUTTON_STYLE_SELECTED :
 				{
-					if (action == shortcutAction)
-					{
-						action.putValue(BUTTON_STYLE, Integer.valueOf(BUTTON_STYLE_SELECTED));
-					}
-					else
-					{
-						action.putValue(BUTTON_STYLE, Integer.valueOf(BUTTON_STYLE_PLAIN));
-					}
+					shortcutAction.putValue(BUTTON_STYLE, Integer.valueOf(BUTTON_STYLE_SELECTED));
 					break;
 				}
 			}
+		}
+		else
+		{
+			arrowShortcutAction.putValue(BUTTON_STYLE, Integer.valueOf(BUTTON_STYLE_PLAIN));
 		}
 		
 		updateShortcutBar();
@@ -649,7 +700,7 @@ public class JRibbonTabbedPane
 	private void updateShortcutBar()
 	{
 		JAction firstShortcutAction = (JAction) shortcutActionList.get(0);
-		JAction lastShortcutAction = (JAction) shortcutActionList.get(shortcutActionList.size() - 1);
+		JAction lastShortcutAction = arrowShortcutAction;
 		
 		int startX = ((Integer) firstShortcutAction.getValue("startX")).intValue();
 		int startY = ((Integer) firstShortcutAction.getValue("startY")).intValue();
@@ -796,6 +847,36 @@ public class JRibbonTabbedPane
 				shortcutAction.putValue("endY", Integer.valueOf(y + 22));
 			}
 		}
+		
+		Integer buttonStyle = (Integer) arrowShortcutAction.getValue(BUTTON_STYLE);
+		if (buttonStyle != null)
+		{
+			switch (buttonStyle.intValue())
+			{
+				case BUTTON_STYLE_PLAIN :
+				{
+					break;
+				}
+				case BUTTON_STYLE_HOVER :
+				{
+					g2d.drawImage(IconFactory.getSwingIcon("ribbon/button_bg_hover_micro.png").getImage(), x + 12, y, null);
+					break;
+				}
+				case BUTTON_STYLE_SELECTED :
+				{
+					g2d.drawImage(IconFactory.getSwingIcon("ribbon/button_bg_selected_micro.png").getImage(), x + 12, y, null);
+					break;
+				}
+			}
+		}
+		
+		g2d.drawImage(IconFactory.getSwingIcon("ribbon/arrow.png").getImage(), x + 12, y, null);
+		
+		arrowShortcutAction.putValue("startX", Integer.valueOf(x + 12));
+		arrowShortcutAction.putValue("startY", Integer.valueOf(y));
+		
+		arrowShortcutAction.putValue("endX", Integer.valueOf(x + 12 + 13));
+		arrowShortcutAction.putValue("endY", Integer.valueOf(y + 22));
 	}
 	
 	public class CloseRibbonAction
@@ -903,6 +984,26 @@ public class JRibbonTabbedPane
 		public void actionPerformed(ActionEvent e)
 		{
 			toggleFacade(showType, showValue);
+		}
+	}
+	
+	public class ArrowShortcutAction
+		extends JAction
+	{
+		public ArrowShortcutAction()
+		{
+			super("快速访问栏", IconFactory.getSwingIcon("ribbon/arrow.png"), "快速访问栏");
+		}
+		
+		public void actionPerformed(ActionEvent e)
+		{
+			if (arrowPopupMenu != null)
+			{
+				int startX = ((Integer) arrowShortcutAction.getValue("startX")).intValue();
+				int endY = ((Integer) arrowShortcutAction.getValue("endY")).intValue();
+				
+				arrowPopupMenu.show(JRibbonTabbedPane.this, startX, endY);
+			}
 		}
 	}
 	
