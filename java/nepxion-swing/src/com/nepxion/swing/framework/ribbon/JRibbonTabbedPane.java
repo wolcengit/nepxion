@@ -12,6 +12,7 @@ package com.nepxion.swing.framework.ribbon;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.FontMetrics;
@@ -32,14 +33,13 @@ import javax.swing.BorderFactory;
 import javax.swing.ButtonGroup;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
-import javax.swing.JComponent;
-import javax.swing.JPanel;
 import javax.swing.JPopupMenu;
 import javax.swing.SwingUtilities;
 import javax.swing.plaf.UIResource;
 
 import com.nepxion.swing.action.JAction;
 import com.nepxion.swing.container.ContainerManager;
+import com.nepxion.swing.container.JContainer;
 import com.nepxion.swing.framework.ribbon.action.JRibbonAction;
 import com.nepxion.swing.gradient.JGradientPainter;
 import com.nepxion.swing.icon.IconFactory;
@@ -130,14 +130,14 @@ public class JRibbonTabbedPane
 	private JBasicLabel navigatorLabel;
 		
 	/**
-	 * The arrow shortcut action.
+	 * The dropdown shortcut action.
 	 */
-	private ArrowShortcutAction arrowShortcutAction;
+	private DropDownShortcutAction dropDownShortcutAction;
 	
 	/**
-	 * The arrow popup menu.
+	 * The dropdown popup menu.
 	 */
-	private JPopupMenu arrowPopupMenu;
+	private JPopupMenu dropDownPopupMenu;
 	
 	/**
 	 * The toggle text button group.
@@ -150,14 +150,14 @@ public class JRibbonTabbedPane
 	private ButtonGroup toggleIconButtonGroup;
 	
 	/**
-	 * The tab leading component.
+	 * The tab leading flag container.
 	 */
-	private TabComponent tabLeadingComponent;
+	private TabFlagContainer tabLeadingFlagContainer;
 	
 	/**
-	 * The tab trailing component. 
+	 * The tab trailing flag container. 
 	 */
-	private TabComponent tabTrailingComponent;
+	private TabFlagContainer tabTrailingFlagContainer;
 	
 	/**
 	 * The toggle height action.
@@ -231,13 +231,13 @@ public class JRibbonTabbedPane
 		}
 		);
 		
-		tabLeadingComponent = new TabComponent();
-		tabLeadingComponent.setBorder(BorderFactory.createEmptyBorder(5, 2, 10, 2));
-		tabLeadingComponent.add(navigatorLabel, BorderLayout.CENTER);
-		setTabLeadingComponent(tabLeadingComponent);
+		tabLeadingFlagContainer = new TabFlagContainer();
+		tabLeadingFlagContainer.setBorder(BorderFactory.createEmptyBorder(5, 2, 10, 2));
+		tabLeadingFlagContainer.add(navigatorLabel, BorderLayout.CENTER);
+		setTabLeadingComponent(tabLeadingFlagContainer);
 		
-		tabTrailingComponent = new TabComponent();
-		setTabTrailingComponent(tabTrailingComponent);
+		tabTrailingFlagContainer = new TabFlagContainer();
+		setTabTrailingComponent(tabTrailingFlagContainer);
 		
 		toggleHeightAction = new ToggleHeightAction();
 		addShortcutAction(toggleHeightAction);
@@ -245,41 +245,41 @@ public class JRibbonTabbedPane
 		CloseRibbonAction closeRibbonAction = new CloseRibbonAction();
 		addShortcutAction(closeRibbonAction);
 		
-		arrowShortcutAction = new ArrowShortcutAction();
+		dropDownShortcutAction = new DropDownShortcutAction();
 	}
 	
 	private void initPopupMenu()
 	{
-		arrowPopupMenu = new JDecorationPopupMenu();
+		dropDownPopupMenu = new JDecorationPopupMenu();
 		
 		toggleTextButtonGroup = new ButtonGroup();
 		
 		JBasicCheckBoxMenuItem toggleLargTextMenuItem = new JBasicCheckBoxMenuItem(new ToggleFacadeAction(SwingLocale.getString("config_navigatorbar_show_large_text"), IconFactory.getSwingIcon("component/label_16.png"), SwingLocale.getString("config_navigatorbar_show_large_text"), JRibbonAction.TEXT, JRibbonAction.SHOW_LARGE));
-		arrowPopupMenu.add(toggleLargTextMenuItem);
+		dropDownPopupMenu.add(toggleLargTextMenuItem);
 		toggleTextButtonGroup.add(toggleLargTextMenuItem);
 		
 		JBasicCheckBoxMenuItem toggleSmallTextMenuItem = new JBasicCheckBoxMenuItem(new ToggleFacadeAction(SwingLocale.getString("config_navigatorbar_show_small_text"), IconFactory.getSwingIcon("component/label_multi_16.png"), SwingLocale.getString("config_navigatorbar_show_small_text"), JRibbonAction.TEXT, JRibbonAction.SHOW_SMALL));
-		arrowPopupMenu.add(toggleSmallTextMenuItem);
+		dropDownPopupMenu.add(toggleSmallTextMenuItem);
 		toggleTextButtonGroup.add(toggleSmallTextMenuItem);
 		
 		JBasicCheckBoxMenuItem toggleNoTextMenuItem = new JBasicCheckBoxMenuItem(new ToggleFacadeAction(SwingLocale.getString("config_navigatorbar_show_no_text"), IconFactory.getBlankIcon(), SwingLocale.getString("config_navigatorbar_show_no_text"), JRibbonAction.TEXT, JRibbonAction.SHOW_NO));
-		arrowPopupMenu.add(toggleNoTextMenuItem);
+		dropDownPopupMenu.add(toggleNoTextMenuItem);
 		toggleTextButtonGroup.add(toggleNoTextMenuItem);
 		
-		arrowPopupMenu.addSeparator();
+		dropDownPopupMenu.addSeparator();
 		
 		toggleIconButtonGroup = new ButtonGroup();
 		
 		JBasicCheckBoxMenuItem toggleLargIconMenuItem = new JBasicCheckBoxMenuItem(new ToggleFacadeAction(SwingLocale.getString("config_navigatorbar_show_large_icon"), IconFactory.getSwingIcon("rectangle_single.png"), SwingLocale.getString("config_navigatorbar_show_large_icon"), JRibbonAction.ICON, JRibbonAction.SHOW_LARGE));
-		arrowPopupMenu.add(toggleLargIconMenuItem);
+		dropDownPopupMenu.add(toggleLargIconMenuItem);
 		toggleIconButtonGroup.add(toggleLargIconMenuItem);
 		
 		JBasicCheckBoxMenuItem toggleSmallIconMenuItem = new JBasicCheckBoxMenuItem(new ToggleFacadeAction(SwingLocale.getString("config_navigatorbar_show_small_icon"), IconFactory.getSwingIcon("rectangle_multi.png"), SwingLocale.getString("config_navigatorbar_show_small_icon"), JRibbonAction.ICON, JRibbonAction.SHOW_SMALL));
-		arrowPopupMenu.add(toggleSmallIconMenuItem);
+		dropDownPopupMenu.add(toggleSmallIconMenuItem);
 		toggleIconButtonGroup.add(toggleSmallIconMenuItem);
 		
 		JBasicCheckBoxMenuItem toggleNoIconMenuItem = new JBasicCheckBoxMenuItem(new ToggleFacadeAction(SwingLocale.getString("config_navigatorbar_show_no_icon"), IconFactory.getBlankIcon(), SwingLocale.getString("config_navigatorbar_show_no_icon"), JRibbonAction.ICON, JRibbonAction.SHOW_NO));
-		arrowPopupMenu.add(toggleNoIconMenuItem);
+		dropDownPopupMenu.add(toggleNoIconMenuItem);
 		toggleIconButtonGroup.add(toggleNoIconMenuItem);
 	}
 	
@@ -426,21 +426,26 @@ public class JRibbonTabbedPane
 		this.navigatorPopupMenu = navigatorPopupMenu;
 	}
 	
-	public JPopupMenu getArrowPopupMenu()
+	public JPopupMenu getDropDownPopupMenu()
 	{
-		return arrowPopupMenu;
+		return dropDownPopupMenu;
 	}
 	
-	public void setArrowPopupMenu(JPopupMenu arrowPopupMenu)
+	public void setDropDownPopupMenu(JPopupMenu dropDownPopupMenu)
 	{
-		this.arrowPopupMenu = arrowPopupMenu;
+		this.dropDownPopupMenu = dropDownPopupMenu;
 	}
 	
-	public void setRibbonTrailingComponent(JComponent ribbonTrailingComponent)
+	public Component getTrailingFlagComponent()
 	{
-		int gap = 54 - ribbonTrailingComponent.getPreferredSize().height;
-		tabTrailingComponent.setBorder(BorderFactory.createEmptyBorder(gap / 2, 0, gap / 2, 0));
-		tabTrailingComponent.add(ribbonTrailingComponent, BorderLayout.CENTER);
+		return tabTrailingFlagContainer.getComponent(0);
+	}
+	
+	public void setTrailingFlagComponent(Component trailingFlagComponent)
+	{
+		int gap = 54 - trailingFlagComponent.getPreferredSize().height;
+		tabTrailingFlagContainer.setBorder(BorderFactory.createEmptyBorder(gap / 2, 0, gap / 2, 0));
+		tabTrailingFlagContainer.addComponent(trailingFlagComponent, BorderLayout.CENTER);
 	}
 	
 	public List getShortcutActionList()
@@ -528,15 +533,15 @@ public class JRibbonTabbedPane
 			}
 		}
 		
-		int startX = ((Integer) arrowShortcutAction.getValue("startX")).intValue();
-		int startY = ((Integer) arrowShortcutAction.getValue("startY")).intValue();
+		int startX = ((Integer) dropDownShortcutAction.getValue("startX")).intValue();
+		int startY = ((Integer) dropDownShortcutAction.getValue("startY")).intValue();
 		
-		int endX = ((Integer) arrowShortcutAction.getValue("endX")).intValue();
-		int endY = ((Integer) arrowShortcutAction.getValue("endY")).intValue();
+		int endX = ((Integer) dropDownShortcutAction.getValue("endX")).intValue();
+		int endY = ((Integer) dropDownShortcutAction.getValue("endY")).intValue();
 		
 		if (x >= startX && x <= endX && y >= startY && y <= endY)
 		{
-			return arrowShortcutAction;
+			return dropDownShortcutAction;
 		}
 		
 		return null;
@@ -668,7 +673,7 @@ public class JRibbonTabbedPane
 			}
 		}
 		
-		if (shortcutAction == arrowShortcutAction)
+		if (shortcutAction == dropDownShortcutAction)
 		{
 			switch (buttonStyle)
 			{
@@ -691,7 +696,7 @@ public class JRibbonTabbedPane
 		}
 		else
 		{
-			arrowShortcutAction.putValue(BUTTON_STYLE, Integer.valueOf(BUTTON_STYLE_PLAIN));
+			dropDownShortcutAction.putValue(BUTTON_STYLE, Integer.valueOf(BUTTON_STYLE_PLAIN));
 		}
 		
 		updateShortcutBar();
@@ -700,7 +705,7 @@ public class JRibbonTabbedPane
 	private void updateShortcutBar()
 	{
 		JAction firstShortcutAction = (JAction) shortcutActionList.get(0);
-		JAction lastShortcutAction = arrowShortcutAction;
+		JAction lastShortcutAction = dropDownShortcutAction;
 		
 		int startX = ((Integer) firstShortcutAction.getValue("startX")).intValue();
 		int startY = ((Integer) firstShortcutAction.getValue("startY")).intValue();
@@ -848,7 +853,7 @@ public class JRibbonTabbedPane
 			}
 		}
 		
-		Integer buttonStyle = (Integer) arrowShortcutAction.getValue(BUTTON_STYLE);
+		Integer buttonStyle = (Integer) dropDownShortcutAction.getValue(BUTTON_STYLE);
 		if (buttonStyle != null)
 		{
 			switch (buttonStyle.intValue())
@@ -872,11 +877,11 @@ public class JRibbonTabbedPane
 		
 		g2d.drawImage(IconFactory.getSwingIcon("ribbon/arrow.png").getImage(), x + 12, y, null);
 		
-		arrowShortcutAction.putValue("startX", Integer.valueOf(x + 12));
-		arrowShortcutAction.putValue("startY", Integer.valueOf(y));
+		dropDownShortcutAction.putValue("startX", Integer.valueOf(x + 12));
+		dropDownShortcutAction.putValue("startY", Integer.valueOf(y));
 		
-		arrowShortcutAction.putValue("endX", Integer.valueOf(x + 12 + 13));
-		arrowShortcutAction.putValue("endY", Integer.valueOf(y + 22));
+		dropDownShortcutAction.putValue("endX", Integer.valueOf(x + 12 + 13));
+		dropDownShortcutAction.putValue("endY", Integer.valueOf(y + 22));
 	}
 	
 	public class CloseRibbonAction
@@ -987,30 +992,30 @@ public class JRibbonTabbedPane
 		}
 	}
 	
-	public class ArrowShortcutAction
+	public class DropDownShortcutAction
 		extends JAction
 	{
-		public ArrowShortcutAction()
+		public DropDownShortcutAction()
 		{
 			super("快速访问栏", IconFactory.getSwingIcon("ribbon/arrow.png"), "快速访问栏");
 		}
 		
 		public void actionPerformed(ActionEvent e)
 		{
-			if (arrowPopupMenu != null)
+			if (dropDownPopupMenu != null)
 			{
-				int startX = ((Integer) arrowShortcutAction.getValue("startX")).intValue();
-				int endY = ((Integer) arrowShortcutAction.getValue("endY")).intValue();
+				int startX = ((Integer) dropDownShortcutAction.getValue("startX")).intValue();
+				int endY = ((Integer) dropDownShortcutAction.getValue("endY")).intValue();
 				
-				arrowPopupMenu.show(JRibbonTabbedPane.this, startX, endY);
+				dropDownPopupMenu.show(JRibbonTabbedPane.this, startX, endY);
 			}
 		}
 	}
 	
-	public class TabComponent
-		extends JPanel implements UIResource
+	public class TabFlagContainer
+		extends JContainer implements UIResource
 	{
-		public TabComponent()
+		public TabFlagContainer()
 		{
 			setLayout(new BorderLayout());
 			setOpaque(false);
