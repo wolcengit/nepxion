@@ -32,6 +32,7 @@ import javax.swing.BorderFactory;
 import javax.swing.ButtonGroup;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.JComponent;
 import javax.swing.JPanel;
 import javax.swing.JPopupMenu;
 import javax.swing.SwingUtilities;
@@ -129,6 +130,31 @@ public class JRibbonTabbedPane
 	 * The navigator label.
 	 */
 	private JBasicLabel navigatorLabel;
+		
+	/**
+	 * The ribbon hierarchy.
+	 */
+	private JRibbonHierarchy ribbonHierarchy;
+	
+	/**
+	 * The toggle text button group.
+	 */
+	private ButtonGroup toggleTextButtonGroup;
+	
+	/**
+	 * The toggle icon button group.
+	 */
+	private ButtonGroup toggleIconButtonGroup;
+	
+	/**
+	 * The tab leading component.
+	 */
+	private TabComponent tabLeadingComponent;
+	
+	/**
+	 * The tab trailing component. 
+	 */
+	private TabComponent tabTrailingComponent;
 	
 	/**
 	 * The shortcut action list.
@@ -139,15 +165,6 @@ public class JRibbonTabbedPane
 	 * The boolean value of isMinimum.
 	 */
 	private boolean isMinimum = false;
-	
-	/**
-	 * The ribbon hierarchy.
-	 */
-	private JRibbonHierarchy ribbonHierarchy;
-	
-	private ButtonGroup toggleTextButtonGroup;
-	
-	private ButtonGroup toggleIconButtonGroup;
 	
 	/**
 	 * 
@@ -201,9 +218,13 @@ public class JRibbonTabbedPane
 		}
 		);
 		
-		NavigatorPanel navigatorPanel = new NavigatorPanel();
-		navigatorPanel.add(navigatorLabel, BorderLayout.CENTER);
-		setTabLeadingComponent(navigatorPanel);
+		tabLeadingComponent = new TabComponent();
+		tabLeadingComponent.setBorder(BorderFactory.createEmptyBorder(5, 2, 10, 2));
+		tabLeadingComponent.add(navigatorLabel, BorderLayout.CENTER);
+		setTabLeadingComponent(tabLeadingComponent);
+		
+		tabTrailingComponent = new TabComponent();
+		setTabTrailingComponent(tabTrailingComponent);
 	}
 
 	private void initPopupMenu()
@@ -388,6 +409,13 @@ public class JRibbonTabbedPane
 	public void setNavigatorPopupMenu(JPopupMenu navigatorPopupMenu)
 	{
 		this.navigatorPopupMenu = navigatorPopupMenu;
+	}
+	
+	public void setRibbonTrailingComponent(JComponent ribbonTrailingComponent)
+	{		
+		int gap = 54 - ribbonTrailingComponent.getPreferredSize().height; 
+		tabTrailingComponent.setBorder(BorderFactory.createEmptyBorder(gap / 2, 0, gap / 2, 0));
+		tabTrailingComponent.add(ribbonTrailingComponent, BorderLayout.CENTER);
 	}
 		
 	public List getShortcutActionList()
@@ -836,12 +864,11 @@ public class JRibbonTabbedPane
 		}
 	}	
 	
-	public class NavigatorPanel
+	public class TabComponent
 		extends JPanel implements UIResource
 	{
-		public NavigatorPanel()
+		public TabComponent()
 		{
-			setBorder(BorderFactory.createEmptyBorder(5, 2, 10, 2));
 			setLayout(new BorderLayout());
 			setOpaque(false);
 		}
