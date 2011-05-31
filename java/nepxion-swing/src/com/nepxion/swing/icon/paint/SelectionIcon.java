@@ -19,11 +19,11 @@ import javax.swing.Icon;
 public class SelectionIcon
 	implements Icon
 {
-	private boolean isSelected;
+	private boolean selected;
 	
-	public SelectionIcon(boolean isSelected)
+	public SelectionIcon(boolean selected)
 	{
-		this.isSelected = isSelected;
+		this.selected = selected;
 	}
 	
 	public int getIconWidth()
@@ -38,7 +38,7 @@ public class SelectionIcon
 	
 	public void paintIcon(Component c, Graphics g, int x, int y)
 	{
-		if (!isSelected)
+		if (!selected)
 		{
 			return;
 		}
