@@ -509,7 +509,7 @@ public class JRibbonTabbedPane
 		repaint();
 	}
 	
-	public JAction getShortcutAction(MouseEvent e)
+	private JAction getShortcutAction(MouseEvent e)
 	{		
 		int x = e.getX();
 		int y = e.getY();
@@ -566,7 +566,7 @@ public class JRibbonTabbedPane
 	 * Toggles the height for the navigator bar.
 	 * It will show or hide the tabbed pane content.
 	 */
-	public void toggleHeight()
+	private void toggleHeight()
 	{
 		int tabHeight = TabbedPaneManager.getTabHeight(this);
 		int contentHeight = TabbedPaneManager.getMaxPreferredContentHeight(this);
@@ -593,7 +593,7 @@ public class JRibbonTabbedPane
 	 * @param showType the show type
 	 * @param showValue the show value
 	 */
-	public void toggleFacade(String showType, int showValue)
+	private void toggleFacade(String showType, int showValue)
 	{
 		for (int i = 0; i < getTabCount(); i++)
 		{
