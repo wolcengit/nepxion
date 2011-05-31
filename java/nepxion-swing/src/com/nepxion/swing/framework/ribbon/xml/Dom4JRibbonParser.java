@@ -39,7 +39,6 @@ import com.nepxion.swing.button.JClassicMenuButton;
 import com.nepxion.swing.framework.ribbon.JRibbon;
 import com.nepxion.swing.framework.ribbon.JRibbonBar;
 import com.nepxion.swing.framework.ribbon.JRibbonContainer;
-import com.nepxion.swing.framework.ribbon.JRibbonNavigatorBar;
 import com.nepxion.swing.framework.ribbon.RibbonManager;
 import com.nepxion.swing.framework.ribbon.action.JRibbonAction;
 import com.nepxion.swing.icon.IconFactory;
@@ -87,10 +86,10 @@ public class Dom4JRibbonParser
 	 * @param ribbonContainer the instance of JRibbonContainer
 	 * @param ribbonNavigatorBar the instance of JRibbonNavigatorBar
 	 */
-	public Dom4JRibbonParser(JRibbonContainer ribbonContainer, JRibbonNavigatorBar ribbonNavigatorBar)
+	public Dom4JRibbonParser(JRibbonContainer ribbonContainer, ITabbedPane tabbedPane)
 	{
 		this.ribbonContainer = ribbonContainer;
-		this.tabbedPane = ribbonNavigatorBar.getTabbedPane();
+		this.tabbedPane = tabbedPane;
 	}
 	
 	/**

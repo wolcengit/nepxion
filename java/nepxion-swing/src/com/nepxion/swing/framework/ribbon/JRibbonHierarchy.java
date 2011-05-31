@@ -52,21 +52,14 @@ public class JRibbonHierarchy
 		
 		container = new JRibbonContainer();
 		
-		setLayout(new BorderLayout());
-		add(navigatorContainer, BorderLayout.NORTH);
-		add(container, BorderLayout.CENTER);
-	}
-	
-	/**
-	 * Shows the status bar.
-	 */
-	public void showStatusBar()
-	{
-		statusBar = new JRibbonStatusBar(this);
+		statusBar = new JFrameWorkStatusBar();
 		statusBarContainer = new JPanel();
 		statusBarContainer.setLayout(new BorderLayout());
 		statusBarContainer.add(statusBar, BorderLayout.NORTH);
 		
+		setLayout(new BorderLayout());
+		add(navigatorContainer, BorderLayout.NORTH);
+		add(container, BorderLayout.CENTER);
 		add(statusBarContainer, BorderLayout.SOUTH);
 	}
 	

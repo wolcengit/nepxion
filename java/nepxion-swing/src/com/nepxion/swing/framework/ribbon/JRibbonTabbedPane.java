@@ -12,12 +12,15 @@ package com.nepxion.swing.framework.ribbon;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.FontMetrics;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.awt.RenderingHints;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
@@ -29,14 +32,22 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 import javax.swing.JPopupMenu;
+import javax.swing.SwingUtilities;
 import javax.swing.plaf.UIResource;
 
 import com.nepxion.swing.action.JAction;
+import com.nepxion.swing.container.ContainerManager;
+import com.nepxion.swing.framework.ribbon.action.JRibbonAction;
 import com.nepxion.swing.gradient.JGradientPainter;
 import com.nepxion.swing.icon.IconFactory;
-import com.nepxion.swing.icon.paint.CombinatedIcon;
+import com.nepxion.swing.icon.paint.CombinationIcon;
 import com.nepxion.swing.label.JBasicLabel;
+import com.nepxion.swing.locale.SwingLocale;
+import com.nepxion.swing.menu.JBasicMenu;
+import com.nepxion.swing.menuitem.JBasicMenuItem;
+import com.nepxion.swing.popupmenu.JDecorationPopupMenu;
 import com.nepxion.swing.tabbedpane.JEclipseTabbedPane;
+import com.nepxion.swing.tabbedpane.TabbedPaneManager;
 
 public class JRibbonTabbedPane
 	extends JEclipseTabbedPane
@@ -60,27 +71,7 @@ public class JRibbonTabbedPane
 	 * The button style string.
 	 */
 	public static final String BUTTON_STYLE = "buttonStyle";
-	
-	/**
-	 * The navigator icon.
-	 */
-	private Icon navigatorIcon = IconFactory.getSwingIcon("ribbon/navigator.png");
-	
-	/**
-	 * The navigator background icon.
-	 */
-	private CombinatedIcon navigatorBackgroundIcon = new CombinatedIcon(navigatorIcon, IconFactory.getSwingIcon("ribbon/navigator_bg.png"));
-	
-	/**
-	 * The navigator background hover icon.
-	 */
-	private CombinatedIcon navigatorBackgroundHoverIcon = new CombinatedIcon(navigatorIcon, IconFactory.getSwingIcon("ribbon/navigator_bg_hover.png"));
-
-	/**
-	 * The navigator background selected icon.
-	 */
-	private CombinatedIcon navigatorBackgroundSelectedIcon = new CombinatedIcon(navigatorIcon, IconFactory.getSwingIcon("ribbon/navigator_bg_selected.png"));
-
+		
 	/**
 	 * The title string.
 	 */
@@ -97,20 +88,203 @@ public class JRibbonTabbedPane
 	private Color titleColor = Color.black;
 	
 	/**
-	 * The popup menu of navigator.
+	 * The navigator icon.
 	 */
-	private JPopupMenu popupMenu;
+	private Icon navigatorIcon = IconFactory.getSwingIcon("ribbon/navigator.png");
+		
+	/**
+	 * The navigator background icon.
+	 */
+	private Icon navigatorBackgroundIcon = IconFactory.getSwingIcon("ribbon/navigator_bg.png");
 	
 	/**
-	 * The action list of tool bar.
+	 * The navigator background hover icon.
 	 */
-	private List actionList = new ArrayList();
+	private Icon navigatorBackgroundHoverIcon = IconFactory.getSwingIcon("ribbon/navigator_bg_hover.png");
+
+	/**
+	 * The navigator background selected icon.
+	 */
+	private Icon navigatorBackgroundSelectedIcon = IconFactory.getSwingIcon("ribbon/navigator_bg_selected.png");
 	
-	public JRibbonTabbedPane()
+	/**
+	 * The navigator combination icon.
+	 */
+	private CombinationIcon navigatorCombinationIcon = new CombinationIcon(navigatorIcon, navigatorBackgroundIcon);
+	
+	/**
+	 * The navigator tooltip text string.
+	 */
+	private String navigatorToolTipText = "";
+	
+	/**
+	 * The navigator popup menu.
+	 */
+	private JPopupMenu navigatorPopupMenu;
+	
+	/**
+	 * The navigator label.
+	 */
+	private JBasicLabel navigatorLabel;
+	
+	/**
+	 * The shortcut action list.
+	 */
+	private List shortcutActionList = new ArrayList();
+	
+	/**
+	 * The boolean value of isMinimum.
+	 */
+	private boolean isMinimum = false;
+	
+	/**
+	 * The ribbon hierarchy.
+	 */
+	private JRibbonHierarchy ribbonHierarchy;
+	
+	/**
+	 * 
+	 * @param ribbonHierarchy
+	 */
+	public JRibbonTabbedPane(JRibbonHierarchy ribbonHierarchy)
 	{		
-		initStyle();
+		this.ribbonHierarchy = ribbonHierarchy;
+		
 		initNavigator();
-		initToolBar();
+		initPopupMenu();
+		initListener();
+		initStyle();
+		
+		ribbonHierarchy.getNavigatorContainer().add(this);
+	}
+
+	private void initNavigator()
+	{		
+		navigatorLabel = new JBasicLabel(navigatorCombinationIcon, navigatorToolTipText);
+		navigatorLabel.addMouseListener(new MouseAdapter()
+		{
+			public void mouseEntered(MouseEvent e)
+			{
+				CombinationIcon combinationIcon = (CombinationIcon) navigatorLabel.getIcon();
+				combinationIcon.setLargeIcon(navigatorBackgroundHoverIcon);
+				
+				navigatorLabel.repaint();
+			}
+			
+			public void mousePressed(MouseEvent e)
+			{
+				CombinationIcon combinationIcon = (CombinationIcon) navigatorLabel.getIcon();
+				combinationIcon.setLargeIcon(navigatorBackgroundSelectedIcon);
+				
+				navigatorLabel.repaint();
+				
+				if (navigatorPopupMenu != null)
+				{	
+					navigatorPopupMenu.show(navigatorLabel, 0, navigatorLabel.getHeight());
+				}
+			}
+			
+			public void mouseExited(MouseEvent e)
+			{
+				CombinationIcon combinationIcon = (CombinationIcon) navigatorLabel.getIcon();
+				combinationIcon.setLargeIcon(navigatorBackgroundIcon);
+				
+				navigatorLabel.repaint();
+			}
+		}
+		);
+		
+		NavigatorPanel navigatorPanel = new NavigatorPanel();
+		navigatorPanel.add(navigatorLabel, BorderLayout.CENTER);
+		setTabLeadingComponent(navigatorPanel);
+	}
+	
+	private void initPopupMenu()
+	{
+		navigatorPopupMenu = new JDecorationPopupMenu();
+		
+		JBasicMenu navigatorBarFacadeConfigMenu = new JBasicMenu(SwingLocale.getString("config_navigatorbar_facade"), IconFactory.getSwingIcon("facade.png"), SwingLocale.getString("config_navigatorbar_facade"));
+		navigatorBarFacadeConfigMenu.add(new JBasicMenuItem(new ToggleFacadeAction(SwingLocale.getString("config_navigatorbar_show_large_text"), IconFactory.getSwingIcon("label.png"), SwingLocale.getString("config_navigatorbar_show_large_text"), JRibbonAction.TEXT, JRibbonAction.SHOW_LARGE)));
+		navigatorBarFacadeConfigMenu.add(new JBasicMenuItem(new ToggleFacadeAction(SwingLocale.getString("config_navigatorbar_show_small_text"), IconFactory.getSwingIcon("label.png"), SwingLocale.getString("config_navigatorbar_show_small_text"), JRibbonAction.TEXT, JRibbonAction.SHOW_SMALL)));
+		navigatorBarFacadeConfigMenu.add(new JBasicMenuItem(new ToggleFacadeAction(SwingLocale.getString("config_navigatorbar_show_no_text"), IconFactory.getBlankIcon(), SwingLocale.getString("config_navigatorbar_show_no_text"), JRibbonAction.TEXT, JRibbonAction.SHOW_NO)));
+		navigatorBarFacadeConfigMenu.addSeparator();
+		navigatorBarFacadeConfigMenu.add(new JBasicMenuItem(new ToggleFacadeAction(SwingLocale.getString("config_navigatorbar_show_large_icon"), IconFactory.getSwingIcon("rectangle_single.png"), SwingLocale.getString("config_navigatorbar_show_large_icon"), JRibbonAction.ICON, JRibbonAction.SHOW_LARGE)));
+		navigatorBarFacadeConfigMenu.add(new JBasicMenuItem(new ToggleFacadeAction(SwingLocale.getString("config_navigatorbar_show_small_icon"), IconFactory.getSwingIcon("rectangle_multi.png"), SwingLocale.getString("config_navigatorbar_show_small_icon"), JRibbonAction.ICON, JRibbonAction.SHOW_SMALL)));
+		navigatorBarFacadeConfigMenu.add(new JBasicMenuItem(new ToggleFacadeAction(SwingLocale.getString("config_navigatorbar_show_no_icon"), IconFactory.getBlankIcon(), SwingLocale.getString("config_navigatorbar_show_no_icon"), JRibbonAction.ICON, JRibbonAction.SHOW_NO)));
+		
+		navigatorPopupMenu.add(navigatorBarFacadeConfigMenu);
+		
+		JBasicMenuItem toggleHeightMenuItem = new JBasicMenuItem(SwingLocale.getString("toggle_navigatorbar_visibility"), IconFactory.getSwingIcon("toggle_size.png"), SwingLocale.getString("toggle_navigatorbar_visibility"));
+		toggleHeightMenuItem.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent e)
+			{
+				toggleHeight();
+			}
+		}
+		);
+		navigatorPopupMenu.add(toggleHeightMenuItem);
+	}
+	
+	private void initListener()
+	{
+		addMouseListener(new MouseAdapter()
+		{			
+			public void mousePressed(MouseEvent e)
+			{			
+				JAction shortcutAction = getShortcutAction(e);
+				
+				paintShortcutBar(e, shortcutAction, BUTTON_STYLE_SELECTED);
+				
+				if (shortcutAction != null)
+				{
+					shortcutAction.actionPerformed(null);
+				}
+			}
+			
+			public void mouseReleased(MouseEvent e)
+			{
+				JAction shortcutAction = getShortcutAction(e);
+				
+				paintShortcutBar(e, shortcutAction, BUTTON_STYLE_HOVER);
+			}
+			
+			public void mouseExited(MouseEvent e)
+			{							
+				paintShortcutBar(e, null, BUTTON_STYLE_PLAIN);
+			}
+			
+			public void mouseClicked(MouseEvent e)
+			{
+				int index = indexAtLocation(e.getX(), e.getY());
+				if (index < 0)
+				{
+					return;
+				}
+				
+				if (SwingUtilities.isLeftMouseButton(e) && e.getClickCount() > 1)
+				{
+					toggleHeight();
+				}
+			}
+		}
+		);
+		addMouseMotionListener(new MouseAdapter()
+		{
+			public void mouseMoved(MouseEvent e)
+			{
+				JAction shortcutAction = getShortcutAction(e);
+				if (shortcutAction != null)
+				{
+					paintShortcutBar(e, shortcutAction, BUTTON_STYLE_HOVER);
+				}
+				else
+				{
+					paintShortcutBar(e, null, BUTTON_STYLE_PLAIN);
+				}
+			}
+		}
+		);
 	}
 	
 	private void initStyle()
@@ -122,170 +296,6 @@ public class JRibbonTabbedPane
 		setTabSelectionForeground(Color.black);
 	}
 	
-	private void initNavigator()
-	{		
-		final JBasicLabel navigatorLabel = new JBasicLabel(navigatorBackgroundIcon, "Nepxion Studio");
-		navigatorLabel.addMouseListener(new MouseAdapter()
-		{
-			public void mouseEntered(MouseEvent e)
-			{
-				navigatorLabel.setIcon(navigatorBackgroundHoverIcon);
-			}
-			
-			public void mousePressed(MouseEvent e)
-			{
-				navigatorLabel.setIcon(navigatorBackgroundSelectedIcon);
-				
-				if (popupMenu != null)
-				{	
-					popupMenu.show(navigatorLabel, 0, navigatorLabel.getHeight());
-				}
-			}
-			
-			public void mouseExited(MouseEvent e)
-			{
-				navigatorLabel.setIcon(navigatorBackgroundIcon);
-			}
-		}
-		);
-		
-		NavigatorPanel navigatorPanel = new NavigatorPanel();
-		navigatorPanel.add(navigatorLabel, BorderLayout.CENTER);
-		setTabLeadingComponent(navigatorPanel);
-	}
-	
-	private void initToolBar()
-	{
-		addMouseListener(new MouseAdapter()
-		{			
-			public void mousePressed(MouseEvent e)
-			{			
-				JAction action = getAction(e);
-				
-				paintToolBar(e, action, BUTTON_STYLE_SELECTED);
-				
-				if (action != null)
-				{
-					action.actionPerformed(null);
-				}
-			}
-			
-			public void mouseReleased(MouseEvent e)
-			{
-				JAction action = getAction(e);
-				
-				paintToolBar(e, action, BUTTON_STYLE_HOVER);
-			}
-			
-			public void mouseExited(MouseEvent e)
-			{							
-				paintToolBar(e, null, BUTTON_STYLE_PLAIN);
-			}
-		}
-		);
-		addMouseMotionListener(new MouseAdapter()
-		{
-			public void mouseMoved(MouseEvent e)
-			{
-				JAction action = getAction(e);
-				if (action != null)
-				{
-					paintToolBar(e, action, BUTTON_STYLE_HOVER);
-				}
-				else
-				{
-					paintToolBar(e, null, BUTTON_STYLE_PLAIN);
-				}
-			}
-		}
-		);
-	}
-	
-	private JAction getAction(MouseEvent e)
-	{
-		if (actionList == null || actionList.isEmpty())
-		{
-			return null;
-		}
-		
-		int x = e.getX();
-		int y = e.getY();
-		
-		for (Iterator iterator = actionList.iterator(); iterator.hasNext();)
-		{
-			JAction action = (JAction) iterator.next();
-			
-			int startX = ((Integer) action.getValue("startX")).intValue();
-			int startY = ((Integer) action.getValue("startY")).intValue();
-			
-			int endX = ((Integer) action.getValue("endX")).intValue();
-			int endY = ((Integer) action.getValue("endY")).intValue();
-			
-			if (x >= startX && x <= endX && y >= startY && y <= endY)
-			{
-				return action;
-			}	
-		}	
-		
-		return null;
-	}
-		
-	private void paintToolBar(MouseEvent e, JAction action, int buttonStyle)
-	{
-		if (actionList == null || actionList.isEmpty())
-		{
-			return;
-		}
-				
-		for (Iterator iterator = actionList.iterator(); iterator.hasNext();)
-		{
-			JAction a = (JAction) iterator.next();
-			switch (buttonStyle)
-			{
-				case BUTTON_STYLE_PLAIN :
-				{
-					a.putValue(BUTTON_STYLE, Integer.valueOf(BUTTON_STYLE_PLAIN));
-					break;
-				}
-				case BUTTON_STYLE_HOVER :
-				{
-					if (a == action)
-					{	
-						a.putValue(BUTTON_STYLE, Integer.valueOf(BUTTON_STYLE_HOVER));
-					}
-					else
-					{
-						a.putValue(BUTTON_STYLE, Integer.valueOf(BUTTON_STYLE_PLAIN));
-					}
-					break;
-				}	
-				case BUTTON_STYLE_SELECTED :
-				{
-					if (a == action)
-					{	
-						a.putValue(BUTTON_STYLE, Integer.valueOf(BUTTON_STYLE_SELECTED));
-					}
-					else
-					{
-						a.putValue(BUTTON_STYLE, Integer.valueOf(BUTTON_STYLE_PLAIN));
-					}
-					break;
-				}
-			}
-		}
-		
-		JAction firstAction = (JAction) actionList.get(0);
-		JAction lastAction = (JAction) actionList.get(actionList.size() - 1);
-		
-		int startX  = ((Integer) firstAction.getValue("startX")).intValue();
-		int startY = ((Integer) firstAction.getValue("startY")).intValue();
-		
-		int endX = ((Integer) lastAction.getValue("endX")).intValue();
-		int endY = ((Integer) lastAction.getValue("endY")).intValue();
-		
-		paintImmediately(startX, startY, endX - startX, endY - startY);
-	}
-
 	public String getTitle()
 	{
 		return title;
@@ -321,79 +331,246 @@ public class JRibbonTabbedPane
 		
 		repaint();
 	}
-	
-	public JPopupMenu getPopupMenu()
+		
+	public Icon getNavigatorIcon()
 	{
-		return popupMenu;
+		return navigatorIcon;
 	}
 	
-	public void setPopupMenu(JPopupMenu popupMenu)
+	public void setNavigatorIcon(Icon navigatorIcon)
 	{
-		this.popupMenu = popupMenu;
+		this.navigatorIcon = navigatorIcon;
+
+		CombinationIcon combinationIcon = (CombinationIcon) navigatorLabel.getIcon();
+		combinationIcon.setSmallIcon(navigatorIcon);
+		
+		navigatorLabel.repaint();
 	}
 	
-	public List getActionList()
+	public String getNavigatorToolTipText()
 	{
-		return actionList;
+		return navigatorToolTipText;
 	}
 	
-	public void setActionList(List actionList)
+	public void setNavigatorToolTipText(String navigatorToolTipText)
 	{
-		this.actionList = actionList;
+		this.navigatorToolTipText = navigatorToolTipText;
+		
+		navigatorLabel.setToolTipText(navigatorToolTipText);
+	}
+	
+	public JPopupMenu getNavigatorPopupMenu()
+	{
+		return navigatorPopupMenu;
+	}
+	
+	public void setNavigatorPopupMenu(JPopupMenu navigatorPopupMenu)
+	{
+		this.navigatorPopupMenu = navigatorPopupMenu;
+	}
+		
+	public List getShortcutActionList()
+	{
+		return shortcutActionList;
+	}
+	
+	public void setShortcutActionList(List shortcutActionList)
+	{
+		this.shortcutActionList = shortcutActionList;
 		
 		repaint();
 	}
 	
-	public void addAction(JAction action)
+	public void addShortcutAction(JAction shortcutAction)
 	{
-		actionList.add(action);
+		shortcutActionList.add(shortcutAction);
 		
 		repaint();
 	}
 	
-	public void addAction(int index, JAction action)
+	public void addShortcutAction(int index, JAction shortcutAction)
 	{
-		actionList.add(index, action);
+		shortcutActionList.add(index, shortcutAction);
 		
 		repaint();
 	}
 	
-	public void addActions(List actions)
+	public void addShortcutActions(List shortcutActions)
 	{
-		actionList.addAll(actions);
+		shortcutActionList.addAll(shortcutActions);
 		
 		repaint();
 	}
 	
-	public void addActions(int index, List actions)
+	public void addShortcutActions(int index, List shortcutActions)
 	{
-		actionList.addAll(index, actions);
+		shortcutActionList.addAll(index, shortcutActions);
 		
 		repaint();
 	}
 	
-	public void removeAction(JAction action)
+	public void removeShortcutAction(JAction shortcutAction)
 	{
-		actionList.remove(action);
+		shortcutActionList.remove(shortcutAction);
 		
 		repaint();
 	}
 	
-	public void removeAction(int index)
+	public void removeShortcutAction(int index)
 	{
-		actionList.remove(index);
+		shortcutActionList.remove(index);
 		
 		repaint();
 	}
 	
-	public void removeActions(List actions)
+	public void removeShortcutActions(List shortcutActions)
 	{
-		actionList.removeAll(actions);
+		shortcutActionList.removeAll(shortcutActions);
 		
 		repaint();
 	}
 	
+	public JAction getShortcutAction(MouseEvent e)
+	{
+		if (shortcutActionList == null || shortcutActionList.isEmpty())
+		{
+			return null;
+		}
+		
+		int x = e.getX();
+		int y = e.getY();
+		
+		for (Iterator iterator = shortcutActionList.iterator(); iterator.hasNext();)
+		{
+			JAction shortcutAction = (JAction) iterator.next();
+			
+			int startX = ((Integer) shortcutAction.getValue("startX")).intValue();
+			int startY = ((Integer) shortcutAction.getValue("startY")).intValue();
+			
+			int endX = ((Integer) shortcutAction.getValue("endX")).intValue();
+			int endY = ((Integer) shortcutAction.getValue("endY")).intValue();
+			
+			if (x >= startX && x <= endX && y >= startY && y <= endY)
+			{
+				return shortcutAction;
+			}	
+		}	
+		
+		return null;
+	}
 	
+	public JRibbonHierarchy getRibbonHierarchy()
+	{
+		return ribbonHierarchy;
+	}
+
+	public void setRibbonHierarchy(JRibbonHierarchy ribbonHierarchy)
+	{
+		this.ribbonHierarchy = ribbonHierarchy;
+	}
+	
+	public JRibbonContainer getRibbonContainer()
+	{
+		return ribbonHierarchy.getRibbonContainer();
+	}
+	
+	/**
+	 * Toggles the height for the navigator bar.
+	 * It will show or hide the tabbed pane content.
+	 */
+	public void toggleHeight()
+	{				
+		int tabHeight = TabbedPaneManager.getTabHeight(this);
+		int contentHeight = TabbedPaneManager.getMaxPreferredContentHeight(this);
+		
+		if (isMinimum)
+		{
+			setPreferredSize(new Dimension(getSize().width, tabHeight + contentHeight));
+		}
+		else
+		{
+			setPreferredSize(new Dimension(getSize().width, tabHeight));
+		}
+		
+		ContainerManager.update(this);
+		
+		isMinimum = !isMinimum;
+	}
+	
+	/**
+	 * Toggles the facade by a show type and show value.
+	 * The show type values are "text" and "icon".
+	 * The show value values are SHOW_SMALL, SHOW_LARGE and SHOW_NO. (See JAction definition).
+	 * For example, if the showType is "icon" and the showValue is SHOW_LARGE, the component will display the icon as a large style.
+	 * @param showType the show type
+	 * @param showValue the show value
+	 */
+	public void toggleFacade(String showType, int showValue)
+	{		
+		for (int i = 0; i < getTabCount(); i++)
+		{
+			JRibbonBar ribbonBar = (JRibbonBar) getComponentAt(i);
+			ribbonBar.toggleFacade(showType, showValue);
+		}
+		
+		ContainerManager.update(this);
+	}
+	
+	private void paintShortcutBar(MouseEvent e, JAction shortcutAction, int buttonStyle)
+	{
+		if (shortcutActionList == null || shortcutActionList.isEmpty())
+		{
+			return;
+		}
+				
+		for (Iterator iterator = shortcutActionList.iterator(); iterator.hasNext();)
+		{
+			JAction action = (JAction) iterator.next();
+			switch (buttonStyle)
+			{
+				case BUTTON_STYLE_PLAIN :
+				{
+					action.putValue(BUTTON_STYLE, Integer.valueOf(BUTTON_STYLE_PLAIN));
+					break;
+				}
+				case BUTTON_STYLE_HOVER :
+				{
+					if (action == shortcutAction)
+					{	
+						action.putValue(BUTTON_STYLE, Integer.valueOf(BUTTON_STYLE_HOVER));
+					}
+					else
+					{
+						action.putValue(BUTTON_STYLE, Integer.valueOf(BUTTON_STYLE_PLAIN));
+					}
+					break;
+				}	
+				case BUTTON_STYLE_SELECTED :
+				{
+					if (action == shortcutAction)
+					{	
+						action.putValue(BUTTON_STYLE, Integer.valueOf(BUTTON_STYLE_SELECTED));
+					}
+					else
+					{
+						action.putValue(BUTTON_STYLE, Integer.valueOf(BUTTON_STYLE_PLAIN));
+					}
+					break;
+				}
+			}
+		}
+		
+		JAction firstShortcutAction = (JAction) shortcutActionList.get(0);
+		JAction lastShortcutAction = (JAction) shortcutActionList.get(shortcutActionList.size() - 1);
+		
+		int startX  = ((Integer) firstShortcutAction.getValue("startX")).intValue();
+		int startY = ((Integer) firstShortcutAction.getValue("startY")).intValue();
+		
+		int endX = ((Integer) lastShortcutAction.getValue("endX")).intValue();
+		int endY = ((Integer) lastShortcutAction.getValue("endY")).intValue();
+		
+		paintImmediately(startX, startY, endX - startX, endY - startY);
+	}
 
 	public void paintComponent(Graphics g)
 	{
@@ -453,7 +630,7 @@ public class JRibbonTabbedPane
 		int y = 4;
 		
 		int buttonWidth = 22;
-		int buttonCount = (actionList != null ? actionList.size() : 0);
+		int buttonCount = (shortcutActionList != null ? shortcutActionList.size() : 0);
 		
 		int width = buttonWidth * buttonCount + 1;
 		
@@ -489,11 +666,11 @@ public class JRibbonTabbedPane
 			x += 1;
 			y += 1;
 			
-			for (Iterator iterator = actionList.iterator(); iterator.hasNext();)
+			for (Iterator iterator = shortcutActionList.iterator(); iterator.hasNext();)
 			{
-				JAction action = (JAction) iterator.next();
+				JAction shortcutAction = (JAction) iterator.next();
 				
-				Integer buttonStyle = (Integer) action.getValue(BUTTON_STYLE);
+				Integer buttonStyle = (Integer) shortcutAction.getValue(BUTTON_STYLE);
 				if (buttonStyle != null)
 				{	
 					switch (buttonStyle.intValue())
@@ -515,23 +692,59 @@ public class JRibbonTabbedPane
 					}
 				}
 				
-				Icon actionIcon = action.getIcon();
-				if (actionIcon instanceof ImageIcon)
+				Icon shortcutIcon = shortcutAction.getIcon();
+				if (shortcutIcon instanceof ImageIcon)
 				{
-					ImageIcon actionImageIcon = (ImageIcon) actionIcon;
-					g2d.drawImage(actionImageIcon.getImage(), x + 22 / 2 - actionIcon.getIconWidth() / 2, y + 22 / 2 - actionIcon.getIconHeight() / 2, null);
+					ImageIcon shortcutImageIcon = (ImageIcon) shortcutIcon;
+					g2d.drawImage(shortcutImageIcon.getImage(), x + 22 / 2 - shortcutIcon.getIconWidth() / 2, y + 22 / 2 - shortcutIcon.getIconHeight() / 2, null);
 				}
 				
-				action.putValue("startX", Integer.valueOf(x));
-				action.putValue("startY", Integer.valueOf(y));
+				shortcutAction.putValue("startX", Integer.valueOf(x));
+				shortcutAction.putValue("startY", Integer.valueOf(y));
 				
 				x += buttonWidth;
 				
-				action.putValue("endX", Integer.valueOf(x));
-				action.putValue("endY", Integer.valueOf(y + 22));
+				shortcutAction.putValue("endX", Integer.valueOf(x));
+				shortcutAction.putValue("endY", Integer.valueOf(y + 22));
 			}
 		}
 	}
+	
+	public class ToggleFacadeAction
+		extends JAction
+	{
+		/**
+		 * The show type.
+		 */
+		private String showType;
+		
+		/**
+		 * The show value.
+		 */
+		private int showValue;
+		
+		/**
+		 * Constructs with the specified initial text, icon, tooltip text, ribbon navigator bar, show type and show value.
+		 * @param text the text string
+		 * @param icon the instance of Icon
+		 * @param toolTipText the tooltip text string
+		 * @param ribbonNavigatorBar the instance of JRibbonNavigatorBar
+		 * @param showType the show type
+		 * @param showValue the show value
+		 */
+		public ToggleFacadeAction(String text, Icon icon, String toolTipText, String showType, int showValue)
+		{
+			super(text, icon, toolTipText);
+			
+			this.showType = showType;
+			this.showValue = showValue;
+		}
+
+		public void actionPerformed(ActionEvent e)
+		{
+			toggleFacade(showType, showValue);
+		}
+	}	
 	
 	public class NavigatorPanel
 		extends JPanel implements UIResource
