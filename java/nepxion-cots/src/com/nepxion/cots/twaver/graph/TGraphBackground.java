@@ -13,13 +13,14 @@ package com.nepxion.cots.twaver.graph;
  */
 
 import java.awt.Color;
-import java.awt.FontMetrics;
+import java.awt.Font;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 
 import twaver.network.background.ColorBackground;
 
 import com.nepxion.swing.font.FontContext;
+import com.nepxion.swing.font.FontManager;
 
 public class TGraphBackground
 	extends ColorBackground
@@ -31,10 +32,15 @@ public class TGraphBackground
 	public static final int BOTTOM = 1;
 	
 	private String title;
-	private int titleAlignment = TOP;
-	private int titleVerticalGap = 15;
-	private Color titleColor = Color.black;
 	
+	private int titleAlignment = TOP;
+	private int titleHorizontalGap = 0;
+	private int titleVerticalGap = 0;
+	private int titleMaximumHeight = 50;
+
+	private Color titleColor = Color.black;
+	private Font titleFont = FontContext.getChartTitleFont();
+
 	public TGraphBackground(Color color, Color gradientColor)
 	{		
 		setColor(color);
@@ -61,6 +67,16 @@ public class TGraphBackground
 	{
 		this.titleAlignment = titleAlignment;
 	}
+	
+	public int getTitleHorizontalGap()
+	{
+		return titleHorizontalGap;
+	}
+
+	public void setTitleHorizontalGap(int titleHorizontalGap)
+	{
+		this.titleHorizontalGap = titleHorizontalGap;
+	}
 
 	public int getTitleVerticalGap()
 	{
@@ -72,6 +88,16 @@ public class TGraphBackground
 		this.titleVerticalGap = titleVerticalGap;
 	}
 	
+	public int getTitleMaximumHeight()
+	{
+		return titleMaximumHeight;
+	}
+
+	public void setTitleMaximumHeight(int titleMaximumHeight)
+	{
+		this.titleMaximumHeight = titleMaximumHeight;
+	}
+	
 	public Color getTitleColor()
 	{
 		return titleColor;
@@ -80,6 +106,16 @@ public class TGraphBackground
 	public void setTitleColor(Color titleColor)
 	{
 		this.titleColor = titleColor;
+	}
+	
+	public Font getTitleFont()
+	{
+		return titleFont;
+	}
+
+	public void setTitleFont(Font titleFont)
+	{
+		this.titleFont = titleFont;
 	}
 
 	public void paintContent(Graphics2D g, double zoom, Rectangle viewportRect)
@@ -90,19 +126,19 @@ public class TGraphBackground
 		{	
 			Graphics2D g2d = (Graphics2D) g.create();
 			g2d.setColor(titleColor);
-			g2d.setFont(FontContext.getChartTitleFont());
+			g2d.setFont(titleFont);
 			
-			FontMetrics fontMetrics = g2d.getFontMetrics();
-			int fontWidth = fontMetrics.stringWidth(title);
-			int fontHeight = fontMetrics.getHeight();
-
 			int width = viewportRect.width;
 			int height = viewportRect.height;
 			
-			int x = (width - fontWidth > 0 ? (width - fontWidth) / 2 : 0);
-			int y = (titleAlignment == TOP ? fontHeight + titleVerticalGap : (height - titleVerticalGap > 0 ? height - titleVerticalGap : 0));
-			
-			g2d.drawString(title, x, y);
+			if (titleAlignment == TOP)
+			{	
+				FontManager.drawCenterString(g2d, title, width, titleMaximumHeight, titleHorizontalGap, titleVerticalGap);
+			}
+			else
+			{				
+				FontManager.drawCenterString(g2d, title, width, titleMaximumHeight, titleHorizontalGap, height - titleMaximumHeight - titleVerticalGap);
+			}
 		}
 	}
 }
