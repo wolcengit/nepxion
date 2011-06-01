@@ -179,7 +179,7 @@ public class JRibbonContainer
 		{
 			InternalFrameManager.showCloseDialog(desktopPane, checkBoxSelector);
 		}
-		else if (tabbedPane != null && tabbedPane.getParent() != null)
+		else if (tabbedPane != null)
 		{
 			TabbedPaneManager.showCloseDialog(tabbedPane, checkBoxSelector);
 		}
