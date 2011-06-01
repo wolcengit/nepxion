@@ -12,8 +12,9 @@ package com.nepxion.swing.font;
 
 import java.awt.Font;
 import java.awt.FontMetrics;
-import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.GraphicsEnvironment;
+import java.awt.RenderingHints;
 import java.awt.geom.Rectangle2D;
 import java.io.InputStream;
 import java.util.Enumeration;
@@ -128,23 +129,23 @@ public class FontManager
 	
 	/**
 	 * Draw string at the component center position horizontally and vertically.
-	 * @param g the instance of Graphics
+	 * @param g2d the instance of Graphics2D
 	 * @param text the text string
 	 * @param componentWidth the component width value
 	 * @param componentHeight the component height value
 	 * @param horizontalGap the horizontal gap value
 	 * @param verticalGap the vertical gap value
 	 */
-	public static void drawCenterString(Graphics g, String text, int componentWidth, int componentHeight, int horizontalGap, int verticalGap)
+	public static void drawCenterString(Graphics2D g2d, String text, int componentWidth, int componentHeight, int horizontalGap, int verticalGap)
 	{
-		FontMetrics fontMetrics = g.getFontMetrics();
+		FontMetrics fontMetrics = g2d.getFontMetrics();
 		
-		drawCenterString(g, fontMetrics, text, componentWidth, componentHeight, horizontalGap, verticalGap);
+		drawCenterString(g2d, fontMetrics, text, componentWidth, componentHeight, horizontalGap, verticalGap);
 	}
 	
 	/**
 	 * Draw string at the component center position horizontally and vertically.
-	 * @param g the instance of Graphics
+	 * @param g2d the instance of Graphics2D
 	 * @param font the instance of Font
 	 * @param text the text string
 	 * @param componentWidth the component width value
@@ -152,16 +153,16 @@ public class FontManager
 	 * @param horizontalGap the horizontal gap value
 	 * @param verticalGap the vertical gap value
 	 */
-	public static void drawCenterString(Graphics g, Font font, String text, int componentWidth, int componentHeight, int horizontalGap, int verticalGap)
+	public static void drawCenterString(Graphics2D g2d, Font font, String text, int componentWidth, int componentHeight, int horizontalGap, int verticalGap)
 	{
-		FontMetrics fontMetrics = g.getFontMetrics(font);
+		FontMetrics fontMetrics = g2d.getFontMetrics(font);
 		
-		drawCenterString(g, fontMetrics, text, componentWidth, componentHeight, horizontalGap, verticalGap);
+		drawCenterString(g2d, fontMetrics, text, componentWidth, componentHeight, horizontalGap, verticalGap);
 	}
 	
 	/**
 	 * Draw string at the component center position horizontally and vertically.
-	 * @param g the instance of Graphics
+	 * @param g2d the instance of Graphics2D
 	 * @param fontMetrics the instance of FontMetrics
 	 * @param text the text string
 	 * @param componentWidth the component width value
@@ -169,9 +170,9 @@ public class FontManager
 	 * @param horizontalGap the horizontal gap value
 	 * @param verticalGap the vertical gap value
 	 */
-	public static void drawCenterString(Graphics g, FontMetrics fontMetrics, String text, int componentWidth, int componentHeight, int horizontalGap, int verticalGap)
+	public static void drawCenterString(Graphics2D g2d, FontMetrics fontMetrics, String text, int componentWidth, int componentHeight, int horizontalGap, int verticalGap)
 	{
-		Rectangle2D r = fontMetrics.getStringBounds(text, g);
+		Rectangle2D r = fontMetrics.getStringBounds(text, g2d);
 		
 		int textWidth = (int) r.getWidth();
 		int textHeight = (int) r.getHeight();
@@ -182,6 +183,11 @@ public class FontManager
 		x += horizontalGap;
 		y += fontMetrics.getAscent() + verticalGap;
 		
-		g.drawString(text, x, y);
+		g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+		// g2d.setRenderingHint(RenderingHints.KEY_ALPHA_INTERPOLATION, RenderingHints.VALUE_ALPHA_INTERPOLATION_QUALITY);
+		// g2d.setRenderingHint(RenderingHints.KEY_COLOR_RENDERING, RenderingHints.VALUE_COLOR_RENDER_QUALITY);
+		// g2d.setRenderingHint(RenderingHints.KEY_STROKE_CONTROL, RenderingHints.VALUE_STROKE_PURE);
+		
+		g2d.drawString(text, x, y);
 	}
 }
