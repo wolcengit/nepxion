@@ -760,7 +760,10 @@ public class JRibbonTabbedPane
 		int width = getWidth();
 		int height = 28;
 		
-		FontManager.drawCenterString(g2d, title, width, height, 0, 0);
+		if (width > 400)
+		{	
+			FontManager.drawCenterString(g2d, title, width, height, 0, 0);
+		}
 	}
 	
 	private void paintShortcutBar(Graphics2D g2d)
