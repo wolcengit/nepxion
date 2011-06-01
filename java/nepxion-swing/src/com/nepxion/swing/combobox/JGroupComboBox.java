@@ -82,10 +82,10 @@ public class JGroupComboBox
 			currentItem = getSelectedItem();
 		}
 
-	    /**
-	     * Invoked when an action occurs.
-	     * @param e the instance of ActionEvent
-	     */
+		/**
+		 * Invoked when an action occurs.
+		 * @param e the instance of ActionEvent
+		 */
 		public void actionPerformed(ActionEvent e)
 		{
 			Object selectedItem = getSelectedItem();

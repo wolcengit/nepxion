@@ -418,10 +418,10 @@ public class JBasicDialog
 		resizer.setMaximumDimension(maximumDimension);
 	}
 	
-    /**
-     * Invoked when a window event occurs.
-     * @param e the instance of WindowEvent
-     */
+	/**
+	 * Invoked when a window event occurs.
+	 * @param e the instance of WindowEvent
+	 */
 	protected void processWindowEvent(WindowEvent e)
 	{
 		if (hint)

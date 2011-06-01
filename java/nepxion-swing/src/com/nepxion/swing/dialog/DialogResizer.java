@@ -117,10 +117,10 @@ public class DialogResizer
 		this.maximumDimension = maximumDimension;
 	}
 	
-    /**
-     * Invoked when the component's size changes.
-     * @param e the instance of ComponentEvent
-     */
+	/**
+	 * Invoked when the component's size changes.
+	 * @param e the instance of ComponentEvent
+	 */
 	public void componentResized(ComponentEvent e)
 	{
 		Component component = (Component) e.getSource();
