@@ -11,7 +11,10 @@ package com.nepxion.swing.font;
  */
 
 import java.awt.Font;
+import java.awt.FontMetrics;
+import java.awt.Graphics;
 import java.awt.GraphicsEnvironment;
+import java.awt.geom.Rectangle2D;
 import java.io.InputStream;
 import java.util.Enumeration;
 import java.util.Locale;
@@ -121,5 +124,27 @@ public class FontManager
 	public static String[] getAvailableFontFamilyNames(Locale locale)
 	{
 		return GraphicsEnvironment.getLocalGraphicsEnvironment().getAvailableFontFamilyNames(locale);
+	}
+	
+	/**
+	 * Draw string at the component center position vertically and horizontally. 
+	 * @param g the instance of Graphics
+	 * @param font the instance of Font
+	 * @param text the text string
+	 * @param componentWidth the component width
+	 * @param componentHeight the component height
+	 */
+	public static void drawCenterString(Graphics g, Font font, String text, int componentWidth, int componentHeight)
+	{
+		FontMetrics fontMetrics = g.getFontMetrics(font);
+		Rectangle2D r = fontMetrics.getStringBounds(text, g);
+		
+		int textWidth = (int) r.getWidth();
+		int textHeight = (int) r.getHeight();
+		
+		int x = (componentWidth - textWidth) / 2;
+		int y = (componentHeight - textHeight) / 2 + fontMetrics.getAscent();
+		
+		g.drawString(text, x, y);
 	}
 }
