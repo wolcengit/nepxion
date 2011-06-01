@@ -187,7 +187,8 @@ public class JChartPanel
 				{
 					exportPDF();
 				}
-			});
+			}
+			);
 			
 			exportMenu = new JMenu();
 			exportMenu.setText(SwingLocale.getString("export"));

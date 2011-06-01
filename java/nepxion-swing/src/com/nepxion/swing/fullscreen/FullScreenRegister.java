@@ -126,10 +126,10 @@ public class FullScreenRegister
 		}		
 	}
     
-    /**
-     * Invoked when the mouse button has been clicked (pressed and released) on a component.
-     * @param e the instance of MouseEvent
-     */
+	/**
+	 * Invoked when the mouse button has been clicked (pressed and released) on a component.
+	 * @param e the instance of MouseEvent
+	 */
 	public void mouseClicked(MouseEvent e)
 	{
 		if (e.getClickCount() > 1)
@@ -138,10 +138,10 @@ public class FullScreenRegister
 		}
 	}
 	
-    /**
-     * Invoked when an action occurs.
-     * @param e the instance of ActionEvent
-     */
+	/**
+	 * Invoked when an action occurs.
+	 * @param e the instance of ActionEvent
+	 */
 	public void actionPerformed(ActionEvent e)
 	{
 		toggleFullScreen();

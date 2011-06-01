@@ -222,10 +222,10 @@ public class JBasicFrame
 		this.destroy = destroy;
 	}
 	
-    /**
-     * Invoked when a window event occurs.
-     * @param e the instance of WindowEvent
-     */
+	/**
+	 * Invoked when a window event occurs.
+	 * @param e the instance of WindowEvent
+	 */
 	protected void processWindowEvent(WindowEvent e)
 	{
 		if (hint)
@@ -255,7 +255,7 @@ public class JBasicFrame
 	 * Sets the extended state.
 	 * @param state the state value
 	 */
-    public void setExtendedState(int state)
+	public void setExtendedState(int state)
 	{
 		if ((state & MAXIMIZED_BOTH) == MAXIMIZED_BOTH)
 		{

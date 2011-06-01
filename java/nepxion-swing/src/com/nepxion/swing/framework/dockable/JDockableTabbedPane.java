@@ -116,10 +116,10 @@ public class JDockableTabbedPane
 		popupMenu.add(toggleLayoutMenuItem);
 	}
 	
-    /**
-     * Invoked when the mouse button has been clicked (pressed and released) on a component.
-     * @param e the instance of MouseEvent
-     */
+	/**
+	 * Invoked when the mouse button has been clicked (pressed and released) on a component.
+	 * @param e the instance of MouseEvent
+	 */
 	public void mouseClicked(MouseEvent e)
 	{
 		super.mouseClicked(e);
