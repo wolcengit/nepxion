@@ -24,6 +24,7 @@ import com.nepxion.swing.element.ElementNode;
 import com.nepxion.swing.element.IElementNode;
 import com.nepxion.swing.handle.HandleManager;
 import com.nepxion.swing.locale.SwingLocale;
+import com.nepxion.swing.optionpane.JBasicOptionPane;
 import com.nepxion.swing.selector.checkbox.JCheckBoxSelector;
 
 public class InternalFrameManager
@@ -35,8 +36,15 @@ public class InternalFrameManager
 	 */
 	public static void showCloseDialog(JDesktopPane desktopPane, JCheckBoxSelector checkBoxSelector)
 	{
-		Vector slectionElementNodes = new Vector();
 		JInternalFrame[] internalFrames = desktopPane.getAllFrames();
+		if (internalFrames.length == 0)
+		{
+			JBasicOptionPane.showMessageDialog(HandleManager.getFrame(desktopPane), SwingLocale.getString("no_close_item"), SwingLocale.getString("warning"), JBasicOptionPane.WARNING_MESSAGE);
+			
+			return;
+		}	
+		
+		Vector slectionElementNodes = new Vector();
 		for (int i = 0; i < internalFrames.length; i++)
 		{
 			JInternalFrame internalFrame = internalFrames[i];
