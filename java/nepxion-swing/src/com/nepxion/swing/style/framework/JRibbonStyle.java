@@ -34,7 +34,7 @@ public class JRibbonStyle
 		background = UIManager.getColor("Panel.background");
 		selectionBackground = UIManager.getColor("Panel.background");
 		
-		tabbedPaneGradientColor = new Color(255, 239, 191); // Color.white;
+		tabbedPaneGradientColor = Color.white; // new Color(255, 239, 191);
 		tabbedPaneBackground = new Color(231, 239, 248);
 		
 		tabbedPaneForeground = Color.black;
