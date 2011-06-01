@@ -71,8 +71,8 @@ public class ToolBarLayout
 	}
 	
 	/**
-     * Calculates the preferred size dimensions for the specified container.
-     * @param parent the instance of Container
+	 * Calculates the preferred size dimensions for the specified container.
+	 * @param parent the instance of Container
 	 */
 	public Dimension preferredLayoutSize(Container parent)
 	{
@@ -118,8 +118,8 @@ public class ToolBarLayout
 	}
 	
 	/**
-     * Calculates the minimum size dimensions for the specified container.
-     * @param parent the instance of Container
+	 * Calculates the minimum size dimensions for the specified container.
+	 * @param parent the instance of Container
 	 */
 	public Dimension minimumLayoutSize(Container parent)
 	{
