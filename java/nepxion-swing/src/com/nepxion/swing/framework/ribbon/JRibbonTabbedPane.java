@@ -15,7 +15,6 @@ import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Font;
-import java.awt.FontMetrics;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
@@ -40,6 +39,7 @@ import javax.swing.plaf.UIResource;
 import com.nepxion.swing.action.JAction;
 import com.nepxion.swing.container.ContainerManager;
 import com.nepxion.swing.container.JContainer;
+import com.nepxion.swing.font.FontManager;
 import com.nepxion.swing.framework.ribbon.action.JRibbonAction;
 import com.nepxion.swing.gradient.JGradientPainter;
 import com.nepxion.swing.icon.IconFactory;
@@ -761,19 +761,12 @@ public class JRibbonTabbedPane
 		int width = getWidth();
 		int height = 28;
 		
-		FontMetrics fontMetrics = g2d.getFontMetrics();
-		int fontWidth = fontMetrics.stringWidth(title);
-		int fontHeight = fontMetrics.getHeight();
-		
-		int x = (width - fontWidth > 0 ? (width - fontWidth) / 2 : 0);
-		int y = height / 2 + fontHeight / 2 - 4;
-		
 		g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 		// g2d.setRenderingHint(RenderingHints.KEY_STROKE_CONTROL, RenderingHints.VALUE_STROKE_PURE);
 		g2d.setRenderingHint(RenderingHints.KEY_COLOR_RENDERING, RenderingHints.VALUE_COLOR_RENDER_QUALITY);
 		g2d.setRenderingHint(RenderingHints.KEY_ALPHA_INTERPOLATION, RenderingHints.VALUE_ALPHA_INTERPOLATION_QUALITY);
 		
-		g2d.drawString(title, x, y);
+		FontManager.drawCenterString(g2d, title, width, height);
 	}
 	
 	private void paintShortcutBar(Graphics2D g2d)
