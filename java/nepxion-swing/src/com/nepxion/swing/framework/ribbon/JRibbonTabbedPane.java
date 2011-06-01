@@ -443,9 +443,8 @@ public class JRibbonTabbedPane
 	
 	public void setTrailingFlagComponent(Component trailingFlagComponent)
 	{
-		int gap = 54 - trailingFlagComponent.getPreferredSize().height;
-		tabTrailingFlagContainer.setBorder(BorderFactory.createEmptyBorder(gap / 2, 0, gap / 2, 0));
 		tabTrailingFlagContainer.addComponent(trailingFlagComponent, BorderLayout.CENTER);
+		tabTrailingFlagContainer.setPreferredSize(new Dimension(tabTrailingFlagContainer.getPreferredSize().width, 53));
 	}
 	
 	public List getShortcutActionList()
