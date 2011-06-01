@@ -34,19 +34,19 @@ public class BarSelectionAdapter
 		
 	}
 	
-    /**
-     * Invoked when the mouse moves on a chart.
-     * @param e the instance of ChartMouseEvent
-     */
+	/**
+	 * Invoked when the mouse moves on a chart.
+	 * @param e the instance of ChartMouseEvent
+	 */
 	public void chartMouseMoved(ChartMouseEvent e)
 	{
 		adaptSelection(e, true);
 	}
 	
-    /**
-     * Invoked when the mouse button has been clicked (pressed and released) on a chart.
-     * @param e the instance of ChartMouseEvent
-     */
+	/**
+	 * Invoked when the mouse button has been clicked (pressed and released) on a chart.
+	 * @param e the instance of ChartMouseEvent
+	 */
 	public void chartMouseClicked(ChartMouseEvent e)
 	{
 		adaptSelection(e, false);

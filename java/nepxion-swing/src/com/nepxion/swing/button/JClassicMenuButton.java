@@ -322,7 +322,6 @@ public class JClassicMenuButton
 	 */
 	public void popupMenuWillBecomeVisible(PopupMenuEvent e)
 	{
-
 	}
 	
 	/**
@@ -331,7 +330,6 @@ public class JClassicMenuButton
 	 */
 	public void popupMenuWillBecomeInvisible(PopupMenuEvent e)
 	{
-
 	}
 	
 	/**

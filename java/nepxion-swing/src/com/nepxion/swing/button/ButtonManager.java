@@ -79,7 +79,6 @@ public class ButtonManager
 	 * The button bar ui.
 	 */
 	private static ButtonBarUI buttonBarUI;
-	
 
 	/**
 	 * Sets the preference style by a button.

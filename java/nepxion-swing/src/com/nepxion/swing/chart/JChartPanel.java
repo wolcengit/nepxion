@@ -129,10 +129,10 @@ public class JChartPanel
 		setMouseWheelEnabled(true);
 	}
 	
-    /**
-     * Invoked when the mouse button has been released on a component.
-     * @param e the instance of MouseEvent
-     */
+	/**
+	 * Invoked when the mouse button has been released on a component.
+	 * @param e the instance of MouseEvent
+	 */
 	public void mouseReleased(MouseEvent e)
 	{
 		super.mouseReleased(e);
@@ -141,7 +141,7 @@ public class JChartPanel
 		if (popupMenu != null && popupMenu.isShowing())
 		{
 			super.mouseClicked(e);
-		}	
+		}
 	}
 	
 	/**
@@ -152,100 +152,99 @@ public class JChartPanel
 	 * @param print the boolean value whether the popup menu shows "Print" menu item or not
 	 * @param zoom the boolean value whether the popup menu shows "Zoom" menu item or not
 	 */
-    protected JPopupMenu createPopupMenu(boolean properties, boolean copy, boolean save, boolean print, boolean zoom)
-    {
-    	JPopupMenu popupMenu = super.createPopupMenu(properties, copy, save, print, zoom);
-    	
-    	JMenuItem propertiesMenuItem = null;
-    	if (properties)
+	protected JPopupMenu createPopupMenu(boolean properties, boolean copy, boolean save, boolean print, boolean zoom)
+	{
+		JPopupMenu popupMenu = super.createPopupMenu(properties, copy, save, print, zoom);
+		
+		JMenuItem propertiesMenuItem = null;
+		if (properties)
 		{
 			propertiesMenuItem = getMenuItem(popupMenu, localizationResources.getString("Properties..."));
 			propertiesMenuItem.setText(SwingLocale.getString("setting") + "    ");
 			propertiesMenuItem.setIcon(IconFactory.getSwingIcon("edit.png"));
 		}
-    	
-    	JMenuItem copyMenuItem = null;
-    	if (copy)
-    	{	
-    		copyMenuItem = getMenuItem(popupMenu, localizationResources.getString("Copy"));
-    		copyMenuItem.setIcon(IconFactory.getSwingIcon("copy.png"));
-    	}
-    	
-    	JMenu exportMenu = null;
-    	if (save)
-    	{	
-    		JMenuItem exportPNGMenuItem = getMenuItem(popupMenu, localizationResources.getString("Save_as..."));        
-    		exportPNGMenuItem.setText("PNG " + SwingLocale.getString("image"));
-    		exportPNGMenuItem.setIcon(IconFactory.getSwingIcon("image.png"));
-    		
-            JMenuItem exportPDFMenuItem = new JMenuItem();
-            exportPDFMenuItem.setText("PDF " + SwingLocale.getString("file"));
-            exportPDFMenuItem.setIcon(IconFactory.getSwingIcon("pdf.png"));
-            exportPDFMenuItem.addActionListener(new ActionListener()
-    		{
-    			public void actionPerformed(ActionEvent e)
-    			{
-    				exportPDF();
-    			}
-    		}
-    		);
-            
-    		exportMenu = new JMenu();
-    		exportMenu.setText(SwingLocale.getString("export"));
-    		exportMenu.setIcon(IconFactory.getSwingIcon("export.png"));
-    		exportMenu.add(exportPDFMenuItem);
-    		exportMenu.add(exportPNGMenuItem);
-    	}
-    	
-    	JMenu zoomInMenu = null;
-    	JMenu zoomOutMenu = null;
-    	JMenu zoomResetMenu = null;
-    	if (zoom)
-    	{	
-	        zoomInMenu = (JMenu) getMenuItem(popupMenu, localizationResources.getString("Zoom_In"));
-	        zoomInMenu.setIcon(IconFactory.getSwingIcon("zoom_in.png"));
-	        
-	        zoomOutMenu = (JMenu) getMenuItem(popupMenu, localizationResources.getString("Zoom_Out"));
-	        zoomOutMenu.setIcon(IconFactory.getSwingIcon("zoom_out.png"));
-	        
-	        zoomResetMenu = (JMenu) getMenuItem(popupMenu, localizationResources.getString("Auto_Range"));
-	        zoomResetMenu.setText(SwingLocale.getString("zoom_restore"));
-	        zoomResetMenu.setIcon(IconFactory.getSwingIcon("zoom.png"));
-    	}
-    	
-    	JMenuItem printMenuItem = null;
-    	if (print)
-    	{	
-	        printMenuItem = getMenuItem(popupMenu, localizationResources.getString("Print..."));
-	        printMenuItem.setText(SwingLocale.getString("print"));
-	        printMenuItem.setIcon(IconFactory.getSwingIcon("print.png"));
-    	}
-    	
+		
+		JMenuItem copyMenuItem = null;
+		if (copy)
+		{
+			copyMenuItem = getMenuItem(popupMenu, localizationResources.getString("Copy"));
+			copyMenuItem.setIcon(IconFactory.getSwingIcon("copy.png"));
+		}
+		
+		JMenu exportMenu = null;
+		if (save)
+		{
+			JMenuItem exportPNGMenuItem = getMenuItem(popupMenu, localizationResources.getString("Save_as..."));
+			exportPNGMenuItem.setText("PNG " + SwingLocale.getString("image"));
+			exportPNGMenuItem.setIcon(IconFactory.getSwingIcon("image.png"));
+			
+			JMenuItem exportPDFMenuItem = new JMenuItem();
+			exportPDFMenuItem.setText("PDF " + SwingLocale.getString("file"));
+			exportPDFMenuItem.setIcon(IconFactory.getSwingIcon("pdf.png"));
+			exportPDFMenuItem.addActionListener(new ActionListener()
+			{
+				public void actionPerformed(ActionEvent e)
+				{
+					exportPDF();
+				}
+			});
+			
+			exportMenu = new JMenu();
+			exportMenu.setText(SwingLocale.getString("export"));
+			exportMenu.setIcon(IconFactory.getSwingIcon("export.png"));
+			exportMenu.add(exportPDFMenuItem);
+			exportMenu.add(exportPNGMenuItem);
+		}
+		
+		JMenu zoomInMenu = null;
+		JMenu zoomOutMenu = null;
+		JMenu zoomResetMenu = null;
+		if (zoom)
+		{
+			zoomInMenu = (JMenu) getMenuItem(popupMenu, localizationResources.getString("Zoom_In"));
+			zoomInMenu.setIcon(IconFactory.getSwingIcon("zoom_in.png"));
+			
+			zoomOutMenu = (JMenu) getMenuItem(popupMenu, localizationResources.getString("Zoom_Out"));
+			zoomOutMenu.setIcon(IconFactory.getSwingIcon("zoom_out.png"));
+			
+			zoomResetMenu = (JMenu) getMenuItem(popupMenu, localizationResources.getString("Auto_Range"));
+			zoomResetMenu.setText(SwingLocale.getString("zoom_restore"));
+			zoomResetMenu.setIcon(IconFactory.getSwingIcon("zoom.png"));
+		}
+		
+		JMenuItem printMenuItem = null;
+		if (print)
+		{
+			printMenuItem = getMenuItem(popupMenu, localizationResources.getString("Print..."));
+			printMenuItem.setText(SwingLocale.getString("print"));
+			printMenuItem.setIcon(IconFactory.getSwingIcon("print.png"));
+		}
+		
 		popupMenu.removeAll();
 		
 		JDecorationPopupMenu decorationPopupMenu = new JDecorationPopupMenu();
 		
 		if (properties)
-		{	
+		{
 			decorationPopupMenu.add(propertiesMenuItem);
 		}
 		if (copy)
-		{	
+		{
 			decorationPopupMenu.add(copyMenuItem);
 		}
 		if (save)
-		{	
+		{
 			decorationPopupMenu.add(exportMenu);
 		}
-		if(zoom)
-		{	
+		if (zoom)
+		{
 			decorationPopupMenu.addSeparator();
 			decorationPopupMenu.add(zoomInMenu);
 			decorationPopupMenu.add(zoomOutMenu);
-			decorationPopupMenu.add(zoomResetMenu);			
+			decorationPopupMenu.add(zoomResetMenu);
 		}
 		if (print)
-		{	
+		{
 			decorationPopupMenu.addSeparator();
 			decorationPopupMenu.add(printMenuItem);
 		}
