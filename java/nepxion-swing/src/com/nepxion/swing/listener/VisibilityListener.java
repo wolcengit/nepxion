@@ -16,10 +16,10 @@ import java.awt.event.HierarchyListener;
 public class VisibilityListener
 	implements HierarchyListener
 {
-    /**
-     * Invoked when the hierarchy state is changed.
-     * @param e the instance of HierarchyEvent
-     */
+	/**
+	 * Invoked when the hierarchy state is changed.
+	 * @param e the instance of HierarchyEvent
+	 */
 	public void hierarchyChanged(HierarchyEvent e)
 	{
 		long changeFlags = e.getChangeFlags();
