@@ -766,7 +766,7 @@ public class JRibbonTabbedPane
 		g2d.setRenderingHint(RenderingHints.KEY_COLOR_RENDERING, RenderingHints.VALUE_COLOR_RENDER_QUALITY);
 		g2d.setRenderingHint(RenderingHints.KEY_ALPHA_INTERPOLATION, RenderingHints.VALUE_ALPHA_INTERPOLATION_QUALITY);
 		
-		FontManager.drawCenterString(g2d, title, width, height);
+		FontManager.drawCenterString(g2d, title, width, height, 0, 0);
 	}
 	
 	private void paintShortcutBar(Graphics2D g2d)
