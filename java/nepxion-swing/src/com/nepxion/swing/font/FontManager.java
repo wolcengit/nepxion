@@ -129,6 +129,20 @@ public class FontManager
 	/**
 	 * Draw string at the component center position vertically and horizontally. 
 	 * @param g the instance of Graphics
+	 * @param text the text string
+	 * @param componentWidth the component width
+	 * @param componentHeight the component height
+	 */
+	public static void drawCenterString(Graphics g, String text, int componentWidth, int componentHeight)
+	{
+		FontMetrics fontMetrics = g.getFontMetrics();
+		
+		drawCenterString(g, fontMetrics, text, componentWidth, componentHeight);
+	}
+	
+	/**
+	 * Draw string at the component center position vertically and horizontally. 
+	 * @param g the instance of Graphics
 	 * @param font the instance of Font
 	 * @param text the text string
 	 * @param componentWidth the component width
@@ -137,6 +151,20 @@ public class FontManager
 	public static void drawCenterString(Graphics g, Font font, String text, int componentWidth, int componentHeight)
 	{
 		FontMetrics fontMetrics = g.getFontMetrics(font);
+		
+		drawCenterString(g, fontMetrics, text, componentWidth, componentHeight);
+	}
+	
+	/**
+	 * Draw string at the component center position vertically and horizontally. 
+	 * @param g the instance of Graphics
+	 * @param fontMetrics the instance of FontMetrics
+	 * @param text the text string
+	 * @param componentWidth the component width
+	 * @param componentHeight the component height
+	 */
+	public static void drawCenterString(Graphics g, FontMetrics fontMetrics, String text, int componentWidth, int componentHeight)
+	{
 		Rectangle2D r = fontMetrics.getStringBounds(text, g);
 		
 		int textWidth = (int) r.getWidth();
