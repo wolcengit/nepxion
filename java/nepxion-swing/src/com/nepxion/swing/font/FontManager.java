@@ -127,51 +127,60 @@ public class FontManager
 	}
 	
 	/**
-	 * Draw string at the component center position vertically and horizontally. 
+	 * Draw string at the component center position horizontally and vertically.
 	 * @param g the instance of Graphics
 	 * @param text the text string
-	 * @param componentWidth the component width
-	 * @param componentHeight the component height
+	 * @param componentWidth the component width value
+	 * @param componentHeight the component height value
+	 * @param horizontalGap the horizontal gap value
+	 * @param verticalGap the vertical gap value
 	 */
-	public static void drawCenterString(Graphics g, String text, int componentWidth, int componentHeight)
+	public static void drawCenterString(Graphics g, String text, int componentWidth, int componentHeight, int horizontalGap, int verticalGap)
 	{
 		FontMetrics fontMetrics = g.getFontMetrics();
 		
-		drawCenterString(g, fontMetrics, text, componentWidth, componentHeight);
+		drawCenterString(g, fontMetrics, text, componentWidth, componentHeight, horizontalGap, verticalGap);
 	}
 	
 	/**
-	 * Draw string at the component center position vertically and horizontally. 
+	 * Draw string at the component center position horizontally and vertically.
 	 * @param g the instance of Graphics
 	 * @param font the instance of Font
 	 * @param text the text string
-	 * @param componentWidth the component width
-	 * @param componentHeight the component height
+	 * @param componentWidth the component width value
+	 * @param componentHeight the component height value
+	 * @param horizontalGap the horizontal gap value
+	 * @param verticalGap the vertical gap value
 	 */
-	public static void drawCenterString(Graphics g, Font font, String text, int componentWidth, int componentHeight)
+	public static void drawCenterString(Graphics g, Font font, String text, int componentWidth, int componentHeight, int horizontalGap, int verticalGap)
 	{
 		FontMetrics fontMetrics = g.getFontMetrics(font);
 		
-		drawCenterString(g, fontMetrics, text, componentWidth, componentHeight);
+		drawCenterString(g, fontMetrics, text, componentWidth, componentHeight, horizontalGap, verticalGap);
 	}
 	
 	/**
-	 * Draw string at the component center position vertically and horizontally. 
+	 * Draw string at the component center position horizontally and vertically.
 	 * @param g the instance of Graphics
 	 * @param fontMetrics the instance of FontMetrics
 	 * @param text the text string
-	 * @param componentWidth the component width
-	 * @param componentHeight the component height
+	 * @param componentWidth the component width value
+	 * @param componentHeight the component height value
+	 * @param horizontalGap the horizontal gap value
+	 * @param verticalGap the vertical gap value
 	 */
-	public static void drawCenterString(Graphics g, FontMetrics fontMetrics, String text, int componentWidth, int componentHeight)
+	public static void drawCenterString(Graphics g, FontMetrics fontMetrics, String text, int componentWidth, int componentHeight, int horizontalGap, int verticalGap)
 	{
 		Rectangle2D r = fontMetrics.getStringBounds(text, g);
 		
 		int textWidth = (int) r.getWidth();
 		int textHeight = (int) r.getHeight();
 		
-		int x = (componentWidth - textWidth) / 2;
-		int y = (componentHeight - textHeight) / 2 + fontMetrics.getAscent();
+		int x = (componentWidth - textWidth) / 2 > 0 ? (componentWidth - textWidth) / 2 : 0;
+		int y = (componentHeight - textHeight) / 2 > 0 ? (componentHeight - textHeight) / 2 : 0;
+		
+		x += horizontalGap;
+		y += fontMetrics.getAscent() + verticalGap;
 		
 		g.drawString(text, x, y);
 	}
