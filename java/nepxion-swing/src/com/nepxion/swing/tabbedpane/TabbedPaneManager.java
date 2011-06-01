@@ -21,6 +21,7 @@ import com.nepxion.swing.element.ElementNode;
 import com.nepxion.swing.element.IElementNode;
 import com.nepxion.swing.handle.HandleManager;
 import com.nepxion.swing.locale.SwingLocale;
+import com.nepxion.swing.optionpane.JBasicOptionPane;
 import com.nepxion.swing.selector.checkbox.JCheckBoxSelector;
 
 public class TabbedPaneManager
@@ -45,6 +46,13 @@ public class TabbedPaneManager
 				slectionElementNodes.add(elementNode);
 			}
 		}
+		
+		if (slectionElementNodes.size() == 0)
+		{
+			JBasicOptionPane.showMessageDialog(HandleManager.getFrame((Component) tabbedPane), SwingLocale.getString("no_close_item"), SwingLocale.getString("warning"), JBasicOptionPane.WARNING_MESSAGE);
+			
+			return;
+		}	
 		
 		if (checkBoxSelector == null)
 		{
