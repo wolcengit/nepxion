@@ -111,7 +111,7 @@ public class JRibbonTabbedPane
 	/**
 	 * The navigator combination icon.
 	 */
-	private CombinationIcon navigatorCombinationIcon = new CombinationIcon(navigatorIcon, navigatorBackgroundIcon);
+	private CombinationIcon navigatorCombinationIcon = new CombinationIcon(navigatorIcon, navigatorBackgroundIcon, -1, 0);
 	
 	/**
 	 * The navigator tooltip text string.
