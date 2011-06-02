@@ -17,13 +17,13 @@
     <ribbonbar title="Button" icon="" tooltip="Button Control" closable="false">
       <ribbon title="Button Series" icon="" tooltip="Button Series" layout="" buttonlayout="1, 0" buttoninsets="8, 2, 8, 2">
         <button name="Button" text="Button" largetext="Button&#x0A;&amp;nbsp;" icon="component/button_16.png" largeicon="component/button_32.png" tooltip="Button" class="com.nepxion.demo.control.button.DemoButtonTogglePanel"/>
-        <button name="CheckBox" text="CheckBox" largetext="Check&#x0A;Box" icon="component/check_box_16.png" largeicon="component/check_box_32.png" tooltip="CheckBox" class="com.tektronix.client.service.workspace.monitor.realtime.MonitorRibbonPane"/>
-        <button name="RadioButton" text="RadioButton" largetext="Radio&#x0A;Button" icon="component/radio_button_16.png" largeicon="component/radio_button_32.png" tooltip="RadioButton" class="com.tektronix.client.service.workspace.monitor.realtime.MonitorRibbonPane"/>
+        <button name="CheckBox" text="CheckBox" largetext="Check&#x0A;Box" icon="component/check_box_16.png" largeicon="component/check_box_32.png" tooltip="CheckBox" class="com.nepxion.demo.control.button.DemoCheckBoxTogglePanel"/>
+        <button name="RadioButton" text="RadioButton" largetext="Radio&#x0A;Button" icon="component/radio_button_16.png" largeicon="component/radio_button_32.png" tooltip="RadioButton" class="com.nepxion.demo.control.button.DemoRadioButtonTogglePanel"/>
       </ribbon>
       <ribbon title="Combo Series" icon="" tooltip="Combo Series" layout="" buttonlayout="1, 0" buttoninsets="8, 2, 8, 2">
-        <button name="ComboBox" text="ComboBox" largetext="Combo&#x0A;Box" icon="component/combo_box_16.png" largeicon="component/combo_box_32.png" tooltip="ComboBox" class="com.tektronix.client.service.workspace.monitor.realtime.MonitorRibbonPane"/>
-        <button name="Spinner" text="Spinner" largetext="Spinner&#x0A;&amp;nbsp;" icon="component/spinner_16.png" largeicon="component/spinner_32.png" tooltip="Spinner" class="com.tektronix.client.service.workspace.monitor.realtime.MonitorRibbonPane"/>
-        <button name="Slider" text="Slider" largetext="Slider&#x0A;&amp;nbsp;" icon="component/slider_16.png" largeicon="component/slider_32.png" tooltip="Slider" class="com.tektronix.client.service.workspace.monitor.realtime.MonitorRibbonPane"/>
+        <button name="ComboBox" text="ComboBox" largetext="Combo&#x0A;Box" icon="component/combo_box_16.png" largeicon="component/combo_box_32.png" tooltip="ComboBox" class="com.nepxion.demo.control.button.DemoComboBoxTogglePanel"/>
+        <button name="Spinner" text="Spinner" largetext="Spinner&#x0A;&amp;nbsp;" icon="component/spinner_16.png" largeicon="component/spinner_32.png" tooltip="Spinner" class="com.nepxion.demo.control.button.DemoSpinnerTogglePanel"/>
+        <button name="Slider" text="Slider" largetext="Slider&#x0A;&amp;nbsp;" icon="component/slider_16.png" largeicon="component/slider_32.png" tooltip="Slider" class="com.nepxion.demo.control.button.DemoSlideTogglePanel"/>
       </ribbon>
     </ribbonbar>
     <ribbonbar title="Text" icon="" tooltip="Text Control" closable="false">
@@ -54,14 +54,21 @@
     <ribbonbar title="Bar" icon="" tooltip="Bar Control" closable="false">
     </ribbonbar>
     <ribbonbar title="Data" icon="" tooltip="Data Control" closable="false">
-    </ribbonbar>  
+    </ribbonbar>
     <ribbonbar title="Selector" icon="" tooltip="Selector Control" closable="false">
+    </ribbonbar>
+    <ribbonbar title="Layout" icon="" tooltip="Layout Control" closable="false">
     </ribbonbar>
     <ribbonbar title="UI" icon="" tooltip="UI Control" closable="false">
     </ribbonbar>
     <ribbonbar title="Thread" icon="" tooltip="Thread Control" closable="false">
     </ribbonbar>
     <ribbonbar title="Chart" icon="" tooltip="Chart Control" closable="false">
+      <ribbon title="Chart Series" icon="" tooltip="Chart Series" layout="" buttonlayout="1, 0" buttoninsets="8, 2, 8, 2">
+        <button name="Pie Chart" text="PieChart" largetext="Pie&#x0A;Chart" icon="component/chart_pie_16.png" largeicon="component/chart_pie_32.png" tooltip="PieChart" class="com.nepxion.demo.control.chart.DemoPieChartTogglePanel"/>
+        <button name="Bar Chart" text="BarChart" largetext="Bar&#x0A;Chart" icon="component/chart_bar_16.png" largeicon="component/chart_bar_32.png" tooltip="BarChart" class="com.nepxion.demo.control.chart.DemoBarChartTogglePanel"/>
+        <button name="Line Chart" text="LineChart" largetext="Line&#x0A;Chart" icon="component/chart_line_16.png" largeicon="component/chart_line_32.png" tooltip="LineChart" class="com.nepxion.demo.control.chart.DemoLineChartTogglePanel"/>
+      </ribbon>
     </ribbonbar>
     <ribbonbar title="FrameWork" icon="" tooltip="FrameWork Control" closable="false">
     </ribbonbar>
@@ -146,6 +153,6 @@
       </ribbon>
     </ribbonbar>
   </ribbonnavigator>
-  <ribboncontainer internalframe="true" maximumcount="8">
+  <ribboncontainer internalframe="true" maximumcount="100">
   </ribboncontainer>
 </framework>
