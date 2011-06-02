@@ -12,29 +12,56 @@ package com.nepxion.swing.icon;
 
 import java.net.URL;
 import java.util.HashMap;
+import java.util.Map;
 
 import javax.swing.ImageIcon;
 
 public class IconFactory
 	implements IconConstants
 {
-	private static HashMap iconPool = new HashMap();
+	/**
+	 * The map of the icon cache pool.
+	 */
+	private static Map iconPool = new HashMap();
 	
+	/**
+	 * Gets the icon in swing icon folder by an icon name.
+	 * The icon name must not be included the folder string.
+	 * For example : property.png, config.gif
+	 * @param iconName the icon name string
+	 * @return the instance of ImageIcon
+	 */
 	public static ImageIcon getSwingIcon(String iconName)
 	{
 		return getIcon(SWING_ICON_FOLDER + iconName);
 	}
 	
+	/**
+	 * Gets the icon by an icon name in context icon folder which is registered in IconContext. 
+	 * The icon name must not be included the folder string.
+	 * For example : property.png, config.gif
+	 * @return the instance of ImageIcon
+	 */
 	public static ImageIcon getContextIcon(String iconName)
 	{
 		return getIcon(IconContext.getIconFolder() + iconName);
 	}
 	
+	/**
+	 * Gets the blank icon.
+	 * @return the instance of ImageIcon
+	 */
 	public static ImageIcon getBlankIcon()
 	{
 		return getIcon(SWING_BLANK_ICON);
 	}
 	
+	/**
+	 * Gets the icon by an icon full path.
+	 * If the icon is not existed, the blank icon will be returned.
+	 * @param iconFullPath the icon full path string
+	 * @return the instance of ImageIcon
+	 */
 	public static ImageIcon getIcon(String iconFullPath)
 	{
 		Object iconObject = iconPool.get(iconFullPath);
@@ -64,6 +91,11 @@ public class IconFactory
 		}
 	}
 	
+	/**
+	 * Creates the icon by an icon full path.
+	 * @param iconFullPath  the icon full path string
+	 * @return the instance of ImageIcon 
+	 */
 	private static ImageIcon createIcon(String iconFullPath)
 	{
 		URL iconURL = IconFactory.class.getClassLoader().getResource(iconFullPath);
