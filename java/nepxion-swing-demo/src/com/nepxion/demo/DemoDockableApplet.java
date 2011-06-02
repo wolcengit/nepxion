@@ -17,7 +17,6 @@ import javax.swing.SwingUtilities;
 import com.nepxion.swing.context.DataContextInitializer;
 import com.nepxion.swing.context.UIContextInitializer;
 import com.nepxion.swing.framework.JFrameWorkApplet;
-import com.nepxion.swing.framework.ribbon.RibbonContextInitializer;
 
 public class DemoDockableApplet
 	extends JFrameWorkApplet
@@ -43,6 +42,5 @@ public class DemoDockableApplet
 		
 		new DataContextInitializer().initialize(codeBase);
 		new UIContextInitializer().initialize(codeBase);
-		new RibbonContextInitializer().initialize();
 	}
 }

@@ -12,6 +12,8 @@ package com.nepxion.demo.common;
 
 import java.awt.BorderLayout;
 
+import javax.swing.BorderFactory;
+
 import com.nepxion.swing.framework.ribbon.IRibbonComponent;
 import com.nepxion.swing.tabbedpane.JEclipseTabbedPane;
 import com.nepxion.swing.toggle.JTogglePanel;
@@ -26,6 +28,7 @@ public abstract class DemoTogglePanel
 		toggleTabbedPane = new JEclipseTabbedPane();
 		
 		setLayout(new BorderLayout());
+		setBorder(BorderFactory.createEmptyBorder(2, 2, 2, 2));
 		add(toggleTabbedPane, BorderLayout.CENTER);
 	}
 	
