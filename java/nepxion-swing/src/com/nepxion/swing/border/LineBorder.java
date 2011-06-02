@@ -113,19 +113,19 @@ public class LineBorder
 	{
 		switch (direction)
 		{
-			case NORTH:
+			case NORTH :
 				northColor = color;
 				break;
-			case SOUTH:
+			case SOUTH :
 				southColor = color;
 				break;
-			case EAST:
+			case EAST :
 				eastColor = color;
 				break;
-			case WEST:
+			case WEST :
 				westColor = color;
 				break;
-			default:
+			default :
 		}
 	}
 	
@@ -162,19 +162,19 @@ public class LineBorder
 	{
 		switch (direction)
 		{
-			case NORTH:
+			case NORTH :
 				northThickness = thickness;
 				break;
-			case SOUTH:
+			case SOUTH :
 				southThickness = thickness;
 				break;
-			case EAST:
+			case EAST :
 				eastThickness = thickness;
 				break;
-			case WEST:
+			case WEST :
 				westThickness = thickness;
 				break;
-			default:
+			default :
 		}
 	}
 	

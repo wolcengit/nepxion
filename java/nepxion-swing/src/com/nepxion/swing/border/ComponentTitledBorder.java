@@ -106,36 +106,36 @@ public class ComponentTitledBorder
 		Rectangle rectangle = new Rectangle(0, 0, dimension.width, dimension.height);
 		switch (titlePosition)
 		{
-			case ABOVE_TOP:
+			case ABOVE_TOP :
 				rectangle.y = EDGE_SPACING;
 				break;
-			case TOP:
-			case DEFAULT_POSITION:
+			case TOP :
+			case DEFAULT_POSITION :
 				rectangle.y = EDGE_SPACING + (insets.top - EDGE_SPACING - TEXT_SPACING - dimension.height) / 2;
 				break;
-			case BELOW_TOP:
+			case BELOW_TOP :
 				rectangle.y = insets.top - dimension.height - TEXT_SPACING;
 				break;
-			case ABOVE_BOTTOM:
+			case ABOVE_BOTTOM :
 				rectangle.y = rect.height - insets.bottom + TEXT_SPACING;
 				break;
-			case BOTTOM:
+			case BOTTOM :
 				rectangle.y = rect.height - insets.bottom + TEXT_SPACING + (insets.bottom - EDGE_SPACING - TEXT_SPACING - dimension.height) / 2;
 				break;
-			case BELOW_BOTTOM:
+			case BELOW_BOTTOM :
 				rectangle.y = rect.height - dimension.height - EDGE_SPACING;
 				break;
 		}
 		switch (titleJustification)
 		{
-			case LEFT:
-			case DEFAULT_JUSTIFICATION:
+			case LEFT :
+			case DEFAULT_JUSTIFICATION :
 				rectangle.x = TEXT_INSET_H + insets.left;
 				break;
-			case RIGHT:
+			case RIGHT :
 				rectangle.x = rect.width - insets.right - TEXT_INSET_H - rectangle.width;
 				break;
-			case CENTER:
+			case CENTER :
 				rectangle.x = (rect.width - rectangle.width) / 2;
 				break;
 		}
@@ -177,23 +177,23 @@ public class ComponentTitledBorder
 		
 		switch (titlePosition)
 		{
-			case ABOVE_TOP:
+			case ABOVE_TOP :
 				insets.top += height + TEXT_SPACING;
 				break;
-			case TOP:
-			case DEFAULT_POSITION:
+			case TOP :
+			case DEFAULT_POSITION :
 				insets.top += Math.max(height, borderInsets.top) - borderInsets.top;
 				break;
-			case BELOW_TOP:
+			case BELOW_TOP :
 				insets.top += height + TEXT_SPACING;
 				break;
-			case ABOVE_BOTTOM:
+			case ABOVE_BOTTOM :
 				insets.bottom += height + TEXT_SPACING;
 				break;
-			case BOTTOM:
+			case BOTTOM :
 				insets.bottom += Math.max(height, borderInsets.bottom) - borderInsets.bottom;
 				break;
-			case BELOW_BOTTOM:
+			case BELOW_BOTTOM :
 				insets.bottom += height + TEXT_SPACING;
 				break;
 		}
@@ -229,25 +229,25 @@ public class ComponentTitledBorder
 		int diff;
 		switch (titlePosition)
 		{
-			case ABOVE_TOP:
+			case ABOVE_TOP :
 				diff = componentRectangle.height + TEXT_SPACING;
 				borderRectangle.y += diff;
 				borderRectangle.height -= diff;
 				break;
-			case TOP:
-			case DEFAULT_POSITION:
+			case TOP :
+			case DEFAULT_POSITION :
 				diff = insets.top / 2 - borderInsets.top - EDGE_SPACING;
 				borderRectangle.y += diff;
 				borderRectangle.height -= diff;
 				break;
-			case BELOW_TOP:
-			case ABOVE_BOTTOM:
+			case BELOW_TOP :
+			case ABOVE_BOTTOM :
 				break;
-			case BOTTOM:
+			case BOTTOM :
 				diff = insets.bottom / 2 - borderInsets.bottom - EDGE_SPACING;
 				borderRectangle.height -= diff;
 				break;
-			case BELOW_BOTTOM:
+			case BELOW_BOTTOM :
 				diff = componentRectangle.height + TEXT_SPACING;
 				borderRectangle.height -= diff;
 				break;

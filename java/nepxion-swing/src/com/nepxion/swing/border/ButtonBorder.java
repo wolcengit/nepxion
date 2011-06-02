@@ -69,7 +69,7 @@ public class ButtonBorder
 	{
 		switch (borderType)
 		{
-			case BORDER_RAISED:
+			case BORDER_RAISED :
 			{	
 				topColor = brighter;
 				leftColor = brighter;
@@ -77,7 +77,7 @@ public class ButtonBorder
 				rightColor = darker;
 				break;
 			}
-			case BORDER_LOWERED:
+			case BORDER_LOWERED :
 			{
 				topColor = darker;
 				leftColor = darker;
