@@ -39,19 +39,19 @@ public class Dom4JTreeParser
 		super(iconExtensionName);
 	}
 	
-	public Dom4JTreeParser(int iconMode)
+	public Dom4JTreeParser(int iconFolderMode)
 	{
-		super(iconMode);
+		super(iconFolderMode);
 	}
 	
-	public Dom4JTreeParser(int iconMode, String iconExtensionName)
+	public Dom4JTreeParser(int iconFolderMode, String iconExtensionName)
 	{
-		super(iconMode, iconExtensionName);
+		super(iconFolderMode, iconExtensionName);
 	}
 	
-	public Dom4JTreeParser(String indexTag, String nameTag, String textTag, String iconTag, String toolTipTextTag, String classTag, int iconMode, String iconExtensionName)
+	public Dom4JTreeParser(String indexTag, String nameTag, String textTag, String iconTag, String toolTipTextTag, String classTag, int iconFolderMode, String iconExtensionName)
 	{
-		super(indexTag, nameTag, textTag, iconTag, toolTipTextTag, classTag, iconMode, iconExtensionName);
+		super(indexTag, nameTag, textTag, iconTag, toolTipTextTag, classTag, iconFolderMode, iconExtensionName);
 	}
 	
 	public ElementNode parse(String text)
@@ -156,15 +156,15 @@ public class Dom4JTreeParser
 			else if (attributeName.equals(iconTag))
 			{
 				String iconName = attributeText + (iconExtensionName != null ? iconExtensionName : "");
-				switch (iconMode)
+				switch (iconFolderMode)
 				{
-					case 0:
+					case ICON_FOLDER_MODE_SWING :
 						treeNode.setIcon(IconFactory.getSwingIcon(iconName));
 						break;
-					case 1:
+					case ICON_FOLDER_MODE_CONTEXT :
 						treeNode.setIcon(IconFactory.getContextIcon(iconName));
 						break;
-					case 2:
+					case ICON_FOLDER_MODE_FULL:
 						treeNode.setIcon(IconFactory.getIcon(iconName));
 						break;
 					default:

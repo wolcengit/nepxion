@@ -10,7 +10,10 @@ package com.nepxion.swing.tree.xml;
  * @version 1.0
  */
 
+import com.nepxion.swing.icon.IconConstants;
+
 public interface Dom4JTreeConstants
+	extends IconConstants
 {
 	public static final String TAG_INDEX = "index";
 	public static final String TAG_NAME = "name";

@@ -1,5 +1,6 @@
 package com.nepxion.swing.tree.xml;
 
+
 /**
  * <p>Title: Nepxion Swing</p>
  * <p>Description: Nepxion Swing Repository</p>
@@ -23,7 +24,7 @@ public class Dom4JBasicTreeParser
 	protected String toolTipTextTag;
 	protected String classTag;
 	
-	protected int iconMode;
+	protected int iconFolderMode;
 	protected String iconExtensionName;
 	
 	public Dom4JBasicTreeParser()
@@ -36,17 +37,17 @@ public class Dom4JBasicTreeParser
 		this(DEFAULT_MODE_ICON, iconExtensionName);
 	}
 	
-	public Dom4JBasicTreeParser(int iconMode)
+	public Dom4JBasicTreeParser(int iconFolderMode)
 	{
-		this(iconMode, null);
+		this(iconFolderMode, null);
 	}
 	
-	public Dom4JBasicTreeParser(int iconMode, String iconExtensionName)
+	public Dom4JBasicTreeParser(int iconFolderMode, String iconExtensionName)
 	{
-		this(TAG_INDEX, TAG_NAME, TAG_TEXT, TAG_ICON, TAG_TOOL_TIP_TEXT, TAG_CLASS, iconMode, iconExtensionName);
+		this(TAG_INDEX, TAG_NAME, TAG_TEXT, TAG_ICON, TAG_TOOL_TIP_TEXT, TAG_CLASS, iconFolderMode, iconExtensionName);
 	}
 	
-	public Dom4JBasicTreeParser(String indexTag, String nameTag, String textTag, String iconTag, String toolTipTextTag, String classTag, int iconMode, String iconExtensionName)
+	public Dom4JBasicTreeParser(String indexTag, String nameTag, String textTag, String iconTag, String toolTipTextTag, String classTag, int iconFolderMode, String iconExtensionName)
 	{
 		this.indexTag = indexTag;
 		this.nameTag = nameTag;
@@ -55,7 +56,7 @@ public class Dom4JBasicTreeParser
 		this.toolTipTextTag = toolTipTextTag;
 		this.classTag = classTag;
 		
-		this.iconMode = iconMode;
+		this.iconFolderMode = iconFolderMode;
 		this.iconExtensionName = iconExtensionName;
 	}
 	
@@ -119,14 +120,14 @@ public class Dom4JBasicTreeParser
 		this.classTag = classTag;
 	}
 	
-	public int getIconMode()
+	public int getIconFolderMode()
 	{
-		return iconMode;
+		return iconFolderMode;
 	}
 	
-	public void setIconMode(int iconMode)
+	public void setIconFolderMode(int iconFolderMode)
 	{
-		this.iconMode = iconMode;
+		this.iconFolderMode = iconFolderMode;
 	}
 	
 	public String getIconExtensionName()

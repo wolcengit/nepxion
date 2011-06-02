@@ -41,19 +41,19 @@ public class Dom4JLazyLoaderTreeParser
 		this(DEFAULT_MODE_ICON, iconExtensionName);
 	}
 	
-	public Dom4JLazyLoaderTreeParser(int iconMode)
+	public Dom4JLazyLoaderTreeParser(int iconFolderMode)
 	{
-		this(iconMode, null);
+		this(iconFolderMode, null);
 	}
 	
-	public Dom4JLazyLoaderTreeParser(int iconMode, String iconExtensionName)
+	public Dom4JLazyLoaderTreeParser(int iconFolderMode, String iconExtensionName)
 	{
-		this(TAG_INDEX, TAG_NAME, TAG_TEXT, TAG_ICON, TAG_TOOL_TIP_TEXT, TAG_CLASS, TAG_LEAF, iconMode, iconExtensionName);
+		this(TAG_INDEX, TAG_NAME, TAG_TEXT, TAG_ICON, TAG_TOOL_TIP_TEXT, TAG_CLASS, TAG_LEAF, iconFolderMode, iconExtensionName);
 	}
 	
-	public Dom4JLazyLoaderTreeParser(String indexTag, String nameTag, String textTag, String iconTag, String toolTipTextTag, String classTag, String leafTag, int iconMode, String iconExtensionName)
+	public Dom4JLazyLoaderTreeParser(String indexTag, String nameTag, String textTag, String iconTag, String toolTipTextTag, String classTag, String leafTag, int iconFolderMode, String iconExtensionName)
 	{
-		super(indexTag, nameTag, textTag, iconTag, toolTipTextTag, classTag, iconMode, iconExtensionName);
+		super(indexTag, nameTag, textTag, iconTag, toolTipTextTag, classTag, iconFolderMode, iconExtensionName);
 		
 		this.leafTag = leafTag;
 	}
@@ -144,15 +144,15 @@ public class Dom4JLazyLoaderTreeParser
 			else if (attributeName.equals(iconTag))
 			{
 				String iconName = attributeText + (iconExtensionName != null ? iconExtensionName : "");
-				switch (iconMode)
+				switch (iconFolderMode)
 				{
-					case 0:
+					case ICON_FOLDER_MODE_SWING :
 						lazyLoaderTreeNode.setIcon(IconFactory.getSwingIcon(iconName));
 						break;
-					case 1:
+					case ICON_FOLDER_MODE_CONTEXT :
 						lazyLoaderTreeNode.setIcon(IconFactory.getContextIcon(iconName));
 						break;
-					case 2:
+					case ICON_FOLDER_MODE_FULL:
 						lazyLoaderTreeNode.setIcon(IconFactory.getIcon(iconName));
 						break;
 					default:
