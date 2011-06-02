@@ -58,7 +58,7 @@ public class DemoPieChartPanel
 			double[][] size = 
 			{ 
 				{TableLayout.FILL, TableLayout.FILL, TableLayout.FILL}, 
-				{TableLayout.PREFERRED, 300, 300}
+				{TableLayout.PREFERRED, 250, 250}
 			};
 			setLayout(new TableLayout(size));
 			setBorder(BorderManager.createComplexTitledBorder("计算机性能实时统计图"));
