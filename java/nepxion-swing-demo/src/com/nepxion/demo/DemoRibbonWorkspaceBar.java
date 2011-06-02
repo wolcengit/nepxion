@@ -11,16 +11,16 @@ package com.nepxion.demo;
  */
 
 import com.nepxion.swing.framework.ribbon.JRibbonHierarchy;
-import com.nepxion.swing.tabbedpane.JBasicTabbedPane;
+import com.nepxion.swing.tabbedpane.JEclipseTabbedPane;
 
 public class DemoRibbonWorkspaceBar
-	extends JBasicTabbedPane
+	extends JEclipseTabbedPane
 {
 	public DemoRibbonWorkspaceBar(JRibbonHierarchy ribbonHierarchy)
 	{		
-		setDrawBorder(false);
-		setDrawCenter(false);
-		// setTabPlacement(BOTTOM);
+		// setDrawBorder(false);
+		// setDrawCenter(false);
+		setTabPlacement(BOTTOM);
 		
 		ribbonHierarchy.getRibbonContainer().setTabbedPane(this);
 	}

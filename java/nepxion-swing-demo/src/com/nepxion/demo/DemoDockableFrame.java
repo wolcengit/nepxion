@@ -62,6 +62,6 @@ public class DemoDockableFrame
 				frame.toFront();
 			}
 		}
-		);								
+		);
 	}
 }

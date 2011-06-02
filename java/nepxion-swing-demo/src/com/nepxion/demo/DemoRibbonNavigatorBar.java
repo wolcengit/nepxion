@@ -58,7 +58,7 @@ public class DemoRibbonNavigatorBar
 		setTitleFont(new Font("Î¢ÈíÑÅºÚ", Font.PLAIN, 12));
 		setTitleColor(Color.darkGray);
 		
-		setNavigatorIcon(IconFactory.getSwingIcon("ribbon/navigator.png"));
+		setNavigatorIcon(IconFactory.getSwingIcon("ribbon/navigator_nepxion.png"));
 		setNavigatorToolTipText("Nepxion Studio");
 		
 		JPopupMenu navigatorPopupMenu = new JDecorationPopupMenu();
@@ -112,7 +112,7 @@ public class DemoRibbonNavigatorBar
 		
 		addTab("Ribbon - Coding", null, new DemoRibbonBar(ribbonContainer), "Ribbon Control");
 		
-		toggleFacade(JRibbonAction.SHOW_LARGE, JRibbonAction.SHOW_LARGE);
+		setFacade(JRibbonAction.SHOW_LARGE, JRibbonAction.SHOW_LARGE);
 	}
 	
 	// Test for JRibbon Framework

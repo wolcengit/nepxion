@@ -10,8 +10,6 @@ package com.nepxion.demo;
  * @version 1.0
  */
 
-import java.awt.Dimension;
-
 import javax.swing.SwingUtilities;
 
 import com.nepxion.demo.component.splash.DemoSplashWindow;
@@ -56,12 +54,11 @@ public class DemoRibbonFrame
 			public void run()
 			{
 				DemoRibbonFrame frame = new DemoRibbonFrame();
-				frame.setMinimumSize(new Dimension(350, 0));
 				frame.setExtendedState(MAXIMIZED_BOTH);
 				
 				JTray tray = new JTray(frame);
 				
-				splashWindow.setVisible(false);				
+				splashWindow.setVisible(false);
 				tray.setVisible(true);
 				frame.setVisible(true);
 				frame.toFront();
