@@ -120,8 +120,8 @@ public class CloseTabIcon
 	}
 	
 	/**
-	 * Sets 
-	 * @param isHint
+	 * Sets the hint.
+	 * @param isHint the boolean value of isHint
 	 */
 	public void setHint(boolean isHint)
 	{
@@ -129,8 +129,8 @@ public class CloseTabIcon
 	}
 	
 	/**
-	 * 
-	 * @return
+	 * Gets the bounds.
+	 * @return the instance of Rectangle
 	 */
 	public Rectangle getBounds()
 	{

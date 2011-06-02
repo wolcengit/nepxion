@@ -18,15 +18,44 @@ import javax.swing.Icon;
 public class CombinationIcon
 	implements Icon
 {
+	/**
+	 * The small icon.
+	 */
 	private Icon smallIcon;
+	
+	/**
+	 * The small icon x value.
+	 */
 	private int smallIconX = -1;
+	
+	/**
+	 * The small icon y value.
+	 */
 	private int smallIconY = -1;
 	
+	/**
+	 * The large icon.
+	 */
 	private Icon largeIcon;
+	
+	/**
+	 * The large icon x value.
+	 */
 	private int largeIconX = -1;
+	
+	/**
+	 * The large icon y value.
+	 */
 	private int largeIconY = -1;
 	
+	/**
+	 * The x offset value.
+	 */
 	private int xOffset;
+	
+	/**
+	 * The y offset value.
+	 */
 	private int yOffset;
 	
 

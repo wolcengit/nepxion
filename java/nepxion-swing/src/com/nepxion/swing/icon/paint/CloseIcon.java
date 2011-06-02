@@ -22,27 +22,27 @@ public class CloseIcon
 	implements Icon
 {
 	/**
-	 * 
+	 * The instance of Rectangle.
 	 */
 	private Rectangle rectangle = new Rectangle(0, 0, 15, 15);
 	
 	/**
-	 * 
+	 * The boolean value of isPressed.
 	 */
 	private boolean isPressed = false;
 	
 	/**
-	 * 
+	 * The boolean value of isDrawBorder.
 	 */
 	private boolean isDrawBorder = true;
 	
 	/**
-	 * 
+	 * The boolean value of isDrawCenter.
 	 */
 	private boolean isDrawCenter = true;
 	
 	/**
-	 * 
+	 * Constructs with the default.
 	 */
 	public CloseIcon()
 	{
@@ -50,9 +50,9 @@ public class CloseIcon
 	}
 	
 	/**
-	 * 
-	 * @param isDrawBorder
-	 * @param isDrawCenter
+	 * Constructs with the specified initial isDrawBorder and isDrawCenter.
+	 * @param isDrawBorder the boolean value of isDrawBorder
+	 * @param isDrawCenter the boolean value of isDrawCenter
 	 */
 	public CloseIcon(boolean isDrawBorder, boolean isDrawCenter)
 	{
@@ -61,8 +61,8 @@ public class CloseIcon
 	}
 	
 	/**
-	 * 
-	 * @return
+	 * Gets the bounds.
+	 * @return the instance of Rectangle
 	 */
 	public Rectangle getBounds()
 	{
@@ -70,8 +70,8 @@ public class CloseIcon
 	}
 	
 	/**
-	 * 
-	 * @param rectangle
+	 * Sets the bounds.
+	 * @param rectangle the instance of Rectangle
 	 */
 	public void setBounds(Rectangle rectangle)
 	{
@@ -79,8 +79,8 @@ public class CloseIcon
 	}
 		
 	/**
-	 * 
-	 * @return
+	 * Returns true if pressed.
+	 * @return true if pressed
 	 */
 	public boolean isPressed()
 	{
@@ -88,17 +88,17 @@ public class CloseIcon
 	}
 	
 	/**
-	 * 
-	 * @param pressed
+	 * Sets the pressed. 
+	 * @param isPressed the boolean value of isPressed
 	 */
-	public void setPressed(boolean pressed)
+	public void setPressed(boolean isPressed)
 	{
-		this.isPressed = pressed;
+		this.isPressed = isPressed;
 	}
 	
 	/**
-	 * 
-	 * @return
+	 * Returns true if drawing border.
+	 * @return the boolean value of isDrawBorder
 	 */
 	public boolean isDrawBorder()
 	{
@@ -106,8 +106,8 @@ public class CloseIcon
 	}
 	
 	/**
-	 * 
-	 * @param isDrawBorder
+	 * Sets the drawing border.
+	 * @param isDrawBorder the boolean value of isDrawBorder
 	 */
 	public void setDrawBorder(boolean isDrawBorder)
 	{
@@ -115,8 +115,8 @@ public class CloseIcon
 	}
 	
 	/**
-	 * 
-	 * @return
+	 * Returns true if drawing center.
+	 * @return the boolean value of isDrawCenter
 	 */
 	public boolean isDrawCenter()
 	{
@@ -124,8 +124,8 @@ public class CloseIcon
 	}
 	
 	/**
-	 * 
-	 * @param isDrawCenter
+	 * Sets the drawing center.
+	 * @param isDrawCenter the boolean value of isDrawCenter
 	 */
 	public void setDrawCenter(boolean isDrawCenter)
 	{
