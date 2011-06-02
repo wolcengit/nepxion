@@ -59,7 +59,7 @@ public class ShadowBorder
 	}
 	
 	/**
-	 * Paints border.
+	 * Paints the border.
 	 * @param c the instance of Component
 	 * @param g the instance of Graphics
 	 * @param x the x value
