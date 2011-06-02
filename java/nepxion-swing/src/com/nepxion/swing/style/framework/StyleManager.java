@@ -11,6 +11,7 @@ package com.nepxion.swing.style.framework;
 
 import javax.swing.JDialog;
 import javax.swing.JFrame;
+import javax.swing.UIDefaults;
 import javax.swing.UIManager;
 
 import com.nepxion.swing.lookandfeel.LookAndFeelTheme;
@@ -44,15 +45,13 @@ public class StyleManager
 		if (isThemeDecorated)
 		{
 			LookAndFeelTheme.setTheme(LookAndFeelTheme.ECLIPSE3X_STYLE);
-			Object uiDefaults[] = 
-			{
-				"DockableFrame.activeTitleBackground", style.getTabbedPaneGradientColor(),
-				"DockableFrame.activeTitleBackground2", style.getTabbedPaneBackground(),
-				"JideTabbedPane.background", UIManager.getColor("Panel.background"),
-				"JideTabbedPane.selectedTabTextForeground", style.getTabbedPaneSelectionForeground(),
-				"JideTabbedPane.unselectedTabTextForeground", style.getTabbedPaneForeground()          	
-			};
-			UIManager.getLookAndFeelDefaults().putDefaults(uiDefaults);
+			
+			UIDefaults uiDefaults = UIManager.getLookAndFeelDefaults();
+			uiDefaults.put("DockableFrame.activeTitleBackground", style.getTabbedPaneGradientColor());
+			uiDefaults.put("DockableFrame.activeTitleBackground2", style.getTabbedPaneBackground());
+			uiDefaults.put("JideTabbedPane.background", UIManager.getColor("Panel.background"));
+			uiDefaults.put("JideTabbedPane.selectedTabTextForeground", style.getTabbedPaneSelectionForeground());
+			uiDefaults.put("JideTabbedPane.unselectedTabTextForeground", style.getTabbedPaneForeground());
 		}
 		else
 		{
