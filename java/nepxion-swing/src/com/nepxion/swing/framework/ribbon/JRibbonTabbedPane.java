@@ -179,7 +179,7 @@ public class JRibbonTabbedPane
 	private JRibbonHierarchy ribbonHierarchy;
 	
 	/**
-	 * 
+	 * Constructs with the default.
 	 * @param ribbonHierarchy
 	 */
 	public JRibbonTabbedPane(JRibbonHierarchy ribbonHierarchy)
@@ -194,6 +194,9 @@ public class JRibbonTabbedPane
 		ribbonHierarchy.getNavigatorContainer().add(this);
 	}
 
+	/**
+	 * Initializes the navigator.
+	 */
 	private void initNavigator()
 	{
 		navigatorLabel = new JBasicLabel(navigatorCombinationIcon, navigatorToolTipText);
@@ -247,6 +250,9 @@ public class JRibbonTabbedPane
 		dropDownShortcutAction = new DropDownShortcutAction();
 	}
 	
+	/**
+	 * Initializes the popup menu.
+	 */
 	private void initPopupMenu()
 	{
 		dropDownPopupMenu = new JDecorationPopupMenu();
@@ -282,6 +288,9 @@ public class JRibbonTabbedPane
 		toggleIconButtonGroup.add(toggleNoIconMenuItem);
 	}
 	
+	/**
+	 * Initializes the listener.
+	 */
 	private void initListener()
 	{
 		addMouseListener(new MouseAdapter()
@@ -343,20 +352,30 @@ public class JRibbonTabbedPane
 		);
 	}
 	
+	/**
+	 * Initializes the style.
+	 */
 	private void initStyle()
-	{
-		setShowTabBorder(false);
-		setTabGradientColor(new Color(255, 239, 191)); // Color.white
+	{		
+		setTabGradientColor(Color.white); // new Color(255, 239, 191)
 		setTabBackground(new Color(231, 239, 248));
 		setTabForeground(Color.black);
 		setTabSelectionForeground(Color.black);
 	}
 	
+	/**
+	 * Gets the title.
+	 * @return the title string
+	 */
 	public String getTitle()
 	{
 		return title;
 	}
 	
+	/**
+	 * Sets the title
+	 * @param title the title string
+	 */
 	public void setTitle(String title)
 	{
 		this.title = title;
@@ -364,11 +383,19 @@ public class JRibbonTabbedPane
 		repaint();
 	}
 	
+	/**
+	 * Gets the title font.
+	 * @return the title font
+	 */
 	public Font getTitleFont()
 	{
 		return titleFont;
 	}
 	
+	/**
+	 * Sets the title font.
+	 * @param titleFont the title font
+	 */
 	public void setTitleFont(Font titleFont)
 	{
 		this.titleFont = titleFont;
@@ -376,11 +403,19 @@ public class JRibbonTabbedPane
 		repaint();
 	}
 	
+	/**
+	 * Gets the title color.
+	 * @return the title color
+	 */
 	public Color getTitleColor()
 	{
 		return titleColor;
 	}
 	
+	/**
+	 * Sets the title color.
+	 * @param titleColor the title color
+	 */
 	public void setTitleColor(Color titleColor)
 	{
 		this.titleColor = titleColor;
@@ -388,11 +423,19 @@ public class JRibbonTabbedPane
 		repaint();
 	}
 	
+	/**
+	 * Gets the navigator icon.
+	 * @return the navigator icon
+	 */
 	public Icon getNavigatorIcon()
 	{
 		return navigatorIcon;
 	}
 	
+	/**
+	 * Sets the navigator icon.
+	 * @param navigatorIcon
+	 */
 	public void setNavigatorIcon(Icon navigatorIcon)
 	{
 		this.navigatorIcon = navigatorIcon;
@@ -403,11 +446,19 @@ public class JRibbonTabbedPane
 		navigatorLabel.repaint();
 	}
 	
+	/**
+	 * Gets the navigator tooltip text.
+	 * @return the navigator tooltip text string
+	 */
 	public String getNavigatorToolTipText()
 	{
 		return navigatorToolTipText;
 	}
 	
+	/**
+	 * Sets the navigator tooltip text.
+	 * @param navigatorToolTipText the navigator tooltip text string
+	 */
 	public void setNavigatorToolTipText(String navigatorToolTipText)
 	{
 		this.navigatorToolTipText = navigatorToolTipText;
@@ -415,42 +466,74 @@ public class JRibbonTabbedPane
 		navigatorLabel.setToolTipText(navigatorToolTipText);
 	}
 	
+	/**
+	 * Gets the navigator popup menu.
+	 * @return the navigator popup menu
+	 */
 	public JPopupMenu getNavigatorPopupMenu()
 	{
 		return navigatorPopupMenu;
 	}
 	
+	/**
+	 * Sets the navigator popup menu.
+	 * @param navigatorPopupMenu the navigator popup menu
+	 */
 	public void setNavigatorPopupMenu(JPopupMenu navigatorPopupMenu)
 	{
 		this.navigatorPopupMenu = navigatorPopupMenu;
 	}
 	
+	/**
+	 * Gets the dropdown popup menu.
+	 * @return the dropdown popup menu
+	 */
 	public JPopupMenu getDropDownPopupMenu()
 	{
 		return dropDownPopupMenu;
 	}
 	
+	/**
+	 * Sets the dropdown popup menu.
+	 * @param dropDownPopupMenu the dropdown popup menu
+	 */
 	public void setDropDownPopupMenu(JPopupMenu dropDownPopupMenu)
 	{
 		this.dropDownPopupMenu = dropDownPopupMenu;
 	}
 	
+	/**
+	 * Gets the trailing flag component.
+	 * @return the trailing flag component
+	 */
 	public Component getTrailingFlagComponent()
 	{
 		return tabTrailingFlagContainer.getComponent(0);
 	}
 	
+	/**
+	 * Sets the trailing flag component.
+	 * @param trailingFlagComponent the trailing flag component
+	 */
 	public void setTrailingFlagComponent(Component trailingFlagComponent)
 	{
 		tabTrailingFlagContainer.addComponent(trailingFlagComponent, BorderLayout.CENTER);
 		tabTrailingFlagContainer.setPreferredSize(new Dimension(tabTrailingFlagContainer.getPreferredSize().width, 53));
 	}
 	
+	/**
+	 * Gets the shortcut action list.
+	 * @return the shortcut action list
+	 */
 	public List getShortcutActionList()
 	{
 		return shortcutActionList;
 	}
 	
+	/**
+	 * Sets the shortcut action list.
+	 * @param shortcutActionList  the shortcut action list
+	 */
 	public void setShortcutActionList(List shortcutActionList)
 	{
 		this.shortcutActionList = shortcutActionList;
@@ -458,6 +541,10 @@ public class JRibbonTabbedPane
 		repaint();
 	}
 	
+	/**
+	 * Adds the shortcut action.
+	 * @param shortcutAction the shortcut action
+	 */
 	public void addShortcutAction(JAction shortcutAction)
 	{
 		shortcutActionList.add(shortcutAction);
@@ -465,6 +552,11 @@ public class JRibbonTabbedPane
 		repaint();
 	}
 	
+	/**
+	 * Adds the shortcut action with the index.
+	 * @param index the index value
+	 * @param shortcutAction the shortcut action
+	 */
 	public void addShortcutAction(int index, JAction shortcutAction)
 	{
 		shortcutActionList.add(index, shortcutAction);
@@ -472,6 +564,10 @@ public class JRibbonTabbedPane
 		repaint();
 	}
 	
+	/**
+	 * Adds the shortcut action list.
+	 * @param shortcutActions the added shortcut action list
+	 */
 	public void addShortcutActions(List shortcutActions)
 	{
 		shortcutActionList.addAll(shortcutActions);
@@ -479,6 +575,11 @@ public class JRibbonTabbedPane
 		repaint();
 	}
 	
+	/**
+	 * Adds the shortcut action list.
+	 * @param index the index value
+	 * @param shortcutActions the added shortcut action list
+	 */
 	public void addShortcutActions(int index, List shortcutActions)
 	{
 		shortcutActionList.addAll(index, shortcutActions);
@@ -486,6 +587,10 @@ public class JRibbonTabbedPane
 		repaint();
 	}
 	
+	/**
+	 * Removes the shortcut action.
+	 * @param shortcutAction the shortcut action
+	 */
 	public void removeShortcutAction(JAction shortcutAction)
 	{
 		shortcutActionList.remove(shortcutAction);
@@ -493,6 +598,10 @@ public class JRibbonTabbedPane
 		repaint();
 	}
 	
+	/**
+	 * Removes the shortcut action with the index.
+	 * @param index the index value
+	 */
 	public void removeShortcutAction(int index)
 	{
 		shortcutActionList.remove(index);
@@ -500,6 +609,10 @@ public class JRibbonTabbedPane
 		repaint();
 	}
 	
+	/**
+	 * Removes the shortcut action list.
+	 * @param shortcutActions the removed shortcut action list
+	 */
 	public void removeShortcutActions(List shortcutActions)
 	{
 		shortcutActionList.removeAll(shortcutActions);
@@ -507,6 +620,11 @@ public class JRibbonTabbedPane
 		repaint();
 	}
 	
+	/**
+	 * Gets the shortcut action button.
+	 * @param e the instance of MouseEvent
+	 * @return the instance of JAction
+	 */
 	private JAction getShortcutAction(MouseEvent e)
 	{		
 		int x = e.getX();
@@ -545,24 +663,27 @@ public class JRibbonTabbedPane
 		return null;
 	}
 	
+	/**
+	 * Gets the ribbon hierarchy.
+	 * @return the instance of JRibbonHierarchy
+	 */
 	public JRibbonHierarchy getRibbonHierarchy()
 	{
 		return ribbonHierarchy;
 	}
 	
-	public void setRibbonHierarchy(JRibbonHierarchy ribbonHierarchy)
-	{
-		this.ribbonHierarchy = ribbonHierarchy;
-	}
-	
+	/**
+	 * Gets the ribbon container.
+	 * @return the instance of JRibbonContainer
+	 */
 	public JRibbonContainer getRibbonContainer()
 	{
 		return ribbonHierarchy.getRibbonContainer();
 	}
 	
 	/**
-	 * Toggles the height for the navigator bar.
-	 * It will show or hide the tabbed pane content.
+	 * Toggles the height for the ribbon tabbed pane.
+	 * It will show or hide the content of tabbed pane.
 	 */
 	private void toggleHeight()
 	{
@@ -606,7 +727,12 @@ public class JRibbonTabbedPane
 		}
 	}
 	
-	public void toggleFacade(int textShowValue, int iconShowValue)
+	/**
+	 * Sets the facade.
+	 * @param textShowValue the text show value
+	 * @param iconShowValue the icon show value
+	 */
+	public void setFacade(int textShowValue, int iconShowValue)
 	{
 		for (Enumeration enumeration = toggleTextButtonGroup.getElements(); enumeration.hasMoreElements();)
 		{
@@ -633,6 +759,12 @@ public class JRibbonTabbedPane
 		}
 	}
 	
+	/**
+	 * Updates the shortcut bar.
+	 * @param e the instance of MouseEvent
+	 * @param shortcutAction the shortcut action
+	 * @param buttonStyle the button style
+	 */
 	private void updateShortcutBar(MouseEvent e, JAction shortcutAction, int buttonStyle)
 	{
 		if (shortcutActionList != null && !shortcutActionList.isEmpty())
@@ -704,6 +836,9 @@ public class JRibbonTabbedPane
 		updateShortcutBar();
 	}
 	
+	/**
+	 * Updates the shortcut bar.
+	 */
 	private void updateShortcutBar()
 	{
 		if (shortcutActionList == null || shortcutActionList.isEmpty())
@@ -723,6 +858,10 @@ public class JRibbonTabbedPane
 		paintImmediately(startX, startY, endX - startX, endY - startY);
 	}
 	
+	/**
+	 * Paints the component.
+	 * @param g the instance of Graphics
+	 */
 	public void paintComponent(Graphics g)
 	{
 		Graphics2D g2d = (Graphics2D) g;
@@ -739,6 +878,10 @@ public class JRibbonTabbedPane
 		super.paintComponent(g);
 	}
 	
+	/**
+	 * Paints the background.
+	 * @param g2d the instance of Graphics2D
+	 */
 	private void paintBackground(Graphics2D g2d)
 	{
 		int width = getWidth();
@@ -752,6 +895,10 @@ public class JRibbonTabbedPane
 		JGradientPainter.fastFill(g2d, new Rectangle(0, 31, width, 23), new Color(191, 219, 255), new Color(186, 215, 253), true);
 	}
 	
+	/**
+	 * Paint the title.
+	 * @param g2d the instance of Graphics2D
+	 */
 	private void paintTitle(Graphics2D g2d)
 	{
 		g2d.setColor(titleColor);
@@ -766,6 +913,10 @@ public class JRibbonTabbedPane
 		}
 	}
 	
+	/**
+	 * Paints the shortcut bar.
+	 * @param g2d the instance of Graphics2D
+	 */
 	private void paintShortcutBar(Graphics2D g2d)
 	{
 		int x = 47;
@@ -885,6 +1036,9 @@ public class JRibbonTabbedPane
 	public class CloseRibbonAction
 		extends JAction
 	{
+		/**
+		 * Constructs with the default.
+		 */
 		public CloseRibbonAction()
 		{
 			super(SwingLocale.getString("close_panel"), IconFactory.getSwingIcon("ribbon/close.png"), SwingLocale.getString("close_panel"));
@@ -904,6 +1058,9 @@ public class JRibbonTabbedPane
 	public class ToggleHeightAction
 		extends JAction
 	{
+		/**
+		 * Constructs with the default.
+		 */
 		public ToggleHeightAction()
 		{
 			super(SwingLocale.getString("toggle_navigatorbar_visibility"), IconFactory.getSwingIcon("ribbon/toggle_up.png"), SwingLocale.getString("toggle_navigatorbar_visibility"));
@@ -960,21 +1117,37 @@ public class JRibbonTabbedPane
 			this.showValue = showValue;
 		}
 		
+		/**
+		 * Gets the show type.
+		 * @return the show type value
+		 */
 		public String getShowType()
 		{
 			return showType;
 		}
 		
+		/**
+		 * Sets the show type.
+		 * @param showType the show type
+		 */
 		public void setShowType(String showType)
 		{
 			this.showType = showType;
 		}
 		
+		/**
+		 * Gets the show value.
+		 * @return the show value
+		 */
 		public int getShowValue()
 		{
 			return showValue;
 		}
 		
+		/**
+		 * Sets the show value.
+		 * @param showValue the show value
+		 */
 		public void setShowValue(int showValue)
 		{
 			this.showValue = showValue;
@@ -993,11 +1166,18 @@ public class JRibbonTabbedPane
 	public class DropDownShortcutAction
 		extends JAction
 	{
+		/**
+		 * Constructs with the default
+		 */
 		public DropDownShortcutAction()
 		{
-			super("快速访问栏", IconFactory.getSwingIcon("ribbon/arrow.png"), "快速访问栏");
+			super(SwingLocale.getString("shortcut"), IconFactory.getSwingIcon("ribbon/arrow.png"), SwingLocale.getString("shortcut"));
 		}
 		
+		/**
+		 * Invoked when an action occurs.
+		 * @param e the instance of ActionEvent
+		 */
 		public void actionPerformed(ActionEvent e)
 		{
 			if (dropDownPopupMenu != null)
@@ -1013,6 +1193,9 @@ public class JRibbonTabbedPane
 	public class TabFlagContainer
 		extends JContainer implements UIResource
 	{
+		/**
+		 * Constructs with the default.
+		 */
 		public TabFlagContainer()
 		{
 			setLayout(new BorderLayout());

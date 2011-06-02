@@ -12,6 +12,7 @@ package com.nepxion.swing.framework.ribbon;
 
 import java.awt.Color;
 
+import javax.swing.UIDefaults;
 import javax.swing.UIManager;
 
 public class RibbonContextInitializer
@@ -31,5 +32,8 @@ public class RibbonContextInitializer
 	{
 		// UIManager.put("nimbusBlueGrey", ColorUtil.getDerivedColor(new Color(169, 176, 190)));
 		UIManager.put("control", new Color(231, 239, 248));
+		
+		UIDefaults uiDefaults = UIManager.getLookAndFeelDefaults();
+		uiDefaults.put("JideTabbedPane.shadow", new Color(154, 179, 213));
 	}
 }

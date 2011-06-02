@@ -15,6 +15,7 @@ import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyVetoException;
 
+import javax.swing.BorderFactory;
 import javax.swing.Icon;
 import javax.swing.JComponent;
 import javax.swing.JDesktopPane;
@@ -28,6 +29,7 @@ import com.nepxion.swing.optionpane.JBasicOptionPane;
 import com.nepxion.swing.popupmenu.JDecorationPopupMenu;
 import com.nepxion.swing.selector.checkbox.JCheckBoxSelector;
 import com.nepxion.swing.tabbedpane.ITabbedPane;
+import com.nepxion.swing.tabbedpane.JEclipseTabbedPane;
 import com.nepxion.swing.tabbedpane.TabbedPaneManager;
 
 public class JRibbonContainer
@@ -71,6 +73,7 @@ public class JRibbonContainer
 		desktopPane.setDragMode(JDesktopPane.OUTLINE_DRAG_MODE);
 
 		setLayout(new BorderLayout());
+		setBorder(BorderFactory.createEmptyBorder());
 		addComponent(desktopPane, BorderLayout.CENTER);
 	}
 	
@@ -147,6 +150,11 @@ public class JRibbonContainer
 			if (tabbedComponent.getParent() == null)
 			{
 				addComponent(tabbedComponent, BorderLayout.CENTER);
+				
+				if (tabbedPane instanceof JEclipseTabbedPane)
+				{	
+					setBorder(BorderFactory.createEmptyBorder(4, 0, 0, 0));
+				}
 			}
 			
 			if (handler == null)
@@ -301,6 +309,8 @@ public class JRibbonContainer
 					if (tabbedPane.getTabCount() == 0)
 					{
 						addComponent(desktopPane, BorderLayout.CENTER);
+						
+						setBorder(BorderFactory.createEmptyBorder());
 					}
 				}
 			}
