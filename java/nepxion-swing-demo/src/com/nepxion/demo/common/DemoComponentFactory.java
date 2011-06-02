@@ -83,14 +83,14 @@ public class DemoComponentFactory
 			ElementNode elementNode = (ElementNode) rowDatas.get(row);
 			switch (column)
 			{
-				case 0: return new Integer(elementNode.getIndex());
-				case 1: return elementNode.getName();
-				case 2: return elementNode.getText();						
-				case 3: return elementNode.getIcon();
-				case 4: return elementNode.getToolTipText();
-				case 5: return Boolean.valueOf(elementNode.isSelected());
-				case 6: return Boolean.valueOf(elementNode.isEnabled());
-				case 7: return elementNode.getUserObject();				
+				case 0 : return new Integer(elementNode.getIndex());
+				case 1 : return elementNode.getName();
+				case 2 : return elementNode.getText();
+				case 3 : return elementNode.getIcon();
+				case 4 : return elementNode.getToolTipText();
+				case 5 : return Boolean.valueOf(elementNode.isSelected());
+				case 6 : return Boolean.valueOf(elementNode.isEnabled());
+				case 7 : return elementNode.getUserObject();
 			}
 			
 			return null;

@@ -88,19 +88,19 @@ public class DemoThreadContainerPanel
 			
 			switch (column)
 			{
-				case 0:
+				case 0 :
 					return file.getName();
-				case 1:
+				case 1 :
 					return TimeUtil.getDateTime(new Date(file.lastModified()));
-				case 2:
+				case 2 :
 					return file.isFile() ? "File" : "Directory";
-				case 3:
+				case 3 :
 					return file.length();
-				case 4:
+				case 4 :
 					return file.canRead() ? "Yes" : "No";
-				case 5:
+				case 5 :
 					return file.canWrite() ? "Yes" : "No";
-				case 6:
+				case 6 :
 					return file.canWrite() ? "Yes" : "No";
 			}
 			
