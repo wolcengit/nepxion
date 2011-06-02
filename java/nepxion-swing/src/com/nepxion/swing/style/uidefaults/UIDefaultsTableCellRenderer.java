@@ -55,7 +55,7 @@ public class UIDefaultsTableCellRenderer
 		}
 		else if (value instanceof Color)
 		{
-			GeoCellIcon icon = new GeoCellIcon(GeoCellIcon.POLYGON, (Color) value);
+			GeoCellIcon icon = new GeoCellIcon(GeoCellIcon.SHAPE_POLYGON, (Color) value);
 			setIcon(icon);
 		}
 		else if (value instanceof Font)
