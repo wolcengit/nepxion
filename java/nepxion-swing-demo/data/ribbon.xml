@@ -71,6 +71,11 @@
       </ribbon>
     </ribbonbar>
     <ribbonbar title="FrameWork" icon="" tooltip="FrameWork Control" closable="false">
+      <ribbon title="FrameWork Series" icon="" tooltip="FrameWork Series" layout="" buttonlayout="1, 0" buttoninsets="8, 2, 8, 2">
+        <button name="Dockable" text="Dockable" largetext="Dockable&#x0A;FrameWork" icon="component/framework_16.png" largeicon="component/framework_32.png" tooltip="Dockable FrameWork" class="com.nepxion.demo.control.framework.DemoDockableFrameWorkTogglePanel"/>
+        <button name="Ribbon" text="Ribbon" largetext="Ribbon&#x0A;FrameWork" icon="component/framework_16.png" largeicon="component/framework_32.png" tooltip="Ribbon FrameWork" class=""/>
+        <button name="VLDocking" text="VLDocking" largetext="VLDocking&#x0A;FrameWork" icon="component/framework_16.png" largeicon="component/framework_32.png" tooltip="VLDocking FrameWork" class=""/>
+      </ribbon>
     </ribbonbar>
     <ribbonbar title="Advanced" icon="" tooltip="Advanced Control" closable="false">
     </ribbonbar>
