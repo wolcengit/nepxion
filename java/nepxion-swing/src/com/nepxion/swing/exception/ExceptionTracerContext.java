@@ -23,7 +23,7 @@ public class ExceptionTracerContext
 	private static boolean debug = false;
 	
 	/**
-	 * Register the debug.
+	 * Registers the debug.
 	 * @param debug the boolean value of debug
 	 */
 	public static void register(boolean debug)
@@ -37,8 +37,8 @@ public class ExceptionTracerContext
 	}
 	
 	/**
-	 * Returns true if debug.
-	 * @return true if debug
+	 * Returns true if debuging.
+	 * @return true if debuging
 	 */
 	public static boolean isDebug()
 	{

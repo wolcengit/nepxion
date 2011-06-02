@@ -19,12 +19,39 @@ import javax.swing.Icon;
 public class CheckBoxIcon
 	implements Icon
 {
+	/**
+	 * The background icon.
+	 */
 	private Icon backgroundIcon;
+	
+	/**
+	 * The check color.
+	 */
 	private Color checkColor;
+	
+	/**
+	 * The focus color.
+	 */
 	private Color focusColor;
+	
+	/**
+	 * The boolean value of selected.
+	 */
 	private boolean selected;
+	
+	/**
+	 * The boolean value of focused.
+	 */
 	private boolean focused;
 	
+	/**
+	 * Constructs with the specified initial background icon, check color, focus color, selected and focused.
+	 * @param backgroundIcon the background icon
+	 * @param checkColor the check color
+	 * @param focusColor the focus color
+	 * @param selected the boolean value of selected
+	 * @param focused the boolean value of focused
+	 */
 	public CheckBoxIcon(Icon backgroundIcon, Color checkColor, Color focusColor, boolean selected, boolean focused)
 	{
 		this.backgroundIcon = backgroundIcon;
@@ -33,7 +60,77 @@ public class CheckBoxIcon
 		this.selected = selected;
 		this.focused = focused;
 	}
+		
+	/**
+	 * Gets the background icon.
+	 * @return the background icon
+	 */
+	public Icon getBackgroundIcon()
+	{
+		return backgroundIcon;
+	}
 	
+	/**
+	 * Gets the check color.
+	 * @return the check color.
+	 */
+	public Color getCheckColor()
+	{
+		return checkColor;
+	}
+	
+	/**
+	 * Gets the focus color.
+	 * @return the focus color
+	 */
+	public Color getFocusColor()
+	{
+		return focusColor;
+	}
+	
+	/**
+	 * Returns true if selected.
+	 * @return true if selected
+	 */
+	public boolean isSelected()
+	{
+		return selected;
+	}
+	
+	/**
+	 * Returns true if focused.
+	 * @return true if focused
+	 */
+	public boolean isFocused()
+	{
+		return focused;
+	}
+	
+	/**
+	 * Gets the icon width.
+	 * @return the icon width value.
+	 */
+	public int getIconWidth()
+	{
+		return backgroundIcon.getIconWidth();
+	}
+	
+	/**
+	 * Gets the icon height.
+	 * @return the icon height value.
+	 */
+	public int getIconHeight()
+	{
+		return backgroundIcon.getIconHeight();
+	}
+	
+	/**
+	 * Paints the icon.
+	 * @param c the instance of Component
+	 * @param g the instance of Graphics
+	 * @param x the x value
+	 * @param y the y value
+	 */
 	public void paintIcon(Component c, Graphics g, int x, int y)
 	{
 		if (backgroundIcon != null)
@@ -59,40 +156,5 @@ public class CheckBoxIcon
 			g.setColor(focusColor);
 			g.drawRect(x + 2, y + 2, 10, 10);
 		}
-	}
-	
-	public Icon getBackgroundIcon()
-	{
-		return backgroundIcon;
-	}
-	
-	public Color getCheckColor()
-	{
-		return checkColor;
-	}
-	
-	public Color getFocusColor()
-	{
-		return focusColor;
-	}
-	
-	public boolean isSelected()
-	{
-		return selected;
-	}
-	
-	public boolean isFocused()
-	{
-		return focused;
-	}
-	
-	public int getIconWidth()
-	{
-		return backgroundIcon.getIconWidth();
-	}
-	
-	public int getIconHeight()
-	{
-		return backgroundIcon.getIconHeight();
 	}
 }

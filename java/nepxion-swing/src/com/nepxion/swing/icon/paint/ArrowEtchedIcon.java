@@ -19,21 +19,53 @@ import javax.swing.SwingConstants;
 
 public class ArrowEtchedIcon
 	implements Icon, SwingConstants
-{	
+{
+	/**
+	 * The direction value.
+	 */
 	private int direction;
 	
+	/**
+	 * Constructs with the specified initial direction.
+	 * @param direction the direction value.
+	 */
 	public ArrowEtchedIcon(int direction)
 	{
 		this.direction = direction;
 	}
 	
+	/**
+	 * Gets the icon width.
+	 * @return the icon width value.
+	 */
+	public int getIconWidth()
+	{
+		return 8;
+	}
+	
+	/**
+	 * Gets the icon height.
+	 * @return the icon height value.
+	 */
+	public int getIconHeight()
+	{
+		return 7;
+	}
+	
+	/**
+	 * Paints the icon.
+	 * @param c the instance of Component
+	 * @param g the instance of Graphics
+	 * @param x the x value
+	 * @param y the y value
+	 */
 	public void paintIcon(Component c, Graphics g, int x, int y)
 	{
 		switch (direction)
 		{
 			case NORTH:
 				g.setColor(Color.gray);
-								
+				
 				g.drawLine(x, y + 5, x, y + 6);
 				g.drawLine(x + 1, y + 3, x + 1, y + 5);
 				g.drawLine(x + 2, y + 1, x + 2, y + 3);
@@ -65,18 +97,8 @@ public class ArrowEtchedIcon
 				g.drawLine(x + 5, y + 3, x + 5, y + 5);
 				g.drawLine(x + 6, y + 1, x + 6, y + 3);
 				g.drawLine(x + 7, y, x + 7, y + 1);
-								
+				
 				break;
 		}
-	}
-	
-	public int getIconWidth()
-	{
-		return 8;
-	}
-	
-	public int getIconHeight()
-	{
-		return 7;
 	}
 }

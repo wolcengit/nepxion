@@ -228,7 +228,7 @@ public class JClassicMenuButton
 	}
 	
 	/**
-	 * Return true if the arrow is shown on the button.
+	 * Returns true if the arrow is shown on the button.
 	 * @return true if the arrow is shown on the button
 	 */
 	public boolean isShowArrow()

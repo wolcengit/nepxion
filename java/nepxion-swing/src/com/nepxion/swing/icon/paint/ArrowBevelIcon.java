@@ -29,9 +29,16 @@ public class ArrowBevelIcon
 	private int size;
 	private int direction;
 	
+	/**
+	 * 
+	 * @param direction
+	 * @param isRaisedView
+	 * @param isPressedView
+	 */
 	public ArrowBevelIcon(int direction, boolean isRaisedView, boolean isPressedView)
 	{
 		// init(UIManager.getColor("controlDkShadow"), UIManager.getColor("controlLtHighlight"), UIManager.getColor("controlShadow"), DEFAULT_SIZE, direction);
+		
 		if (isRaisedView)
 		{
 			if (isPressedView)
@@ -56,11 +63,27 @@ public class ArrowBevelIcon
 		}
 	}
 	
+	/**
+	 * 
+	 * @param edge1
+	 * @param edge2
+	 * @param fill
+	 * @param size
+	 * @param direction
+	 */
 	public ArrowBevelIcon(Color edge1, Color edge2, Color fill, int size, int direction)
 	{
 		init(edge1, edge2, fill, size, direction);
 	}
 	
+	/**
+	 * 
+	 * @param edge1
+	 * @param edge2
+	 * @param fill
+	 * @param size
+	 * @param direction
+	 */
 	private void init(Color edge1, Color edge2, Color fill, int size, int direction)
 	{
 		this.edge1 = edge1;
@@ -69,21 +92,14 @@ public class ArrowBevelIcon
 		this.size = size;
 		this.direction = direction;
 	}
-	
-	public void paintIcon(Component c, Graphics g, int x, int y)
-	{
-		switch (direction)
-		{
-			case NORTH:
-				drawUpArrow(g, x, y);
-				break;
-			case SOUTH:
-				drawDownArrow(g, x, y);
-				break;
-		}
-	}
-	
-	private void drawUpArrow(Graphics g, int xo, int yo)
+		
+	/**
+	 * 
+	 * @param g
+	 * @param xo
+	 * @param yo
+	 */
+	private void paintUpArrow(Graphics g, int xo, int yo)
 	{
 		g.setColor(edge1);
 		int x = xo + (size / 2);
@@ -116,7 +132,13 @@ public class ArrowBevelIcon
 		g.drawLine(xo, yo + size - 1, xo + size, yo + size - 1);
 	}
 	
-	private void drawDownArrow(Graphics g, int xo, int yo)
+	/**
+	 * 
+	 * @param g
+	 * @param xo
+	 * @param yo
+	 */
+	private void paintDownArrow(Graphics g, int xo, int yo)
 	{
 		g.setColor(edge1);
 		g.drawLine(xo, yo, xo + size - 1, yo);
@@ -148,13 +170,41 @@ public class ArrowBevelIcon
 		g.drawLine(xo + (size / 2), yo + size - 1, xo + (size / 2), yo + size - 1);
 	}
 	
+	/**
+	 * Gets the icon width.
+	 * @return the icon width value.
+	 */	
 	public int getIconWidth()
 	{
 		return size;
 	}
 	
+	/**
+	 * Gets the icon height.
+	 * @return the icon height value.
+	 */
 	public int getIconHeight()
 	{
 		return size;
+	}
+	
+	/**
+	 * Paints the icon.
+	 * @param c the instance of Component
+	 * @param g the instance of Graphics
+	 * @param x the x value
+	 * @param y the y value
+	 */
+	public void paintIcon(Component c, Graphics g, int x, int y)
+	{
+		switch (direction)
+		{
+			case NORTH:
+				paintUpArrow(g, x, y);
+				break;
+			case SOUTH:
+				paintDownArrow(g, x, y);
+				break;
+		}
 	}
 }

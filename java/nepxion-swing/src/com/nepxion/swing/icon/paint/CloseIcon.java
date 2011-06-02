@@ -21,23 +21,142 @@ import javax.swing.UIManager;
 public class CloseIcon
 	implements Icon
 {
+	/**
+	 * 
+	 */
 	private Rectangle rectangle = new Rectangle(0, 0, 15, 15);
 	
+	/**
+	 * 
+	 */
 	private boolean isPressed = false;
+	
+	/**
+	 * 
+	 */
 	private boolean isDrawBorder = true;
+	
+	/**
+	 * 
+	 */
 	private boolean isDrawCenter = true;
 	
+	/**
+	 * 
+	 */
 	public CloseIcon()
 	{
 		this(true, true);
 	}
 	
+	/**
+	 * 
+	 * @param isDrawBorder
+	 * @param isDrawCenter
+	 */
 	public CloseIcon(boolean isDrawBorder, boolean isDrawCenter)
 	{
 		this.isDrawBorder = isDrawBorder;
 		this.isDrawCenter = isDrawCenter;
 	}
 	
+	/**
+	 * 
+	 * @return
+	 */
+	public Rectangle getBounds()
+	{
+		return rectangle;
+	}
+	
+	/**
+	 * 
+	 * @param rectangle
+	 */
+	public void setBounds(Rectangle rectangle)
+	{
+		this.rectangle = rectangle;
+	}
+		
+	/**
+	 * 
+	 * @return
+	 */
+	public boolean isPressed()
+	{
+		return isPressed;
+	}
+	
+	/**
+	 * 
+	 * @param pressed
+	 */
+	public void setPressed(boolean pressed)
+	{
+		this.isPressed = pressed;
+	}
+	
+	/**
+	 * 
+	 * @return
+	 */
+	public boolean isDrawBorder()
+	{
+		return isDrawBorder;
+	}
+	
+	/**
+	 * 
+	 * @param isDrawBorder
+	 */
+	public void setDrawBorder(boolean isDrawBorder)
+	{
+		this.isDrawBorder = isDrawBorder;
+	}
+	
+	/**
+	 * 
+	 * @return
+	 */
+	public boolean isDrawCenter()
+	{
+		return isDrawCenter;
+	}
+	
+	/**
+	 * 
+	 * @param isDrawCenter
+	 */
+	public void setDrawCenter(boolean isDrawCenter)
+	{
+		this.isDrawCenter = isDrawCenter;
+	}
+	
+	/**
+	 * Gets the icon width.
+	 * @return the icon width value.
+	 */
+	public int getIconWidth()
+	{
+		return rectangle.width;
+	}
+	
+	/**
+	 * Gets the icon height.
+	 * @return the icon height value.
+	 */
+	public int getIconHeight()
+	{
+		return rectangle.height;
+	}
+	
+	/**
+	 * Paints the icon.
+	 * @param c the instance of Component
+	 * @param g the instance of Graphics
+	 * @param x the x value
+	 * @param y the y value
+	 */
 	public void paintIcon(Component c, Graphics g, int x, int y)
 	{
 		rectangle.x = x;
@@ -95,60 +214,5 @@ public class CloseIcon
 		g.drawRect(x + 9, y + 9, 1, 1);
 		g.drawRect(x + 10, y + 10, 1, 1);
 		g.setColor(color);
-	}
-	
-	private void drawRec(Graphics g, int x, int y)
-	{
-		g.drawRect(x, y, 1, 1);
-	}
-	
-	public Rectangle getBounds()
-	{
-		return rectangle;
-	}
-	
-	public void setBounds(Rectangle rectangle)
-	{
-		this.rectangle = rectangle;
-	}
-	
-	public int getIconWidth()
-	{
-		return rectangle.width;
-	}
-	
-	public int getIconHeight()
-	{
-		return rectangle.height;
-	}
-	
-	public boolean isPressed()
-	{
-		return isPressed;
-	}
-	
-	public void setPressed(boolean pressed)
-	{
-		this.isPressed = pressed;
-	}
-	
-	public boolean isDrawBorder()
-	{
-		return isDrawBorder;
-	}
-	
-	public void setDrawBorder(boolean isDrawBorder)
-	{
-		this.isDrawBorder = isDrawBorder;
-	}
-	
-	public boolean isDrawCenter()
-	{
-		return isDrawCenter;
-	}
-	
-	public void setDrawCenter(boolean isDrawCenter)
-	{
-		this.isDrawCenter = isDrawCenter;
 	}
 }

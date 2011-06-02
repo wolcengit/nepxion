@@ -26,7 +26,7 @@ public abstract class JFrameWorkHierarchy
 	}
 	
 	/**
-	 * Get the status bar.
+	 * Gets the status bar.
 	 * @return the instance of JFrameWorkStatusBar
 	 */
 	public abstract JFrameWorkStatusBar getStatusBar();

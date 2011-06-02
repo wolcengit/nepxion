@@ -21,18 +21,62 @@ import javax.swing.UIManager;
 public class ArrowIcon
 	implements Icon, SwingConstants
 {
+	/**
+	 * The shadow color.
+	 */
 	private Color shadow = UIManager.getColor("controlShadow");
+	
+	/**
+	 * The dark shadow color.
+	 */
 	private Color darkShadow = Color.black;
 	
+	/**
+	 * The size value.
+	 */
 	private int size;
+	
+	/**
+	 * The direction value.
+	 */
 	private int direction;
 	
+	/**
+	 * Constructs with the specified initial size and direction.
+	 * @param size the size value
+	 * @param direction the direction value
+	 */
 	public ArrowIcon(int size, int direction)
 	{
 		this.size = size;
 		this.direction = direction;
 	}
 	
+	/**
+	 * Gets the icon width.
+	 * @return the icon width value.
+	 */
+	public int getIconWidth()
+	{
+		return size;
+	}
+	
+	/**
+	 * Gets the icon height.
+	 * @return the icon height value.
+	 */
+	public int getIconHeight()
+	{
+		return size;
+	}
+	
+	/**
+	 * Paints the icon.
+	 * @param c the instance of Component
+	 * @param g the instance of Graphics
+	 * @param x the x value
+	 * @param y the y value
+	 */
 	public void paintIcon(Component c, Graphics g, int x, int y)
 	{
 		boolean isEnabled = c.isEnabled();
@@ -86,15 +130,5 @@ public class ArrowIcon
 		}
 		g.translate(-x, -y);
 		g.setColor(oldColor);
-	}
-	
-	public int getIconWidth()
-	{
-		return size;
-	}
-	
-	public int getIconHeight()
-	{
-		return size;
 	}
 }

@@ -129,8 +129,8 @@ public class Dom4JRibbonParser
 	}
 	
 	/**
-	 * Return true if it is the context icon.
-	 * @return
+	 * Returns true if it is the context icon.
+	 * @return true if it is the context icon
 	 */
 	public boolean isContextIcon()
 	{

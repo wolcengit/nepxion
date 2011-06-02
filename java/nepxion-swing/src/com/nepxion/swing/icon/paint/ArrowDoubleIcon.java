@@ -19,19 +19,78 @@ import javax.swing.SwingConstants;
 public class ArrowDoubleIcon
 	implements Icon, SwingConstants
 {
+	/**
+	 * The first arrow icon.
+	 */
 	private ArrowIcon arrowIcon1;
+	
+	/**
+	 * The second arrow icon.
+	 */
 	private ArrowIcon arrowIcon2;
-	private int singleSize;
+	
+	/**
+	 * The size value.
+	 */
+	private int size;
+	
+	/**
+	 * The direction value.
+	 */
 	private int direction;
 	
-	public ArrowDoubleIcon(int singleSize, int direction)
+	/**
+	 * Constructs with the specified initial size and direction.
+	 * @param size the size value
+	 * @param direction the direction value
+	 */
+	public ArrowDoubleIcon(int size, int direction)
 	{
-		this.singleSize = singleSize;
+		this.size = size;
 		
-		arrowIcon1 = new ArrowIcon(singleSize, direction);
-		arrowIcon2 = new ArrowIcon(singleSize, direction);
+		arrowIcon1 = new ArrowIcon(size / 2, direction);
+		arrowIcon2 = new ArrowIcon(size / 2, direction);
 	}
 	
+	/**
+	 * Gets the icon width.
+	 * @return the icon width value.
+	 */
+	public int getIconWidth()
+	{
+		if (direction == NORTH || direction == SOUTH)
+		{
+			return size / 2;
+		}
+		else
+		{
+			return size;
+		}
+	}
+	
+	/**
+	 * Gets the icon height.
+	 * @return the icon height value.
+	 */
+	public int getIconHeight()
+	{
+		if (direction == NORTH || direction == SOUTH)
+		{
+			return size;
+		}
+		else
+		{
+			return size / 2;
+		}
+	}
+	
+	/**
+	 * Paints the icon.
+	 * @param c the instance of Component
+	 * @param g the instance of Graphics
+	 * @param x the x value
+	 * @param y the y value
+	 */
 	public void paintIcon(Component c, Graphics g, int x, int y)
 	{
 		if (arrowIcon1 != null)
@@ -42,36 +101,12 @@ public class ArrowDoubleIcon
 		{
 			if (direction == NORTH || direction == SOUTH)
 			{
-				arrowIcon2.paintIcon(c, g, x, y + singleSize);
+				arrowIcon2.paintIcon(c, g, x, y + size / 2);
 			}
 			else
 			{
-				arrowIcon2.paintIcon(c, g, x + singleSize, y);
+				arrowIcon2.paintIcon(c, g, x + size / 2, y);
 			}
-		}
-	}
-	
-	public int getIconWidth()
-	{
-		if (direction == NORTH || direction == SOUTH)
-		{
-			return singleSize;
-		}
-		else
-		{
-			return singleSize * 2;
-		}
-	}
-	
-	public int getIconHeight()
-	{
-		if (direction == NORTH || direction == SOUTH)
-		{
-			return singleSize * 2;
-		}
-		else
-		{
-			return singleSize;
 		}
 	}
 }

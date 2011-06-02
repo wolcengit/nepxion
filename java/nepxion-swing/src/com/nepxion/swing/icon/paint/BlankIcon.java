@@ -19,37 +19,66 @@ import javax.swing.Icon;
 public class BlankIcon
 	implements Icon
 {
-	private Color fillColor;
+	/**
+	 * The instance of Color.
+	 */
+	private Color color;
+	
+	/**
+	 * The size value.
+	 */
 	private int size;
 	
+	/**
+	 * Constructs with the default.
+	 */
 	public BlankIcon()
 	{
 		this(null, 8);
 	}
 	
+	/**
+	 * Constructs with the specified initial color and size.
+	 * @param color
+	 * @param size
+	 */
 	public BlankIcon(Color color, int size)
 	{
-		fillColor = color;
-		
+		this.color = color;
 		this.size = size;
 	}
 	
-	public void paintIcon(Component c, Graphics g, int x, int y)
-	{
-		if (fillColor != null)
-		{
-			g.setColor(fillColor);
-			g.drawRect(x, y, size - 1, size - 1);
-		}
-	}
-	
+	/**
+	 * Gets the icon width.
+	 * @return the icon width value.
+	 */
 	public int getIconWidth()
 	{
 		return size;
 	}
 	
+	/**
+	 * Gets the icon height.
+	 * @return the icon height value.
+	 */
 	public int getIconHeight()
 	{
 		return size;
+	}
+	
+	/**
+	 * Paints the icon.
+	 * @param c the instance of Component
+	 * @param g the instance of Graphics
+	 * @param x the x value
+	 * @param y the y value
+	 */
+	public void paintIcon(Component c, Graphics g, int x, int y)
+	{
+		if (color != null)
+		{
+			g.setColor(color);
+			g.drawRect(x, y, size - 1, size - 1);
+		}
 	}
 }

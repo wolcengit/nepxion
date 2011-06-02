@@ -98,7 +98,6 @@ public class BorderManager
 	 * @param bottom the bottom value
 	 * @param right the right value
 	 * @return the instance of Border
-	 * @return
 	 */
 	public static Border createLineBorder(Color color, int top, int left, int bottom, int right)
 	{

@@ -219,7 +219,7 @@ public class FullScreenSupport
 	}
 	
 	/**
-	 * Return true if is full screen.
+	 * Returns true if is full screen.
 	 * @return true if is full screen
 	 */
 	public boolean isFullScreen()

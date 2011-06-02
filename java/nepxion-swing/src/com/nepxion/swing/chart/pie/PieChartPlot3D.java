@@ -142,7 +142,7 @@ public class PieChartPlot3D
 	}
 	
 	/**
-	 * Set the section outline stroke.
+	 * Sets the section outline stroke.
 	 * @param key the instance of Comparable
 	 * @param stroke the instance of Stroke
 	 */

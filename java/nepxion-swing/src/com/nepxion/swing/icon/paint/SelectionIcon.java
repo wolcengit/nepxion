@@ -19,23 +19,45 @@ import javax.swing.Icon;
 public class SelectionIcon
 	implements Icon
 {
+	/**
+	 * The boolean value of selected.
+	 */
 	private boolean selected;
 	
+	/**
+	 * Constructs with the specified initial selected.
+	 * @param selected the boolean value of selected
+	 */
 	public SelectionIcon(boolean selected)
 	{
 		this.selected = selected;
 	}
 	
+	/**
+	 * Gets the icon width.
+	 * @return the icon width value.
+	 */
 	public int getIconWidth()
 	{
 		return 15;
 	}
 	
+	/**
+	 * Gets the icon height.
+	 * @return the icon height value.
+	 */
 	public int getIconHeight()
 	{
 		return 15;
 	}
 	
+	/**
+	 * Paints the icon.
+	 * @param c the instance of Component
+	 * @param g the instance of Graphics
+	 * @param x the x value
+	 * @param y the y value
+	 */
 	public void paintIcon(Component c, Graphics g, int x, int y)
 	{
 		if (!selected)

@@ -263,7 +263,7 @@ public class JExceptionDialog
 	}
 	
 	/**
-	 * Set the exception to the exception dialog.
+	 * Sets the exception to the exception dialog.
 	 * @param hint the hint string
 	 * @param summary the summary string
 	 * @param e the instance of Exception
