@@ -36,27 +36,24 @@ public class TGraphGridLocator
 		
 		switch (direction)
 		{
-			case DIRECTION_NORTH_EAST:
+			case DIRECTION_NORTH_EAST :
 			{
 				vSpace = -vSpace;
-				
 				break;
 			}
-			case DIRECTION_NORTH_WEST:
+			case DIRECTION_NORTH_WEST :
 			{
 				hSpace = -hSpace;
 				vSpace = -vSpace;
-				
 				break;
 			}
-			case DIRECTION_SOUTH_EAST:
+			case DIRECTION_SOUTH_EAST :
 			{
 				break;
 			}
-			case DIRECTION_SOUTH_WEST:
+			case DIRECTION_SOUTH_WEST :
 			{
 				hSpace = -hSpace;
-				
 				break;
 			}
 		}
