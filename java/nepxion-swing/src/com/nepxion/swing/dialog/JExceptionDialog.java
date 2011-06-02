@@ -280,7 +280,7 @@ public class JExceptionDialog
 	}
 	
 	/**
-	 * Add the exception to the exception dialog.
+	 * Adds the exception to the exception dialog.
 	 * @param e the instance of Exception
 	 */
 	public void addException(Exception e)
