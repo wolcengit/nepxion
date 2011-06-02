@@ -19,12 +19,11 @@ import com.nepxion.demo.component.button.DemoMenuButtonPanel;
 import com.nepxion.demo.component.button.DemoSelectorMenuButtonPanel;
 import com.nepxion.demo.component.button.DemoSplitButtonPanel;
 import com.nepxion.demo.component.button.DemoToggleButtonPanel;
-import com.nepxion.swing.framework.ribbon.IRibbonComponent;
 import com.nepxion.swing.icon.IconFactory;
 import com.nepxion.swing.tabbedpane.JEclipseTabbedPane;
 
 public class DemoButtonTogglePanel
-	extends DemoTogglePanel implements IRibbonComponent
+	extends DemoTogglePanel
 {
 	public DemoButtonTogglePanel()
 	{
@@ -54,17 +53,5 @@ public class DemoButtonTogglePanel
 	public String getToggleDescription()
 	{
 		return "Multi-style Button ToggleButton MenuButton & SplitButton";
-	}
-
-	public Object getUserObject()
-	{
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public void setUserObject(Object userObject)
-	{
-		// TODO Auto-generated method stub
-		
 	}
 }
