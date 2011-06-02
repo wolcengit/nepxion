@@ -21,153 +21,175 @@ import javax.swing.UIManager;
 public class ArrowBevelIcon
 	implements Icon, SwingConstants
 {	
+	/**
+	 * The default size.
+	 */
 	private static final int DEFAULT_SIZE = 11;
 	
-	private Color edge1;
-	private Color edge2;
-	private Color fill;
+	/**
+	 * The first edge color.
+	 */
+	private Color edgeColor1;
+	
+	/**
+	 * The second edge color.
+	 */
+	private Color edgeColor2;
+	
+	/**
+	 * The fill color.
+	 */
+	private Color fillColor;
+	
+	/**
+	 * The size value.
+	 */
 	private int size;
+	
+	/**
+	 * The direction value.
+	 */
 	private int direction;
 	
 	/**
-	 * 
-	 * @param direction
-	 * @param isRaisedView
-	 * @param isPressedView
+	 * Constructs with the specified initial direction, isRaisedView and isPressedView.
+	 * @param direction the direction value
+	 * @param isRaisedView the boolean value of isRaisedView
+	 * @param isPressedView the boolean value of isPressedView
 	 */
 	public ArrowBevelIcon(int direction, boolean isRaisedView, boolean isPressedView)
 	{
-		// init(UIManager.getColor("controlDkShadow"), UIManager.getColor("controlLtHighlight"), UIManager.getColor("controlShadow"), DEFAULT_SIZE, direction);
+		// initialize(UIManager.getColor("controlDkShadow"), UIManager.getColor("controlLtHighlight"), UIManager.getColor("controlShadow"), DEFAULT_SIZE, direction);
 		
 		if (isRaisedView)
 		{
 			if (isPressedView)
 			{
-				init(UIManager.getColor("controlLtHighlight"), UIManager.getColor("controlDkShadow"), UIManager.getColor("controlShadow"), DEFAULT_SIZE, direction);
+				initialize(UIManager.getColor("controlLtHighlight"), UIManager.getColor("controlDkShadow"), UIManager.getColor("controlShadow"), DEFAULT_SIZE, direction);
 			}
 			else
 			{
-				init(UIManager.getColor("controlHighlight"), UIManager.getColor("controlShadow"), UIManager.getColor("control"), DEFAULT_SIZE, direction);
+				initialize(UIManager.getColor("controlHighlight"), UIManager.getColor("controlShadow"), UIManager.getColor("control"), DEFAULT_SIZE, direction);
 			}
 		}
 		else
 		{
 			if (isPressedView)
 			{
-				init(UIManager.getColor("controlDkShadow"), UIManager.getColor("controlLtHighlight"), UIManager.getColor("controlShadow"), DEFAULT_SIZE, direction);
+				initialize(UIManager.getColor("controlDkShadow"), UIManager.getColor("controlLtHighlight"), UIManager.getColor("controlShadow"), DEFAULT_SIZE, direction);
 			}
 			else
 			{
-				init(UIManager.getColor("controlShadow"), UIManager.getColor("controlHighlight"), UIManager.getColor("control"), DEFAULT_SIZE, direction);
+				initialize(UIManager.getColor("controlShadow"), UIManager.getColor("controlHighlight"), UIManager.getColor("control"), DEFAULT_SIZE, direction);
 			}
 		}
 	}
 	
 	/**
-	 * 
-	 * @param edge1
-	 * @param edge2
-	 * @param fill
-	 * @param size
-	 * @param direction
+	 * Constructs with the specified initial first edge color, second edge color, fill color, size and direction.
+	 * @param edgeColor1 the first edge color
+	 * @param edgeColor2 the second edge color
+	 * @param fillColor the fill color
+	 * @param size the size value
+	 * @param direction the direction value
 	 */
-	public ArrowBevelIcon(Color edge1, Color edge2, Color fill, int size, int direction)
+	public ArrowBevelIcon(Color edgeColor1, Color edgeColor2, Color fillColor, int size, int direction)
 	{
-		init(edge1, edge2, fill, size, direction);
+		initialize(edgeColor1, edgeColor2, fillColor, size, direction);
 	}
 	
 	/**
 	 * 
-	 * @param edge1
-	 * @param edge2
-	 * @param fill
+	 * @param edgeColor1
+	 * @param edgeColor2
+	 * @param fillColor
 	 * @param size
 	 * @param direction
 	 */
-	private void init(Color edge1, Color edge2, Color fill, int size, int direction)
+	private void initialize(Color edgeColor1, Color edgeColor2, Color fillColor, int size, int direction)
 	{
-		this.edge1 = edge1;
-		this.edge2 = edge2;
-		this.fill = fill;
+		this.edgeColor1 = edgeColor1;
+		this.edgeColor2 = edgeColor2;
+		this.fillColor = fillColor;
 		this.size = size;
 		this.direction = direction;
 	}
 		
 	/**
-	 * 
-	 * @param g
-	 * @param xo
-	 * @param yo
+	 * Paints the up arrow.
+	 * @param g the instance of Graphics
+	 * @param i the i value.
+	 * @param j the j value.
 	 */
-	private void paintUpArrow(Graphics g, int xo, int yo)
+	private void paintUpArrow(Graphics g, int i, int j)
 	{
-		g.setColor(edge1);
-		int x = xo + (size / 2);
-		g.drawLine(x, yo, x, yo);
+		g.setColor(edgeColor1);
+		int x = i + (size / 2);
+		g.drawLine(x, j, x, j);
 		x--;
-		int y = yo + 1;
+		int y = j + 1;
 		int dx = 0;
-		while (y + 3 < yo + size)
+		while (y + 3 < j + size)
 		{
-			g.setColor(edge1);
+			g.setColor(edgeColor1);
 			g.drawLine(x, y, x + 1, y);
 			g.drawLine(x, y + 1, x + 1, y + 1);
 			if (0 < dx)
 			{
-				g.setColor(fill);
+				g.setColor(fillColor);
 				g.drawLine(x + 2, y, x + 1 + dx, y);
 				g.drawLine(x + 2, y + 1, x + 1 + dx, y + 1);
 			}
-			g.setColor(edge2);
+			g.setColor(edgeColor2);
 			g.drawLine(x + dx + 2, y, x + dx + 3, y);
 			g.drawLine(x + dx + 2, y + 1, x + dx + 3, y + 1);
 			x -= 1;
 			y += 2;
 			dx += 2;
 		}
-		g.setColor(edge1);
-		g.drawLine(xo, yo + size - 3, xo + 1, yo + size - 3);
-		g.setColor(edge2);
-		g.drawLine(xo + 2, yo + size - 2, xo + size - 1, yo + size - 2);
-		g.drawLine(xo, yo + size - 1, xo + size, yo + size - 1);
+		g.setColor(edgeColor1);
+		g.drawLine(i, j + size - 3, i + 1, j + size - 3);
+		g.setColor(edgeColor2);
+		g.drawLine(i + 2, j + size - 2, i + size - 1, j + size - 2);
+		g.drawLine(i, j + size - 1, i + size, j + size - 1);
 	}
 	
 	/**
-	 * 
-	 * @param g
-	 * @param xo
-	 * @param yo
+	 * Paints the down arrow.
+	 * @param g the instance of Graphics
+	 * @param i the i value.
+	 * @param j the j value.
 	 */
-	private void paintDownArrow(Graphics g, int xo, int yo)
+	private void paintDownArrow(Graphics g, int i, int j)
 	{
-		g.setColor(edge1);
-		g.drawLine(xo, yo, xo + size - 1, yo);
-		g.drawLine(xo, yo + 1, xo + size - 3, yo + 1);
-		g.setColor(edge2);
-		g.drawLine(xo + size - 2, yo + 1, xo + size - 1, yo + 1);
-		int x = xo + 1;
-		int y = yo + 2;
+		g.setColor(edgeColor1);
+		g.drawLine(i, j, i + size - 1, j);
+		g.drawLine(i, j + 1, i + size - 3, j + 1);
+		g.setColor(edgeColor2);
+		g.drawLine(i + size - 2, j + 1, i + size - 1, j + 1);
+		int x = i + 1;
+		int y = j + 2;
 		int dx = size - 6;
-		while (y + 1 < yo + size)
+		while (y + 1 < j + size)
 		{
-			g.setColor(edge1);
+			g.setColor(edgeColor1);
 			g.drawLine(x, y, x + 1, y);
 			g.drawLine(x, y + 1, x + 1, y + 1);
 			if (0 < dx)
 			{
-				g.setColor(fill);
+				g.setColor(fillColor);
 				g.drawLine(x + 2, y, x + 1 + dx, y);
 				g.drawLine(x + 2, y + 1, x + 1 + dx, y + 1);
 			}
-			g.setColor(edge2);
+			g.setColor(edgeColor2);
 			g.drawLine(x + dx + 2, y, x + dx + 3, y);
 			g.drawLine(x + dx + 2, y + 1, x + dx + 3, y + 1);
 			x += 1;
 			y += 2;
 			dx -= 2;
 		}
-		g.setColor(edge1);
-		g.drawLine(xo + (size / 2), yo + size - 1, xo + (size / 2), yo + size - 1);
+		g.setColor(edgeColor1);
+		g.drawLine(i + (size / 2), j + size - 1, i + (size / 2), j + size - 1);
 	}
 	
 	/**
