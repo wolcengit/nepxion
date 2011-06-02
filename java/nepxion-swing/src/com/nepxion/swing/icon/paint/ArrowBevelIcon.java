@@ -221,10 +221,10 @@ public class ArrowBevelIcon
 	{
 		switch (direction)
 		{
-			case NORTH:
+			case NORTH :
 				paintUpArrow(g, x, y);
 				break;
-			case SOUTH:
+			case SOUTH :
 				paintDownArrow(g, x, y);
 				break;
 		}

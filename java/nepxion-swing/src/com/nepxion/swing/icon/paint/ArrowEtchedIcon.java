@@ -63,7 +63,7 @@ public class ArrowEtchedIcon
 	{
 		switch (direction)
 		{
-			case NORTH:
+			case NORTH :
 				g.setColor(Color.gray);
 				
 				g.drawLine(x, y + 5, x, y + 6);
@@ -81,7 +81,7 @@ public class ArrowEtchedIcon
 				g.drawLine(x + 1, y + 6, x + 6, y + 6);
 				
 				break;
-			case SOUTH:
+			case SOUTH :
 				g.setColor(Color.gray);
 				
 				g.drawLine(x, y, x, y + 1);

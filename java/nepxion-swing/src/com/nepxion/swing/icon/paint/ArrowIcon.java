@@ -99,13 +99,13 @@ public class ArrowIcon
 		
 		switch (direction)
 		{
-			case NORTH:
+			case NORTH :
 				for (i = 0; i < size; i++)
 				{
 					g.drawLine(mid - i, i, mid + i, i);
 				}
 				break;
-			case SOUTH:
+			case SOUTH :
 				j = 0;
 				for (i = size - 1; i >= 0; i--)
 				{
@@ -113,13 +113,13 @@ public class ArrowIcon
 					j++;
 				}
 				break;
-			case WEST:
+			case WEST :
 				for (i = 0; i < size; i++)
 				{
 					g.drawLine(i, mid - i, i, mid + i);
 				}
 				break;
-			case EAST:
+			case EAST :
 				j = 0;
 				for (i = size - 1; i >= 0; i--)
 				{
