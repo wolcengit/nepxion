@@ -9,6 +9,8 @@ package com.nepxion.swing.style.framework;
  * @version 1.0
  */
 
+import java.awt.Color;
+
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.UIDefaults;
@@ -45,17 +47,48 @@ public class StyleManager
 		if (isThemeDecorated)
 		{
 			LookAndFeelTheme.setTheme(LookAndFeelTheme.ECLIPSE3X_STYLE);
-			
-			UIDefaults uiDefaults = UIManager.getLookAndFeelDefaults();
-			uiDefaults.put("DockableFrame.activeTitleBackground", style.getTabbedPaneGradientColor());
-			uiDefaults.put("DockableFrame.activeTitleBackground2", style.getTabbedPaneBackground());
-			uiDefaults.put("JideTabbedPane.background", UIManager.getColor("Panel.background"));
-			uiDefaults.put("JideTabbedPane.selectedTabTextForeground", style.getTabbedPaneSelectionForeground());
-			uiDefaults.put("JideTabbedPane.unselectedTabTextForeground", style.getTabbedPaneForeground());
 		}
 		else
 		{
 			LookAndFeelTheme.setTheme(LookAndFeelTheme.VSNET_STYLE_WITHOUT_MENU);
+		}
+		
+		UIDefaults uiDefaults = UIManager.getLookAndFeelDefaults();
+		
+		Color tabbedPaneGradientColor = style.getTabbedPaneGradientColor();
+		if (tabbedPaneGradientColor != null)
+		{	
+			uiDefaults.put("DockableFrame.activeTitleBackground", tabbedPaneGradientColor);
+		}
+		
+		Color tabbedPaneBackground = style.getTabbedPaneBackground();
+		if (tabbedPaneBackground != null)
+		{	
+			uiDefaults.put("DockableFrame.activeTitleBackground2", tabbedPaneBackground);
+		}
+		
+		Color background = UIManager.getColor("Panel.background");
+		if (background != null)
+		{	
+			uiDefaults.put("JideTabbedPane.background", background);
+		}
+		
+		Color tabbedPaneSelectionForeground = style.getTabbedPaneSelectionForeground();
+		if (tabbedPaneSelectionForeground != null)
+		{	
+			uiDefaults.put("JideTabbedPane.selectedTabTextForeground", tabbedPaneSelectionForeground);
+		}
+		
+		Color tabbedPaneForeground = style.getTabbedPaneForeground();
+		if (tabbedPaneForeground != null)
+		{	
+			uiDefaults.put("JideTabbedPane.unselectedTabTextForeground", tabbedPaneForeground);
+		}
+		
+		Color tabbedPaneBorderLineColor = style.getTabbedPaneBorderLineColor();
+		if (tabbedPaneBorderLineColor != null)
+		{	
+			uiDefaults.put("JideTabbedPane.shadow", tabbedPaneBorderLineColor);
 		}
 	}
 	

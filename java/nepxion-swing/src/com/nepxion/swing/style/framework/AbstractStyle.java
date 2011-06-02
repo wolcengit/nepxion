@@ -35,6 +35,8 @@ public abstract class AbstractStyle
 	
 	protected Color tabbedPaneNoDecoratedBackground;
 	
+	protected Color tabbedPaneBorderLineColor;
+	
 	protected Border border;
 	protected Border headerBorder;
 	protected Border labelBorder;
@@ -97,6 +99,11 @@ public abstract class AbstractStyle
 	public Color getTabbedPaneSelectionForeground()
 	{
 		return tabbedPaneSelectionForeground;
+	}
+	
+	public Color getTabbedPaneBorderLineColor()
+	{
+		return tabbedPaneBorderLineColor;
 	}
 	
 	public Border getBorder()

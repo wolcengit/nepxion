@@ -40,8 +40,13 @@ public class JRibbonStyle
 		tabbedPaneForeground = Color.black;
 		tabbedPaneSelectionForeground = Color.black;
 		
+		tabbedPaneBorderLineColor = new Color(154, 179, 213);
+		
 		border = new ShadowBorder(new Color(167, 172, 180));
 		headerBorder = new RaisedHeaderBorder(Color.white, new Color(182, 186, 194)); // new Color(167, 172, 180)
 		labelBorder = BorderFactory.createEmptyBorder(2, 4, 2, 1);
+		
+		// UIManager.put("nimbusBlueGrey", ColorUtil.getDerivedColor(new Color(169, 176, 190)));
+		UIManager.put("control", new Color(231, 239, 248));
 	}
 }

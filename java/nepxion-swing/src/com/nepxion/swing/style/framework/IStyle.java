@@ -40,6 +40,8 @@ public interface IStyle
 	
 	public Color getTabbedPaneSelectionForeground(); // 选中选项卡前景色，标签文字颜色
 	
+	public Color getTabbedPaneBorderLineColor(); // 选项卡线条颜色
+	
 	
 	public Border getBorder(); // 框架边界
 	
