@@ -95,7 +95,7 @@ public class ServerInvoker
 		Object requestObject = null;
 		switch (requestEntityType)
 		{
-			case REQUEST_ENTITY_TYPE_PARAMETER:
+			case REQUEST_ENTITY_TYPE_PARAMETER :
 			{
 				Map parameters = new HashMap();
 				for (Enumeration enumeration = request.getParameterNames(); enumeration.hasMoreElements();)
@@ -113,13 +113,13 @@ public class ServerInvoker
 				ServerLogger.requestInfo(method, charset, "List - [URL Parameter]", requestObject);
 				break;
 			}
-			case REQUEST_ENTITY_TYPE_STRING:
+			case REQUEST_ENTITY_TYPE_STRING :
 			{
 				requestObject = IOUtil.getString(request.getInputStream(), charset);
 				ServerLogger.requestInfo(method, charset, "String - [Text, XML, JSON, Properties ...]", requestObject);
 				break;
 			}
-			case REQUEST_ENTITY_TYPE_SERIALIZABLE:
+			case REQUEST_ENTITY_TYPE_SERIALIZABLE :
 			{
 				try
 				{
