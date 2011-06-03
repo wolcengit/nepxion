@@ -353,6 +353,9 @@ public class Dom4JRibbonParser
 		LayoutManager layout = null;
 		int[] buttonLayout = BUTTON_LAYOUT;
 		Insets buttonInsets = BUTTON_INSETS;
+		String cornerName = null;
+		String cornerToolTipText = null;
+		String cornerActionClass = null;
 		
 		for (Iterator attributeIterator = element.attributeIterator(); attributeIterator.hasNext();)
 		{
@@ -377,7 +380,7 @@ public class Dom4JRibbonParser
 			}
 			else if (attributeName.equals(TAG_LAYOUT))
 			{
-				if (!attributeText.trim().equals(""))
+				if (!attributeText.equals(""))
 				{
 					String layoutClass = attributeText.substring(0, attributeText.indexOf("("));
 					
@@ -402,11 +405,29 @@ public class Dom4JRibbonParser
 				String[] stringArray = attributeText.split(",");
 				buttonInsets = new Insets(Integer.parseInt(stringArray[0]), Integer.parseInt(stringArray[1]), Integer.parseInt(stringArray[2]), Integer.parseInt(stringArray[3]));
 			}
+			else if (attributeName.equals(TAG_CORNER_NAME))
+			{
+				cornerName = attributeText;
+			}
+			else if (attributeName.equals(TAG_CORNER_TOOL_TIP_TEXT))
+			{
+				cornerToolTipText = attributeText;
+			}
+			else if (attributeName.equals(TAG_CORNER_ACTION))
+			{
+				cornerActionClass = attributeText;
+			}				
 		}
 		
 		ribbon.setTitle(title);
 		ribbon.setIcon(icon);
 		ribbon.setToolTipText(toolTipText);
+		
+		if (cornerActionClass != null && !cornerActionClass.equals(""))
+		{
+			JAction cornerAction = createAction(cornerName, null, null, null, null, null, null, cornerToolTipText, cornerActionClass);
+			ribbon.setCornerAction(cornerAction);
+		}
 		
 		if (layout != null)
 		{
@@ -596,15 +617,15 @@ public class Dom4JRibbonParser
 			}
 		}
 		
-		if (ribbonName == null || ribbonName.trim().equals(""))
+		if (ribbonName == null || ribbonName.equals(""))
 		{
 			ribbonName = name;
 		}
-		if (ribbonTitle == null || ribbonTitle.trim().equals(""))
+		if (ribbonTitle == null || ribbonTitle.equals(""))
 		{
 			ribbonTitle = toolTipText;
 		}
-		if (ribbonToolTipText == null || ribbonToolTipText.trim().equals(""))
+		if (ribbonToolTipText == null || ribbonToolTipText.equals(""))
 		{
 			ribbonToolTipText = toolTipText;
 		}
@@ -615,7 +636,7 @@ public class Dom4JRibbonParser
 			if (element.elements().size() == 0)
 			{
 				JAction action = null;
-				if (actionClass != null && !actionClass.toString().equals(""))
+				if (actionClass != null && !actionClass.equals(""))
 				{
 					action = createAction(name, ButtonManager.getHtmlText(text), ButtonManager.getHtmlText(smallText), ButtonManager.getHtmlText(largeText), icon, smallIcon, largeIcon, toolTipText, actionClass);
 				}
@@ -771,15 +792,15 @@ public class Dom4JRibbonParser
 			}			
 		}
 		
-		if (ribbonName == null || ribbonName.trim().equals(""))
+		if (ribbonName == null || ribbonName.equals(""))
 		{
 			ribbonName = name;
 		}
-		if (ribbonTitle == null || ribbonTitle.trim().equals(""))
+		if (ribbonTitle == null || ribbonTitle.equals(""))
 		{
 			ribbonTitle = toolTipText;
 		}
-		if (ribbonToolTipText == null || ribbonToolTipText.trim().equals(""))
+		if (ribbonToolTipText == null || ribbonToolTipText.equals(""))
 		{
 			ribbonToolTipText = toolTipText;
 		}

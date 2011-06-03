@@ -128,6 +128,21 @@ public interface Dom4JRibbonConstants
 	public static final String TAG_ACTION = "action";
 	
 	/**
+	 * The tag for "cornername".
+	 */
+	public static final String TAG_CORNER_NAME = "cornername";
+	
+	/**
+	 * The tag for "cornertooltiptext".
+	 */
+	public static final String TAG_CORNER_TOOL_TIP_TEXT = "cornertooltip";
+	
+	/**
+	 * The tag for "corneraction".
+	 */
+	public static final String TAG_CORNER_ACTION = "corneraction";
+	
+	/**
 	 * The tag for "containerstyle";
 	 */
 	public static final String TAG_CONTAINER_STYLE = "containerstyle";
