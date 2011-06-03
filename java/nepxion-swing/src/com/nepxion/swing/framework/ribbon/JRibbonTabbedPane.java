@@ -1171,7 +1171,7 @@ public class JRibbonTabbedPane
 		 */
 		public DropDownShortcutAction()
 		{
-			super(SwingLocale.getString("shortcut"), IconFactory.getSwingIcon("ribbon/arrow.png"), SwingLocale.getString("shortcut"));
+			super(SwingLocale.getString("ribbon_shortcut"), IconFactory.getSwingIcon("ribbon/arrow.png"), SwingLocale.getString("ribbon_shortcut"));
 		}
 		
 		/**
