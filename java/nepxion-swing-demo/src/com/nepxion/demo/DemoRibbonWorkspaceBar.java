@@ -10,18 +10,30 @@ package com.nepxion.demo;
  * @version 1.0
  */
 
+import com.nepxion.swing.container.JContainer;
+import com.nepxion.swing.framework.ribbon.JRibbonContainer;
 import com.nepxion.swing.framework.ribbon.JRibbonHierarchy;
 import com.nepxion.swing.tabbedpane.JEclipseTabbedPane;
 
 public class DemoRibbonWorkspaceBar
-	extends JEclipseTabbedPane
 {
 	public DemoRibbonWorkspaceBar(JRibbonHierarchy ribbonHierarchy)
-	{		
-		// setDrawBorder(false);
-		// setDrawCenter(false);
-		setTabPlacement(BOTTOM);
+	{
+		JRibbonContainer ribbonContainer = ribbonHierarchy.getRibbonContainer();
 		
-		ribbonHierarchy.getRibbonContainer().setTabbedPane(this);
+		// The container is displayed as JEclipseTabbedPane
+		JEclipseTabbedPane tabbedPane = new JEclipseTabbedPane();
+		
+		// The container is displayed as JBasicTabbedPane
+		// JBasicTabbedPane tabbedPane = new JBasicTabbedPane();
+		// tabbedPane.setDrawBorder(false);
+		// tabbedPane.setDrawCenter(false);
+		
+		tabbedPane.setTabPlacement(JEclipseTabbedPane.BOTTOM);
+		ribbonContainer.setTabbedPane(tabbedPane);
+		
+		// The container is displayed as JContainer
+		JContainer panel = new JContainer();
+		ribbonContainer.setPanel(panel);
 	}
 }
