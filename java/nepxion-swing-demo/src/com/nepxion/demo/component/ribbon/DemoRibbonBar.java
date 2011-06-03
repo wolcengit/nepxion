@@ -29,6 +29,7 @@ import com.nepxion.swing.framework.ribbon.JRibbonContainer;
 import com.nepxion.swing.icon.IconFactory;
 import com.nepxion.swing.layout.filed.FiledLayout;
 import com.nepxion.swing.layout.table.TableLayout;
+import com.nepxion.swing.menu.JColorMenu;
 import com.nepxion.swing.menuitem.JBasicMenuItem;
 import com.nepxion.swing.popupmenu.JDecorationPopupMenu;
 import com.nepxion.swing.separator.JBasicSeparator;
@@ -141,7 +142,15 @@ public class DemoRibbonBar
 				
 		bottomToolBar.add(new JClassicMenuButton(IconFactory.getContextIcon("font_effect.png")));
 		bottomToolBar.add(new JClassicMenuButton(IconFactory.getContextIcon("font_highlight.png")));
-		bottomToolBar.add(new JClassicMenuButton(IconFactory.getContextIcon("font_color.png")));
+		
+		JDecorationPopupMenu fontColorPopupMenu = new JDecorationPopupMenu();
+		fontColorPopupMenu.add(new JColorMenu());
+		
+		JClassicMenuButton fontColorButton = new JClassicMenuButton(IconFactory.getContextIcon("font_color.png"));
+		fontColorButton.setPopupMenu(fontColorPopupMenu);
+		
+		bottomToolBar.add(fontColorButton);
+		
 		bottomToolBar.add(new JClassicToggleButton(IconFactory.getContextIcon("font_background.png")));
 		bottomToolBar.add(new JClassicButton(IconFactory.getContextIcon("font_circle.png")));
 		

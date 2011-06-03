@@ -29,13 +29,13 @@ public class DemoXBorderLayoutPanel
 		setLayout(new FiledLayout(FiledLayout.COLUMN, FiledLayout.FULL, 0));
 		setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
 		
-		add(new BorderedLayoutPanel());
+		add(new BorderLayoutPanel());
 	}
 	
-	public class BorderedLayoutPanel
+	public class BorderLayoutPanel
 		extends JPanel
 	{
-		public BorderedLayoutPanel()
+		public BorderLayoutPanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
 			setBorder(BorderManager.createComplexTitledBorder("XBorder"));

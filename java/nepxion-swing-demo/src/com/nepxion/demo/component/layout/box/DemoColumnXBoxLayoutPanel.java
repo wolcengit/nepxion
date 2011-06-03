@@ -29,13 +29,13 @@ public class DemoColumnXBoxLayoutPanel
 		setLayout(new FiledLayout(FiledLayout.ROW, FiledLayout.FULL, 0));
 		setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
 		
-		add(new BoxedLayoutPanel());
+		add(new BoxLayoutPanel());
 	}
 	
-	public class BoxedLayoutPanel
+	public class BoxLayoutPanel
 		extends JPanel
 	{
-		public BoxedLayoutPanel()
+		public BoxLayoutPanel()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
 			setBorder(BorderManager.createComplexTitledBorder("Column"));

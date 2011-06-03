@@ -29,11 +29,11 @@ public class DemoLayoutControlOutlook
 		DemoToggleActionButton ratioLayoutButton = new DemoToggleActionButton(new DemoRatioLayoutTogglePanel());
         addButton(ratioLayoutButton);        
         
-		DemoToggleActionButton borderedLayoutButton = new DemoToggleActionButton(new DemoBorderLayoutTogglePanel());
-        addButton(borderedLayoutButton); 
+		DemoToggleActionButton xBorderLayoutButton = new DemoToggleActionButton(new DemoXBorderLayoutTogglePanel());
+        addButton(xBorderLayoutButton); 
         
-		DemoToggleActionButton boxedLayoutButton = new DemoToggleActionButton(new DemoBoxLayoutTogglePanel());
-        addButton(boxedLayoutButton);      
+		DemoToggleActionButton xBoxLayoutButton = new DemoToggleActionButton(new DemoXBoxLayoutTogglePanel());
+        addButton(xBoxLayoutButton);      
         
         ButtonManager.updateUI(this, new Dimension(50, 70), new int[] {VERTICAL, CENTER});
 	}
