@@ -326,7 +326,7 @@ public class JRibbonContainer
 			{
 				if (tabbedPane == null)
 				{
-					IllegalArgumentException e = new IllegalArgumentException("The tabbedPane hasn't been registered");
+					IllegalArgumentException e = new IllegalArgumentException(SwingLocale.getString("ribbon_tabbedpane_not_register"));
 					
 					ExceptionTracer.traceException(HandleManager.getFrame(this), e);
 					
@@ -349,7 +349,7 @@ public class JRibbonContainer
 			{
 				if (panel == null)
 				{
-					IllegalArgumentException e = new IllegalArgumentException("The panel hasn't been registered");
+					IllegalArgumentException e = new IllegalArgumentException(SwingLocale.getString("ribbon_panel_not_register"));
 					
 					ExceptionTracer.traceException(HandleManager.getFrame(this), e);
 					
