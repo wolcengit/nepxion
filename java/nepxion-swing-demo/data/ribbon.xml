@@ -11,6 +11,7 @@
                     "alignmentLayout" provides "TOP(value=1)", "CENTER(value=0)", "BOTTON(value=3)"
   3. separator : provides "HORIZONTAL(value=0)", "VERTICAL(value=1)"
   4. arrowposition (only for JClassicMenuButton) : provides "RIGHT(value=0)", "BOTTOM(value=1)"
+  5. containerstyle : provides "CONTAINER_STYLE_INTERNAL_FRAME(value=0)", "CONTAINER_STYLE_TABBEDPANE(value=1)", "CONTAINER_STYLE_PANEL(value=2)"
  -->
 <framework>
   <ribbonnavigator>
@@ -28,28 +29,40 @@
     </ribbonbar>
     <ribbonbar title="Text" icon="" tooltip="Text Control" closable="false">
       <ribbon title="Label Series" icon="" tooltip="Label Series" layout="" buttonlayout="1, 0" buttoninsets="8, 2, 8, 2">
-        <button name="Label" text="Label" largetext="Label&#x0A;&amp;nbsp;" icon="component/label_16.png" largeicon="component/label_32.png" tooltip="Label" class="com.nepxion.demo.control.button.DemoButtonTogglePanel"/>
+        <button name="Label" text="Label" largetext="Label&#x0A;&amp;nbsp;" icon="component/label_16.png" largeicon="component/label_32.png" tooltip="Label" class="com.nepxion.demo.control.text.DemoLabelTogglePanel"/>
       </ribbon>
       <ribbon title="TextField Series" icon="" tooltip="TextField Series" layout="" buttonlayout="1, 0" buttoninsets="8, 2, 8, 2">
-        <button name="TextField" text="TextField" largetext="TextField&#x0A;&amp;nbsp;" icon="component/text_field_16.png" largeicon="component/text_field_32.png" tooltip="TextField" class="com.tektronix.client.service.workspace.monitor.realtime.MonitorRibbonPane"/>
-        <button name="Formatted TextField" text="Formatted TextField" largetext="Formatted&#x0A;TextField" icon="component/formatted_field_16.png" largeicon="component/formatted_field_32.png" tooltip="Formatted TextField" class="com.tektronix.client.service.workspace.monitor.realtime.MonitorRibbonPane"/>
-        <button name="Password Field" text="Password Field" largetext="Password&#x0A;Field" icon="component/password_field_16.png" largeicon="component/password_field_32.png" tooltip="Password Field" class="com.tektronix.client.service.workspace.monitor.realtime.MonitorRibbonPane"/>
+        <button name="TextField" text="TextField" largetext="TextField&#x0A;&amp;nbsp;" icon="component/text_field_16.png" largeicon="component/text_field_32.png" tooltip="TextField" class="com.nepxion.demo.control.text.DemoTextFieldTogglePanel"/>
+        <button name="Formatted TextField" text="Formatted TextField" largetext="Formatted&#x0A;TextField" icon="component/formatted_field_16.png" largeicon="component/formatted_field_32.png" tooltip="Formatted TextField" class="com.nepxion.demo.control.text.DemoFormattedTextFieldTogglePanel"/>
+        <button name="Password Field" text="Password Field" largetext="Password&#x0A;Field" icon="component/password_field_16.png" largeicon="component/password_field_32.png" tooltip="Password Field" class="com.nepxion.demo.control.text.DemoPasswordFieldTogglePanel"/>
       </ribbon>
       <ribbon title="TextArea Series" icon="" tooltip="TextArea Series" layout="" buttonlayout="1, 0" buttoninsets="8, 2, 8, 2">
-        <button name="TextArea" text="TextArea" largetext="Text&#x0A;Area" icon="component/text_area_16.png" largeicon="component/text_area_32.png" tooltip="TextArea" class="com.tektronix.client.service.workspace.monitor.realtime.MonitorRibbonPane"/>
-        <button name="TextPane" text="TextPane" largetext="Text&#x0A;Pane" icon="component/text_area_16.png" largeicon="component/text_area_32.png" tooltip="TextPane" class="com.tektronix.client.service.workspace.monitor.realtime.MonitorRibbonPane"/>
-        <button name="EditorPane" text="EditorPane" largetext="Editor&#x0A;Pane" icon="component/editor_pane_16.png" largeicon="component/editor_pane_32.png" tooltip="EditorPane" class="com.tektronix.client.service.workspace.monitor.realtime.MonitorRibbonPane"/>
+        <button name="TextArea" text="TextArea" largetext="Text&#x0A;Area" icon="component/text_area_16.png" largeicon="component/text_area_32.png" tooltip="TextArea" class="com.nepxion.demo.control.text.DemoTextAreaTogglePanel"/>
+        <button name="TextPane" text="TextPane" largetext="Text&#x0A;Pane" icon="component/text_area_16.png" largeicon="component/text_area_32.png" tooltip="TextPane" class="com.nepxion.demo.control.text.DemoTextPaneTogglePanel"/>
+        <button name="EditorPane" text="EditorPane" largetext="Editor&#x0A;Pane" icon="component/editor_pane_16.png" largeicon="component/editor_pane_32.png" tooltip="EditorPane" class="com.nepxion.demo.control.text.DemoEditorPaneTogglePanel"/>
       </ribbon>
     </ribbonbar>
     <ribbonbar title="Menu" icon="" tooltip="Menu Control" closable="false">
       <ribbon title="Menu Series" icon="" tooltip="Menu Series" layout="" buttonlayout="1, 0" buttoninsets="8, 2, 8, 2">
-        <button name="Menu" text="Menu" largetext="Menu&#x0A;&amp;nbsp;" icon="component/menu_16.png" largeicon="component/menu_32.png" tooltip="Menu" class="com.tektronix.client.service.workspace.monitor.realtime.MonitorRibbonPane"/>
-        <button name="PopupMenu" text="PopupMenu" largetext="Popup&#x0A;Menu" icon="component/popup_menu_16.png" largeicon="component/popup_menu_32.png" tooltip="PopupMenu" class="com.tektronix.client.service.workspace.monitor.realtime.MonitorRibbonPane"/>
+        <button name="Menu" text="Menu" largetext="Menu&#x0A;&amp;nbsp;" icon="component/menu_16.png" largeicon="component/menu_32.png" tooltip="Menu" class="com.nepxion.demo.control.menu.DemoMenuTogglePanel"/>
+        <button name="PopupMenu" text="PopupMenu" largetext="Popup&#x0A;Menu" icon="component/popup_menu_16.png" largeicon="component/popup_menu_32.png" tooltip="PopupMenu" class="com.nepxion.demo.control.menu.DemoPopupMenuTogglePanel"/>
       </ribbon>
     </ribbonbar>
     <ribbonbar title="Border" icon="" tooltip="Border Control" closable="false">
     </ribbonbar>
     <ribbonbar title="Container" icon="" tooltip="Container Control" closable="false">
+      <ribbon title="Window Series" icon="" tooltip="Window Series" layout="" buttonlayout="1, 0" buttoninsets="8, 2, 8, 2">
+        <button name="Window" text="Window" largetext="Window&#x0A;&amp;nbsp;" icon="component/internal_frame_16.png" largeicon="component/internal_frame_32.png" tooltip="Window" class="com.nepxion.demo.control.container.DemoWindowTogglePanel"/>
+        <button name="Frame" text="Frame" largetext="Frame&#x0A;&amp;nbsp;" icon="component/framework_16.png" largeicon="component/framework_32.png" tooltip="Frame" class="com.nepxion.demo.control.container.DemoFrameTogglePanel"/>
+        <button name="Dialog" text="Dialog" largetext="Dialog&#x0A;&amp;nbsp;" icon="component/dialog_16.png" largeicon="component/dialog_32.png" tooltip="Dialog" class="com.nepxion.demo.control.container.DemoDialogTogglePanel"/>
+      </ribbon>
+      <ribbon title="Panel Series" icon="" tooltip="Panel Series" layout="" buttonlayout="1, 0" buttoninsets="8, 2, 8, 2">
+        <button name="Panel" text="Panel" largetext="Panel&#x0A;&amp;nbsp;" icon="component/panel_16.png" largeicon="component/panel_32.png" tooltip="Panel" class="com.nepxion.demo.control.container.DemoPanelTogglePanel"/>
+        <button name="ScrollPane" text="ScrollPane" largetext="Scroll&#x0A;Pane" icon="component/scroll_pane_16.png" largeicon="component/scroll_pane_32.png" tooltip="ScrollPane" class="com.nepxion.demo.control.container.DemoScrollPaneTogglePanel"/>
+        <button name="SplitPane" text="SplitPane" largetext="Split&#x0A;Pane" icon="component/split_pane_16.png" largeicon="component/split_pane_32.png" tooltip="SplitPane" class="com.nepxion.demo.control.container.DemoSplitPaneTogglePanel"/>
+        <button name="OptionPane" text="OptionPane" largetext="Option&#x0A;Pane" icon="component/option_pane_16.png" largeicon="component/option_pane_32.png" tooltip="OptionPane" class="com.nepxion.demo.control.container.DemoOptionPaneTogglePanel"/>
+        <button name="TabbedPane" text="TabbedPane" largetext="Tabbed&#x0A;Pane" icon="component/tabbed_pane_16.png" largeicon="component/tabbed_pane_32.png" tooltip="TabbedPane" class="com.nepxion.demo.control.container.DemoTabbedPaneTogglePanel"/>
+      </ribbon>
     </ribbonbar>
     <ribbonbar title="Bar" icon="" tooltip="Bar Control" closable="false">
     </ribbonbar>
@@ -62,6 +75,10 @@
     <ribbonbar title="UI" icon="" tooltip="UI Control" closable="false">
     </ribbonbar>
     <ribbonbar title="Thread" icon="" tooltip="Thread Control" closable="false">
+      <ribbon title="Thread Series" icon="" tooltip="Thread Series" layout="" buttonlayout="1, 0" buttoninsets="8, 2, 8, 2">
+        <button name="Thread" text="Thread" largetext="Panel&#x0A;&amp;nbsp;" icon="component/thread_16.png" largeicon="component/thread_32.png" tooltip="Thread" class="com.nepxion.demo.control.thread.DemoThreadTogglePanel"/>
+        <button name="Timer" text="Timer" largetext="Timer&#x0A;&amp;nbsp;" icon="component/thread_16.png" largeicon="component/thread_32.png" tooltip="Timer" class="com.nepxion.demo.control.thread.DemoTimerTogglePanel"/>
+      </ribbon>
     </ribbonbar>
     <ribbonbar title="Chart" icon="" tooltip="Chart Control" closable="false">
       <ribbon title="Chart Series" icon="" tooltip="Chart Series" layout="" buttonlayout="1, 0" buttoninsets="8, 2, 8, 2">
@@ -80,6 +97,13 @@
     <ribbonbar title="Advanced" icon="" tooltip="Advanced Control" closable="false">
     </ribbonbar>
     <ribbonbar title="Application" icon="" tooltip="Application Control" closable="false">
+      <ribbon title="Application Series" icon="" tooltip="Application Series" layout="" buttonlayout="1, 0" buttoninsets="8, 2, 8, 2">
+        <button name="GIS" text="GIS" largetext="地理信息&#x0A;查询" icon="component/application_16.png" largeicon="component/application_32.png" tooltip="GIS" class="com.nepxion.demo.control.application.DemoGisTogglePanel"/>
+        <button name="IP" text="IP" largetext="IP信息&#x0A;查询" icon="component/framework_16.png" largeicon="component/application_32.png" tooltip="IP" class="com.nepxion.demo.control.application.DemoIPTogglePanel"/>
+        <button name="ID" text="ID" largetext="身份证信息&#x0A;查询" icon="component/application_16.png" largeicon="component/application_32.png" tooltip="ID" class="com.nepxion.demo.control.application.DemoIDTogglePanel"/>
+        <button name="Mobile" text="Mobile" largetext="手机信息&#x0A;查询" icon="component/application_16.png" largeicon="component/application_32.png" tooltip="Mobile" class="com.nepxion.demo.control.application.DemoMobileTogglePanel"/>
+        <button name="Zone" text="Zone" largetext="区号信息&#x0A;查询" icon="component/application_16.png" largeicon="component/application_32.png" tooltip="Zone" class="com.nepxion.demo.control.application.DemoZoneTogglePanel"/>
+      </ribbon>
     </ribbonbar>
     <ribbonbar title="Ribbon - Xml" icon="" tooltip="Ribbon Control" closable="false">
       <ribbon title="Ribbon" icon="" tooltip="Ribbon" layout="" buttonlayout="1, 0" buttoninsets="8, 2, 8, 2">
@@ -158,6 +182,6 @@
       </ribbon>
     </ribbonbar>
   </ribbonnavigator>
-  <ribboncontainer internalframe="true" maximumcount="100">
+  <ribboncontainer containerstyle="0" maximumcount="100">
   </ribboncontainer>
 </framework>
