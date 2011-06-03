@@ -23,7 +23,7 @@ public interface ITabbedPane
 {
 	public int getTabPlacement();
 	
-	public int setTabPlacement(int tabPlacement);
+	public void setTabPlacement(int tabPlacement);
 	
 	public void addTab(String title, Component component);
 	
