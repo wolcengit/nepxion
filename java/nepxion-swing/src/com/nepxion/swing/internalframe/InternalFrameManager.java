@@ -36,6 +36,11 @@ public class InternalFrameManager
 	 */
 	public static void showCloseDialog(JDesktopPane desktopPane, JCheckBoxSelector checkBoxSelector)
 	{
+		if (desktopPane == null)
+		{
+			return;
+		}
+		
 		JInternalFrame[] internalFrames = desktopPane.getAllFrames();
 		if (internalFrames.length == 0)
 		{
