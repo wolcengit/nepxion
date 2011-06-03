@@ -33,6 +33,11 @@ public class TabbedPaneManager
 	
 	public static void showCloseDialog(ITabbedPane tabbedPane, JCheckBoxSelector checkBoxSelector)
 	{
+		if (tabbedPane == null)
+		{
+			return;
+		}
+		
 		Vector slectionElementNodes = new Vector();
 		for (int i = 0; i < tabbedPane.getTabCount(); i++)
 		{

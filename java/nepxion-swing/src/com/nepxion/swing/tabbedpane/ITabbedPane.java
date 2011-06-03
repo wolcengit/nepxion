@@ -16,9 +16,15 @@ import java.util.List;
 
 import javax.swing.Icon;
 import javax.swing.JPopupMenu;
+import javax.swing.SwingConstants;
 
 public interface ITabbedPane
+	extends SwingConstants
 {
+	public int getTabPlacement();
+	
+	public int setTabPlacement(int tabPlacement);
+	
 	public void addTab(String title, Component component);
 	
 	public void addTab(String title, Component component, String toolTipText);
