@@ -123,9 +123,9 @@ public interface Dom4JRibbonConstants
 	public static final String TAG_CLASS = "class";
 	
 	/**
-	 * The tag for "internalframe".
+	 * The tag for "containerstyle";
 	 */
-	public static final String TAG_INTERNAL_FRAME = "internalframe";
+	public static final String TAG_CONTAINER_STYLE = "containerstyle";
 	
 	/**
 	 * The tag for "maximumcount".

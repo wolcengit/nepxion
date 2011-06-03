@@ -11,6 +11,8 @@ package com.nepxion.swing.framework.ribbon;
  */
 
 import java.awt.BorderLayout;
+import java.awt.event.ContainerAdapter;
+import java.awt.event.ContainerEvent;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyVetoException;
@@ -20,8 +22,10 @@ import javax.swing.Icon;
 import javax.swing.JComponent;
 import javax.swing.JDesktopPane;
 import javax.swing.JInternalFrame;
+import javax.swing.border.Border;
 
 import com.nepxion.swing.container.JContainer;
+import com.nepxion.swing.exception.ExceptionTracer;
 import com.nepxion.swing.handle.HandleManager;
 import com.nepxion.swing.internalframe.InternalFrameManager;
 import com.nepxion.swing.locale.SwingLocale;
@@ -36,6 +40,39 @@ public class JRibbonContainer
 	extends JContainer
 {
 	/**
+	 * The container style of internal frame.
+	 * The ribbon container displays as InternalFrame style which is a multi-windows style.
+	 */
+	public static final int CONTAINER_STYLE_INTERNAL_FRAME = 0;
+	
+	/**
+	 * The container style of tabbed pane.
+	 * The ribbon container displays as TabbedPane style which is a multi-windows style.
+	 */
+	public static final int CONTAINER_STYLE_TABBEDPANE = 1;
+	
+	/**
+	 * The container style of panel.
+	 * The ribbon container displays as Panel style which is a single-window style.
+	 */
+	public static final int CONTAINER_STYLE_PANEL = 2;
+	
+	/**
+	 * The internal frame border.
+	 */
+	public static final Border INTERNAL_FRAME_BORDER = BorderFactory.createEmptyBorder(0, 0, 0, 0);
+	
+	/**
+	 * The eclipse tabbed pane border.
+	 */
+	public static final Border ECLIPSE_TABBEDPANE_BORDER = BorderFactory.createEmptyBorder(-1, 0, 0, 0);
+	
+	/**
+	 * The panel border.
+	 */
+	public static final Border PANEL_BORDER = BorderFactory.createEmptyBorder(2, 0, 0, 0);
+	
+	/**
 	 * The instance of JDesktopPane.
 	 */
 	private JDesktopPane desktopPane;
@@ -46,16 +83,19 @@ public class JRibbonContainer
 	private ITabbedPane tabbedPane;
 	
 	/**
+	 * The instance of JContainer.
+	 */
+	private JContainer panel;
+	
+	/**
 	 * The instance of JCheckBoxSelector.
 	 */
 	private JCheckBoxSelector checkBoxSelector;
 	
 	/**
-	 * The boolean value of isInternalFrame.
-	 * The ribbon components in the JDesktopPane can display for two styles : InternalFrame Style and TabbedPane Style.
-	 * If isInternalFrame is true, it will display as InternalFrame style, otherwise as TabbedPane.
+	 * The container style value.
 	 */
-	private boolean isInternalFrame = true;
+	private int containerStyle = CONTAINER_STYLE_INTERNAL_FRAME;
 	
 	/**
 	 * The maximum count.
@@ -69,12 +109,44 @@ public class JRibbonContainer
 	 */
 	public JRibbonContainer()
 	{
+		this(CONTAINER_STYLE_INTERNAL_FRAME);
+	}
+	
+	/**
+	 * Constructs with the specified initial container style.
+	 * @param containerStyle the container style value
+	 */
+	public JRibbonContainer(final int containerStyle)
+	{		
+		this.containerStyle = containerStyle;
+		
 		desktopPane = new JDesktopPane();
 		desktopPane.setDragMode(JDesktopPane.OUTLINE_DRAG_MODE);
 
 		setLayout(new BorderLayout());
-		setBorder(BorderFactory.createEmptyBorder());
 		addComponent(desktopPane, BorderLayout.CENTER);
+		
+		addContainerListener(new ContainerAdapter()
+		{
+		    public void componentAdded(ContainerEvent e)
+		    {
+		    	Object child = e.getChild();
+
+		    	if (child instanceof JDesktopPane)
+		    	{
+		    		setBorder(INTERNAL_FRAME_BORDER);
+		    	}
+		    	else if (child instanceof JEclipseTabbedPane)
+		    	{
+		    		setBorder(ECLIPSE_TABBEDPANE_BORDER);
+		    	}
+		    	else if (child instanceof JContainer)
+		    	{
+		    		setBorder(PANEL_BORDER);
+		    	}
+		    }
+		}
+		);
 	}
 	
 	/**
@@ -91,89 +163,103 @@ public class JRibbonContainer
 		JComponent ribbonComponent = (JComponent) component;
 		JComponent handler = retrieveRibbonComponent(ribbonComponent);
 		
-		if (isInternalFrame)
+		switch (containerStyle)
 		{
-			JInternalFrame internalFrame = null;
-			
-			if (handler == null)
-			{
-				JInternalFrame[] internalFrames = desktopPane.getAllFrames();
+			case CONTAINER_STYLE_INTERNAL_FRAME :
+			{	
+				JInternalFrame internalFrame = null;
 				
-				if (internalFrames.length >= maximumCount)
+				if (handler == null)
 				{
-					JBasicOptionPane.showMessageDialog(HandleManager.getFrame(this), SwingLocale.getString("open_panel_count_limited") + " " + maximumCount + " " + SwingLocale.getString("open_panel_suffix"), SwingLocale.getString("warning"), JBasicOptionPane.WARNING_MESSAGE);
+					JInternalFrame[] internalFrames = desktopPane.getAllFrames();
 					
-					return;
-				}	
-				
-				int x = 0;
-				int y = 0;
-				
-				if (internalFrames.length != 0)
-				{	
-					x = (6 + 10) * internalFrames.length;
-					y = (25 + 10) * internalFrames.length;
+					if (internalFrames.length >= maximumCount)
+					{
+						JBasicOptionPane.showMessageDialog(HandleManager.getFrame(this), SwingLocale.getString("open_panel_count_limited") + " " + maximumCount + " " + SwingLocale.getString("open_panel_suffix"), SwingLocale.getString("warning"), JBasicOptionPane.WARNING_MESSAGE);
+						
+						return;
+					}	
+					
+					int x = 0;
+					int y = 0;
+					
+					if (internalFrames.length != 0)
+					{	
+						x = (6 + 10) * internalFrames.length;
+						y = (25 + 10) * internalFrames.length;
+					}
+					
+					int width = ribbonComponent.getSize().width;
+					int height = ribbonComponent.getSize().height;
+					
+					ribbonComponent.setName(name);
+					
+					internalFrame = new JInternalFrame(title, true, true, true, true);
+					internalFrame.setName(name);
+					internalFrame.setFrameIcon(icon);
+					internalFrame.setToolTipText(toolTipText);
+					internalFrame.setContentPane(ribbonComponent);
+					internalFrame.setSize(width != 0 ? width  + 50 : 640, height != 0 ? height + 50 : 480);
+					internalFrame.setLocation(x, y);
+					internalFrame.setVisible(true);
+					
+					desktopPane.add(internalFrame);
+				}
+				else
+				{
+					internalFrame = (JInternalFrame) handler;
 				}
 				
-				int width = ribbonComponent.getSize().width;
-				int height = ribbonComponent.getSize().height;
-				
-				internalFrame = new JInternalFrame(title, true, true, true, true);
-				internalFrame.setName(name);
-				internalFrame.setFrameIcon(icon);
-				internalFrame.setToolTipText(toolTipText);
-				internalFrame.setContentPane(ribbonComponent);
-				internalFrame.setSize(width != 0 ? width  + 50 : 640, height != 0 ? height + 50 : 480);
-				internalFrame.setLocation(x, y);
-				internalFrame.setVisible(true);
-				ribbonComponent.setName(name);
-				
-				desktopPane.add(internalFrame);
-			}
-			else
-			{
-				internalFrame = (JInternalFrame) handler;
-			}
-			
-			try
-			{
-				internalFrame.setSelected(true);
-			}
-			catch (PropertyVetoException e)
-			{
-				e.printStackTrace();
-			}
-		}
-		else
-		{			
-			JComponent tabbedComponent = (JComponent) tabbedPane;
-			if (tabbedComponent.getParent() == null)
-			{
-				addComponent(tabbedComponent, BorderLayout.CENTER);
-				
-				if (tabbedPane instanceof JEclipseTabbedPane)
-				{	
-					setBorder(BorderFactory.createEmptyBorder(4, 0, 0, 0));
-				}
-			}
-			
-			if (handler == null)
-			{
-				if (tabbedPane.getTabCount() >= maximumCount)
+				try
 				{
-					JBasicOptionPane.showMessageDialog(HandleManager.getFrame(this), SwingLocale.getString("open_panel_count_limited") + " " + maximumCount + " " + SwingLocale.getString("open_panel_suffix"), SwingLocale.getString("warning"), JBasicOptionPane.WARNING_MESSAGE);
-					
-					return;
-				}	
-				
-				tabbedPane.addTab(title, icon, ribbonComponent, toolTipText, true);
-				tabbedPane.setSelectedComponent(ribbonComponent);
-				
-				ribbonComponent.setName(name);
+					internalFrame.setSelected(true);
+				}
+				catch (PropertyVetoException e)
+				{
+					e.printStackTrace();
+				}
+				break;
 			}
-			else
+			case CONTAINER_STYLE_TABBEDPANE :
 			{
-				tabbedPane.setSelectedComponent(handler);
+				JComponent tabbedComponent = (JComponent) tabbedPane;
+				if (tabbedComponent.getParent() == null)
+				{
+					addComponent(tabbedComponent, BorderLayout.CENTER);
+				}
+				
+				if (handler == null)
+				{
+					if (tabbedPane.getTabCount() >= maximumCount)
+					{
+						JBasicOptionPane.showMessageDialog(HandleManager.getFrame(this), SwingLocale.getString("open_panel_count_limited") + " " + maximumCount + " " + SwingLocale.getString("open_panel_suffix"), SwingLocale.getString("warning"), JBasicOptionPane.WARNING_MESSAGE);
+						
+						return;
+					}	
+					
+					tabbedPane.addTab(title, icon, ribbonComponent, toolTipText, true);
+					tabbedPane.setSelectedComponent(ribbonComponent);
+					
+					ribbonComponent.setName(name);
+				}
+				else
+				{
+					tabbedPane.setSelectedComponent(handler);
+				}
+				break;
+			}
+			case CONTAINER_STYLE_PANEL :
+			{
+				if (panel.getParent() == null)
+				{
+					addComponent(panel, BorderLayout.CENTER);
+				}
+				
+				if (handler == null)
+				{
+					panel.addComponent(ribbonComponent, BorderLayout.CENTER);
+				}	
+				break;
 			}
 		}
 	}
@@ -183,14 +269,29 @@ public class JRibbonContainer
 	 */
 	public void closeRibbonComponent()
 	{
-		if (isInternalFrame)
+		switch (containerStyle)
 		{
-			InternalFrameManager.showCloseDialog(desktopPane, checkBoxSelector);
+			case CONTAINER_STYLE_INTERNAL_FRAME :
+				InternalFrameManager.showCloseDialog(desktopPane, checkBoxSelector);
+				break;
+			case CONTAINER_STYLE_TABBEDPANE :
+				TabbedPaneManager.showCloseDialog(tabbedPane, checkBoxSelector);
+				break;
+			case CONTAINER_STYLE_PANEL :
+				closePanelChildren();
+				break;
 		}
-		else if (tabbedPane != null)
-		{
-			TabbedPaneManager.showCloseDialog(tabbedPane, checkBoxSelector);
-		}
+	}
+	
+	/**
+	 * Closes the panel children.
+	 */
+	private void closePanelChildren()
+	{
+		panel.removeAll();
+
+		addComponent(desktopPane, BorderLayout.CENTER);
+		setBorder(INTERNAL_FRAME_BORDER);
 	}
 	
 	/**
@@ -201,56 +302,93 @@ public class JRibbonContainer
 	 */
 	private JComponent retrieveRibbonComponent(JComponent component)
 	{
-		if (isInternalFrame)
+		switch (containerStyle)
 		{
-			JInternalFrame[] internalFrames = desktopPane.getAllFrames();
-			
-			for (int i = 0; i < internalFrames.length; i++)
+			case CONTAINER_STYLE_INTERNAL_FRAME :
 			{
-				JInternalFrame internalFrame = internalFrames[i];
+				JInternalFrame[] internalFrames = desktopPane.getAllFrames();
 				
-				JComponent c = (JComponent) internalFrame.getContentPane();
-				
-				if (c == component)
+				for (int i = 0; i < internalFrames.length; i++)
 				{
-					return internalFrame;
+					JInternalFrame internalFrame = internalFrames[i];
+					
+					JComponent c = (JComponent) internalFrame.getContentPane();
+					
+					if (c == component)
+					{
+						return internalFrame;
+					}
 				}
+				
+				return null;
 			}
-			
-			return null;
-		}
-		else
-		{
-			for (int i = 0; i < tabbedPane.getTabCount(); i++)
+			case CONTAINER_STYLE_TABBEDPANE :
 			{
-				JComponent c = (JComponent) tabbedPane.getComponentAt(i);
-				
-				if (c == component)
+				if (tabbedPane == null)
 				{
-					return component;
+					IllegalArgumentException e = new IllegalArgumentException("The tabbedPane hasn't been registered");
+					
+					ExceptionTracer.traceException(HandleManager.getFrame(this), e);
+					
+					throw e;
 				}
+				
+				for (int i = 0; i < tabbedPane.getTabCount(); i++)
+				{
+					JComponent c = (JComponent) tabbedPane.getComponentAt(i);
+					
+					if (c == component)
+					{
+						return component;
+					}
+				}
+				
+				return null;
 			}
-			
-			return null;
+			case CONTAINER_STYLE_PANEL :
+			{
+				if (panel == null)
+				{
+					IllegalArgumentException e = new IllegalArgumentException("The panel hasn't been registered");
+					
+					ExceptionTracer.traceException(HandleManager.getFrame(this), e);
+					
+					throw e;
+				}
+				
+				for (int i = 0; i < panel.getComponentCount(); i++)
+				{
+					JComponent c = (JComponent) panel.getComponent(i);
+					
+					if (c == component)
+					{
+						return component;
+					}
+				}
+				
+				return null;
+			} 
 		}
+		
+		return null;
 	}
 	
 	/**
-	 * Returns true if it is InternalFrame style.
-	 * @return the boolean value of isInternalFrame
+	 * Gets the container style.
+	 * @return the container style value
 	 */
-	public boolean isInternalFrame()
+	public int getContainerStyle()
 	{
-		return isInternalFrame;
+		return containerStyle;
 	}
 	
 	/**
-	 * Sets the InternalFrame style or not.
-	 * @param isInternalFrame the boolean value of isInternalFrame
+	 * Sets the container style.
+	 * @param containerStyle the container style value
 	 */
-	public void setInternalFrame(boolean isInternalFrame)
+	public void setContainerStyle(int containerStyle)
 	{
-		this.isInternalFrame = isInternalFrame;
+		this.containerStyle = containerStyle;
 	}
 	
 	/**
@@ -310,11 +448,31 @@ public class JRibbonContainer
 					{
 						addComponent(desktopPane, BorderLayout.CENTER);
 						
-						setBorder(BorderFactory.createEmptyBorder());
+						setBorder(INTERNAL_FRAME_BORDER);
 					}
 				}
 			}
 		}
 		);
+	}	
+	
+	/**
+	 * Gets the panel.
+	 * @return the instance of JContainer
+	 */
+	public JContainer getPanel()
+	{
+		return panel;
+	}
+	
+	/**
+	 * Sets the panel.
+	 * @param panel the instance of JContainer
+	 */
+	public void setPanel(JContainer panel)
+	{
+		this.panel = panel;
+		
+		panel.setLayout(new BorderLayout());
 	}
 }

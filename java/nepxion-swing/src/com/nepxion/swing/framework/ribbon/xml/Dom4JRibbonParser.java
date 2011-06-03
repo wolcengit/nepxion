@@ -259,15 +259,15 @@ public class Dom4JRibbonParser
 	 */
 	public void parseRibbonContainerElement(Element element)
 	{		
-		Element childElement = element.element(TAG_RIBBON_CONTAINER);
+		Element ribbonContainerElement = element.element(TAG_RIBBON_CONTAINER);
 		
-		Attribute attribute0 = childElement.attribute(0);
-		Attribute attribute1 = childElement.attribute(1);
+		Attribute containerStyleAttribute = ribbonContainerElement.attribute(TAG_CONTAINER_STYLE);
+		Attribute maximumcountAttribute = ribbonContainerElement.attribute(TAG_MAXIMUM_COUNT);
 		
-		boolean isInternalFrame = Boolean.valueOf(attribute0.getText()).booleanValue();
-		int maximumCount = Integer.valueOf(attribute1.getText()).intValue();
+		int containerStyle = Integer.valueOf(containerStyleAttribute.getText()).intValue();
+		int maximumCount = Integer.valueOf(maximumcountAttribute.getText()).intValue();
 		
-		ribbonContainer.setInternalFrame(isInternalFrame);
+		ribbonContainer.setContainerStyle(containerStyle);
 		ribbonContainer.setMaximumCount(maximumCount);
 	}
 	
