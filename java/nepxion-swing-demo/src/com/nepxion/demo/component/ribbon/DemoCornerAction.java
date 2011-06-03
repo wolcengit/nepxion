@@ -10,9 +10,11 @@ package com.nepxion.demo.component.ribbon;
  * @version 1.0
  */
 
+import java.awt.Component;
 import java.awt.event.ActionEvent;
 
 import com.nepxion.swing.action.JSecurityAction;
+import com.nepxion.swing.handle.HandleManager;
 import com.nepxion.swing.optionpane.JBasicOptionPane;
 
 public class DemoCornerAction
@@ -20,6 +22,8 @@ public class DemoCornerAction
 {
 	public void execute(ActionEvent e)
 	{
-		JBasicOptionPane.showMessageDialog(null, "Corner Action Text : " + getText());		
+		Component component = (Component) getSource();
+		
+		JBasicOptionPane.showMessageDialog(HandleManager.getFrame(component), "Action Name : " + getName() + "\n" + "Action Trigger : " + component.getClass().getName());		
 	}
 }

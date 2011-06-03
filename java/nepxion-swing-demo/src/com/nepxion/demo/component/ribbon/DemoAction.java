@@ -24,6 +24,6 @@ public class DemoAction
 	{
 		Component component = (Component) e.getSource();
 
-		JBasicOptionPane.showMessageDialog(HandleManager.getFrame(component), "Action Text : " + getText());		
+		JBasicOptionPane.showMessageDialog(HandleManager.getFrame(component), "Action Name : " + getName() + "\n" + "Action Trigger : " + component.getClass().getName());		
 	}
 }

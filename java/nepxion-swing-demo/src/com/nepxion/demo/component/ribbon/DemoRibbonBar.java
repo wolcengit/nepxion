@@ -53,6 +53,10 @@ public class DemoRibbonBar
 	{
 		JRibbon ribbon = new JRibbon("¼ôÌù°æ", "¼ôÌù°æ");
 		
+		DemoCornerAction cornerAction = new DemoCornerAction();
+		cornerAction.setSource(this);
+		ribbon.setCornerAction(cornerAction);
+		
 		JBasicToolBar toolBar = ribbon.getToolBar();
 		
 		JDecorationPopupMenu pastePopupMenu = new JDecorationPopupMenu();
@@ -96,6 +100,10 @@ public class DemoRibbonBar
 	private JRibbon createFontRibbon()
 	{
 		JRibbon ribbon = new JRibbon("×ÖÌå", "×ÖÌå");
+		
+		DemoCornerAction cornerAction = new DemoCornerAction();
+		cornerAction.setSource(this);
+		ribbon.setCornerAction(cornerAction);
 		
 		JBasicToolBar toolBar = ribbon.getToolBar();
 		
@@ -169,6 +177,10 @@ public class DemoRibbonBar
 	private JRibbon createParagraphRibbon()
 	{
 		JRibbon ribbon = new JRibbon("¶ÎÂä", "¶ÎÂä");
+		
+		DemoCornerAction cornerAction = new DemoCornerAction();
+		cornerAction.setSource(this);
+		ribbon.setCornerAction(cornerAction);
 		
 		JBasicToolBar toolBar = ribbon.getToolBar();
 		
