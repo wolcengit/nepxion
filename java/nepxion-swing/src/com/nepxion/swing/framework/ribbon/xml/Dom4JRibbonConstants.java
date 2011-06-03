@@ -118,9 +118,14 @@ public interface Dom4JRibbonConstants
 	public static final String TAG_CONSTRAINTS = "constraints";
 	
 	/**
-	 * The tag for "class".
+	 * The tag for "component".
 	 */
-	public static final String TAG_CLASS = "class";
+	public static final String TAG_COMPONENT = "component";
+	
+	/**
+	 * The tag for "action".
+	 */
+	public static final String TAG_ACTION = "action";
 	
 	/**
 	 * The tag for "containerstyle";

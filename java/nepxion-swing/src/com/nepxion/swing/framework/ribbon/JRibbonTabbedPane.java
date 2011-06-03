@@ -39,7 +39,6 @@ import com.nepxion.swing.action.JAction;
 import com.nepxion.swing.container.ContainerManager;
 import com.nepxion.swing.container.JContainer;
 import com.nepxion.swing.font.FontManager;
-import com.nepxion.swing.framework.ribbon.action.JRibbonAction;
 import com.nepxion.swing.gradient.JGradientPainter;
 import com.nepxion.swing.icon.IconFactory;
 import com.nepxion.swing.icon.paint.CombinationIcon;
@@ -259,15 +258,15 @@ public class JRibbonTabbedPane
 		
 		toggleTextButtonGroup = new ButtonGroup();
 		
-		JBasicCheckBoxMenuItem toggleLargTextMenuItem = new JBasicCheckBoxMenuItem(new ToggleFacadeAction(SwingLocale.getString("config_navigatorbar_show_large_text"), IconFactory.getSwingIcon("component/label_16.png"), SwingLocale.getString("config_navigatorbar_show_large_text"), JRibbonAction.TEXT, JRibbonAction.SHOW_LARGE));
+		JBasicCheckBoxMenuItem toggleLargTextMenuItem = new JBasicCheckBoxMenuItem(new ToggleFacadeAction(SwingLocale.getString("config_navigatorbar_show_large_text"), IconFactory.getSwingIcon("component/label_16.png"), SwingLocale.getString("config_navigatorbar_show_large_text"), JAction.TEXT, JAction.SHOW_LARGE));
 		dropDownPopupMenu.add(toggleLargTextMenuItem);
 		toggleTextButtonGroup.add(toggleLargTextMenuItem);
 		
-		JBasicCheckBoxMenuItem toggleSmallTextMenuItem = new JBasicCheckBoxMenuItem(new ToggleFacadeAction(SwingLocale.getString("config_navigatorbar_show_small_text"), IconFactory.getSwingIcon("component/label_multi_16.png"), SwingLocale.getString("config_navigatorbar_show_small_text"), JRibbonAction.TEXT, JRibbonAction.SHOW_SMALL));
+		JBasicCheckBoxMenuItem toggleSmallTextMenuItem = new JBasicCheckBoxMenuItem(new ToggleFacadeAction(SwingLocale.getString("config_navigatorbar_show_small_text"), IconFactory.getSwingIcon("component/label_multi_16.png"), SwingLocale.getString("config_navigatorbar_show_small_text"), JAction.TEXT, JAction.SHOW_SMALL));
 		dropDownPopupMenu.add(toggleSmallTextMenuItem);
 		toggleTextButtonGroup.add(toggleSmallTextMenuItem);
 		
-		JBasicCheckBoxMenuItem toggleNoTextMenuItem = new JBasicCheckBoxMenuItem(new ToggleFacadeAction(SwingLocale.getString("config_navigatorbar_show_no_text"), IconFactory.getBlankIcon(), SwingLocale.getString("config_navigatorbar_show_no_text"), JRibbonAction.TEXT, JRibbonAction.SHOW_NO));
+		JBasicCheckBoxMenuItem toggleNoTextMenuItem = new JBasicCheckBoxMenuItem(new ToggleFacadeAction(SwingLocale.getString("config_navigatorbar_show_no_text"), IconFactory.getBlankIcon(), SwingLocale.getString("config_navigatorbar_show_no_text"), JAction.TEXT, JAction.SHOW_NO));
 		dropDownPopupMenu.add(toggleNoTextMenuItem);
 		toggleTextButtonGroup.add(toggleNoTextMenuItem);
 		
@@ -275,15 +274,15 @@ public class JRibbonTabbedPane
 		
 		toggleIconButtonGroup = new ButtonGroup();
 		
-		JBasicCheckBoxMenuItem toggleLargIconMenuItem = new JBasicCheckBoxMenuItem(new ToggleFacadeAction(SwingLocale.getString("config_navigatorbar_show_large_icon"), IconFactory.getSwingIcon("rectangle_single.png"), SwingLocale.getString("config_navigatorbar_show_large_icon"), JRibbonAction.ICON, JRibbonAction.SHOW_LARGE));
+		JBasicCheckBoxMenuItem toggleLargIconMenuItem = new JBasicCheckBoxMenuItem(new ToggleFacadeAction(SwingLocale.getString("config_navigatorbar_show_large_icon"), IconFactory.getSwingIcon("rectangle_single.png"), SwingLocale.getString("config_navigatorbar_show_large_icon"), JAction.ICON, JAction.SHOW_LARGE));
 		dropDownPopupMenu.add(toggleLargIconMenuItem);
 		toggleIconButtonGroup.add(toggleLargIconMenuItem);
 		
-		JBasicCheckBoxMenuItem toggleSmallIconMenuItem = new JBasicCheckBoxMenuItem(new ToggleFacadeAction(SwingLocale.getString("config_navigatorbar_show_small_icon"), IconFactory.getSwingIcon("rectangle_multi.png"), SwingLocale.getString("config_navigatorbar_show_small_icon"), JRibbonAction.ICON, JRibbonAction.SHOW_SMALL));
+		JBasicCheckBoxMenuItem toggleSmallIconMenuItem = new JBasicCheckBoxMenuItem(new ToggleFacadeAction(SwingLocale.getString("config_navigatorbar_show_small_icon"), IconFactory.getSwingIcon("rectangle_multi.png"), SwingLocale.getString("config_navigatorbar_show_small_icon"), JAction.ICON, JAction.SHOW_SMALL));
 		dropDownPopupMenu.add(toggleSmallIconMenuItem);
 		toggleIconButtonGroup.add(toggleSmallIconMenuItem);
 		
-		JBasicCheckBoxMenuItem toggleNoIconMenuItem = new JBasicCheckBoxMenuItem(new ToggleFacadeAction(SwingLocale.getString("config_navigatorbar_show_no_icon"), IconFactory.getBlankIcon(), SwingLocale.getString("config_navigatorbar_show_no_icon"), JRibbonAction.ICON, JRibbonAction.SHOW_NO));
+		JBasicCheckBoxMenuItem toggleNoIconMenuItem = new JBasicCheckBoxMenuItem(new ToggleFacadeAction(SwingLocale.getString("config_navigatorbar_show_no_icon"), IconFactory.getBlankIcon(), SwingLocale.getString("config_navigatorbar_show_no_icon"), JAction.ICON, JAction.SHOW_NO));
 		dropDownPopupMenu.add(toggleNoIconMenuItem);
 		toggleIconButtonGroup.add(toggleNoIconMenuItem);
 	}

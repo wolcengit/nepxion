@@ -30,7 +30,7 @@ import org.dom4j.Document;
 import org.dom4j.DocumentException;
 import org.dom4j.Element;
 
-import com.nepxion.swing.action.JSecurityAction;
+import com.nepxion.swing.action.JAction;
 import com.nepxion.swing.button.ButtonManager;
 import com.nepxion.swing.button.JBasicButton;
 import com.nepxion.swing.button.JBasicMenuButton;
@@ -74,12 +74,12 @@ public class Dom4JRibbonParser
 	/**
 	 * The text show value.
 	 */
-	protected int textShowValue = JRibbonAction.SHOW_LARGE;
+	protected int textShowValue = JAction.SHOW_LARGE;
 	
 	/**
 	 * The icon show value.
 	 */
-	protected int iconShowValue = JRibbonAction.SHOW_LARGE;
+	protected int iconShowValue = JAction.SHOW_LARGE;
 	
 	/**
 	 * Constructs with the specified ribbon container ant ribbon navigator bar.
@@ -461,6 +461,7 @@ public class Dom4JRibbonParser
 		int arrowPosition = 1;
 		String constraints = null;
 		String ribbonComponentClass = null;
+		String actionClass = null;
 		
 		for (Iterator attributeIterator = element.attributeIterator(); attributeIterator.hasNext();)
 		{
@@ -529,10 +530,14 @@ public class Dom4JRibbonParser
 			{
 				constraints = attributeText;
 			}
-			else if (attributeName.equals(TAG_CLASS))
+			else if (attributeName.equals(TAG_COMPONENT))
 			{
 				ribbonComponentClass = attributeText;
 			}
+			else if (attributeName.equals(TAG_ACTION))
+			{
+				actionClass = attributeText;
+			}			
 		}
 		
 		if (largeText == null)
@@ -547,12 +552,12 @@ public class Dom4JRibbonParser
 		
 		switch (textShowValue)
 		{
-			case JRibbonAction.SHOW_SMALL : 
+			case JAction.SHOW_SMALL : 
 			{
 				text = smallText;
 				break;
 			}
-			case JRibbonAction.SHOW_LARGE : 
+			case JAction.SHOW_LARGE : 
 			{	
 				text = largeText;
 				if (text == null)
@@ -561,7 +566,7 @@ public class Dom4JRibbonParser
 				}
 				break;
 			}
-			case JRibbonAction.SHOW_NO : 
+			case JAction.SHOW_NO : 
 			{
 				text = null;
 				break;
@@ -570,12 +575,12 @@ public class Dom4JRibbonParser
 		
 		switch (iconShowValue)
 		{
-			case JRibbonAction.SHOW_SMALL : 
+			case JAction.SHOW_SMALL : 
 			{
 				icon = smallIcon;
 				break;
 			}
-			case JRibbonAction.SHOW_LARGE : 
+			case JAction.SHOW_LARGE : 
 			{
 				icon = largeIcon;
 				if (icon == null)
@@ -584,7 +589,7 @@ public class Dom4JRibbonParser
 				}	
 				break;
 			}
-			case JRibbonAction.SHOW_NO : 
+			case JAction.SHOW_NO : 
 			{
 				icon = null;
 				break;
@@ -609,23 +614,32 @@ public class Dom4JRibbonParser
 		{
 			if (element.elements().size() == 0)
 			{
-				JRibbonAction ribbonAction = createRibbonAction(name, ButtonManager.getHtmlText(text), ButtonManager.getHtmlText(smallText), ButtonManager.getHtmlText(largeText), icon, smallIcon, largeIcon, toolTipText, ribbonName, ribbonTitle, ribbonIcon, ribbonToolTipText, ribbonComponentClass);
-				if (LookAndFeelManager.isNimbusLookAndFeel())
+				JAction action = null;
+				if (actionClass != null && !actionClass.toString().equals(""))
 				{
-					component = new JClassicButton(ribbonAction);
+					action = createAction(name, ButtonManager.getHtmlText(text), ButtonManager.getHtmlText(smallText), ButtonManager.getHtmlText(largeText), icon, smallIcon, largeIcon, toolTipText, actionClass);
 				}
 				else
 				{
-					component = new JBasicButton(ribbonAction);
+					action = createRibbonAction(name, ButtonManager.getHtmlText(text), ButtonManager.getHtmlText(smallText), ButtonManager.getHtmlText(largeText), icon, smallIcon, largeIcon, toolTipText, ribbonName, ribbonTitle, ribbonIcon, ribbonToolTipText, ribbonComponentClass);
+				}
+				
+				if (LookAndFeelManager.isNimbusLookAndFeel())
+				{
+					component = new JClassicButton(action);
+				}
+				else
+				{
+					component = new JBasicButton(action);
 				}
 			}
 			else
 			{
 				JDecorationPopupMenu popupMenu = new JDecorationPopupMenu();
 				
-				JSecurityAction action = new JSecurityAction(ButtonManager.getHtmlText(text), icon, toolTipText)
+				JAction action = new JAction(ButtonManager.getHtmlText(text), icon, toolTipText)
 				{
-					public void execute(ActionEvent e)
+					public void actionPerformed(ActionEvent e)
 					{
 						
 					}
@@ -701,6 +715,7 @@ public class Dom4JRibbonParser
 		Icon ribbonIcon = null;
 		String ribbonToolTipText = null;
 		String ribbonComponentClass = null;
+		String actionClass = null;
 		
 		for (Iterator attributeIterator = element.attributeIterator(); attributeIterator.hasNext();)
 		{
@@ -746,10 +761,14 @@ public class Dom4JRibbonParser
 			{
 				ribbonToolTipText = attributeText;
 			}
-			else if (attributeName.equals(TAG_CLASS))
+			else if (attributeName.equals(TAG_COMPONENT))
 			{
 				ribbonComponentClass = attributeText;
 			}
+			else if (attributeName.equals(TAG_ACTION))
+			{
+				actionClass = attributeText;
+			}			
 		}
 		
 		if (ribbonName == null || ribbonName.trim().equals(""))
@@ -770,9 +789,16 @@ public class Dom4JRibbonParser
 			MenuElement childMenu = null;
 			if (element.elements().size() == 0)
 			{
-				JRibbonAction ribbonAction = createRibbonAction(name, ButtonManager.getHtmlText(text), null, null, icon, null, null, toolTipText, ribbonName, ribbonTitle, ribbonIcon, ribbonToolTipText, ribbonComponentClass);
-				
-				childMenu = new JBasicMenuItem(ribbonAction);
+				JAction action = null;
+				if (actionClass != null && !actionClass.toString().equals(""))
+				{
+					action = createAction(name, ButtonManager.getHtmlText(text), null, null, icon, null, null, toolTipText, actionClass);
+				}
+				else
+				{
+					action = createRibbonAction(name, ButtonManager.getHtmlText(text), null, null, icon, null, null, toolTipText, ribbonName, ribbonTitle, ribbonIcon, ribbonToolTipText, ribbonComponentClass);
+				}
+				childMenu = new JBasicMenuItem(action);
 			}
 			else
 			{
@@ -817,5 +843,50 @@ public class Dom4JRibbonParser
 	public JRibbonAction createRibbonAction(String name, String text, String smallText, String largeText, Icon icon, Icon smallIcon, Icon largeIcon, String toolTipText, String ribbonName, String ribbonTitle, Icon ribbonIcon, String ribbonToolTipText, String ribbonComponentClass)
 	{		
 		return RibbonManager.createRibbonAction(name, text, smallText, largeText, icon, smallIcon, largeIcon, toolTipText, ribbonName, ribbonTitle, ribbonIcon, ribbonToolTipText, ribbonComponentClass, ribbonContainer);
+	}
+	
+	/**
+	 * Creates the action.
+	 * @param name the name string
+	 * @param text the text string
+	 * @param smallText the small text string
+	 * @param largeText the large text string
+	 * @param icon the icon
+	 * @param smallIcon the small icon
+	 * @param largeIcon the large icon
+	 * @param toolTipText the tooltip text string
+	 * @param actionClass the action class string
+	 * @return the instance of JRibbonAction
+	 */
+	public JAction createAction(String name, String text, String smallText, String largeText, Icon icon, Icon smallIcon, Icon largeIcon, String toolTipText, String actionClass)
+	{
+		JAction action = null;
+		
+		try
+		{
+			action = (JAction) Class.forName(actionClass).newInstance();
+		}
+		catch (InstantiationException e)
+		{
+			e.printStackTrace();
+		}
+		catch (IllegalAccessException e)
+		{
+			e.printStackTrace();
+		}
+		catch (ClassNotFoundException e)
+		{
+			e.printStackTrace();
+		}
+		action.setName(name);
+		action.setText(text);
+		action.setIcon(icon);
+		action.setToolTipText(toolTipText);
+		action.setSmallText(smallText);
+		action.setLargeText(largeText);
+		action.setSmallIcon(smallIcon);
+		action.setLargeIcon(largeIcon);
+		
+		return action;
 	}
 }
