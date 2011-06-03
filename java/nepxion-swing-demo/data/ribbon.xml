@@ -65,18 +65,58 @@
       </ribbon>
     </ribbonbar>
     <ribbonbar title="Bar" icon="" tooltip="Bar Control" closable="false">
+      <ribbon title="Bar Series" icon="" tooltip="Bar Series" layout="" buttonlayout="1, 0" buttoninsets="8, 2, 8, 2">
+        <button name="TaskBar" text="TaskBar" largetext="Task&#x0A;Bar" icon="component/tool_bar_16.png" largeicon="component/tool_bar_32.png" tooltip="TaskBar" class="com.nepxion.demo.control.bar.DemoTaskBarTogglePanel"/>
+        <button name="OutlookBar" text="OutlookBar" largetext="Outlook&#x0A;Bar" icon="component/tool_bar_16.png" largeicon="component/tool_bar_32.png" tooltip="OutlookBar" class="com.nepxion.demo.control.bar.DemoOutlookBarTogglePanel"/>
+        <button name="ButtonBar" text="ButtonBar" largetext="Button&#x0A;Bar" icon="component/tool_bar_16.png" largeicon="component/tool_bar_32.png" tooltip="ButtonBar" class="com.nepxion.demo.control.bar.DemoButtonBarTogglePanel"/>
+        <button name="ToolBar" text="ToolBar" largetext="Tool&#x0A;Bar" icon="component/tool_bar_16.png" largeicon="component/tool_bar_32.png" tooltip="ToolBar" class="com.nepxion.demo.control.bar.DemoToolBarTogglePanel"/>
+        <button name="MenuBar" text="MenuBar" largetext="Menu&#x0A;Bar" icon="component/tool_bar_16.png" largeicon="component/tool_bar_32.png" tooltip="MenuBar" class="com.nepxion.demo.control.bar.DemoMenuBarTogglePanel"/>
+        <button name="StatusBar" text="StatusBar" largetext="Status&#x0A;Bar" icon="component/tool_bar_16.png" largeicon="component/tool_bar_32.png" tooltip="StatusBar" class="com.nepxion.demo.control.bar.DemoStatusBarTogglePanel"/>
+      </ribbon>
     </ribbonbar>
     <ribbonbar title="Data" icon="" tooltip="Data Control" closable="false">
+      <ribbon title="Data Series" icon="" tooltip="Data Series" layout="" buttonlayout="1, 0" buttoninsets="8, 2, 8, 2">
+        <button name="Tree" text="Tree" largetext="Tree&#x0A;&amp;nbsp;" icon="component/tree_16.png" largeicon="component/tree_32.png" tooltip="Tree" class="com.nepxion.demo.control.data.DemoTreeTogglePanel"/>
+        <button name="Table" text="Table" largetext="Table&#x0A;&amp;nbsp;" icon="component/table_16.png" largeicon="component/table_32.png" tooltip="Table" class="com.nepxion.demo.control.data.DemoTableTogglePanel"/>        
+        <button name="List" text="List" largetext="List&#x0A;&amp;nbsp;" icon="component/list_16.png" largeicon="component/list_32.png" tooltip="List" class="com.nepxion.demo.control.data.DemoListTogglePanel"/>        
+      </ribbon>
     </ribbonbar>
     <ribbonbar title="Selector" icon="" tooltip="Selector Control" closable="false">
+      <ribbon title="Calendar Series" icon="" tooltip="Calendar Series" layout="" buttonlayout="1, 0" buttoninsets="8, 2, 8, 2">
+        <button name="Calendar" text="Calendar" largetext="Calendar&#x0A;Selector" icon="component/calendar_16.png" largeicon="component/calendar_32.png" tooltip="Calendar Selector" class="com.nepxion.demo.control.selector.DemoCalendarSelectorTogglePanel"/>
+      </ribbon>
+      <ribbon title="Locale Series" icon="" tooltip="Locale Series" layout="" buttonlayout="1, 0" buttoninsets="8, 2, 8, 2">
+        <button name="Locale" text="Locale" largetext="Locale&#x0A;Selector" icon="component/locale_16.png" largeicon="component/locale_32.png" tooltip="Locale Selector" class="com.nepxion.demo.control.selector.DemoLocaleSelectorTogglePanel"/>
+      </ribbon>
+      <ribbon title="File Series" icon="" tooltip="File Series" layout="" buttonlayout="1, 0" buttoninsets="8, 2, 8, 2">
+        <button name="File" text="File" largetext="File&#x0A;Selector" icon="component/file_chooser_16.png" largeicon="component/file_chooser_32.png" tooltip="File Selector" class="com.nepxion.demo.control.selector.DemoFileSelectorTogglePanel"/>
+      </ribbon>
+      <ribbon title="Color Series" icon="" tooltip="Color Series" layout="" buttonlayout="1, 0" buttoninsets="8, 2, 8, 2">
+        <button name="Color" text="Color" largetext="Color&#x0A;Selector" icon="component/color_chooser_16.png" largeicon="component/color_chooser_32.png" tooltip="Color Selector" class="com.nepxion.demo.control.selector.DemoColorSelectorTogglePanel"/>
+      </ribbon>
+      <ribbon title="Button Series" icon="" tooltip="Button Series" layout="" buttonlayout="1, 0" buttoninsets="8, 2, 8, 2">
+        <button name="DropDown" text="DropDown" largetext="DropDown&#x0A;Selector" icon="component/popup_menu_16.png" largeicon="component/popup_menu_32.png" tooltip="DropDown Selector" class="com.nepxion.demo.control.selector.DemoDropDownSelectorTogglePanel"/>
+        <button name="CheckBox" text="CheckBox" largetext="CheckBox&#x0A;Selector" icon="component/check_box_16.png" largeicon="component/check_box_32.png" tooltip="CheckBox Selector" class="com.nepxion.demo.control.selector.DemoCheckBoxSelectorTogglePanel"/>
+        <button name="RadioButton" text="RadioButton" largetext="RadioButton&#x0A;Selector" icon="component/radio_button_16.png" largeicon="component/radio_button_32.png" tooltip="RadioButton Selector" class="com.nepxion.demo.control.selector.DemoRadioButtonSelectorTogglePanel"/>
+      </ribbon>
     </ribbonbar>
     <ribbonbar title="Layout" icon="" tooltip="Layout Control" closable="false">
+      <ribbon title="Layout Series" icon="" tooltip="Layout Series" layout="" buttonlayout="1, 0" buttoninsets="8, 2, 8, 2">
+        <button name="Table Layout" text="Table Layout" largetext="Table&#x0A;Layout" icon="component/layout_32.png" largeicon="component/layout_32.png" tooltip="Table Layout" class="com.nepxion.demo.control.layout.DemoTableLayoutTogglePanel"/>
+        <button name="Filed Layout" text="Filed Layout" largetext="Filed&#x0A;Layout" icon="component/layout_32.png" largeicon="component/layout_32.png" tooltip="Filed Layout" class="com.nepxion.demo.control.layout.DemoFiledLayoutTogglePanel"/>
+        <button name="Ratio Layout" text="Ratio Layout" largetext="Ratio&#x0A;Layout" icon="component/layout_32.png" largeicon="component/layout_32.png" tooltip="Ratio Layout" class="com.nepxion.demo.control.layout.DemoRatioLayoutTogglePanel"/>
+        <button name="XBorder Layout" text="XBorder Layout" largetext="XBorder&#x0A;Layout" icon="component/layout_32.png" largeicon="component/layout_32.png" tooltip="XBorder Layout" class="com.nepxion.demo.control.layout.DemoXBorderLayoutTogglePanel"/>
+        <button name="XBox Layout" text="XBox Layout" largetext="XBox&#x0A;Layout" icon="component/layout_32.png" largeicon="component/layout_32.png" tooltip="XBox Layout" class="com.nepxion.demo.control.layout.DemoXBoxLayoutTogglePanel"/>
+      </ribbon>
     </ribbonbar>
     <ribbonbar title="UI" icon="" tooltip="UI Control" closable="false">
+      <ribbon title="UI Defaults Series" icon="" tooltip="UI Defaults Series" layout="" buttonlayout="1, 0" buttoninsets="8, 2, 8, 2">
+        <button name="UI Defaults" text="UI Defaults" largetext="UI Defaults&#x0A;Explorer" icon="component/ui_16.png" largeicon="component/ui_32.png" tooltip="UI Defaults" class="com.nepxion.demo.control.ui.DemoUIDefaultsTogglePanel"/>
+      </ribbon>
     </ribbonbar>
     <ribbonbar title="Thread" icon="" tooltip="Thread Control" closable="false">
       <ribbon title="Thread Series" icon="" tooltip="Thread Series" layout="" buttonlayout="1, 0" buttoninsets="8, 2, 8, 2">
-        <button name="Thread" text="Thread" largetext="Panel&#x0A;&amp;nbsp;" icon="component/thread_16.png" largeicon="component/thread_32.png" tooltip="Thread" class="com.nepxion.demo.control.thread.DemoThreadTogglePanel"/>
+        <button name="Thread" text="Thread" largetext="Thread&#x0A;&amp;nbsp;" icon="component/thread_16.png" largeicon="component/thread_32.png" tooltip="Thread" class="com.nepxion.demo.control.thread.DemoThreadTogglePanel"/>
         <button name="Timer" text="Timer" largetext="Timer&#x0A;&amp;nbsp;" icon="component/thread_16.png" largeicon="component/thread_32.png" tooltip="Timer" class="com.nepxion.demo.control.thread.DemoTimerTogglePanel"/>
       </ribbon>
     </ribbonbar>
@@ -94,7 +134,7 @@
         <button name="VLDocking" text="VLDocking" largetext="VLDocking&#x0A;FrameWork" icon="component/framework_16.png" largeicon="component/framework_32.png" tooltip="VLDocking FrameWork" class=""/>
       </ribbon>
     </ribbonbar>
-    <ribbonbar title="Advanced" icon="" tooltip="Advanced Control" closable="false">
+    <ribbonbar title="Advanced" icon="" tooltip="Advanced Control" closable="false">  
     </ribbonbar>
     <ribbonbar title="Application" icon="" tooltip="Application Control" closable="false">
       <ribbon title="Application Series" icon="" tooltip="Application Series" layout="" buttonlayout="1, 0" buttoninsets="8, 2, 8, 2">
