@@ -302,6 +302,10 @@ public class JRibbonTabbedPane
 				
 				if (shortcutAction != null)
 				{
+					if (shortcutAction.getSource() == null)
+					{
+						shortcutAction.setSource(JRibbonTabbedPane.this);
+					}	
 					shortcutAction.actionPerformed(null);
 				}
 			}

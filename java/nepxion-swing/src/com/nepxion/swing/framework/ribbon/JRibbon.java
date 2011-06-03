@@ -185,6 +185,10 @@ public class JRibbon
 					
 					if (cornerAction != null)
 					{	
+						if (cornerAction.getSource() == null)
+						{
+							cornerAction.setSource(JRibbon.this);
+						}	
 						cornerAction.actionPerformed(null);
 					}
 				}
