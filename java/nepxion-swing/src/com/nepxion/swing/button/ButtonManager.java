@@ -515,6 +515,11 @@ public class ButtonManager
 		buttonBar.setUI(buttonBarUI);
 	}
 	
+	/**
+	 * Sets the button layout.
+	 * @param button the instance of AbstractButton
+	 * @param layout the layout array
+	 */
 	public static void setButtonLayout(AbstractButton button, int[] layout)
 	{
 		int iconTextLayout = layout[0];
