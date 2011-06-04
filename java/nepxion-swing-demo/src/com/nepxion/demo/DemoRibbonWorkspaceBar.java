@@ -26,8 +26,6 @@ public class DemoRibbonWorkspaceBar
 		
 		// The container is displayed as JBasicTabbedPane
 		// JBasicTabbedPane tabbedPane = new JBasicTabbedPane();
-		// tabbedPane.setDrawBorder(false);
-		// tabbedPane.setDrawCenter(false);
 		
 		tabbedPane.setTabPlacement(JEclipseTabbedPane.BOTTOM);
 		ribbonContainer.setTabbedPane(tabbedPane);
