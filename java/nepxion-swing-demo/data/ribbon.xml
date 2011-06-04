@@ -110,8 +110,8 @@
       </ribbon>
     </ribbonbar>
     <ribbonbar title="UI" icon="" tooltip="UI Control" closable="false">
-      <ribbon title="UI Defaults Series" icon="" tooltip="UI Defaults Series" layout="" buttonlayout="1, 0" buttoninsets="8, 2, 8, 2" cornername="More details" cornertooltip="More details" corneraction="com.nepxion.demo.component.ribbon.DemoCornerAction">
-        <button name="UI Defaults" text="UI Defaults" largetext="UI Defaults&#x0A;Explorer" icon="component/ui_16.png" largeicon="component/ui_32.png" tooltip="UI Defaults" component="com.nepxion.demo.control.ui.DemoUIDefaultsTogglePanel"/>
+      <ribbon title="UI Series" icon="" tooltip="UI Series" layout="" buttonlayout="1, 0" buttoninsets="8, 2, 8, 2" cornername="More details" cornertooltip="More details" corneraction="com.nepxion.demo.component.ribbon.DemoCornerAction">
+        <button name="UI Defaults" text="UI Explorer" largetext="UI&#x0A;Explorer" icon="component/ui_16.png" largeicon="component/ui_32.png" tooltip="UI Explorer" component="com.nepxion.demo.control.ui.DemoUIExplorerTogglePanel"/>
       </ribbon>
     </ribbonbar>
     <ribbonbar title="Thread" icon="" tooltip="Thread Control" closable="false">
