@@ -68,6 +68,13 @@ public abstract class JAction
 	private Icon largeIcon;
 	
 	/**
+	 * The source object.
+	 * When the action isn't been triggered by AbstractButton, mouseEvent.getSource() will be null.
+	 * So you can register the source instead of mouseEvent.getSource().
+	 */
+	private Object source;
+	
+	/**
 	 * Constructs with the default.
 	 */
 	public JAction()
@@ -363,6 +370,24 @@ public abstract class JAction
 				break;
 			}
 		}
+	}
+	
+	/**
+	 * Gets the source object.
+	 * @return the source object
+	 */
+	public Object getSource()
+	{
+		return source;
+	}
+
+	/**
+	 * Sets the source object.
+	 * @param source the source object
+	 */
+	public void setSource(Object source)
+	{
+		this.source = source;
 	}
 	
 	/**
