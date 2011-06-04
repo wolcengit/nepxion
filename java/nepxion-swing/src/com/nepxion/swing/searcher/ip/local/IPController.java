@@ -42,7 +42,7 @@ public class IPController
 							return;
 						}
 						
-						IPTableModel tableModel = (IPTableModel) panel.getAddressTable().getDataModel();
+						IPTableModel tableModel = (IPTableModel) panel.getAddressTable().getModel();
 						tableModel.addRow(entity);
 					}
 					
@@ -86,7 +86,7 @@ public class IPController
 					return;
 				}
 				
-				IPTableModel tableModel = (IPTableModel) table.getDataModel();
+				IPTableModel tableModel = (IPTableModel) table.getModel();
 				tableModel.clearRows();
 			}
 		};

@@ -37,19 +37,19 @@ public class GeoTableModel
 		
 		switch (column)
 		{
-			case 0:
+			case 0 :
 				return entity.getAddress();
-			case 1:
+			case 1 :
 				return entity.getCenterLatitude() + "";
-			case 2:
+			case 2 :
 				return entity.getCenterLongitude() + "";
-			case 3:
+			case 3 :
 				return entity.getNorthLatitude() + "";
-			case 4:
+			case 4 :
 				return entity.getSouthLatitude() + "";
-			case 5:
+			case 5 :
 				return entity.getWestLongitude() + "";
-			case 6:
+			case 6 :
 				return entity.getEastLongitude() + "";
 		}
 		
@@ -62,25 +62,25 @@ public class GeoTableModel
 		
 		switch (column)
 		{
-			case 0:
+			case 0 :
 				entity.setAddress(value.toString());
 				break;
-			case 1:
+			case 1 :
 				entity.setCenterLatitude(Double.parseDouble(value.toString()));
 				break;
-			case 2:
+			case 2 :
 				entity.setCenterLongitude(Double.parseDouble(value.toString()));
 				break;
-			case 3:
+			case 3 :
 				entity.setNorthLatitude(Double.parseDouble(value.toString()));
 				break;
-			case 4:
+			case 4 :
 				entity.setSouthLatitude(Double.parseDouble(value.toString()));
 				break;
-			case 5:
+			case 5 :
 				entity.setWestLongitude(Double.parseDouble(value.toString()));
 				break;
-			case 6:
+			case 6 :
 				entity.setEastLongitude(Double.parseDouble(value.toString()));
 				break;
 		}

@@ -16,11 +16,11 @@ import javax.swing.DefaultCellEditor;
 
 import com.nepxion.swing.menuitem.JBasicMenuItem;
 import com.nepxion.swing.popupmenu.JDecorationPopupMenu;
-import com.nepxion.swing.table.sortable.JSortableTable;
+import com.nepxion.swing.table.JBasicTable;
 import com.nepxion.swing.textfield.JBasicTextField;
 
 public class JAddressTable
-	extends JSortableTable
+	extends JBasicTable
 {
 	private JDecorationPopupMenu popupMenu;
 	

@@ -37,19 +37,19 @@ public class LocatingMobileTableModel
 		
 		switch (column)
 		{
-			case 0:
+			case 0 :
 				return entity.getMobile();
-			case 1:
+			case 1 :
 				return entity.getProvince();
-			case 2:
+			case 2 :
 				return entity.getCity();
-			case 3:
+			case 3 :
 				return entity.getAreaCode();
-			case 4:
+			case 4 :
 				return entity.getPostCode();
-			case 5:
+			case 5 :
 				return entity.getCorp();
-			case 6:
+			case 6 :
 				return entity.getCard();
 		}
 		
@@ -62,25 +62,25 @@ public class LocatingMobileTableModel
 		
 		switch (column)
 		{
-			case 0:
+			case 0 :
 				entity.setMobile(value.toString());
 				break;
-			case 1:
+			case 1 :
 				entity.setProvince(value.toString());
 				break;
-			case 2:
+			case 2 :
 				entity.setCity(value.toString());
 				break;
-			case 3:
+			case 3 :
 				entity.setAreaCode(value.toString());
 				break;
-			case 4:
+			case 4 :
 				entity.setPostCode(value.toString());
 				break;
-			case 5:
+			case 5 :
 				entity.setCorp(value.toString());
 				break;
-			case 6:
+			case 6 :
 				entity.setCard(value.toString());
 				break;
 		}

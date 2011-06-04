@@ -37,11 +37,11 @@ public class NeteaseMobileTableModel
 		
 		switch (column)
 		{
-			case 0:
+			case 0 :
 				return entity.getMobile();
-			case 1:
+			case 1 :
 				return entity.getProvince();
-			case 2:
+			case 2 :
 				return entity.getCity();
 		}
 		
@@ -54,13 +54,13 @@ public class NeteaseMobileTableModel
 		
 		switch (column)
 		{
-			case 0:
+			case 0 :
 				entity.setMobile(value.toString());
 				break;
-			case 1:
+			case 1 :
 				entity.setProvince(value.toString());
 				break;
-			case 2:
+			case 2 :
 				entity.setCity(value.toString());
 				break;
 		}

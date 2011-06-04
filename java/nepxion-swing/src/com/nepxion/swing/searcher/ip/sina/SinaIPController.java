@@ -42,7 +42,7 @@ public class SinaIPController
 							return;
 						}						
 						
-						SinaIPTableModel tableModel = (SinaIPTableModel) panel.getIPTable().getDataModel();
+						SinaIPTableModel tableModel = (SinaIPTableModel) panel.getIPTable().getModel();
 						tableModel.addRow(entity);
 					}
 					
@@ -84,7 +84,7 @@ public class SinaIPController
 					return;
 				}
 				
-				SinaIPTableModel tableModel = (SinaIPTableModel) table.getDataModel();
+				SinaIPTableModel tableModel = (SinaIPTableModel) table.getModel();
 				tableModel.clearRows();
 			}
 		};

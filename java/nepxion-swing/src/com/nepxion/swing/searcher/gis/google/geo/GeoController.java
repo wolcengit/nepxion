@@ -42,7 +42,7 @@ public class GeoController
 							return;
 						}	
 						
-						GeoTableModel tableModel = (GeoTableModel) panel.getGeoTable().getDataModel();
+						GeoTableModel tableModel = (GeoTableModel) panel.getGeoTable().getModel();
 						tableModel.setRowDatas(entityList);
 					}
 					
@@ -80,7 +80,7 @@ public class GeoController
 					return;
 				}
 				
-				GeoTableModel tableModel = (GeoTableModel) table.getDataModel();
+				GeoTableModel tableModel = (GeoTableModel) table.getModel();
 				tableModel.clearRows();
 			}
 		};

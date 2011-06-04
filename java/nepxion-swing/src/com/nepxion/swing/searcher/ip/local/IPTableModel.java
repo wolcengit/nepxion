@@ -37,9 +37,9 @@ public class IPTableModel
 		
 		switch (column)
 		{
-			case 0:
+			case 0 :
 				return entity.getIP();
-			case 1:
+			case 1 :
 				return entity.getLocation();
 		}
 		

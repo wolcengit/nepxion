@@ -37,13 +37,13 @@ public class NeteaseIDTableModel
 		
 		switch (column)
 		{
-			case 0:
+			case 0 :
 				return entity.getCode();
-			case 1:
+			case 1 :
 				return entity.getLocation();
-			case 2:
+			case 2 :
 				return entity.getBirthday();
-			case 3:
+			case 3 :
 				return entity.getGender();
 		}
 		
@@ -56,16 +56,16 @@ public class NeteaseIDTableModel
 		
 		switch (column)
 		{
-			case 0:
+			case 0 :
 				entity.setCode(value.toString());
 				break;
-			case 1:
+			case 1 :
 				entity.setLocation(value.toString());
 				break;
-			case 2:
+			case 2 :
 				entity.setBirthday(value.toString());
 				break;
-			case 3:
+			case 3 :
 				entity.setGender(value.toString());
 				break;
 		}

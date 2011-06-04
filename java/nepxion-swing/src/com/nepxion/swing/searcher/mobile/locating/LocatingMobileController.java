@@ -42,7 +42,7 @@ public class LocatingMobileController
 							return;
 						}
 						
-						LocatingMobileTableModel tableModel = (LocatingMobileTableModel) panel.getMobileTable().getDataModel();
+						LocatingMobileTableModel tableModel = (LocatingMobileTableModel) panel.getMobileTable().getModel();
 						tableModel.addRow(entity);
 					}
 					
@@ -85,7 +85,7 @@ public class LocatingMobileController
 					return;
 				}
 				
-				LocatingMobileTableModel tableModel = (LocatingMobileTableModel) table.getDataModel();
+				LocatingMobileTableModel tableModel = (LocatingMobileTableModel) table.getModel();
 				tableModel.clearRows();
 			}
 		};

@@ -36,23 +36,23 @@ public class LocTableModel
 		LocEntity entity = (LocEntity) rowDatas.get(row);
 		switch (column)
 		{
-			case 0:
+			case 0 :
 				return entity.getLatitude() + "";
-			case 1:
+			case 1 :
 				return entity.getLongitude() + "";
-			case 2:
+			case 2 :
 				return entity.getCountry();
-			case 3:
+			case 3 :
 				return entity.getCountryCode();
-			case 4:
+			case 4 :
 				return entity.getRegion();
-			case 5:
+			case 5 :
 				return entity.getCity();
-			case 6:
+			case 6 :
 				return entity.getStreet();
-			case 7:
+			case 7 :
 				return entity.getStreetNumber();
-			case 8:
+			case 8 :
 				return entity.getPostalCode();
 		}
 		
@@ -65,31 +65,31 @@ public class LocTableModel
 		
 		switch (column)
 		{
-			case 0:
+			case 0 :
 				entity.setLongitude(Double.parseDouble(value.toString()));
 				break;
-			case 1:
+			case 1 :
 				entity.setLatitude(Double.parseDouble(value.toString()));
 				break;
-			case 2:
+			case 2 :
 				entity.setCountry(value.toString());
 				break;
-			case 3:
+			case 3 :
 				entity.setCountryCode(value.toString());
 				break;
-			case 4:
+			case 4 :
 				entity.setRegion(value.toString());
 				break;
-			case 5:
+			case 5 :
 				entity.setCity(value.toString());
 				break;
-			case 6:
+			case 6 :
 				entity.setStreet(value.toString());
 				break;
-			case 7:
+			case 7 :
 				entity.setStreetNumber(value.toString());
 				break;
-			case 8:
+			case 8 :
 				entity.setPostalCode(value.toString());
 				break;
 		}

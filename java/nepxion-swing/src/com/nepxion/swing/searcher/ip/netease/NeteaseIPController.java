@@ -42,7 +42,7 @@ public class NeteaseIPController
 							return;
 						}						
 						
-						NeteaseIPTableModel tableModel = (NeteaseIPTableModel) panel.getIPTable().getDataModel();
+						NeteaseIPTableModel tableModel = (NeteaseIPTableModel) panel.getIPTable().getModel();
 						tableModel.addRow(entity);
 					}
 					
@@ -80,7 +80,7 @@ public class NeteaseIPController
 					return;
 				}
 				
-				NeteaseIPTableModel tableModel = (NeteaseIPTableModel) table.getDataModel();
+				NeteaseIPTableModel tableModel = (NeteaseIPTableModel) table.getModel();
 				tableModel.clearRows();
 			}
 		};

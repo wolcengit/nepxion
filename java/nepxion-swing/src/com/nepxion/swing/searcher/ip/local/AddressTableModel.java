@@ -37,11 +37,11 @@ public class AddressTableModel
 		
 		switch (column)
 		{
-			case 0:
+			case 0 :
 				return entity.getStartIP();
-			case 1:
+			case 1 :
 				return entity.getEndIP();
-			case 2:
+			case 2 :
 				return entity.getLocation();
 		}
 		

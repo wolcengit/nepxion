@@ -42,7 +42,7 @@ public class AddressController
 							return;
 						}
 						
-						AddressTableModel tableModel = (AddressTableModel) panel.getIPTable().getDataModel();
+						AddressTableModel tableModel = (AddressTableModel) panel.getIPTable().getModel();
 						tableModel.setRowDatas(entityList);
 						
 						panel.setCount(entityList.size());
@@ -78,7 +78,7 @@ public class AddressController
 					return;
 				}
 				
-				AddressTableModel tableModel = (AddressTableModel) table.getDataModel();
+				AddressTableModel tableModel = (AddressTableModel) table.getModel();
 				tableModel.clearRows();
 			}
 		};

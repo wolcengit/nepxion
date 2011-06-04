@@ -42,7 +42,7 @@ public class NeteaseIDController
 							return;
 						}
 						
-						NeteaseIDTableModel tableModel = (NeteaseIDTableModel) panel.getIDTable().getDataModel();
+						NeteaseIDTableModel tableModel = (NeteaseIDTableModel) panel.getIDTable().getModel();
 						tableModel.addRow(entity);
 					}
 					
@@ -85,7 +85,7 @@ public class NeteaseIDController
 					return;
 				}
 				
-				NeteaseIDTableModel tableModel = (NeteaseIDTableModel) table.getDataModel();
+				NeteaseIDTableModel tableModel = (NeteaseIDTableModel) table.getModel();
 				tableModel.clearRows();
 			}
 		};

@@ -42,7 +42,7 @@ public class NeteaseMobileController
 							return;
 						}
 						
-						NeteaseMobileTableModel tableModel = (NeteaseMobileTableModel) panel.getMobileTable().getDataModel();
+						NeteaseMobileTableModel tableModel = (NeteaseMobileTableModel) panel.getMobileTable().getModel();
 						tableModel.addRow(entity);
 					}
 					
@@ -85,7 +85,7 @@ public class NeteaseMobileController
 					return;
 				}
 				
-				NeteaseMobileTableModel tableModel = (NeteaseMobileTableModel) table.getDataModel();
+				NeteaseMobileTableModel tableModel = (NeteaseMobileTableModel) table.getModel();
 				tableModel.clearRows();
 			}
 		};

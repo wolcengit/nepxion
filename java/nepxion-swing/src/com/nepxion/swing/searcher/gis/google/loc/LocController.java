@@ -42,7 +42,7 @@ public class LocController
 							return;
 						}	
 						
-						LocTableModel tableModel = (LocTableModel) panel.getLocTable().getDataModel();
+						LocTableModel tableModel = (LocTableModel) panel.getLocTable().getModel();
 						tableModel.addRow(entity);
 					}
 					
@@ -94,7 +94,7 @@ public class LocController
 							return;
 						}						
 						
-						LocTableModel tableModel = (LocTableModel) panel.getLocTable().getDataModel();
+						LocTableModel tableModel = (LocTableModel) panel.getLocTable().getModel();
 						tableModel.addRow(entity);
 					}
 					
@@ -143,7 +143,7 @@ public class LocController
 					return;
 				}
 				
-				LocTableModel tableModel = (LocTableModel) table.getDataModel();
+				LocTableModel tableModel = (LocTableModel) table.getModel();
 				tableModel.clearRows();
 			}
 		};

@@ -42,7 +42,7 @@ public class TencentIPController
 							return;
 						}
 						
-						TencentIPTableModel tableModel = (TencentIPTableModel) panel.getIPTable().getDataModel();
+						TencentIPTableModel tableModel = (TencentIPTableModel) panel.getIPTable().getModel();
 						tableModel.addRow(entity);
 					}
 					
@@ -74,7 +74,7 @@ public class TencentIPController
 					return;
 				}
 				
-				TencentIPTableModel tableModel = (TencentIPTableModel) table.getDataModel();
+				TencentIPTableModel tableModel = (TencentIPTableModel) table.getModel();
 				tableModel.clearRows();
 			}
 		};
