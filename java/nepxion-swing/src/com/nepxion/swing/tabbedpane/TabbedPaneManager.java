@@ -21,6 +21,7 @@ import com.nepxion.swing.element.ElementNode;
 import com.nepxion.swing.element.IElementNode;
 import com.nepxion.swing.handle.HandleManager;
 import com.nepxion.swing.locale.SwingLocale;
+import com.nepxion.swing.lookandfeel.LookAndFeelManager;
 import com.nepxion.swing.optionpane.JBasicOptionPane;
 import com.nepxion.swing.selector.checkbox.JCheckBoxSelector;
 
@@ -29,6 +30,16 @@ public class TabbedPaneManager
 	public static void setPreferenceStyle(JTabbedPane tabbedPane)
 	{
 		tabbedPane.setFocusable(false);
+		
+		if (LookAndFeelManager.isNimbusLookAndFeel())
+		{	
+			if (tabbedPane instanceof JBasicTabbedPane)
+			{
+				JBasicTabbedPane basicTabbedPane = (JBasicTabbedPane) tabbedPane;
+				basicTabbedPane.setDrawBorder(false);
+				basicTabbedPane.setDrawCenter(false);
+			}
+		}
 	}
 	
 	public static void showCloseDialog(ITabbedPane tabbedPane, JCheckBoxSelector checkBoxSelector)
