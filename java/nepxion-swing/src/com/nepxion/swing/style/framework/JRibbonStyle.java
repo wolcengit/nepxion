@@ -44,7 +44,7 @@ public class JRibbonStyle
 		tabbedPaneForeground = Color.black;
 		tabbedPaneSelectionForeground = Color.black;
 		
-		tabbedPaneBorderLineColor = new Color(154, 179, 213);
+		tabbedPaneBorderLineColor = new Color(154, 179, 213); // new Color(175, 195, 213)
 		
 		// UIManager.put("nimbusBlueGrey", ColorUtil.getDerivedColor(new Color(169, 176, 190)));
 		UIManager.put("control", new Color(231, 239, 248));
