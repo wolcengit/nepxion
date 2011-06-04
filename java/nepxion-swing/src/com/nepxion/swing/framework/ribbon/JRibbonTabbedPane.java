@@ -46,6 +46,7 @@ import com.nepxion.swing.label.JBasicLabel;
 import com.nepxion.swing.locale.SwingLocale;
 import com.nepxion.swing.menuitem.JBasicCheckBoxMenuItem;
 import com.nepxion.swing.popupmenu.JDecorationPopupMenu;
+import com.nepxion.swing.style.framework.JRibbonStyle;
 import com.nepxion.swing.tabbedpane.JEclipseTabbedPane;
 import com.nepxion.swing.tabbedpane.TabbedPaneManager;
 
@@ -360,10 +361,12 @@ public class JRibbonTabbedPane
 	 */
 	private void initStyle()
 	{		
-		setTabGradientColor(Color.white); // new Color(255, 239, 191)
-		setTabBackground(new Color(231, 239, 248));
-		setTabForeground(Color.black);
-		setTabSelectionForeground(Color.black);
+		JRibbonStyle ribbonStyle = new JRibbonStyle();
+		
+		setTabGradientColor(ribbonStyle.getTabbedPaneGradientColor());
+		setTabBackground(ribbonStyle.getTabbedPaneBackground());
+		setTabForeground(ribbonStyle.getTabbedPaneForeground());
+		setTabSelectionForeground(ribbonStyle.getTabbedPaneSelectionForeground());
 	}
 	
 	/**
