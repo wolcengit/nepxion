@@ -27,7 +27,7 @@ import com.nepxion.swing.renderer.tree.ElementTreeCellRenderer;
 import com.nepxion.swing.scrollpane.JBasicScrollPane;
 import com.nepxion.swing.tabbedpane.JEclipseTabbedPane;
 import com.nepxion.swing.table.BasicTableModel;
-import com.nepxion.swing.table.sortable.JSortableTable;
+import com.nepxion.swing.table.JBasicTable;
 import com.nepxion.swing.textarea.JBasicTextArea;
 import com.nepxion.swing.tree.JBasicTree;
 import com.nepxion.util.data.CollectionUtil;
@@ -43,10 +43,10 @@ public class DemoComponentFactory
 		return tree;				
 	}
 	
-	public static JSortableTable getTable()
+	public static JBasicTable getTable()
 	{		
-		JSortableTable table = new JSortableTable(new ElementNodeTableModel());
-		table.setAutoResizeMode(JSortableTable.AUTO_RESIZE_OFF);
+		JBasicTable table = new JBasicTable(new ElementNodeTableModel());
+		table.setAutoResizeMode(JBasicTable.AUTO_RESIZE_OFF);
 		table.getColumn(3).setCellRenderer(new ElementTableCellRenderer());
 		
 		return table;

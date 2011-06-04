@@ -32,7 +32,7 @@ import com.nepxion.swing.icon.IconFactory;
 import com.nepxion.swing.scrollpane.JBasicScrollPane;
 import com.nepxion.swing.selector.file.JFileSelector;
 import com.nepxion.swing.table.BasicTableModel;
-import com.nepxion.swing.table.sortable.JSortableTable;
+import com.nepxion.swing.table.JBasicTable;
 import com.nepxion.swing.textfield.JBasicTextField;
 import com.nepxion.swing.thread.dialog.JThreadDialog;
 import com.nepxion.util.data.CollectionUtil;
@@ -60,7 +60,7 @@ public class DemoThreadDialoglPanel
 			setLayout(new BorderLayout());
 			setBorder(BorderManager.createComplexTitledBorder("File Loader"));
 			
-			JSortableTable fileTable = new JSortableTable(new FileTableModel(new ArrayList()));
+			JBasicTable fileTable = new JBasicTable(new FileTableModel(new ArrayList()));
 			fileTable.setRowHeight(20);
 			
 			FileToolBar fileTooBar = new FileToolBar(fileTable);
@@ -108,7 +108,7 @@ public class DemoThreadDialoglPanel
 	public class FileToolBar
 		extends JPanel
 	{
-		public FileToolBar(final JSortableTable fileTable)
+		public FileToolBar(final JBasicTable fileTable)
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
 			setBorder(BorderFactory.createEmptyBorder(0, 0, 5, 0));
@@ -146,7 +146,7 @@ public class DemoThreadDialoglPanel
 						{
 							List fileList = (List) data;
 							
-							FileTableModel tableModel = (FileTableModel) fileTable.getDataModel();
+							FileTableModel tableModel = (FileTableModel) fileTable.getModel();
 							tableModel.setRowDatas(fileList);
 						}
 						

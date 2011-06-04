@@ -33,7 +33,7 @@ import com.nepxion.swing.icon.IconFactory;
 import com.nepxion.swing.scrollpane.JBasicScrollPane;
 import com.nepxion.swing.selector.file.JFileSelector;
 import com.nepxion.swing.table.BasicTableModel;
-import com.nepxion.swing.table.sortable.JSortableTable;
+import com.nepxion.swing.table.JBasicTable;
 import com.nepxion.swing.textfield.JBasicTextField;
 import com.nepxion.swing.thread.container.JThreadContainer;
 import com.nepxion.util.data.CollectionUtil;
@@ -61,7 +61,7 @@ public class DemoThreadContainerPanel
 			setLayout(new BorderLayout());
 			setBorder(BorderManager.createComplexTitledBorder("File Loader"));
 			
-			JSortableTable fileTable = new JSortableTable(new FileTableModel(new ArrayList()));
+			JBasicTable fileTable = new JBasicTable(new FileTableModel(new ArrayList()));
 			fileTable.setRowHeight(20);
 			
 			FileThreadContainer fileThreadContainer = new FileThreadContainer(fileTable);
@@ -155,10 +155,10 @@ public class DemoThreadContainerPanel
 	public class FileThreadContainer
 		extends JThreadContainer
 	{
-		private JSortableTable fileTable;
+		private JBasicTable fileTable;
 		private JBasicScrollPane fileTableScrollPane;
 		
-		public FileThreadContainer(JSortableTable fileTable)
+		public FileThreadContainer(JBasicTable fileTable)
 		{
 			super("Loading, please wait...");
 			
@@ -190,7 +190,7 @@ public class DemoThreadContainerPanel
 		{
 			List fileList = (List) data;
 			
-			FileTableModel tableModel = (FileTableModel) fileTable.getDataModel();
+			FileTableModel tableModel = (FileTableModel) fileTable.getModel();
 			tableModel.setRowDatas(fileList);
 		}
 		
