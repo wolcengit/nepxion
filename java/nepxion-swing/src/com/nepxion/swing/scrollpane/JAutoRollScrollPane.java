@@ -89,16 +89,16 @@ public class JAutoRollScrollPane
 			
 			switch (direction)
 			{
-				case NORTH:
+				case NORTH :
 					setIcon(JideIconsFactory.getImageIcon(JideIconsFactory.Arrow.UP));
 					break;
-				case SOUTH:
+				case SOUTH :
 					setIcon(JideIconsFactory.getImageIcon(JideIconsFactory.Arrow.DOWN));
 					break;
-				case WEST:
+				case WEST :
 					setIcon(JideIconsFactory.getImageIcon(JideIconsFactory.Arrow.LEFT));
 					break;
-				case EAST:
+				case EAST :
 					setIcon(JideIconsFactory.getImageIcon(JideIconsFactory.Arrow.RIGHT));
 					break;
 			}
@@ -117,22 +117,22 @@ public class JAutoRollScrollPane
 					{	
 						switch (direction)
 						{
-							case NORTH:
+							case NORTH :
 								g.drawLine(0, 0, getWidth() - 1, 0);
 								g.drawLine(0, 0, 0, getHeight() - 1);
 								g.drawLine(getWidth() - 1, 0, getWidth() - 1, getHeight() - 1);
 								break;
-							case SOUTH:
+							case SOUTH :
 								g.drawLine(0, getHeight() - 1, getWidth() - 1, getHeight() - 1);
 								g.drawLine(0, 0, 0, getHeight() - 1);
 								g.drawLine(getWidth() - 1, 0, getWidth() - 1, getHeight() - 1);								
 								break;
-							case WEST:
+							case WEST :
 								g.drawLine(0, 0, getWidth() - 1, 0);
 								g.drawLine(0, 0, 0, getHeight() - 1);
 								g.drawLine(0, getHeight() - 1, getWidth() - 1, getHeight() - 1);
 								break;
-							case EAST:
+							case EAST :
 								g.drawLine(0, 0, getWidth() - 1, 0);
 								g.drawLine(getWidth() - 1, 0, getWidth() - 1, getHeight() - 1);
 								g.drawLine(0, getHeight() - 1, getWidth() - 1, getHeight() - 1);
