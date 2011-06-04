@@ -34,20 +34,21 @@ public class JLiteStyle
 		background = UIManager.getColor("Panel.background");
 		selectionBackground = UIManager.getColor("Panel.background");
 		
+		border = new ShadowBorder();
+		headerBorder = new RaisedHeaderBorder();
+		labelBorder = BorderFactory.createEmptyBorder(2, 4, 2, 1);
+		
 		tabbedPaneGradientColor = selectionGradientColor.darker();
 		tabbedPaneBackground = new Color(selectionGradientColor.getRed(), selectionGradientColor.getGreen(), selectionGradientColor.getBlue(), 225);
 		
 		tabbedPaneForeground = Color.black;
 		tabbedPaneSelectionForeground = Color.white;
-		
-		border = new ShadowBorder();
-		headerBorder = new RaisedHeaderBorder();
-		labelBorder = BorderFactory.createEmptyBorder(2, 4, 2, 1);
 	}
 	
 	public void setSelectionGradientColor(Color color)
 	{
 		selectionGradientColor = color;
+		
 		tabbedPaneGradientColor = selectionGradientColor.darker();
 		tabbedPaneBackground = new Color(selectionGradientColor.getRed(), selectionGradientColor.getGreen(), selectionGradientColor.getBlue(), 225);
 	}

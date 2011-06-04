@@ -31,6 +31,13 @@ public interface IStyle
 	public Color getSelectionBackground(); // 选中背景色，渐变结束的颜色
 	
 	
+	public Border getBorder(); // 框架边界
+	
+	public Border getHeaderBorder(); // 框架头部边界
+	
+	public Border getLabelBorder(); // 框架标题栏边界
+	
+	
 	public Color getTabbedPaneGradientColor(); // 选项卡渐变开始的颜色
 	
 	public Color getTabbedPaneBackground(); // 选项卡渐变结束的颜色, 背景色
@@ -41,11 +48,4 @@ public interface IStyle
 	public Color getTabbedPaneSelectionForeground(); // 选中选项卡前景色，标签文字颜色
 	
 	public Color getTabbedPaneBorderLineColor(); // 选项卡线条颜色
-	
-	
-	public Border getBorder(); // 框架边界
-	
-	public Border getHeaderBorder(); // 框架头部边界
-	
-	public Border getLabelBorder(); // 框架标题栏边界
 }

@@ -34,14 +34,14 @@ public class JWindowsStyle
 		background = UIManager.getColor("Panel.background");
 		selectionBackground = UIManager.getColor("Panel.background");
 		
+		border = new ShadowBorder();
+		headerBorder = new RaisedHeaderBorder();
+		labelBorder = BorderFactory.createEmptyBorder(2, 4, 2, 1);
+		
 		tabbedPaneGradientColor = new Color(10, 36, 106);
 		tabbedPaneBackground = new Color(118, 128, 156);
 		
 		tabbedPaneForeground = Color.black;
 		tabbedPaneSelectionForeground = Color.white;
-		
-		border = new ShadowBorder();
-		headerBorder = new RaisedHeaderBorder();
-		labelBorder = BorderFactory.createEmptyBorder(2, 4, 2, 1);
 	}
 }

@@ -34,6 +34,10 @@ public class JRibbonStyle
 		background = UIManager.getColor("Panel.background");
 		selectionBackground = UIManager.getColor("Panel.background");
 		
+		border = new ShadowBorder(new Color(167, 172, 180));
+		headerBorder = new RaisedHeaderBorder(Color.white, new Color(182, 186, 194)); // new Color(167, 172, 180)
+		labelBorder = BorderFactory.createEmptyBorder(2, 4, 2, 1);
+		
 		tabbedPaneGradientColor = Color.white; // new Color(255, 239, 191);
 		tabbedPaneBackground = new Color(231, 239, 248);
 		
@@ -41,10 +45,6 @@ public class JRibbonStyle
 		tabbedPaneSelectionForeground = Color.black;
 		
 		tabbedPaneBorderLineColor = new Color(154, 179, 213);
-		
-		border = new ShadowBorder(new Color(167, 172, 180));
-		headerBorder = new RaisedHeaderBorder(Color.white, new Color(182, 186, 194)); // new Color(167, 172, 180)
-		labelBorder = BorderFactory.createEmptyBorder(2, 4, 2, 1);
 		
 		// UIManager.put("nimbusBlueGrey", ColorUtil.getDerivedColor(new Color(169, 176, 190)));
 		UIManager.put("control", new Color(231, 239, 248));

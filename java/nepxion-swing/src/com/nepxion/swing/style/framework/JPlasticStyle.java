@@ -34,14 +34,14 @@ public class JPlasticStyle
 		background = UIManager.getColor("Panel.background");
 		selectionBackground = new Color(166, 202, 240);
 		
+		border = new ShadowBorder();
+		headerBorder = new RaisedHeaderBorder();
+		labelBorder = BorderFactory.createEmptyBorder(2, 4, 2, 1);
+		
 		tabbedPaneGradientColor = new Color(10, 36, 106);
 		tabbedPaneBackground = new Color(166, 202, 240);
 		
 		tabbedPaneForeground = Color.black;
 		tabbedPaneSelectionForeground = Color.white;
-		
-		border = new ShadowBorder();
-		headerBorder = new RaisedHeaderBorder();
-		labelBorder = BorderFactory.createEmptyBorder(2, 4, 2, 1);
 	}
 }

@@ -27,6 +27,10 @@ public abstract class AbstractStyle
 	protected Color background;
 	protected Color selectionBackground;
 	
+	protected Border border;
+	protected Border headerBorder;
+	protected Border labelBorder;
+	
 	protected Color tabbedPaneGradientColor;
 	protected Color tabbedPaneBackground;
 	
@@ -36,10 +40,6 @@ public abstract class AbstractStyle
 	protected Color tabbedPaneNoDecoratedBackground;
 	
 	protected Color tabbedPaneBorderLineColor;
-	
-	protected Border border;
-	protected Border headerBorder;
-	protected Border labelBorder;
 	
 	public AbstractStyle()
 	{
@@ -76,6 +76,21 @@ public abstract class AbstractStyle
 		return selectionBackground;
 	}
 	
+	public Border getBorder()
+	{
+		return border;
+	}
+	
+	public Border getHeaderBorder()
+	{
+		return headerBorder;
+	}
+	
+	public Border getLabelBorder()
+	{
+		return labelBorder;
+	}
+	
 	public Color getTabbedPaneGradientColor()
 	{
 		return tabbedPaneGradientColor;
@@ -104,20 +119,5 @@ public abstract class AbstractStyle
 	public Color getTabbedPaneBorderLineColor()
 	{
 		return tabbedPaneBorderLineColor;
-	}
-	
-	public Border getBorder()
-	{
-		return border;
-	}
-	
-	public Border getHeaderBorder()
-	{
-		return headerBorder;
-	}
-	
-	public Border getLabelBorder()
-	{
-		return labelBorder;
 	}
 }

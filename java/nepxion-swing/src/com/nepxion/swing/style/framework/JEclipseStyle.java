@@ -34,14 +34,14 @@ public class JEclipseStyle
 		background = UIManager.getColor("Panel.background");
 		selectionBackground = UIManager.getColor("Panel.background");
 		
+		border = new ShadowBorder();
+		headerBorder = new RaisedHeaderBorder();
+		labelBorder = BorderFactory.createEmptyBorder(2, 4, 2, 1);
+		
 		tabbedPaneGradientColor = new Color(242, 244, 247);
 		tabbedPaneBackground = new Color(157, 167, 195);
 		
 		tabbedPaneForeground = Color.black;
 		tabbedPaneSelectionForeground = Color.black;
-		
-		border = new ShadowBorder();
-		headerBorder = new RaisedHeaderBorder();
-		labelBorder = BorderFactory.createEmptyBorder(2, 4, 2, 1);
 	}
 }

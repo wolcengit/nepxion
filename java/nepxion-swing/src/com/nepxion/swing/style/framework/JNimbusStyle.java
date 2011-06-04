@@ -34,14 +34,14 @@ public class JNimbusStyle
 		background = UIManager.getColor("Panel.background");
 		selectionBackground = UIManager.getColor("Panel.background");
 		
+		border = new ShadowBorder(new Color(167, 172, 180));
+		headerBorder = new RaisedHeaderBorder(Color.white, new Color(182, 186, 194)); // new Color(167, 172, 180)
+		labelBorder = BorderFactory.createEmptyBorder(2, 4, 2, 1);
+		
 		tabbedPaneGradientColor = new Color(57, 105, 138);
 		tabbedPaneBackground = new Color(115, 164, 209);
 		
 		tabbedPaneForeground = Color.black;
 		tabbedPaneSelectionForeground = Color.white;
-		
-		border = new ShadowBorder(new Color(167, 172, 180));
-		headerBorder = new RaisedHeaderBorder(Color.white, new Color(182, 186, 194)); // new Color(167, 172, 180)
-		labelBorder = BorderFactory.createEmptyBorder(2, 4, 2, 1);
 	}
 }
