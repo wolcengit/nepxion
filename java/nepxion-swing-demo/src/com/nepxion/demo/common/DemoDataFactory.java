@@ -94,7 +94,7 @@ public class DemoDataFactory
 		
 		// UI Control
 		ElementNode uiControlElementNode = new ElementNode(10, "UI Control", IconFactory.getSwingIcon("component/ui_16.png"), "UI Control Component", false, true);
-		uiControlElementNode.add(new ElementNode(1, "UI Defaults", IconFactory.getSwingIcon("component/ui_16.png"), "UI Defaults Explorer"));	
+		uiControlElementNode.add(new ElementNode(1, "UI Explorer", IconFactory.getSwingIcon("component/ui_16.png"), "UI Explorer"));	
 		
 		// FrameWork Control
 		ElementNode frameWorkControlElementNode = new ElementNode(11, "FrameWork Control", IconFactory.getSwingIcon("component/framework_16.png"), "FrameWork Control Component", false, false);

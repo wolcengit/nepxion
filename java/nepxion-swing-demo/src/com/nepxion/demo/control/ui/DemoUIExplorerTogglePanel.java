@@ -24,12 +24,12 @@ public class DemoUIExplorerTogglePanel
 	public DemoUIExplorerTogglePanel()
 	{
 		JEclipseTabbedPane toggleTabbedPane = getToggleTabbedPane();
-		toggleTabbedPane.addTab("UI Explorer", IconFactory.getSwingIcon("component/ui_16.png"), new DemoToggleTemplate(new DemoUIExplorerPanel()), "UI Defaults");				
+		toggleTabbedPane.addTab("UI Explorer", IconFactory.getSwingIcon("component/ui_16.png"), new DemoToggleTemplate(new DemoUIExplorerPanel()), "UI Explorer");				
 	}
 	
 	public String getToggleName()
 	{
-		return "UI Defaults";
+		return "UI Explorer";
 	}
 	
 	public Icon getToggleIcon()
