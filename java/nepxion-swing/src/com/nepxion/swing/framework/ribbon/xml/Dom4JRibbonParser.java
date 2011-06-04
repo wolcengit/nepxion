@@ -39,8 +39,8 @@ import com.nepxion.swing.button.JClassicMenuButton;
 import com.nepxion.swing.framework.ribbon.JRibbon;
 import com.nepxion.swing.framework.ribbon.JRibbonBar;
 import com.nepxion.swing.framework.ribbon.JRibbonContainer;
-import com.nepxion.swing.framework.ribbon.RibbonManager;
 import com.nepxion.swing.framework.ribbon.action.JRibbonAction;
+import com.nepxion.swing.framework.ribbon.action.RibbonActionFactory;
 import com.nepxion.swing.icon.IconFactory;
 import com.nepxion.swing.layout.table.TableLayout;
 import com.nepxion.swing.lookandfeel.LookAndFeelManager;
@@ -863,7 +863,7 @@ public class Dom4JRibbonParser
 	 */
 	public JRibbonAction createRibbonAction(String name, String text, String smallText, String largeText, Icon icon, Icon smallIcon, Icon largeIcon, String toolTipText, String ribbonName, String ribbonTitle, Icon ribbonIcon, String ribbonToolTipText, String ribbonComponentClass)
 	{		
-		return RibbonManager.createRibbonAction(name, text, smallText, largeText, icon, smallIcon, largeIcon, toolTipText, ribbonName, ribbonTitle, ribbonIcon, ribbonToolTipText, ribbonComponentClass, ribbonContainer);
+		return RibbonActionFactory.createRibbonAction(name, text, smallText, largeText, icon, smallIcon, largeIcon, toolTipText, ribbonName, ribbonTitle, ribbonIcon, ribbonToolTipText, ribbonComponentClass, ribbonContainer);
 	}
 	
 	/**
