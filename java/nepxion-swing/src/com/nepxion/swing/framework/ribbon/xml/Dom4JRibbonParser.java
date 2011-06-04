@@ -39,6 +39,7 @@ import com.nepxion.swing.button.JClassicMenuButton;
 import com.nepxion.swing.framework.ribbon.JRibbon;
 import com.nepxion.swing.framework.ribbon.JRibbonBar;
 import com.nepxion.swing.framework.ribbon.JRibbonContainer;
+import com.nepxion.swing.framework.ribbon.JRibbonTabbedPane;
 import com.nepxion.swing.framework.ribbon.action.JRibbonAction;
 import com.nepxion.swing.framework.ribbon.action.RibbonActionFactory;
 import com.nepxion.swing.icon.IconFactory;
@@ -48,7 +49,6 @@ import com.nepxion.swing.menu.JBasicMenu;
 import com.nepxion.swing.menuitem.JBasicMenuItem;
 import com.nepxion.swing.popupmenu.JDecorationPopupMenu;
 import com.nepxion.swing.separator.JBasicSeparator;
-import com.nepxion.swing.tabbedpane.ITabbedPane;
 import com.nepxion.util.string.StringUtil;
 import com.nepxion.util.xml.dom4j.Dom4JReader;
 
@@ -61,9 +61,9 @@ public class Dom4JRibbonParser
 	protected JRibbonContainer ribbonContainer;
 	
 	/**
-	 * The instance of ITabbedPane.
+	 * The instance of JRibbonTabbedPane.
 	 */
-	protected ITabbedPane tabbedPane;
+	protected JRibbonTabbedPane ribbonTabbedPane;
 	
 	/**
 	 * The boolean value of isContextIcon.
@@ -82,14 +82,14 @@ public class Dom4JRibbonParser
 	protected int iconShowValue = JAction.SHOW_LARGE;
 	
 	/**
-	 * Constructs with the specified ribbon container ant ribbon navigator bar.
+	 * Constructs with the specified ribbon container and ribbon tadbed pane.
 	 * @param ribbonContainer the instance of JRibbonContainer
-	 * @param ribbonNavigatorBar the instance of JRibbonNavigatorBar
+	 * @param ribbonTabbedPane the instance of JRibbonTabbedPane
 	 */
-	public Dom4JRibbonParser(JRibbonContainer ribbonContainer, ITabbedPane tabbedPane)
+	public Dom4JRibbonParser(JRibbonContainer ribbonContainer, JRibbonTabbedPane ribbonTabbedPane)
 	{
 		this.ribbonContainer = ribbonContainer;
-		this.tabbedPane = tabbedPane;
+		this.ribbonTabbedPane = ribbonTabbedPane;
 	}
 	
 	/**
@@ -314,7 +314,7 @@ public class Dom4JRibbonParser
 			}
 		}
 		
-		tabbedPane.addTab(title, icon, ribbonBar, toolTipText, isClosable);
+		ribbonTabbedPane.addTab(title, icon, ribbonBar, toolTipText, isClosable);
 		
 		parseRibbonElement(element, ribbonBar);
 	}
