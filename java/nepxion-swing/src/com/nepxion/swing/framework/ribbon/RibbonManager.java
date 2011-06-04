@@ -17,7 +17,7 @@ public class RibbonManager
 {
 	private static IStyle style;
 	
-	public static IStyle createStyle()
+	public static IStyle getStyle()
 	{
 		if (style == null)
 		{	
