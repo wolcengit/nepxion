@@ -61,13 +61,13 @@ public class JCheckBoxListPanel
 			IElementNode elementNode = (IElementNode) listModel.getElementAt(i);
 			switch (selectType)
 			{
-				case SELECT_ALL:
+				case SELECT_ALL :
 					elementNode.setSelected(true);
 					break;
-				case SELECT_NONE:
+				case SELECT_NONE :
 					elementNode.setSelected(false);
 					break;
-				case SELECT_REVERSE:
+				case SELECT_REVERSE :
 					elementNode.setSelected(!elementNode.isSelected());
 					break;
 			}

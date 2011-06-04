@@ -201,16 +201,16 @@ public class JBasicFileChooser
 		int fileSelectionMode = getFileSelectionMode();
 		switch (fileSelectionMode)
 		{
-			case FILES_ONLY:
+			case FILES_ONLY :
 				type = SwingLocale.getString("file");
 				break;
-			case DIRECTORIES_ONLY:
+			case DIRECTORIES_ONLY :
 				type = SwingLocale.getString("directory");
 				break;
-			case FILES_AND_DIRECTORIES:
+			case FILES_AND_DIRECTORIES :
 				type = SwingLocale.getString("file_or_directory");
 				break;
-			default:
+			default :
 				type = SwingLocale.getString("file_or_directory");
 				break;
 		}
