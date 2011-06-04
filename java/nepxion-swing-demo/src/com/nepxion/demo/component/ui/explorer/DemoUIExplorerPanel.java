@@ -24,13 +24,13 @@ public class DemoUIExplorerPanel
 		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 		setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
 		
-		add(new UIDefaultsExplorerPanel());
+		add(new UIExplorerPanel());
 	}
 	
-	public class UIDefaultsExplorerPanel
+	public class UIExplorerPanel
 		extends JPanel
 	{
-		public UIDefaultsExplorerPanel()
+		public UIExplorerPanel()
 		{			
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
 			add(new UIExplorerHierarchy());
