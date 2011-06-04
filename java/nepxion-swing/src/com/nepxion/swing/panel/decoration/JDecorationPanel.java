@@ -38,9 +38,9 @@ public class JDecorationPanel
 		this(title, null, true, null, (IStyle) StyleManager.getStyle());
 	}
 	
-	public JDecorationPanel(String title, boolean isSelected)
+	public JDecorationPanel(String title, boolean selected)
 	{
-		this(title, null, isSelected, null, (IStyle) StyleManager.getStyle());
+		this(title, null, selected, null, (IStyle) StyleManager.getStyle());
 	}
 	
 	public JDecorationPanel(String title, IStyle style)
@@ -48,9 +48,9 @@ public class JDecorationPanel
 		this(title, null, true, null, style);
 	}
 	
-	public JDecorationPanel(String title, boolean isSelected, IStyle style)
+	public JDecorationPanel(String title, boolean selected, IStyle style)
 	{
-		this(title, null, isSelected, null, style);
+		this(title, null, selected, null, style);
 	}
 	
 	public JDecorationPanel(Icon icon)
@@ -58,9 +58,9 @@ public class JDecorationPanel
 		this("", icon, true, null, (IStyle) StyleManager.getStyle());
 	}
 	
-	public JDecorationPanel(Icon icon, boolean isSelected)
+	public JDecorationPanel(Icon icon, boolean selected)
 	{
-		this("", icon, isSelected, null, (IStyle) StyleManager.getStyle());
+		this("", icon, selected, null, (IStyle) StyleManager.getStyle());
 	}
 	
 	public JDecorationPanel(Icon icon, IStyle style)
@@ -68,9 +68,9 @@ public class JDecorationPanel
 		this("", icon, true, null, style);
 	}
 	
-	public JDecorationPanel(Icon icon, boolean isSelected, IStyle style)
+	public JDecorationPanel(Icon icon, boolean selected, IStyle style)
 	{
-		this("", icon, isSelected, null, style);
+		this("", icon, selected, null, style);
 	}
 	
 	public JDecorationPanel(String title, Icon icon)
@@ -78,9 +78,9 @@ public class JDecorationPanel
 		this(title, icon, true, null, (IStyle) StyleManager.getStyle());
 	}
 	
-	public JDecorationPanel(String title, Icon icon, boolean isSelected)
+	public JDecorationPanel(String title, Icon icon, boolean selected)
 	{
-		this(title, icon, isSelected, null, (IStyle) StyleManager.getStyle());
+		this(title, icon, selected, null, (IStyle) StyleManager.getStyle());
 	}
 	
 	public JDecorationPanel(String title, Icon icon, IStyle style)
@@ -88,9 +88,9 @@ public class JDecorationPanel
 		this(title, icon, true, null, style);
 	}
 	
-	public JDecorationPanel(String title, Icon icon, boolean isSelected, IStyle style)
+	public JDecorationPanel(String title, Icon icon, boolean selected, IStyle style)
 	{
-		this(title, icon, isSelected, null, style);
+		this(title, icon, selected, null, style);
 	}
 	
 	public JDecorationPanel(String title, Icon icon, JComponent content)
@@ -103,14 +103,14 @@ public class JDecorationPanel
 		this(title, icon, true, content, style);
 	}
 	
-	public JDecorationPanel(String title, Icon icon, boolean isSelected, JComponent content)
+	public JDecorationPanel(String title, Icon icon, boolean selected, JComponent content)
 	{
-		this(title, icon, isSelected, content, (IStyle) StyleManager.getStyle());
+		this(title, icon, selected, content, (IStyle) StyleManager.getStyle());
 	}
 	
-	public JDecorationPanel(String title, Icon icon, boolean isSelected, JComponent content, IStyle style)
+	public JDecorationPanel(String title, Icon icon, boolean selected, JComponent content, IStyle style)
 	{
-		header = new JDecorationHeader(title, icon, isSelected, style);
+		header = new JDecorationHeader(title, icon, selected, style);
 		
 		headContainer = new JPanel(new BorderLayout());
 		headContainer.setOpaque(false);
@@ -193,8 +193,8 @@ public class JDecorationPanel
 		return header.isSelected();
 	}
 	
-	public void setSelected(boolean isSelected)
+	public void setSelected(boolean selected)
 	{
-		header.setSelected(isSelected);
+		header.setSelected(selected);
 	}
 }

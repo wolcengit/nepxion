@@ -25,7 +25,7 @@ public class JDecorationHeader
 	extends JGradientPanel implements SwingConstants
 {
 	private JLabel label;
-	private boolean isSelected;
+	private boolean selected;
 	
 	private IStyle style;
 	
@@ -39,9 +39,9 @@ public class JDecorationHeader
 		this(title, null, true, (IStyle) StyleManager.getStyle());
 	}
 	
-	public JDecorationHeader(String title, boolean isSelected)
+	public JDecorationHeader(String title, boolean selected)
 	{
-		this(title, null, isSelected, (IStyle) StyleManager.getStyle());
+		this(title, null, selected, (IStyle) StyleManager.getStyle());
 	}
 	
 	public JDecorationHeader(String title, IStyle style)
@@ -49,9 +49,9 @@ public class JDecorationHeader
 		this(title, null, true, style);
 	}
 	
-	public JDecorationHeader(String title, boolean isSelected, IStyle style)
+	public JDecorationHeader(String title, boolean selected, IStyle style)
 	{
-		this(title, null, isSelected, style);
+		this(title, null, selected, style);
 	}
 	
 	public JDecorationHeader(Icon icon)
@@ -59,9 +59,9 @@ public class JDecorationHeader
 		this("", icon, true, (IStyle) StyleManager.getStyle());
 	}
 	
-	public JDecorationHeader(Icon icon, boolean isSelected)
+	public JDecorationHeader(Icon icon, boolean selected)
 	{
-		this("", icon, isSelected, (IStyle) StyleManager.getStyle());
+		this("", icon, selected, (IStyle) StyleManager.getStyle());
 	}
 	
 	public JDecorationHeader(Icon icon, IStyle style)
@@ -69,9 +69,9 @@ public class JDecorationHeader
 		this("", icon, true, style);
 	}
 	
-	public JDecorationHeader(Icon icon, boolean isSelected, IStyle style)
+	public JDecorationHeader(Icon icon, boolean selected, IStyle style)
 	{
-		this("", icon, isSelected, style);
+		this("", icon, selected, style);
 	}
 	
 	public JDecorationHeader(String title, Icon icon)
@@ -79,9 +79,9 @@ public class JDecorationHeader
 		this(title, icon, true, (IStyle) StyleManager.getStyle());
 	}
 	
-	public JDecorationHeader(String title, Icon icon, boolean isSelected)
+	public JDecorationHeader(String title, Icon icon, boolean selected)
 	{
-		this(title, icon, isSelected, (IStyle) StyleManager.getStyle());
+		this(title, icon, selected, (IStyle) StyleManager.getStyle());
 	}
 	
 	public JDecorationHeader(String title, Icon icon, IStyle style)
@@ -89,12 +89,12 @@ public class JDecorationHeader
 		this(title, icon, true, style);
 	}
 	
-	public JDecorationHeader(String title, Icon icon, boolean isSelected, IStyle style)
+	public JDecorationHeader(String title, Icon icon, boolean selected, IStyle style)
 	{
 		super(new BorderLayout(), null, null);
 		
 		this.style = style;
-		this.isSelected = isSelected;
+		this.selected = selected;
 		
 		label = new JLabel(title, icon, LEADING);
 		
@@ -109,10 +109,10 @@ public class JDecorationHeader
 	
 	private void updateHeader()
 	{
-		label.setForeground(getTextForeground(isSelected));
+		label.setForeground(getTextForeground(selected));
 		
-		setGradientColor(getHeaderGradientColor(isSelected));
-		setBackground(getHeaderBackground(isSelected));
+		setGradientColor(getHeaderGradientColor(selected));
+		setBackground(getHeaderBackground(selected));
 	}
 	
 	public JLabel getLabel()
@@ -146,20 +146,20 @@ public class JDecorationHeader
 	
 	public boolean isSelected()
 	{
-		return isSelected;
+		return selected;
 	}
 	
 	public void setSelected(boolean newValue)
 	{
 		boolean oldValue = isSelected();
-		isSelected = newValue;
+		selected = newValue;
 		updateHeader();
 		firePropertyChange("selected", oldValue, newValue);
 	}
 	
-	public Color getTextForeground(boolean isSelected)
+	public Color getTextForeground(boolean selected)
 	{
-		if (isSelected)
+		if (selected)
 		{
 			return style.getSelectionForeground();
 		}
@@ -169,9 +169,9 @@ public class JDecorationHeader
 		}
 	}
 	
-	public Color getHeaderBackground(boolean isSelected)
+	public Color getHeaderBackground(boolean selected)
 	{
-		if (isSelected)
+		if (selected)
 		{
 			return style.getSelectionBackground();
 		}
@@ -181,9 +181,9 @@ public class JDecorationHeader
 		}
 	}
 	
-	public Color getHeaderGradientColor(boolean isSelected)
+	public Color getHeaderGradientColor(boolean selected)
 	{
-		if (isSelected)
+		if (selected)
 		{
 			return style.getSelectionGradientColor();
 		}

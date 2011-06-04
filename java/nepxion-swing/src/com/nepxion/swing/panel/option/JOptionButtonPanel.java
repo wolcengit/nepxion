@@ -65,17 +65,17 @@ public class JOptionButtonPanel
 		
 		switch (option)
 		{
-			case YES_NO_APPLY_OPTION:
+			case YES_NO_APPLY_OPTION :
 			{
 				initYesNoApplyOption();
 				break;
 			}
-			case YES_NO_OPTION:
+			case YES_NO_OPTION :
 			{
 				initYesNoOption();
 				break;
 			}
-			case CLOSE_OPTION:
+			case CLOSE_OPTION :
 			{
 				initCloseOption();
 				break;
