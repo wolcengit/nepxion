@@ -152,10 +152,10 @@ public class Dom4JLazyLoaderTreeParser
 					case ICON_FOLDER_MODE_CONTEXT :
 						lazyLoaderTreeNode.setIcon(IconFactory.getContextIcon(iconName));
 						break;
-					case ICON_FOLDER_MODE_FULL:
+					case ICON_FOLDER_MODE_FULL :
 						lazyLoaderTreeNode.setIcon(IconFactory.getIcon(iconName));
 						break;
-					default:
+					default :
 						lazyLoaderTreeNode.setIcon(IconFactory.getContextIcon(iconName));
 						break;
 				}

@@ -164,10 +164,10 @@ public class Dom4JTreeParser
 					case ICON_FOLDER_MODE_CONTEXT :
 						treeNode.setIcon(IconFactory.getContextIcon(iconName));
 						break;
-					case ICON_FOLDER_MODE_FULL:
+					case ICON_FOLDER_MODE_FULL :
 						treeNode.setIcon(IconFactory.getIcon(iconName));
 						break;
-					default:
+					default :
 						treeNode.setIcon(IconFactory.getContextIcon(iconName));
 						break;
 				}
