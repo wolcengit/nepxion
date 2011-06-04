@@ -13,8 +13,6 @@ package com.nepxion.swing.table;
 import javax.swing.JTable;
 import javax.swing.table.TableModel;
 
-import com.nepxion.swing.table.sortable.SortableTableModel;
-
 public class TableManager
 {
 	public static void setPreferenceStyle(JTable table)
@@ -43,15 +41,6 @@ public class TableManager
 		if (tableModel instanceof ITableModel)
 		{
 			model = (ITableModel) tableModel;
-		}
-		else if (tableModel instanceof SortableTableModel)
-		{
-			SortableTableModel sortableTableModel = (SortableTableModel) tableModel;
-			TableModel dataModel = sortableTableModel.getDataModel();
-			if (dataModel instanceof ITableModel)
-			{
-				model = (ITableModel) dataModel;
-			}
 		}
 		
 		return model;

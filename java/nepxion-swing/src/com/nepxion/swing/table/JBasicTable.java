@@ -23,6 +23,7 @@ import javax.swing.event.TableModelListener;
 import javax.swing.table.TableColumn;
 import javax.swing.table.TableColumnModel;
 import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
 
 import com.nepxion.swing.table.layoutable.TableCellRendererConstants;
 import com.nepxion.swing.table.layoutable.TableCellRendererLayout;
@@ -92,11 +93,19 @@ public class JBasicTable
 		
 		addMouseListener(this);
 		getSelectionModel().addListSelectionListener(this);
+		
+		setRowSorter();
 	}
 	
 	public void setModel(final TableModel tableModel)
 	{
 		super.setModel(tableModel);
+		
+		TableRowSorter tableRowSorter = (TableRowSorter) getRowSorter();
+		if (tableRowSorter != null)
+		{
+			tableRowSorter.setModel(tableModel);
+		}
 		
 		tableModel.addTableModelListener(new TableModelListener()
 		{
@@ -127,7 +136,7 @@ public class JBasicTable
 			adaptLayout(COLUMN_LAYOUT_MODE); // ROW_COLUMN_LAYOUT_MODE
 		}
 	}
-	
+		
 	public int getSelectionMode()
 	{
 		return TableManager.getSelectionMode(this);
@@ -143,16 +152,32 @@ public class JBasicTable
 		return getColumnModel().getColumn(column);
 	}
 	
-	// 在JDK1.6下，其启用排序功能，务必把该方法覆盖掉
-	public int getRowIndexToModel(int rowIndex)
+	public void setRowSorter(TableModel tableModel)
 	{
-		return rowIndex;
+		TableRowSorter tableRowSorter = new TableRowSorter(tableModel);
+		setRowSorter(tableRowSorter);
 	}
 	
-	// 在JDK1.6下，其启用排序功能，务必把该方法覆盖掉
+	public void setRowSorter()
+	{
+		TableModel tableModel = getModel();
+		setRowSorter(tableModel);
+	}
+	
+	public int getRowIndexToModel(int rowIndex)
+	{
+		return convertRowIndexToModel(rowIndex);
+	}
+	
 	public int[] getRowIndexesToModel(int[] rowIndexes)
 	{
-		return rowIndexes;
+		int[] indexes = new int[rowIndexes.length];
+		for (int i = 0; i < rowIndexes.length; i++)
+		{
+			indexes[i] = convertRowIndexToModel(rowIndexes[i]);
+		}
+		
+		return indexes;
 	}
 	
 	public int getColumnWidthGap()
