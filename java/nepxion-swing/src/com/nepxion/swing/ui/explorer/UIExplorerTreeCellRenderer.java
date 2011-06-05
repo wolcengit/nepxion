@@ -29,39 +29,39 @@ public class UIExplorerTreeCellRenderer
 		String iconName = null;
 		if (treeNodeName.equals(UIExplorerConstants.ROOT_NAME))
 		{
-			iconName = "theme/uidefaults/tree_root.png";
+			iconName = "theme/ui/explorer/tree_root.png";
 		}
 		else if (treeNodeName.equals(UIExplorerConstants.ALL_NAME))
 		{
 			if (expanded)
 			{
-				iconName = "theme/uidefaults/catalog_all_tree_open.png";
+				iconName = "theme/ui/explorer/catalog_all_tree_open.png";
 			}
 			else
 			{
-				iconName = "theme/uidefaults/catalog_all_tree_closed.png";
+				iconName = "theme/ui/explorer/catalog_all_tree_closed.png";
 			}
 		}
 		else if (treeNodeName.equals(UIExplorerConstants.COMPONENT_NAME))
 		{
 			if (expanded)
 			{
-				iconName = "theme/uidefaults/catalog_component_tree_open.png";
+				iconName = "theme/ui/explorer/catalog_component_tree_open.png";
 			}
 			else
 			{
-				iconName = "theme/uidefaults/catalog_component_tree_closed.png";
+				iconName = "theme/ui/explorer/catalog_component_tree_closed.png";
 			}
 		}
 		else if (treeNodeName.equals(UIExplorerConstants.TYPE_NAME))
 		{
 			if (expanded)
 			{
-				iconName = "theme/uidefaults/catalog_type_tree_open.png";
+				iconName = "theme/ui/explorer/catalog_type_tree_open.png";
 			}
 			else
 			{
-				iconName = "theme/uidefaults/catalog_type_tree_closed.png";
+				iconName = "theme/ui/explorer/catalog_type_tree_closed.png";
 			}
 		}
 		else
@@ -69,15 +69,15 @@ public class UIExplorerTreeCellRenderer
 			String parentTreeNodeName = treeNode.getParent().toString();
 			if (parentTreeNodeName.equals(UIExplorerConstants.ALL_NAME))
 			{
-				iconName = "theme/uidefaults/catalog_all_tree_leaf.png";
+				iconName = "theme/ui/explorer/catalog_all_tree_leaf.png";
 			}
 			else if (parentTreeNodeName.equals(UIExplorerConstants.COMPONENT_NAME))
 			{
-				iconName = "theme/uidefaults/catalog_component_tree_leaf.png";
+				iconName = "theme/ui/explorer/catalog_component_tree_leaf.png";
 			}
 			else if (parentTreeNodeName.equals(UIExplorerConstants.TYPE_NAME))
 			{
-				iconName = "theme/uidefaults/catalog_type_tree_leaf.png";
+				iconName = "theme/ui/explorer/catalog_type_tree_leaf.png";
 			}
 		}
 		
