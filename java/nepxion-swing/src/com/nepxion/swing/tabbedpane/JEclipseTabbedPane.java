@@ -10,6 +10,7 @@ package com.nepxion.swing.tabbedpane;
  * @version 1.0
  */
 
+import java.awt.Color;
 import java.awt.Component;
 import java.awt.Insets;
 import java.awt.event.MouseEvent;
@@ -21,6 +22,8 @@ import javax.swing.Icon;
 import javax.swing.JPopupMenu;
 
 import com.jidesoft.swing.JideTabbedPane;
+import com.nepxion.swing.style.framework.IStyle;
+import com.nepxion.swing.style.framework.StyleManager;
 
 public class JEclipseTabbedPane
 	extends JideTabbedPane implements ITabbedPane, MouseListener
@@ -61,9 +64,96 @@ public class JEclipseTabbedPane
 		
 		setRightClickSelect(true);
 		
-		setContentBorderInsets(new Insets(3, 2, 2, 2));
+		setTabShape(SHAPE_ECLIPSE3X);
 		
 		addMouseListener(this);
+	}
+	
+	/**
+	 * Sets the tab shape.
+	 * @param tabShape the tab shape value
+	 */
+	public void setTabShape(int tabShape)
+	{
+		super.setTabShape(tabShape);
+		
+		setTabStyle(StyleManager.getStyle());
+	}
+	
+	/**
+	 * Sets the tab style.
+	 * @param style the instance of IStyle
+	 */
+	public void setTabStyle(IStyle style)
+	{
+		int tabShape = getTabShape();
+		
+		setTabStyle(tabShape, style);
+	}
+	
+	/**
+	 * Sets the tab style.
+	 * @param tabShape the tab shape value
+	 * @param style the instance of IStyle
+	 */
+	public void setTabStyle(int tabShape, IStyle style)
+	{		
+		if (tabShape == SHAPE_DEFAULT || tabShape == SHAPE_ECLIPSE3X)
+		{
+			setTabColorProvider((IStyle) null);
+			
+			setContentBorderInsets(new Insets(3, 2, 2, 2));
+		}
+		else
+		{
+			setTabColorProvider(style);
+			
+			setContentBorderInsets(new Insets(2, 2, 2, 2));
+		}
+	}
+	
+	/**
+	 * Sets the tab color provider.
+	 * @param style the instance of IStyle
+	 */
+	public void setTabColorProvider(final IStyle style)
+	{
+		GradientColorProvider tabColorProvider = null;
+		if (style != null)
+		{
+			tabColorProvider = new GradientColorProvider()
+			{
+				public Color getTopBackgroundAt(int selectedIndex)
+				{
+					return style.getTabbedPaneGradientColor();
+				}
+				
+				public Color getBackgroundAt(int selectedIndex)
+				{
+					return style.getTabbedPaneBackground();
+				}
+				
+				public Color getForegroudAt(int selectedIndex)
+				{
+					if (getSelectedIndex() == selectedIndex)
+					{
+						return style.getTabbedPaneSelectionForeground();
+					}
+					else
+					{
+						return style.getTabbedPaneForeground();
+					}
+				}
+				
+				public float getGradientRatio(int selectedIndex)
+				{
+					return 0.0F;
+				}
+				
+			};
+		}
+		
+		setTabColorProvider(tabColorProvider);
 	}
 	
 	public void addTab(String title, Component component)
