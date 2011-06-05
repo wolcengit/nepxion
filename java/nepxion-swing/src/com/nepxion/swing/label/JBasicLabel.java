@@ -12,9 +12,10 @@ package com.nepxion.swing.label;
 
 import javax.swing.Icon;
 import javax.swing.JLabel;
+import javax.swing.plaf.UIResource;
 
 public class JBasicLabel
-	extends JLabel
+	extends JLabel implements UIResource
 {
 	/**
 	 * Constructs with the default.
