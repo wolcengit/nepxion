@@ -113,28 +113,17 @@ public class UIContextRegister
 	/**
 	 * Initializes the decorated config.
 	 * The decorated values are configured in ui.properties.
-	 * The decorated config includes themeDecorated, frameDecorated, dialogDecorated, tabbedPaneDecorated.
-	 * The themeDecorated means that all of components facade will be adapted to the the theme (if configured). The default value is true (decorated by theme).
+	 * The decorated config includes frameDecorated and dialogDecorated.
 	 * The frameDecorated means that JFrame will be decorated by JVM (Not by OS). The default value is false (decorated by OS).
 	 * The dialogDecorated means that JDialog will be decorated by JVM (Not by OS). The default value is false (decorated by OS).
-	 * The tabbedPaneDecorated means that JTabbedPane will be decorated as the eclipse style (Not by JVM). The default value is true (decorated as the eclipse style).
 	 */
 	private void initDecorated()
-	{		
-		String themeDecorated = properties.getProperty("themeDecorated");
+	{
 		String frameDecorated = properties.getProperty("frameDecorated");
 		String dialogDecorated = properties.getProperty("dialogDecorated");
-		String tabbedPaneDecorated = properties.getProperty("tabbedPaneDecorated");
 		
-		boolean isThemeDecorated = true;
 		boolean isFrameDecorated = false;
 		boolean isDialogDecorated = false;
-		boolean isTabbedPaneDecorated = true;
-		
-		if (isValid(themeDecorated))
-		{
-			isThemeDecorated = themeDecorated.equals("true");
-		}
 		
 		if (isValid(frameDecorated))
 		{
@@ -146,20 +135,11 @@ public class UIContextRegister
 			isDialogDecorated = dialogDecorated.equals("true");
 		}
 		
-		if (isValid(tabbedPaneDecorated))
-		{
-			isTabbedPaneDecorated = tabbedPaneDecorated.equals("true");
-		}
-		
-		StyleContext.registerThemeDecorated(isThemeDecorated);
 		StyleContext.registerFrameDecorated(isFrameDecorated);
 		StyleContext.registerDialogDecorated(isDialogDecorated);
-		StyleContext.registerTabbedPaneDecorated(isTabbedPaneDecorated);
 		
-		log.info("Parameter - isThemeDecorated : [" + isThemeDecorated + "]");
 		log.info("Parameter - isFrameDecorated : [" + isFrameDecorated + "]");
 		log.info("Parameter - isDialogDecorated : [" + isDialogDecorated + "]");
-		log.info("Parameter - isTabbedPaneDecorated : [" + isTabbedPaneDecorated + "]");
 	}
 	
 	/**
