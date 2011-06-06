@@ -13,19 +13,12 @@ package com.nepxion.swing.style.framework;
 public class StyleContext
 {
 	private static String styleClass;
-	private static boolean isThemeDecorated = true;
 	private static boolean isFrameDecorated = false;
 	private static boolean isDialogDecorated = false;
-	private static boolean isTabbedPaneDecorated = true;
 	
 	public static void registerStyle(String styleClass)
 	{
 		StyleContext.styleClass = styleClass;
-	}
-	
-	public static void registerThemeDecorated(boolean isThemeDecorated)
-	{
-		StyleContext.isThemeDecorated = isThemeDecorated;
 	}
 	
 	public static void registerFrameDecorated(boolean isFrameDecorated)
@@ -38,19 +31,9 @@ public class StyleContext
 		StyleContext.isDialogDecorated = isDialogDecorated;
 	}
 	
-	public static void registerTabbedPaneDecorated(boolean isTabbedPaneDecorated)
-	{
-		StyleContext.isTabbedPaneDecorated = isTabbedPaneDecorated;
-	}
-	
 	public static String getStyleClass()
 	{
 		return styleClass;
-	}
-	
-	public static boolean isThemeDecorated()
-	{
-		return isThemeDecorated;
 	}
 	
 	public static boolean isFrameDecorated()
@@ -61,11 +44,6 @@ public class StyleContext
 	public static boolean isDialogDecorated()
 	{
 		return isDialogDecorated;
-	}
-	
-	public static boolean isTabbedPaneDecorated()
-	{
-		return isTabbedPaneDecorated;
 	}
 	
 	public static boolean setPriorityContext()

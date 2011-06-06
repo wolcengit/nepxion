@@ -42,16 +42,9 @@ public class StyleManager
 		}
 	}
 	
-	public static void setThemeDecorated(boolean isThemeDecorated)
-	{
-		if (isThemeDecorated)
-		{
-			LookAndFeelTheme.setTheme(LookAndFeelTheme.ECLIPSE3X_STYLE);
-		}
-		else
-		{
-			LookAndFeelTheme.setTheme(LookAndFeelTheme.VSNET_STYLE_WITHOUT_MENU);
-		}
+	public static void setThemeDecorated()
+	{		
+		LookAndFeelTheme.setTheme(LookAndFeelTheme.ECLIPSE3X_STYLE);
 		
 		UIDefaults uiDefaults = UIManager.getLookAndFeelDefaults();
 		
@@ -100,11 +93,6 @@ public class StyleManager
 	public static void setDialogDecorated(boolean isDialogDecorated)
 	{
 		JDialog.setDefaultLookAndFeelDecorated(isDialogDecorated);
-	}
-	
-	public static void setTabbedPaneDecorated(boolean isTabbedPaneDecorated)
-	{
-		
 	}
 	
 	public static IStyle getStyle()

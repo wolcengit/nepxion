@@ -12,7 +12,6 @@ package com.nepxion.swing.style.framework;
 
 import java.awt.Color;
 
-import javax.swing.UIManager;
 import javax.swing.border.Border;
 
 public abstract class AbstractStyle
@@ -37,13 +36,10 @@ public abstract class AbstractStyle
 	protected Color tabbedPaneForeground;
 	protected Color tabbedPaneSelectionForeground;
 	
-	protected Color tabbedPaneNoDecoratedBackground;
-	
 	protected Color tabbedPaneBorderLineColor;
 	
 	public AbstractStyle()
 	{
-		tabbedPaneNoDecoratedBackground = UIManager.getColor("Panel.background");
 	}
 	
 	public Color getGradientColor()
@@ -102,13 +98,8 @@ public abstract class AbstractStyle
 	}
 	
 	public Color getTabbedPaneBackground()
-	{
-		if (StyleContext.isTabbedPaneDecorated())
-		{
-			return tabbedPaneBackground;
-		}
-		
-		return tabbedPaneNoDecoratedBackground;
+	{		
+		return tabbedPaneBackground;
 	}
 	
 	public Color getTabbedPaneSelectionForeground()
