@@ -21,6 +21,6 @@ public class LookAndFeelTheme
 	 */
 	public static void setTheme(int theme)
 	{
-		LookAndFeelTheme.installJideExtension(theme);
+		installJideExtension(theme);
 	}
 }
