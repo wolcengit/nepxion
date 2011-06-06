@@ -360,7 +360,7 @@ public class JRibbonTabbedPane
 	 */
 	private void initStyle()
 	{
-		setTabShape(SHAPE_ROUNDED_VSNET);
+		setTabShape(SHAPE_ROUNDED_VSNET, RibbonManager.getStyle());
 	}
 	
 	/**
@@ -379,24 +379,13 @@ public class JRibbonTabbedPane
 	}
 	
 	/**
-	 * Sets the tab shape.
+	 * Sets the basic tab style.
 	 * @param tabShape the tab shape value
+	 * @param tabStyle the instance of IStyle
 	 */
-	public void setTabShape(int tabShape)
+	protected void setBasicTabStyle(int tabShape, IStyle tabStyle)
 	{
-		super.setTabShape(tabShape);
-		
-		setTabStyle(tabShape, RibbonManager.getStyle());
-	}
-	
-	/**
-	 * Sets the basic style.
-	 * @param tabShape the tab shape value
-	 * @param style the instance of IStyle
-	 */
-	protected void setBasicTabStyle(int tabShape, IStyle style)
-	{
-		super.setBasicTabStyle(tabShape, style);
+		super.setBasicTabStyle(tabShape, tabStyle);
 		
 		if (tabLeadingFlagContainer != null)
 		{	
@@ -405,18 +394,13 @@ public class JRibbonTabbedPane
 	}
 	
 	/**
-	 * Sets the eclipse style.
+	 * Sets the eclipse tab style.
 	 * @param tabShape the tab shape value
-	 * @param style the instance of IStyle
+	 * @param tabStyle the instance of IStyle
 	 */
-	protected void setEclipseTabStyle(int tabShape, IStyle style)
+	protected void setEclipseTabStyle(int tabShape, IStyle tabStyle)
 	{
-		super.setEclipseTabStyle(tabShape, style);
-		
-		setTabGradientColor(style.getTabbedPaneGradientColor());
-		setTabBackground(style.getTabbedPaneBackground());
-		setTabForeground(style.getTabbedPaneForeground());
-		setTabSelectionForeground(style.getTabbedPaneSelectionForeground());
+		super.setEclipseTabStyle(tabShape, tabStyle);
 		
 		if (tabLeadingFlagContainer != null)
 		{	
