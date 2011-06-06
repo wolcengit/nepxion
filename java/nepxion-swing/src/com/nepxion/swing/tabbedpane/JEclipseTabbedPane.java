@@ -38,6 +38,8 @@ public class JEclipseTabbedPane
 	 */
 	private Border border;
 	
+	private IStyle tabStyle;
+	
 	public JEclipseTabbedPane()
 	{
 		super();
@@ -86,45 +88,61 @@ public class JEclipseTabbedPane
 	{
 		super.setTabShape(tabShape);
 		
-		setTabStyle(tabShape, StyleManager.getStyle());
+		setTabStyle(tabShape, tabStyle != null ? tabStyle : StyleManager.getStyle());
 	}
 	
 	/**
 	 * Sets the tab style.
-	 * @param style the instance of IStyle
+	 * @param tabShape the tab shape value
+	 * @param tabStyle the instance of IStyle
 	 */
-	public void setTabShape(int tabShape, IStyle style)
+	public void setTabShape(int tabShape, IStyle tabStyle)
 	{
 		super.setTabShape(tabShape);
 		
-		setTabStyle(tabShape, style);
+		setTabStyle(tabShape, tabStyle);
+	}
+	
+	/**
+	 * Sets the tab shape.
+	 * @param tabStyle the instance of IStyle
+	 */
+	public void setTabShape(IStyle tabStyle)
+	{
+		int tabShape = getTabShape();
+		
+		super.setTabShape(tabShape);
+		
+		setTabStyle(tabShape, tabStyle);
 	}
 	
 	/**
 	 * Sets the tab style.
 	 * @param tabShape the tab shape value
-	 * @param style the instance of IStyle
+	 * @param tabStyle the instance of IStyle
 	 */
-	protected void setTabStyle(int tabShape, IStyle style)
+	protected void setTabStyle(int tabShape, IStyle tabStyle)
 	{		
+		this.tabStyle = tabStyle;
+		
 		if (tabShape != SHAPE_DEFAULT && tabShape != SHAPE_ECLIPSE3X)
 		{
-			setBasicTabStyle(tabShape, style);
+			setBasicTabStyle(tabShape, tabStyle);
 		}
 		else
 		{
-			setEclipseTabStyle(tabShape, style);	
+			setEclipseTabStyle(tabShape, tabStyle);	
 		}
 	}
 	
 	/**
-	 * Sets the basic style.
+	 * Sets the basic tab style.
 	 * @param tabShape the tab shape value
-	 * @param style the instance of IStyle
+	 * @param tabStyle the instance of IStyle
 	 */
-	protected void setBasicTabStyle(int tabShape, IStyle style)
+	protected void setBasicTabStyle(int tabShape, IStyle tabStyle)
 	{
-		setTabColorProvider(style);
+		setTabColorProvider(tabStyle);
 		
 		setContentBorderInsets(new Insets(3, 3, 3, 3));
 		
@@ -132,13 +150,18 @@ public class JEclipseTabbedPane
 	}
 	
 	/**
-	 * Sets the eclipse style.
+	 * Sets the eclipse tab style.
 	 * @param tabShape the tab shape value
-	 * @param style the instance of IStyle
+	 * @param tabStyle the instance of IStyle
 	 */
-	protected void setEclipseTabStyle(int tabShape, IStyle style)
+	protected void setEclipseTabStyle(int tabShape, IStyle tabStyle)
 	{
 		setTabColorProvider((IStyle) null);
+		
+		setEclipseTabGradientColor(tabStyle.getTabbedPaneGradientColor());
+		setEclipseTabBackground(tabStyle.getTabbedPaneBackground());
+		setEclipseTabForeground(tabStyle.getTabbedPaneForeground());
+		setEclipseTabSelectionForeground(tabStyle.getTabbedPaneSelectionForeground());
 		
 		setContentBorderInsets(new Insets(3, 2, 2, 2));
 		
@@ -147,34 +170,34 @@ public class JEclipseTabbedPane
 	
 	/**
 	 * Sets the tab color provider.
-	 * @param style the instance of IStyle
+	 * @param tabStyle the instance of IStyle
 	 */
-	public void setTabColorProvider(final IStyle style)
+	public void setTabColorProvider(final IStyle tabStyle)
 	{
 		GradientColorProvider tabColorProvider = null;
-		if (style != null)
+		if (tabStyle != null)
 		{
 			tabColorProvider = new GradientColorProvider()
 			{
 				public Color getTopBackgroundAt(int selectedIndex)
 				{
-					return style.getTabbedPaneGradientColor();
+					return tabStyle.getTabbedPaneGradientColor();
 				}
 				
 				public Color getBackgroundAt(int selectedIndex)
 				{
-					return style.getTabbedPaneBackground();
+					return tabStyle.getTabbedPaneBackground();
 				}
 				
 				public Color getForegroudAt(int selectedIndex)
 				{
 					if (getSelectedIndex() == selectedIndex)
 					{
-						return style.getTabbedPaneSelectionForeground();
+						return tabStyle.getTabbedPaneSelectionForeground();
 					}
 					else
 					{
-						return style.getTabbedPaneForeground();
+						return tabStyle.getTabbedPaneForeground();
 					}
 				}
 				
