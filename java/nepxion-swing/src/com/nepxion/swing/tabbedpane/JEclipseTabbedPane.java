@@ -18,8 +18,10 @@ import java.awt.event.MouseListener;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.BorderFactory;
 import javax.swing.Icon;
 import javax.swing.JPopupMenu;
+import javax.swing.border.Border;
 
 import com.jidesoft.swing.JideTabbedPane;
 import com.nepxion.swing.style.framework.IStyle;
@@ -30,6 +32,11 @@ public class JEclipseTabbedPane
 {
 	private JPopupMenu popupMenu;
 	private PopupMenuAdapter popupMenuAdapter;
+	
+	/**
+	 * The instance of Border.
+	 */
+	private Border border;
 	
 	public JEclipseTabbedPane()
 	{
@@ -54,6 +61,8 @@ public class JEclipseTabbedPane
 	
 	private void initComponents()
 	{		
+		border = getBorder();
+		
 		setShowTabBorder(false);
 		
 		setUseDefaultShowIconsOnTab(false);
@@ -77,16 +86,16 @@ public class JEclipseTabbedPane
 	{
 		super.setTabShape(tabShape);
 		
-		setTabStyle(StyleManager.getStyle());
+		setTabStyle(tabShape, StyleManager.getStyle());
 	}
 	
 	/**
 	 * Sets the tab style.
 	 * @param style the instance of IStyle
 	 */
-	public void setTabStyle(IStyle style)
+	public void setTabShape(int tabShape, IStyle style)
 	{
-		int tabShape = getTabShape();
+		super.setTabShape(tabShape);
 		
 		setTabStyle(tabShape, style);
 	}
@@ -96,20 +105,44 @@ public class JEclipseTabbedPane
 	 * @param tabShape the tab shape value
 	 * @param style the instance of IStyle
 	 */
-	public void setTabStyle(int tabShape, IStyle style)
+	protected void setTabStyle(int tabShape, IStyle style)
 	{		
-		if (tabShape == SHAPE_DEFAULT || tabShape == SHAPE_ECLIPSE3X)
+		if (tabShape != SHAPE_DEFAULT && tabShape != SHAPE_ECLIPSE3X)
 		{
-			setTabColorProvider((IStyle) null);
-			
-			setContentBorderInsets(new Insets(3, 2, 2, 2));
+			setBasicTabStyle(tabShape, style);
 		}
 		else
 		{
-			setTabColorProvider(style);
-			
-			setContentBorderInsets(new Insets(2, 2, 2, 2));
+			setEclipseTabStyle(tabShape, style);	
 		}
+	}
+	
+	/**
+	 * Sets the basic style.
+	 * @param tabShape the tab shape value
+	 * @param style the instance of IStyle
+	 */
+	protected void setBasicTabStyle(int tabShape, IStyle style)
+	{
+		setTabColorProvider(style);
+		
+		setContentBorderInsets(new Insets(3, 3, 3, 3));
+		
+		setBorder(BorderFactory.createEmptyBorder());
+	}
+	
+	/**
+	 * Sets the eclipse style.
+	 * @param tabShape the tab shape value
+	 * @param style the instance of IStyle
+	 */
+	protected void setEclipseTabStyle(int tabShape, IStyle style)
+	{
+		setTabColorProvider((IStyle) null);
+		
+		setContentBorderInsets(new Insets(3, 2, 2, 2));
+		
+		setBorder(border);
 	}
 	
 	/**
