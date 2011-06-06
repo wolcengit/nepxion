@@ -15,19 +15,26 @@ import java.awt.Component;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.List;
 
 import javax.swing.Icon;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.JPopupMenu;
 
 import org.dom4j.DocumentException;
 
+import com.nepxion.demo.common.DemoDataFactory;
 import com.nepxion.demo.component.ribbon.DemoRibbonBar;
 import com.nepxion.swing.action.JSecurityAction;
 import com.nepxion.swing.activex.ActiveXManager;
+import com.nepxion.swing.border.BorderManager;
 import com.nepxion.swing.button.JClassicButton;
+import com.nepxion.swing.combobox.JBasicComboBox;
+import com.nepxion.swing.element.ElementNode;
 import com.nepxion.swing.framework.ribbon.JRibbonContainer;
 import com.nepxion.swing.framework.ribbon.JRibbonHierarchy;
 import com.nepxion.swing.framework.ribbon.JRibbonTabbedPane;
@@ -36,9 +43,17 @@ import com.nepxion.swing.framework.ribbon.xml.Dom4JRibbonConstants;
 import com.nepxion.swing.framework.ribbon.xml.Dom4JRibbonParser;
 import com.nepxion.swing.handle.HandleManager;
 import com.nepxion.swing.icon.IconFactory;
+import com.nepxion.swing.layout.filed.FiledLayout;
+import com.nepxion.swing.listener.SelectionListener;
+import com.nepxion.swing.locale.SwingLocale;
 import com.nepxion.swing.menuitem.JBasicMenuItem;
 import com.nepxion.swing.optionpane.JBasicOptionPane;
 import com.nepxion.swing.popupmenu.JDecorationPopupMenu;
+import com.nepxion.swing.renderer.combobox.ElementComboBoxCellRenderer;
+import com.nepxion.swing.style.framework.IStyle;
+import com.nepxion.swing.style.framework.JRibbonStyle;
+import com.nepxion.swing.tabbedpane.JEclipseTabbedPane;
+import com.nepxion.util.data.CollectionUtil;
 import com.nepxion.util.io.FileContext;
 
 public class DemoRibbonNavigatorBar
@@ -54,6 +69,9 @@ public class DemoRibbonNavigatorBar
 	
 	private void initHeader()
 	{
+		// setTabShape(JEclipseTabbedPane.SHAPE_ECLIPSE3X, new JRibbonStyle());		
+		setTabShape(JEclipseTabbedPane.SHAPE_ROUNDED_VSNET, new JRibbonStyle());
+		
 		setTitle("Nepxion Swing Repository");
 		setTitleFont(new Font("微软雅黑", Font.PLAIN, 12));
 		setTitleColor(Color.darkGray);
@@ -62,6 +80,8 @@ public class DemoRibbonNavigatorBar
 		setNavigatorToolTipText("Nepxion Studio");
 		
 		JPopupMenu navigatorPopupMenu = new JDecorationPopupMenu();
+		navigatorPopupMenu.add(new JBasicMenuItem(getChangeStyleAction()));
+		navigatorPopupMenu.addSeparator();
 		navigatorPopupMenu.add(new JBasicMenuItem(getChangeTitleAction()));
 		navigatorPopupMenu.add(new JBasicMenuItem(getChangeNavigatorAction()));
 		navigatorPopupMenu.add(new JBasicMenuItem(getTrailingFlagComponentAction()));
@@ -116,6 +136,53 @@ public class DemoRibbonNavigatorBar
 	}
 	
 	// Test for JRibbon Framework
+	private JSecurityAction getChangeStyleAction()
+	{
+		JSecurityAction action = new JSecurityAction("更改选项卡风格", IconFactory.getSwingIcon("stereo/edit_16.png"), "更改选项卡风格")
+		{
+			public void execute(ActionEvent e)
+			{
+				JPanel panel = new JPanel();
+				panel.setLayout(new FiledLayout(FiledLayout.COLUMN, FiledLayout.FULL, 0));
+				panel.setBorder(BorderManager.createComplexTitledBorder("Public Configuration"));
+				
+				List tabShapeElementNodes = DemoDataFactory.getTabShapeElementNodes();
+				
+				final JBasicComboBox tabShapeComboBox = new JBasicComboBox(CollectionUtil.parseVector(tabShapeElementNodes));
+				tabShapeComboBox.setRenderer(new ElementComboBoxCellRenderer());
+				tabShapeComboBox.addItemListener(new SelectionListener()
+				{
+					public void itemSelectionStateChanged(ItemEvent e)
+					{
+						ElementNode elementNode = (ElementNode) tabShapeComboBox.getSelectedItem();
+						setTabShape(elementNode.getIndex());
+					}
+				}
+				);
+				panel.add(tabShapeComboBox);
+				
+				List styleElementNodes = DemoDataFactory.getStyleElementNodes();
+				
+				final JBasicComboBox styleComboBox = new JBasicComboBox(CollectionUtil.parseVector(styleElementNodes));
+				styleComboBox.setRenderer(new ElementComboBoxCellRenderer());
+				styleComboBox.addItemListener(new SelectionListener()
+				{
+					public void itemSelectionStateChanged(ItemEvent e)
+					{
+						ElementNode elementNode = (ElementNode) styleComboBox.getSelectedItem();
+						setTabShape((IStyle) elementNode.getUserObject());
+					}
+				}
+				);
+				panel.add(styleComboBox);
+				
+				JBasicOptionPane.showDialog(HandleManager.getFrame(DemoRibbonNavigatorBar.this), panel, "", null, new Object[] {SwingLocale.getString("close")}, true);
+			}			
+		};
+		
+		return action;
+	}
+	
 	private JSecurityAction getChangeTitleAction()
 	{
 		JSecurityAction action = new JSecurityAction("更改标题内容", IconFactory.getSwingIcon("stereo/edit_16.png"), "更改标题内容")
@@ -142,7 +209,7 @@ public class DemoRibbonNavigatorBar
 				Icon navigatorIcon = getNavigatorIcon();
 				if (navigatorIcon == IconFactory.getSwingIcon("ribbon/navigator.png"))
 				{	
-					setNavigatorIcon(IconFactory.getSwingIcon("ribbon/navigator_1.png"));
+					setNavigatorIcon(IconFactory.getSwingIcon("ribbon/navigator_nepxion.png"));
 				}
 				else
 				{

@@ -13,6 +13,7 @@ package com.nepxion.demo;
 import com.nepxion.swing.container.JContainer;
 import com.nepxion.swing.framework.ribbon.JRibbonContainer;
 import com.nepxion.swing.framework.ribbon.JRibbonHierarchy;
+import com.nepxion.swing.style.framework.JRibbonStyle;
 import com.nepxion.swing.tabbedpane.JEclipseTabbedPane;
 
 public class DemoRibbonWorkspaceBar
@@ -23,6 +24,8 @@ public class DemoRibbonWorkspaceBar
 		
 		// The container is displayed as JEclipseTabbedPane
 		JEclipseTabbedPane tabbedPane = new JEclipseTabbedPane();
+		// tabbedPane.setTabShape(JEclipseTabbedPane.SHAPE_ECLIPSE3X, new JRibbonStyle());		
+		tabbedPane.setTabShape(JEclipseTabbedPane.SHAPE_ROUNDED_VSNET, new JRibbonStyle());
 		
 		// The container is displayed as JBasicTabbedPane
 		// JBasicTabbedPane tabbedPane = new JBasicTabbedPane();
