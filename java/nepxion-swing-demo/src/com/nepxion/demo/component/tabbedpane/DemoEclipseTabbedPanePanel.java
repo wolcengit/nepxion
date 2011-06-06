@@ -33,6 +33,7 @@ import com.nepxion.swing.listener.SelectionListener;
 import com.nepxion.swing.optionpane.JBasicOptionPane;
 import com.nepxion.swing.popupmenu.JDecorationPopupMenu;
 import com.nepxion.swing.renderer.combobox.ElementComboBoxCellRenderer;
+import com.nepxion.swing.style.framework.IStyle;
 import com.nepxion.swing.tabbedpane.JEclipseTabbedPane;
 import com.nepxion.util.data.CollectionUtil;
 
@@ -105,7 +106,7 @@ public class DemoEclipseTabbedPanePanel
 			setLayout(new FiledLayout(FiledLayout.COLUMN, FiledLayout.FULL, 0));
 			setBorder(BorderManager.createComplexTitledBorder("Public Configuration"));
 			
-			List tabShapeElementNodes = DemoDataFactory.getEclipseTabShapeElementNodes();
+			List tabShapeElementNodes = DemoDataFactory.getTabShapeElementNodes();
 			
 			final JBasicComboBox tabShapeComboBox = new JBasicComboBox(CollectionUtil.parseVector(tabShapeElementNodes));
 			tabShapeComboBox.setRenderer(new ElementComboBoxCellRenderer());
@@ -119,6 +120,21 @@ public class DemoEclipseTabbedPanePanel
 			}
 			);
 			add(tabShapeComboBox);
+			
+			List styleElementNodes = DemoDataFactory.getStyleElementNodes();
+			
+			final JBasicComboBox styleComboBox = new JBasicComboBox(CollectionUtil.parseVector(styleElementNodes));
+			styleComboBox.setRenderer(new ElementComboBoxCellRenderer());
+			styleComboBox.addItemListener(new SelectionListener()
+			{
+				public void itemSelectionStateChanged(ItemEvent e)
+				{
+					ElementNode elementNode = (ElementNode) styleComboBox.getSelectedItem();
+					eclipseTabbedPane.setTabShape((IStyle) elementNode.getUserObject());
+				}
+			}
+			);
+			add(styleComboBox);
 	        
 	        final JBasicCheckBox showTabAreaCheckBox = new JBasicCheckBox("Show Tab Area", "Show Tab Area", true);	
 	        showTabAreaCheckBox.addActionListener(new ActionListener()
@@ -153,7 +169,7 @@ public class DemoEclipseTabbedPanePanel
 			);	
 	        add(showTabContentCheckBox);
 	        
-	        final JBasicCheckBox showTabBorderCheckBox = new JBasicCheckBox("Show Tab Border", "Show Tab Border", false);	
+	        final JBasicCheckBox showTabBorderCheckBox = new JBasicCheckBox("Show Tab Border (Only supports Eclipse3X Shape, VSNet Shape (Rounded Corner) and VSNet Shape)", "Show Tab Border", false);	
 	        showTabBorderCheckBox.addActionListener(new ActionListener()
 			{
 				public void actionPerformed(ActionEvent e)

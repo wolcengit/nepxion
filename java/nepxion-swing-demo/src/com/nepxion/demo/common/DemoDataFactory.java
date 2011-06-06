@@ -16,6 +16,20 @@ import java.util.List;
 
 import com.nepxion.swing.element.ElementNode;
 import com.nepxion.swing.icon.IconFactory;
+import com.nepxion.swing.style.framework.JAcidStyle;
+import com.nepxion.swing.style.framework.JAlloyStyle;
+import com.nepxion.swing.style.framework.JBedouinStyle;
+import com.nepxion.swing.style.framework.JBlueStyle;
+import com.nepxion.swing.style.framework.JBorlandStyle;
+import com.nepxion.swing.style.framework.JEclipseStyle;
+import com.nepxion.swing.style.framework.JFervencyStyle;
+import com.nepxion.swing.style.framework.JGlassStyle;
+import com.nepxion.swing.style.framework.JLiteStyle;
+import com.nepxion.swing.style.framework.JNimbusStyle;
+import com.nepxion.swing.style.framework.JPlasticStyle;
+import com.nepxion.swing.style.framework.JRibbonStyle;
+import com.nepxion.swing.style.framework.JWindowsStyle;
+import com.nepxion.swing.style.framework.JYellowStyle;
 import com.nepxion.swing.tabbedpane.JEclipseTabbedPane;
 
 public class DemoDataFactory
@@ -149,6 +163,7 @@ public class DemoDataFactory
 	{
 		List componentElementNodes = getComponentElementNodes();
 		String[] componentDescriptonDatas = new String[componentElementNodes.size()];
+		
 		int index = 0;
 		for (Iterator iterator = componentElementNodes.iterator(); iterator.hasNext();)
 		{
@@ -168,38 +183,76 @@ public class DemoDataFactory
 			stringBuffer.append("]\t");
 			componentDescriptonDatas[index] = stringBuffer.toString();
 			index++;
-		}	
+		}
+		
 		return componentDescriptonDatas;
 	}	
     
-	public static List getEclipseTabShapeElementNodes()
+	public static List getTabShapeElementNodes()
 	{
-		ElementNode defaultShapeElementNode = new ElementNode(JEclipseTabbedPane.SHAPE_DEFAULT, "Default Shape (Eclipse3X)", IconFactory.getSwingIcon("netbean/canvas_16.png"), "Default Shape (Eclipse3X)");
-		ElementNode windowsShapeElementNode = new ElementNode(JEclipseTabbedPane.SHAPE_WINDOWS, "Windows Shape", IconFactory.getSwingIcon("netbean/canvas_16.png"), "Windows Shape");
+		ElementNode eclipse3XShapeElementNode = new ElementNode(JEclipseTabbedPane.SHAPE_ECLIPSE3X, "Eclipse3X Shape", IconFactory.getSwingIcon("netbean/canvas_16.png"), "Eclipse3X Shape");
+		ElementNode roundedVSNetShapeElementNode = new ElementNode(JEclipseTabbedPane.SHAPE_ROUNDED_VSNET, "VSNet Shape (Rounded Corner)", IconFactory.getSwingIcon("netbean/canvas_16.png"), "VSNet Shape (Rounded Corner)");
 		ElementNode vsNetShapeElementNode = new ElementNode(JEclipseTabbedPane.SHAPE_VSNET, "VSNet Shape", IconFactory.getSwingIcon("netbean/canvas_16.png"), "VSNet Shape");
 		ElementNode boxShapeElementNode = new ElementNode(JEclipseTabbedPane.SHAPE_BOX, "Box Shape", IconFactory.getSwingIcon("netbean/canvas_16.png"), "Box Shape");
-		ElementNode office2003ShapeElementNode = new ElementNode(JEclipseTabbedPane.SHAPE_OFFICE2003, "Office2003 Shape", IconFactory.getSwingIcon("netbean/canvas_16.png"), "Office2003 Shape");
-		ElementNode flatShapeElementNode = new ElementNode(JEclipseTabbedPane.SHAPE_FLAT, "Flat Shape", IconFactory.getSwingIcon("netbean/canvas_16.png"), "Flat Shape");
-		ElementNode eclipseShapeElementNode = new ElementNode(JEclipseTabbedPane.SHAPE_ECLIPSE, "Eclipse Shape", IconFactory.getSwingIcon("netbean/canvas_16.png"), "Eclipse Shape");
-		ElementNode eclipse3XShapeElementNode = new ElementNode(JEclipseTabbedPane.SHAPE_ECLIPSE3X, "Eclipse3X Shape", IconFactory.getSwingIcon("netbean/canvas_16.png"), "Eclipse3X Shape");
-		ElementNode excelShapeElementNode = new ElementNode(JEclipseTabbedPane.SHAPE_EXCEL, "Excel Shape", IconFactory.getSwingIcon("netbean/canvas_16.png"), "Excel Shape");
-		ElementNode roundedVSNetShapeElementNode = new ElementNode(JEclipseTabbedPane.SHAPE_ROUNDED_VSNET, "VSNet Shape (Rounded Corner)", IconFactory.getSwingIcon("netbean/canvas_16.png"), "VSNet Shape (Rounded Corner)");
 		ElementNode roundedFlatShapeElementNode = new ElementNode(JEclipseTabbedPane.SHAPE_ROUNDED_FLAT, "Flat Shape (Rounded)", IconFactory.getSwingIcon("netbean/canvas_16.png"), "Flat Shape (Rounded)");
+		ElementNode flatShapeElementNode = new ElementNode(JEclipseTabbedPane.SHAPE_FLAT, "Flat Shape", IconFactory.getSwingIcon("netbean/canvas_16.png"), "Flat Shape");
+				
+		ElementNode windowsShapeElementNode = new ElementNode(JEclipseTabbedPane.SHAPE_WINDOWS, "Windows Shape", IconFactory.getSwingIcon("netbean/canvas_16.png"), "Windows Shape");
 		ElementNode windowsSelectedShapeElementNode = new ElementNode(JEclipseTabbedPane.SHAPE_WINDOWS_SELECTED, "Windows Shape (Selected Only)", IconFactory.getSwingIcon("netbean/canvas_16.png"), "Windows Shape (Selected Only)");
+		ElementNode office2003ShapeElementNode = new ElementNode(JEclipseTabbedPane.SHAPE_OFFICE2003, "Office2003 Shape", IconFactory.getSwingIcon("netbean/canvas_16.png"), "Office2003 Shape");
+		ElementNode excelShapeElementNode = new ElementNode(JEclipseTabbedPane.SHAPE_EXCEL, "Excel Shape", IconFactory.getSwingIcon("netbean/canvas_16.png"), "Excel Shape");
+		ElementNode eclipseShapeElementNode = new ElementNode(JEclipseTabbedPane.SHAPE_ECLIPSE, "Eclipse Shape", IconFactory.getSwingIcon("netbean/canvas_16.png"), "Eclipse Shape");
 		
 		List shapeElementNodes = new ArrayList();
-		shapeElementNodes.add(defaultShapeElementNode);
-		shapeElementNodes.add(windowsShapeElementNode);
+		shapeElementNodes.add(eclipse3XShapeElementNode);
+		shapeElementNodes.add(roundedVSNetShapeElementNode);
 		shapeElementNodes.add(vsNetShapeElementNode);
 		shapeElementNodes.add(boxShapeElementNode);
-		shapeElementNodes.add(office2003ShapeElementNode);
-		shapeElementNodes.add(flatShapeElementNode);
-		shapeElementNodes.add(eclipseShapeElementNode);
-		shapeElementNodes.add(eclipse3XShapeElementNode);
-		shapeElementNodes.add(excelShapeElementNode);
-		shapeElementNodes.add(roundedVSNetShapeElementNode);
 		shapeElementNodes.add(roundedFlatShapeElementNode);
+		shapeElementNodes.add(flatShapeElementNode);
+		
+		shapeElementNodes.add(windowsShapeElementNode);
 		shapeElementNodes.add(windowsSelectedShapeElementNode);
+		shapeElementNodes.add(office2003ShapeElementNode);
+		shapeElementNodes.add(excelShapeElementNode);
+		shapeElementNodes.add(eclipseShapeElementNode);
+		
+		return shapeElementNodes;
+	}
+	
+	public static List getStyleElementNodes()
+	{
+		ElementNode ribbonStyleElementNode = new ElementNode("JRibbonStyle", IconFactory.getSwingIcon("netbean/color_adjust_16.png"), "JRibbonStyle", new JRibbonStyle());
+		ElementNode nimbusStyleElementNode = new ElementNode("JNimbusStyle", IconFactory.getSwingIcon("netbean/color_adjust_16.png"), "JNimbusStyle", new JNimbusStyle());
+		ElementNode plasticStyleElementNode = new ElementNode("JPlasticStyle", IconFactory.getSwingIcon("netbean/color_adjust_16.png"), "JPlasticStyle", new JPlasticStyle());
+		ElementNode eclipseStyleElementNode = new ElementNode("JEclipseStyle", IconFactory.getSwingIcon("netbean/color_adjust_16.png"), "JEclipseStyle", new JEclipseStyle());
+		ElementNode liteStyleElementNode = new ElementNode("JLiteStyle", IconFactory.getSwingIcon("netbean/color_adjust_16.png"), "JLiteStyle", new JLiteStyle());
+		ElementNode alloyStyleElementNode = new ElementNode("JAlloyStyle", IconFactory.getSwingIcon("netbean/color_adjust_16.png"), "JAlloyStyle", new JAlloyStyle());
+		ElementNode acidStyleElementNode = new ElementNode("JAcidStyle", IconFactory.getSwingIcon("netbean/color_adjust_16.png"), "JAcidStyle", new JAcidStyle());
+		ElementNode bedouinStyleElementNode = new ElementNode("JBedouinStyle", IconFactory.getSwingIcon("netbean/color_adjust_16.png"), "JBedouinStyle", new JBedouinStyle());
+		ElementNode glassStyleElementNode = new ElementNode("JGlassStyle", IconFactory.getSwingIcon("netbean/color_adjust_16.png"), "JGlassStyle", new JGlassStyle());
+		ElementNode blueStyleElementNode = new ElementNode("JBlueStyle", IconFactory.getSwingIcon("netbean/color_adjust_16.png"), "JBlueStyle", new JBlueStyle());
+		ElementNode yellowStyleElementNode = new ElementNode("JYellowStyle", IconFactory.getSwingIcon("netbean/color_adjust_16.png"), "JYellowStyle", new JYellowStyle());
+		
+		ElementNode fervencyStyleElementNode = new ElementNode("JFervencyStyle", IconFactory.getSwingIcon("netbean/color_adjust_16.png"), "JFervencyStyle", new JFervencyStyle());
+		ElementNode borlandStyleElementNode = new ElementNode("JBorlandStyle", IconFactory.getSwingIcon("netbean/color_adjust_16.png"), "JBorlandStyle", new JBorlandStyle());
+		ElementNode windowsStyleElementNode = new ElementNode("JWindowsStyle", IconFactory.getSwingIcon("netbean/color_adjust_16.png"), "JWindowsStyle", new JWindowsStyle());
+		
+		List shapeElementNodes = new ArrayList();
+		shapeElementNodes.add(ribbonStyleElementNode);
+		shapeElementNodes.add(nimbusStyleElementNode);
+		shapeElementNodes.add(plasticStyleElementNode);
+		shapeElementNodes.add(eclipseStyleElementNode);
+		shapeElementNodes.add(liteStyleElementNode);
+		shapeElementNodes.add(alloyStyleElementNode);
+		shapeElementNodes.add(acidStyleElementNode);
+		shapeElementNodes.add(bedouinStyleElementNode);
+		shapeElementNodes.add(glassStyleElementNode);
+		shapeElementNodes.add(blueStyleElementNode);
+		shapeElementNodes.add(yellowStyleElementNode);
+		shapeElementNodes.add(fervencyStyleElementNode);
+		shapeElementNodes.add(borlandStyleElementNode);
+		shapeElementNodes.add(windowsStyleElementNode);
 		
 		return shapeElementNodes;
 	}
