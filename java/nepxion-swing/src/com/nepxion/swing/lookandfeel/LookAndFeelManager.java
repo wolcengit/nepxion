@@ -502,7 +502,7 @@ public class LookAndFeelManager
 			StyleManager.setStyle(styleClass);
 		}
 		
-		StyleManager.setThemeDecorated(StyleContext.isThemeDecorated());
+		StyleManager.setThemeDecorated();
 		
 		if (StyleContext.isFrameDecorated())
 		{
