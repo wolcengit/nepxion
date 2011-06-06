@@ -46,6 +46,7 @@ import com.nepxion.swing.label.JBasicLabel;
 import com.nepxion.swing.locale.SwingLocale;
 import com.nepxion.swing.menuitem.JBasicCheckBoxMenuItem;
 import com.nepxion.swing.popupmenu.JDecorationPopupMenu;
+import com.nepxion.swing.style.framework.IStyle;
 import com.nepxion.swing.tabbedpane.JEclipseTabbedPane;
 import com.nepxion.swing.tabbedpane.TabbedPaneManager;
 
@@ -233,7 +234,6 @@ public class JRibbonTabbedPane
 		);
 		
 		tabLeadingFlagContainer = new TabFlagContainer();
-		tabLeadingFlagContainer.setBorder(BorderFactory.createEmptyBorder(5, 2, 10, 2));
 		tabLeadingFlagContainer.add(navigatorLabel, BorderLayout.CENTER);
 		setTabLeadingComponent(tabLeadingFlagContainer);
 		
@@ -354,16 +354,74 @@ public class JRibbonTabbedPane
 		}
 		);
 	}
-	
+		
 	/**
 	 * Initializes the style.
 	 */
 	private void initStyle()
-	{		
-		setTabGradientColor(RibbonManager.getStyle().getTabbedPaneGradientColor());
-		setTabBackground(RibbonManager.getStyle().getTabbedPaneBackground());
-		setTabForeground(RibbonManager.getStyle().getTabbedPaneForeground());
-		setTabSelectionForeground(RibbonManager.getStyle().getTabbedPaneSelectionForeground());
+	{
+		setTabShape(SHAPE_ROUNDED_VSNET);
+	}
+	
+	/**
+	 * Sets the tab placement.
+	 * The tab placement only supports TOP in JRibbonTabbedPane.
+	 * @param tabPlacement the tab placement value
+	 */
+	public void setTabPlacement(int tabPlacement)
+	{
+		if (tabPlacement != TOP)
+		{
+			throw new IllegalArgumentException("The tab placement only supports TOP");
+		}
+		
+		super.setTabPlacement(tabPlacement);
+	}
+	
+	/**
+	 * Sets the tab shape.
+	 * @param tabShape the tab shape value
+	 */
+	public void setTabShape(int tabShape)
+	{
+		super.setTabShape(tabShape);
+		
+		setTabStyle(tabShape, RibbonManager.getStyle());
+	}
+	
+	/**
+	 * Sets the basic style.
+	 * @param tabShape the tab shape value
+	 * @param style the instance of IStyle
+	 */
+	protected void setBasicTabStyle(int tabShape, IStyle style)
+	{
+		super.setBasicTabStyle(tabShape, style);
+		
+		if (tabLeadingFlagContainer != null)
+		{	
+			tabLeadingFlagContainer.setBorder(BorderFactory.createEmptyBorder(6, 3, 10, 2));
+		}	
+	}
+	
+	/**
+	 * Sets the eclipse style.
+	 * @param tabShape the tab shape value
+	 * @param style the instance of IStyle
+	 */
+	protected void setEclipseTabStyle(int tabShape, IStyle style)
+	{
+		super.setEclipseTabStyle(tabShape, style);
+		
+		setTabGradientColor(style.getTabbedPaneGradientColor());
+		setTabBackground(style.getTabbedPaneBackground());
+		setTabForeground(style.getTabbedPaneForeground());
+		setTabSelectionForeground(style.getTabbedPaneSelectionForeground());
+		
+		if (tabLeadingFlagContainer != null)
+		{	
+			tabLeadingFlagContainer.setBorder(BorderFactory.createEmptyBorder(5, 2, 10, 2));
+		}		
 	}
 	
 	/**
@@ -511,6 +569,11 @@ public class JRibbonTabbedPane
 	 */
 	public Component getTrailingFlagComponent()
 	{
+		if (tabTrailingFlagContainer.getComponentCount() == 0)
+		{
+			return null;
+		}	
+			
 		return tabTrailingFlagContainer.getComponent(0);
 	}
 	
@@ -519,7 +582,7 @@ public class JRibbonTabbedPane
 	 * @param trailingFlagComponent the trailing flag component
 	 */
 	public void setTrailingFlagComponent(Component trailingFlagComponent)
-	{
+	{				
 		tabTrailingFlagContainer.addComponent(trailingFlagComponent, BorderLayout.CENTER);
 		tabTrailingFlagContainer.setPreferredSize(new Dimension(tabTrailingFlagContainer.getPreferredSize().width, 53));
 	}
