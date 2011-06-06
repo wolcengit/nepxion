@@ -39,7 +39,7 @@ public class JNimbusStyle
 		labelBorder = BorderFactory.createEmptyBorder(2, 4, 2, 1);
 		
 		tabbedPaneGradientColor = new Color(57, 105, 138);
-		tabbedPaneBackground = new Color(115, 164, 209);
+		tabbedPaneBackground = new Color(166, 202, 240);// new Color(115, 164, 209);
 		
 		tabbedPaneForeground = Color.black;
 		tabbedPaneSelectionForeground = Color.white;
