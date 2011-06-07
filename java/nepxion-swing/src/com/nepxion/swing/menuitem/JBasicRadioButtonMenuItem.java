@@ -17,28 +17,56 @@ import javax.swing.JRadioButtonMenuItem;
 public class JBasicRadioButtonMenuItem
 	extends JRadioButtonMenuItem
 {
+	/**
+	 * Constructs with the default.
+	 */
 	public JBasicRadioButtonMenuItem()
 	{
 		super();
 	}
 	
-	public JBasicRadioButtonMenuItem(Icon icon)
+	/**
+	 * Constructs with the specified initial action.
+	 * @param action the instance of Action
+	 */
+	public JBasicRadioButtonMenuItem(Action action)
 	{
-		super(icon);
+		super(action);
 	}
 	
-	public JBasicRadioButtonMenuItem(Icon icon, String toolTipText)
-	{
-		super(icon);
-		
-		setToolTipText(toolTipText);
-	}
-	
+	/**
+	 * Constructs with the specified initial text.
+	 * @param text the text string
+	 */
 	public JBasicRadioButtonMenuItem(String text)
 	{
 		super(text);
 	}
 	
+	/**
+	 * Constructs with the specified initial icon.
+	 * @param icon the instance of Icon
+	 */
+	public JBasicRadioButtonMenuItem(Icon icon)
+	{
+		super(icon);
+	}
+	
+	/**
+	 * Constructs with the specified initial text and icon.
+	 * @param text the text string 
+	 * @param icon the icon of Icon
+	 */
+	public JBasicRadioButtonMenuItem(String text, Icon icon)
+	{
+		super(text, icon);
+	}
+	
+	/**
+	 * Constructs with the specified initial text and tooltip text.
+	 * @param text the text string
+	 * @param toolTipText the tooltip text string
+	 */
 	public JBasicRadioButtonMenuItem(String text, String toolTipText)
 	{
 		super(text);
@@ -46,16 +74,44 @@ public class JBasicRadioButtonMenuItem
 		setToolTipText(toolTipText);
 	}
 	
-	public JBasicRadioButtonMenuItem(Action action)
+	/**
+	 * Constructs with the specified initial text and selected.
+	 * @param text the text string
+	 * @param selected the boolean value of selected
+	 */
+	public JBasicRadioButtonMenuItem(String text, boolean selected)
 	{
-		super(action);
+		super(text, selected);
 	}
 	
-	public JBasicRadioButtonMenuItem(String text, Icon icon)
+	/**
+	 * Constructs with the specified initial icon and tooltip text.
+	 * @param icon the instance of Icon
+	 * @param toolTipText the tooltip text string
+	 */
+	public JBasicRadioButtonMenuItem(Icon icon, String toolTipText)
 	{
-		super(text, icon);
+		super(icon);
+		
+		setToolTipText(toolTipText);
 	}
 	
+	/**
+	 * Constructs with the specified initial icon and selected.
+	 * @param icon the instance of Icon
+	 * @param selected the boolean value of selected
+	 */
+	public JBasicRadioButtonMenuItem(Icon icon, boolean selected)
+	{
+		super(icon, selected);
+	}
+	
+	/**
+	 * Constructs with the specified initial text, icon and tooltip text.
+	 * @param text the text string
+	 * @param icon the instance of Icon
+	 * @param toolTipText the tooltip text string
+	 */
 	public JBasicRadioButtonMenuItem(String text, Icon icon, String toolTipText)
 	{
 		super(text, icon);
@@ -63,11 +119,23 @@ public class JBasicRadioButtonMenuItem
 		setToolTipText(toolTipText);
 	}
 	
-	public JBasicRadioButtonMenuItem(String text, boolean selected)
+	/**
+	 * Constructs with the specified initial text, icon and selected.
+	 * @param text the text string
+	 * @param icon the instance of Icon
+	 * @param selected the boolean value of selected
+	 */
+	public JBasicRadioButtonMenuItem(String text, Icon icon, boolean selected)
 	{
-		super(text, selected);
+		super(text, icon, selected);
 	}
 	
+	/**
+	 * Constructs with the specified initial text, tooltip text and selected.
+	 * @param text the text string
+	 * @param toolTipText the tooltip text string
+	 * @param selected the boolean value of selected
+	 */
 	public JBasicRadioButtonMenuItem(String text, String toolTipText, boolean selected)
 	{
 		super(text, selected);
@@ -75,11 +143,12 @@ public class JBasicRadioButtonMenuItem
 		setToolTipText(toolTipText);
 	}
 	
-	public JBasicRadioButtonMenuItem(Icon icon, boolean selected)
-	{
-		super(icon, selected);
-	}
-	
+	/**
+	 * Constructs with the specified initial icon, tooltip text and selected.
+	 * @param icon the instance of Icon
+	 * @param toolTipText the tooltip text string
+	 * @param selected the boolean value of selected
+	 */
 	public JBasicRadioButtonMenuItem(Icon icon, String toolTipText, boolean selected)
 	{
 		super(icon, selected);
@@ -87,12 +156,14 @@ public class JBasicRadioButtonMenuItem
 		setToolTipText(toolTipText);
 	}
 	
-	public JBasicRadioButtonMenuItem(String text, Icon icon, boolean selected)
-	{
-		super(text, icon, selected);
-	}
-	
-	public JBasicRadioButtonMenuItem(String text, String toolTipText, Icon icon, boolean selected)
+	/**
+	 * Constructs with the specified initial text, icon, tooltip text and selected.
+	 * @param text the text string
+	 * @param icon the instance of Icon
+	 * @param toolTipText the tooltip text string
+	 * @param selected the boolean value of selected
+	 */
+	public JBasicRadioButtonMenuItem(String text, Icon icon, String toolTipText, boolean selected)
 	{
 		super(text, icon, selected);
 		
