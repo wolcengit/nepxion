@@ -22,6 +22,9 @@ import com.nepxion.swing.style.menu.lite.LiteCheckBoxMenuItemUI;
 public class JLiteCheckBoxMenuItem
 	extends JMenuItem
 {
+	/**
+	 * Constructs with the default.
+	 */
 	public JLiteCheckBoxMenuItem()
 	{
 		super();
@@ -29,22 +32,21 @@ public class JLiteCheckBoxMenuItem
 		initComponents();
 	}
 	
-	public JLiteCheckBoxMenuItem(Icon icon)
+	/**
+	 * Constructs with the specified initial action.
+	 * @param action the instance of Action
+	 */
+	public JLiteCheckBoxMenuItem(Action action)
 	{
-		super(icon);
+		super(action);
 		
 		initComponents();
 	}
 	
-	public JLiteCheckBoxMenuItem(Icon icon, String toolTipText)
-	{
-		super(icon);
-		
-		initComponents();
-		
-		setToolTipText(toolTipText);
-	}
-	
+	/**
+	 * Constructs with the specified initial text.
+	 * @param text the text string
+	 */
 	public JLiteCheckBoxMenuItem(String text)
 	{
 		super(text);
@@ -52,6 +54,34 @@ public class JLiteCheckBoxMenuItem
 		initComponents();
 	}
 	
+	/**
+	 * Constructs with the specified initial icon.
+	 * @param icon the instance of Icon
+	 */
+	public JLiteCheckBoxMenuItem(Icon icon)
+	{
+		super(icon);
+		
+		initComponents();
+	}
+	
+	/**
+	 * Constructs with the specified initial text and icon.
+	 * @param text the text string 
+	 * @param icon the icon of Icon
+	 */
+	public JLiteCheckBoxMenuItem(String text, Icon icon)
+	{
+		super(text, icon);
+		
+		initComponents();
+	}
+	
+	/**
+	 * Constructs with the specified initial text and tooltip text.
+	 * @param text the text string
+	 * @param toolTipText the tooltip text string
+	 */
 	public JLiteCheckBoxMenuItem(String text, String toolTipText)
 	{
 		super(text);
@@ -61,29 +91,11 @@ public class JLiteCheckBoxMenuItem
 		setToolTipText(toolTipText);
 	}
 	
-	public JLiteCheckBoxMenuItem(Action action)
-	{
-		super(action);
-		
-		initComponents();
-	}
-	
-	public JLiteCheckBoxMenuItem(String text, Icon icon)
-	{
-		super(text, icon);
-		
-		initComponents();
-	}
-	
-	public JLiteCheckBoxMenuItem(String text, Icon icon, String toolTipText)
-	{
-		super(text, icon);
-		
-		initComponents();
-		
-		setToolTipText(toolTipText);
-	}
-	
+	/**
+	 * Constructs with the specified initial text and selected.
+	 * @param text the text string
+	 * @param selected the boolean value of selected
+	 */
 	public JLiteCheckBoxMenuItem(String text, boolean selected)
 	{
 		super(text);
@@ -93,16 +105,118 @@ public class JLiteCheckBoxMenuItem
 		setSelected(selected);
 	}
 	
+	/**
+	 * Constructs with the specified initial icon and tooltip text.
+	 * @param icon the instance of Icon
+	 * @param toolTipText the tooltip text string
+	 */
+	public JLiteCheckBoxMenuItem(Icon icon, String toolTipText)
+	{
+		super(icon);
+		
+		initComponents();
+		
+		setToolTipText(toolTipText);
+	}
+	
+	/**
+	 * Constructs with the specified initial icon and selected.
+	 * @param icon the instance of Icon
+	 * @param selected the boolean value of selected
+	 */
+	public JLiteCheckBoxMenuItem(Icon icon, boolean selected)
+	{
+		super(icon);
+		
+		initComponents();
+		
+		setSelected(selected);
+	}
+	
+	/**
+	 * Constructs with the specified initial text, icon and tooltip text.
+	 * @param text the text string
+	 * @param icon the instance of Icon
+	 * @param toolTipText the tooltip text string
+	 */
+	public JLiteCheckBoxMenuItem(String text, Icon icon, String toolTipText)
+	{
+		super(text, icon);
+		
+		initComponents();
+		
+		setToolTipText(toolTipText);
+	}
+	
+	/**
+	 * Constructs with the specified initial text, icon and selected.
+	 * @param text the text string
+	 * @param icon the instance of Icon
+	 * @param selected the boolean value of selected
+	 */
+	public JLiteCheckBoxMenuItem(String text, Icon icon, boolean selected)
+	{
+		super(text, icon);
+		
+		initComponents();
+		
+		setSelected(selected);
+	}
+	
+	/**
+	 * Constructs with the specified initial text, tooltip text and selected.
+	 * @param text the text string
+	 * @param toolTipText the tooltip text string
+	 * @param selected the boolean value of selected
+	 */
 	public JLiteCheckBoxMenuItem(String text, String toolTipText, boolean selected)
 	{
 		super(text);
 		
 		initComponents();
 		
-		setSelected(selected);
 		setToolTipText(toolTipText);
+		setSelected(selected);
 	}
 	
+	/**
+	 * Constructs with the specified initial icon, tooltip text and selected.
+	 * @param icon the instance of Icon
+	 * @param toolTipText the tooltip text string
+	 * @param selected the boolean value of selected
+	 */
+	public JLiteCheckBoxMenuItem(Icon icon, String toolTipText, boolean selected)
+	{
+		super(icon);
+		
+		initComponents();
+		
+		setToolTipText(toolTipText);
+		setSelected(selected);
+	}
+	
+	/**
+	 * Constructs with the specified initial text, icon, tooltip text and selected.
+	 * @param text the text string
+	 * @param icon the instance of Icon
+	 * @param toolTipText the tooltip text string
+	 * @param selected the boolean value of selected
+	 */
+	public JLiteCheckBoxMenuItem(String text, Icon icon, String toolTipText, boolean selected)
+	{
+		super(text, icon);
+		
+		initComponents();
+		
+		setToolTipText(toolTipText);
+		setSelected(selected);
+	}
+	
+	/**
+	 * Constructs with the specified initial text and mnemonic.
+	 * @param text the text string
+	 * @param mnemonic the mnemonic int value
+	 */
 	public JLiteCheckBoxMenuItem(String text, int mnemonic)
 	{
 		super(text, mnemonic);
@@ -110,6 +224,56 @@ public class JLiteCheckBoxMenuItem
 		initComponents();
 	}
 	
+	/**
+	 * Constructs with the specified initial text and mnemonic.
+	 * @param text the text string
+	 * @param mnemonic the mnemonic char value
+	 */
+	public JLiteCheckBoxMenuItem(String text, char mnemonic)
+	{
+		super(text);
+		
+		initComponents();
+		
+		setMnemonic(mnemonic);
+	}
+	
+	/**
+	 * Constructs with the specified initial text, icon and mnemonic.
+	 * @param text the text string
+	 * @param icon the instance of Icon
+	 * @param mnemonic the mnemonic int value
+	 */
+	public JLiteCheckBoxMenuItem(String text, Icon icon, int mnemonic)
+	{
+		super(text, mnemonic);
+		
+		initComponents();
+		
+		setIcon(icon);
+	}
+	
+	/**
+	 * Constructs with the specified initial text, icon and mnemonic.
+	 * @param text the text string
+	 * @param icon the instance of Icon
+	 * @param mnemonic the mnemonic char value
+	 */
+	public JLiteCheckBoxMenuItem(String text, Icon icon, char mnemonic)
+	{
+		super(text, icon);
+		
+		initComponents();
+		
+		setMnemonic(mnemonic);
+	}
+	
+	/**
+	 * Constructs with the specified initial text, tooltip text and mnemonic.
+	 * @param text the text string
+	 * @param toolTipText the tooltip text string
+	 * @param mnemonic the mnemonic int value
+	 */
 	public JLiteCheckBoxMenuItem(String text, String toolTipText, int mnemonic)
 	{
 		super(text, mnemonic);
@@ -119,7 +283,29 @@ public class JLiteCheckBoxMenuItem
 		setToolTipText(toolTipText);
 	}
 	
-	public JLiteCheckBoxMenuItem(String text, int mnemonic, boolean selected)
+	/**
+	 * Constructs with the specified initial text, tooltip text and mnemonic.
+	 * @param text the text string
+	 * @param toolTipText the tooltip text string
+	 * @param mnemonic the mnemonic char value
+	 */
+	public JLiteCheckBoxMenuItem(String text, String toolTipText, char mnemonic)
+	{
+		super(text);
+		
+		initComponents();
+		
+		setToolTipText(toolTipText);
+		setMnemonic(mnemonic);
+	}
+	
+	/**
+	 * Constructs with the specified initial text, selected and mnemonic.
+	 * @param text the text string
+	 * @param selected the boolean value of selected
+	 * @param mnemonic the mnemonic int value
+	 */
+	public JLiteCheckBoxMenuItem(String text, boolean selected, int mnemonic)
 	{
 		super(text, mnemonic);
 		
@@ -128,16 +314,167 @@ public class JLiteCheckBoxMenuItem
 		setSelected(selected);
 	}
 	
-	public JLiteCheckBoxMenuItem(String text, String toolTipText, int mnemonic, boolean selected)
+	/**
+	 * Constructs with the specified initial text, selected and mnemonic.
+	 * @param text the text string
+	 * @param selected the boolean value of selected
+	 * @param mnemonic the mnemonic char value
+	 */
+	public JLiteCheckBoxMenuItem(String text, boolean selected, char mnemonic)
+	{
+		super(text);
+		
+		initComponents();
+		
+		setSelected(selected);
+		setMnemonic(mnemonic);
+	}
+	
+	/**
+	 * Constructs with the specified initial text, icon, tooltip text and mnemonic.
+	 * @param text the text string
+	 * @param icon the instance of Icon
+	 * @param toolTipText the tooltip text string
+	 * @param mnemonic the mnemonic int value
+	 */
+	public JLiteCheckBoxMenuItem(String text, Icon icon, String toolTipText, int mnemonic)
 	{
 		super(text, mnemonic);
 		
 		initComponents();
 		
-		setSelected(selected);
+		setIcon(icon);
 		setToolTipText(toolTipText);
 	}
 	
+	/**
+	 * Constructs with the specified initial text, icon, tooltip text and mnemonic.
+	 * @param text the text string
+	 * @param icon the instance of Icon
+	 * @param toolTipText the tooltip text string
+	 * @param mnemonic the mnemonic char value
+	 */
+	public JLiteCheckBoxMenuItem(String text, Icon icon, String toolTipText, char mnemonic)
+	{
+		super(text, icon);
+		
+		initComponents();
+		
+		setToolTipText(toolTipText);
+		setMnemonic(mnemonic);
+	}
+	
+	/**
+	 * Constructs with the specified initial text, icon, selected and mnemonic.
+	 * @param text the text string
+	 * @param icon the instance of Icon
+	 * @param selected the boolean value of selected
+	 * @param mnemonic the mnemonic int value
+	 */
+	public JLiteCheckBoxMenuItem(String text, Icon icon, boolean selected, int mnemonic)
+	{
+		super(text, mnemonic);
+		
+		initComponents();
+		
+		setIcon(icon);
+		setSelected(selected);
+	}
+	
+	/**
+	 * Constructs with the specified initial text, icon, selected and mnemonic.
+	 * @param text the text string
+	 * @param icon the instance of Icon
+	 * @param selected the boolean value of selected
+	 * @param mnemonic the mnemonic char value
+	 */
+	public JLiteCheckBoxMenuItem(String text, Icon icon, boolean selected, char mnemonic)
+	{
+		super(text, icon);
+		
+		initComponents();
+		
+		setSelected(selected);
+		setMnemonic(mnemonic);
+	}
+	
+	/**
+	 * Constructs with the specified initial text, tooltip text, selected and mnemonic.
+	 * @param text the text string
+	 * @param toolTipText the tooltip text string
+	 * @param selected the boolean value of selected
+	 * @param mnemonic the mnemonic int value
+	 */
+	public JLiteCheckBoxMenuItem(String text, String toolTipText, boolean selected, int mnemonic)
+	{
+		super(text, mnemonic);
+		
+		initComponents();
+		
+		setToolTipText(toolTipText);
+		setSelected(selected);
+	}
+	
+	/**
+	 * Constructs with the specified initial text, tooltip text, selected and mnemonic.
+	 * @param text the text string
+	 * @param toolTipText the tooltip text string
+	 * @param selected the boolean value of selected
+	 * @param mnemonic the mnemonic char value
+	 */
+	public JLiteCheckBoxMenuItem(String text, String toolTipText, boolean selected, char mnemonic)
+	{
+		super(text);
+		
+		initComponents();
+		
+		setToolTipText(toolTipText);
+		setSelected(selected);
+		setMnemonic(mnemonic);
+	}
+	
+	/**
+	 * Constructs with the specified initial text, icon, tooltip text, selected and mnemonic.
+	 * @param text the text string
+	 * @param icon the instance of Icon
+	 * @param toolTipText the tooltip text string
+	 * @param selected the boolean value of selected
+	 * @param mnemonic the mnemonic int value
+	 */
+	public JLiteCheckBoxMenuItem(String text, Icon icon, String toolTipText, boolean selected, int mnemonic)
+	{
+		super(text, mnemonic);
+		
+		initComponents();
+		
+		setIcon(icon);
+		setToolTipText(toolTipText);
+		setSelected(selected);
+	}	
+	
+	/**
+	 * Constructs with the specified initial text, icon, tooltip text, selected and mnemonic.
+	 * @param text the text string
+	 * @param icon the instance of Icon
+	 * @param toolTipText the tooltip text string
+	 * @param selected the boolean value of selected
+	 * @param mnemonic the mnemonic char value
+	 */
+	public JLiteCheckBoxMenuItem(String text, Icon icon, String toolTipText, boolean selected, char mnemonic)
+	{
+		super(text);
+		
+		initComponents();
+		
+		setIcon(icon);
+		setToolTipText(toolTipText);
+		setSelected(selected);
+		setMnemonic(mnemonic);
+	}
+	
+	/**
+	 * Initializes the components.
+	 */
 	private void initComponents()
 	{
 		LiteCheckBoxModel checkBoxModel = new LiteCheckBoxModel();
@@ -149,6 +486,9 @@ public class JLiteCheckBoxMenuItem
 		setRolloverEnabled(true);
 	}
 	
+	/**
+	 * Updates the ui.
+	 */
 	public void updateUI()
 	{
 		setUI(getUI());
