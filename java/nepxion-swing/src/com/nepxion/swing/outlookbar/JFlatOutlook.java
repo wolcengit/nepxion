@@ -20,6 +20,9 @@ import com.nepxion.swing.layout.ratio.RatioLayout;
 public class JFlatOutlook
 	extends JPanel implements SwingConstants
 {
+	/**
+	 * Constructs with the default.
+	 */
 	public JFlatOutlook()
 	{
 		setBorder(BorderFactory.createEmptyBorder(1, 1, 1, 1));
@@ -27,11 +30,20 @@ public class JFlatOutlook
 		setLayout(new RatioLayout(RatioLayout.VERTICAL, 2));
 	}
 	
+	/**
+	 * Adds the button to the outlook.
+	 * @param button the instance of AbstractButton
+	 */
 	public void addButton(AbstractButton button)
 	{
 		addButton(button, VERTICAL);
 	}
 	
+	/**
+	 * Adds the button to the outlook.
+	 * @param button the instance of AbstractButton
+	 * @param iconTextLayout the icon text layout value
+	 */
 	public void addButton(AbstractButton button, int iconTextLayout)
 	{
 		super.add(button);

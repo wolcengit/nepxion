@@ -25,6 +25,9 @@ import com.nepxion.swing.style.outlookbar.JFlatOutlookBarUI;
 public class JFlatOutlookBar
 	extends JOutlookBar implements SwingConstants
 {
+	/**
+	 * Constructs with the default.
+	 */
 	public JFlatOutlookBar()
 	{
 		super();
@@ -32,6 +35,10 @@ public class JFlatOutlookBar
 		initComponents();
 	}
 	
+	/**
+	 * Constructs with the specified initial tab placement.
+	 * @param tabPlacement the tab placement value
+	 */
 	public JFlatOutlookBar(int tabPlacement)
 	{
 		super(tabPlacement);
@@ -39,6 +46,9 @@ public class JFlatOutlookBar
 		initComponents();
 	}
 	
+	/**
+	 * Initializes the components.
+	 */
 	private void initComponents()
 	{
 		JFlatOutlookBarUI outlookBarUI = new JFlatOutlookBarUI();
@@ -47,6 +57,11 @@ public class JFlatOutlookBar
 		setAnimated(false);
 	}
 	
+	/**
+	 * Makes the scroll pane for the component.
+	 * @param component the instance of Component
+	 * @return JScrollPane the instance of JScrollPane
+	 */
 	public JScrollPane makeScrollPane(Component component)
 	{
 		JScrollPane scrollPane = super.makeScrollPane(component);
@@ -59,22 +74,31 @@ public class JFlatOutlookBar
 		return scrollPane;
 	}
 	
+	/**
+	 * Sets the all tabs alignment.
+	 * @param alignment the alignment value
+	 */
 	public void setAllTabsAlignment(int alignment)
 	{
 		setAllTabsAlignment(alignment, 10);
 	}
 	
+	/**
+	 * Sets the all tabs alignment.
+	 * @param alignment the alignment value
+	 * @param indent the indent value
+	 */
 	public void setAllTabsAlignment(int alignment, int indent)
 	{
 		JFlatOutlookBarUI outlookBarUI = (JFlatOutlookBarUI) getUI();
 		switch (alignment)
 		{
-			case LEFT:
+			case LEFT :
 				break;
-			case CENTER:
+			case CENTER :
 				indent = 0;
 				break;
-			case RIGHT:
+			case RIGHT :
 				indent = -indent;
 				break;
 		}
@@ -83,6 +107,10 @@ public class JFlatOutlookBar
 		super.setAllTabsAlignment(alignment);
 	}
 	
+	/**
+	 * Gets the selected title.
+	 * @return the title string
+	 */
 	public String getSelectedTitle()
 	{
 		int index = getSelectedIndex();
@@ -94,6 +122,11 @@ public class JFlatOutlookBar
 		return getTitleAt(index);
 	}
 	
+	/**
+	 * Gets the tab by a title.
+	 * @param title the title string
+	 * @return the instance of Component
+	 */
 	public Component getTabAt(String title)
 	{
 		for (int i = 0; i < getTabCount(); i++)
@@ -107,6 +140,10 @@ public class JFlatOutlookBar
 		return null;
 	}
 	
+	/**
+	 * Removed the tab by a title.
+	 * @param title the title string
+	 */
 	public void removeTabAt(String title)
 	{
 		for (int i = 0; i < getTabCount(); i++)
@@ -119,6 +156,10 @@ public class JFlatOutlookBar
 		}
 	}
 	
+	/**
+	 * Removes tabs by the closed component list.
+	 * @param closedComponents the instance of List
+	 */
 	public void removeTabs(List closedComponents)
 	{
 		for (int i = 0; i < closedComponents.size(); i++)
@@ -129,6 +170,10 @@ public class JFlatOutlookBar
 		}
 	}
 	
+	/**
+	 * Removes reverse tabs by an index.
+	 * @param index the index value
+	 */
 	public void removeReverseTabsAt(int index)
 	{
 		List closedComponents = new ArrayList();
@@ -143,6 +188,9 @@ public class JFlatOutlookBar
 		removeTabs(closedComponents);
 	}
 	
+	/**
+	 * Removes all tabs.
+	 */
 	public void removeAllTabs()
 	{
 		List components = new ArrayList();

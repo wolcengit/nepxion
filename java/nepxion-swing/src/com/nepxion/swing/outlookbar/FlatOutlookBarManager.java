@@ -20,6 +20,10 @@ import com.nepxion.swing.style.scrollpane.ScrollPaneUIManager;
 
 public class FlatOutlookBarManager
 {
+	/**
+	 * Sets the preference style for the scroll pane.
+	 * @param scrollPane the instance of JScrollPane
+	 */	
 	public static void setPreferenceStyle(JScrollPane scrollPane)
 	{
 		ScrollBarUI scrollBarUI = null;
