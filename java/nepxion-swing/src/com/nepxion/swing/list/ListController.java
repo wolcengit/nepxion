@@ -25,6 +25,11 @@ import com.nepxion.util.data.CollectionUtil;
 
 public class ListController
 {
+	/**
+	 * Adds a new element to the list by a list adapter.
+	 * @param list the instance of JBasicList
+	 * @param listAdapter the instance of IListAdapter
+	 */
 	public static void add(JBasicList list, IListAdapter listAdapter)
 	{
 		if (!listAdapter.addRowPermitted())
@@ -44,6 +49,11 @@ public class ListController
 		listModel.addElement(rowData);
 	}
 	
+	/**
+	 * Modifies the element in the list by a list adapter.
+	 * @param list the instance of JBasicList
+	 * @param listAdapter the instance of IListAdapter
+	 */
 	public static void modify(JBasicList list, IListAdapter listAdapter)
 	{
 		boolean isSingleSelection = isSingleSelection(list, SwingLocale.getString("modify") + SwingLocale.getString("record"));
@@ -70,6 +80,11 @@ public class ListController
 		listModel.setElementAt(rowData, selectedRow);
 	}
 	
+	/**
+	 * Deletes the element in the list by a list adapter.
+	 * @param list the instance of JBasicList
+	 * @param listAdapter the instance of IListAdapter
+	 */
 	public static void delete(final JBasicList list, final IListAdapter listAdapter)
 	{
 		boolean isMultiSelection = isMultiSelection(list, SwingLocale.getString("delete") + SwingLocale.getString("record"));
@@ -160,6 +175,11 @@ public class ListController
 		}
 	}
 	
+	/**
+	 * Refreshes the list data of the list by a list adapter.
+	 * @param list the instance of JBasicList
+	 * @param listAdapter the instance of IListAdapter
+	 */
 	public static void refresh(final JBasicList list, final IListAdapter listAdapter)
 	{
 		if (!listAdapter.refreshPermitted())
@@ -205,6 +225,11 @@ public class ListController
 		dialog.execute();
 	}
 	
+	/**
+	 * Refreshes the list data of the list by a list adapter.
+	 * @param list the instance of JBasicList
+	 * @param listAdapter the instance of IListAdapter
+	 */
 	public static void clear(final JBasicList list, final IListAdapter listAdapter)
 	{
 		if (!listAdapter.clearPermitted())
@@ -250,6 +275,11 @@ public class ListController
 		dialog.execute();
 	}
 	
+	/**
+	 * Saves the list data.
+	 * @param list the instance of JBasicList
+	 * @param listAdapter the instance of IListAdapter
+	 */
 	public static void save(final JBasicList list, final IListAdapter listAdapter)
 	{
 		if (!listAdapter.savePermitted())
@@ -295,6 +325,12 @@ public class ListController
 		dialog.execute();
 	}
 	
+	/**
+	 * Returns true if the only element is selected.
+	 * @param list list the instance of JBasicList
+	 * @param operationName the operation name string
+	 * @return true if the only element is selected
+	 */
 	public static boolean isSingleSelection(JBasicList list, String operationName)
 	{
 		int[] selectedRows = list.getSelectedIndexes();
@@ -315,6 +351,12 @@ public class ListController
 		return true;
 	}
 	
+	/**
+	 * Returns true if the more than one element are selected.
+	 * @param list list the instance of JBasicList
+	 * @param operationName the operation name string
+	 * @return true if the only element is selected
+	 */
 	public static boolean isMultiSelection(JBasicList list, String operationName)
 	{
 		int[] selectedRows = list.getSelectedIndexes();
@@ -328,6 +370,12 @@ public class ListController
 		return true;
 	}
 	
+	/**
+	 * Gets the add action for the list by a list adapter.
+	 * @param list the instance of JBasicList
+	 * @param listAdapter the instance of IListAdapter
+	 * @return the instance of JSecurityAction
+	 */
 	public static JSecurityAction getAddAction(final JBasicList list, final IListAdapter listAdapter)
 	{
 		JSecurityAction action = new JSecurityAction(SwingLocale.getString("add"), IconFactory.getSwingIcon("stereo/add_16.png"), SwingLocale.getString("add") + SwingLocale.getString("record"))
@@ -342,6 +390,12 @@ public class ListController
 		return action;
 	}
 	
+	/**
+	 * Gets the modify action for the list by a list adapter.
+	 * @param list the instance of JBasicList
+	 * @param listAdapter the instance of IListAdapter
+	 * @return the instance of JSecurityAction
+	 */
 	public static JSecurityAction getModifyAction(final JBasicList list, final IListAdapter listAdapter)
 	{
 		JSecurityAction action = new JSecurityAction(SwingLocale.getString("modify"), IconFactory.getSwingIcon("stereo/confirm_16.png"), SwingLocale.getString("modify") + SwingLocale.getString("record"))
@@ -356,6 +410,12 @@ public class ListController
 		return action;
 	}
 	
+	/**
+	 * Gets the delete action for the list by a list adapter.
+	 * @param list the instance of JBasicList
+	 * @param listAdapter the instance of IListAdapter
+	 * @return the instance of JSecurityAction
+	 */
 	public static JSecurityAction getDeleteAction(final JBasicList list, final IListAdapter listAdapter)
 	{
 		JSecurityAction action = new JSecurityAction(SwingLocale.getString("delete"), IconFactory.getSwingIcon("stereo/delete_16.png"), SwingLocale.getString("delete") + SwingLocale.getString("record"))
@@ -370,6 +430,12 @@ public class ListController
 		return action;
 	}
 	
+	/**
+	 * Gets the refresh action for the list by a list adapter.
+	 * @param list the instance of JBasicList
+	 * @param listAdapter the instance of IListAdapter
+	 * @return the instance of JSecurityAction
+	 */
 	public static JSecurityAction getRefreshAction(final JBasicList list, final IListAdapter listAdapter)
 	{
 		JSecurityAction action = new JSecurityAction(SwingLocale.getString("refresh"), IconFactory.getSwingIcon("stereo/refresh_16.png"), SwingLocale.getString("refresh") + SwingLocale.getString("record"))
@@ -383,6 +449,12 @@ public class ListController
 		return action;
 	}
 	
+	/**
+	 * Gets the clear action for the list by a list adapter.
+	 * @param list the instance of JBasicList
+	 * @param listAdapter the instance of IListAdapter
+	 * @return the instance of JSecurityAction
+	 */
 	public static JSecurityAction getClearAction(final JBasicList list, final IListAdapter listAdapter)
 	{
 		JSecurityAction action = new JSecurityAction(SwingLocale.getString("clear"), IconFactory.getSwingIcon("stereo/delete_16.png"), SwingLocale.getString("clear") + SwingLocale.getString("record"))
@@ -396,6 +468,12 @@ public class ListController
 		return action;
 	}
 	
+	/**
+	 * Gets the save action for the list by a list adapter.
+	 * @param list the instance of JBasicList
+	 * @param listAdapter the instance of IListAdapter
+	 * @return the instance of JSecurityAction
+	 */
 	public static JSecurityAction getSaveAction(final JBasicList list, final IListAdapter listAdapter)
 	{
 		JSecurityAction action = new JSecurityAction(SwingLocale.getString("save"), IconFactory.getSwingIcon("solid_save.png"), SwingLocale.getString("save") + SwingLocale.getString("record"))

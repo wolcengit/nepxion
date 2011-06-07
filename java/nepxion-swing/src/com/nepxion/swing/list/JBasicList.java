@@ -24,8 +24,14 @@ import com.nepxion.util.data.CollectionUtil;
 public class JBasicList
 	extends JList implements IList, ListSelectionListener, MouseListener
 {
+	/**
+	 * The selected index value.
+	 */
 	private int selectedIndex = -1;
 	
+	/**
+	 * Constructs with the default.
+	 */
 	public JBasicList()
 	{
 		super();
@@ -33,6 +39,10 @@ public class JBasicList
 		initComponents();
 	}
 	
+	/**
+	 * Constructs with the specified initial list model.
+	 * @param listModel the instance of BasicListModel
+	 */
 	public JBasicList(BasicListModel listModel)
 	{
 		super(listModel);
@@ -40,6 +50,10 @@ public class JBasicList
 		initComponents();
 	}
 	
+	/**
+	 * Constructs with the specified initial list data array.
+	 * @param listData the list data array
+	 */
 	public JBasicList(Object[] listData)
 	{
 		setListData(listData);
@@ -47,6 +61,10 @@ public class JBasicList
 		initComponents();
 	}
 	
+	/**
+	 * Constructs with the specified initial list data.
+	 * @param listData the instance of Vector
+	 */
 	public JBasicList(Vector listData)
 	{
 		setListData(listData);
@@ -54,6 +72,9 @@ public class JBasicList
 		initComponents();
 	}
 	
+	/**
+	 * Initializes the components.
+	 */
 	private void initComponents()
 	{
 		ListManager.setPreferenceStyle(this);
@@ -62,6 +83,50 @@ public class JBasicList
 		addListSelectionListener(this);
 	}
 	
+	/**
+	 * Gets the list data.
+	 * @return the instance of Vector
+	 */
+	public Vector getListData()
+	{
+		BasicListModel listModel = (BasicListModel) getModel();
+		
+		return listModel.getRowDatas();
+	}
+	
+	/**
+	 * Sets the list data.
+	 * @param listData the list data array.
+	 */
+	public void setListData(Object[] listData)
+	{
+		Vector rowDatas = CollectionUtil.parseVector(listData);
+		setListData(rowDatas);
+	}
+	
+	/**
+	 * Sets the list data.
+	 * @param listData the instance of Vector
+	 */
+	public void setListData(Vector listData)
+	{
+		ListModel model = getModel();
+		if (model instanceof BasicListModel)
+		{
+			BasicListModel listModel = (BasicListModel) model;
+			listModel.setRowDatas(listData);
+		}
+		else
+		{
+			BasicListModel listModel = new BasicListModel(listData);
+			setModel(listModel);
+		}
+	}
+	
+	/**
+	 * Gets the selected index array.
+	 * @return the selected index array
+	 */
 	public int[] getSelectedIndexes()
 	{
 		BasicListModel listModel = (BasicListModel) getModel();
@@ -81,34 +146,10 @@ public class JBasicList
 		return selectedIndexes;
 	}
 	
-	public Vector getListData()
-	{
-		BasicListModel listModel = (BasicListModel) getModel();
-		
-		return listModel.getRowDatas();
-	}
-	
-	public void setListData(Object[] listData)
-	{
-		Vector rowDatas = CollectionUtil.parseVector(listData);
-		setListData(rowDatas);
-	}
-	
-	public void setListData(Vector listData)
-	{
-		ListModel model = getModel();
-		if (model instanceof BasicListModel)
-		{
-			BasicListModel listModel = (BasicListModel) model;
-			listModel.setRowDatas(listData);
-		}
-		else
-		{
-			BasicListModel listModel = new BasicListModel(listData);
-			setModel(listModel);
-		}
-	}
-	
+	/**
+	 * Moves the row up by an row index.
+	 * @param index the row index value
+	 */
 	public void moveUp(int index)
 	{		
 		BasicListModel listModel = (BasicListModel) getModel();
@@ -121,6 +162,10 @@ public class JBasicList
 		}
 	}
 	
+	/**
+	 * Moves the row down by an row index.
+	 * @param index the row index value
+	 */
 	public void moveDown(int index)
 	{		
 		BasicListModel listModel = (BasicListModel) getModel();
@@ -133,6 +178,10 @@ public class JBasicList
 		}
 	}
 	
+	/**
+	 * Invoked when the selection value is changed.
+	 * @param e the instance of ListSelectionEvent
+	 */
 	public void valueChanged(ListSelectionEvent e)
 	{
 		int[] selectedRows = getSelectedIndexes();
@@ -188,11 +237,20 @@ public class JBasicList
 		}
 	}
 	
+	/**
+	 * Executes the selection.
+	 * @param oldSelectedRow the old selected row index value
+	 * @param newSelectedRow the new selected row index value
+	 */
 	public void executeSelection(int oldSelectedRow, int newSelectedRow)
 	{
 
 	}
 	
+	/**
+	 * Invoked when the mouse button has been clicked (pressed and released) on a component.
+	 * @param e the instance of MouseEvent
+	 */
 	public void mouseClicked(MouseEvent e)
 	{
 		int selectedRow = getSelectedIndex();
@@ -200,6 +258,11 @@ public class JBasicList
 		executeClicked(selectedRow, e);
 	}
 	
+	/**
+	 * Executes the mouse clicked event when a row selected.
+	 * @param selectedRow the selected row index value
+	 * @param e the instance of MouseEvent
+	 */
 	public void executeClicked(int selectedRow, MouseEvent e)
 	{
 		if (e.getClickCount() > 1)
@@ -212,31 +275,37 @@ public class JBasicList
 		}
 	}
 	
+	/**
+	 * Executes the mouse clicked event when a row selected.
+	 * @param selectedRow the selected row index value
+	 */
 	public void executeClicked(int selectedRow)
 	{
 		
 	}
 	
+	/**
+	 * Executes the mouse double-clicked event when a row selected.
+	 * @param selectedRow the selected row index value
+	 */
 	public void executeDoubleClicked(int selectedRow)
 	{
 		
 	}
-	
-	public void mouseEntered(MouseEvent e)
-	{
 		
-	}
-	
-	public void mouseExited(MouseEvent e)
-	{
-		
-	}
-	
+	/**
+	 * Invoked when the mouse button has been pressed on a component.
+	 * @param e the instance of MouseEvent
+	 */
 	public void mousePressed(MouseEvent e)
 	{
 		
 	}
 	
+	/**
+	 * Invoked when the mouse button has been released on a component.
+	 * @param e the instance of MouseEvent
+	 */
 	public void mouseReleased(MouseEvent e)
 	{
 		if (!e.isPopupTrigger())
@@ -258,12 +327,41 @@ public class JBasicList
 		}
 	}
 	
+	/**
+	 * Executes the popup menu shown when a row selected.
+	 * @param selectedRow the selected row index value
+	 * @param x the x value
+	 * @param y the y value
+	 */
 	public void executePopupMenu(int selectedRow, int x, int y)
 	{
 		
 	}
 	
+	/**
+	 * Executes the popup menu shown.
+	 * @param x the x value
+	 * @param y the y value
+	 */
 	public void executePopupMenu(int x, int y)
+	{
+		
+	}
+	
+	/**
+	 * Invoked when the mouse enters a component.
+	 * @param e the instance of MouseEvent
+	 */
+	public void mouseEntered(MouseEvent e)
+	{
+		
+	}
+	
+	/**
+	 * Invoked when the mouse exits a component.
+	 * @param e the instance of MouseEvent
+	 */
+	public void mouseExited(MouseEvent e)
 	{
 		
 	}

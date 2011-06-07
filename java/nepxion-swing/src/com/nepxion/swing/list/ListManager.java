@@ -14,6 +14,10 @@ import javax.swing.JList;
 
 public class ListManager
 {
+	/**
+	 * Sets the preference style for the list.
+	 * @param list the instance of JList
+	 */
 	public static void setPreferenceStyle(JList list)
 	{
 		
