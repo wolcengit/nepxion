@@ -19,12 +19,24 @@ import com.nepxion.swing.toggle.JToggleContentPanel;
 public class JToggleList
 	extends JBasicList implements IToggleList
 {
-	private int invokeMode = INVOKE_MODE_SELECTED;
+	/**
+	 * The toggle mode value.
+	 */
+	private int toggleMode = TOGGLE_MODE_SELECTED;
 	
+	/**
+	 * The instance of JToggleContentPanel.
+	 */
 	private JToggleContentPanel toggleContentPanel;
 	
+	/**
+	 * The instance of IToggleAdapter.
+	 */
 	private IToggleAdapter toggleAdapter;
 	
+	/**
+	 * Constructs with the default.
+	 */
 	public JToggleList()
 	{
 		super();
@@ -32,6 +44,10 @@ public class JToggleList
 		initComponents();
 	}
 	
+	/**
+	 * Constructs with the specified initial list model.
+	 * @param listModel the instance of BasicListModel
+	 */
 	public JToggleList(BasicListModel listModel)
 	{
 		super(listModel);
@@ -39,6 +55,10 @@ public class JToggleList
 		initComponents();
 	}
 	
+	/**
+	 * Constructs with the specified initial list data array.
+	 * @param listData the list data array
+	 */
 	public JToggleList(Object[] listData)
 	{
 		setListData(listData);
@@ -46,6 +66,10 @@ public class JToggleList
 		initComponents();
 	}
 	
+	/**
+	 * Constructs with the specified initial list data.
+	 * @param listData the instance of Vector
+	 */
 	public JToggleList(Vector listData)
 	{
 		setListData(listData);
@@ -53,62 +77,102 @@ public class JToggleList
 		initComponents();
 	}
 	
+	/**
+	 * Initializes the components.
+	 */
 	private void initComponents()
 	{
 
 	}
 	
-	public int getInvokeMode()
+	/**
+	 * Gets the toggle mode.
+	 * @return the toggle mode value
+	 */
+	public int getToggleMode()
 	{
-		return invokeMode;
+		return toggleMode;
 	}
 	
-	public void setInvokeMode(int invokeMode)
+	/**
+	 * Sets the toggle mode.
+	 * @param toggleMode the toggle mode value
+	 */
+	public void setToggleMode(int toggleMode)
 	{
-		this.invokeMode = invokeMode;
+		this.toggleMode = toggleMode;
 	}
 	
+	/**
+	 * Gets the toggle content panel.
+	 * @return the instance of JToggleContentPanel
+	 */
 	public JToggleContentPanel getToggleContentPanel()
 	{
 		return toggleContentPanel;
 	}
 	
+	/**
+	 * Sets the toggle content panel.
+	 * @param toggleContentPanel the instance of JToggleContentPanel
+	 */
 	public void setToggleContentPanel(JToggleContentPanel toggleContentPanel)
 	{
 		this.toggleContentPanel = toggleContentPanel;
 	}
 	
+	/**
+	 * Gets the toggle adapter.
+	 * @return the instance of IToggleAdapter
+	 */
 	public IToggleAdapter getToggleAdapter()
 	{
 		return toggleAdapter;
 	}
 	
+	/**
+	 * Gets the toggle adapter.
+	 * @return the instance of IToggleAdapter
+	 */
 	public void setToggleAdapter(IToggleAdapter toggleAdapter)
 	{
 		this.toggleAdapter = toggleAdapter;
 	}
 	
+	/**
+	 * Executes the selection.
+	 * @param oldSelectedRow the old selected row index value
+	 * @param newSelectedRow the new selected row index value
+	 */
 	public void executeSelection(int oldSelectedRow, int newSelectedRow)
 	{
-		if (invokeMode == INVOKE_MODE_SELECTED)
+		if (toggleMode == TOGGLE_MODE_SELECTED)
 		{
-			toggleAdapter.invoke(oldSelectedRow, newSelectedRow);
+			toggleAdapter.toggle(oldSelectedRow, newSelectedRow);
 		}
 	}
 	
+	/**
+	 * Executes the mouse clicked event when a row selected.
+	 * @param selectedRow the selected row index value
+	 */
 	public void executeClicked(int selectedRow)
 	{
-		if (invokeMode == INVOKE_MODE_CLICKED)
+		if (toggleMode == TOGGLE_MODE_CLICKED)
 		{
-			toggleAdapter.invoke(-1, selectedRow);
+			toggleAdapter.toggle(-1, selectedRow);
 		}
 	}
 	
+	/**
+	 * Executes the mouse double-clicked event when a row selected.
+	 * @param selectedRow the selected row index value
+	 */
 	public void executeDoubleClicked(int selectedRow)
 	{
-		if (invokeMode == INVOKE_MODE_DOUBLE_CLICKED)
+		if (toggleMode == TOGGLE_MODE_DOUBLE_CLICKED)
 		{
-			toggleAdapter.invoke(-1, selectedRow);
+			toggleAdapter.toggle(-1, selectedRow);
 		}
 	}
 }

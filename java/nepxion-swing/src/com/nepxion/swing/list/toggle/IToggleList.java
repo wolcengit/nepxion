@@ -16,19 +16,57 @@ import com.nepxion.swing.toggle.JToggleContentPanel;
 public interface IToggleList
 	extends IList
 {
-	public static final int INVOKE_MODE_SELECTED = 0;
-	public static final int INVOKE_MODE_CLICKED = 1;
-	public static final int INVOKE_MODE_DOUBLE_CLICKED = 2;
+	/**
+	 * The toggle mode of selected.
+	 * The toggle function will be triggered by selected. 
+	 */
+	public static final int TOGGLE_MODE_SELECTED = 0;
 	
-	public int getInvokeMode();
+	/**
+	 * The toggle mode of clicked.
+	 * The toggle function will be triggered by clicked. 
+	 */
+	public static final int TOGGLE_MODE_CLICKED = 1;
 	
-	public void setInvokeMode(int invokeMode);
+	/**
+	 * The toggle mode of double-clicked.
+	 * The toggle function will be triggered by double-clicked. 
+	 */
+	public static final int TOGGLE_MODE_DOUBLE_CLICKED = 2;
 	
+	/**
+	 * Gets the toggle mode.
+	 * @return the toggle mode value
+	 */
+	public int getToggleMode();
+	
+	/**
+	 * Sets the toggle mode.
+	 * @param toggleMode the toggle mode value
+	 */
+	public void setToggleMode(int toggleMode);
+	
+	/**
+	 * Gets the toggle content panel.
+	 * @return the instance of JToggleContentPanel
+	 */
 	public JToggleContentPanel getToggleContentPanel();
 	
+	/**
+	 * Sets the toggle content panel.
+	 * @param toggleContentPanel the instance of JToggleContentPanel
+	 */
 	public void setToggleContentPanel(JToggleContentPanel toggleContentPanel);
 	
+	/**
+	 * Gets the toggle adapter.
+	 * @return the instance of IToggleAdapter
+	 */
 	public IToggleAdapter getToggleAdapter();
 	
+	/**
+	 * Sets the toggle adapter.
+	 * @param toggleAdapter the instance of IToggleAdapter
+	 */
 	public void setToggleAdapter(IToggleAdapter toggleAdapter);
 }

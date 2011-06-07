@@ -19,11 +19,20 @@ import com.nepxion.swing.tree.xml.Dom4JTreeConstants;
 public class DefaultToggleAdapter
 	extends AbstractToggleAdapter
 {
+	/**
+	 * Constructs with the specified initial toggle list.
+	 * @param toggleList the instance of IToggleList
+	 */
 	public DefaultToggleAdapter(IToggleList toggleList)
 	{
 		super(toggleList);
 	}
 	
+	/**
+	 * Gets the toggle panel by an element node.
+	 * @param elementNode the instance of IElementNode 
+	 * @return the instance of ITogglePanel
+	 */
 	public ITogglePanel getTogglePanel(IElementNode elementNode)
 	{
 		Object userObject = elementNode.getUserObject();

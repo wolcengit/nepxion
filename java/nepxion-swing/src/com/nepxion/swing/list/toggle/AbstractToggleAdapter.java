@@ -18,15 +18,27 @@ import com.nepxion.swing.toggle.JToggleContentPanel;
 public abstract class AbstractToggleAdapter
 	implements IToggleAdapter
 {
+	/**
+	 * The instance of IToggleList.
+	 */
 	private IToggleList toggleList;
 	
+	/**
+	 * Constructs with the specified initial toggle list.
+	 * @param toggleList the instance of IToggleList
+	 */
 	public AbstractToggleAdapter(IToggleList toggleList)
 	{
 		this.toggleList = toggleList;
 		this.toggleList.setToggleAdapter(this);
 	}
 	
-	public void invoke(int oldSelectedRow, int newSelectedRow)
+	/**
+	 * Toggles the selection. 
+	 * @param oldSelectedRow the old selected row index value
+	 * @param newSelectedRow the new selected row index value
+	 */
+	public void toggle(int oldSelectedRow, int newSelectedRow)
 	{
 		if (newSelectedRow == -1)
 		{
@@ -68,10 +80,19 @@ public abstract class AbstractToggleAdapter
 		}
 	}
 	
+	/**
+	 * Gets the toggle list.
+	 * @return the instance of IToggleList
+	 */
 	public IToggleList getToggleList()
 	{
 		return toggleList;
 	}
 	
+	/**
+	 * Gets the toggle panel by an element node.
+	 * @param elementNode the instance of IElementNode 
+	 * @return the instance of ITogglePanel
+	 */
 	public abstract ITogglePanel getTogglePanel(IElementNode elementNode);
 }

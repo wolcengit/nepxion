@@ -12,5 +12,10 @@ package com.nepxion.swing.list.toggle;
 
 public interface IToggleAdapter
 {
-	public void invoke(int oldSelectedRow, int newSelectedRow);
+	/**
+	 * Toggles the selection. 
+	 * @param oldSelectedRow the old selected row index value
+	 * @param newSelectedRow the new selected row index value
+	 */
+	public void toggle(int oldSelectedRow, int newSelectedRow);
 }
