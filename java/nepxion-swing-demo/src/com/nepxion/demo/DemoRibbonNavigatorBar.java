@@ -144,7 +144,7 @@ public class DemoRibbonNavigatorBar
 			{
 				JPanel panel = new JPanel();
 				panel.setLayout(new FiledLayout(FiledLayout.COLUMN, FiledLayout.FULL, 0));
-				panel.setBorder(BorderManager.createComplexTitledBorder("Public Configuration"));
+				panel.setBorder(BorderManager.createComplexTitledBorder("更改选项卡风格"));
 				
 				List tabShapeElementNodes = DemoDataFactory.getTabShapeElementNodes();
 				
