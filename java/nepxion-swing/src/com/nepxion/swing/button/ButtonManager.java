@@ -81,7 +81,7 @@ public class ButtonManager
 	private static ButtonBarUI buttonBarUI;
 
 	/**
-	 * Sets the preference style by a button.
+	 * Sets the preference style for the button.
 	 * @param button the instance of AbstractButton
 	 */
 	public static void setPreferenceStyle(AbstractButton button)
