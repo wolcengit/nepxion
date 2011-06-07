@@ -198,8 +198,8 @@ public class JStyleToggleButton
 		
 		initComponents();
 		
-		setSelected(selected);
 		setToolTipText(toolTipText);
+		setSelected(selected);
 	}
 	
 	/**
@@ -214,8 +214,8 @@ public class JStyleToggleButton
 		
 		initComponents();
 		
-		setSelected(selected);
 		setToolTipText(toolTipText);
+		setSelected(selected);
 	}
 	
 	/**
@@ -231,8 +231,8 @@ public class JStyleToggleButton
 		
 		initComponents();
 		
-		setSelected(selected);
 		setToolTipText(toolTipText);
+		setSelected(selected);
 	}
 	
 	/**

@@ -199,8 +199,8 @@ public class JBasicToggleButton
 		
 		initComponents();
 		
-		setSelected(selected);
 		setToolTipText(toolTipText);
+		setSelected(selected);
 	}
 	
 	/**
@@ -215,8 +215,8 @@ public class JBasicToggleButton
 		
 		initComponents();
 		
-		setSelected(selected);
 		setToolTipText(toolTipText);
+		setSelected(selected);
 	}
 	
 	/**
@@ -232,8 +232,8 @@ public class JBasicToggleButton
 		
 		initComponents();
 		
-		setSelected(selected);
 		setToolTipText(toolTipText);
+		setSelected(selected);
 	}
 	
 	/**
