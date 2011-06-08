@@ -18,13 +18,13 @@ public interface ILiteButtonStyle
 	extends IButtonStyle
 {
 	/**
-	 * Gets the rollover background.
+	 * Gets the roll over background.
 	 * @return the instance of Color
 	 */
 	public Color getRolloverBackground(); // 鼠标悬浮在上面的时候，按钮的背景色
 	
 	/**
-	 * Gets the rollover border color.
+	 * Gets the roll over border color.
 	 * @return the instance of Color
 	 */
 	public Color getRolloverBorderColor(); // 鼠标悬浮在上面的时候，按钮的边界色

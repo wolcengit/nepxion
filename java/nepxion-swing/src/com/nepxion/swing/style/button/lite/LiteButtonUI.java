@@ -29,12 +29,12 @@ public class LiteButtonUI
 	public static final String ID = LiteButtonUI.class.getName();
 	
 	/**
-	 * The rollover background.
+	 * The roll over background.
 	 */
 	protected Color rolloverBackground;
 	
 	/**
-	 * The rollover border color.
+	 * The roll over border color.
 	 */
 	protected Color rolloverBorderColor;
 	
@@ -123,7 +123,7 @@ public class LiteButtonUI
 	}
 	
 	/**
-	 * Paints the rollover ui.
+	 * Paints the roll over ui.
 	 * @param buttonModel the instance of IButtonModel
 	 * @param g the instance of Graphics
 	 * @param c the instance of JComponent

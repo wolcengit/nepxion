@@ -95,7 +95,7 @@ public class FlatSplitButtonUI
 	}
 	
 	/**
-	 * Paints the rollover ui.
+	 * Paints the roll over ui.
 	 * @param buttonModel the instance of IButtonModel
 	 * @param g the instance of Graphics
 	 * @param c the instance of JComponent

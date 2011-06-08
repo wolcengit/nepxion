@@ -16,12 +16,12 @@ public abstract class AbstractLiteButtonStyle
 	implements ILiteButtonStyle
 {
 	/**
-	 * The rollover background.
+	 * The roll over background.
 	 */
 	protected Color rolloverBackground;
 	
 	/**
-	 * The rollover border color.
+	 * The roll over border color.
 	 */	
 	protected Color rolloverBorderColor;
 	
@@ -46,7 +46,7 @@ public abstract class AbstractLiteButtonStyle
 	protected Color focusColor;
 	
 	/**
-	 * Gets the rollover background.
+	 * Gets the roll over background.
 	 * @return the instance of Color
 	 */
 	public Color getRolloverBackground()
@@ -55,7 +55,7 @@ public abstract class AbstractLiteButtonStyle
 	}
 	
 	/**
-	 * Gets the rollover border color.
+	 * Gets the roll over border color.
 	 * @return the instance of Color
 	 */
 	public Color getRolloverBorderColor()

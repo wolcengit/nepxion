@@ -22,21 +22,43 @@ import com.nepxion.swing.style.checkbox.AbstractCheckBoxUI;
 public class LiteCheckBoxUI
 	extends AbstractCheckBoxUI implements IButtonUI
 {
+	/**
+	 * The plastic style value.
+	 */
 	public static final String PLASTIC_STYLE = "theme/checkbox/plastic/";
+	
+	/**
+	 * The nimbus style value.
+	 */
 	public static final String NIMBUS_STYLE = "theme/checkbox/nimbus/";
 	
+	/**
+	 * The lite button style.
+	 */
 	protected ILiteButtonStyle buttonStyle;
 	
+	/**
+	 * Constructs with the specified initial button style.
+	 * @param buttonStyle the instance of IButtonStyle
+	 */
 	public LiteCheckBoxUI(IButtonStyle buttonStyle)
 	{
 		setButtonStyle(buttonStyle);
 	}
 	
+	/**
+	 * Gets the button style.
+	 * @return the instance of IButtonStyle
+	 */
 	public IButtonStyle getButtonStyle()
 	{
 		return buttonStyle;
 	}
 	
+	/**
+	 * Sets the button style.
+	 * @param buttonStyle the instance of IButtonStyle
+	 */
 	public void setButtonStyle(IButtonStyle buttonStyle)
 	{
 		this.buttonStyle = (ILiteButtonStyle) buttonStyle;

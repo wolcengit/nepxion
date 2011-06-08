@@ -22,23 +22,69 @@ import com.nepxion.swing.menuitem.JLiteCheckBoxMenuItem;
 public class AbstractCheckBoxMenuItemUI
 	extends BasicMenuItemUI
 {
+	/**
+	 * The armed icon.
+	 */
 	protected Icon armedIcon;
+	
+	/**
+	 * The pressed icon.
+	 */
 	protected Icon pressedIcon;
+	
+	/**
+	 * The roll over icon.
+	 */
 	protected Icon rolloverIcon;
+	
+	/**
+	 * The disable icon.
+	 */
 	protected Icon disableIcon;
+	
+	/**
+	 * The normal icon.
+	 */
 	protected Icon normalIcon;
 	
+	/**
+	 * The selection armed icon.
+	 */
 	protected Icon selectionArmedIcon;
+	
+	/**
+	 * The selection pressed icon.
+	 */
 	protected Icon selectionPressedIcon;
+	
+	/**
+	 * The selection roll over icon.
+	 */
 	protected Icon selectionRolloverIcon;
+	
+	/**
+	 * The selection disable icon.
+	 */
 	protected Icon selectionDisableIcon;
+	
+	/**
+	 * The selection normal icon.
+	 */
 	protected Icon selectionNormalIcon;
 	
+	/**
+	 * Constructs with the default.
+	 */
 	public AbstractCheckBoxMenuItemUI()
 	{
 		super();
 	}
 	
+	/**
+	 * Paints the ui.
+	 * @param g the instance of Graphics
+	 * @param g the instance of JComponent
+	 */
 	public void paint(Graphics g, JComponent c)
 	{
 		JLiteCheckBoxMenuItem checkBoxMenuItem = (JLiteCheckBoxMenuItem) c;
