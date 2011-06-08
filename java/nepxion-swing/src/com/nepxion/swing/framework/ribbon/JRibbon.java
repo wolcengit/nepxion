@@ -37,9 +37,9 @@ public class JRibbon
 	extends JPanel
 {	
 	/**
-	 * The button style of plain.
+	 * The button style of normal.
 	 */
-	public static final int BUTTON_STYLE_PLAIN = 0;
+	public static final int BUTTON_STYLE_NORMAL = 0;
 	
 	/**
 	 * The button style of hover.
@@ -135,7 +135,7 @@ public class JRibbon
 					{	
 						switch (buttonStyle.intValue())
 						{
-							case BUTTON_STYLE_PLAIN :
+							case BUTTON_STYLE_NORMAL :
 							{
 								break;
 							}
@@ -205,7 +205,7 @@ public class JRibbon
 			
 			public void mouseExited(MouseEvent e)
 			{				
-				paintCorner(BUTTON_STYLE_PLAIN);
+				paintCorner(BUTTON_STYLE_NORMAL);
 			}
 		}
 		);
@@ -220,7 +220,7 @@ public class JRibbon
 				}
 				else
 				{
-					paintCorner(BUTTON_STYLE_PLAIN);
+					paintCorner(BUTTON_STYLE_NORMAL);
 				}
 			}
 		}

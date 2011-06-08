@@ -54,9 +54,9 @@ public class JRibbonTabbedPane
 	extends JEclipseTabbedPane
 {
 	/**
-	 * The button style of plain.
+	 * The button style of normal.
 	 */
-	public static final int BUTTON_STYLE_PLAIN = 0;
+	public static final int BUTTON_STYLE_NORMAL = 0;
 	
 	/**
 	 * The button style of hover.
@@ -319,7 +319,7 @@ public class JRibbonTabbedPane
 			
 			public void mouseExited(MouseEvent e)
 			{
-				updateShortcutBar(e, null, BUTTON_STYLE_PLAIN);
+				updateShortcutBar(e, null, BUTTON_STYLE_NORMAL);
 			}
 			
 			public void mouseClicked(MouseEvent e)
@@ -348,7 +348,7 @@ public class JRibbonTabbedPane
 				}
 				else
 				{
-					updateShortcutBar(e, null, BUTTON_STYLE_PLAIN);
+					updateShortcutBar(e, null, BUTTON_STYLE_NORMAL);
 				}
 			}
 		}
@@ -824,9 +824,9 @@ public class JRibbonTabbedPane
 				JAction action = (JAction) iterator.next();
 				switch (buttonStyle)
 				{
-					case BUTTON_STYLE_PLAIN :
+					case BUTTON_STYLE_NORMAL :
 					{
-						action.putValue(BUTTON_STYLE, Integer.valueOf(BUTTON_STYLE_PLAIN));
+						action.putValue(BUTTON_STYLE, Integer.valueOf(BUTTON_STYLE_NORMAL));
 						break;
 					}
 					case BUTTON_STYLE_HOVER :
@@ -837,7 +837,7 @@ public class JRibbonTabbedPane
 						}
 						else
 						{
-							action.putValue(BUTTON_STYLE, Integer.valueOf(BUTTON_STYLE_PLAIN));
+							action.putValue(BUTTON_STYLE, Integer.valueOf(BUTTON_STYLE_NORMAL));
 						}
 						break;
 					}
@@ -849,7 +849,7 @@ public class JRibbonTabbedPane
 						}
 						else
 						{
-							action.putValue(BUTTON_STYLE, Integer.valueOf(BUTTON_STYLE_PLAIN));
+							action.putValue(BUTTON_STYLE, Integer.valueOf(BUTTON_STYLE_NORMAL));
 						}
 						break;
 					}
@@ -861,9 +861,9 @@ public class JRibbonTabbedPane
 		{
 			switch (buttonStyle)
 			{
-				case BUTTON_STYLE_PLAIN :
+				case BUTTON_STYLE_NORMAL :
 				{
-					shortcutAction.putValue(BUTTON_STYLE, Integer.valueOf(BUTTON_STYLE_PLAIN));
+					shortcutAction.putValue(BUTTON_STYLE, Integer.valueOf(BUTTON_STYLE_NORMAL));
 					break;
 				}
 				case BUTTON_STYLE_HOVER :
@@ -880,7 +880,7 @@ public class JRibbonTabbedPane
 		}
 		else
 		{
-			dropDownShortcutAction.putValue(BUTTON_STYLE, Integer.valueOf(BUTTON_STYLE_PLAIN));
+			dropDownShortcutAction.putValue(BUTTON_STYLE, Integer.valueOf(BUTTON_STYLE_NORMAL));
 		}
 		
 		updateShortcutBar();
@@ -1018,7 +1018,7 @@ public class JRibbonTabbedPane
 				{
 					switch (buttonStyle.intValue())
 					{
-						case BUTTON_STYLE_PLAIN :
+						case BUTTON_STYLE_NORMAL :
 						{
 							break;
 						}
@@ -1057,7 +1057,7 @@ public class JRibbonTabbedPane
 		{
 			switch (buttonStyle.intValue())
 			{
-				case BUTTON_STYLE_PLAIN :
+				case BUTTON_STYLE_NORMAL :
 				{
 					break;
 				}
