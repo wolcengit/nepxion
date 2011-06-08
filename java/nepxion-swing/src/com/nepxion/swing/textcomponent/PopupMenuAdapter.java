@@ -27,26 +27,56 @@ import com.nepxion.swing.icon.IconFactory;
 import com.nepxion.swing.keystroke.KeyStrokeManager;
 import com.nepxion.swing.locale.SwingLocale;
 import com.nepxion.swing.menuitem.JBasicMenuItem;
-import com.nepxion.swing.popupmenu.JDecorationPopupMenu;
+import com.nepxion.swing.popupmenu.JBasicPopupMenu;
 
 public class PopupMenuAdapter
 	implements MouseListener
 {
+	/**
+	 * The text component.
+	 */
 	private JTextComponent textComponent;
 	
+	/**
+	 * The copy menu item.
+	 */
 	private JBasicMenuItem copyMenuItem;
-	private JBasicMenuItem pasteMenuItem;
-	private JBasicMenuItem cutMenuItem;
-	private JBasicMenuItem clearMenuItem;
-	private JBasicMenuItem selectAllMenuItem;
-	private JDecorationPopupMenu popupMenu;
 	
+	/**
+	 * The paste menu item.
+	 */
+	private JBasicMenuItem pasteMenuItem;
+	
+	/**
+	 * The cut menu item.
+	 */
+	private JBasicMenuItem cutMenuItem;
+	
+	/**
+	 * The clear menu item.
+	 */
+	private JBasicMenuItem clearMenuItem;
+	
+	/**
+	 * The select all menu item.
+	 */
+	private JBasicMenuItem selectAllMenuItem;
+	
+	/**
+	 * The popup menu.
+	 */
+	private JBasicPopupMenu popupMenu;
+	
+	/**
+	 * Constructs with the specified initial text component.
+	 * @param textComponent the instance of JTextComponent
+	 */
 	public PopupMenuAdapter(final JTextComponent textComponent)
 	{
 		this.textComponent = textComponent;
 		this.textComponent.addMouseListener(this);
 		
-		popupMenu = new JDecorationPopupMenu();
+		popupMenu = new JBasicPopupMenu();
 		
 		copyMenuItem = new JBasicMenuItem(SwingLocale.getString("copy"), IconFactory.getSwingIcon("copy.png"), SwingLocale.getString("copy"));
 		KeyStrokeManager.registerButton(copyMenuItem, KeyEvent.VK_C, KeyEvent.CTRL_MASK, 'C');
@@ -111,6 +141,10 @@ public class PopupMenuAdapter
 		popupMenu.add(selectAllMenuItem);
 	}
 	
+	/**
+	 * Returns true if the clip board has content.
+	 * @return true if the clip board has content
+	 */
 	private boolean hasContent()
 	{
 		boolean hasContent = false;
@@ -133,46 +167,98 @@ public class PopupMenuAdapter
 		return hasContent;
 	}
 	
+	/**
+	 * Returns true if it can copy.
+	 * @return true if it can copy
+	 */
 	private boolean canCopy()
 	{
 		return textComponent.getSelectionStart() != textComponent.getSelectionEnd();
 	}
 	
+	/**
+	 * Returns true if it can delete.
+	 * @return true if it can delete
+	 */
 	private boolean canDelete()
 	{
 		return !textComponent.getText().equals("");
 	}
 	
-	public JDecorationPopupMenu getPopupMenu()
+	/**
+	 * Gets the popup menu.
+	 * @return the instance of JBasicPopupMenu
+	 */
+	public JBasicPopupMenu getPopupMenu()
 	{
 		return popupMenu;
 	}
 	
-	public JBasicMenuItem getCutMenuItem()
-	{
-		return cutMenuItem;
-	}
-	
+	/**
+	 * Gets the copy menu item.
+	 * @return the instance of JBasicMenuItem
+	 */
 	public JBasicMenuItem getCopyMenuItem()
 	{
 		return copyMenuItem;
 	}
 	
+	/**
+	 * Gets the paste menu item.
+	 * @return the instance of JBasicMenuItem
+	 */
 	public JBasicMenuItem getPasteMenuItem()
 	{
 		return pasteMenuItem;
 	}
 	
+	/**
+	 * Gets the cut menu item.
+	 * @return the instance of JBasicMenuItem
+	 */
+	public JBasicMenuItem getCutMenuItem()
+	{
+		return cutMenuItem;
+	}
+	
+	/**
+	 * Gets the clear menu item.
+	 * @return the instance of JBasicMenuItem
+	 */
 	public JBasicMenuItem getClearMenuItem()
 	{
 		return clearMenuItem;
 	}
 	
+	/**
+	 * Gets the select all item.
+	 * @return the instance of JBasicMenuItem
+	 */
 	public JBasicMenuItem getSelectAllMenuItem()
 	{
 		return selectAllMenuItem;
 	}
 	
+    /**
+     * Invoked when the mouse button has been clicked (pressed and released) on a component.
+     * @param e the instance of MouseEvent
+     */
+	public void mouseClicked(MouseEvent e)
+	{
+	}
+	
+    /**
+     * Invoked when the mouse button has been pressed on a component.
+     * @param e the instance of MouseEvent
+     */
+	public void mousePressed(MouseEvent e)
+	{
+	}
+	
+    /**
+     * Invoked when the mouse button has been released on a component.
+     * @param e the instance of MouseEvent
+     */
 	public void mouseReleased(MouseEvent e)
 	{
 		if (!e.isPopupTrigger())
@@ -203,19 +289,19 @@ public class PopupMenuAdapter
 		popupMenu.show(e.getComponent(), e.getX(), e.getY());
 	}
 	
-	public void mouseClicked(MouseEvent e)
-	{
-	}
-	
+    /**
+     * Invoked when the mouse enters a component.
+     * @param e the instance of MouseEvent
+     */
 	public void mouseEntered(MouseEvent e)
 	{
 	}
 	
+    /**
+     * Invoked when the mouse exits a component.
+     * @param e the instance of MouseEvent
+     */
 	public void mouseExited(MouseEvent e)
-	{
-	}
-	
-	public void mousePressed(MouseEvent e)
 	{
 	}
 }
