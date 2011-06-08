@@ -13,32 +13,50 @@ package com.nepxion.swing.textpane;
 import javax.swing.JTextPane;
 import javax.swing.text.StyledDocument;
 
-import com.nepxion.swing.textcomponent.PopupMenuAdapter;
+import com.nepxion.swing.textcomponent.TextPopupMenuAdapter;
 
 public class JBasicTextPane
 	extends JTextPane
 {
-	private PopupMenuAdapter popupMenuAdapter;
+	/**
+	 * The instance of TextPopupMenuAdapter.
+	 */
+	private TextPopupMenuAdapter popupMenuAdapter;
 	
+	/**
+	 * Constructs with the default.
+	 */
 	public JBasicTextPane()
 	{
 		super();
 		
-		popupMenuAdapter = new PopupMenuAdapter(this);
+		popupMenuAdapter = new TextPopupMenuAdapter(this);
 	}
 	
+	/**
+	 * Constructs with the specified initial doc.
+	 * @param doc the instance of StyledDocument
+	 */
 	public JBasicTextPane(StyledDocument doc)
 	{
 		super(doc);
 		
-		popupMenuAdapter = new PopupMenuAdapter(this);
+		popupMenuAdapter = new TextPopupMenuAdapter(this);
 	}
 	
-	public PopupMenuAdapter getPopupMenuAdapter()
+	/**
+	 * Gets the text popup menu adapter.
+	 * @return the instance of TextPopupMenuAdapter
+	 */
+	public TextPopupMenuAdapter getPopupMenuAdapter()
 	{
 		return popupMenuAdapter;
 	}
 	
+	/**
+	 * Sets enabled.
+	 * @param enabled the boolean value of enabled
+	 */
 	public void setEnabled(boolean enabled)
 	{
 		super.setEnabled(enabled);
