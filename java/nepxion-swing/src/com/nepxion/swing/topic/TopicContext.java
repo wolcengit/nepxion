@@ -14,13 +14,24 @@ import java.awt.Component;
 
 public class TopicContext
 {
+	/**
+	 * The instance of Component.
+	 */
 	private static Component topicComponent;
 	
+	/**
+	 * Registers the topic component.
+	 * @param topicComponent the instance of Component
+	 */
 	public static void registerTopicComponent(Component topicComponent)
 	{
 		TopicContext.topicComponent = topicComponent;
 	}
 	
+	/**
+	 * Registers the topic component by a topic component class string.
+	 * @param topicComponentClass the topic component class string
+	 */
 	public static void registerTopicComponent(String topicComponentClass)
 	{
 		if (topicComponentClass != null)
@@ -44,6 +55,10 @@ public class TopicContext
 		}
 	}
 	
+	/**
+	 * Gets the topic component.
+	 * @return the instance of Component
+	 */
 	public static Component getTopicComponent()
 	{
 		return topicComponent;

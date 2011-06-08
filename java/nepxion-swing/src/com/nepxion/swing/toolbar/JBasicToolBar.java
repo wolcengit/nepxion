@@ -19,8 +19,14 @@ import javax.swing.JToolBar;
 public class JBasicToolBar
 	extends JToolBar
 {
+	/**
+	 * The boolean value of isBorderVisible.
+	 */
 	private boolean isBorderVisible;
 	
+	/**
+	 * Constructs with the default.
+	 */
 	public JBasicToolBar()
 	{
 		super();
@@ -29,6 +35,10 @@ public class JBasicToolBar
 		setBorderVisible(false);
 	}
 	
+	/**
+	 * Sets the border visible.
+	 * @param isBorderVisible the boolean value of isBorderVisible
+	 */
 	public void setBorderVisible(boolean isBorderVisible)
 	{
 		this.isBorderVisible = isBorderVisible;
@@ -45,6 +55,10 @@ public class JBasicToolBar
 		repaint();
 	}
 	
+	/**
+	 * Paints the graphics.
+	 * @param g the instance of Graphics
+	 */
 	public void paint(Graphics g)
 	{
 		super.paint(g);
