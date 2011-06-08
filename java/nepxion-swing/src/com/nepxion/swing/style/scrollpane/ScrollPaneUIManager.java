@@ -15,6 +15,10 @@ import javax.swing.plaf.ScrollBarUI;
 
 public class ScrollPaneUIManager
 {
+	/**
+	 * Gets the scroll bar ui.
+	 * @return the instance of ScrollBarUI
+	 */
 	public static ScrollBarUI getScrollBarUI()
 	{
 		String scrollBarUIClass = (String) UIManager.get("ScrollBarUI");
