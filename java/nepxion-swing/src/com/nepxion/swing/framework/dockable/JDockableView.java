@@ -32,7 +32,7 @@ import com.nepxion.swing.fullscreen.FullScreenManager;
 import com.nepxion.swing.menuitem.JBasicMenuItem;
 import com.nepxion.swing.panel.decoration.JDecorationHeader;
 import com.nepxion.swing.panel.decoration.JDecorationPanel;
-import com.nepxion.swing.popupmenu.JDecorationPopupMenu;
+import com.nepxion.swing.popupmenu.JBasicPopupMenu;
 import com.nepxion.swing.style.framework.IStyle;
 import com.nepxion.swing.style.framework.StyleManager;
 
@@ -483,7 +483,7 @@ public class JDockableView
 	}
 	
 	public class PopupMenu
-		extends JDecorationPopupMenu
+		extends JBasicPopupMenu
 	{
 		/**
 		 * The maximize menu item.

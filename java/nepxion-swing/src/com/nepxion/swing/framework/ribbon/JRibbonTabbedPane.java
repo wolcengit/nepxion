@@ -45,7 +45,7 @@ import com.nepxion.swing.icon.paint.CombinationIcon;
 import com.nepxion.swing.label.JBasicLabel;
 import com.nepxion.swing.locale.SwingLocale;
 import com.nepxion.swing.menuitem.JBasicCheckBoxMenuItem;
-import com.nepxion.swing.popupmenu.JDecorationPopupMenu;
+import com.nepxion.swing.popupmenu.JBasicPopupMenu;
 import com.nepxion.swing.style.framework.IStyle;
 import com.nepxion.swing.tabbedpane.JEclipseTabbedPane;
 import com.nepxion.swing.tabbedpane.TabbedPaneManager;
@@ -254,7 +254,7 @@ public class JRibbonTabbedPane
 	 */
 	private void initPopupMenu()
 	{
-		dropDownPopupMenu = new JDecorationPopupMenu();
+		dropDownPopupMenu = new JBasicPopupMenu();
 		
 		toggleTextButtonGroup = new ButtonGroup();
 		

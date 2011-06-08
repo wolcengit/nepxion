@@ -30,7 +30,7 @@ import com.nepxion.swing.handle.HandleManager;
 import com.nepxion.swing.internalframe.InternalFrameManager;
 import com.nepxion.swing.locale.SwingLocale;
 import com.nepxion.swing.optionpane.JBasicOptionPane;
-import com.nepxion.swing.popupmenu.JDecorationPopupMenu;
+import com.nepxion.swing.popupmenu.JBasicPopupMenu;
 import com.nepxion.swing.selector.checkbox.JCheckBoxSelector;
 import com.nepxion.swing.tabbedpane.ITabbedPane;
 import com.nepxion.swing.tabbedpane.JEclipseTabbedPane;
@@ -435,7 +435,7 @@ public class JRibbonContainer
 	{
 		this.tabbedPane = tabbedPane;
 		
-		tabbedPane.setPopupMenu(new JDecorationPopupMenu(), true);
+		tabbedPane.setPopupMenu(new JBasicPopupMenu(), true);
 		
 		JComponent tabbedComponent = (JComponent) tabbedPane;
 		tabbedComponent.addPropertyChangeListener(new PropertyChangeListener()

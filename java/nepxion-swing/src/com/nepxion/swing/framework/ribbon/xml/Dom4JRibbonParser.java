@@ -47,7 +47,7 @@ import com.nepxion.swing.layout.table.TableLayout;
 import com.nepxion.swing.lookandfeel.LookAndFeelManager;
 import com.nepxion.swing.menu.JBasicMenu;
 import com.nepxion.swing.menuitem.JBasicMenuItem;
-import com.nepxion.swing.popupmenu.JDecorationPopupMenu;
+import com.nepxion.swing.popupmenu.JBasicPopupMenu;
 import com.nepxion.swing.separator.JBasicSeparator;
 import com.nepxion.util.string.StringUtil;
 import com.nepxion.util.xml.dom4j.Dom4JReader;
@@ -656,7 +656,7 @@ public class Dom4JRibbonParser
 			}
 			else
 			{
-				JDecorationPopupMenu popupMenu = new JDecorationPopupMenu();
+				JBasicPopupMenu popupMenu = new JBasicPopupMenu();
 				
 				JAction action = new JAction(ButtonManager.getHtmlText(text), icon, toolTipText)
 				{
@@ -832,9 +832,9 @@ public class Dom4JRibbonParser
 		}
 		else
 		{
-			if (menu instanceof JDecorationPopupMenu)
+			if (menu instanceof JBasicPopupMenu)
 			{
-				((JDecorationPopupMenu) menu).addSeparator();
+				((JBasicPopupMenu) menu).addSeparator();
 			}
 			else if (menu instanceof JBasicMenu)
 			{

@@ -25,7 +25,7 @@ import org.jfree.chart.JFreeChart;
 
 import com.nepxion.swing.icon.IconFactory;
 import com.nepxion.swing.locale.SwingLocale;
-import com.nepxion.swing.popupmenu.JDecorationPopupMenu;
+import com.nepxion.swing.popupmenu.JBasicPopupMenu;
 
 public class JChartPanel
 	extends ChartPanel
@@ -223,34 +223,34 @@ public class JChartPanel
 		
 		popupMenu.removeAll();
 		
-		JDecorationPopupMenu decorationPopupMenu = new JDecorationPopupMenu();
+		JBasicPopupMenu basicPopupMenu = new JBasicPopupMenu();
 		
 		if (properties)
 		{
-			decorationPopupMenu.add(propertiesMenuItem);
+			basicPopupMenu.add(propertiesMenuItem);
 		}
 		if (copy)
 		{
-			decorationPopupMenu.add(copyMenuItem);
+			basicPopupMenu.add(copyMenuItem);
 		}
 		if (save)
 		{
-			decorationPopupMenu.add(exportMenu);
+			basicPopupMenu.add(exportMenu);
 		}
 		if (zoom)
 		{
-			decorationPopupMenu.addSeparator();
-			decorationPopupMenu.add(zoomInMenu);
-			decorationPopupMenu.add(zoomOutMenu);
-			decorationPopupMenu.add(zoomResetMenu);
+			basicPopupMenu.addSeparator();
+			basicPopupMenu.add(zoomInMenu);
+			basicPopupMenu.add(zoomOutMenu);
+			basicPopupMenu.add(zoomResetMenu);
 		}
 		if (print)
 		{
-			decorationPopupMenu.addSeparator();
-			decorationPopupMenu.add(printMenuItem);
+			basicPopupMenu.addSeparator();
+			basicPopupMenu.add(printMenuItem);
 		}
 		
-		return decorationPopupMenu;
+		return basicPopupMenu;
 	}
 	
     /**
