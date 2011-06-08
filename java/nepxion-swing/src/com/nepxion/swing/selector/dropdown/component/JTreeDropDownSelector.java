@@ -20,7 +20,7 @@ import javax.swing.tree.TreeSelectionModel;
 
 import com.nepxion.swing.locale.SwingLocale;
 import com.nepxion.swing.menuitem.JBasicCheckBoxMenuItem;
-import com.nepxion.swing.popupmenu.JDecorationPopupMenu;
+import com.nepxion.swing.popupmenu.JBasicPopupMenu;
 import com.nepxion.swing.scrollpane.JBasicScrollPane;
 import com.nepxion.swing.selector.dropdown.IDropDownPopupMenu;
 import com.nepxion.swing.selector.dropdown.JDropDownDraggablePopupMenu;
@@ -65,7 +65,7 @@ public abstract class JTreeDropDownSelector
 		setDropDownPane(dropDownPane);
 		
 		PopupMenuAdapter popupMenuAdapter = getTextField().getPopupMenuAdapter();
-		JDecorationPopupMenu popoupMenu = popupMenuAdapter.getPopupMenu();
+		JBasicPopupMenu popoupMenu = popupMenuAdapter.getPopupMenu();
 		
 		popoupMenu.addSeparator();
 		

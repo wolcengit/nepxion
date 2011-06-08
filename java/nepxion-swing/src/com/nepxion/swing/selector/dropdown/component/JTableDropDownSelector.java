@@ -16,7 +16,7 @@ import java.awt.event.MouseEvent;
 import javax.swing.JTable;
 
 import com.nepxion.swing.menuitem.JBasicCheckBoxMenuItem;
-import com.nepxion.swing.popupmenu.JDecorationPopupMenu;
+import com.nepxion.swing.popupmenu.JBasicPopupMenu;
 import com.nepxion.swing.scrollpane.JBasicScrollPane;
 import com.nepxion.swing.selector.dropdown.IDropDownPopupMenu;
 import com.nepxion.swing.selector.dropdown.JDropDownDraggablePopupMenu;
@@ -29,7 +29,7 @@ public abstract class JTableDropDownSelector
 {
 	private JTable table;
 	
-	private JDecorationPopupMenu popupMenu;
+	private JBasicPopupMenu popupMenu;
 	private JBasicCheckBoxMenuItem showPathMenuItem;
 	private JBasicCheckBoxMenuItem showRootMenuItem;
 	
