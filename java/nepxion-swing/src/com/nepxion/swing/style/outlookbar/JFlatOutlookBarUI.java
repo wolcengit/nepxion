@@ -15,8 +15,14 @@ import com.l2fprod.common.swing.plaf.windows.WindowsOutlookBarUI;
 public class JFlatOutlookBarUI
 	extends WindowsOutlookBarUI
 {
+	/**
+	 * The instance of JFlatOutlookBarButtonUI.
+	 */
 	private JFlatOutlookBarButtonUI buttonUI;
 	
+	/**
+	 * Constructs with the default.
+	 */
 	public JFlatOutlookBarUI()
 	{
 		super();
@@ -24,6 +30,10 @@ public class JFlatOutlookBarUI
 		buttonUI = new JFlatOutlookBarButtonUI();
 	}
 	
+	/**
+	 * Updates the tab button by an index.
+	 * @param index the tab index.
+	 */
 	protected void updateTabButtonAt(int index)
 	{
 		super.updateTabButtonAt(index);
@@ -33,6 +43,10 @@ public class JFlatOutlookBarUI
 		button.setUI(buttonUI);
 	}
 	
+	/**
+	 * Gets the button ui.
+	 * @return the instance of JFlatOutlookBarButtonUI
+	 */
 	public JFlatOutlookBarButtonUI getButtonUI()
 	{
 		return buttonUI;
