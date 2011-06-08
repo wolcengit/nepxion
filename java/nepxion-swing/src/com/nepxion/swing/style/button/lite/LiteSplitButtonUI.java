@@ -21,13 +21,26 @@ import com.nepxion.swing.style.button.IButtonStyle;
 public class LiteSplitButtonUI
 	extends LiteMenuButtonUI
 {
+	/**
+	 * The identity value.
+	 */
 	public static final String ID = LiteSplitButtonUI.class.getName();
 	
+	/**
+	 * Constructs with the specified initial button style.
+	 * @param buttonStyle the instance of IButtonStyle
+	 */
 	public LiteSplitButtonUI(IButtonStyle buttonStyle)
 	{
 		super(buttonStyle);
 	}
 	
+	/**
+	 * Paints the menu drop down ui.
+	 * @param buttonModel the instance of IButtonModel
+	 * @param g the instance of Graphics
+	 * @param c the instance of JComponent
+	 */
 	public void paintMenuDropDown(IButtonModel buttonModel, Graphics g, JComponent c)
 	{
 		g.setColor(selectionBackground);
@@ -42,6 +55,12 @@ public class LiteSplitButtonUI
 		g.drawLine(c.getWidth() - 11, 0, c.getWidth() - 11, c.getHeight() - 1);
 	}
 	
+	/**
+	 * Paints the pressed ui.
+	 * @param buttonModel the instance of IButtonModel
+	 * @param g the instance of Graphics
+	 * @param c the instance of JComponent
+	 */
 	public void paintPressed(IButtonModel buttonModel, Graphics g, JComponent c)
 	{
 		g.setColor(selectionBackground);
@@ -52,11 +71,23 @@ public class LiteSplitButtonUI
 		g.drawLine(c.getWidth() - 11, 0, c.getWidth() - 11, c.getHeight() - 1);
 	}
 	
+	/**
+	 * Paints the selected ui.
+	 * @param buttonModel the instance of IButtonModel
+	 * @param g the instance of Graphics
+	 * @param c the instance of JComponent
+	 */
 	public void paintSelected(IButtonModel buttonModel, Graphics g, JComponent c)
 	{
 		paintPressed(buttonModel, g, c);
 	}
 	
+	/**
+	 * Paints the rollover ui.
+	 * @param buttonModel the instance of IButtonModel
+	 * @param g the instance of Graphics
+	 * @param c the instance of JComponent
+	 */
 	public void paintRollover(IButtonModel buttonModel, Graphics g, JComponent c)
 	{
 		g.setColor(rolloverBackground);
@@ -67,6 +98,13 @@ public class LiteSplitButtonUI
 		g.drawLine(c.getWidth() - 11, 0, c.getWidth() - 11, c.getHeight() - 1);
 	}
 	
+	/**
+	 * Paints the text.
+	 * @param g the instance of Graphics
+	 * @param c the instance of JComponent
+	 * @param textRect the instance of Rectangle
+	 * @param text the text string
+	 */
 	protected void paintText(Graphics g, JComponent c, Rectangle textRect, String text)
 	{
 		textRect.x -= 1;
@@ -74,6 +112,12 @@ public class LiteSplitButtonUI
 		super.paintText(g, c, textRect, text);
 	}
 	
+	/**
+	 * Paints the icon.
+	 * @param g the instance of Graphics
+	 * @param c the instance of JComponent
+	 * @param iconRect the instance of Rectangle
+	 */
 	protected void paintIcon(Graphics g, JComponent c, Rectangle iconRect)
 	{
 		iconRect.x -= 1;

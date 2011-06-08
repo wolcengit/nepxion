@@ -15,8 +15,14 @@ import java.awt.Color;
 public class JBedouinLiteButtonStyle
 	extends AbstractLiteButtonStyle
 {
+	/**
+	 * The identity value.
+	 */
 	public static final String ID = JBedouinLiteButtonStyle.class.getName();
 	
+	/**
+	 * Constructs with the default.
+	 */
 	public JBedouinLiteButtonStyle()
 	{
 		rolloverBackground = new Color(166, 173, 176, 180);

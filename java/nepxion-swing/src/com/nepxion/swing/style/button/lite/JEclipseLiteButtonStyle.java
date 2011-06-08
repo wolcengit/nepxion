@@ -15,8 +15,14 @@ import java.awt.Color;
 public class JEclipseLiteButtonStyle
 	extends AbstractLiteButtonStyle
 {
+	/**
+	 * The identity value.
+	 */
 	public static final String ID = JEclipseLiteButtonStyle.class.getName();
 	
+	/**
+	 * Constructs with the default.
+	 */
 	public JEclipseLiteButtonStyle()
 	{
 		rolloverBackground = new Color(182, 189, 210, 150); // new Color(212, 213, 216);

@@ -15,8 +15,14 @@ import java.awt.Color;
 public class JBorlandLiteButtonStyle
 	extends AbstractLiteButtonStyle
 {
+	/**
+	 * The identity value.
+	 */
 	public static final String ID = JBorlandLiteButtonStyle.class.getName();
 	
+	/**
+	 * Constructs with the default.
+	 */
 	public JBorlandLiteButtonStyle()
 	{
 		rolloverBackground = new Color(212, 208, 200);

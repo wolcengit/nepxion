@@ -23,27 +23,59 @@ import com.nepxion.swing.style.button.IButtonStyle;
 public class LiteButtonUI
 	extends AbstractButtonUI
 {
+	/**
+	 * The identity value.
+	 */
 	public static final String ID = LiteButtonUI.class.getName();
 	
+	/**
+	 * The rollover background.
+	 */
 	protected Color rolloverBackground;
+	
+	/**
+	 * The rollover border color.
+	 */
 	protected Color rolloverBorderColor;
 	
+	/**
+	 * The selection background.
+	 */
 	protected Color selectionBackground;
+	
+	/**
+	 * The selection border color.
+	 */
 	protected Color selectionBorderColor;
 	
+	/**
+	 * The lite button style.
+	 */
 	protected ILiteButtonStyle buttonStyle;
 	
+	/**
+	 * Constructs with the specified initial button style.
+	 * @param buttonStyle the instance of IButtonStyle
+	 */
 	public LiteButtonUI(IButtonStyle buttonStyle)
 	{
 		setButtonStyle(buttonStyle);
 		setArrowPainted(false);
 	}
 	
+	/**
+	 * Gets the button style.
+	 * @return the instance of IButtonStyle
+	 */
 	public IButtonStyle getButtonStyle()
 	{
 		return buttonStyle;
 	}
 	
+	/**
+	 * Sets the button style.
+	 * @param buttonStyle the instance of IButtonStyle
+	 */
 	public void setButtonStyle(IButtonStyle buttonStyle)
 	{
 		this.buttonStyle = (ILiteButtonStyle) buttonStyle;
@@ -54,10 +86,22 @@ public class LiteButtonUI
 		this.selectionBorderColor = this.buttonStyle.getSelectionBorderColor();
 	}
 	
+	/**
+	 * Paints the menu drop down ui.
+	 * @param buttonModel the instance of IButtonModel
+	 * @param g the instance of Graphics
+	 * @param c the instance of JComponent
+	 */
 	public void paintMenuDropDown(IButtonModel buttonModel, Graphics g, JComponent c)
 	{
 	}
 	
+	/**
+	 * Paints the pressed ui.
+	 * @param buttonModel the instance of IButtonModel
+	 * @param g the instance of Graphics
+	 * @param c the instance of JComponent
+	 */
 	public void paintPressed(IButtonModel buttonModel, Graphics g, JComponent c)
 	{
 		g.setColor(selectionBackground);
@@ -67,11 +111,23 @@ public class LiteButtonUI
 		g.drawRect(0, 0, c.getWidth() - 1, c.getHeight() - 1);
 	}
 	
+	/**
+	 * Paints the selected ui.
+	 * @param buttonModel the instance of IButtonModel
+	 * @param g the instance of Graphics
+	 * @param c the instance of JComponent
+	 */
 	public void paintSelected(IButtonModel buttonModel, Graphics g, JComponent c)
 	{
 		paintPressed(buttonModel, g, c);
 	}
 	
+	/**
+	 * Paints the rollover ui.
+	 * @param buttonModel the instance of IButtonModel
+	 * @param g the instance of Graphics
+	 * @param c the instance of JComponent
+	 */
 	public void paintRollover(IButtonModel buttonModel, Graphics g, JComponent c)
 	{
 		g.setColor(rolloverBackground);
@@ -81,6 +137,13 @@ public class LiteButtonUI
 		g.drawRect(0, 0, c.getWidth() - 1, c.getHeight() - 1);
 	}
 	
+	/**
+	 * Paints the text.
+	 * @param g the instance of Graphics
+	 * @param c the instance of JComponent
+	 * @param textRect the instance of Rectangle
+	 * @param text the text string
+	 */
 	protected void paintText(Graphics g, JComponent c, Rectangle textRect, String text)
 	{
 		if (c.getWidth() % 2 != 0)
@@ -95,6 +158,12 @@ public class LiteButtonUI
 		super.paintText(g, c, textRect, text);
 	}
 	
+	/**
+	 * Paints the icon.
+	 * @param g the instance of Graphics
+	 * @param c the instance of JComponent
+	 * @param iconRect the instance of Rectangle
+	 */
 	protected void paintIcon(Graphics g, JComponent c, Rectangle iconRect)
 	{
 		if (c.getWidth() % 2 != 0)

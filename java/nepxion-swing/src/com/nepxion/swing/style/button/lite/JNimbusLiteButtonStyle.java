@@ -15,8 +15,14 @@ import java.awt.Color;
 public class JNimbusLiteButtonStyle
 	extends AbstractLiteButtonStyle
 {
+	/**
+	 * The identity value.
+	 */
 	public static final String ID = JNimbusLiteButtonStyle.class.getName();
 	
+	/**
+	 * Constructs with the default.
+	 */
 	public JNimbusLiteButtonStyle()
 	{
 		rolloverBackground = new Color(238, 240, 245);

@@ -15,8 +15,14 @@ import java.awt.Color;
 public class JAcidLiteButtonStyle
 	extends AbstractLiteButtonStyle
 {
+	/**
+	 * The identity value.
+	 */
 	public static final String ID = JAcidLiteButtonStyle.class.getName();
 	
+	/**
+	 * Constructs with the default.
+	 */
 	public JAcidLiteButtonStyle()
 	{
 		rolloverBackground = new Color(225, 226, 163, 180);

@@ -17,7 +17,15 @@ import com.nepxion.swing.style.button.IButtonStyle;
 public interface IFlatButtonStyle
 	extends IButtonStyle
 {
+	/**
+	 * Gets the bright color.
+	 * @return the instance of Color
+	 */
 	public Color getBrightColor();
 	
+	/**
+	 * Gets the dark color.
+	 * @return the instance of Color
+	 */
 	public Color getDarkColor();
 }

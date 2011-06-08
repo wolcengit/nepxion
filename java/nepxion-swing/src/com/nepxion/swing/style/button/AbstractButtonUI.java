@@ -25,11 +25,24 @@ import com.nepxion.swing.button.IButtonModel;
 public abstract class AbstractButtonUI
 	extends BasicButtonUI implements IButtonUI
 {
+	/**
+	 * The shadow color.
+	 */
 	private Color shadow;
+	
+	/**
+	 * The dark shadow color.
+	 */
 	private Color darkShadow;
 	
+	/**
+	 * The boolean value of isArrowPainted.
+	 */
 	protected boolean isArrowPainted = true;
 	
+	/**
+	 * Constructs with the default.
+	 */
 	public AbstractButtonUI()
 	{
 		super();
@@ -38,16 +51,28 @@ public abstract class AbstractButtonUI
 		darkShadow = Color.black;
 	}
 	
+	/**
+	 * Returns true if the arrow is painted.
+	 * @return true if the arrow is painted
+	 */
 	public boolean isArrowPainted()
 	{
 		return isArrowPainted;
 	}
 	
+	/**
+	 * Sets the arrow painted.
+	 * @param isArrowPainted the boolean value of isArrowPainted
+	 */
 	public void setArrowPainted(boolean isArrowPainted)
 	{
 		this.isArrowPainted = isArrowPainted;
 	}
 	
+	/**
+	 * Installs the ui.
+	 * @param c the instance of JComponent
+	 */
 	public void installUI(JComponent c)
 	{
 		super.installUI(c);
@@ -57,6 +82,11 @@ public abstract class AbstractButtonUI
 		button.setBorder(BorderFactory.createEmptyBorder(1, 3, 1, 3));
 	}
 	
+	/**
+	 * Paints the ui.
+	 * @param g the instance of Graphics
+	 * @param c the instance of JComponent
+	 */
 	public void paint(Graphics g, JComponent c)
 	{
 		AbstractButton button = (AbstractButton) c;
@@ -97,14 +127,44 @@ public abstract class AbstractButtonUI
 		super.paint(g, c);
 	}
 	
+	/**
+	 * Paints the menu drop down ui.
+	 * @param buttonModel the instance of IButtonModel
+	 * @param g the instance of Graphics
+	 * @param c the instance of JComponent
+	 */
 	public abstract void paintMenuDropDown(IButtonModel buttonModel, Graphics g, JComponent c);
 	
+	/**
+	 * Paints the pressed ui.
+	 * @param buttonModel the instance of IButtonModel
+	 * @param g the instance of Graphics
+	 * @param c the instance of JComponent
+	 */
 	public abstract void paintPressed(IButtonModel buttonModel, Graphics g, JComponent c);
 	
+	/**
+	 * Paints the selected ui.
+	 * @param buttonModel the instance of IButtonModel
+	 * @param g the instance of Graphics
+	 * @param c the instance of JComponent
+	 */
 	public abstract void paintSelected(IButtonModel buttonModel, Graphics g, JComponent c);
 	
+	/**
+	 * Paints the rollover ui.
+	 * @param buttonModel the instance of IButtonModel
+	 * @param g the instance of Graphics
+	 * @param c the instance of JComponent
+	 */
 	public abstract void paintRollover(IButtonModel buttonModel, Graphics g, JComponent c);
 	
+	/**
+	 * Paints the arrow ui.
+	 * @param buttonModel the instance of IButtonModel
+	 * @param g the instance of Graphics
+	 * @param c the instance of JComponent
+	 */
 	public void paintArrow(IButtonModel buttonModel, Graphics g, JComponent c)
 	{
 		if (buttonModel.isEnabled())

@@ -15,8 +15,14 @@ import java.awt.Color;
 public class JYellowLiteButtonStyle
 	extends AbstractLiteButtonStyle
 {
+	/**
+	 * The identity value.
+	 */
 	public static final String ID = JYellowLiteButtonStyle.class.getName();
 	
+	/**
+	 * Constructs with the default.
+	 */
 	public JYellowLiteButtonStyle()
 	{		
 		rolloverBackground = new Color(245, 232, 184); // new Color(230, 211, 171);

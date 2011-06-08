@@ -15,8 +15,14 @@ import java.awt.Color;
 public class JGlassLiteButtonStyle
 	extends AbstractLiteButtonStyle
 {
+	/**
+	 * The identity value.
+	 */
 	public static final String ID = JGlassLiteButtonStyle.class.getName();
 	
+	/**
+	 * Constructs with the default.
+	 */
 	public JGlassLiteButtonStyle()
 	{
 		rolloverBackground = new Color(178, 216, 255, 120);
