@@ -21,8 +21,14 @@ import com.nepxion.swing.border.ShadowBorder;
 public class JWindowsStyle
 	extends AbstractStyle
 {
+	/**
+	 * The identity value.
+	 */
 	public static final String ID = JWindowsStyle.class.getName();
 	
+	/**
+	 * Constructs with the default.
+	 */
 	public JWindowsStyle()
 	{
 		gradientColor = new Color(118, 128, 156);
@@ -36,7 +42,7 @@ public class JWindowsStyle
 		
 		border = new ShadowBorder();
 		headerBorder = new RaisedHeaderBorder();
-		labelBorder = BorderFactory.createEmptyBorder(2, 4, 2, 1);
+		titleBorder = BorderFactory.createEmptyBorder(2, 4, 2, 1);
 		
 		tabbedPaneGradientColor = new Color(10, 36, 106);
 		tabbedPaneBackground = new Color(118, 128, 156);

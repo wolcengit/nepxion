@@ -21,8 +21,14 @@ import com.nepxion.swing.border.ShadowBorder;
 public class JNimbusStyle
 	extends AbstractStyle
 {
+	/**
+	 * The identity value.
+	 */
 	public static final String ID = JNimbusStyle.class.getName();
 	
+	/**
+	 * Constructs with the default.
+	 */
 	public JNimbusStyle()
 	{
 		gradientColor = new Color(115, 164, 209);
@@ -36,7 +42,7 @@ public class JNimbusStyle
 		
 		border = new ShadowBorder(new Color(167, 172, 180));
 		headerBorder = new RaisedHeaderBorder(Color.white, new Color(182, 186, 194)); // new Color(167, 172, 180)
-		labelBorder = BorderFactory.createEmptyBorder(2, 4, 2, 1);
+		titleBorder = BorderFactory.createEmptyBorder(2, 4, 2, 1);
 		
 		tabbedPaneGradientColor = new Color(57, 105, 138);
 		tabbedPaneBackground = new Color(166, 202, 240);// new Color(115, 164, 209);

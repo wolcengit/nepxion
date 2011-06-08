@@ -20,8 +20,15 @@ import com.nepxion.swing.lookandfeel.LookAndFeelTheme;
 
 public class StyleManager
 {
+	/**
+	 * The instance of IStyle.
+	 */
 	private static IStyle style;
 	
+	/**
+	 * Sets the style class.
+	 * @param styleClass the style class string
+	 */
 	public static void setStyle(String styleClass)
 	{
 		try
@@ -42,6 +49,9 @@ public class StyleManager
 		}
 	}
 	
+	/**
+	 * Sets the theme decorated.
+	 */
 	public static void setThemeDecorated()
 	{		
 		LookAndFeelTheme.setTheme(LookAndFeelTheme.ECLIPSE3X_STYLE);
@@ -85,16 +95,28 @@ public class StyleManager
 		}
 	}
 	
+	/**
+	 * Sets the frame decorated.
+	 * @param isFrameDecorated the boolean value of isFrameDecorated
+	 */
 	public static void setFrameDecorated(boolean isFrameDecorated)
 	{
 		JFrame.setDefaultLookAndFeelDecorated(isFrameDecorated);
 	}
 	
+	/**
+	 * Sets the dialog decorated.
+	 * @param isDialogDecorated the boolean value of isDialogDecorated
+	 */
 	public static void setDialogDecorated(boolean isDialogDecorated)
 	{
 		JDialog.setDefaultLookAndFeelDecorated(isDialogDecorated);
 	}
 	
+	/**
+	 * Gets the style.
+	 * @return the instance of IStyle
+	 */
 	public static IStyle getStyle()
 	{
 		if (style == null)

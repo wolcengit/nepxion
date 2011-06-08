@@ -21,8 +21,14 @@ import com.nepxion.swing.border.ShadowBorder;
 public class JRibbonStyle
 	extends AbstractStyle
 {
+	/**
+	 * The identity value.
+	 */
 	public static final String ID = JRibbonStyle.class.getName();
 	
+	/**
+	 * Constructs with the default.
+	 */
 	public JRibbonStyle()
 	{
 		gradientColor = new Color(115, 164, 209);
@@ -36,7 +42,7 @@ public class JRibbonStyle
 		
 		border = new ShadowBorder(new Color(167, 172, 180));
 		headerBorder = new RaisedHeaderBorder(Color.white, new Color(182, 186, 194)); // new Color(167, 172, 180)
-		labelBorder = BorderFactory.createEmptyBorder(2, 4, 2, 1);
+		titleBorder = BorderFactory.createEmptyBorder(2, 4, 2, 1);
 		
 		tabbedPaneGradientColor = Color.white; // new Color(255, 239, 191);
 		tabbedPaneBackground = new Color(231, 239, 248);

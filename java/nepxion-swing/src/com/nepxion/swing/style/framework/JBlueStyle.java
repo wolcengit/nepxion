@@ -15,8 +15,14 @@ import java.awt.Color;
 public class JBlueStyle
 	extends JLiteStyle
 {
+	/**
+	 * The identity value.
+	 */
 	public static final String ID = JBlueStyle.class.getName();
 	
+	/**
+	 * Constructs with the default.
+	 */
 	public JBlueStyle()
 	{
 		setSelectionGradientColor(new Color(193, 210, 238));

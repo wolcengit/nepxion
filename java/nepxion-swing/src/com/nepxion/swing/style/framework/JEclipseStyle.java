@@ -21,8 +21,14 @@ import com.nepxion.swing.border.ShadowBorder;
 public class JEclipseStyle
 	extends AbstractStyle
 {
+	/**
+	 * The identity value.
+	 */
 	public static final String ID = JEclipseStyle.class.getName();
 	
+	/**
+	 * Constructs with the default.
+	 */
 	public JEclipseStyle()
 	{
 		gradientColor = new Color(157, 167, 195);
@@ -36,7 +42,7 @@ public class JEclipseStyle
 		
 		border = new ShadowBorder();
 		headerBorder = new RaisedHeaderBorder();
-		labelBorder = BorderFactory.createEmptyBorder(2, 4, 2, 1);
+		titleBorder = BorderFactory.createEmptyBorder(2, 4, 2, 1);
 		
 		tabbedPaneGradientColor = new Color(242, 244, 247);
 		tabbedPaneBackground = new Color(157, 167, 195);

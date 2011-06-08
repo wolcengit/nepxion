@@ -15,8 +15,14 @@ import java.awt.Color;
 public class JAlloyStyle
 	extends JLiteStyle
 {
+	/**
+	 * The identity value.
+	 */
 	public static final String ID = JAlloyStyle.class.getName();
 	
+	/**
+	 * Constructs with the default.
+	 */
 	public JAlloyStyle()
 	{
 		setSelectionGradientColor(new Color(123, 166, 225));

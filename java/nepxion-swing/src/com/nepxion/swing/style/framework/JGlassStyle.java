@@ -15,8 +15,14 @@ import java.awt.Color;
 public class JGlassStyle
 	extends JLiteStyle
 {
+	/**
+	 * The identity value.
+	 */
 	public static final String ID = JGlassStyle.class.getName();
 	
+	/**
+	 * Constructs with the default.
+	 */
 	public JGlassStyle()
 	{
 		setSelectionGradientColor(new Color(161, 206, 244));

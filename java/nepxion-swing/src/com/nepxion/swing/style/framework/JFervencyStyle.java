@@ -20,8 +20,14 @@ import com.nepxion.swing.border.RaisedHeaderBorder;
 public class JFervencyStyle
 	extends AbstractStyle
 {
+	/**
+	 * The identity value.
+	 */
 	public static final String ID = JFervencyStyle.class.getName();
 	
+	/**
+	 * Constructs with the default.
+	 */
 	public JFervencyStyle()
 	{
 		gradientColor = new Color(76, 60, 24);
@@ -35,7 +41,7 @@ public class JFervencyStyle
 		
 		border = BorderManager.createLineBorder(Color.gray, -1, 2, 2, 2); // 2, 2, 2, 2
 		headerBorder = new RaisedHeaderBorder(Color.gray, Color.gray.brighter());
-		labelBorder = BorderFactory.createEmptyBorder(2, 4, 2, 1);
+		titleBorder = BorderFactory.createEmptyBorder(2, 4, 2, 1);
 		
 		tabbedPaneGradientColor = Color.black;
 		tabbedPaneBackground = new Color(252, 198, 82).darker();

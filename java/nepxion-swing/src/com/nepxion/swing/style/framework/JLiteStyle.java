@@ -21,8 +21,14 @@ import com.nepxion.swing.border.ShadowBorder;
 public class JLiteStyle
 	extends AbstractStyle
 {
+	/**
+	 * The identity value.
+	 */
 	public static final String ID = JLiteStyle.class.getName();
 	
+	/**
+	 * Constructs with the default.
+	 */
 	public JLiteStyle()
 	{
 		gradientColor = UIManager.getColor("Panel.background");
@@ -36,7 +42,7 @@ public class JLiteStyle
 		
 		border = new ShadowBorder();
 		headerBorder = new RaisedHeaderBorder();
-		labelBorder = BorderFactory.createEmptyBorder(2, 4, 2, 1);
+		titleBorder = BorderFactory.createEmptyBorder(2, 4, 2, 1);
 		
 		tabbedPaneGradientColor = selectionGradientColor.darker();
 		tabbedPaneBackground = new Color(selectionGradientColor.getRed(), selectionGradientColor.getGreen(), selectionGradientColor.getBlue(), 225);
@@ -45,6 +51,10 @@ public class JLiteStyle
 		tabbedPaneSelectionForeground = Color.white;
 	}
 	
+	/**
+	 * Sets the selection gradient color.
+	 * @param color the instance of Color
+	 */
 	public void setSelectionGradientColor(Color color)
 	{
 		selectionGradientColor = color;

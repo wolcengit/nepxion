@@ -15,8 +15,14 @@ import java.awt.Color;
 public class JBorlandStyle
 	extends JLiteStyle
 {
+	/**
+	 * The identity value.
+	 */
 	public static final String ID = JBorlandStyle.class.getName();
 	
+	/**
+	 * Constructs with the default.
+	 */
 	public JBorlandStyle()
 	{
 		setSelectionGradientColor(new Color(192, 192, 192));

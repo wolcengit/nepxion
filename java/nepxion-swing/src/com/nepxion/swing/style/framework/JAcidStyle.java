@@ -15,8 +15,14 @@ import java.awt.Color;
 public class JAcidStyle
 	extends JLiteStyle
 {
+	/**
+	 * The identity value.
+	 */
 	public static final String ID = JAcidStyle.class.getName();
 	
+	/**
+	 * Constructs with the default.
+	 */
 	public JAcidStyle()
 	{
 		setSelectionGradientColor(new Color(166, 190, 127));
