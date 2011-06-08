@@ -21,7 +21,7 @@ import com.jeans.trayicon.SwingTrayPopup;
 import com.nepxion.swing.icon.IconFactory;
 import com.nepxion.swing.locale.SwingLocale;
 import com.nepxion.swing.menuitem.JBasicMenuItem;
-import com.nepxion.swing.popupmenu.JDecorationPopupMenuPainter;
+import com.nepxion.swing.popupmenu.PopupMenuPainter;
 
 public class SwingTrayIconPopupMenu
 	extends SwingTrayPopup implements ITrayIconPopupMenu
@@ -29,7 +29,7 @@ public class SwingTrayIconPopupMenu
 	private JTray tray;
 	private JBasicMenuItem restoreMenuItem;
 	
-	public JDecorationPopupMenuPainter painter;
+	public PopupMenuPainter painter;
 	
 	private String title;
 	
@@ -41,12 +41,12 @@ public class SwingTrayIconPopupMenu
 		initPopupMenu();
 	}
 	
-	public JDecorationPopupMenuPainter getPainter()
+	public PopupMenuPainter getPainter()
 	{
 		return painter;
 	}
 	
-	public void setPainter(JDecorationPopupMenuPainter painter)
+	public void setPainter(PopupMenuPainter painter)
 	{
 		this.painter = painter;
 		this.painter.setPopupMenu(this);
@@ -115,7 +115,7 @@ public class SwingTrayIconPopupMenu
 		);
 		add(exitMenuItem);
 		
-		JDecorationPopupMenuPainter painter = new JDecorationPopupMenuPainter(title);
+		PopupMenuPainter painter = new PopupMenuPainter(title);
 		setPainter(painter);
 	}
 	
