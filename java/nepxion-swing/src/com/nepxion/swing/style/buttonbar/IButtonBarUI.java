@@ -14,5 +14,9 @@ import com.nepxion.swing.style.button.AbstractButtonUI;
 
 public interface IButtonBarUI
 {
+	/**
+	 * Gets the button ui.
+	 * @return the instance of AbstractButtonUI
+	 */
 	public AbstractButtonUI getButtonUI();
 }

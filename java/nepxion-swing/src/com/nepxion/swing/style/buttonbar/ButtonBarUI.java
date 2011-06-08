@@ -28,13 +28,23 @@ import com.nepxion.swing.style.button.AbstractButtonUI;
 public class ButtonBarUI
 	extends BasicButtonBarUI implements IButtonBarUI
 {
+	/**
+	 * The instance of AbstractButtonUI.
+	 */
 	private AbstractButtonUI buttonUI;
 	
+	/**
+	 * Constructs with the specified initial button ui.
+	 * @param buttonUI the instance of AbstractButtonUI
+	 */
 	public ButtonBarUI(AbstractButtonUI buttonUI)
 	{
 		this.buttonUI = buttonUI;
 	}
 	
+	/**
+	 * Installs defaults.
+	 */
 	protected void installDefaults()
 	{
 		Border border = bar.getBorder();
@@ -51,6 +61,10 @@ public class ButtonBarUI
 		}
 	}
 	
+	/**
+	 * Installs the button bar ui.
+	 * @param button the instance of AbstractButton
+	 */
 	public void installButtonBarUI(AbstractButton button)
 	{
 		button.setUI(buttonUI);
@@ -59,6 +73,10 @@ public class ButtonBarUI
 		button.setOpaque(false);
 	}
 	
+	/**
+	 * Gets the button ui.
+	 * @return the instance of AbstractButtonUI
+	 */
 	public AbstractButtonUI getButtonUI()
 	{
 		return buttonUI;
