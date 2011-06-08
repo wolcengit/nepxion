@@ -37,7 +37,7 @@ import com.nepxion.swing.menuitem.JBasicCheckBoxMenuItem;
 import com.nepxion.swing.menuitem.JBasicMenuItem;
 import com.nepxion.swing.menuitem.JBasicRadioButtonMenuItem;
 import com.nepxion.swing.optionpane.JBasicOptionPane;
-import com.nepxion.swing.popupmenu.JDecorationPopupMenu;
+import com.nepxion.swing.popupmenu.JBasicPopupMenu;
 import com.nepxion.swing.scrollpane.JBasicScrollPane;
 import com.nepxion.swing.searchable.JSearchableContainer;
 import com.nepxion.swing.textfield.JBasicTextField;
@@ -229,7 +229,7 @@ public class JLazyLoaderContainer
 			preferenceMenuButton = new JBasicMenuButton(IconFactory.getSwingIcon("stereo/favorite_16.png"), SwingLocale.getString("preference"));
 			preferenceMenuButton.setDimension(new Dimension(31, 26));
 			
-			JDecorationPopupMenu preferencePopupMenu = new JDecorationPopupMenu();
+			JBasicPopupMenu preferencePopupMenu = new JBasicPopupMenu();
 			preferenceMenuButton.setPopupMenu(preferencePopupMenu);
 			
 			JBasicMenu recursionDepthMenu = createRecursionDepthMenu();
@@ -274,7 +274,7 @@ public class JLazyLoaderContainer
 			historyMenuButton = new JBasicMenuButton(IconFactory.getSwingIcon("stereo/history_16.png"), SwingLocale.getString("history_record"));
 			historyMenuButton.setDimension(new Dimension(31, 26));
 			
-			JDecorationPopupMenu historyPopupMenu = new JDecorationPopupMenu();
+			JBasicPopupMenu historyPopupMenu = new JBasicPopupMenu();
 			historyMenuButton.setPopupMenu(historyPopupMenu);
 			
 			historyEmptyMenuItem = new JBasicMenuItem(SwingLocale.getString("history_empty"), SwingLocale.getString("history_empty"));
@@ -360,7 +360,7 @@ public class JLazyLoaderContainer
 		
 		private void addHistory(SearchDescription searchDescription)
 		{
-			JDecorationPopupMenu historyPopupMenu = (JDecorationPopupMenu) historyMenuButton.getPopupMenu();
+			JBasicPopupMenu historyPopupMenu = (JBasicPopupMenu) historyMenuButton.getPopupMenu();
 			
 			if (historyPopupMenu.getComponent(0) == historyEmptyMenuItem)
 			{
@@ -380,7 +380,7 @@ public class JLazyLoaderContainer
 		
 		private void clearHistories()
 		{
-			JDecorationPopupMenu historyPopupMenu = (JDecorationPopupMenu) historyMenuButton.getPopupMenu();
+			JBasicPopupMenu historyPopupMenu = (JBasicPopupMenu) historyMenuButton.getPopupMenu();
 			
 			for (Enumeration enumeration = historyButtonGroup.getElements(); enumeration.hasMoreElements();)
 			{
