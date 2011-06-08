@@ -19,6 +19,10 @@ import com.nepxion.swing.lookandfeel.LookAndFeelManager;
 
 public class PopupMenuManager
 {
+	/**
+	 * Sets the preference style for the popup menu.
+	 * @param popupMenu the instance of JPopupMenu
+	 */	
 	public static void setPreferenceStyle(JPopupMenu popupMenu)
 	{
 		if (LookAndFeelManager.isNimbusLookAndFeel())
@@ -27,6 +31,10 @@ public class PopupMenuManager
 		}	
 	}
 	
+	/**
+	 * Sets the preference style for the draggable popup menu.
+	 * @param popupMenu the instance of JDraggablePopupMenu
+	 */	
 	public static void setPreferenceStyle(JDraggablePopupMenu popupMenu)
 	{
 		if (LookAndFeelManager.isNimbusLookAndFeel())
@@ -35,6 +43,10 @@ public class PopupMenuManager
 		}	
 	}
 	
+	/**
+	 * Gets the margin.
+	 * @return the margin value
+	 */
 	public static int getMargin()
 	{
 		if (LookAndFeelManager.isNimbusLookAndFeel())

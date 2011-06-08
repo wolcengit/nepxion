@@ -20,6 +20,9 @@ import com.jidesoft.popup.JidePopup;
 public class JDraggablePopupMenu
 	extends JidePopup
 {
+	/**
+	 * Constructs with the default.
+	 */
 	public JDraggablePopupMenu()
 	{
 		setResizable(true);
@@ -29,6 +32,11 @@ public class JDraggablePopupMenu
 		PopupMenuManager.setPreferenceStyle(this);
 	}
 	
+	/**
+	 * Shows the popup menu.
+	 * @param insets the instance of Insets
+	 * @param owner the instance of Component
+	 */
 	public void showPopup(Insets insets, Component owner)
 	{
 		setDefaultFocusComponent(getContentPane());
@@ -36,6 +44,9 @@ public class JDraggablePopupMenu
 		super.showPopup(insets, owner);
 	}
 	
+	/**
+	 * Updates the ui.
+	 */
 	public void updateUI()
 	{
 		super.updateUI();
