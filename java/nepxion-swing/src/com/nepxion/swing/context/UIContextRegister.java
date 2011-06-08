@@ -433,9 +433,9 @@ public class UIContextRegister
 	}
 	
 	/**
-	 * Returns true if the content valid.
+	 * Returns true if the content is valid.
 	 * @param content the string
-	 * @return true if the content valid
+	 * @return true if the content is valid
 	 */
 	public boolean isValid(String content)
 	{

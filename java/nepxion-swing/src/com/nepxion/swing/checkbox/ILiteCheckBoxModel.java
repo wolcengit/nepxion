@@ -13,14 +13,14 @@ package com.nepxion.swing.checkbox;
 public interface ILiteCheckBoxModel
 {
 	/**
-	 * Returns true if the check box is rollover.
-	 * @return true if the check box is rollover
+	 * Returns true if the check box is roll over.
+	 * @return true if the check box is roll over
 	 */
 	public boolean isRollover();
 	
 	/**
-	 * Sets the check box rollover.
-	 * @param isRollover the boolean value of rollover
+	 * Sets the check box roll over.
+	 * @param isRollover the boolean value of roll over
 	 */
 	public void setRollover(boolean rollover);
 	
