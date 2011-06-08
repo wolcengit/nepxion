@@ -15,15 +15,15 @@ import java.net.URL;
 
 import javax.swing.JEditorPane;
 
-import com.nepxion.swing.textcomponent.PopupMenuAdapter;
+import com.nepxion.swing.textcomponent.TextPopupMenuAdapter;
 
 public class JBasicEditorPane
 	extends JEditorPane
 {
 	/**
-	 * The instance of PopupMenuAdapter.
+	 * The instance of TextPopupMenuAdapter.
 	 */
-	private PopupMenuAdapter popupMenuAdapter;
+	private TextPopupMenuAdapter popupMenuAdapter;
 	
 	/**
 	 * Constructs with the default.
@@ -32,7 +32,7 @@ public class JBasicEditorPane
 	{
 		super();
 		
-		popupMenuAdapter = new PopupMenuAdapter(this);
+		popupMenuAdapter = new TextPopupMenuAdapter(this);
 	}
 	
 	/**
@@ -45,7 +45,7 @@ public class JBasicEditorPane
 	{
 		super(initialPage);
 		
-		popupMenuAdapter = new PopupMenuAdapter(this);
+		popupMenuAdapter = new TextPopupMenuAdapter(this);
 	}
 	
 	/**
@@ -58,7 +58,7 @@ public class JBasicEditorPane
 	{
 		super(url);
 		
-		popupMenuAdapter = new PopupMenuAdapter(this);
+		popupMenuAdapter = new TextPopupMenuAdapter(this);
 	}
 	
 	/**
@@ -70,14 +70,14 @@ public class JBasicEditorPane
 	{
 		super(type, text);
 		
-		popupMenuAdapter = new PopupMenuAdapter(this);
+		popupMenuAdapter = new TextPopupMenuAdapter(this);
 	}
 	
 	/**
-	 * Gets the popup menu adapter.
-	 * @return the instance of PopupMenuAdapter
+	 * Gets the text popup menu adapter.
+	 * @return the instance of TextPopupMenuAdapter
 	 */
-	public PopupMenuAdapter getPopupMenuAdapter()
+	public TextPopupMenuAdapter getPopupMenuAdapter()
 	{
 		return popupMenuAdapter;
 	}
