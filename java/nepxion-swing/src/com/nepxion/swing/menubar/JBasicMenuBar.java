@@ -55,7 +55,7 @@ public class JBasicMenuBar
 	}
 	
 	/**
-	 * Paints.
+	 * Paints the graphics.
 	 * @param g the instance of Graphics
 	 */
 	public void paint(Graphics g)
