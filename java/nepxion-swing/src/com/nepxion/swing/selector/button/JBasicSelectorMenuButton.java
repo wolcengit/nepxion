@@ -19,7 +19,7 @@ import javax.swing.JPanel;
 
 import com.nepxion.swing.button.JBasicMenuButton;
 import com.nepxion.swing.panel.option.JOptionButtonPanel;
-import com.nepxion.swing.popupmenu.JDecorationPopupMenu;
+import com.nepxion.swing.popupmenu.JBasicPopupMenu;
 
 public abstract class JBasicSelectorMenuButton
 	extends JBasicMenuButton implements ISelectorMenuButton
@@ -85,7 +85,7 @@ public abstract class JBasicSelectorMenuButton
 	
 	private void initComponents()
 	{
-		final JDecorationPopupMenu popupMenu = new JDecorationPopupMenu();
+		final JBasicPopupMenu popupMenu = new JBasicPopupMenu();
 		setPopupMenu(popupMenu);
 		
 		optionButtonPanel = new JOptionButtonPanel(JOptionButtonPanel.YES_NO_OPTION)
