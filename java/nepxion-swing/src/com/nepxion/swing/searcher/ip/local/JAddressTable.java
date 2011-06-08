@@ -15,14 +15,14 @@ import java.util.ArrayList;
 import javax.swing.DefaultCellEditor;
 
 import com.nepxion.swing.menuitem.JBasicMenuItem;
-import com.nepxion.swing.popupmenu.JDecorationPopupMenu;
+import com.nepxion.swing.popupmenu.JBasicPopupMenu;
 import com.nepxion.swing.table.JBasicTable;
 import com.nepxion.swing.textfield.JBasicTextField;
 
 public class JAddressTable
 	extends JBasicTable
 {
-	private JDecorationPopupMenu popupMenu;
+	private JBasicPopupMenu popupMenu;
 	
 	public JAddressTable()
 	{
@@ -35,7 +35,7 @@ public class JAddressTable
 			getColumn(i).setCellEditor(new DefaultCellEditor(textField));
 		}
 		
-		popupMenu = new JDecorationPopupMenu();
+		popupMenu = new JBasicPopupMenu();
 		JBasicMenuItem clearMenuItem = new JBasicMenuItem(AddressController.getClearAction(this));
 		popupMenu.add(clearMenuItem);
 	}

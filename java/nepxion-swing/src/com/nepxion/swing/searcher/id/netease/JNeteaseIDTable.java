@@ -15,14 +15,14 @@ import java.util.ArrayList;
 import javax.swing.DefaultCellEditor;
 
 import com.nepxion.swing.menuitem.JBasicMenuItem;
-import com.nepxion.swing.popupmenu.JDecorationPopupMenu;
+import com.nepxion.swing.popupmenu.JBasicPopupMenu;
 import com.nepxion.swing.table.JBasicTable;
 import com.nepxion.swing.textfield.JBasicTextField;
 
 public class JNeteaseIDTable
 	extends JBasicTable
 {
-	private JDecorationPopupMenu popupMenu;
+	private JBasicPopupMenu popupMenu;
 	
 	public JNeteaseIDTable()
 	{
@@ -35,7 +35,7 @@ public class JNeteaseIDTable
 			getColumn(i).setCellEditor(new DefaultCellEditor(textField));
 		}
 		
-		popupMenu = new JDecorationPopupMenu();
+		popupMenu = new JBasicPopupMenu();
 		JBasicMenuItem clearMenuItem = new JBasicMenuItem(NeteaseIDController.getClearAction(this));
 		popupMenu.add(clearMenuItem);
 	}
