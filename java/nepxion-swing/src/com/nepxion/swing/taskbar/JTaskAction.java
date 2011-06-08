@@ -17,46 +17,91 @@ import com.nepxion.swing.action.JSecurityAction;
 public abstract class JTaskAction
 	extends JSecurityAction
 {
+	/**
+	 * Constructs with the default.
+	 */
 	public JTaskAction()
 	{
 		super();
 	}
 	
+	/**
+	 * Constructs with the specified initial text.
+	 * @param text the text string
+	 */
 	public JTaskAction(String text)
 	{
 		super(text);
 	}
 	
+	/**
+	 * Constructs with the specified initial icon.
+	 * @param icon the instance of Icon
+	 */
 	public JTaskAction(Icon icon)
 	{
 		super(icon);
 	}
 	
-	public JTaskAction(Icon icon, String toolTipText)
+	/**
+	 * Constructs with the specified initial text and icon.
+	 * @param text the text string
+	 * @param icon the instance of Icon
+	 */
+	public JTaskAction(String text, Icon icon)
 	{
-		super(icon, toolTipText);
+		super(text, icon);
 	}
 	
+	/**
+	 * Constructs with the specified initial text and tooltip text.
+	 * @param text the text string
+	 * @param toolTipText the tooltip text string
+	 */
 	public JTaskAction(String text, String toolTipText)
 	{
 		super(text, toolTipText);
 	}
 	
-	public JTaskAction(String text, Icon icon)
+	/**
+	 * Constructs with the specified initial icon and tooltip text.
+	 * @param icon the instance of Icon
+	 * @param toolTipText the tooltip text string
+	 */
+	public JTaskAction(Icon icon, String toolTipText)
 	{
-		super(text, icon);
+		super(icon, toolTipText);
 	}
 
+	/**
+	 * Constructs with the specified initial text, icon and tooltip text.
+	 * @param text the text string
+	 * @param icon the instance of Icon
+	 * @param toolTipText the tooltip text string
+	 */
 	public JTaskAction(String text, Icon icon, String toolTipText)
 	{
 		super(text, icon, toolTipText);
 	}
 	
+	/**
+	 * Constructs with the specified initial name, text and tooltip text.
+	 * @param name the name string
+	 * @param text the text string
+	 * @param toolTipText the tooltip text string
+	 */
 	public JTaskAction(String name, String text, String toolTipText)
 	{
 		super(name, text, toolTipText);
 	}
 	
+	/**
+	 * Constructs with the specified initial name, text, icon and tooltip text.
+	 * @param name the name string
+	 * @param text the text string
+	 * @param icon the instance of Icon
+	 * @param toolTipText the tooltip text string
+	 */
 	public JTaskAction(String name, String text, Icon icon, String toolTipText)
 	{
 		super(name, text, icon, toolTipText);
