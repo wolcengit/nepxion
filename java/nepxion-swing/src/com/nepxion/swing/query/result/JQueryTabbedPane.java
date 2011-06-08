@@ -15,7 +15,7 @@ import java.awt.Component;
 import com.nepxion.swing.icon.IconFactory;
 import com.nepxion.swing.locale.SwingLocale;
 import com.nepxion.swing.panel.JInformationPanel;
-import com.nepxion.swing.popupmenu.JDecorationPopupMenu;
+import com.nepxion.swing.popupmenu.JBasicPopupMenu;
 import com.nepxion.swing.tabbedpane.JEclipseTabbedPane;
 
 public class JQueryTabbedPane
@@ -26,7 +26,7 @@ public class JQueryTabbedPane
 		JInformationPanel informationPanel = new JInformationPanel(SwingLocale.getString("query_description"), IconFactory.getSwingIcon("banner/query_128.png"));
 		addTab(SwingLocale.getString("index_page"), IconFactory.getSwingIcon("component/view.png"), informationPanel, SwingLocale.getString("query"), true);
 		
-		setPopupMenu(new JDecorationPopupMenu(), true);
+		setPopupMenu(new JBasicPopupMenu(), true);
 	}
 	
 	/*public void removeTabAt(int index)
