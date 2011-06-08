@@ -13,74 +13,126 @@ package com.nepxion.swing.textarea;
 import javax.swing.text.Document;
 
 import com.jidesoft.swing.AutoResizingTextArea;
-import com.nepxion.swing.textcomponent.PopupMenuAdapter;
+import com.nepxion.swing.textcomponent.TextPopupMenuAdapter;
 
 public class JAutoResizableTextArea
 	extends AutoResizingTextArea
 {
-	private PopupMenuAdapter popupMenuAdapter;
+	/**
+	 * The instance of TextPopupMenuAdapter.
+	 */
+	private TextPopupMenuAdapter popupMenuAdapter;
 	
+	/**
+	 * Constructs with the default.
+	 */
 	public JAutoResizableTextArea()
 	{
 		super();
 		
-		popupMenuAdapter = new PopupMenuAdapter(this);
+		popupMenuAdapter = new TextPopupMenuAdapter(this);
 	}
 	
+	/**
+	 * Constructs with the specified initial minimum row count.
+	 * @param minimumRows the minimum row count value
+	 */
 	public JAutoResizableTextArea(int minimumRows)
 	{
 		super(minimumRows);
 		
-		popupMenuAdapter = new PopupMenuAdapter(this);
+		popupMenuAdapter = new TextPopupMenuAdapter(this);
 	}
 	
+	/**
+	 * Constructs with the specified initial minimum row count and maximum row count.
+	 * @param minimumRows the minimum row count value
+	 * @param maximumRows the maximum row count value
+	 */
 	public JAutoResizableTextArea(int minimumRows, int maximumRows)
 	{
 		super(minimumRows, maximumRows);
 		
-		popupMenuAdapter = new PopupMenuAdapter(this);
+		popupMenuAdapter = new TextPopupMenuAdapter(this);
 	}
 	
+	/**
+	 * Constructs with the specified initial text.
+	 * @param text the text string 
+	 */
 	public JAutoResizableTextArea(String text)
 	{
 		super(text);
 		
-		popupMenuAdapter = new PopupMenuAdapter(this);
+		popupMenuAdapter = new TextPopupMenuAdapter(this);
 	}
 	
+	/**
+	 * Constructs with the specified initial minimum row count, maximum row count and column count.
+	 * @param minimumRows the minimum row count value
+	 * @param maximumRows the maximum row count value
+	 * @param columns the column count value
+	 */
 	public JAutoResizableTextArea(int minimumRows, int maximumRows, int columns)
 	{
 		super(minimumRows, maximumRows, columns);
 		
-		popupMenuAdapter = new PopupMenuAdapter(this);
+		popupMenuAdapter = new TextPopupMenuAdapter(this);
 	}
 	
+	/**
+	 * Constructs with the specified initial text, minimum row count, maximum row count and column count.
+	 * @param text the text string
+	 * @param minimumRows the minimum row count value
+	 * @param maximumRows the maximum row count value
+	 * @param columns the column count value
+	 */
 	public JAutoResizableTextArea(String text, int minimumRows, int maximumRows, int columns)
 	{
 		super(text, minimumRows, maximumRows, columns);
 		
-		popupMenuAdapter = new PopupMenuAdapter(this);
+		popupMenuAdapter = new TextPopupMenuAdapter(this);
 	}
 	
+	/**
+	 * Constructs with the specified initial doc.
+	 * @param doc the instance of Document
+	 */
 	public JAutoResizableTextArea(Document doc)
 	{
 		super(doc);
 		
-		popupMenuAdapter = new PopupMenuAdapter(this);
+		popupMenuAdapter = new TextPopupMenuAdapter(this);
 	}
 	
+	/**
+	 * Constructs with the specified initial doc, text, minimum row count, maximum row count and column count.
+	 * @param doc the instance of Document
+	 * @param text the text string
+	 * @param minimumRows the minimum row count value
+	 * @param maximumRows the maximum row count value
+	 * @param columns the column count value
+	 */
 	public JAutoResizableTextArea(Document doc, String text, int minimumRows, int maximumRows, int columns)
 	{
 		super(doc, text, minimumRows, maximumRows, columns);
 		
-		popupMenuAdapter = new PopupMenuAdapter(this);
+		popupMenuAdapter = new TextPopupMenuAdapter(this);
 	}
 	
-	public PopupMenuAdapter getPopupMenuAdapter()
+	/**
+	 * Gets the text popup menu adapter.
+	 * @return the instance of TextPopupMenuAdapter
+	 */
+	public TextPopupMenuAdapter getPopupMenuAdapter()
 	{
 		return popupMenuAdapter;
 	}
 	
+	/**
+	 * Sets enabled.
+	 * @param enabled the boolean value of enabled
+	 */
 	public void setEnabled(boolean enabled)
 	{
 		super.setEnabled(enabled);
@@ -95,6 +147,9 @@ public class JAutoResizableTextArea
 		}
 	}
 	
+	/**
+	 * Sets the label style.
+	 */
 	public void setLabelStyle()
 	{
 		TextAreaManager.setLabelStyle(this);

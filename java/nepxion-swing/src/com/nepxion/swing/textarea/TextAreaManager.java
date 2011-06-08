@@ -16,6 +16,10 @@ import com.nepxion.swing.color.ColorUtil;
 
 public class TextAreaManager
 {
+	/**
+	 * Sets the label style for the text area.
+	 * @param textArea the instance of JTextArea
+	 */
 	public static void setLabelStyle(JTextArea textArea)
 	{
 		textArea.setBorder(null);
