@@ -21,15 +21,31 @@ import javax.swing.plaf.basic.BasicSplitPaneUI;
 public class DividerActionListener
 	implements ActionListener
 {
+	/**
+	 * The instance of JSplitPane.
+	 */
 	private JSplitPane splitPane;
-	private boolean toMinimum;
 	
-	public DividerActionListener(JSplitPane splitPane, boolean toMinimum)
+	/**
+	 * The boolean value of minimum.
+	 */
+	private boolean minimum;
+	
+	/**
+	 * Constructs with the specified initial split pane and minimum.
+	 * @param splitPane the instance of JSplitPane
+	 * @param minimum the boolean value of minimum
+	 */
+	public DividerActionListener(JSplitPane splitPane, boolean minimum)
 	{
 		this.splitPane = splitPane;
-		this.toMinimum = toMinimum;
+		this.minimum = minimum;
 	}
 	
+    /**
+     * Invoked when an action occurs.
+     * @param e the instance of ActionEvent
+     */
 	public void actionPerformed(ActionEvent e)
 	{
 		if (splitPane == null)
@@ -47,7 +63,7 @@ public class DividerActionListener
 		int currentLocation = splitPaneUI.getDividerLocation(splitPane);
 		int newLocation;
 		
-		if (toMinimum)
+		if (minimum)
 		{
 			if (orientation == JSplitPane.VERTICAL_SPLIT)
 			{

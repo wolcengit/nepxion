@@ -27,12 +27,29 @@ import com.nepxion.swing.listener.DisplayAbilityListener;
 public class JBasicSplitPane
 	extends JideSplitPane
 {
+	/**
+	 * The layout of fix.
+	 */
 	public static final String FIX = XBoxLayout.FIX;
+	
+	/**
+	 * The layout of flexible.
+	 */
 	public static final String FLEXIBLE = XBoxLayout.FLEXIBLE;
+	
+	/**
+	 * The layout of vary.
+	 */
 	public static final String VARY = XBoxLayout.VARY;
 	
+	/**
+	 * The divider locations.
+	 */
 	private Map dividerLocations;
 	
+	/**
+	 * Constructs with the default.
+	 */
 	public JBasicSplitPane()
 	{
 		super();
@@ -40,6 +57,10 @@ public class JBasicSplitPane
 		initComponents();
 	}
 	
+	/**
+	 * Constructs with the specified initial new orientation.
+	 * @param newOrientation the new orientation value
+	 */
 	public JBasicSplitPane(int newOrientation)
 	{
 		super(newOrientation);
@@ -47,6 +68,9 @@ public class JBasicSplitPane
 		initComponents();
 	}
 	
+	/**
+	 * Initializes the components.
+	 */
 	private void initComponents()
 	{
 		dividerLocations = new HashMap();
@@ -64,6 +88,9 @@ public class JBasicSplitPane
 		);
 	}
 	
+	/**
+	 * Adapts the divider location.
+	 */
 	private void adaptDividerLocation()
 	{
 		if (dividerLocations != null)
@@ -82,6 +109,11 @@ public class JBasicSplitPane
 		}
 	}
 	
+	/**
+	 * Sets the divider location.
+	 * @param index the index value
+	 * @param location the location value
+	 */
 	public void setDividerLocation(int index, int location)
 	{
 		if (dividerLocations == null)
@@ -94,6 +126,11 @@ public class JBasicSplitPane
 		}
 	}
 	
+	/**
+	 * Sets the component size.
+	 * @param index the index value
+	 * @param size the size value
+	 */
 	private void setComponentSize(final int index, final int size)
 	{
 		Component pane = getPaneAt(index);
@@ -119,6 +156,9 @@ public class JBasicSplitPane
 		}
 	}
 	
+	/**
+	 * Update the ui.
+	 */
 	public void updateUI()
 	{
 		SwingUtilities.invokeLater(new Runnable()
