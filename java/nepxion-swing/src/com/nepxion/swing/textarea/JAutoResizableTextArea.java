@@ -35,23 +35,23 @@ public class JAutoResizableTextArea
 	
 	/**
 	 * Constructs with the specified initial minimum row count.
-	 * @param minimumRows the minimum row count value
+	 * @param minRows the minimum row count value
 	 */
-	public JAutoResizableTextArea(int minimumRows)
+	public JAutoResizableTextArea(int minRows)
 	{
-		super(minimumRows);
+		super(minRows);
 		
 		popupMenuAdapter = new TextPopupMenuAdapter(this);
 	}
 	
 	/**
 	 * Constructs with the specified initial minimum row count and maximum row count.
-	 * @param minimumRows the minimum row count value
-	 * @param maximumRows the maximum row count value
+	 * @param minRows the minimum row count value
+	 * @param maxRows the maximum row count value
 	 */
-	public JAutoResizableTextArea(int minimumRows, int maximumRows)
+	public JAutoResizableTextArea(int minRows, int maxRows)
 	{
-		super(minimumRows, maximumRows);
+		super(minRows, maxRows);
 		
 		popupMenuAdapter = new TextPopupMenuAdapter(this);
 	}
@@ -69,13 +69,13 @@ public class JAutoResizableTextArea
 	
 	/**
 	 * Constructs with the specified initial minimum row count, maximum row count and column count.
-	 * @param minimumRows the minimum row count value
-	 * @param maximumRows the maximum row count value
+	 * @param minRows the minimum row count value
+	 * @param maxRows the maximum row count value
 	 * @param columns the column count value
 	 */
-	public JAutoResizableTextArea(int minimumRows, int maximumRows, int columns)
+	public JAutoResizableTextArea(int minRows, int maxRows, int columns)
 	{
-		super(minimumRows, maximumRows, columns);
+		super(minRows, maxRows, columns);
 		
 		popupMenuAdapter = new TextPopupMenuAdapter(this);
 	}
@@ -83,13 +83,13 @@ public class JAutoResizableTextArea
 	/**
 	 * Constructs with the specified initial text, minimum row count, maximum row count and column count.
 	 * @param text the text string
-	 * @param minimumRows the minimum row count value
-	 * @param maximumRows the maximum row count value
+	 * @param minRows the minimum row count value
+	 * @param maxRows the maximum row count value
 	 * @param columns the column count value
 	 */
-	public JAutoResizableTextArea(String text, int minimumRows, int maximumRows, int columns)
+	public JAutoResizableTextArea(String text, int minRows, int maxRows, int columns)
 	{
-		super(text, minimumRows, maximumRows, columns);
+		super(text, minRows, maxRows, columns);
 		
 		popupMenuAdapter = new TextPopupMenuAdapter(this);
 	}
@@ -109,13 +109,13 @@ public class JAutoResizableTextArea
 	 * Constructs with the specified initial doc, text, minimum row count, maximum row count and column count.
 	 * @param doc the instance of Document
 	 * @param text the text string
-	 * @param minimumRows the minimum row count value
-	 * @param maximumRows the maximum row count value
+	 * @param minRows the minimum row count value
+	 * @param maxRows the maximum row count value
 	 * @param columns the column count value
 	 */
-	public JAutoResizableTextArea(Document doc, String text, int minimumRows, int maximumRows, int columns)
+	public JAutoResizableTextArea(Document doc, String text, int minRows, int maxRows, int columns)
 	{
-		super(doc, text, minimumRows, maximumRows, columns);
+		super(doc, text, minRows, maxRows, columns);
 		
 		popupMenuAdapter = new TextPopupMenuAdapter(this);
 	}
