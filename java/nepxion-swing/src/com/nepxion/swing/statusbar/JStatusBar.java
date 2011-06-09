@@ -30,15 +30,39 @@ import com.nepxion.swing.toolbar.JBasicToolBar;
 public class JStatusBar
 	extends JBasicToolBar implements SwingConstants
 {	
+	/**
+	 * The left panel.
+	 */
 	private JPanel leftPanel;
+	
+	/**
+	 * The right panel.
+	 */
 	private JPanel rightPanel;
 	
+	/**
+	 * The left index value.
+	 */
 	private int leftIndex = 0;
+	
+	/**
+	 * The right index value.
+	 */
 	private int rightIndex = 0;
 	
+	/**
+	 * The separator height value.
+	 */
 	private int separatorHeight = 17;
+	
+	/**
+	 * The boolean value of isCornerVisible.
+	 */
 	private boolean isCornerVisible = true;
 	
+	/**
+	 * Constructs with the default.
+	 */
 	public JStatusBar()
 	{
 		leftPanel = new JPanel();
@@ -57,6 +81,10 @@ public class JStatusBar
 		setBorderVisible(true);
 	}
 	
+	/**
+	 * Sets the border visible.
+	 * @param isBorderVisible the boolean value of isBorderVisible
+	 */
 	public void setBorderVisible(boolean isBorderVisible)
 	{
 		if (isBorderVisible)
@@ -71,42 +99,89 @@ public class JStatusBar
 		}
 	}
 	
+	/**
+	 * Sets the corner visible.
+	 * @param isCornerVisible the boolean value of isCornerVisible
+	 */
 	public void setCornerVisible(boolean isCornerVisible)
 	{
 		this.isCornerVisible = isCornerVisible;
 	}
 	
+	/**
+	 * Sets the separator height.
+	 * @param separatorHeight the separator height value
+	 */
 	public void setSeparatorHeight(int separatorHeight)
 	{
 		this.separatorHeight = separatorHeight;
 	}
 	
-	public void addItem(int width, JStatusItem item)
+	/**
+	 * Adds the item.
+	 * @param item the instance of JStatusItem
+	 * @param width the width value
+	 */
+	public void addItem(JStatusItem item, int width)
 	{
-		addItem(width, item, true);
+		addItem(item, width, true);
 	}
 	
-	public void addItem(int width, JStatusItem item, boolean isSeparator)
+	/**
+	 * Adds the item.
+	 * @param item the instance of JStatusItem
+	 * @param width the width value
+	 * @param isSeparator the boolean value of isSeparator
+	 */
+	public void addItem(JStatusItem item, int width, boolean isSeparator)
 	{
-		addItem(width, item, LEFT, isSeparator);
+		addItem(item, width, LEFT, isSeparator);
 	}
 	
-	public void addItem(int width, JStatusItem item, int justification)
+	/**
+	 * Adds the item.
+	 * @param item the instance of JStatusItem
+	 * @param width the width value
+	 * @param justification the justification value
+	 */
+	public void addItem(JStatusItem item, int width, int justification)
 	{
-		addItem(width, item, justification, true);
+		addItem(item, width, justification, true);
 	}
 	
-	public void addItem(int width, JStatusItem item, int justification, boolean isSeparator)
+	/**
+	 * Adds the item.
+	 * @param item the instance of JStatusItem
+	 * @param width the width value
+	 * @param justification the justification value
+	 * @param isSeparator the boolean value of isSeparator
+	 */
+	public void addItem(JStatusItem item, int width, int justification, boolean isSeparator)
 	{
-		addItem(width, item, justification, JBasicSeparator.RAISED_STYLE, isSeparator);
+		addItem(item, width, justification, JBasicSeparator.RAISED_STYLE, isSeparator);
 	}
 	
-	public void addItem(int width, JStatusItem item, int justification, String style)
+	/**
+	 * Adds the item.
+	 * @param item the instance of JStatusItem
+	 * @param width the width value
+	 * @param justification the justification value
+	 * @param style the style string
+	 */
+	public void addItem(JStatusItem item, int width, int justification, String style)
 	{
-		addItem(width, item, justification, style, true);
+		addItem(item, width, justification, style, true);
 	}
 	
-	public void addItem(int width, JStatusItem item, int justification, String style, boolean isSeparator)
+	/**
+	 * Adds the item.
+	 * @param item the instance of JStatusItem
+	 * @param width the width value
+	 * @param justification the justification value
+	 * @param style the style string
+	 * @param isSeparator the boolean value of isSeparator
+	 */
+	public void addItem(JStatusItem item, int width, int justification, String style, boolean isSeparator)
 	{
 		int cornerWidth = 0;
 		
@@ -147,6 +222,12 @@ public class JStatusBar
 		DimensionManager.setDimension(item, new Dimension(width + cornerWidth, getPreferredSize().height));
 	}
 	
+	/**
+	 * Gets the item.
+	 * @param index the index value
+	 * @param justification the justification value
+	 * @return the instance of JStatusItem
+	 */
 	public JStatusItem getItem(int index, int justification)
 	{
 		if (justification == LEFT)
@@ -161,6 +242,12 @@ public class JStatusBar
 		return null;
 	}
 	
+	/**
+	 * Gets the item.
+	 * @param index the index value.
+	 * @param panel the instance of JPanel
+	 * @return the instance of JStatusItem
+	 */
 	private JStatusItem getItem(int index, JPanel panel)
 	{
 		for (int i = 0; i < panel.getComponentCount(); i++)
@@ -179,6 +266,10 @@ public class JStatusBar
 		return null;
 	}
 	
+	/**
+	 * Paints the children graphics.
+	 * @param g the instance of Graphics
+	 */
 	public void paintChildren(Graphics g)
 	{
 		super.paintChildren(g);
