@@ -13,9 +13,6 @@ package com.nepxion.swing.checkbox;
 import javax.swing.Action;
 import javax.swing.Icon;
 
-import com.nepxion.swing.style.button.lite.JEclipseLiteButtonStyle;
-import com.nepxion.swing.style.checkbox.lite.LiteCheckBoxUI;
-
 public class JLiteCheckBox
 	extends JBasicCheckBox
 {
@@ -208,9 +205,6 @@ public class JLiteCheckBox
 		LiteCheckBoxModel checkBoxModel = new LiteCheckBoxModel();
 		checkBoxModel.setSelected(isSelected());
 		setModel(checkBoxModel);
-		
-		LiteCheckBoxUI checkBoxUI = new LiteCheckBoxUI(new JEclipseLiteButtonStyle());
-		setUI(checkBoxUI);
 		
 		setRolloverEnabled(true);
 	}
