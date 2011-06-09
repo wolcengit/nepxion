@@ -15,21 +15,40 @@ import com.jidesoft.swing.RangeSlider;
 public class JRangeSlider
 	extends RangeSlider
 {
+	/**
+	 * Constructs with the default.
+	 */
 	public JRangeSlider()
 	{
 		super();
 	}
 	
+	/**
+	 * Constructs with the specified initial orientation.
+	 * @param orientation the orientation value
+	 */
 	public JRangeSlider(int orientation)
 	{
 		super(orientation);
 	}
 	
+	/**
+	 * Constructs with the specified initial min and max.
+	 * @param min the minimum value
+	 * @param max the maximum value
+	 */
 	public JRangeSlider(int min, int max)
 	{
 		super(min, max);
 	}
 	
+	/**
+	 * Constructs with the specified initial min, max, low and high.
+	 * @param min the minimum value
+	 * @param max the maximum value
+	 * @param low the low value
+	 * @param high the high value
+	 */
 	public JRangeSlider(int min, int max, int low, int high)
 	{
 		super(min, max, low, high);
