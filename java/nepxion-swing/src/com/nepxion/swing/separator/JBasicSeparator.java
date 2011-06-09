@@ -22,30 +22,69 @@ import com.nepxion.swing.dimension.DimensionManager;
 public class JBasicSeparator
 	extends JComponent implements SwingConstants
 {
+	/**
+	 * The raised style value.
+	 */
 	public static final String RAISED_STYLE = "RaisedStyle";
+	
+	/**
+	 * The lowered style value.
+	 */
 	public static final String LOWERED_STYLE = "LoweredStyle";
 	
+	/**
+	 * The default thickness value.
+	 */
 	public static final int DEFAULT_THICKNESS = 10;
 	
+	/**
+	 * The orientation value.
+	 */
 	private int orientation;
+	
+	/**
+	 * The style value.
+	 */
 	private String style;
+	
+	/**
+	 * The length value.
+	 */
 	private int length;
 	
+	/**
+	 * Constructs with the default.
+	 */
 	public JBasicSeparator()
 	{
 		this(22);
 	}
 	
+	/**
+	 * Constructs with the specified initial length.
+	 * @param length the length value.
+	 */
 	public JBasicSeparator(int length)
 	{
 		this(LOWERED_STYLE, length);
 	}
 	
+	/**
+	 * Constructs with the specified initial style and length.
+	 * @param style the style string
+	 * @param length the length value
+	 */
 	public JBasicSeparator(String style, int length)
 	{
 		this(VERTICAL, style, length);
 	}
 	
+	/**
+	 * Constructs with the specified initial orientation, style and length.
+	 * @param orientation the orientation value
+	 * @param style the style string
+	 * @param length the length value
+	 */
 	public JBasicSeparator(int orientation, String style, int length)
 	{
 		this.orientation = orientation;
@@ -54,11 +93,19 @@ public class JBasicSeparator
 		setLength(length);
 	}
 	
+	/**
+	 * Gets the orientation.
+	 * @return the orientation value
+	 */
 	public int getOrientation()
 	{
 		return orientation;
 	}
 	
+	/**
+	 * Sets the orientation
+	 * @param orientation the orientation value
+	 */
 	public void setOrientation(int orientation)
 	{
 		this.orientation = orientation;
@@ -66,11 +113,19 @@ public class JBasicSeparator
 		repaint();
 	}
 	
+	/**
+	 * Gets the length.
+	 * @return the length value
+	 */
 	public int getLength()
 	{
 		return length;
 	}
 	
+	/**
+	 * Sets the length.
+	 * @param length the length value
+	 */
 	public void setLength(int length)
 	{
 		this.length = length;
@@ -90,6 +145,10 @@ public class JBasicSeparator
 		DimensionManager.setDimension(this, dimension);
 	}
 	
+	/**
+	 * Paints the graphics.
+	 * @param g the instance of Graphics
+	 */
 	public void paint(Graphics g)
 	{
 		super.paint(g);
