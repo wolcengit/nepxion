@@ -29,7 +29,7 @@ import com.nepxion.swing.menuitem.JBasicMenuItem;
 import com.nepxion.swing.menuitem.JBasicRadioButtonMenuItem;
 import com.nepxion.swing.outlookbar.JFlatOutlook;
 import com.nepxion.swing.outlookbar.JFlatOutlookBar;
-import com.nepxion.swing.popupmenu.JDecorationPopupMenu;
+import com.nepxion.swing.popupmenu.JBasicPopupMenu;
 
 public class TGraphControlBar
 	extends JFlatOutlookBar
@@ -124,7 +124,7 @@ public class TGraphControlBar
 			magnifierButton.setText("");
 			viewOutlook.add(magnifierButton, "0, 4");
 			
-			JDecorationPopupMenu zoomPopupMenu = new JDecorationPopupMenu();
+			JBasicPopupMenu zoomPopupMenu = new JBasicPopupMenu();
 			
 			JBasicMenuItem zoomToOverviewMenuItem = new JBasicMenuItem(TGraphController.getZoomToOverviewAction(graph));
 			zoomPopupMenu.add(zoomToOverviewMenuItem);
@@ -185,7 +185,7 @@ public class TGraphControlBar
 			nodeOutlook = new JFlatOutlook();
 			nodeOutlook.setLayout(new TableLayout(size));
 						
-			JDecorationPopupMenu lockPopupMenu = new JDecorationPopupMenu();
+			JBasicPopupMenu lockPopupMenu = new JBasicPopupMenu();
 			
 			JBasicMenuItem lockAllMenuItem = new JBasicMenuItem(TGraphController.getLockAllAction(graph));
 			lockPopupMenu.add(lockAllMenuItem);
@@ -209,7 +209,7 @@ public class TGraphControlBar
 			hideChildrenButton.setText("");
 			nodeOutlook.add(hideChildrenButton, "1, 0");
 			
-			JDecorationPopupMenu alignPopupMenu = new JDecorationPopupMenu();
+			JBasicPopupMenu alignPopupMenu = new JBasicPopupMenu();
 			
 			JBasicMenuItem alignLeftMenuItem = new JBasicMenuItem(TGraphController.getAlignLeftAction(graph));
 			alignPopupMenu.add(alignLeftMenuItem);
@@ -235,7 +235,7 @@ public class TGraphControlBar
 			alignButton.setPopupMenu(alignPopupMenu);
 			nodeOutlook.add(alignButton, "0, 1");
 			
-			JDecorationPopupMenu pilePopupMenu = new JDecorationPopupMenu();
+			JBasicPopupMenu pilePopupMenu = new JBasicPopupMenu();
 			
 			JBasicMenuItem pileToLeftMenuItem = new JBasicMenuItem(TGraphController.getPileToLeftAction(graph));
 			pilePopupMenu.add(pileToLeftMenuItem);
@@ -255,7 +255,7 @@ public class TGraphControlBar
 			pileButton.setPopupMenu(pilePopupMenu);
 			nodeOutlook.add(pileButton, "1, 1");
 			
-			JDecorationPopupMenu sameSizePopupMenu = new JDecorationPopupMenu();
+			JBasicPopupMenu sameSizePopupMenu = new JBasicPopupMenu();
 			
 			JBasicMenuItem sameWidthMenuItem = new JBasicMenuItem(TGraphController.getSameWidthAction(graph));
 			sameSizePopupMenu.add(sameWidthMenuItem);
@@ -275,7 +275,7 @@ public class TGraphControlBar
 			sameSizeButton.setPopupMenu(sameSizePopupMenu);
 			nodeOutlook.add(sameSizeButton, "0, 2");
 			
-			JDecorationPopupMenu layerPopupMenu = new JDecorationPopupMenu();
+			JBasicPopupMenu layerPopupMenu = new JBasicPopupMenu();
 			
 			JBasicMenuItem moveToUpMenuItem = new JBasicMenuItem(TGraphController.getMoveToUpAction(graph));
 			layerPopupMenu.add(moveToUpMenuItem);
@@ -295,7 +295,7 @@ public class TGraphControlBar
 			layerButton.setPopupMenu(layerPopupMenu);
 			nodeOutlook.add(layerButton, "1, 2");
 			
-			JDecorationPopupMenu groupPopupMenu = new JDecorationPopupMenu();
+			JBasicPopupMenu groupPopupMenu = new JBasicPopupMenu();
 			
 			ButtonGroup groupTypeButtonGroup = new ButtonGroup();
 			TGroupType[] groupTypes = new TGroupType[] {TGroupType.RECTANGLE_GROUP_TYPE, TGroupType.ROUND_RECTANGLE_GROUP_TYPE, TGroupType.ROUND_GROUP_TYPE, TGroupType.OCTAGON_GROUP_TYPE, TGroupType.PARALLELOGRAM_GROUP_TYPE, TGroupType.ELLIPSE_GROUP_TYPE};
@@ -357,7 +357,7 @@ public class TGraphControlBar
 			importButton.setText("");
 			ioOutlook.add(importButton, "0, 0");
 			
-			JDecorationPopupMenu exportPopupMenu = new JDecorationPopupMenu();
+			JBasicPopupMenu exportPopupMenu = new JBasicPopupMenu();
 			
 			JBasicMenuItem exportXMLMenuItem = new JBasicMenuItem(TGraphController.getExportXMLAction(graph));
 			exportPopupMenu.add(exportXMLMenuItem);

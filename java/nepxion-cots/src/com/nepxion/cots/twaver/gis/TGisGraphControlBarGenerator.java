@@ -26,7 +26,7 @@ import com.nepxion.swing.button.JBasicToggleButton;
 import com.nepxion.swing.layout.table.TableLayout;
 import com.nepxion.swing.menuitem.JBasicRadioButtonMenuItem;
 import com.nepxion.swing.outlookbar.JFlatOutlook;
-import com.nepxion.swing.popupmenu.JDecorationPopupMenu;
+import com.nepxion.swing.popupmenu.JBasicPopupMenu;
 
 public class TGisGraphControlBarGenerator
 {
@@ -72,7 +72,7 @@ public class TGisGraphControlBarGenerator
 		magnifierButton.setText("");
 		viewOutlook.add(magnifierButton, "0, 4");
 		
-		JDecorationPopupMenu mapPopupMenu = new JDecorationPopupMenu();
+		JBasicPopupMenu mapPopupMenu = new JBasicPopupMenu();
 		
 		ButtonGroup mapTypeButtonGroup = new ButtonGroup();
 		TMapType[] mapTypes = new TMapType[] {TMapType.GOOGLE_MAP_TYPE,	TMapType.GOOGLE_SATELLITE_MAP_TYPE, TMapType.GOOGLE_TERRAIN_MAP_TYPE, TMapType.MICROSOFT_BINT_MAP_TYPE, TMapType.OPENSTREET_MAP_TYPE, TMapType.MAPABC_MAP_TYPE, TMapType.TIANDITU_MAP_TYPE};

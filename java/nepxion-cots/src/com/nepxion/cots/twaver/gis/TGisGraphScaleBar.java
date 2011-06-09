@@ -93,11 +93,11 @@ public class TGisGraphScaleBar
 		);
 		setDistance(distanceLabel, tDistanceLabel.getText());
 		
-		addItem(80, new JStatusItem(zoomLabel), LEFT, JBasicSeparator.LOWERED_STYLE, true);
-		addItem(20, positionStatusItem, LEFT, JBasicSeparator.LOWERED_STYLE, false);
-		addItem(120, longitudeStatusItem, LEFT, JBasicSeparator.LOWERED_STYLE, false);
-		addItem(120, latitudeStatusItem, LEFT, JBasicSeparator.LOWERED_STYLE, true);
-		addItem(160, new JStatusItem(distanceLabel), LEFT, JBasicSeparator.LOWERED_STYLE, false);
+		addItem(new JStatusItem(zoomLabel), 80, LEFT, JBasicSeparator.LOWERED_STYLE, true);
+		addItem(positionStatusItem, 20, LEFT, JBasicSeparator.LOWERED_STYLE, false);
+		addItem(longitudeStatusItem, 120, LEFT, JBasicSeparator.LOWERED_STYLE, false);
+		addItem(latitudeStatusItem, 120, LEFT, JBasicSeparator.LOWERED_STYLE, true);
+		addItem(new JStatusItem(distanceLabel), 160, LEFT, JBasicSeparator.LOWERED_STYLE, false);
 	}
 	
 	private void setZoom(JLabel zoomLabel, String zoom)

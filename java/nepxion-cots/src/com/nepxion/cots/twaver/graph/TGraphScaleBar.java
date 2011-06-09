@@ -41,8 +41,8 @@ public class TGraphScaleBar
 		final JLabel positionLabel = new JLabel(TIconFactory.getContextIcon("scale.png"));
 		positionLabel.setText("x:0 y:0");
 		
-		addItem(90, new JStatusItem(zoomLabel), LEFT, JBasicSeparator.LOWERED_STYLE, true);
-		addItem(130, new JStatusItem(positionLabel), LEFT, JBasicSeparator.LOWERED_STYLE, false);
+		addItem(new JStatusItem(zoomLabel), 90, LEFT, JBasicSeparator.LOWERED_STYLE, true);
+		addItem(new JStatusItem(positionLabel), 130, LEFT, JBasicSeparator.LOWERED_STYLE, false);
 
 		graph.getCanvas().addMouseListener(new MouseAdapter()
 		{

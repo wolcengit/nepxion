@@ -19,7 +19,7 @@ import com.nepxion.swing.button.JClassicMenuButton;
 import com.nepxion.swing.lookandfeel.LookAndFeelManager;
 import com.nepxion.swing.menu.JBasicMenu;
 import com.nepxion.swing.menuitem.JBasicMenuItem;
-import com.nepxion.swing.popupmenu.JDecorationPopupMenu;
+import com.nepxion.swing.popupmenu.JBasicPopupMenu;
 import com.nepxion.swing.toolbar.JBasicToolBar;
 
 public class TGraphToolBar
@@ -34,7 +34,7 @@ public class TGraphToolBar
 	{
 		graph.setToolbar(this);
 		
-		JDecorationPopupMenu controlBarPopupMenu = new JDecorationPopupMenu();
+		JBasicPopupMenu controlBarPopupMenu = new JBasicPopupMenu();
 		
 		JBasicMenuItem controlBarVisibleMenuItem = new JBasicMenuItem(TGraphController.getShowControlBarAction(graph));
 		controlBarPopupMenu.add(controlBarVisibleMenuItem);
