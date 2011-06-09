@@ -18,6 +18,9 @@ import org.jdesktop.swingworker.SwingWorker;
 public class PropertyChangeAdapter
 	implements PropertyChangeListener
 {
+	/**
+	 * Invoked when a property value is changed.
+	 */
 	public void propertyChange(PropertyChangeEvent e)
 	{
 		if (e.getPropertyName().equals("state"))
@@ -43,21 +46,34 @@ public class PropertyChangeAdapter
 		}
 	}
 	
+	/**
+	 * Fires the pending status changed.
+	 */
 	public void firePendingStatusChanged()
 	{
 		
 	}
 	
+	/**
+	 * Fires the started status changed.
+	 */
 	public void fireStartedStatusChanged()
 	{
 		
 	}
 	
+	/**
+	 * Fires the done status changed.
+	 */
 	public void fireDoneStatusChanged()
 	{
 		
 	}
 	
+	/**
+	 * Fires the progress value changed.
+	 * @param value the value object
+	 */
 	public void fireProgressValueChanged(Object value)
 	{
 		

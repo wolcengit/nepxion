@@ -20,13 +20,23 @@ import com.nepxion.swing.handle.HandleManager;
 public abstract class JSwingWorker
 	extends SwingWorker
 {
+	/**
+	 * The instance of Component.
+	 */
 	private Component component;
 	
+	/**
+	 * Constructs with the default.
+	 */
 	public JSwingWorker()
 	{
 		this(null);
 	}
 	
+	/**
+	 * Constructs with the specified initial component.
+	 * @param component the instance of Component
+	 */
 	public JSwingWorker(Component component)
 	{
 		this.component = component;
@@ -56,16 +66,28 @@ public abstract class JSwingWorker
 		);
 	}
 	
+	/**
+	 * Gets the component.
+	 * @return the instance of Component
+	 */
 	public Component getComponent()
 	{
 		return component;
 	}
 	
+	/**
+	 * Sets the component.
+	 * @param component the instance of Component
+	 */
 	public void setComponent(Component component)
 	{
 		this.component = component;
 	}
 	
+	/**
+	 * Invoked when the swing worker loads the foreground data.
+	 * It is mainly used for the gui updating. 
+	 */
 	protected void done()
 	{
 		if (isCancelled())
@@ -109,6 +131,10 @@ public abstract class JSwingWorker
 		}
 	}
 	
+	/**
+	 * Invoked when the swing worker loads the background data.
+	 * @return the background data
+	 */
 	protected Object doInBackground()
 		throws Exception
 	{
@@ -130,44 +156,78 @@ public abstract class JSwingWorker
 		return data;
 	}
 	
+	/**
+	 * Fires the pending status changed.
+	 */
 	public void firePendingStatusChanged()
 	{
 		
 	}
 	
+	/**
+	 * Fires the started status changed.
+	 */
 	public void fireStartedStatusChanged()
 	{
 		
 	}
 	
+	/**
+	 * Fires the done status changed.
+	 */
 	public void fireDoneStatusChanged()
 	{
 		
 	}
 	
+	/**
+	 * Fires the progress value changed.
+	 * @param value the value object
+	 */
 	public void fireProgressValueChanged(Object value)
 	{
 		
 	}
 	
+	/**
+	 * Fires the cancelled status changed.
+	 */
 	public void fireCancelledStatusChanged()
 	{
 		
 	}
 	
+	/**
+	 * Fires the foreground exception.
+	 * @param e the instance of Exception
+	 */
 	public void fireForegroundException(Exception e)
 	{
 		
 	}
 	
+	/**
+	 * Fires the background exception.
+	 * @param e the instance of Exception
+	 */
 	public void fireBackgroundException(Exception e)
 	{
 		
 	}
 	
+	/**
+	 * Loads the foreground.
+	 * @param data the background data
+	 * @throws Exception
+	 */
 	protected abstract void loadForeground(Object data)
 		throws Exception;
 	
+	/**
+	 * Loads the background.
+	 * @return the background data
+	 * @throws Exception
+	 */
 	protected abstract Object loadBackground()
 		throws Exception;
 }
