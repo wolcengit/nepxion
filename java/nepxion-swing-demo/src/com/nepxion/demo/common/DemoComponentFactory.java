@@ -20,7 +20,7 @@ import com.nepxion.swing.element.ElementNode;
 import com.nepxion.swing.icon.IconFactory;
 import com.nepxion.swing.menu.JBasicMenu;
 import com.nepxion.swing.menuitem.JBasicMenuItem;
-import com.nepxion.swing.popupmenu.JDecorationPopupMenu;
+import com.nepxion.swing.popupmenu.JBasicPopupMenu;
 import com.nepxion.swing.renderer.list.ElementListCellRenderer;
 import com.nepxion.swing.renderer.table.ElementTableCellRenderer;
 import com.nepxion.swing.renderer.tree.ElementTreeCellRenderer;
@@ -119,36 +119,36 @@ public class DemoComponentFactory
 		eclipseTabbedPane.addTab("Tab 7", IconFactory.getSwingIcon("component/tabbed_pane_16.png"), new JBasicScrollPane(new JBasicTextArea()), "Tab 7", true);
 		eclipseTabbedPane.addTab("Tab 8", IconFactory.getSwingIcon("component/tabbed_pane_16.png"), new JBasicScrollPane(new JBasicTextArea()), "Tab 8", false);		
 		
-		JDecorationPopupMenu popupMenu = new JDecorationPopupMenu();
+		JBasicPopupMenu popupMenu = new JBasicPopupMenu();
 		eclipseTabbedPane.setPopupMenu(popupMenu, true);
 		
 		return eclipseTabbedPane;
 	}
 	
-	public static JDecorationPopupMenu createDecorationPopupMenu()
+	public static JBasicPopupMenu createPopupMenu()
 	{
-		JDecorationPopupMenu decorationPopupMenu = new JDecorationPopupMenu();
+		JBasicPopupMenu popupMenu = new JBasicPopupMenu();
 		
 		JBasicMenu menu1 = new JBasicMenu("Menu");
 		menu1.setIcon(IconFactory.getSwingIcon("component/menu_16.png"));
 		menu1.add(new JBasicMenuItem("MenuItem", IconFactory.getSwingIcon("component/menu_16.png"), "MenuItem"));
 		menu1.add(new JBasicMenuItem("MenuItem", IconFactory.getSwingIcon("component/menu_16.png"), "MenuItem"));
-		decorationPopupMenu.add(menu1);
+		popupMenu.add(menu1);
 		
 		JBasicMenu menu2 = new JBasicMenu("Menu");
 		menu2.setIcon(IconFactory.getSwingIcon("component/popup_menu_16.png"));
 		menu2.add(new JBasicMenuItem("MenuItem", IconFactory.getSwingIcon("component/popup_menu_16.png"), "MenuItem"));
 		menu2.add(new JBasicMenuItem("MenuItem", IconFactory.getSwingIcon("component/popup_menu_16.png"), "MenuItem"));
-		decorationPopupMenu.add(menu2);
+		popupMenu.add(menu2);
 		
-		decorationPopupMenu.addSeparator();
+		popupMenu.addSeparator();
 		
 		JBasicMenu menu3 = new JBasicMenu("Menu");
 		menu3.setIcon(IconFactory.getSwingIcon("component/list_16.png"));
 		menu3.add(new JBasicMenuItem("MenuItem", IconFactory.getSwingIcon("component/list_16.png"), "MenuItem"));
 		menu3.add(new JBasicMenuItem("MenuItem", IconFactory.getSwingIcon("component/list_16.png"), "MenuItem"));
-		decorationPopupMenu.add(menu3);
+		popupMenu.add(menu3);
 		
-		return decorationPopupMenu;
+		return popupMenu;
 	}		
 }

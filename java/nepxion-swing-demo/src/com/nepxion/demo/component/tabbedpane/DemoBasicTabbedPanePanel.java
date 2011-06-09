@@ -23,7 +23,7 @@ import com.nepxion.swing.handle.HandleManager;
 import com.nepxion.swing.icon.IconFactory;
 import com.nepxion.swing.layout.filed.FiledLayout;
 import com.nepxion.swing.optionpane.JBasicOptionPane;
-import com.nepxion.swing.popupmenu.JDecorationPopupMenu;
+import com.nepxion.swing.popupmenu.JBasicPopupMenu;
 import com.nepxion.swing.scrollpane.JBasicScrollPane;
 import com.nepxion.swing.tabbedpane.JBasicTabbedPane;
 
@@ -77,7 +77,7 @@ public class DemoBasicTabbedPanePanel
 			basicTabbedPane.addTab("Tab 7", IconFactory.getSwingIcon("component/tabbed_pane_16.png"), new JBasicScrollPane(new ConfigPanel(basicTabbedPane)), "Tab 7", true);
 			basicTabbedPane.addTab("Tab 8", IconFactory.getSwingIcon("component/tabbed_pane_16.png"), new JBasicScrollPane(new ConfigPanel(basicTabbedPane)), "Tab 8", false);
 			
-			JDecorationPopupMenu popupMenu = new JDecorationPopupMenu();
+			JBasicPopupMenu popupMenu = new JBasicPopupMenu();
 			basicTabbedPane.setPopupMenu(popupMenu, true);			
 			add(basicTabbedPane);			
 		}

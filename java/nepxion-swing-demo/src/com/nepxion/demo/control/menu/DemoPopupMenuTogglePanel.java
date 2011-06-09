@@ -14,7 +14,7 @@ import javax.swing.Icon;
 
 import com.nepxion.demo.common.DemoTogglePanel;
 import com.nepxion.demo.common.DemoToggleTemplate;
-import com.nepxion.demo.component.popupmenu.DemoDecorationPopupMenuPanel;
+import com.nepxion.demo.component.popupmenu.DemoPopupMenuPanel;
 import com.nepxion.swing.icon.IconFactory;
 import com.nepxion.swing.tabbedpane.JEclipseTabbedPane;
 
@@ -24,7 +24,7 @@ public class DemoPopupMenuTogglePanel
 	public DemoPopupMenuTogglePanel()
 	{
 		JEclipseTabbedPane toggleTabbedPane = getToggleTabbedPane();
-		toggleTabbedPane.addTab("Decoration PopupMenu", IconFactory.getSwingIcon("component/popup_menu_16.png"), new DemoToggleTemplate(new DemoDecorationPopupMenuPanel()), "Decoration PopupMenu");		
+		toggleTabbedPane.addTab("PopupMenu", IconFactory.getSwingIcon("component/popup_menu_16.png"), new DemoToggleTemplate(new DemoPopupMenuPanel()), "PopupMenu");		
 	}
 	
 	public String getToggleName()

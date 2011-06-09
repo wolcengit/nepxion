@@ -28,7 +28,7 @@ import com.nepxion.swing.handle.HandleManager;
 import com.nepxion.swing.icon.IconFactory;
 import com.nepxion.swing.layout.filed.FiledLayout;
 import com.nepxion.swing.menuitem.JBasicRadioButtonMenuItem;
-import com.nepxion.swing.popupmenu.JDecorationPopupMenu;
+import com.nepxion.swing.popupmenu.JBasicPopupMenu;
 import com.nepxion.swing.selector.calendar.JCalendarSelector;
 import com.nepxion.swing.selector.calendar.JCalendarSelectorDialog;
 import com.nepxion.swing.selector.calendar.JCalendarSelectorOptionPane;
@@ -740,7 +740,7 @@ public class DemoCalendarSelectorPanel
 	{
 		JBasicMenuButton button = new JBasicMenuButton(isDateFormat ? "Date Format" : "Time Format", IconFactory.getSwingIcon("component/button_16.png"), isDateFormat ? "Date Format" : "Time Format");
 		
-		JDecorationPopupMenu popupMenu = new JDecorationPopupMenu();
+		JBasicPopupMenu popupMenu = new JBasicPopupMenu();
 		ButtonGroup buttonGroup = new ButtonGroup();
 		for (int i = 0; i < formatList.length; i++)
 		{

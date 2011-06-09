@@ -31,7 +31,7 @@ import com.nepxion.swing.label.JBasicLabel;
 import com.nepxion.swing.layout.filed.FiledLayout;
 import com.nepxion.swing.listener.SelectionListener;
 import com.nepxion.swing.optionpane.JBasicOptionPane;
-import com.nepxion.swing.popupmenu.JDecorationPopupMenu;
+import com.nepxion.swing.popupmenu.JBasicPopupMenu;
 import com.nepxion.swing.renderer.combobox.ElementComboBoxCellRenderer;
 import com.nepxion.swing.style.framework.IStyle;
 import com.nepxion.swing.tabbedpane.JEclipseTabbedPane;
@@ -83,7 +83,7 @@ public class DemoEclipseTabbedPanePanel
 			eclipseTabbedPane.addTab("Tab 7", IconFactory.getSwingIcon("component/tabbed_pane_16.png"), new PrivateConfigPanel(), "Tab 7", true);
 			eclipseTabbedPane.addTab("Tab 8", IconFactory.getSwingIcon("component/tabbed_pane_16.png"), new PrivateConfigPanel(), "Tab 8", false);
 			
-			JDecorationPopupMenu popupMenu = new JDecorationPopupMenu();
+			JBasicPopupMenu popupMenu = new JBasicPopupMenu();
 			eclipseTabbedPane.setPopupMenu(popupMenu, true);			
 			add(eclipseTabbedPane);	
 

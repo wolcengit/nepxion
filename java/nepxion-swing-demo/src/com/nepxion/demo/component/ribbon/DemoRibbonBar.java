@@ -31,7 +31,7 @@ import com.nepxion.swing.layout.filed.FiledLayout;
 import com.nepxion.swing.layout.table.TableLayout;
 import com.nepxion.swing.menu.JColorMenu;
 import com.nepxion.swing.menuitem.JBasicMenuItem;
-import com.nepxion.swing.popupmenu.JDecorationPopupMenu;
+import com.nepxion.swing.popupmenu.JBasicPopupMenu;
 import com.nepxion.swing.separator.JBasicSeparator;
 import com.nepxion.swing.toolbar.JBasicToolBar;
 
@@ -59,7 +59,7 @@ public class DemoRibbonBar
 		
 		JBasicToolBar toolBar = ribbon.getToolBar();
 		
-		JDecorationPopupMenu pastePopupMenu = new JDecorationPopupMenu();
+		JBasicPopupMenu pastePopupMenu = new JBasicPopupMenu();
 		pastePopupMenu.add(new JBasicMenuItem("粘贴选项", "粘贴选项"));
 		pastePopupMenu.add(new JBasicMenuItem("粘贴选项", "粘贴选项"));
 		pastePopupMenu.add(new JBasicMenuItem("粘贴选项", "粘贴选项"));
@@ -151,7 +151,7 @@ public class DemoRibbonBar
 		bottomToolBar.add(new JClassicMenuButton(IconFactory.getContextIcon("font_effect.png")));
 		bottomToolBar.add(new JClassicMenuButton(IconFactory.getContextIcon("font_highlight.png")));
 		
-		JDecorationPopupMenu fontColorPopupMenu = new JDecorationPopupMenu();
+		JBasicPopupMenu fontColorPopupMenu = new JBasicPopupMenu();
 		fontColorPopupMenu.add(new JColorMenu());
 		
 		JClassicMenuButton fontColorButton = new JClassicMenuButton(IconFactory.getContextIcon("font_color.png"));

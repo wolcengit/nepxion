@@ -37,7 +37,7 @@ import com.nepxion.swing.layout.toolbar.ToolBarLayout;
 import com.nepxion.swing.lookandfeel.LookAndFeelManager;
 import com.nepxion.swing.menuitem.JBasicMenuItem;
 import com.nepxion.swing.menuitem.JBasicRadioButtonMenuItem;
-import com.nepxion.swing.popupmenu.JDecorationPopupMenu;
+import com.nepxion.swing.popupmenu.JBasicPopupMenu;
 import com.nepxion.swing.renderer.tree.ElementTreeCellRenderer;
 import com.nepxion.swing.separator.JBasicSeparator;
 import com.nepxion.swing.tree.AbstractTreeAdapter;
@@ -387,7 +387,7 @@ public class DemoLazyLoaderTreePanel
 			JBasicSplitButton loadButton = new JBasicSplitButton(LazyLoaderTreeController.getLoadAction(lazyLoaderTree, lazyLoaderAdapter));
 			add(loadButton);
 			
-			JDecorationPopupMenu loadPopupMenu = new JDecorationPopupMenu();
+			JBasicPopupMenu loadPopupMenu = new JBasicPopupMenu();
 			loadButton.setPopupMenu(loadPopupMenu);
 			
 			JBasicMenuItem loadMenuItem = new JBasicMenuItem(LazyLoaderTreeController.getLoadAction(lazyLoaderTree, lazyLoaderAdapter));
@@ -406,7 +406,7 @@ public class DemoLazyLoaderTreePanel
 			cancelButton.setText("取消");
 			add(cancelButton);
 			
-			JDecorationPopupMenu cancelPopupMenu = new JDecorationPopupMenu();
+			JBasicPopupMenu cancelPopupMenu = new JBasicPopupMenu();
 			cancelButton.setPopupMenu(cancelPopupMenu);			
 			
 			JBasicMenuItem cancelMenuItem = new JBasicMenuItem(LazyLoaderTreeController.getCancelAction(lazyLoaderTree, lazyLoaderAdapter)); 
@@ -424,7 +424,7 @@ public class DemoLazyLoaderTreePanel
 			JBasicMenuButton loadStrategyButton = new JBasicMenuButton("策略", IconFactory.getSwingIcon("stereo/application_16.png"), "装载策略");
 			add(loadStrategyButton);
 			
-			JDecorationPopupMenu loadStrategyPopupMenu = new JDecorationPopupMenu();
+			JBasicPopupMenu loadStrategyPopupMenu = new JBasicPopupMenu();
 			loadStrategyButton.setPopupMenu(loadStrategyPopupMenu);
 			
 			ButtonGroup buttonGroup = new ButtonGroup();
@@ -465,7 +465,7 @@ public class DemoLazyLoaderTreePanel
 			JBasicSplitButton expandButton = new JBasicSplitButton(LazyLoaderTreeController.getExpandAction(lazyLoaderTree));
 			add(expandButton);
 			
-			JDecorationPopupMenu expandPopupMenu = new JDecorationPopupMenu();
+			JBasicPopupMenu expandPopupMenu = new JBasicPopupMenu();
 			expandButton.setPopupMenu(expandPopupMenu);			
 			
 			JBasicMenuItem expandMenuItem = new JBasicMenuItem(LazyLoaderTreeController.getExpandAction(lazyLoaderTree));
@@ -483,7 +483,7 @@ public class DemoLazyLoaderTreePanel
 			JBasicSplitButton collapseButton = new JBasicSplitButton(LazyLoaderTreeController.getCollapseAction(lazyLoaderTree));
 			add(collapseButton);
 			
-			JDecorationPopupMenu collapsePopupMenu = new JDecorationPopupMenu();
+			JBasicPopupMenu collapsePopupMenu = new JBasicPopupMenu();
 			collapseButton.setPopupMenu(collapsePopupMenu);				
 			
 			JBasicMenuItem collapseMenuItem = new JBasicMenuItem(LazyLoaderTreeController.getCollapseAction(lazyLoaderTree));
@@ -502,7 +502,7 @@ public class DemoLazyLoaderTreePanel
 	}
 	
 	public class FilePopopMenu
-		extends JDecorationPopupMenu
+		extends JBasicPopupMenu
 	{
 		public FilePopopMenu(JLazyLoaderTree lazyLoaderTree)
 		{		

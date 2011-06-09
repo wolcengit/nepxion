@@ -48,7 +48,7 @@ import com.nepxion.swing.listener.SelectionListener;
 import com.nepxion.swing.locale.SwingLocale;
 import com.nepxion.swing.menuitem.JBasicMenuItem;
 import com.nepxion.swing.optionpane.JBasicOptionPane;
-import com.nepxion.swing.popupmenu.JDecorationPopupMenu;
+import com.nepxion.swing.popupmenu.JBasicPopupMenu;
 import com.nepxion.swing.renderer.combobox.ElementComboBoxCellRenderer;
 import com.nepxion.swing.style.framework.IStyle;
 import com.nepxion.swing.style.framework.JRibbonStyle;
@@ -79,7 +79,7 @@ public class DemoRibbonNavigatorBar
 		setNavigatorIcon(IconFactory.getSwingIcon("ribbon/navigator_nepxion.png"));
 		setNavigatorToolTipText("Nepxion Studio");
 		
-		JPopupMenu navigatorPopupMenu = new JDecorationPopupMenu();
+		JPopupMenu navigatorPopupMenu = new JBasicPopupMenu();
 		navigatorPopupMenu.add(new JBasicMenuItem(getChangeStyleAction()));
 		navigatorPopupMenu.addSeparator();
 		navigatorPopupMenu.add(new JBasicMenuItem(getChangeTitleAction()));
