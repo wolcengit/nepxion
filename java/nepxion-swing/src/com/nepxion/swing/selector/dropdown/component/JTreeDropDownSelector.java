@@ -27,7 +27,7 @@ import com.nepxion.swing.selector.dropdown.JDropDownDraggablePopupMenu;
 import com.nepxion.swing.selector.dropdown.JDropDownPane;
 import com.nepxion.swing.selector.dropdown.JDropDownPopupMenu;
 import com.nepxion.swing.selector.dropdown.JDropDownSelector;
-import com.nepxion.swing.textcomponent.PopupMenuAdapter;
+import com.nepxion.swing.textcomponent.TextPopupMenuAdapter;
 
 public abstract class JTreeDropDownSelector
 	extends JDropDownSelector
@@ -64,7 +64,7 @@ public abstract class JTreeDropDownSelector
 		DropDownPane dropDownPane = new DropDownPane(dropDownPopupMenu, tree);
 		setDropDownPane(dropDownPane);
 		
-		PopupMenuAdapter popupMenuAdapter = getTextField().getPopupMenuAdapter();
+		TextPopupMenuAdapter popupMenuAdapter = getTextField().getPopupMenuAdapter();
 		JBasicPopupMenu popoupMenu = popupMenuAdapter.getPopupMenu();
 		
 		popoupMenu.addSeparator();
