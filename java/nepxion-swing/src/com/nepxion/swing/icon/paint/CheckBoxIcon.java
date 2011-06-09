@@ -45,20 +45,27 @@ public class CheckBoxIcon
 	private boolean focused;
 	
 	/**
+	 * The boolean value of innerBorder.
+	 */
+	private boolean innerBorder;
+	
+	/**
 	 * Constructs with the specified initial background icon, check color, focus color, selected and focused.
 	 * @param backgroundIcon the background icon
 	 * @param checkColor the check color
 	 * @param focusColor the focus color
 	 * @param selected the boolean value of selected
 	 * @param focused the boolean value of focused
+	 * @param innerBorder the boolean value of innerBorder
 	 */
-	public CheckBoxIcon(Icon backgroundIcon, Color checkColor, Color focusColor, boolean selected, boolean focused)
+	public CheckBoxIcon(Icon backgroundIcon, Color checkColor, Color focusColor, boolean selected, boolean focused, boolean innerBorder)
 	{
 		this.backgroundIcon = backgroundIcon;
 		this.checkColor = checkColor;
 		this.focusColor = focusColor;
 		this.selected = selected;
 		this.focused = focused;
+		this.innerBorder = innerBorder;
 	}
 		
 	/**
@@ -107,6 +114,15 @@ public class CheckBoxIcon
 	}
 	
 	/**
+	 * Returns true if the inner border shown.
+	 * @return true if the inner border shown
+	 */
+	public boolean isInnerBorder()
+	{
+		return innerBorder;
+	}
+	
+	/**
 	 * Gets the icon width.
 	 * @return the icon width value.
 	 */
@@ -151,7 +167,7 @@ public class CheckBoxIcon
 			g.drawLine(x + 10, y + 4, x + 10, y + 6);
 		}
 		
-		if (focused)
+		if (focused && innerBorder)
 		{
 			g.setColor(focusColor);
 			g.drawRect(x + 2, y + 2, 10, 10);
