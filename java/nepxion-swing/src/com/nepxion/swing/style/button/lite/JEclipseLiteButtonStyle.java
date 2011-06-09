@@ -30,7 +30,7 @@ public class JEclipseLiteButtonStyle
 
 		selectionBackground = new Color(182, 189, 210);
 		selectionBorderColor = new Color(51, 71, 125); // new Color(10, 36, 106);
-        
+		
 		checkColor = new Color(59, 172, 58);
 		focusColor = new Color(245, 165, 16);
 	}

@@ -30,7 +30,7 @@ public class JYellowLiteButtonStyle
 
 		selectionBackground = new Color(249, 224, 137); // new Color(250, 214, 138);
 		selectionBorderColor = new Color(189, 156, 42); // new Color(191, 143, 41); 
-        
+		
 		checkColor = new Color(90, 97, 100);
 		focusColor = new Color(189, 156, 42);
 	}
