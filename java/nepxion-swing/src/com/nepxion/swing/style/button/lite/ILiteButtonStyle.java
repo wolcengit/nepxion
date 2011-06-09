@@ -48,8 +48,8 @@ public interface ILiteButtonStyle
 	public Color getCheckColor(); // 勾选的颜色，只适用于CheckBox和RadioButton
 	
 	/**
-	 * Gets the focus color.
+	 * Gets the check focus color.
 	 * @return the instance of Color
 	 */
-	public Color getFocusColor(); // 焦点框的颜色，只适用于CheckBox和RadioButton
+	public Color getCheckFocusColor(); // 焦点框的颜色，只适用于CheckBox和RadioButton
 }

@@ -32,6 +32,6 @@ public class JAcidLiteButtonStyle
 		selectionBorderColor = new Color(157, 159, 74);
 		
 		checkColor = new Color(85, 109, 54);
-		focusColor = new Color(225, 152, 88);
+		checkFocusColor = new Color(225, 152, 88);
 	}
 }

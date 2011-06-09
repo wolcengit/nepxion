@@ -32,6 +32,6 @@ public class JBedouinLiteButtonStyle
 		selectionBorderColor = Color.gray;
 		
 		checkColor = new Color(90, 97, 100);
-		focusColor = new Color(234, 182, 71);
+		checkFocusColor = new Color(234, 182, 71);
 	}
 }

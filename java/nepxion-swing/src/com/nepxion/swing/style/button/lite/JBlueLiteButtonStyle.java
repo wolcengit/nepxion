@@ -32,6 +32,6 @@ public class JBlueLiteButtonStyle
 		selectionBorderColor = new Color(49, 106, 197);
 		
 		checkColor = new Color(90, 97, 100);
-		focusColor = new Color(49, 106, 197);
+		checkFocusColor = new Color(49, 106, 197);
 	}
 }

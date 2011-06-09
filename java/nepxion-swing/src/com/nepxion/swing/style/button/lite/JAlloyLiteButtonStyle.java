@@ -32,6 +32,6 @@ public class JAlloyLiteButtonStyle
 		selectionBorderColor = new Color(49, 106, 197);
 		
 		checkColor = new Color(80, 110, 153);
-		focusColor = new Color(255, 207, 50);
+		checkFocusColor = new Color(255, 207, 50);
 	}
 }

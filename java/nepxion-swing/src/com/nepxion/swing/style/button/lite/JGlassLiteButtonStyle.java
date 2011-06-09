@@ -32,6 +32,6 @@ public class JGlassLiteButtonStyle
 		selectionBorderColor = new Color(42, 128, 217);
 		
 		checkColor = new Color(75, 151, 204);
-		focusColor = new Color(122, 192, 255);
+		checkFocusColor = new Color(122, 192, 255);
 	}
 }

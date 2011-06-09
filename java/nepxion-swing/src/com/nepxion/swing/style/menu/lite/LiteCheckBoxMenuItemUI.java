@@ -63,16 +63,16 @@ public class LiteCheckBoxMenuItemUI
 	{
 		this.buttonStyle = (ILiteButtonStyle) buttonStyle;
 		
-		armedIcon = new CheckBoxIcon(IconFactory.getSwingIcon(PLASTIC_STYLE + "checkbox_lower.png"), this.buttonStyle.getCheckColor(), this.buttonStyle.getFocusColor(), false, true);
-		pressedIcon = new CheckBoxIcon(IconFactory.getSwingIcon(PLASTIC_STYLE + "checkbox_lower.png"), this.buttonStyle.getCheckColor(), this.buttonStyle.getFocusColor(), false, true);
-		rolloverIcon = new CheckBoxIcon(IconFactory.getSwingIcon(PLASTIC_STYLE + "checkbox_raised.png"), this.buttonStyle.getCheckColor(), this.buttonStyle.getFocusColor(), false, true);
-		disableIcon = new CheckBoxIcon(IconFactory.getSwingIcon(PLASTIC_STYLE + "checkbox_disable.png"), Color.gray, null, false, false);
-		normalIcon = new CheckBoxIcon(IconFactory.getSwingIcon(PLASTIC_STYLE + "checkbox_raised.png"), this.buttonStyle.getCheckColor(), this.buttonStyle.getFocusColor(), false, false);
+		armedIcon = new CheckBoxIcon(IconFactory.getSwingIcon(PLASTIC_STYLE + "checkbox_lower.png"), this.buttonStyle.getCheckColor(), this.buttonStyle.getCheckFocusColor(), false, true, false);
+		pressedIcon = new CheckBoxIcon(IconFactory.getSwingIcon(PLASTIC_STYLE + "checkbox_lower.png"), this.buttonStyle.getCheckColor(), this.buttonStyle.getCheckFocusColor(), false, true, false);
+		rolloverIcon = new CheckBoxIcon(IconFactory.getSwingIcon(PLASTIC_STYLE + "checkbox_raised.png"), this.buttonStyle.getCheckColor(), this.buttonStyle.getCheckFocusColor(), false, true, false);
+		disableIcon = new CheckBoxIcon(IconFactory.getSwingIcon(PLASTIC_STYLE + "checkbox_disable.png"), Color.gray, null, false, false, false);
+		normalIcon = new CheckBoxIcon(IconFactory.getSwingIcon(PLASTIC_STYLE + "checkbox_raised.png"), this.buttonStyle.getCheckColor(), this.buttonStyle.getCheckFocusColor(), false, false, false);
 		
-		selectionArmedIcon = new CheckBoxIcon(IconFactory.getSwingIcon(PLASTIC_STYLE + "checkbox_lower.png"), this.buttonStyle.getCheckColor(), this.buttonStyle.getFocusColor(), true, true);
-		selectionPressedIcon = new CheckBoxIcon(IconFactory.getSwingIcon(PLASTIC_STYLE + "checkbox_lower.png"), this.buttonStyle.getCheckColor(), this.buttonStyle.getFocusColor(), true, true);
-		selectionRolloverIcon = new CheckBoxIcon(IconFactory.getSwingIcon(PLASTIC_STYLE + "checkbox_raised.png"), this.buttonStyle.getCheckColor(), this.buttonStyle.getFocusColor(), true, true);
-		selectionDisableIcon = new CheckBoxIcon(IconFactory.getSwingIcon(PLASTIC_STYLE + "checkbox_disable.png"), Color.gray, null, true, false);
-		selectionNormalIcon = new CheckBoxIcon(IconFactory.getSwingIcon(PLASTIC_STYLE + "checkbox_raised.png"), this.buttonStyle.getCheckColor(), this.buttonStyle.getFocusColor(), true, false);
+		selectionArmedIcon = new CheckBoxIcon(IconFactory.getSwingIcon(PLASTIC_STYLE + "checkbox_lower.png"), this.buttonStyle.getCheckColor(), this.buttonStyle.getCheckFocusColor(), true, true, false);
+		selectionPressedIcon = new CheckBoxIcon(IconFactory.getSwingIcon(PLASTIC_STYLE + "checkbox_lower.png"), this.buttonStyle.getCheckColor(), this.buttonStyle.getCheckFocusColor(), true, true, false);
+		selectionRolloverIcon = new CheckBoxIcon(IconFactory.getSwingIcon(PLASTIC_STYLE + "checkbox_raised.png"), this.buttonStyle.getCheckColor(), this.buttonStyle.getCheckFocusColor(), true, true, false);
+		selectionDisableIcon = new CheckBoxIcon(IconFactory.getSwingIcon(PLASTIC_STYLE + "checkbox_disable.png"), Color.gray, null, true, false, false);
+		selectionNormalIcon = new CheckBoxIcon(IconFactory.getSwingIcon(PLASTIC_STYLE + "checkbox_raised.png"), this.buttonStyle.getCheckColor(), this.buttonStyle.getCheckFocusColor(), true, false, false);
 	}
 }

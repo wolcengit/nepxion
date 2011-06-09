@@ -41,9 +41,9 @@ public abstract class AbstractLiteButtonStyle
 	protected Color checkColor;
 	
 	/**
-	 * The focus color.
+	 * The check focus color.
 	 */	
-	protected Color focusColor;
+	protected Color checkFocusColor;
 	
 	/**
 	 * Gets the roll over background.
@@ -91,11 +91,11 @@ public abstract class AbstractLiteButtonStyle
 	}
 	
 	/**
-	 * Gets the focus color.
+	 * Gets the check focus color.
 	 * @return the instance of Color
 	 */
-	public Color getFocusColor()
+	public Color getCheckFocusColor()
 	{
-		return focusColor;
+		return checkFocusColor;
 	}
 }

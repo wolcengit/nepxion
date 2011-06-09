@@ -32,6 +32,6 @@ public class JBorlandLiteButtonStyle
 		selectionBorderColor = new Color(0, 0, 0);
 		
 		checkColor = new Color(0, 0, 0);
-		focusColor = new Color(192, 192, 192);
+		checkFocusColor = new Color(192, 192, 192);
 	}
 }
