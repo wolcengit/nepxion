@@ -75,7 +75,7 @@ public class JEclipseTabbedPane
 	}
 	
 	/**
-	 * Constructs with the specified tab placement.
+	 * Constructs with the specified initial tab placement.
 	 * @param tabPlacement the tab placement value
 	 */
 	public JEclipseTabbedPane(int tabPlacement)
@@ -86,7 +86,7 @@ public class JEclipseTabbedPane
 	}
 	
 	/**
-	 * Constructs with the specified tab placement and tab layout policy.
+	 * Constructs with the specified initial tab placement and tab layout policy.
 	 * @param tabPlacement the tab placement value
 	 * @param tabLayoutPolicy the tab layout policy value
 	 */
