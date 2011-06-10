@@ -82,7 +82,7 @@ public class Dom4JRibbonParser
 	protected int iconShowValue = JAction.SHOW_LARGE;
 	
 	/**
-	 * Constructs with the specified ribbon container and ribbon tadbed pane.
+	 * Constructs with the specified initial ribbon container and ribbon tadbed pane.
 	 * @param ribbonContainer the instance of JRibbonContainer
 	 * @param ribbonTabbedPane the instance of JRibbonTabbedPane
 	 */
