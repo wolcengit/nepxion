@@ -23,12 +23,12 @@ public class LiteCheckBoxUI
 	extends AbstractCheckBoxUI implements IButtonUI
 {
 	/**
-	 * The plastic theme value.
+	 * The check box theme of plastic.
 	 */
 	public static final String CHECKBOX_THEME_PLASTIC = "theme/checkbox/plastic/";
 	
 	/**
-	 * The nimbus theme value.
+	 * The check box theme of nimbus.
 	 */
 	public static final String CHECKBOX_THEME_NIMBUS = "theme/checkbox/nimbus/";
 	
