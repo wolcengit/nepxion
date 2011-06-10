@@ -83,7 +83,7 @@ public class DemoSelectorMenuButtonPanel
 				}
 			};
 					
-			tree.setCellRenderer(new ElementTreeCellRenderer(ElementTreeCellRenderer.NIMBUS_STYLE, 20));
+			tree.setCellRenderer(new ElementTreeCellRenderer(ElementTreeCellRenderer.TREE_THEME_NIMBUS, 20));
 			tree.setSelectionMode(JBasicTree.SINGLE_TREE_SELECTION);			
 			tree.expandAll();
 			
