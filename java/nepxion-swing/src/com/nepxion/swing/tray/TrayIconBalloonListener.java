@@ -16,13 +16,24 @@ import com.jeans.trayicon.TrayBalloonListener;
 public class TrayIconBalloonListener
 	implements TrayBalloonListener
 {
+	/**
+	 * The instance of JTray.
+	 */
 	private JTray tray;
 	
+	/**
+	 * Constructs with the specified initial tray.
+	 * @param tray the instance of JTray
+	 */
 	public TrayIconBalloonListener(JTray tray)
 	{
 		this.tray = tray;
 	}
 	
+	/**
+	 * Invoked when the balloon is changed.
+	 * @param e the instance of TrayBalloonEvent
+	 */
 	public void balloonChanged(TrayBalloonEvent e)
 	{
 		if ((e.getMask() & TrayBalloonEvent.SHOW) != 0)

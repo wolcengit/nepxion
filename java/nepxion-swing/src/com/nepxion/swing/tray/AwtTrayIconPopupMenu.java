@@ -21,9 +21,20 @@ import com.nepxion.swing.locale.SwingLocale;
 public class AwtTrayIconPopupMenu
 	extends TrayIconPopup implements ITrayIconPopupMenu
 {
+	/**
+	 * The instance of JTray.
+	 */
 	private JTray tray;
+	
+	/**
+	 * The restore menu item.
+	 */
 	private TrayIconPopupSimpleItem restoreMenuItem;
 	
+	/**
+	 * Constructs with the specified initial tray.
+	 * @param tray the instance of JTray
+	 */
 	public AwtTrayIconPopupMenu(JTray tray)
 	{
 		this.tray = tray;
@@ -31,6 +42,9 @@ public class AwtTrayIconPopupMenu
 		initPopupMenu();
 	}
 	
+	/**
+	 * Initializes the popup menu.
+	 */
 	private void initPopupMenu()
 	{
 		restoreMenuItem = new TrayIconPopupSimpleItem(SwingLocale.getString("show_and_hide_window"));
@@ -72,6 +86,10 @@ public class AwtTrayIconPopupMenu
 		addMenuItem(exitMenuItem);
 	}
 	
+	/**
+	 * Restores the popup menu.
+	 * @param flag the boolean value of flag
+	 */
 	public void restore(boolean flag)
 	{
 	}

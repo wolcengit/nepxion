@@ -15,8 +15,6 @@ import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.JSeparator;
-
 import com.jeans.trayicon.SwingTrayPopup;
 import com.nepxion.swing.icon.IconFactory;
 import com.nepxion.swing.locale.SwingLocale;
@@ -26,13 +24,31 @@ import com.nepxion.swing.popupmenu.PopupMenuPainter;
 public class SwingTrayIconPopupMenu
 	extends SwingTrayPopup implements ITrayIconPopupMenu
 {
+	/**
+	 * The instance of JTray.
+	 */
 	private JTray tray;
+	
+	/**
+	 * The restore menu item.
+	 */
 	private JBasicMenuItem restoreMenuItem;
 	
+	/**
+	 * The instance of PopupMenuPainter.
+	 */
 	public PopupMenuPainter painter;
 	
+	/**
+	 * The popup menu title string.
+	 */
 	private String title;
 	
+	/**
+	 * Constructs with the specified initial tray and title.
+	 * @param tray the instance of JTray
+	 * @param title the popup menu title string
+	 */
 	public SwingTrayIconPopupMenu(JTray tray, String title)
 	{
 		this.tray = tray;
@@ -41,41 +57,9 @@ public class SwingTrayIconPopupMenu
 		initPopupMenu();
 	}
 	
-	public PopupMenuPainter getPainter()
-	{
-		return painter;
-	}
-	
-	public void setPainter(PopupMenuPainter painter)
-	{
-		this.painter = painter;
-		this.painter.setPopupMenu(this);
-	}
-	
-	public Insets getInsets()
-	{
-		Insets insets = super.getInsets();
-		
-		if (painter != null)
-		{
-			return painter.getInsets((Insets) insets.clone());
-		}
-		else
-		{
-			return insets;
-		}
-	}
-	
-	public void paintComponent(Graphics g)
-	{
-		super.paintComponent(g);
-		
-		if (painter != null)
-		{
-			painter.paintComponent(g);
-		}
-	}
-	
+	/**
+	 * Initializes the popup menu.
+	 */
 	private void initPopupMenu()
 	{
 		restoreMenuItem = new JBasicMenuItem(SwingLocale.getString("hide_window"), IconFactory.getSwingIcon("tray_hidden.png"), SwingLocale.getString("hide_window"));
@@ -89,7 +73,7 @@ public class SwingTrayIconPopupMenu
 		);
 		add(restoreMenuItem);
 		
-		add(new JSeparator());
+		addSeparator();
 		
 		JBasicMenuItem aboutMenuItem = new JBasicMenuItem(SwingLocale.getString("about_system"), IconFactory.getSwingIcon("about.png"), SwingLocale.getString("about_system"));
 		aboutMenuItem.addActionListener(new ActionListener()
@@ -102,7 +86,7 @@ public class SwingTrayIconPopupMenu
 		);
 		add(aboutMenuItem);
 		
-		add(new JSeparator());
+		addSeparator();
 		
 		JBasicMenuItem exitMenuItem = new JBasicMenuItem(SwingLocale.getString("exit"), IconFactory.getBlankIcon(), SwingLocale.getString("exit"));
 		exitMenuItem.addActionListener(new ActionListener()
@@ -119,6 +103,61 @@ public class SwingTrayIconPopupMenu
 		setPainter(painter);
 	}
 	
+	/**
+	 * Gets the painter.
+	 * @return the instance of PopupMenuPainter
+	 */
+	public PopupMenuPainter getPainter()
+	{
+		return painter;
+	}
+	
+	/**
+	 * Sets the painter.
+	 * @param painter the instance of PopupMenuPainter
+	 */
+	public void setPainter(PopupMenuPainter painter)
+	{
+		this.painter = painter;
+		this.painter.setPopupMenu(this);
+	}
+	
+	/**
+	 * Gets the insets.
+	 * @return the instance of Insets.
+	 */
+	public Insets getInsets()
+	{
+		Insets insets = super.getInsets();
+		
+		if (painter != null)
+		{
+			return painter.getInsets((Insets) insets.clone());
+		}
+		else
+		{
+			return insets;
+		}
+	}
+	
+	/**
+	 * Paints the component.
+	 * @param g the instance of Graphics
+	 */
+	public void paintComponent(Graphics g)
+	{
+		super.paintComponent(g);
+		
+		if (painter != null)
+		{
+			painter.paintComponent(g);
+		}
+	}
+	
+	/**
+	 * Restores the popup menu.
+	 * @param flag the boolean value of flag
+	 */
 	public void restore(boolean flag)
 	{
 		String text = SwingLocale.getString("hide_window");

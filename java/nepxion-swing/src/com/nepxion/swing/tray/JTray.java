@@ -31,40 +31,92 @@ import com.nepxion.swing.topic.TopicContext;
 
 public class JTray
 {
+	/**
+	 * The instance of WindowsTrayIcon.
+	 */
 	private WindowsTrayIcon trayIcon;
+	
+	/**
+	 * The instance of ITrayIconPopupMenu.
+	 */
 	private ITrayIconPopupMenu trayIconPopupMenu;
 	
+	/**
+	 * The show balloon times value.
+	 */
 	private int showBalloonTimes = 0;
+	
+	/**
+	 * The boolean value of alwaysShowBalloon.
+	 */
 	private boolean alwaysShowBalloon = false;
 	
+	/**
+	 * The instance of JFrame.
+	 */
 	private JFrame frame;
 	
+	/**
+	 * Constructs with the specified initial frame.
+	 * @param frame the instance of JFrame
+	 */
 	public JTray(JFrame frame)
 	{
 		this(frame, PopupMenuContext.getTitle());
 	}
 	
+	/**
+	 * Constructs with the specified initial frame and title.
+	 * @param frame the instance of JFrame
+	 * @param title the title string
+	 */
 	public JTray(JFrame frame, String title)
 	{
 		this(frame, title, IconFactory.getSwingIcon("tray_java.png"), 16, 16);
 	}
 	
+	/**
+	 * Constructs with the specified initial frame and image icon.
+	 * @param frame the instance of JFrame
+	 * @param imageIcon the instance of ImageIcon
+	 */
 	public JTray(JFrame frame, ImageIcon imageIcon)
 	{
 		this(frame, PopupMenuContext.getTitle(), imageIcon);
 	}
 	
+	/**
+	 * Constructs with the specified initial frame, title and image icon.
+	 * @param frame the instance of JFrame
+	 * @param title the title string
+	 * @param imageIcon the instance of ImageIcon
+	 */
 	public JTray(JFrame frame, String title, ImageIcon imageIcon)
 	{
 		this(frame, title, imageIcon, 16, 16);
 	}
 	
-	public JTray(JFrame frame, ImageIcon imageIcon, int width, int height)
+	/**
+	 * Constructs with the specified initial frame, image icon, image icon width and image icon height.
+	 * @param frame the instance of JFrame
+	 * @param imageIcon the instance of ImageIcon
+	 * @param imageIconWidth the image icon width value
+	 * @param imageIconHeight the image icon height value
+	 */
+	public JTray(JFrame frame, ImageIcon imageIcon, int imageIconWidth, int imageIconHeight)
 	{
-		this(frame, PopupMenuContext.getTitle(), imageIcon, width, height);
+		this(frame, PopupMenuContext.getTitle(), imageIcon, imageIconWidth, imageIconHeight);
 	}
 	
-	public JTray(JFrame frame, String title, ImageIcon imageIcon, int width, int height)
+	/**
+	 * Constructs with the specified initial frame, title, image icon, image icon width and image icon height.
+	 * @param frame the instance of JFrame
+	 * @param title the title string
+	 * @param imageIcon the instance of ImageIcon
+	 * @param imageIconWidth the image icon width value
+	 * @param imageIconHeight the image icon height value
+	 */
+	public JTray(JFrame frame, String title, ImageIcon imageIcon, int imageIconWidth, int imageIconHeight)
 	{
 		this.frame = frame;
 		this.frame.addWindowListener(new TrayWindowListener());
@@ -75,7 +127,7 @@ public class JTray
 		
 		try
 		{
-			trayIcon = new WindowsTrayIcon(imageIcon.getImage(), width, height);
+			trayIcon = new WindowsTrayIcon(imageIcon.getImage(), imageIconWidth, imageIconHeight);
 		}
 		catch (InterruptedException e)
 		{
@@ -102,26 +154,45 @@ public class JTray
 		}
 	}
 	
+	/**
+	 * Gets the tray icon.
+	 * @return the instance of WindowsTrayIcon
+	 */
 	public WindowsTrayIcon getTrayIcon()
 	{
 		return trayIcon;
 	}
 	
+	/**
+	 * Gets the tray icon popup menu.
+	 * @return the instance of ITrayIconPopupMenu
+	 */
 	public ITrayIconPopupMenu getTrayIconPopupMenu()
 	{
 		return trayIconPopupMenu;
 	}
 	
+	/**
+	 * Sets the visible.
+	 * @param visible the instance of visible
+	 */
 	public void setVisible(boolean visible)
 	{
 		trayIcon.setVisible(visible);
 	}
 	
+	/**
+	 * Sets the always balloon shown.
+	 * @param alwaysShowBalloon the instance of alwaysShowBalloon
+	 */
 	public void setAlwaysShowBalloon(boolean alwaysShowBalloon)
 	{
 		this.alwaysShowBalloon = alwaysShowBalloon;
 	}
 	
+	/**
+	 * Shows the balloon.
+	 */
 	public void showBalloon()
 	{
 		if (alwaysShowBalloon)
@@ -139,11 +210,23 @@ public class JTray
 		}
 	}
 	
-	public void showBalloon(String title, String message)
+	/**
+	 * Shows the balloon by a title and message.
+	 * @param message the message string
+	 * @param title the title string
+	 */
+	public void showBalloon(String message, String title)
 	{
-		showBalloon(title, message, 10000, WindowsTrayIcon.BALLOON_INFO);
+		showBalloon(message, title, 10000, WindowsTrayIcon.BALLOON_INFO);
 	}
 	
+	/**
+	 * Shows the balloon by a title and message.
+	 * @param message the message string
+	 * @param title the title string
+	 * @param timeout the time out value
+	 * @param flag the flag value
+	 */
 	public void showBalloon(String message, String title, int timeout, int flag)
 	{
 		WindowsTrayIcon.enableUnicodeConversion(WindowsTrayIcon.UNICODE_CONV_BALLOON, true);
@@ -157,6 +240,9 @@ public class JTray
 		}
 	}
 	
+	/**
+	 * Flashes the window.
+	 */
 	public void flash()
 	{
 		try
@@ -169,6 +255,9 @@ public class JTray
 		}
 	}
 	
+	/**
+	 * Restores the tray.
+	 */
 	public void restore()
 	{
 		frame.setVisible(!frame.isVisible());
@@ -187,6 +276,9 @@ public class JTray
 		}
 	}
 	
+	/**
+	 * Shows tha about component.
+	 */
 	public void about()
 	{
 		Component topicComponent = TopicContext.getTopicComponent();
@@ -198,6 +290,9 @@ public class JTray
 		topicComponent.setVisible(true);
 	}
 	
+	/**
+	 * Exits the tray.
+	 */
 	public void exit()
 	{
 		WindowsTrayIcon.cleanUp();
@@ -207,6 +302,10 @@ public class JTray
 	public class TrayIconActionListener
 		implements ActionListener
 	{
+	    /**
+	     * Invoked when an action occurs.
+	     * @param e the instance of ActionEvent
+	     */
 		public void actionPerformed(ActionEvent e)
 		{
 			restore();
@@ -216,6 +315,10 @@ public class JTray
 	public class TrayIconMouseListener
 		extends MouseAdapter
 	{
+	    /**
+	     * Invoked when the mouse button has been pressed on a component.
+	     * @param e the instance of MouseEvent
+	     */
 		public void mousePressed(MouseEvent e)
 		{
 			if (e.getModifiers() == MouseEvent.BUTTON1_MASK)
@@ -228,11 +331,19 @@ public class JTray
 	public class TrayWindowListener
 		extends WindowAdapter
 	{
+	    /**
+	     * Invoked when the window is iconified.
+	     * @param e the instance of WindowEvent
+	     */
 		public void windowIconified(WindowEvent e)
 		{
 			restore();
 		}
 		
+	    /**
+	     * Invoked when the window is closing.
+	     * @param e the instance of WindowEvent
+	     */
 		public void windowClosing(WindowEvent e)
 		{
 			exit();
@@ -242,6 +353,10 @@ public class JTray
 	public class TrayWindowsMessageCallback
 		implements TrayIconCallback
 	{
+		/**
+		 * Calls back.
+		 * @param param the param value
+		 */
 		public int callback(int param)
 		{
 			return 4321;

@@ -12,5 +12,9 @@ package com.nepxion.swing.tray;
 
 public interface ITrayIconPopupMenu
 {
+	/**
+	 * Restores the tray.
+	 * @param flag the boolean value of flag
+	 */
 	public void restore(boolean flag);
 }
