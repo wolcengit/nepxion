@@ -55,7 +55,7 @@ public class GeoSearcher
 	}
 	
 	/**
-	 * Constructs with the specified language.
+	 * Constructs with the specified initial language.
 	 * The charset is "UTF-8".
 	 * @param language the language string
 	 */
@@ -65,7 +65,7 @@ public class GeoSearcher
 	}
 	
 	/**
-	 * Constructs with the specified language and charset.
+	 * Constructs with the specified initial language and charset.
 	 * @param language the language string
 	 * @param charset the charset string
 	 */

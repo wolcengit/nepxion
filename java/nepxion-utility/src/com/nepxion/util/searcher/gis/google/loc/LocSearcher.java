@@ -51,7 +51,7 @@ public class LocSearcher
 	}
 	
 	/**
-	 * Constructs with the specified requestAddress.
+	 * Constructs with the specified initial requestAddress.
 	 * The language is ZH_CN.
 	 * @param requestAddress boolean value of requestAddress 
 	 */
@@ -61,7 +61,7 @@ public class LocSearcher
 	}
 	
 	/**
-	 * Constructs with the specified language.
+	 * Constructs with the specified initial language.
 	 * The requestAddress is true.
 	 * @param language the language string
 	 */
@@ -71,7 +71,7 @@ public class LocSearcher
 	}
 	
 	/**
-	 * Constructs with the specified language and requestAddress.
+	 * Constructs with the specified initial language and requestAddress.
 	 * The charset is "UTF-8".
 	 * @param language the language string 
 	 * @param requestAddress the boolean value of requestAddress
@@ -82,7 +82,7 @@ public class LocSearcher
 	}
 	
 	/**
-	 * Constructs with the specified language and charset.
+	 * Constructs with the specified initial language and charset.
 	 * The requestAddress is true.
 	 * @param language the language string
 	 * @param charset the charset string
@@ -93,7 +93,7 @@ public class LocSearcher
 	}
 	
 	/**
-	 * Constructs with the specified language, charset and requestAddress.
+	 * Constructs with the specified initial language, charset and requestAddress.
 	 * @param language the language string
 	 * @param charset the charset string
 	 * @param requestAddress the boolean value of requestAddress

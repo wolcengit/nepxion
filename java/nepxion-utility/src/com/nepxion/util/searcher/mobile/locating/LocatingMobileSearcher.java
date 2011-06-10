@@ -44,7 +44,7 @@ public class LocatingMobileSearcher
 	}
 	
 	/**
-	 * Constructs with the specified charset.
+	 * Constructs with the specified initial charset.
 	 * @param charset the charset string
 	 */
 	public LocatingMobileSearcher(String charset)

@@ -45,7 +45,7 @@ public class NeteaseIDSearcher
 	}
 	
 	/**
-	 * Constructs with the specified charset.
+	 * Constructs with the specified initial charset.
 	 * @param charset the charset string
 	 */
 	public NeteaseIDSearcher(String charset)

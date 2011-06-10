@@ -43,7 +43,7 @@ public class NeteaseMobileSearcher
 		this("GBK");
 	}
 	/**
-	 * Constructs with the specified charset.
+	 * Constructs with the specified initial charset.
 	 * @param charset the charset string
 	 */
 	public NeteaseMobileSearcher(String charset)

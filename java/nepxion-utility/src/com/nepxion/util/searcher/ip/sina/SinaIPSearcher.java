@@ -40,7 +40,7 @@ public class SinaIPSearcher
 	}
 	
 	/**
-	 * Constructs with the specified charset.
+	 * Constructs with the specified initial charset.
 	 * @param charset the charset string
 	 */
 	public SinaIPSearcher(String charset)
