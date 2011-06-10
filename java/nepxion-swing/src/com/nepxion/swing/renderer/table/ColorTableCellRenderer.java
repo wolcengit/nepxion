@@ -21,12 +21,24 @@ import com.nepxion.swing.border.LineBorder;
 public class ColorTableCellRenderer
 	extends DefaultTableCellRenderer
 {
+	/**
+	 * Constructs with the default.
+	 */	
 	public ColorTableCellRenderer()
 	{
 		setOpaque(true);
 		setBorder(new LineBorder(Color.black));
 	}
 	
+	/**
+	 * Gets the table cell renderer component.
+	 * @param table the instance of JTable
+	 * @param value the value object
+	 * @param isSelected the boolean value of isSelected
+	 * @param hasFocus the boolean value of hasFocus
+	 * @param row the row index value
+	 * @param column the column index value
+	 */
 	public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column)
 	{
 		super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);

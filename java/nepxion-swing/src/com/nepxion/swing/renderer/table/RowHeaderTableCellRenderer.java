@@ -23,19 +23,34 @@ import com.nepxion.swing.element.IElementNode;
 public class RowHeaderTableCellRenderer
 	extends DefaultListCellRenderer
 {
+	/**
+	 * The instance of JTableHeader
+	 */
 	private JTableHeader header;
 	
+	/**
+	 * Constructs with the specified initial table
+	 * @param table the instance of JTable
+	 */	
 	public RowHeaderTableCellRenderer(JTable table)
 	{
 		header = table.getTableHeader();
 		setOpaque(true);
 		setBorder(UIManager.getBorder("TableHeader.cellBorder"));
-		/* setHorizontalAlignment(CENTER); */
+		// setHorizontalAlignment(CENTER);
 		setForeground(header.getForeground());
 		setBackground(header.getBackground());
 		setFont(header.getFont());
 	}
 	
+	/**
+	 * Gets the list cell renderer component.
+	 * @param list the instance of JList
+	 * @param value the value object
+	 * @param index the index value
+	 * @param isSelected the boolean of isSelected
+	 * @param cellHasFocus the boolean of cellHasFocus
+	 */
 	public Component getListCellRendererComponent(JList list, Object value, int index, boolean isSelected, boolean cellHasFocus)
 	{
 		super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
