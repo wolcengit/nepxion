@@ -16,30 +16,57 @@ import java.awt.Insets;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.swing.BorderFactory;
 import javax.swing.Icon;
 import javax.swing.JPopupMenu;
+import javax.swing.JToolTip;
 import javax.swing.border.Border;
 
 import com.jidesoft.swing.JideTabbedPane;
 import com.nepxion.swing.style.framework.IStyle;
 import com.nepxion.swing.style.framework.StyleManager;
+import com.nepxion.swing.tooltip.snap.JSnapToolTip;
 
 public class JEclipseTabbedPane
 	extends JideTabbedPane implements ITabbedPane, MouseListener
 {
+	/**
+	 * The instance of JPopupMenu.
+	 */
 	private JPopupMenu popupMenu;
-	private PopupMenuAdapter popupMenuAdapter;
+	
+	/**
+	 * The instance of TabbedPanePopupMenuAdapter.
+	 */
+	private TabbedPanePopupMenuAdapter popupMenuAdapter;
 	
 	/**
 	 * The instance of Border.
 	 */
 	private Border border;
 	
+	/**
+	 * The instance of IStyle.
+	 */
 	private IStyle tabStyle;
 	
+	/**
+	 * The boolean value of isSnapToolTip.
+	 */
+	private boolean isSnapToolTip = false;
+	
+	/**
+	 * The instance of Map.
+	 */
+	private Map snapComponentMap;
+	
+	/**
+	 * Constructs with the default.
+	 */
 	public JEclipseTabbedPane()
 	{
 		super();
@@ -47,6 +74,10 @@ public class JEclipseTabbedPane
 		initComponents();
 	}
 	
+	/**
+	 * Constructs with the specified tab placement.
+	 * @param tabPlacement the tab placement value
+	 */
 	public JEclipseTabbedPane(int tabPlacement)
 	{
 		super(tabPlacement);
@@ -54,6 +85,11 @@ public class JEclipseTabbedPane
 		initComponents();
 	}
 	
+	/**
+	 * Constructs with the specified tab placement and tab layout policy.
+	 * @param tabPlacement the tab placement value
+	 * @param tabLayoutPolicy the tab layout policy value
+	 */
 	public JEclipseTabbedPane(int tabPlacement, int tabLayoutPolicy)
 	{
 		super(tabPlacement, tabLayoutPolicy);
@@ -61,6 +97,9 @@ public class JEclipseTabbedPane
 		initComponents();
 	}
 	
+	/**
+	 * Initializes the components.
+	 */
 	private void initComponents()
 	{		
 		border = getBorder();
@@ -212,41 +251,93 @@ public class JEclipseTabbedPane
 		setTabColorProvider(tabColorProvider);
 	}
 	
+	/**
+	 * Adds the tab by a title and component.
+	 * @param title the title string
+	 * @param component the instance of Component
+	 */
 	public void addTab(String title, Component component)
 	{
 		addTab(title, component, null);
 	}
 	
+	/**
+	 * Adds the tab by a title, component and tooltip text.
+	 * @param title the title string
+	 * @param component the instance of Component
+	 * @param toolTipText the tooltip text string
+	 */
 	public void addTab(String title, Component component, String toolTipText)
 	{
 		addTab(title, null, component, toolTipText);
 	}
 	
+	/**
+	 * Adds the tab by a title, icon and component.
+	 * @param title the title string
+	 * @param icon the instance of Icon
+	 * @param component the instance of Component
+	 */
 	public void addTab(String title, Icon icon, Component component)
 	{
 		addTab(title, icon, component, null);
 	}
 	
+	/**
+	 * Adds the tab by a title, component and isClosable.
+	 * @param title the title string
+	 * @param component the instance of Component
+	 * @param isClosable the boolean value of isClosable
+	 */
 	public void addTab(String title, Component component, boolean isClosable)
 	{
 		addTab(title, null, component, isClosable);
 	}
 	
+	/**
+	 * Adds the tab by a title, component, tooltip text and isClosable.
+	 * @param title the title string
+	 * @param component the instance of Component
+	 * @param toolTipText the tooltip text string
+	 * @param isClosable the boolean value of isClosable
+	 */
 	public void addTab(String title, Component component, String toolTipText, boolean isClosable)
 	{
 		addTab(title, null, component, toolTipText, isClosable);
 	}
 	
+	/**
+	 * Adds the tab by a title, icon, component and tooltip text.
+	 * @param title the title string
+	 * @param icon the instance of Icon
+	 * @param component the instance of Component
+	 * @param toolTipText the tooltip text string
+	 */
 	public void addTab(String title, Icon icon, Component component, String toolTipText)
 	{
 		addTab(title, icon, component, toolTipText, false);
 	}
 	
+	/**
+	 * Adds the tab by a title, icon, component and isClosable.
+	 * @param title the title string
+	 * @param icon the instance of Icon
+	 * @param component the instance of Component
+	 * @param isClosable the boolean value of isClosable
+	 */
 	public void addTab(String title, Icon icon, Component component, boolean isClosable)
 	{
 		addTab(title, icon, component, null, isClosable);
 	}
 	
+	/**
+	 * Adds the tab by a title, icon, component, tooltip text and isClosable.
+	 * @param title the title string
+	 * @param icon the instance of Icon
+	 * @param component the instance of Component
+	 * @param toolTipText the tooltip text string
+	 * @param isClosable the boolean value of isClosable
+	 */
 	public void addTab(String title, Icon icon, Component component, String toolTipText, boolean isClosable)
 	{
 		super.addTab(title, icon, component, toolTipText);
@@ -254,6 +345,73 @@ public class JEclipseTabbedPane
 		setTabClosableAt(indexOfComponent(component), isClosable);
 	}
 	
+	/**
+	 * Insets the tab by a title, icon, component, tooltip text and index.
+	 * @param title the tile string
+	 * @param icon the instance of Icon
+	 * @param component the instance of Component
+	 * @param toolTipText the tooltip text.
+	 * @param index the index value
+	 */
+	public void insertTab(String title, Icon icon, Component component, String toolTipText, int index)
+	{
+		if (snapComponentMap != null)
+		{	
+			toolTipText = "tab" + component.hashCode();
+			snapComponentMap.put(toolTipText, component);
+		}
+		
+		super.insertTab(title, icon, component, toolTipText, index);
+	}
+	
+	/**
+	 * Creates the tool tip.
+	 * @return the instance of JToolTip
+	 */
+	public JToolTip createToolTip()
+	{		
+		if (snapComponentMap != null)
+		{	
+			JSnapToolTip snapTooltip = new JSnapToolTip(snapComponentMap);
+			snapTooltip.setComponent(this);
+			
+			return snapTooltip;
+		}
+		
+		return super.createToolTip();
+	}
+	
+	/**
+	 * Returns true if the tab shows a snap tooltip.
+	 * @return true if the tab shows a snap tooltip
+	 */
+	public boolean isSnapToolTip()
+	{
+		return isSnapToolTip;
+	}
+	
+	/**
+	 * Sets the snap tooltip.
+	 * @param isSnapToolTip the instance of isSnapToolTip
+	 */
+	public void setSnapToolTip(boolean isSnapToolTip)
+	{
+		this.isSnapToolTip = isSnapToolTip;
+		
+		if (isSnapToolTip)
+		{
+			snapComponentMap = new HashMap();
+		}
+		else
+		{
+			snapComponentMap = null;
+		}
+	}
+	
+	/**
+	 * Gets the selected title.
+	 * @return the title string
+	 */
 	public String getSelectedTitle()
 	{
 		int index = getSelectedIndex();
@@ -265,11 +423,21 @@ public class JEclipseTabbedPane
 		return getTitleAt(index);
 	}
 	
+	/**
+	 * Gets the icon by an index.
+	 * @param index the index value
+	 * @return the instance of Icon
+	 */
 	public Icon getIcon(int index)
 	{
 		return getIconAt(index);
 	}
 	
+	/**
+	 * Gets the tab by an index.
+	 * @param title the title string
+	 * @return the instance of Component
+	 */
 	public Component getTabAt(String title)
 	{
 		for (int i = 0; i < getTabCount(); i++)
@@ -283,6 +451,10 @@ public class JEclipseTabbedPane
 		return null;
 	}
 	
+	/**
+	 * Gets the closable tab list.
+	 * @return the instance of List
+	 */
 	public List getClosableTabs()
 	{
 		List components = new ArrayList();
@@ -298,6 +470,25 @@ public class JEclipseTabbedPane
 		return components;
 	}
 	
+	/**
+	 * Removes the tab by an index.
+	 * @param index the index value
+	 */
+	public void removeTabAt(int index)
+	{
+		if (snapComponentMap != null)
+		{	
+			Component component = getComponentAt(index);
+			snapComponentMap.remove("tab" + component.hashCode());
+		}
+		
+		super.removeTabAt(index);
+	}
+	
+	/**
+	 * Removes the tab by an index.
+	 * @param index the index value
+	 */
 	public void removeTabAt(String title)
 	{
 		for (int i = 0; i < getTabCount(); i++)
@@ -310,6 +501,10 @@ public class JEclipseTabbedPane
 		}
 	}
 	
+	/**
+	 * Removes tabs by a component list.
+	 * @param components the instance of List
+	 */
 	public void removeTabs(List components)
 	{
 		for (int i = 0; i < components.size(); i++)
@@ -319,6 +514,10 @@ public class JEclipseTabbedPane
 		}
 	}
 	
+	/**
+	 * Removes the reverse tab list by an index.
+	 * @param index the index value
+	 */
 	public void removeReverseTabsAt(int index)
 	{
 		List components = new ArrayList();
@@ -333,6 +532,9 @@ public class JEclipseTabbedPane
 		removeTabs(components);
 	}
 	
+	/**
+	 * Removes all tabs.
+	 */
 	public void removeAllTabs()
 	{
 		List components = new ArrayList();
@@ -347,38 +549,51 @@ public class JEclipseTabbedPane
 		removeTabs(components);
 	}
 	
+	/**
+	 * Gets the popup menu.
+	 * @return the instance of JPopupMenu
+	 */
 	public JPopupMenu getPopupMenu()
 	{
 		return popupMenu;
 	}
 	
+	/**
+	 * Sets the popup menu.
+	 * @param popupMenu the instance of JPopupMenu
+	 * @param isClosable the boolean value of isClosable
+	 */
 	public void setPopupMenu(JPopupMenu popupMenu, boolean isClosable)
 	{
 		this.popupMenu = popupMenu;
 		
 		if (isClosable)
 		{
-			popupMenuAdapter = new PopupMenuAdapter(this, popupMenu);
+			popupMenuAdapter = new TabbedPanePopupMenuAdapter(this, popupMenu);
 		}
 	}
 	
+    /**
+     * Invoked when the mouse button has been clicked (pressed and released) on a component.
+     * @param e the instance of MouseEvent
+     */
 	public void mouseClicked(MouseEvent e)
 	{
 	}
 	
-	public void mouseEntered(MouseEvent e)
-	{
-	}
-	
-	public void mouseExited(MouseEvent e)
-	{
-	}
-	
+    /**
+     * Invoked when the mouse button has been pressed on a component.
+     * @param e the instance of MouseEvent
+     */
 	public void mousePressed(MouseEvent e)
 	{
 		requestFocus();
 	}
 	
+    /**
+     * Invoked when the mouse button has been released on a component.
+     * @param e the instance of MouseEvent
+     */
 	public void mouseReleased(MouseEvent e)
 	{
 		if (popupMenu != null)
@@ -403,5 +618,21 @@ public class JEclipseTabbedPane
 			
 			popupMenu.show(e.getComponent(), e.getX(), e.getY());
 		}
+	}
+	
+    /**
+     * Invoked when the mouse enters a component.
+     * @param e the instance of MouseEvent
+     */
+	public void mouseEntered(MouseEvent e)
+	{
+	}
+	
+    /**
+     * Invoked when the mouse exits a component.
+     * @param e the instance of MouseEvent
+     */
+	public void mouseExited(MouseEvent e)
+	{
 	}
 }

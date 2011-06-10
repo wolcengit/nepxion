@@ -27,6 +27,10 @@ import com.nepxion.swing.selector.checkbox.JCheckBoxSelector;
 
 public class TabbedPaneManager
 {
+	/**
+	 * Sets the preference style for the tabbed pane.
+	 * @param tabbedPane the instance of JTabbedPane
+	 */
 	public static void setPreferenceStyle(JTabbedPane tabbedPane)
 	{
 		tabbedPane.setFocusable(false);
@@ -42,6 +46,11 @@ public class TabbedPaneManager
 		}
 	}
 	
+	/**
+	 * Shows the close dialog.
+	 * @param tabbedPane the instance of ITabbedPane
+	 * @param checkBoxSelector the instance of JCheckBoxSelector
+	 */
 	public static void showCloseDialog(ITabbedPane tabbedPane, JCheckBoxSelector checkBoxSelector)
 	{
 		if (tabbedPane == null)
@@ -88,6 +97,11 @@ public class TabbedPaneManager
 		}
 	}
 	
+	/**
+	 * Gets the tab height for a tabbed pane.
+	 * @param tabbedPane the instance of JTabbedPane
+	 * @return the tab height value
+	 */
 	public static int getTabHeight(JTabbedPane tabbedPane)
 	{
 		int maxContentHeight = getMaxContentHeight(tabbedPane);
@@ -96,6 +110,11 @@ public class TabbedPaneManager
 		return tabHeight;
 	}
 	
+	/**
+	 * Gets the preferred tab height for a tabbed pane.
+	 * @param tabbedPane the instance of JTabbedPane
+	 * @return the preferred tab height value
+	 */
 	public static int getPreferredTabHeight(JTabbedPane tabbedPane)
 	{
 		int maxContentHeight = getMaxPreferredContentHeight(tabbedPane);
@@ -104,6 +123,11 @@ public class TabbedPaneManager
 		return tabHeight;
 	}
 	
+	/**
+	 * Gets the max content height for a tabbed pane.
+	 * @param tabbedPane the instance of JTabbedPane
+	 * @return the max content height value
+	 */
 	public static int getMaxContentHeight(JTabbedPane tabbedPane)
 	{
 		int contentHeight = -1;
@@ -120,6 +144,11 @@ public class TabbedPaneManager
 		return contentHeight;
 	}
 	
+	/**
+	 * Gets the max preferred content height for a tabbed pane.
+	 * @param tabbedPane the instance of JTabbedPane
+	 * @return the max preferred content height value
+	 */
 	public static int getMaxPreferredContentHeight(JTabbedPane tabbedPane)
 	{
 		int contentHeight = -1;
