@@ -212,6 +212,7 @@ public class JRibbonContainer
 				
 				try
 				{
+					internalFrame.toFront();
 					internalFrame.setSelected(true);
 				}
 				catch (PropertyVetoException e)
