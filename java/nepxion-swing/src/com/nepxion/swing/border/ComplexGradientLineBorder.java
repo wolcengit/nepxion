@@ -18,7 +18,7 @@ public class ComplexGradientLineBorder
 	extends PartialGradientLineBorder
 {
 	/**
-	 * Constructs with the specified colors.
+	 * Constructs with the specified initial colors.
 	 * @param colors the color array
 	 */
 	public ComplexGradientLineBorder(Color[] colors)
@@ -27,7 +27,7 @@ public class ComplexGradientLineBorder
 	}
 	
 	/**
-	 * Constructs with the specified colors and thickness.
+	 * Constructs with the specified initial colors and thickness.
 	 * @param colors the color array
 	 * @param thickness the thickness value
 	 */
@@ -37,7 +37,7 @@ public class ComplexGradientLineBorder
 	}
 	
 	/**
-	 * Constructs with the specified colors, thickness and sides.
+	 * Constructs with the specified initial colors, thickness and sides.
 	 * @param colors the color array
 	 * @param thickness the thickness value
 	 * @param sides the sides value

@@ -45,7 +45,7 @@ public class RaisedHeaderBorder
 	}
 	
 	/**
-	 * Constructs with the specified highlight color.
+	 * Constructs with the specified initial highlight color.
 	 * @param highlightColor the highlight color
 	 */
 	public RaisedHeaderBorder(Color highlightColor)
@@ -54,7 +54,7 @@ public class RaisedHeaderBorder
 	}
 	
 	/**
-	 * Constructs with the specified highlight color and shadow color.
+	 * Constructs with the specified initial highlight color and shadow color.
 	 * @param highlightColor the highlight color
 	 * @param shadowColor the shadow color
 	 */

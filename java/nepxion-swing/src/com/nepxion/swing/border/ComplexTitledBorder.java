@@ -21,7 +21,7 @@ public class ComplexTitledBorder
 	extends JideTitledBorder
 {
 	/**
-	 * Constructs with the specified title.
+	 * Constructs with the specified initial title.
 	 * @param title the title string
 	 */
 	public ComplexTitledBorder(String title)
@@ -30,7 +30,7 @@ public class ComplexTitledBorder
 	}
 	
 	/**
-	 * Constructs with the specified border.
+	 * Constructs with the specified initial border.
 	 * @param border the instance of Border
 	 */
 	public ComplexTitledBorder(Border border)
@@ -39,7 +39,7 @@ public class ComplexTitledBorder
 	}
 	
 	/**
-	 * Constructs with the specified border and title.
+	 * Constructs with the specified initial border and title.
 	 * @param border the instance of Border
 	 * @param title the title string
 	 */
@@ -49,7 +49,7 @@ public class ComplexTitledBorder
 	}
 	
 	/**
-	 * Constructs with the specified border, title, title justification and title position.
+	 * Constructs with the specified initial border, title, title justification and title position.
 	 * @param border the instance of Border
 	 * @param title the title string
 	 * @param titleJustification the title justification value
@@ -61,7 +61,7 @@ public class ComplexTitledBorder
 	}
 	
 	/**
-	 * Constructs with the specified border, title, title justification, title position and title font.
+	 * Constructs with the specified initial border, title, title justification, title position and title font.
 	 * @param border the instance of Border
 	 * @param title the title string
 	 * @param titleJustification the title justification value
@@ -74,7 +74,7 @@ public class ComplexTitledBorder
 	}
 	
 	/**
-	 * Constructs with the specified border, title, title justification, title position, title font and title color.
+	 * Constructs with the specified initial border, title, title justification, title position, title font and title color.
 	 * @param border the instance of Border
 	 * @param title the title string
 	 * @param titleJustification the title justification value

@@ -50,7 +50,7 @@ public class OvalBorder
 	}
 	
 	/**
-	 * Constructs with the specified width and height.
+	 * Constructs with the specified initial width and height.
 	 * @param width the width value
 	 * @param height the height value
 	 */
@@ -61,7 +61,7 @@ public class OvalBorder
 	}
 	
 	/**
-	 * Constructs with the specified width, height, top color and bottom color.
+	 * Constructs with the specified initial width, height, top color and bottom color.
 	 * @param width the width value
 	 * @param height the height value
 	 * @param topColor the top color

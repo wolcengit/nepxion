@@ -40,7 +40,7 @@ public class ShadowBorder
 	}
 	
 	/**
-	 * Constructs with the specified shadow color.
+	 * Constructs with the specified initial shadow color.
 	 * @param shadowColor the shadow color
 	 */
 	public ShadowBorder(Color shadowColor)

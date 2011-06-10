@@ -26,7 +26,7 @@ public class ComplexEtchedBorder
 	}
 	
 	/**
-	 * Constructs with the specified sides.
+	 * Constructs with the specified initial sides.
 	 * @param sides the sides value
 	 */
 	public ComplexEtchedBorder(int sides)
@@ -35,7 +35,7 @@ public class ComplexEtchedBorder
 	}
 	
 	/**
-	 * Constructs with the specified etchType and sides.
+	 * Constructs with the specified initial etchType and sides.
 	 * @param etchType the etch type
 	 * @param sides the sides value
 	 */
@@ -45,7 +45,7 @@ public class ComplexEtchedBorder
 	}
 	
 	/**
-	 * Constructs with the specified highlight, shadow and sides.
+	 * Constructs with the specified initial highlight, shadow and sides.
 	 * @param highlight the highlight color
 	 * @param shadow the shadow color
 	 * @param sides the sides color
@@ -56,7 +56,7 @@ public class ComplexEtchedBorder
 	}
 	
 	/**
-	 * Constructs with the specified etchType, highlight, shadow and sides.
+	 * Constructs with the specified initial etchType, highlight, shadow and sides.
 	 * @param etchType the etch type
 	 * @param highlight the highlight color
 	 * @param shadow the shadow color

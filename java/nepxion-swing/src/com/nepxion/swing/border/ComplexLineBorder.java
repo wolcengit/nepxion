@@ -18,7 +18,7 @@ public class ComplexLineBorder
 	extends PartialLineBorder
 {
 	/**
-	 * Constructs with the specified color.
+	 * Constructs with the specified initial color.
 	 * @param color the instance of Color
 	 */
 	public ComplexLineBorder(Color color)
@@ -27,7 +27,7 @@ public class ComplexLineBorder
 	}
 	
 	/**
-	 * Constructs with the specified color and thickness.
+	 * Constructs with the specified initial color and thickness.
 	 * @param color the instance of Color
 	 * @param thickness the thickness value
 	 */
@@ -37,7 +37,7 @@ public class ComplexLineBorder
 	}
 	
 	/**
-	 * Constructs with the specified color, thickness and rounded corners.
+	 * Constructs with the specified initial color, thickness and rounded corners.
 	 * @param color the instance of Color
 	 * @param thickness the thickness value
 	 * @param roundedCorners the boolean value of roundedCorners
@@ -48,7 +48,7 @@ public class ComplexLineBorder
 	}
 	
 	/**
-	 * Constructs with the specified color, thickness, rounded corners and rounded corner size.
+	 * Constructs with the specified initial color, thickness, rounded corners and rounded corner size.
 	 * @param color the instance of Color
 	 * @param thickness the thickness value
 	 * @param roundedCorners the boolean value of roundedCorners
@@ -60,7 +60,7 @@ public class ComplexLineBorder
 	}
 	
 	/**
-	 * Constructs with the specified color, thickness and side.
+	 * Constructs with the specified initial color, thickness and side.
 	 * @param color the instance of Color
 	 * @param thickness the thickness value
 	 * @param side the side value

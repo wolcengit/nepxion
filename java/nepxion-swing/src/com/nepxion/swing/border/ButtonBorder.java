@@ -62,7 +62,7 @@ public class ButtonBorder
 	private Color rightColor;
 	
 	/**
-	 * Constructs with the specified border type.
+	 * Constructs with the specified initial border type.
 	 * @param borderType the border type
 	 */
 	public ButtonBorder(int borderType)

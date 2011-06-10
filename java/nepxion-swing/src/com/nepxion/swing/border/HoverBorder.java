@@ -49,7 +49,7 @@ public class HoverBorder
 	private Color color2;
 	
 	/**
-	 * Constructs with the specified color and thickness.
+	 * Constructs with the specified initial color and thickness.
 	 * @param color the instance of Color
 	 * @param thickness the thickness value
 	 */
