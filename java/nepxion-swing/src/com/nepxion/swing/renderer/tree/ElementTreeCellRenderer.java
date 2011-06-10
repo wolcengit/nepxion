@@ -24,48 +24,111 @@ import com.nepxion.swing.tree.animation.AnimationImageObserver;
 public class ElementTreeCellRenderer
 	extends DefaultTreeCellRenderer
 {
-	public static final String CLASSIC_STYLE = "theme/tree/classic/";
-	public static final String PLASTIC_STYLE = "theme/tree/plastic/";
-	public static final String LUNIX_STYLE = "theme/tree/lunix/";
-	public static final String WINDOWS_STYLE = "theme/tree/windows/";
-	public static final String NIMBUS_STYLE = "theme/tree/nimbus/";
+	/**
+	 * The tree theme of classic.
+	 */
+	public static final String TREE_THEME_CLASSIC = "theme/tree/classic/";
 	
-	public static final String HELP_STYLE = "theme/tree/help/";
+	/**
+	 * The tree theme of plastic.
+	 */
+	public static final String TREE_THEME_PLASTIC = "theme/tree/plastic/";
 	
-	private String style;
+	/**
+	 * The tree theme of lunix.
+	 */
+	public static final String TREE_THEME_LUNIX = "theme/tree/lunix/";
+	
+	/**
+	 * The tree theme of windows.
+	 */
+	public static final String TREE_THEME_WINDOWS = "theme/tree/windows/";
+	
+	/**
+	 * The tree theme of nimbus.
+	 */
+	public static final String TREE_THEME_NIMBUS = "theme/tree/nimbus/";
+	
+	/**
+	 * The tree theme of help.
+	 */
+	public static final String TREE_THEME_HELP = "theme/tree/help/";
+	
+	/**
+	 * The tree theme string.
+	 */
+	private String treeTheme;
+	
+	/**
+	 * The tree row height.
+	 */
 	private int rowHeight;
 	
+	/**
+	 * Constructs with the default.
+	 */
 	public ElementTreeCellRenderer()
 	{
 		this(-1);
 	}
 	
+	/**
+	 * Constructs with the specified initial row height.
+	 * @param rowHeight the row height value
+	 */
 	public ElementTreeCellRenderer(int rowHeight)
 	{
-		this(PLASTIC_STYLE, rowHeight);
+		this(TREE_THEME_PLASTIC, rowHeight);
 	}
 	
-	public ElementTreeCellRenderer(String style)
+	/**
+	 * Constructs with the specified initial tree theme.
+	 * @param treeTheme the tree theme string
+	 */
+	public ElementTreeCellRenderer(String treeTheme)
 	{
-		this(style, -1);
+		this(treeTheme, -1);
 	}
 	
-	public ElementTreeCellRenderer(String style, int rowHeight)
+	/**
+	 * Constructs with the specified initial tree theme and row height.
+	 * @param treeTheme the tree theme string
+	 * @param rowHeight the row height value
+	 */
+	public ElementTreeCellRenderer(String treeTheme, int rowHeight)
 	{
-		this.style = style;
+		this.treeTheme = treeTheme;
 		this.rowHeight = rowHeight;
 	}
 	
-	public String getStyle()
+	/**
+	 * Gets the tree theme.
+	 * @return the tree theme value
+	 */
+	public String getTreeTheme()
 	{
-		return style;
+		return treeTheme;
 	}
 	
-	public void setStyle(String style)
+	/**
+	 * Sets the tree theme.
+	 * @param treeTheme the tree theme value
+	 */
+	public void setTreeTheme(String treeTheme)
 	{
-		this.style = style;
+		this.treeTheme = treeTheme;
 	}
 	
+	/**
+	 * Gets the tree cell renderer component.
+	 * @param tree the instance of JTree
+	 * @param value the value object
+	 * @param isSelected the boolean value of isSelected
+	 * @param expanded the boolean value of expanded
+	 * @param leaf the boolean value of leaf
+	 * @param row row the row index value
+	 * @param hasFocus hasFocus the boolean value of hasFocus
+	 */
 	public Component getTreeCellRendererComponent(JTree tree, Object value, boolean isSelected, boolean expanded, boolean leaf, int row, boolean hasFocus)
 	{
 		super.getTreeCellRendererComponent(tree, value, isSelected, expanded, leaf, row, hasFocus);
@@ -78,7 +141,7 @@ public class ElementTreeCellRenderer
 		if (treeNode instanceof IElementNode)
 		{
 			IElementNode element = (IElementNode) treeNode;
-			setUI(tree, element, treeNode, expanded);
+			setFacade(tree, element, treeNode, expanded);
 		}
 		else
 		{
@@ -88,7 +151,14 @@ public class ElementTreeCellRenderer
 		return this;
 	}
 	
-	private void setUI(JTree tree, IElementNode element, DefaultMutableTreeNode treeNode, boolean expanded)
+	/**
+	 * Sets the facade.
+	 * @param tree the instance of JTree
+	 * @param element the element of IElementNode
+	 * @param treeNode the instance of DefaultMutableTreeNode
+	 * @param expanded the boolean value of expanded
+	 */
+	private void setFacade(JTree tree, IElementNode element, DefaultMutableTreeNode treeNode, boolean expanded)
 	{
 		setText(element.getText());
 		setToolTipText(element.getToolTipText());
@@ -109,26 +179,31 @@ public class ElementTreeCellRenderer
 		}
 	}
 	
+	/**
+	 * Adapts the icon.
+	 * @param treeNode the instance of DefaultMutableTreeNode
+	 * @param expanded the boolean value of expanded
+	 */
 	private void adaptIcon(DefaultMutableTreeNode treeNode, boolean expanded)
 	{
 		String iconName = null;
 		if (treeNode.isRoot())
 		{
-			iconName = style + "tree_root.png";
+			iconName = treeTheme + "tree_root.png";
 		}
 		else if (treeNode.isLeaf())
 		{
-			iconName = style + "tree_leaf.png";
+			iconName = treeTheme + "tree_leaf.png";
 		}
 		else
 		{
 			if (expanded)
 			{
-				iconName = style + "tree_open.png";
+				iconName = treeTheme + "tree_open.png";
 			}
 			else
 			{
-				iconName = style + "tree_closed.png";
+				iconName = treeTheme + "tree_closed.png";
 			}
 		}
 		setIcon(IconFactory.getSwingIcon(iconName));
