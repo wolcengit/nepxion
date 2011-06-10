@@ -32,7 +32,7 @@ public class JFullScreenDecorationPanel
 	private ToolBar toolBar;
 	
 	/**
-	 * Constructs with the specified title and icon.
+	 * Constructs with the specified initial title and icon.
 	 * @param title the title string
 	 * @param icon the instance of Icon
 	 */
@@ -42,7 +42,7 @@ public class JFullScreenDecorationPanel
 	}
 	
 	/**
-	 * Constructs with the specified title, icon and selected.
+	 * Constructs with the specified initial title, icon and selected.
 	 * @param title the title string
 	 * @param icon the instance of Icon
 	 * @param selected the boolean value of selected
@@ -55,7 +55,7 @@ public class JFullScreenDecorationPanel
 	}
 	
 	/**
-	 * Constructs with the specified title, icon and style.
+	 * Constructs with the specified initial title, icon and style.
 	 * @param title the title string
 	 * @param icon the instance of Icon
 	 * @param style the instance of IStyle
@@ -66,7 +66,7 @@ public class JFullScreenDecorationPanel
 	}
 	
 	/**
-	 * Constructs with the specified title, icon, selected and style.
+	 * Constructs with the specified initial title, icon, selected and style.
 	 * @param title the title string
 	 * @param icon the instance of Icon
 	 * @param selected the boolean value of selected
