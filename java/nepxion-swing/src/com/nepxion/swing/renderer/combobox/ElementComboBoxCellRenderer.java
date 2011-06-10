@@ -21,46 +21,90 @@ import com.nepxion.swing.renderer.list.ElementListCellRenderer;
 public class ElementComboBoxCellRenderer
 	extends ElementListCellRenderer
 {
+	/**
+	 * Constructs with the default.
+	 */
 	public ElementComboBoxCellRenderer()
 	{
 		super();
 	}
 	
-	public ElementComboBoxCellRenderer(int fixedCellHeight)
+	/**
+	 * Constructs with the specified initial cell height.
+	 * @param cellHeight the cell height value
+	 */
+	public ElementComboBoxCellRenderer(int cellHeight)
 	{
-		super(fixedCellHeight);
+		super(cellHeight);
 	}
 	
+	/**
+	 * Constructs with the specified initial cell icon.
+	 * @param cellIcon the instance of Icon
+	 */
 	public ElementComboBoxCellRenderer(Icon cellIcon)
 	{
 		super(cellIcon);
 	}
 	
+	/**
+	 * Constructs with the specified initial cell border.
+	 * @param cellBorder the instance of Border
+	 */
 	public ElementComboBoxCellRenderer(Border cellBorder)
 	{
 		super(cellBorder);
 	}
 	
-	public ElementComboBoxCellRenderer(Icon cellIcon, int fixedCellHeight)
+	/**
+	 * Constructs with the specified initial cell icon and cell height.
+	 * @param cellIcon the instance of Icon
+	 * @param cellHeight the cell height value
+	 */
+	public ElementComboBoxCellRenderer(Icon cellIcon, int cellHeight)
 	{
-		super(cellIcon, fixedCellHeight);
+		super(cellIcon, cellHeight);
 	}
 	
-	public ElementComboBoxCellRenderer(Border cellBorder, int fixedCellHeight)
+	/**
+	 * Constructs with the specified initial cell border and cell height.
+	 * @param cellBorder the instance of Border
+	 * @param cellHeight the cell height
+	 */
+	public ElementComboBoxCellRenderer(Border cellBorder, int cellHeight)
 	{
-		super(cellBorder, fixedCellHeight);
+		super(cellBorder, cellHeight);
 	}
 	
+	/**
+	 * Constructs with the specified initial cell border and cell icon.
+	 * @param cellBorder the instance of Border
+	 * @param cellIcon the instance of Icon
+	 */
 	public ElementComboBoxCellRenderer(Border cellBorder, Icon cellIcon)
 	{
 		super(cellBorder, cellIcon);
 	}
 	
-	public ElementComboBoxCellRenderer(Border cellBorder, Icon cellIcon, int fixedCellHeight)
+	/**
+	 * Constructs with the specified initial cell border, cell icon and cell height.
+	 * @param cellBorder the instance of Border 
+	 * @param cellIcon the instance of Icon
+	 * @param cellHeight the cell height value
+	 */
+	public ElementComboBoxCellRenderer(Border cellBorder, Icon cellIcon, int cellHeight)
 	{
-		super(cellBorder, cellIcon, fixedCellHeight);
+		super(cellBorder, cellIcon, cellHeight);
 	}
 	
+	/**
+	 * Gets the list cell renderer component.
+	 * @param list the instance of JList
+	 * @param value the value object
+	 * @param index the index value
+	 * @param isSelected the boolean of isSelected
+	 * @param cellHasFocus the boolean of cellHasFocus
+	 */
 	public Component getListCellRendererComponent(JList list, Object value, int index, boolean isSelected, boolean cellHasFocus)
 	{
 		super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
