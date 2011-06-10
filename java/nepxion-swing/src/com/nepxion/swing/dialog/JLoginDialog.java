@@ -136,7 +136,7 @@ public abstract class JLoginDialog
 	protected JBasicSeparator separator;
 	
 	/**
-	 * Constructs with the specified title and icon.
+	 * Constructs with the specified initial title and icon.
 	 * @param title the title string
 	 * @param icon the instance of Icon
 	 */

@@ -42,7 +42,7 @@ public class DialogResizer
 	}
 	
 	/**
-	 * Constructs with the specified dimension.
+	 * Constructs with the specified initial dimension.
 	 * @param dimension the dimension value
 	 */
 	public DialogResizer(Dimension dimension)
@@ -51,7 +51,7 @@ public class DialogResizer
 	}
 	
 	/**
-	 * Constructs with the specified dimension, minimumDimension and maximumDimension.
+	 * Constructs with the specified initial dimension, minimumDimension and maximumDimension.
 	 * @param dimension the dimension value
 	 * @param minimumDimension the minimum dimension value
 	 * @param maximumDimension the maximum dimension value
