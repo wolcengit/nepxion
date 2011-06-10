@@ -20,7 +20,7 @@ public class ListIntelliHint
 	extends ListDataIntelliHints
 {
 	/**
-	 * Constructs with the specified text component and completion list.
+	 * Constructs with the specified initial text component and completion list.
 	 * @param textComponent the instance of JTextComponent
 	 * @param list the instance of List
 	 */
@@ -30,7 +30,7 @@ public class ListIntelliHint
 	}
 	
 	/**
-	 * Constructs with the specified text component and completion object array.
+	 * Constructs with the specified initial text component and completion object array.
 	 * @param textComponent the instance of JTextComponent
 	 * @param completionList the completion object array
 	 */

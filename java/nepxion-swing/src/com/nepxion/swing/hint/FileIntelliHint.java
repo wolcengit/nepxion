@@ -18,7 +18,7 @@ public class FileIntelliHint
 	extends FileIntelliHints
 {
 	/**
-	 * Constructs with the specified text component.
+	 * Constructs with the specified initial text component.
 	 * @param textComponent the instance of JTextComponent
 	 */
 	public FileIntelliHint(JTextComponent textComponent)
