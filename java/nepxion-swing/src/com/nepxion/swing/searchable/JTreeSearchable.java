@@ -17,6 +17,10 @@ import com.jidesoft.swing.TreeSearchable;
 public class JTreeSearchable
 	extends TreeSearchable
 {
+	/**
+	 * Constructs with the specified initial tree.
+	 * @param tree the instance of JTree
+	 */
 	public JTreeSearchable(JTree tree)
 	{
 		super(tree);

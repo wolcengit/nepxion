@@ -17,6 +17,10 @@ import com.jidesoft.swing.ListSearchable;
 public class JListSearchable
 	extends ListSearchable
 {
+	/**
+	 * Constructs with the specified initial list.
+	 * @param list the instance of JList
+	 */
 	public JListSearchable(JList list)
 	{
 		super(list);

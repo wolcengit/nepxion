@@ -18,11 +18,18 @@ import com.nepxion.swing.container.JContainer;
 public class JSearchableContainer
 	extends JContainer
 {
+	/**
+	 * Constructs with the default.
+	 */
 	public JSearchableContainer()
 	{
 		setLayout(new BorderLayout());
 	}
 	
+	/**
+	 * Shows the component.
+	 * @param component the instance of Component
+	 */
 	public void show(Component component)
 	{
 		if (component != null)
@@ -32,6 +39,10 @@ public class JSearchableContainer
 		}
 	}
 	
+	/**
+	 * Hides the component.
+	 * @param component the instance of Component
+	 */
 	public void hide(Component component)
 	{
 		if (component != null)

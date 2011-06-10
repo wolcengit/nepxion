@@ -17,6 +17,10 @@ import com.jidesoft.swing.ComboBoxSearchable;
 public class JComboBoxSearchable
 	extends ComboBoxSearchable
 {
+	/**
+	 * Constructs with the specified initial combo box.
+	 * @param comboBox the instance of JComboBox
+	 */
 	public JComboBoxSearchable(JComboBox comboBox)
 	{
 		super(comboBox);

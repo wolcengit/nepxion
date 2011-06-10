@@ -17,6 +17,10 @@ import com.jidesoft.swing.TableSearchable;
 public class JTableSearchable
 	extends TableSearchable
 {
+	/**
+	 * Constructs with the specified initial table.
+	 * @param table the instance of JTable
+	 */
 	public JTableSearchable(JTable table)
 	{
 		super(table);

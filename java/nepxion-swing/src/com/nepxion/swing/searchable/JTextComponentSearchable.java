@@ -17,6 +17,10 @@ import com.jidesoft.swing.TextComponentSearchable;
 public class JTextComponentSearchable
 	extends TextComponentSearchable
 {
+	/**
+	 * Constructs with the specified initial text component.
+	 * @param textComponent the instance of JTextComponent
+	 */
 	public JTextComponentSearchable(JTextComponent textComponent)
 	{
 		super(textComponent);

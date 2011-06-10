@@ -25,6 +25,11 @@ import com.jidesoft.swing.SearchableBar;
 
 public class JSearchableFactory
 {
+	/**
+	 * Installs the searchable for a tree.
+	 * @param tree the instance of JTree
+	 * @return the instance of JTreeSearchable
+	 */
 	public static JTreeSearchable installSearchable(JTree tree)
 	{
 		JTreeSearchable treeSearchable = new JTreeSearchable(tree);
@@ -34,6 +39,11 @@ public class JSearchableFactory
 		return treeSearchable;
 	}
 	
+	/**
+	 * Installs the searchable for a table.
+	 * @param table the instance of JTable
+	 * @return the instance of JTableSearchable
+	 */
 	public static JTableSearchable installSearchable(JTable table)
 	{
 		JTableSearchable tableSearchable = new JTableSearchable(table);
@@ -42,6 +52,11 @@ public class JSearchableFactory
 		return tableSearchable;
 	}
 	
+	/**
+	 * Installs the searchable for a list.
+	 * @param list the instance of JList
+	 * @return the instance of JListSearchable
+	 */
 	public static JListSearchable installSearchable(JList list)
 	{
 		JListSearchable listSearchable = new JListSearchable(list);
@@ -50,6 +65,11 @@ public class JSearchableFactory
 		return listSearchable;
 	}
 	
+	/**
+	 * Installs the searchable for a combo box.
+	 * @param comboBox the instance of JComboBox
+	 * @return the instance of JComboBoxSearchable
+	 */
 	public static JComboBoxSearchable installSearchable(JComboBox comboBox)
 	{
 		JComboBoxSearchable comboBoxSearchable = new JComboBoxSearchable(comboBox);
@@ -58,6 +78,11 @@ public class JSearchableFactory
 		return comboBoxSearchable;
 	}
 	
+	/**
+	 * Installs the searchable for a text component.
+	 * @param textComponent the instance of JTextComponent
+	 * @return the instance of JTextComponentSearchable
+	 */
 	public static JTextComponentSearchable installSearchable(JTextComponent textComponent)
 	{
 		JTextComponentSearchable textComponentSearchable = new JTextComponentSearchable(textComponent);
@@ -66,11 +91,20 @@ public class JSearchableFactory
 		return textComponentSearchable;
 	}
 	
+	/**
+	 * Uninstalls the searchable.
+	 * @param searchable the instance of Searchable
+	 */
 	public static void uninstallSearchable(Searchable searchable)
 	{
 		searchable.uninstallListeners();
 	}
 	
+	/**
+	 * Install the searchable bar.
+	 * @param component the instance of JComponent
+	 * @param searchableContainer the instance of JSearchableContainer
+	 */
 	public static void installSearchableBar(JComponent component, final JSearchableContainer searchableContainer)
 	{
 		Searchable searchable = null;
