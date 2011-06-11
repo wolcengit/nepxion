@@ -25,16 +25,40 @@ import com.nepxion.swing.locale.SwingLocale;
 public class MultiRadioButtonCellRendererPanel
 	extends JPanel
 {
+	/**
+	 * The ignored radio button.
+	 */
 	private JRadioButton ignoredRadioButton;
+	
+	/**
+	 * The contained radio button.
+	 */
 	private JRadioButton containedRadioButton;
+	
+	/**
+	 * The not contained radio button.
+	 */
 	private JRadioButton notContainedRadioButton;
+	
+	/**
+	 * The instance of CellRendererLabel.
+	 */
 	private CellRendererLabel label;
 	
+	/**
+	 * Constructs with the default.
+	 */
 	public MultiRadioButtonCellRendererPanel()
 	{
 		this(SwingLocale.getString("select_ignored"), SwingLocale.getString("select_contained"), SwingLocale.getString("select_not_contained"));
 	}
 	
+	/**
+	 * Constructs with the specified initial ignored text, contained text and not contained text.
+	 * @param ignoredText the ignored text string
+	 * @param containedText the contained text string
+	 * @param notContainedText the not contained text string
+	 */
 	public MultiRadioButtonCellRendererPanel(String ignoredText, String containedText, String notContainedText)
 	{
 		ignoredRadioButton = new JRadioButton(ignoredText);
@@ -60,37 +84,48 @@ public class MultiRadioButtonCellRendererPanel
 		setBackground(Color.white);
 	}
 	
+	/**
+	 * Gets the ignored radio button.
+	 * @return the instance of JRadioButton
+	 */
 	public JRadioButton getIgnoredRadioButton()
 	{
 		return ignoredRadioButton;
 	}
 	
+	/**
+	 * Gets the contained radio button
+	 * @return the instance of JRadioButton
+	 */
 	public JRadioButton getContainedRadioButton()
 	{
 		return containedRadioButton;
 	}
 	
+	/**
+	 * Gets the not contained radio button.
+	 * @return the instance of JRadioButton
+	 */
 	public JRadioButton getNotContainedRadioButton()
 	{
 		return notContainedRadioButton;
 	}
 	
+	/**
+	 * Gets the label.
+	 * @return the instance of CellRendererLabel
+	 */
 	public CellRendererLabel getLabel()
 	{
 		return label;
 	}
-	
-	public Dimension getPreferredSize()
-	{
-		Dimension ignoredRadioDimension = ignoredRadioButton.getPreferredSize();
-		Dimension containedRadioDimension = containedRadioButton.getPreferredSize();
-		Dimension notContainedRadioDimension = notContainedRadioButton.getPreferredSize();
-		Dimension lableDimension = label.getPreferredSize();
 		
-		return new Dimension(ignoredRadioDimension.width + containedRadioDimension.width + notContainedRadioDimension.width + lableDimension.width, (ignoredRadioDimension.height < lableDimension.height ? lableDimension.height : ignoredRadioDimension.height));
-	}
-	
-	public int getSelectedRadioIndex(int x)
+	/**
+	 * Gets the selected radio index.
+	 * @param x the x value
+	 * @return the selected radio index value
+	 */
+	protected int getSelectedRadioIndex(int x)
 	{
 		if (x >= ignoredRadioButton.getBounds().x && x <= ignoredRadioButton.getBounds().x + ignoredRadioButton.getBounds().width)
 		{
@@ -108,35 +143,56 @@ public class MultiRadioButtonCellRendererPanel
 		return -1;
 	}
 	
-	public void setBackground(Color color)
+	/**
+	 * Gets the preferred size.
+	 * @return the instance of Dimension
+	 */
+	public Dimension getPreferredSize()
 	{
-		if (color instanceof ColorUIResource)
-		{
-			color = null;
-		}
+		Dimension ignoredRadioDimension = ignoredRadioButton.getPreferredSize();
+		Dimension containedRadioDimension = containedRadioButton.getPreferredSize();
+		Dimension notContainedRadioDimension = notContainedRadioButton.getPreferredSize();
+		Dimension labelDimension = label.getPreferredSize();
 		
-		super.setBackground(color);
+		return new Dimension(ignoredRadioDimension.width + containedRadioDimension.width + notContainedRadioDimension.width + labelDimension.width, (ignoredRadioDimension.height < labelDimension.height ? labelDimension.height : ignoredRadioDimension.height));
 	}
 	
+	/**
+	 * Sets the background.
+	 * @param background the instance of Color
+	 */
+	public void setBackground(Color background)
+	{
+		if (background instanceof ColorUIResource)
+		{
+			background = null;
+		}
+		
+		super.setBackground(background);
+	}
+	
+	/**
+	 * Does the layout.
+	 */
 	public void doLayout()
 	{
 		Dimension ignoredRadioDimension = ignoredRadioButton.getPreferredSize();
 		Dimension containedRadioDimension = containedRadioButton.getPreferredSize();
 		Dimension notContainedRadioDimension = notContainedRadioButton.getPreferredSize();
-		Dimension lableDimension = label.getPreferredSize();
+		Dimension labelDimension = label.getPreferredSize();
 		int radioHeight = 0;
 		int labelHeight = 0;
-		if (ignoredRadioDimension.height < lableDimension.height)
+		if (ignoredRadioDimension.height < labelDimension.height)
 		{
-			radioHeight = (lableDimension.height - ignoredRadioDimension.height) / 2;
+			radioHeight = (labelDimension.height - ignoredRadioDimension.height) / 2;
 		}
 		else
 		{
-			labelHeight = (ignoredRadioDimension.height - lableDimension.height) / 2;
+			labelHeight = (ignoredRadioDimension.height - labelDimension.height) / 2;
 		}
 		ignoredRadioButton.setBounds(2, radioHeight, ignoredRadioDimension.width, ignoredRadioDimension.height);
 		containedRadioButton.setBounds(ignoredRadioDimension.width + 2, radioHeight, containedRadioDimension.width, containedRadioDimension.height);
 		notContainedRadioButton.setBounds(ignoredRadioDimension.width + containedRadioDimension.width + 2, radioHeight, notContainedRadioDimension.width, notContainedRadioDimension.height);
-		label.setBounds(ignoredRadioDimension.width + containedRadioDimension.width + notContainedRadioDimension.width + 12, labelHeight, lableDimension.width, lableDimension.height);
+		label.setBounds(ignoredRadioDimension.width + containedRadioDimension.width + notContainedRadioDimension.width + 12, labelHeight, labelDimension.width, labelDimension.height);
 	}
 }

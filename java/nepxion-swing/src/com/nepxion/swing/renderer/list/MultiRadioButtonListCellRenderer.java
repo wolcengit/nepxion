@@ -25,74 +25,140 @@ import com.nepxion.swing.locale.SwingLocale;
 public class MultiRadioButtonListCellRenderer
 	extends MultiRadioButtonCellRendererPanel implements ListCellRenderer
 {
+	/**
+	 * The instance of JList.
+	 */
 	private JList list;
-	private int fixedCellHeight = -1;
 	
-	private CellRendererLabel cellLabel;
+	/**
+	 * The cell height value.
+	 */
+	private int cellHeight = -1;
 	
+	/**
+	 * The ignored radio button.
+	 */
 	private JRadioButton ignoredRadioButton;
+	
+	/**
+	 * The contained radio button.
+	 */
 	private JRadioButton containedRadioButton;
+	
+	/**
+	 * The not contained radio button.
+	 */
 	private JRadioButton notContainedRadioButton;
 	
+	/**
+	 * The instance of CellRendererLabel.
+	 */
+	private CellRendererLabel cellLabel;
+	
+	/**
+	 * Constructs with the specified initial list.
+	 * @param list the instance of JList
+	 */
 	public MultiRadioButtonListCellRenderer(JList list)
 	{
 		this(list, -1);
 	}
 	
-	public MultiRadioButtonListCellRenderer(JList list, int fixedCellHeight)
+	/**
+	 * Constructs with the specified initial list and cell height.
+	 * @param list the instance of JList
+	 * @param cellHeight the cell height value
+	 */
+	public MultiRadioButtonListCellRenderer(JList list, int cellHeight)
 	{
-		this(list, fixedCellHeight, SwingLocale.getString("select_ignored"), SwingLocale.getString("select_contained"), SwingLocale.getString("select_not_contained"));
+		this(list, cellHeight, SwingLocale.getString("select_ignored"), SwingLocale.getString("select_contained"), SwingLocale.getString("select_not_contained"));
 	}
 	
+	/**
+	 * Constructs with the specified initial list, ignored text, contained text and not contained text.
+	 * @param list the instance of JList
+	 * @param ignoredText the ignored text string
+	 * @param containedText the contained text string
+	 * @param notContainedText the not contained text string
+	 */
 	public MultiRadioButtonListCellRenderer(JList list, String ignoredText, String containedText, String notContainedText)
 	{
 		this(list, -1, ignoredText, containedText, notContainedText);
 	}
 	
-	public MultiRadioButtonListCellRenderer(JList list, int fixedCellHeight, String ignoredText, String containedText, String notContainedText)
+	/**
+	 * Constructs with the specified initial list, cell height, ignored text, contained text and not contained text.
+	 * @param list the instance of JList
+	 * @param cellHeight the cell height value 
+	 * @param ignoredText the ignored text string
+	 * @param containedText the contained text string
+	 * @param notContainedText the not contained text string
+	 */
+	public MultiRadioButtonListCellRenderer(JList list, int cellHeight, String ignoredText, String containedText, String notContainedText)
 	{
 		super(ignoredText, containedText, notContainedText);
 		
 		this.list = list;
-		this.fixedCellHeight = fixedCellHeight;
 		
 		cellLabel = getLabel();
 		ignoredRadioButton = getIgnoredRadioButton();
 		containedRadioButton = getContainedRadioButton();
 		notContainedRadioButton = getNotContainedRadioButton();
 		
-		if (list != null && fixedCellHeight > 0)
-		{
-			list.setFixedCellHeight(fixedCellHeight);
-		}
 		list.addMouseListener(new RadioButtonListMouseListener());
+		
+		setCellHeight(cellHeight);
 	}
 	
+	/**
+	 * Gets the list.
+	 * @return the instance of JList
+	 */
 	public JList getList()
 	{
 		return list;
 	}
 	
+	/**
+	 * Sets the list.
+	 * @param list the instance of JList
+	 */
 	public void setList(JList list)
 	{
 		this.list = list;
 	}
 	
-	public int getFixedCellHeight()
+	/**
+	 * Gets the cell height.
+	 * @return the cell height value
+	 */
+	public int getCellHeight()
 	{
-		return fixedCellHeight;
+		return cellHeight;
 	}
 	
-	public void setFixedCellHeight(int fixedCellHeight)
+	/**
+	 * Sets the cell height.
+	 * @param cellHeight the cell height value
+	 */
+	public void setCellHeight(int cellHeight)
 	{
-		this.fixedCellHeight = fixedCellHeight;
+		this.cellHeight = cellHeight;
 		
-		if (list != null && fixedCellHeight > 0)
+		if (list != null && cellHeight > 0)
 		{
-			list.setFixedCellHeight(fixedCellHeight);
+			list.setFixedCellHeight(cellHeight);
 		}
 	}
 	
+	/**
+	 * Gets the list cell renderer component.
+	 * @param list the instance of JList
+	 * @param value the value object
+	 * @param index the index value
+	 * @param isSelected the boolean of isSelected
+	 * @param cellHasFocus the boolean of cellHasFocus
+	 */
 	public Component getListCellRendererComponent(JList list, Object value, int index, boolean isSelected, boolean hasFocus)
 	{
 		IElementNode elementNode = (IElementNode) value;
@@ -138,12 +204,20 @@ public class MultiRadioButtonListCellRenderer
 	public class RadioButtonListMouseListener
 		extends MouseAdapter
 	{
+		/**
+		 * Invoked when the selection value is changed.
+		 * @param e the instance of ListSelectionEvent
+		 */
 		public void mousePressed(MouseEvent e)
 		{
 			adaptSelection(e.getX());
 		}
 	}
 	
+	/**
+	 * Adapts the selection.
+	 * @param x the x value
+	 */
 	private void adaptSelection(int x)
 	{
 		int index = list.getSelectedIndex();
