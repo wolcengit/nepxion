@@ -22,13 +22,27 @@ import javax.swing.plaf.ColorUIResource;
 public class CellRendererLabel
 	extends JLabel
 {
+	/**
+	 * The boolean value of isSelected.
+	 */
 	private boolean isSelected;
+	
+	/**
+	 * The boolean value of hasFocus.
+	 */
 	private boolean hasFocus;
 	
+	/**
+	 * Constructs with the default.
+	 */
 	public CellRendererLabel()
 	{
 	}
 	
+	/**
+	 * Gets the preferred size.
+	 * @return the instance of Dimension
+	 */
 	public Dimension getPreferredSize()
 	{
 		Dimension dimension = super.getPreferredSize();
@@ -41,26 +55,42 @@ public class CellRendererLabel
 		return dimension;
 	}
 	
+	/**
+	 * Sets the selected.
+	 * @param isSelected the boolean value of isSelected.
+	 */
 	public void setSelected(boolean isSelected)
 	{
 		this.isSelected = isSelected;
 	}
 	
+	/**
+	 * Sets the focused.
+	 * @param hasFocus the boolean value of hasFocus
+	 */
 	public void setFocus(boolean hasFocus)
 	{
 		this.hasFocus = hasFocus;
 	}
 	
-	public void setBackground(Color color)
+	/**
+	 * Sets the background.
+	 * @param background the instance of Color
+	 */
+	public void setBackground(Color background)
 	{
-		if (color instanceof ColorUIResource)
+		if (background instanceof ColorUIResource)
 		{
-			color = null;
+			background = null;
 		}
 		
-		super.setBackground(color);
+		super.setBackground(background);
 	}
 	
+	/**
+	 * Paints the graphics.
+	 * @param g the instance of Graphics
+	 */
 	public void paint(Graphics g)
 	{
 		String text = getText();
