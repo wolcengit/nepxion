@@ -26,58 +26,102 @@ import com.nepxion.swing.element.IElementNode;
 public class CheckBoxListCellRenderer
 	extends CheckBoxCellRendererPanel implements ListCellRenderer
 {
+	/**
+	 * The instance JList.
+	 */
 	private JList list;
-	private int fixedCellHeight = -1;
 	
+	/**
+	 * The cell height value.
+	 */
+	private int cellHeight = -1;
+	
+	/**
+	 * The instance of JCheckBox.
+	 */
 	private JCheckBox checkBox;
+	
+	/**
+	 * The instance of CellRendererLabel.
+	 */
 	private CellRendererLabel cellLabel;
 	
+	/**
+	 * Constructs with the specified initial list.
+	 * @param list the instance of JList
+	 */
 	public CheckBoxListCellRenderer(JList list)
 	{
 		this(list, -1);
 	}
 	
-	public CheckBoxListCellRenderer(JList list, int fixedCellHeight)
+	/**
+	 * Constructs with the specified initial list and cell height.
+	 * @param list the instance of JList
+	 * @param cellHeight the cell height value
+	 */
+	public CheckBoxListCellRenderer(JList list, int cellHeight)
 	{
 		this.list = list;
-		this.fixedCellHeight = fixedCellHeight;
 		
 		checkBox = getCheckBox();
 		cellLabel = getLabel();
 		
-		if (list != null && fixedCellHeight > 0)
-		{
-			list.setFixedCellHeight(fixedCellHeight);
-		}
 		list.addListSelectionListener(new CheckBoxListSelectionListener());
 		list.addMouseListener(new CheckBoxListMouseListener());
+		
+		setCellHeight(cellHeight);
 	}
 	
+	/**
+	 * Gets the list.
+	 * @return the instance of JList
+	 */
 	public JList getList()
 	{
 		return list;
 	}
 	
+	/**
+	 * Sets the list.
+	 * @param list the instance of JList
+	 */
 	public void setList(JList list)
 	{
 		this.list = list;
 	}
 	
-	public int getFixedCellHeight()
+	/**
+	 * Gets the cell height.
+	 * @return the cell height value
+	 */
+	public int getCellHeight()
 	{
-		return fixedCellHeight;
+		return cellHeight;
 	}
 	
-	public void setFixedCellHeight(int fixedCellHeight)
+	/**
+	 * Sets the cell height.
+	 * @param cellHeight the cell height value
+	 */
+	public void setCellHeight(int cellHeight)
 	{
-		this.fixedCellHeight = fixedCellHeight;
+		this.cellHeight = cellHeight;
 		
-		if (list != null && fixedCellHeight > 0)
+		if (list != null && cellHeight > 0)
 		{
-			list.setFixedCellHeight(fixedCellHeight);
+			list.setFixedCellHeight(cellHeight);
 		}
 	}
 	
+	/**
+	 * Gets the list cell renderer component.
+	 * @param list the instance of JList
+	 * @param value the value object
+	 * @param index the index value
+	 * @param isSelected the boolean of isSelected
+	 * @param cellHasFocus the boolean of cellHasFocus
+	 */
 	public Component getListCellRendererComponent(JList list, Object value, int index, boolean isSelected, boolean hasFocus)
 	{
 		IElementNode elementNode = (IElementNode) value;
@@ -99,6 +143,10 @@ public class CheckBoxListCellRenderer
 	public class CheckBoxListSelectionListener
 		implements ListSelectionListener
 	{
+		/**
+		 * Invoked when the selection value is changed.
+		 * @param e the instance of ListSelectionEvent
+		 */
 		public void valueChanged(ListSelectionEvent e)
 		{
 			adaptSelection();
@@ -108,12 +156,19 @@ public class CheckBoxListCellRenderer
 	public class CheckBoxListMouseListener
 		extends MouseAdapter
 	{
+	    /**
+	     * Invoked when the mouse button has been pressed on a component.
+	     * @param e the instance of MouseEvent
+	     */
 		public void mousePressed(MouseEvent e)
 		{
 			adaptSelection();
 		}
 	}
 	
+	/**
+	 * Adapts the selection.
+	 */
 	private void adaptSelection()
 	{
 		int[] indexes = list.getSelectedIndices();
