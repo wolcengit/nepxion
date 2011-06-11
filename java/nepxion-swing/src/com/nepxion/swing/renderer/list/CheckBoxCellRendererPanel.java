@@ -21,9 +21,19 @@ import javax.swing.plaf.ColorUIResource;
 public class CheckBoxCellRendererPanel
 	extends JPanel
 {
+	/**
+	 * The instance of JCheckBox.
+	 */
 	private JCheckBox checkBox;
+	
+	/**
+	 * The instance of CellRendererLabel.
+	 */
 	private CellRendererLabel label;
 	
+	/**
+	 * Constructs with the default.
+	 */
 	public CheckBoxCellRendererPanel()
 	{
 		checkBox = new JCheckBox();
@@ -38,16 +48,28 @@ public class CheckBoxCellRendererPanel
 		setBackground(Color.white);
 	}
 	
+	/**
+	 * Gets the check box.
+	 * @return the instance of JCheckBox
+	 */
 	public JCheckBox getCheckBox()
 	{
 		return checkBox;
 	}
 	
+	/**
+	 * Gets the label.
+	 * @return the instance of CellRendererLabel
+	 */
 	public CellRendererLabel getLabel()
 	{
 		return label;
 	}
 	
+	/**
+	 * Gets the preferred size.
+	 * @return the instance of Dimension
+	 */
 	public Dimension getPreferredSize()
 	{
 		Dimension checkBoxDimension = checkBox.getPreferredSize();
@@ -56,16 +78,23 @@ public class CheckBoxCellRendererPanel
 		return new Dimension(checkBoxDimension.width + labelDimension.width, (checkBoxDimension.height < labelDimension.height ? labelDimension.height : checkBoxDimension.height));
 	}
 	
-	public void setBackground(Color color)
+	/**
+	 * Sets the background.
+	 * @param background the instance of Color
+	 */
+	public void setBackground(Color background)
 	{
-		if (color instanceof ColorUIResource)
+		if (background instanceof ColorUIResource)
 		{
-			color = null;
+			background = null;
 		}
 		
-		super.setBackground(color);
+		super.setBackground(background);
 	}
 	
+	/**
+	 * Does the layout.
+	 */
 	public void doLayout()
 	{
 		Dimension checkBoxDimension = checkBox.getPreferredSize();
