@@ -21,135 +21,259 @@ import javax.swing.DefaultListCellRenderer;
 public class TabbedListCellRenderer
 	extends DefaultListCellRenderer
 {
+	/**
+	 * The width value.
+	 */
 	private int width = 0;
-	private String delimiter = "\t";
-	private int[] tabs = null;
-	private int defaultTab = 50;
 	
+	/**
+	 * The tab delimiter string.
+	 */
+	private String tabDelimiter = "\t";
+	
+	/**
+	 * The tab size value array.
+	 */
+	private int[] tabSizes = null;
+	
+	/**
+	 * The default tab size value.
+	 */
+	private int defaultTabSize = 50;
+	
+	/**
+	 * Constructs with the default.
+	 */	
 	public TabbedListCellRenderer()
 	{
 		this("\t");
 	}
 	
-	public TabbedListCellRenderer(int[] tabs)
+	/**
+	 * Constructs with the specified initial tab sizes.
+	 * @param tabSizes the tab size value array
+	 */
+	public TabbedListCellRenderer(int[] tabSizes)
 	{
-		this(tabs, 50);
+		this(tabSizes, 50);
 	}
 	
-	public TabbedListCellRenderer(String delimiter)
+	/**
+	 * Constructs with the specified initial tab delimiter.
+	 * @param tabDelimiter the tab delimiter string
+	 */
+	public TabbedListCellRenderer(String tabDelimiter)
 	{
-		this(delimiter, null);
+		this(tabDelimiter, null);
 	}
 	
+	/**
+	 * Constructs with the specified initial width.
+	 * @param width the width value
+	 */
 	public TabbedListCellRenderer(int width)
 	{
 		this(width, 50);
 	}
 	
-	public TabbedListCellRenderer(int[] tabs, int defaultTab)
+	/**
+	 * Constructs with the specified initial tab sizes and default tab size.
+	 * @param tabSizes the tab size value array
+	 * @param defaultTabSize the default tab size value
+	 */
+	public TabbedListCellRenderer(int[] tabSizes, int defaultTabSize)
 	{
-		this("\t", tabs, defaultTab);
+		this("\t", tabSizes, defaultTabSize);
 	}
 	
-	public TabbedListCellRenderer(String delimiter, int defaultTab)
+	/**
+	 * Constructs with the specified initial tab delimiter and default tab size.
+	 * @param tabDelimiter the tab delimiter string
+	 * @param defaultTabSize the default tab size value 
+	 */
+	public TabbedListCellRenderer(String tabDelimiter, int defaultTabSize)
 	{
-		this(delimiter, null, defaultTab);
+		this(tabDelimiter, null, defaultTabSize);
 	}
 	
-	public TabbedListCellRenderer(String delimiter, int[] tabs)
+	/**
+	 * Constructs with the specified initial tab delimiter and tab sizes.
+	 * @param tabDelimiter the tab delimiter string
+	 * @param tabSizes the tab size value array
+	 */
+	public TabbedListCellRenderer(String tabDelimiter, int[] tabSizes)
 	{
-		this(delimiter, tabs, 50);
+		this(tabDelimiter, tabSizes, 50);
 	}
 	
-	public TabbedListCellRenderer(int width, int defaultTab)
+	/**
+	 * Constructs with the specified initial width and default tab size.
+	 * @param width the width value
+	 * @param defaultTabSize the default tab size value
+	 */
+	public TabbedListCellRenderer(int width, int defaultTabSize)
 	{
-		this(width, (String) null, defaultTab);
+		this(width, (String) null, defaultTabSize);
 	}
 	
-	public TabbedListCellRenderer(int width, int[] tabs)
+	/**
+	 * Constructs with the specified initial width and tab sizes.
+	 * @param width the width value
+	 * @param tabSizes the tab size value array
+	 */
+	public TabbedListCellRenderer(int width, int[] tabSizes)
 	{
-		this(width, tabs, 50);
+		this(width, tabSizes, 50);
 	}
 	
-	public TabbedListCellRenderer(int width, String delimiter)
+	/**
+	 * Constructs with the specified initial width and tab delimiter.
+	 * @param width the width value
+	 * @param tabDelimiter the tab delimiter string
+	 */
+	public TabbedListCellRenderer(int width, String tabDelimiter)
 	{
-		this(width, delimiter, 50);
+		this(width, tabDelimiter, 50);
 	}
 	
-	public TabbedListCellRenderer(String delimiter, int[] tabs, int defaultTab)
+	/**
+	 * Constructs with the specified initial tab delimiter, tab sizes and default tab size.
+	 * @param tabDelimiter the tab delimiter string
+	 * @param tabSizes the tab size value array
+	 * @param defaultTabSize the default tab size value
+	 */
+	public TabbedListCellRenderer(String tabDelimiter, int[] tabSizes, int defaultTabSize)
 	{
-		this(-1, delimiter, tabs, defaultTab);
+		this(-1, tabDelimiter, tabSizes, defaultTabSize);
 	}
 	
-	public TabbedListCellRenderer(int width, int[] tabs, int defaultTab)
+	/**
+	 * Constructs with the specified initial width, tab sizes and default tab size.
+	 * @param width the width value
+	 * @param tabSizes the tab size value array
+	 * @param defaultTabSize the default tab size value
+	 */
+	public TabbedListCellRenderer(int width, int[] tabSizes, int defaultTabSize)
 	{
-		this(width, "\t", tabs, defaultTab);
+		this(width, "\t", tabSizes, defaultTabSize);
 	}
 	
-	public TabbedListCellRenderer(int width, String delimiter, int defaultTab)
+	/**
+	 * Constructs with the specified initial width, tab delimiter and default tab size.
+	 * @param width the width value
+	 * @param tabDelimiter the tab delimiter string
+	 * @param defaultTabSize the default tab size value
+	 */
+	public TabbedListCellRenderer(int width, String tabDelimiter, int defaultTabSize)
 	{
-		this(width, delimiter, null, defaultTab);
+		this(width, tabDelimiter, null, defaultTabSize);
 	}
 	
-	public TabbedListCellRenderer(int width, String delimiter, int[] tabs)
+	/**
+	 * Constructs with the specified initial width, tab delimiter and tab sizes.
+	 * @param width the width value
+	 * @param tabDelimiter the tab delimiter string
+	 * @param tabSizes the tab size value array
+	 */
+	public TabbedListCellRenderer(int width, String tabDelimiter, int[] tabSizes)
 	{
-		this(width, delimiter, tabs, 50);
+		this(width, tabDelimiter, tabSizes, 50);
 	}
 	
-	public TabbedListCellRenderer(int width, String delimiter, int[] tabs, int defaultTab)
+	/**
+	 * Constructs with the specified initial width, tab delimiter, tab sizes and default tab size.
+	 * @param width the width value
+	 * @param tabDelimiter the tab delimiter string
+	 * @param tabSizes the tab size value array
+	 * @param defaultTabSize the default tab size value
+	 */
+	public TabbedListCellRenderer(int width, String tabDelimiter, int[] tabSizes, int defaultTabSize)
 	{
 		this.width = width;
-		this.delimiter = delimiter;
-		this.tabs = tabs;
-		this.defaultTab = defaultTab;
+		this.tabDelimiter = tabDelimiter;
+		this.tabSizes = tabSizes;
+		this.defaultTabSize = defaultTabSize;
 	}
 	
-	public String getTabKey()
+	/**
+	 * Gets the tab delimiter.
+	 * @return the tab delimiter string
+	 */
+	public String getTabDelimiter()
 	{
-		return delimiter;
+		return tabDelimiter;
 	}
 	
-	public void setTabKey(String delimiter)
+	/**
+	 * Sets the tab delimiter.
+	 * @param tabDelimiter the tab delimiter string
+	 */
+	public void setTabDelimiter(String tabDelimiter)
 	{
-		this.delimiter = delimiter;
+		this.tabDelimiter = tabDelimiter;
 	}
 	
-	public int[] getTabs()
+	/**
+	 * Gets the tab sizes.
+	 * @return the tab size value array
+	 */
+	public int[] getTabSizes()
 	{
-		return tabs;
+		return tabSizes;
 	}
 	
-	public void setTabs(int[] tabs)
+	/**
+	 * Sets the tab sizes.
+	 * @param tabSizes the tab size value array 
+	 */
+	public void setTabSizes(int[] tabSizes)
 	{
-		this.tabs = tabs;
+		this.tabSizes = tabSizes;
 	}
 	
-	public int getDefaultTab()
+	/**
+	 * Gets the default tab size.
+	 * @return the default tab size value
+	 */
+	public int getDefaultTabSize()
 	{
-		return defaultTab;
+		return defaultTabSize;
 	}
 	
-	public void setDefaultTab(int defaultTab)
+	/**
+	 * Sets the default tab size.
+	 * @param defaultTabSize the default tab size value
+	 */
+	public void setDefaultTabSize(int defaultTabSize)
 	{
-		this.defaultTab = defaultTab;
+		this.defaultTabSize = defaultTabSize;
 	}
 	
-	public int getTab(int index)
+	/**
+	 * Gets the tab size.
+	 * @param index the index value
+	 * @return the tab size value
+	 */
+	public int getTabSize(int index)
 	{
-		if (tabs == null)
+		if (tabSizes == null)
 		{
-			return defaultTab * index;
+			return defaultTabSize * index;
 		}
 		
-		int length = tabs.length;
+		int length = tabSizes.length;
 		if (index >= 0 && index < length)
 		{
-			return tabs[index];
+			return tabSizes[index];
 		}
 		
-		return tabs[length - 1] + defaultTab * (index - length + 1);
+		return tabSizes[length - 1] + defaultTabSize * (index - length + 1);
 	}
 	
+	/**
+	 * Gets the preferred size.
+	 * @return the instance of Dimension
+	 */
 	public Dimension getPreferredSize()
 	{
 		Dimension preferredSize = super.getPreferredSize();
@@ -157,6 +281,10 @@ public class TabbedListCellRenderer
 		return new Dimension(width > 0 ? width : preferredSize.width, preferredSize.height);
 	}
 	
+	/**
+	 * Paints the graphics.
+	 * @param g the instance of Graphics
+	 */
 	public void paint(Graphics g)
 	{
 		FontMetrics fontMetrics = g.getFontMetrics();
@@ -172,7 +300,7 @@ public class TabbedListCellRenderer
 		int x = insets.left;
 		int y = insets.top + fontMetrics.getAscent();
 		
-		StringTokenizer stringTokenizer = new StringTokenizer(getText(), delimiter);
+		StringTokenizer stringTokenizer = new StringTokenizer(getText(), tabDelimiter);
 		while (stringTokenizer.hasMoreTokens())
 		{
 			String next = stringTokenizer.nextToken();
@@ -186,11 +314,11 @@ public class TabbedListCellRenderer
 			}
 			
 			int index = 0;
-			while (x >= getTab(index))
+			while (x >= getTabSize(index))
 			{
 				index++;
 			}
-			x = getTab(index);
+			x = getTabSize(index);
 		}
 	}
 }
