@@ -11,6 +11,7 @@ package com.nepxion.swing.border;
  */
 
 import java.awt.Color;
+import java.awt.Font;
 
 import javax.swing.BorderFactory;
 import javax.swing.UIManager;
@@ -43,27 +44,23 @@ public class BorderManager
 	}
 	
 	/**
-	 * Creates the titled border.
+	 * Creates the complex titled border.
 	 * @param title the title string
 	 * @return the instance of Border
 	 */
-	public static Border createTitledBorder(String title)
+	public static Border createComplexTitledBorder()
 	{
-		return BorderFactory.createTitledBorder(BorderFactory.createEtchedBorder(), title);
+		return createComplexTitledBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH));
 	}
 	
 	/**
-	 * Creates the titled border with the empty border inside.
-	 * @param title the title string
-	 * @param top the top value
-	 * @param left the left value
-	 * @param bottom the bottom value
-	 * @param right the right value
+	 * Creates the complex titled border.
+	 * @param border the instance of Border
 	 * @return the instance of Border
 	 */
-	public static Border createTitledBorder(String title, int top, int left, int bottom, int right)
+	public static Border createComplexTitledBorder(Border border)
 	{
-		return BorderFactory.createCompoundBorder(createTitledBorder(title), BorderFactory.createEmptyBorder(top, left, bottom, right));
+		return new ComplexTitledBorder(border);
 	}
 	
 	/**
@@ -73,34 +70,98 @@ public class BorderManager
 	 */
 	public static Border createComplexTitledBorder(String title)
 	{
-		return new ComplexTitledBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), title);
+		return createComplexTitledBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), title);
 	}
 	
 	/**
-	 * Creates the complex titled border with the empty border outside.
+	 * Creates the complex titled border.
+	 * @param border the instance of Border
 	 * @param title the title string
-	 * @param top the top value
-	 * @param left the left value
-	 * @param bottom the bottom value
-	 * @param right the right value
 	 * @return the instance of Border
 	 */
-	public static Border createComplexTitledBorder(String title, int top, int left, int bottom, int right)
+	public static Border createComplexTitledBorder(Border border, String title)
 	{
-		return BorderFactory.createCompoundBorder(BorderFactory.createEmptyBorder(top, left, bottom, right), createComplexTitledBorder(title));
+		return new ComplexTitledBorder(border, title);
 	}
 	
 	/**
-	 * Creates the line border with the empty border outside.
-	 * @param color the instance of Color
-	 * @param top the top value
-	 * @param left the left value
-	 * @param bottom the bottom value
-	 * @param right the right value
+	 * Creates the complex titled border.
+	 * @param title the title string
+	 * @param titleJustification the title justification value
+	 * @param titlePosition the title position value
 	 * @return the instance of Border
 	 */
-	public static Border createLineBorder(Color color, int top, int left, int bottom, int right)
+	public static Border createComplexTitledBorder(String title, int titleJustification, int titlePosition)
 	{
-		return BorderFactory.createCompoundBorder(BorderFactory.createEmptyBorder(top, left, bottom, right), BorderFactory.createLineBorder(color));
+		return createComplexTitledBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), title, titleJustification, titlePosition);
+	}
+	
+	/**
+	 * Creates the complex titled border.
+	 * @param border the instance of Border
+	 * @param title the title string
+	 * @param titleJustification the title justification value
+	 * @param titlePosition the title position value
+	 * @return the instance of Border
+	 */
+	public static Border createComplexTitledBorder(Border border, String title, int titleJustification, int titlePosition)
+	{
+		return new ComplexTitledBorder(border, title, titleJustification, titlePosition);
+	}
+	
+	/**
+	 * Creates the complex titled border.
+	 * @param title the title string
+	 * @param titleJustification the title justification value
+	 * @param titlePosition the title position value
+	 * @param titleFont the title font
+	 * @return the instance of Border
+	 */
+	public static Border createComplexTitledBorder(String title, int titleJustification, int titlePosition, Font titleFont)
+	{
+		return createComplexTitledBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), title, titleJustification, titlePosition, titleFont);
+	}
+	
+	/**
+	 * Creates the complex titled border.
+	 * @param border the instance of Border
+	 * @param title the title string
+	 * @param titleJustification the title justification value
+	 * @param titlePosition the title position value
+	 * @param titleFont the title font
+	 * @return the instance of Border
+	 */
+	public static Border createComplexTitledBorder(Border border, String title, int titleJustification, int titlePosition, Font titleFont)
+	{
+		return new ComplexTitledBorder(border, title, titleJustification, titlePosition, titleFont);
+	}
+	
+	/**
+	 * Creates the complex titled border.
+	 * @param title the title string
+	 * @param titleJustification the title justification value
+	 * @param titlePosition the title position value
+	 * @param titleFont the title font
+	 * @param titleColor the title color
+	 * @return the instance of Border
+	 */
+	public static Border createComplexTitledBorder(String title, int titleJustification, int titlePosition, Font titleFont, Color titleColor)
+	{
+		return createComplexTitledBorder(new ComplexEtchedBorder(ComplexEtchedBorder.LOWERED, ComplexSide.NORTH), title, titleJustification, titlePosition, titleFont, titleColor);
+	}
+	
+	/**
+	 * Creates the complex titled border.
+	 * @param border the instance of Border
+	 * @param title the title string
+	 * @param titleJustification the title justification value
+	 * @param titlePosition the title position value
+	 * @param titleFont the title font
+	 * @param titleColor the title color
+	 * @return the instance of Border
+	 */
+	public static Border createComplexTitledBorder(Border border, String title, int titleJustification, int titlePosition, Font titleFont, Color titleColor)
+	{
+		return new ComplexTitledBorder(border, title, titleJustification, titlePosition, titleFont, titleColor);
 	}
 }
