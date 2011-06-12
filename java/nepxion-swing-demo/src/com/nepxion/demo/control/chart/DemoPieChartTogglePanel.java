@@ -23,8 +23,12 @@ public class DemoPieChartTogglePanel
 {
 	public DemoPieChartTogglePanel()
 	{
+	}
+	
+	public void initialize()
+	{
 		JEclipseTabbedPane toggleTabbedPane = getToggleTabbedPane();
-		toggleTabbedPane.addTab("Pie Chart", IconFactory.getSwingIcon("component/chart_pie_16.png"), new DemoToggleTemplate(new DemoPieChartPanel()), "Pie Chart");
+		toggleTabbedPane.addTab("Pie Chart", IconFactory.getSwingIcon("component/chart_pie_16.png"), new DemoToggleTemplate(new DemoPieChartPanel()), "Pie Chart");		
 	}
 	
 	public String getToggleName()

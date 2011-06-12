@@ -24,9 +24,13 @@ public class DemoFiledLayoutTogglePanel
 {
 	public DemoFiledLayoutTogglePanel()
 	{
+	}
+	
+	public void initialize()
+	{
 		JEclipseTabbedPane toggleTabbedPane = getToggleTabbedPane();
 		toggleTabbedPane.addTab("Row Mode", IconFactory.getSwingIcon("component/layout_16.png"), new DemoToggleTemplate(new DemoRowFiledLayoutPanel()), "Row Mode");		
-		toggleTabbedPane.addTab("Column Mode", IconFactory.getSwingIcon("component/layout_16.png"), new DemoToggleTemplate(new DemoColumnFiledLayoutPanel()), "Column Mode");
+		toggleTabbedPane.addTab("Column Mode", IconFactory.getSwingIcon("component/layout_16.png"), new DemoToggleTemplate(new DemoColumnFiledLayoutPanel()), "Column Mode");		
 	}
 	
 	public String getToggleName()

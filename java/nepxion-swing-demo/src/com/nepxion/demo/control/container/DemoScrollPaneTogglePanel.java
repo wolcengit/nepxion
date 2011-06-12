@@ -24,9 +24,13 @@ public class DemoScrollPaneTogglePanel
 {
 	public DemoScrollPaneTogglePanel()
 	{
+	}
+	
+	public void initialize()
+	{
 		JEclipseTabbedPane toggleTabbedPane = getToggleTabbedPane();
 		toggleTabbedPane.addTab("Corner ScrollPane", IconFactory.getSwingIcon("component/scroll_pane_16.png"), new DemoToggleTemplate(new DemoCornerScrollPanePanel()), "Corner ScrollPane");
-		toggleTabbedPane.addTab("Auto ScrollPane", IconFactory.getSwingIcon("component/scroll_pane_16.png"), new DemoToggleTemplate(new DemoAutoScrollPanePanel()), "Auto ScrollPane");
+		toggleTabbedPane.addTab("Auto ScrollPane", IconFactory.getSwingIcon("component/scroll_pane_16.png"), new DemoToggleTemplate(new DemoAutoScrollPanePanel()), "Auto ScrollPane");		
 	}
 	
 	public String getToggleName()

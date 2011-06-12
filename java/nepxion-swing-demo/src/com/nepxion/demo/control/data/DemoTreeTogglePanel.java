@@ -26,11 +26,15 @@ public class DemoTreeTogglePanel
 {
 	public DemoTreeTogglePanel()
 	{
+	}
+	
+	public void initialize()
+	{
 		JEclipseTabbedPane toggleTabbedPane = getToggleTabbedPane();
 		toggleTabbedPane.addTab("Element Tree", IconFactory.getSwingIcon("component/tree_16.png"), new DemoToggleTemplate(new DemoElementTreePanel()), "Element Tree");				
 		toggleTabbedPane.addTab("CheckBox Tree", IconFactory.getSwingIcon("component/tree_16.png"), new DemoToggleTemplate(new DemoCheckBoxTreePanel()), "CheckBox Tree");
 		toggleTabbedPane.addTab("LazyLoader Tree", IconFactory.getSwingIcon("component/tree_16.png"), new DemoToggleTemplate(new DemoLazyLoaderTreePanel()), "LazyLoader Tree");
-		toggleTabbedPane.addTab("LazyLoader CheckBox Tree", IconFactory.getSwingIcon("component/tree_16.png"), new DemoToggleTemplate(new DemoLazyLoaderCheckBoxTreePanel()), "LazyLoader CheckBox Tree");
+		toggleTabbedPane.addTab("LazyLoader CheckBox Tree", IconFactory.getSwingIcon("component/tree_16.png"), new DemoToggleTemplate(new DemoLazyLoaderCheckBoxTreePanel()), "LazyLoader CheckBox Tree");		
 	}
 	
 	public String getToggleName()

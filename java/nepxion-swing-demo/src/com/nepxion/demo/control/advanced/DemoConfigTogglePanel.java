@@ -21,7 +21,11 @@ public class DemoConfigTogglePanel
 {
 	public DemoConfigTogglePanel()
 	{
-		JEclipseTabbedPane toggleTabbedPane = getToggleTabbedPane();
+	}
+	
+	public void initialize()
+	{
+		JEclipseTabbedPane toggleTabbedPane = getToggleTabbedPane();	
 	}
 	
 	public String getToggleName()

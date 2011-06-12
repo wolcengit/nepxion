@@ -23,8 +23,12 @@ public class DemoPlugInTogglePanel
 {
 	public DemoPlugInTogglePanel()
 	{
+	}
+	
+	public void initialize()
+	{
 		JEclipseTabbedPane toggleTabbedPane = getToggleTabbedPane();
-		toggleTabbedPane.addTab("ActiveX PlugIn", IconFactory.getSwingIcon("component/advanced_16.png"), new DemoToggleTemplate(new DemoActiveXPanel()), "ActiveX Plug-In");
+		toggleTabbedPane.addTab("ActiveX PlugIn", IconFactory.getSwingIcon("component/advanced_16.png"), new DemoToggleTemplate(new DemoActiveXPanel()), "ActiveX Plug-In");		
 	}
 	
 	public String getToggleName()

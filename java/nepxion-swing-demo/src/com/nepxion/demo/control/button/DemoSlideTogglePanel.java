@@ -21,6 +21,10 @@ public class DemoSlideTogglePanel
 {
 	public DemoSlideTogglePanel()
 	{
+	}
+	
+	public void initialize()
+	{
 		JEclipseTabbedPane toggleTabbedPane = getToggleTabbedPane();
 	}
 	

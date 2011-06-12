@@ -23,8 +23,12 @@ public class DemoFileSelectorTogglePanel
 {
 	public DemoFileSelectorTogglePanel()
 	{
+	}
+	
+	public void initialize()
+	{
 		JEclipseTabbedPane toggleTabbedPane = getToggleTabbedPane();
-		toggleTabbedPane.addTab("File", IconFactory.getSwingIcon("component/file_chooser_16.png"), new DemoToggleTemplate(new DemoFileSelectorPanel()), "File");
+		toggleTabbedPane.addTab("File", IconFactory.getSwingIcon("component/file_chooser_16.png"), new DemoToggleTemplate(new DemoFileSelectorPanel()), "File");		
 	}
 	
 	public String getToggleName()

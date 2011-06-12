@@ -24,9 +24,13 @@ public class DemoTimerTogglePanel
 {
 	public DemoTimerTogglePanel()
 	{
+	}
+	
+	public void initialize()
+	{
 		JEclipseTabbedPane toggleTabbedPane = getToggleTabbedPane();
 		toggleTabbedPane.addTab("Timer Label", IconFactory.getSwingIcon("component/thread_16.png"), new DemoToggleTemplate(new DemoTimerLabelPanel()), "Timer Label");
-		toggleTabbedPane.addTab("Timer ProgressBar", IconFactory.getSwingIcon("component/thread_16.png"), new DemoToggleTemplate(new DemoTimerProgressBarPanel()), "Timer ProgressBar");
+		toggleTabbedPane.addTab("Timer ProgressBar", IconFactory.getSwingIcon("component/thread_16.png"), new DemoToggleTemplate(new DemoTimerProgressBarPanel()), "Timer ProgressBar");		
 	}
 	
 	public String getToggleName()

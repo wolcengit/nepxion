@@ -23,8 +23,12 @@ public class DemoOutlookBarTogglePanel
 {
 	public DemoOutlookBarTogglePanel()
 	{
+	}
+	
+	public void initialize()
+	{
 		JEclipseTabbedPane toggleTabbedPane = getToggleTabbedPane();
-		toggleTabbedPane.addTab("OutlookBar", IconFactory.getSwingIcon("component/tool_bar_16.png"), new DemoToggleTemplate(new DemoOutlookBarPanel()), "OutlookBar");
+		toggleTabbedPane.addTab("OutlookBar", IconFactory.getSwingIcon("component/tool_bar_16.png"), new DemoToggleTemplate(new DemoOutlookBarPanel()), "OutlookBar");		
 	}
 	
 	public String getToggleName()

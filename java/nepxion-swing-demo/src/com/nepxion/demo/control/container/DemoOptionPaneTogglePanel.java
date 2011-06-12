@@ -23,8 +23,12 @@ public class DemoOptionPaneTogglePanel
 {
 	public DemoOptionPaneTogglePanel()
 	{
+	}
+	
+	public void initialize()
+	{
 		JEclipseTabbedPane toggleTabbedPane = getToggleTabbedPane();
-		toggleTabbedPane.addTab("OptionPane", IconFactory.getSwingIcon("component/option_pane_16.png"), new DemoToggleTemplate(new DemoOptionPanePanel()), "OptionPane");
+		toggleTabbedPane.addTab("OptionPane", IconFactory.getSwingIcon("component/option_pane_16.png"), new DemoToggleTemplate(new DemoOptionPanePanel()), "OptionPane");		
 	}
 	
 	public String getToggleName()

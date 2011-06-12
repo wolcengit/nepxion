@@ -27,14 +27,17 @@ public class DemoIPTogglePanel
 {
 	public DemoIPTogglePanel()
 	{
+	}
+	
+	public void initialize()
+	{
 		JEclipseTabbedPane toggleTabbedPane = getToggleTabbedPane();
-				
 		toggleTabbedPane.addTab("模糊查询 - 本地接口", IconFactory.getSwingIcon("component/application_16.png"), new DemoToggleTemplate(new DemoAddressPanel()), "模糊查询地理位置 - 本地接口");
 		toggleTabbedPane.addTab("根据IP地址查询 - 本地接口", IconFactory.getSwingIcon("component/application_16.png"), new DemoToggleTemplate(new DemoIPPanel()), "根据IP地址查询地理位置 - 本地接口");
 		toggleTabbedPane.addTab("根据IP地址查询 - 网易接口", IconFactory.getSwingIcon("component/application_16.png"), new DemoToggleTemplate(new DemoNeteaseIPPanel()), "根据IP地址查询地理位置 - 网易接口");
 		toggleTabbedPane.addTab("根据IP地址查询 - 新浪接口", IconFactory.getSwingIcon("component/application_16.png"), new DemoToggleTemplate(new DemoSinaIPPanel()), "根据IP地址查询地理位置 - 新浪接口");
-		toggleTabbedPane.addTab("本地IP地址查询 - 腾讯接口", IconFactory.getSwingIcon("component/application_16.png"), new DemoToggleTemplate(new DemoTencentIPPanel()), "本地IP地址查询地理位置 - 腾讯接口");
-	}
+		toggleTabbedPane.addTab("本地IP地址查询 - 腾讯接口", IconFactory.getSwingIcon("component/application_16.png"), new DemoToggleTemplate(new DemoTencentIPPanel()), "本地IP地址查询地理位置 - 腾讯接口");		
+	}	
 	
 	public String getToggleName()
 	{

@@ -21,7 +21,11 @@ public class DemoSplitPaneTogglePanel
 {
 	public DemoSplitPaneTogglePanel()
 	{
-		JEclipseTabbedPane toggleTabbedPane = getToggleTabbedPane();
+	}
+	
+	public void initialize()
+	{
+		JEclipseTabbedPane toggleTabbedPane = getToggleTabbedPane();	
 	}
 	
 	public String getToggleName()

@@ -23,9 +23,12 @@ public class DemoIDTogglePanel
 {
 	public DemoIDTogglePanel()
 	{
+	}
+	
+	public void initialize()
+	{
 		JEclipseTabbedPane toggleTabbedPane = getToggleTabbedPane();
-		
-		toggleTabbedPane.addTab("身份证归属地查询 - 网易接口", IconFactory.getSwingIcon("component/application_16.png"), new DemoToggleTemplate(new DemoNeteaseIDPanel()), "身份证归属地查询 - 网易接口");
+		toggleTabbedPane.addTab("身份证归属地查询 - 网易接口", IconFactory.getSwingIcon("component/application_16.png"), new DemoToggleTemplate(new DemoNeteaseIDPanel()), "身份证归属地查询 - 网易接口");		
 	}
 	
 	public String getToggleName()

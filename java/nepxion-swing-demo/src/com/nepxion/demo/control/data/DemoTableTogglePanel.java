@@ -14,12 +14,18 @@ import javax.swing.Icon;
 
 import com.nepxion.demo.common.DemoTogglePanel;
 import com.nepxion.swing.icon.IconFactory;
+import com.nepxion.swing.tabbedpane.JEclipseTabbedPane;
 
 public class DemoTableTogglePanel
 	extends DemoTogglePanel
 {
 	public DemoTableTogglePanel()
 	{
+	}
+	
+	public void initialize()
+	{
+		JEclipseTabbedPane toggleTabbedPane = getToggleTabbedPane();
 	}
 	
 	public String getToggleName()

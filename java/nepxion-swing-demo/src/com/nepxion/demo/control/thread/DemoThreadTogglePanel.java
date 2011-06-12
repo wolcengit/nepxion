@@ -24,9 +24,13 @@ public class DemoThreadTogglePanel
 {
 	public DemoThreadTogglePanel()
 	{
+	}
+	
+	public void initialize()
+	{
 		JEclipseTabbedPane toggleTabbedPane = getToggleTabbedPane();
 		toggleTabbedPane.addTab("Thread Container", IconFactory.getSwingIcon("component/thread_16.png"), new DemoToggleTemplate(new DemoThreadContainerPanel()), "Thread Container");
-		toggleTabbedPane.addTab("Thread Dialog", IconFactory.getSwingIcon("component/thread_16.png"), new DemoToggleTemplate(new DemoThreadDialoglPanel()), "Thread Dialog");
+		toggleTabbedPane.addTab("Thread Dialog", IconFactory.getSwingIcon("component/thread_16.png"), new DemoToggleTemplate(new DemoThreadDialoglPanel()), "Thread Dialog");		
 	}
 	
 	public String getToggleName()

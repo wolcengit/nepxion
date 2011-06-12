@@ -24,9 +24,13 @@ public class DemoSpinnerTogglePanel
 {
 	public DemoSpinnerTogglePanel()
 	{
+	}
+	
+	public void initialize()
+	{
 		JEclipseTabbedPane toggleTabbedPane = getToggleTabbedPane();
 		toggleTabbedPane.addTab("Number SpinnerField", IconFactory.getSwingIcon("component/spinner_16.png"), new DemoToggleTemplate(new DemoNumberSpinnerFieldPanel()), "Number SpinnerField");		
-		toggleTabbedPane.addTab("Point SpinnerField", IconFactory.getSwingIcon("component/spinner_16.png"), new DemoToggleTemplate(new DemoPointSpinnerFieldPanel()), "Point SpinnerField");
+		toggleTabbedPane.addTab("Point SpinnerField", IconFactory.getSwingIcon("component/spinner_16.png"), new DemoToggleTemplate(new DemoPointSpinnerFieldPanel()), "Point SpinnerField");		
 	}
 	
 	public String getToggleName()

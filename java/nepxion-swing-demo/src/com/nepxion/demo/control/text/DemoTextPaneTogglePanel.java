@@ -22,8 +22,12 @@ public class DemoTextPaneTogglePanel
 {
 	public DemoTextPaneTogglePanel()
 	{
+	}
+	
+	public void initialize()
+	{
 		JEclipseTabbedPane toggleTabbedPane = getToggleTabbedPane();
-		JEditorPane editorPane = new JEditorPane();
+		JEditorPane editorPane = new JEditorPane();	
 	}
 	
 	public String getToggleName()

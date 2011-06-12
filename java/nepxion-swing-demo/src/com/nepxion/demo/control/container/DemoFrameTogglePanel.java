@@ -23,8 +23,12 @@ public class DemoFrameTogglePanel
 {
 	public DemoFrameTogglePanel()
 	{
+	}
+	
+	public void initialize()
+	{
 		JEclipseTabbedPane toggleTabbedPane = getToggleTabbedPane();
-		toggleTabbedPane.addTab("Basic Frame", IconFactory.getSwingIcon("component/framework_16.png"), new DemoToggleTemplate(new DemoBasicFramePanel()), "Basic Dialog");
+		toggleTabbedPane.addTab("Basic Frame", IconFactory.getSwingIcon("component/framework_16.png"), new DemoToggleTemplate(new DemoBasicFramePanel()), "Basic Dialog");		
 	}
 	
 	public String getToggleName()

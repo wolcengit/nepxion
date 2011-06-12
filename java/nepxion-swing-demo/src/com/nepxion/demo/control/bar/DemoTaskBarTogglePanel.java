@@ -24,6 +24,10 @@ public class DemoTaskBarTogglePanel
 {
 	public DemoTaskBarTogglePanel()
 	{
+	}
+	
+	public void initialize()
+	{
 		JEclipseTabbedPane toggleTabbedPane = getToggleTabbedPane();
 		
 		LookAndFeelManager.addonMetalLookAndFeel();
@@ -42,7 +46,7 @@ public class DemoTaskBarTogglePanel
 		toggleTabbedPane.addTab("Metallic L&F", IconFactory.getSwingIcon("component/tool_bar_16.png"), new DemoToggleTemplate(new DemoTaskBarPanel()), "Metallic L&F");
 		
 		LookAndFeelManager.addonGlossyLookAndFeel();
-		toggleTabbedPane.addTab("Glossy L&F", IconFactory.getSwingIcon("component/tool_bar_16.png"), new DemoToggleTemplate(new DemoTaskBarPanel()), "Glossy L&F");
+		toggleTabbedPane.addTab("Glossy L&F", IconFactory.getSwingIcon("component/tool_bar_16.png"), new DemoToggleTemplate(new DemoTaskBarPanel()), "Glossy L&F");		
 	}
 	
 	public String getToggleName()

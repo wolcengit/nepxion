@@ -21,6 +21,10 @@ public class DemoColorSelectorTogglePanel
 {
 	public DemoColorSelectorTogglePanel()
 	{
+	}
+	
+	public void initialize()
+	{
 		JEclipseTabbedPane toggleTabbedPane = getToggleTabbedPane();
 	}
 	

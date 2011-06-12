@@ -21,7 +21,11 @@ public class DemoPaginationTogglePanel
 {
 	public DemoPaginationTogglePanel()
 	{
-		JEclipseTabbedPane toggleTabbedPane = getToggleTabbedPane();
+	}
+	
+	public void initialize()
+	{
+		JEclipseTabbedPane toggleTabbedPane = getToggleTabbedPane();	
 	}
 	
 	public String getToggleName()

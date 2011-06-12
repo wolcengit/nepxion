@@ -23,8 +23,12 @@ public class DemoLocaleSelectorTogglePanel
 {
 	public DemoLocaleSelectorTogglePanel()
 	{
+	}
+	
+	public void initialize()
+	{
 		JEclipseTabbedPane toggleTabbedPane = getToggleTabbedPane();
-		toggleTabbedPane.addTab("Locale", IconFactory.getSwingIcon("component/locale_16.png"), new DemoToggleTemplate(new DemoLocaleSelectorPanel()), "Locale");
+		toggleTabbedPane.addTab("Locale", IconFactory.getSwingIcon("component/locale_16.png"), new DemoToggleTemplate(new DemoLocaleSelectorPanel()), "Locale");		
 	}
 	
 	public String getToggleName()

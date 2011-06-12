@@ -23,8 +23,12 @@ public class DemoButtonBarTogglePanel
 {
 	public DemoButtonBarTogglePanel()
 	{
+	}
+	
+	public void initialize()
+	{
 		JEclipseTabbedPane toggleTabbedPane = getToggleTabbedPane();
-		toggleTabbedPane.addTab("ButtonBar", IconFactory.getSwingIcon("component/tool_bar_16.png"), new DemoToggleTemplate(new DemoButtonBarPanel()), "ButtonBar");
+		toggleTabbedPane.addTab("ButtonBar", IconFactory.getSwingIcon("component/tool_bar_16.png"), new DemoToggleTemplate(new DemoButtonBarPanel()), "ButtonBar");		
 	}
 	
 	public String getToggleName()

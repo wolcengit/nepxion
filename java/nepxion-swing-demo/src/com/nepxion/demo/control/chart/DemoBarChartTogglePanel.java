@@ -25,10 +25,14 @@ public class DemoBarChartTogglePanel
 {
 	public DemoBarChartTogglePanel()
 	{
+	}
+	
+	public void initialize()
+	{
 		JEclipseTabbedPane toggleTabbedPane = getToggleTabbedPane();
 		toggleTabbedPane.addTab("Rectangle Bar Chart 3D", IconFactory.getSwingIcon("component/chart_bar_16.png"), new DemoToggleTemplate(new DemoRectangleBarChart3DPanel()), "Rectangle Bar Chart 3D");
 		toggleTabbedPane.addTab("Rectangle Bar Chart", IconFactory.getSwingIcon("component/chart_bar_16.png"), new DemoToggleTemplate(new DemoRectangleBarChartPanel()), "Rectangle Bar Chart");
-		toggleTabbedPane.addTab("Cylinder Bar Chart 3D", IconFactory.getSwingIcon("component/chart_bar_16.png"), new DemoToggleTemplate(new DemoCylinderBarChart3DPanel()), "Cylinder Bar Chart 3D");
+		toggleTabbedPane.addTab("Cylinder Bar Chart 3D", IconFactory.getSwingIcon("component/chart_bar_16.png"), new DemoToggleTemplate(new DemoCylinderBarChart3DPanel()), "Cylinder Bar Chart 3D");		
 	}
 	
 	public String getToggleName()

@@ -26,11 +26,15 @@ public class DemoComboBoxTogglePanel
 {
 	public DemoComboBoxTogglePanel()
 	{
+	}
+	
+	public void initialize()
+	{
 		JEclipseTabbedPane toggleTabbedPane = getToggleTabbedPane();
 		toggleTabbedPane.addTab("Basic ComboBox", IconFactory.getSwingIcon("component/combo_box_16.png"), new DemoToggleTemplate(new DemoBasicComboBoxPanel()), "Basic ComboBox");
 		toggleTabbedPane.addTab("Element ComboBox", IconFactory.getSwingIcon("component/combo_box_16.png"), new DemoToggleTemplate(new DemoElementComboBoxPanel()), "Element ComboBox");
 		toggleTabbedPane.addTab("Group ComboBox", IconFactory.getSwingIcon("component/combo_box_16.png"), new DemoToggleTemplate(new DemoGroupComboBoxPanel()), "Group ComboBox");				
-		toggleTabbedPane.addTab("Tree ComboBox", IconFactory.getSwingIcon("component/combo_box_16.png"), new DemoToggleTemplate(new DemoTreeComboBoxPanel()), "Tree ComboBox");
+		toggleTabbedPane.addTab("Tree ComboBox", IconFactory.getSwingIcon("component/combo_box_16.png"), new DemoToggleTemplate(new DemoTreeComboBoxPanel()), "Tree ComboBox");		
 	}
 	
 	public String getToggleName()

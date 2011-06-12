@@ -23,8 +23,12 @@ public class DemoCalendarSelectorTogglePanel
 {
 	public DemoCalendarSelectorTogglePanel()
 	{
+	}
+	
+	public void initialize()
+	{
 		JEclipseTabbedPane toggleTabbedPane = getToggleTabbedPane();
-		toggleTabbedPane.addTab("Calendar", IconFactory.getSwingIcon("component/calendar_16.png"), new DemoToggleTemplate(new DemoCalendarSelectorPanel()), "Calendar");
+		toggleTabbedPane.addTab("Calendar", IconFactory.getSwingIcon("component/calendar_16.png"), new DemoToggleTemplate(new DemoCalendarSelectorPanel()), "Calendar");		
 	}
 	
 	public String getToggleName()

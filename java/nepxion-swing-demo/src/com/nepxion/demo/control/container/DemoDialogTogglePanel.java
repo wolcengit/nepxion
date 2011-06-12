@@ -26,11 +26,15 @@ public class DemoDialogTogglePanel
 {
 	public DemoDialogTogglePanel()
 	{
+	}
+	
+	public void initialize()
+	{
 		JEclipseTabbedPane toggleTabbedPane = getToggleTabbedPane();
 		toggleTabbedPane.addTab("Basic Dialog", IconFactory.getSwingIcon("component/dialog_16.png"), new DemoToggleTemplate(new DemoBasicDialogPanel()), "Basic Dialog");
 		toggleTabbedPane.addTab("Exception Dialog", IconFactory.getSwingIcon("component/dialog_16.png"), new DemoToggleTemplate(new DemoExceptionDialogPanel()), "Exception Dialog");
 		toggleTabbedPane.addTab("Splash Dialog", IconFactory.getSwingIcon("component/dialog_16.png"), new DemoToggleTemplate(new DemoSplashDialogPanel()), "Splash Dialog");
-		toggleTabbedPane.addTab("Caption Splash Dialog", IconFactory.getSwingIcon("component/dialog_16.png"), new DemoToggleTemplate(new DemoCaptionSplashDialogPanel()), "Caption Splash Dialog");
+		toggleTabbedPane.addTab("Caption Splash Dialog", IconFactory.getSwingIcon("component/dialog_16.png"), new DemoToggleTemplate(new DemoCaptionSplashDialogPanel()), "Caption Splash Dialog");		
 	}
 	
 	public String getToggleName()

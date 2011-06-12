@@ -26,11 +26,15 @@ public class DemoPanelTogglePanel
 {
 	public DemoPanelTogglePanel()
 	{
+	}
+	
+	public void initialize()
+	{
 		JEclipseTabbedPane toggleTabbedPane = getToggleTabbedPane();
 		toggleTabbedPane.addTab("Decoration Panel", IconFactory.getSwingIcon("component/panel_16.png"), new DemoToggleTemplate(new DemoDecorationPanel()), "Decoration Panel");
 		toggleTabbedPane.addTab("Option Panel", IconFactory.getSwingIcon("component/panel_16.png"), new DemoToggleTemplate(new DemoOptionPanel()), "Option Panel");		
 		toggleTabbedPane.addTab("Banner Panel", IconFactory.getSwingIcon("component/panel_16.png"), new DemoToggleTemplate(new DemoBannerPanel()), "Banner Panel");
-		toggleTabbedPane.addTab("IP Property Panel", IconFactory.getSwingIcon("component/panel_16.png"), new DemoToggleTemplate(new DemoIPPropertyPanel()), "IP Property Panel");
+		toggleTabbedPane.addTab("IP Property Panel", IconFactory.getSwingIcon("component/panel_16.png"), new DemoToggleTemplate(new DemoIPPropertyPanel()), "IP Property Panel");		
 	}
 	
 	public String getToggleName()

@@ -23,8 +23,12 @@ public class DemoLineChartTogglePanel
 {
 	public DemoLineChartTogglePanel()
 	{
+	}
+	
+	public void initialize()
+	{
 		JEclipseTabbedPane toggleTabbedPane = getToggleTabbedPane();
-		toggleTabbedPane.addTab("Line Chart", IconFactory.getSwingIcon("component/chart_line_16.png"), new DemoToggleTemplate(new DemoLineChartPanel()), "Line Chart");
+		toggleTabbedPane.addTab("Line Chart", IconFactory.getSwingIcon("component/chart_line_16.png"), new DemoToggleTemplate(new DemoLineChartPanel()), "Line Chart");		
 	}
 	
 	public String getToggleName()

@@ -24,9 +24,13 @@ public class DemoMobileTogglePanel
 {
 	public DemoMobileTogglePanel()
 	{
+	}
+	
+	public void initialize()
+	{
 		JEclipseTabbedPane toggleTabbedPane = getToggleTabbedPane();
 		toggleTabbedPane.addTab("手机归属地查询  - 手机之家接口", IconFactory.getSwingIcon("component/application_16.png"), new DemoToggleTemplate(new DemoLocatingMobilePanel()), "手机归属地查询 - 手机之家接口");
-		toggleTabbedPane.addTab("手机归属地查询  - 网易接口", IconFactory.getSwingIcon("component/application_16.png"), new DemoToggleTemplate(new DemoNeteaseMobilePanel()), "手机归属地查询  - 网易接口");
+		toggleTabbedPane.addTab("手机归属地查询  - 网易接口", IconFactory.getSwingIcon("component/application_16.png"), new DemoToggleTemplate(new DemoNeteaseMobilePanel()), "手机归属地查询  - 网易接口");		
 	}
 	
 	public String getToggleName()

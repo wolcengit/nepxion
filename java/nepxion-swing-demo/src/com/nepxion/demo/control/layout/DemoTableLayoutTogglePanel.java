@@ -27,12 +27,16 @@ public class DemoTableLayoutTogglePanel
 {
 	public DemoTableLayoutTogglePanel()
 	{
+	}
+	
+	public void initialize()
+	{
 		JEclipseTabbedPane toggleTabbedPane = getToggleTabbedPane();
 		toggleTabbedPane.addTab("Absolute Mode", IconFactory.getSwingIcon("component/layout_16.png"), new DemoToggleTemplate(new DemoAbsoluteTableLayoutPanel()), "Absolute Mode");
 		toggleTabbedPane.addTab("Preferred Mode", IconFactory.getSwingIcon("component/layout_16.png"), new DemoToggleTemplate(new DemoPreferredTableLayoutPanel()), "Preferred Mode");			
 		toggleTabbedPane.addTab("Minimum Mode", IconFactory.getSwingIcon("component/layout_16.png"), new DemoToggleTemplate(new DemoMinimumTableLayoutPanel()), "Minimum Mode");
 		toggleTabbedPane.addTab("Fill Mode", IconFactory.getSwingIcon("component/layout_16.png"), new DemoToggleTemplate(new DemoFillTableLayoutPanel()), "Fill Mode");	
-		toggleTabbedPane.addTab("Mixed Mode", IconFactory.getSwingIcon("component/layout_16.png"), new DemoToggleTemplate(new DemoMixedTableLayoutPanel()), "Mixed Mode");		
+		toggleTabbedPane.addTab("Mixed Mode", IconFactory.getSwingIcon("component/layout_16.png"), new DemoToggleTemplate(new DemoMixedTableLayoutPanel()), "Mixed Mode");				
 	}
 	
 	public String getToggleName()

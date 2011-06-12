@@ -20,7 +20,7 @@ import com.nepxion.swing.toggle.JTogglePanel;
 
 public abstract class DemoTogglePanel
 	extends JTogglePanel implements IRibbonComponent
-{	
+{
 	private JEclipseTabbedPane toggleTabbedPane;
 	
 	public DemoTogglePanel()
@@ -30,6 +30,8 @@ public abstract class DemoTogglePanel
 		setLayout(new BorderLayout());
 		setBorder(BorderFactory.createEmptyBorder(2, 2, 2, 2));
 		add(toggleTabbedPane, BorderLayout.CENTER);
+		
+		initialize();
 	}
 	
 	public JEclipseTabbedPane getToggleTabbedPane()
@@ -41,9 +43,11 @@ public abstract class DemoTogglePanel
 	{
 		return null;
 	}
-
+	
 	public void setUserObject(Object userObject)
 	{
 		
 	}
+	
+	public abstract void initialize();
 }

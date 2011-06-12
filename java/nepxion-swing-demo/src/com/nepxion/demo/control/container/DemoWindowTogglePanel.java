@@ -24,9 +24,13 @@ public class DemoWindowTogglePanel
 {
 	public DemoWindowTogglePanel()
 	{
+	}
+	
+	public void initialize()
+	{
 		JEclipseTabbedPane toggleTabbedPane = getToggleTabbedPane();
 		toggleTabbedPane.addTab("Splash Window", IconFactory.getSwingIcon("component/internal_frame_16.png"), new DemoToggleTemplate(new DemoSplashWindowPanel()), "Splash Window");
-		toggleTabbedPane.addTab("Caption Splash Window", IconFactory.getSwingIcon("component/internal_frame_16.png"), new DemoToggleTemplate(new DemoCaptionSplashWindowPanel()), "Caption Splash Window");
+		toggleTabbedPane.addTab("Caption Splash Window", IconFactory.getSwingIcon("component/internal_frame_16.png"), new DemoToggleTemplate(new DemoCaptionSplashWindowPanel()), "Caption Splash Window");		
 	}
 	
 	public String getToggleName()
