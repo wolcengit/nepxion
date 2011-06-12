@@ -17,18 +17,28 @@ import java.awt.event.HierarchyEvent;
 import javax.swing.BorderFactory;
 
 import com.nepxion.swing.framework.ribbon.IRibbonComponent;
+import com.nepxion.swing.icon.IconFactory;
 import com.nepxion.swing.listener.DisplayAbilityListener;
 import com.nepxion.swing.tabbedpane.JEclipseTabbedPane;
-import com.nepxion.swing.toggle.JThreadTogglePanel;
+import com.nepxion.swing.toggle.AbstractThreadTogglePanel;
 
 public abstract class DemoTogglePanel
-	extends JThreadTogglePanel implements IRibbonComponent
+	extends AbstractThreadTogglePanel implements IRibbonComponent
 {
 	private JEclipseTabbedPane toggleTabbedPane;
 	
 	public DemoTogglePanel()
 	{
-		super("Component");
+		super("Initializing, please wait...");
+		
+		setToggleBannerIcon(IconFactory.getSwingIcon("banner/edit.png"));
+		setInformationText("Initialize the component");
+		setInformationIcon(IconFactory.getSwingIcon("banner/query_128.png"));
+		setErrorText("Initialize the component failure");
+		setErrorIcon(IconFactory.getSwingIcon("banner/error_128.png"));
+		setWidth(300);
+		
+		showInformation();
 		
 		setLayout(new BorderLayout());
 		setBorder(BorderFactory.createEmptyBorder(2, 2, 2, 2));
