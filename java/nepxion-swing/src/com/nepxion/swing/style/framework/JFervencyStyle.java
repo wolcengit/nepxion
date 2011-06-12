@@ -14,7 +14,6 @@ import java.awt.Color;
 
 import javax.swing.BorderFactory;
 
-import com.nepxion.swing.border.BorderManager;
 import com.nepxion.swing.border.RaisedHeaderBorder;
 
 public class JFervencyStyle
@@ -39,7 +38,7 @@ public class JFervencyStyle
 		background = new Color(252, 198, 82);
 		selectionBackground = new Color(252, 198, 82);
 		
-		border = BorderManager.createLineBorder(Color.gray, -1, 2, 2, 2); // 2, 2, 2, 2
+		border = BorderFactory.createCompoundBorder(BorderFactory.createEmptyBorder(-1, 2, 2, 2), BorderFactory.createLineBorder(Color.gray)); // 2, 2, 2, 2
 		headerBorder = new RaisedHeaderBorder(Color.gray, Color.gray.brighter());
 		titleBorder = BorderFactory.createEmptyBorder(2, 4, 2, 1);
 		
