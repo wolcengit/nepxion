@@ -51,7 +51,8 @@ public abstract class DemoTogglePanel
 				
 				removeHierarchyListener(this);
 			}
-		});
+		}
+		);
 	}
 	
 	public JEclipseTabbedPane getToggleTabbedPane()
