@@ -13,8 +13,9 @@ package com.nepxion.swing.scrollpane;
 import java.awt.Color;
 import java.awt.Component;
 
+import javax.swing.BorderFactory;
+
 import com.jidesoft.swing.JideScrollPane;
-import com.nepxion.swing.border.BorderManager;
 
 public class JCornerScrollPane
 	extends JideScrollPane
@@ -70,7 +71,7 @@ public class JCornerScrollPane
 	 */
 	private void initComponents()
 	{
-		setBorder(BorderManager.createLineBorder(Color.gray, 0, 0, 0, 0));
+		setBorder(BorderFactory.createCompoundBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0), BorderFactory.createLineBorder(Color.gray)));
 		
 		ScrollPaneManager.setPreferenceStyle(this);
 	}
