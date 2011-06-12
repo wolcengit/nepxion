@@ -24,6 +24,7 @@ public class DemoRibbonWorkspaceBar
 		
 		// The container is displayed as JEclipseTabbedPane
 		JEclipseTabbedPane tabbedPane = new JEclipseTabbedPane();
+		tabbedPane.setSnapToolTip(true);
 		// tabbedPane.setTabShape(JEclipseTabbedPane.SHAPE_ECLIPSE3X, new JRibbonStyle());		
 		tabbedPane.setTabShape(JEclipseTabbedPane.SHAPE_ROUNDED_VSNET, new JRibbonStyle());
 		

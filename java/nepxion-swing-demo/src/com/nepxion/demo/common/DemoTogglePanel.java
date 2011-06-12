@@ -11,13 +11,86 @@ package com.nepxion.demo.common;
  */
 
 import java.awt.BorderLayout;
+import java.awt.Component;
+import java.awt.event.HierarchyEvent;
 
 import javax.swing.BorderFactory;
 
 import com.nepxion.swing.framework.ribbon.IRibbonComponent;
+import com.nepxion.swing.listener.DisplayAbilityListener;
 import com.nepxion.swing.tabbedpane.JEclipseTabbedPane;
-import com.nepxion.swing.toggle.JTogglePanel;
+import com.nepxion.swing.toggle.JThreadTogglePanel;
 
+public abstract class DemoTogglePanel
+	extends JThreadTogglePanel implements IRibbonComponent
+{
+	private JEclipseTabbedPane toggleTabbedPane;
+	
+	public DemoTogglePanel()
+	{
+		super("Component");
+		
+		setLayout(new BorderLayout());
+		setBorder(BorderFactory.createEmptyBorder(2, 2, 2, 2));
+		
+		addHierarchyListener(new DisplayAbilityListener()
+		{
+			public void displayAbilityChanged(HierarchyEvent e)
+			{
+				execute();
+				
+				removeHierarchyListener(this);
+			}
+		});
+	}
+	
+	public JEclipseTabbedPane getToggleTabbedPane()
+	{
+		return toggleTabbedPane;
+	}
+	
+	public Component getContentPane()
+	{
+		return toggleTabbedPane;
+	}
+	
+	public boolean isLoadCache()
+	{
+		return toggleTabbedPane != null;
+	}
+	
+	protected void loadForeground(Object data)
+		throws Exception
+	{
+		if (toggleTabbedPane == null)
+		{
+			toggleTabbedPane = new JEclipseTabbedPane();
+			add(toggleTabbedPane, BorderLayout.CENTER);
+			
+			initialize();
+		}
+	}
+	
+	protected Object loadBackground()
+		throws Exception
+	{
+		return null;
+	}
+	
+	public Object getUserObject()
+	{
+		return null;
+	}
+	
+	public void setUserObject(Object userObject)
+	{
+		
+	}
+	
+	public abstract void initialize();
+}
+
+/*
 public abstract class DemoTogglePanel
 	extends JTogglePanel implements IRibbonComponent
 {
@@ -51,3 +124,4 @@ public abstract class DemoTogglePanel
 	
 	public abstract void initialize();
 }
+*/
