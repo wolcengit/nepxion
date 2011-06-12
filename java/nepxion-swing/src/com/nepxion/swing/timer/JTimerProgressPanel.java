@@ -29,15 +29,41 @@ import com.nepxion.swing.optionpane.JBasicOptionPane;
 public abstract class JTimerProgressPanel
 	extends JPanel
 {
+	/**
+	 * The animation label.
+	 */
 	private JLabel animationLabel;
+	
+	/**
+	 * The timer progress bar.
+	 */
 	private JTimerProgressBar timerProgressBar;
+	
+	/**
+	 * The information label
+	 */
 	private JLabel informationLabel;
 	
+	/**
+	 * The hide button.
+	 */
 	private JClassicButton hideButton;
+	
+	/**
+	 * The cancel button.
+	 */
 	private JClassicButton cancelButton;
 	
+	/**
+	 * The information string
+	 */
 	private String information;
 	
+	/**
+	 * Constructs with the specified initial animation label and information.
+	 * @param animationLabel the instance of JLabel
+	 * @param information the information string
+	 */
 	public JTimerProgressPanel(JLabel animationLabel, String information)
 	{
 		this.animationLabel = animationLabel;
@@ -46,6 +72,9 @@ public abstract class JTimerProgressPanel
 		initComponents();
 	}
 	
+	/**
+	 * Initializes the components.
+	 */
 	private void initComponents()
 	{
 		LabelPanel labelPanel = new LabelPanel();
@@ -61,6 +90,9 @@ public abstract class JTimerProgressPanel
 	public class LabelPanel
 		extends JPanel
 	{
+		/**
+		 * Constructs with the default.
+		 */
 		public LabelPanel()
 		{
 			informationLabel = new JLabel(information);
@@ -77,6 +109,9 @@ public abstract class JTimerProgressPanel
 	public class ProgressPanel
 		extends JPanel
 	{
+		/**
+		 * Constructs with the default.
+		 */
 		public ProgressPanel()
 		{
 			timerProgressBar = new JTimerProgressBar();
@@ -91,6 +126,9 @@ public abstract class JTimerProgressPanel
 	public class ButtonPanel
 		extends JPanel
 	{
+		/**
+		 * Constructs with the default.
+		 */
 		public ButtonPanel()
 		{
 			hideButton = new JClassicButton(SwingLocale.getString("hide"), IconFactory.getSwingIcon("stereo/confirm_16.png"), SwingLocale.getString("hide"));
@@ -135,6 +173,9 @@ public abstract class JTimerProgressPanel
 		}
 	}
 	
+	/**
+	 * Rests the timer.
+	 */
 	public void reset()
 	{
 		if (animationLabel instanceof JTimerLabel)
@@ -142,9 +183,13 @@ public abstract class JTimerProgressPanel
 			JTimerLabel timerAnimationLabel = (JTimerLabel) animationLabel;
 			timerAnimationLabel.reset();
 		}
+		
 		timerProgressBar.reset();
 	}
 	
+	/**
+	 * Starts the timer.
+	 */
 	public void start()
 	{
 		if (animationLabel instanceof JTimerLabel)
@@ -152,9 +197,14 @@ public abstract class JTimerProgressPanel
 			JTimerLabel timerAnimationLabel = (JTimerLabel) animationLabel;
 			timerAnimationLabel.restart(); // 不需要重复刷新
 		}
+		
 		timerProgressBar.start();
 	}
 	
+	/**
+	 * Starts the timer with a delay time.
+	 * @param delayTime the delay time value
+	 */
 	public void start(int delayTime)
 	{
 		if (animationLabel instanceof JTimerLabel)
@@ -162,9 +212,13 @@ public abstract class JTimerProgressPanel
 			JTimerLabel timerAnimationLabel = (JTimerLabel) animationLabel;
 			timerAnimationLabel.restart(); // 按照默认的时间间隔执行
 		}
+		
 		timerProgressBar.start(delayTime);
 	}
 	
+	/**
+	 * Restarts the timer.
+	 */
 	public void restart()
 	{
 		if (animationLabel instanceof JTimerLabel)
@@ -172,9 +226,14 @@ public abstract class JTimerProgressPanel
 			JTimerLabel timerAnimationLabel = (JTimerLabel) animationLabel;
 			timerAnimationLabel.restart();
 		}
+		
 		timerProgressBar.restart();
 	}
 	
+	/**
+	 * Restarts the timer with a delay time.
+	 * @param delayTime the delay time value
+	 */
 	public void restart(int delayTime)
 	{
 		if (animationLabel instanceof JTimerLabel)
@@ -182,9 +241,13 @@ public abstract class JTimerProgressPanel
 			JTimerLabel timerAnimationLabel = (JTimerLabel) animationLabel;
 			timerAnimationLabel.restart();
 		}
+		
 		timerProgressBar.restart(delayTime);
 	}
 	
+	/**
+	 * Stops the timer.
+	 */
 	public void stop()
 	{
 		if (animationLabel instanceof JTimerLabel)
@@ -192,9 +255,13 @@ public abstract class JTimerProgressPanel
 			JTimerLabel timerLabel = (JTimerLabel) animationLabel;
 			timerLabel.stop();
 		}
+		
 		timerProgressBar.stop();
 	}
 	
+	/**
+	 * Finishes the timer.
+	 */
 	public void finish()
 	{
 		if (animationLabel instanceof JTimerLabel)
@@ -202,35 +269,62 @@ public abstract class JTimerProgressPanel
 			JTimerLabel timerLabel = (JTimerLabel) animationLabel;
 			timerLabel.finish();
 		}
+		
 		timerProgressBar.finish();
 	}
 	
-	public JLabel getLabel()
+	/**
+	 * Gets the animation label.
+	 * @return the instance of JLabel
+	 */
+	public JLabel getAnimationLabel()
 	{
 		return animationLabel;
 	}
 	
+	/**
+	 * Gets the timer progress bar.
+	 * @return the instance of JTimerProgressBar
+	 */
 	public JTimerProgressBar getTimerProgressBar()
 	{
 		return timerProgressBar;
 	}
 	
+	/**
+	 * Gets the information label.
+	 * @return the instance of JLabel
+	 */
 	public JLabel getInformationLabel()
 	{
 		return informationLabel;
 	}
 	
+	/**
+	 * Gets the hide button.
+	 * @return the instance of JClassicButton
+	 */
 	public JClassicButton getHideButton()
 	{
 		return hideButton;
 	}
 	
+	/**
+	 * Gets the cancel button.
+	 * @return the instance of JClassicButton
+	 */
 	public JClassicButton getCancelButton()
 	{
 		return cancelButton;
 	}
 	
+	/**
+	 * Fires the progress hidden.
+	 */
 	protected abstract void fireHidden();
 	
+	/**
+	 * Fires the progress cancelled.
+	 */
 	protected abstract void fireCancelled();
 }
