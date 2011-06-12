@@ -24,20 +24,43 @@ import com.nepxion.swing.panel.decoration.JDecorationHeader;
 public class JToggleContentPanel
 	extends JPanel
 {
+	/**
+	 * The instance of JContainer.
+	 */
 	private JContainer container;
+	
+	/**
+	 * The instance of JDecorationHeader.
+	 */
 	private JDecorationHeader header;
+	
+	/**
+	 * The banner panel.
+	 */
 	private JPanel bannerPanel;
 	
+	/**
+	 * Constructs with the default.
+	 */
 	public JToggleContentPanel()
 	{
 		this(false);
 	}
 	
+	/**
+	 * Constructs with the specified initial header decorated.
+	 * @param isHeaderDecorated the boolean value of isHeaderDecorated
+	 */
 	public JToggleContentPanel(boolean isHeaderDecorated)
 	{
 		this(isHeaderDecorated, true);
 	}
-			
+	
+	/**
+	 * Constructs with the specified initial header decorated and header visible.
+	 * @param isHeaderDecorated the boolean value of isHeaderDecorated
+	 * @param isHeaderVisible the boolean value of isHeaderVisible
+	 */
 	public JToggleContentPanel(boolean isHeaderDecorated, boolean isHeaderVisible)
 	{
 		header = new JDecorationHeader();
@@ -66,40 +89,59 @@ public class JToggleContentPanel
 		add(container, BorderLayout.CENTER);
 	}
 	
-	public JContainer getContainer()
+	/**
+	 * Gets the workspace.
+	 * @return the instance of JContainer
+	 */
+	public JContainer getWorkspace()
 	{
 		return container;
 	}
 	
+	/**
+	 * Gets the header.
+	 * @return the instance of JDecorationHeader
+	 */
 	public JDecorationHeader getHeader()
 	{
 		return header;
 	}
 	
+	/**
+	 * Gets the banner panel.
+	 * @return the banner panel
+	 */
 	public JPanel getBannerPanel()
 	{
 		return bannerPanel;
 	}
 	
-	public void toggle(String title)
+	/**
+	 * Sets the title.
+	 * @param title the title string
+	 */
+	public void setTitle(String title)
 	{
 		header.setTitle(title);
 	}
 	
-	public void toggle(Icon icon)
+	/**
+	 * Sets the icon.
+	 * @param icon the instance of Icon
+	 */
+	public void setIcon(Icon icon)
 	{
 		header.setIcon(icon);
 	}
 	
-	public void toggle(String title, Icon icon)
-	{
-		toggle(title);
-		toggle(icon);
-	}
-	
+	/**
+	 * Toggles.
+	 * @param togglePanel the instance of ITogglePanel
+	 */
 	public void toggle(ITogglePanel togglePanel)
 	{
-		toggle(togglePanel.getToggleDescription(), togglePanel.getToggleBannerIcon());
+		setTitle(togglePanel.getToggleDescription());
+		setIcon(togglePanel.getToggleBannerIcon());
 		
 		container.addComponent((JPanel) togglePanel, BorderLayout.CENTER);
 	}

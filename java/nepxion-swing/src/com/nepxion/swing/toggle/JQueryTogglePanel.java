@@ -16,6 +16,10 @@ import com.nepxion.swing.locale.SwingLocale;
 public abstract class JQueryTogglePanel
 	extends JThreadTogglePanel
 {
+	/**
+	 * Constructs with the default.
+	 * @param queryTarget the query target
+	 */
 	public JQueryTogglePanel(String queryTarget)
 	{
 		super(SwingLocale.getString("query_and_wait"));

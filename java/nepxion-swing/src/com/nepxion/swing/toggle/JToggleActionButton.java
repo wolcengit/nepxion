@@ -20,9 +20,21 @@ import com.nepxion.swing.button.JBasicToggleButton;
 public class JToggleActionButton
 	extends JBasicToggleButton implements SwingConstants
 {
+	/**
+	 * The instance of JToggleContentPanel.
+	 */
 	private JToggleContentPanel toggleContentPanel;
+	
+	/**
+	 * The instance of ITogglePanel.
+	 */
 	private ITogglePanel togglePanel;
 	
+	/**
+	 * Constructs with the specified initial toggle content panel and toggle panel.
+	 * @param toggleContentPanel the instance of JToggleContentPanel
+	 * @param togglePanel the instance of ITogglePanel
+	 */
 	public JToggleActionButton(JToggleContentPanel toggleContentPanel, ITogglePanel togglePanel)
 	{
 		this.toggleContentPanel = toggleContentPanel;
@@ -40,21 +52,37 @@ public class JToggleActionButton
 		setEnabled(togglePanel.isEnabled());
 	}
 	
+	/**
+	 * Gets the toggle content panel.
+	 * @return the instance of JToggleContentPanel
+	 */
 	public JToggleContentPanel getToggleContentPanel()
 	{
 		return toggleContentPanel;
 	}
 	
+	/**
+	 * Sets the toggle content panel.
+	 * @param toggleContentPanel the instance of JToggleContentPanel
+	 */
 	public void setToggleContentPanel(JToggleContentPanel toggleContentPanel)
 	{
 		this.toggleContentPanel = toggleContentPanel;
 	}
 	
+	/**
+	 * Gets the toggle panel.
+	 * @return the instance of ITogglePanel
+	 */
 	public ITogglePanel getTogglePanel()
 	{
 		return togglePanel;
 	}
 	
+	/**
+	 * Sets the toggle panel.
+	 * @param togglePanel the instance of ITogglePanel
+	 */
 	public void setTogglePanel(ITogglePanel togglePanel)
 	{
 		this.togglePanel = togglePanel;
@@ -73,6 +101,9 @@ public class JToggleActionButton
 		setToolTipText(togglePanel.getToggleDescription());
 	}
 	
+	/**
+	 * Toggles.
+	 */
 	public void toggle()
 	{
 		toggleContentPanel.toggle(togglePanel);
