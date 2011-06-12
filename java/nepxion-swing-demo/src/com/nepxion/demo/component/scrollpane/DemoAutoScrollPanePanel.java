@@ -74,9 +74,9 @@ public class DemoAutoScrollPanePanel
 			}
 			);
 			table.setAutoResizeMode(JBasicTable.AUTO_RESIZE_OFF);
+			table.setBorder(BorderManager.createLineBorder(Color.gray, 0, 0, 0, 0));
 			
 			JAutoRollScrollPane autoRollScrollPane = new JAutoRollScrollPane();
-			autoRollScrollPane.setViewportBorder(BorderManager.createLineBorder(Color.gray, 0, 0, 0, 0));
 			autoRollScrollPane.getViewport().add(table);
 			
 			add(autoRollScrollPane);
