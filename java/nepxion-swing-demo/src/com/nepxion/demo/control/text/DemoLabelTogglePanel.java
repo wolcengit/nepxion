@@ -13,6 +13,9 @@ package com.nepxion.demo.control.text;
 import javax.swing.Icon;
 
 import com.nepxion.demo.common.DemoTogglePanel;
+import com.nepxion.demo.common.DemoToggleTemplate;
+import com.nepxion.demo.component.label.DemoStyledLabelBuilderPanel;
+import com.nepxion.demo.component.label.DemoStyledLabelPanel;
 import com.nepxion.swing.icon.IconFactory;
 import com.nepxion.swing.tabbedpane.JEclipseTabbedPane;
 
@@ -26,6 +29,8 @@ public class DemoLabelTogglePanel
 	public void initialize()
 	{
 		JEclipseTabbedPane toggleTabbedPane = getToggleTabbedPane();
+		toggleTabbedPane.addTab("Styled Label", IconFactory.getSwingIcon("component/label_16.png"), new DemoToggleTemplate(new DemoStyledLabelPanel()), "Styled Label");
+		toggleTabbedPane.addTab("Style Label Builder", IconFactory.getSwingIcon("component/label_16.png"), new DemoToggleTemplate(new DemoStyledLabelBuilderPanel()), "Style Label Builder");
 	}
 	
 	public String getToggleName()
