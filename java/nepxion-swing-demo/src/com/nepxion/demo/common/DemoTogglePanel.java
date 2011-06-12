@@ -20,10 +20,10 @@ import com.nepxion.swing.framework.ribbon.IRibbonComponent;
 import com.nepxion.swing.icon.IconFactory;
 import com.nepxion.swing.listener.DisplayAbilityListener;
 import com.nepxion.swing.tabbedpane.JEclipseTabbedPane;
-import com.nepxion.swing.toggle.AbstractThreadTogglePanel;
+import com.nepxion.swing.toggle.JThreadTogglePanel;
 
 public abstract class DemoTogglePanel
-	extends AbstractThreadTogglePanel implements IRibbonComponent
+	extends JThreadTogglePanel implements IRibbonComponent
 {
 	private JEclipseTabbedPane toggleTabbedPane;
 	
