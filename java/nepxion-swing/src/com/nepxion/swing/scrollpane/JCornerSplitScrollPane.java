@@ -26,14 +26,39 @@ import com.nepxion.swing.splitpane.DividerActionListener;
 public class JCornerSplitScrollPane
 	extends JCornerScrollPane
 {
+	/**
+	 * The horizontal tool bar.
+	 */
 	private JPanel horizontalToolBar;
+	
+	/**
+	 * The vertical tool bar.
+	 */
 	private JPanel verticalToolBar;
 	
+	/**
+	 * The direct left button.
+	 */
 	private JBasicButton directLeftButton;
+	
+	/**
+	 * The direct right button.
+	 */
 	private JBasicButton directRightButton;
+	
+	/**
+	 * The direct top button.
+	 */
 	private JBasicButton directTopButton;
+	
+	/**
+	 * The direct bottom button.
+	 */
 	private JBasicButton directBottomButton;
 	
+	/**
+	 * Constructs with the default.
+	 */
 	public JCornerSplitScrollPane()
 	{
 		super();
@@ -41,6 +66,11 @@ public class JCornerSplitScrollPane
 		initComponents();
 	}
 	
+	/**
+	 * Constructs with the specified initial vertical scroll bar policy and horizontal scroll bar policy.
+	 * @param vsbPolicy the vertical scroll bar policy value
+	 * @param hsbPolicy the horizontal scroll bar policy value
+	 */
 	public JCornerSplitScrollPane(int vsbPolicy, int hsbPolicy)
 	{
 		super(vsbPolicy, hsbPolicy);
@@ -48,6 +78,10 @@ public class JCornerSplitScrollPane
 		initComponents();
 	}
 	
+	/**
+	 * Constructs with the specified initial view.
+	 * @param view the instance of Component
+	 */
 	public JCornerSplitScrollPane(Component view)
 	{
 		super(view);
@@ -55,6 +89,12 @@ public class JCornerSplitScrollPane
 		initComponents();
 	}
 	
+	/**
+	 * Constructs with the specified initial view, vertical scroll bar policy and horizontal scroll bar policy.
+	 * @param view the instance of Component
+	 * @param vsbPolicy the vertical scroll bar policy value
+	 * @param hsbPolicy the horizontal scroll bar policy value
+	 */
 	public JCornerSplitScrollPane(Component view, int vsbPolicy, int hsbPolicy)
 	{
 		super(view, vsbPolicy, hsbPolicy);
@@ -62,6 +102,9 @@ public class JCornerSplitScrollPane
 		initComponents();
 	}
 	
+	/**
+	 * Initializes the components.
+	 */
 	private void initComponents()
 	{
 		directLeftButton = new JBasicButton(IconFactory.getSwingIcon("direction_west.png"), SwingLocale.getString("direct_left"));
@@ -83,6 +126,10 @@ public class JCornerSplitScrollPane
 		ButtonManager.updateUI(verticalToolBar, new Dimension(16, 16));
 	}
 	
+	/**
+	 * Sets the set horizontal split pane.
+	 * @param horizontalSplitPane the instance of JSplitPane
+	 */
 	public void setHorizontalSplitPane(JSplitPane horizontalSplitPane)
 	{
 		for (int i = 0; i < directLeftButton.getActionListeners().length; i++)
@@ -98,6 +145,10 @@ public class JCornerSplitScrollPane
 		directRightButton.addActionListener(new DividerActionListener(horizontalSplitPane, false));
 	}
 	
+	/**
+	 * Sets the set vertical split pane.
+	 * @param verticalSplitPane the instance of JSplitPane
+	 */
 	public void setVerticalSplitPane(JSplitPane verticalSplitPane)
 	{
 		for (int i = 0; i < directTopButton.getActionListeners().length; i++)
@@ -113,23 +164,37 @@ public class JCornerSplitScrollPane
 		directBottomButton.addActionListener(new DividerActionListener(verticalSplitPane, false));
 	}
 	
+	/**
+	 * Shows the horizontal tool bar.
+	 */
 	public void showHorizontalToolBar()
 	{
 		setHorizontalScrollBarPolicy(HORIZONTAL_SCROLLBAR_ALWAYS);
 		setScrollBarCorner(JCornerScrollPane.HORIZONTAL_LEADING, horizontalToolBar);
 	}
 	
+	/**
+	 * Shows the vertical tool bar.
+	 */
 	public void showVerticalToolBar()
 	{
 		setVerticalScrollBarPolicy(VERTICAL_SCROLLBAR_ALWAYS);
 		setScrollBarCorner(JCornerScrollPane.VERTICAL_BOTTOM, verticalToolBar);
 	}
 	
+	/**
+	 * Gets the horizontal tool bar. 
+	 * @return the horizontal tool bar 
+	 */
 	public JPanel getHorizontalToolBar()
 	{
 		return horizontalToolBar;
 	}
 	
+	/**
+	 * Gets the vertical tool bar. 
+	 * @return the vertical tool bar 
+	 */
 	public JPanel getVerticalToolBar()
 	{
 		return verticalToolBar;

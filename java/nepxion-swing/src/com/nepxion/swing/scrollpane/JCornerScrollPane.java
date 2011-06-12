@@ -19,27 +19,9 @@ import com.nepxion.swing.border.BorderManager;
 public class JCornerScrollPane
 	extends JideScrollPane
 {
-	public JCornerScrollPane(Component view, int vsbPolicy, int hsbPolicy)
-	{
-		super(view, vsbPolicy, hsbPolicy);
-		
-		initComponents();
-	}
-	
-	public JCornerScrollPane(Component view)
-	{
-		super(view);
-		
-		initComponents();
-	}
-	
-	public JCornerScrollPane(int vsbPolicy, int hsbPolicy)
-	{
-		super(vsbPolicy, hsbPolicy);
-		
-		initComponents();
-	}
-	
+	/**
+	 * Constructs with the default.
+	 */
 	public JCornerScrollPane()
 	{
 		super();
@@ -47,6 +29,45 @@ public class JCornerScrollPane
 		initComponents();
 	}
 	
+	/**
+	 * Constructs with the specified initial vertical scroll bar policy and horizontal scroll bar policy.
+	 * @param vsbPolicy the vertical scroll bar policy value
+	 * @param hsbPolicy the horizontal scroll bar policy value
+	 */
+	public JCornerScrollPane(int vsbPolicy, int hsbPolicy)
+	{
+		super(vsbPolicy, hsbPolicy);
+		
+		initComponents();
+	}
+	
+	/**
+	 * Constructs with the specified initial view.
+	 * @param view the instance of Component
+	 */
+	public JCornerScrollPane(Component view)
+	{
+		super(view);
+		
+		initComponents();
+	}
+	
+	/**
+	 * Constructs with the specified initial view, vertical scroll bar policy and horizontal scroll bar policy.
+	 * @param view the instance of Component
+	 * @param vsbPolicy the vertical scroll bar policy value
+	 * @param hsbPolicy the horizontal scroll bar policy value
+	 */
+	public JCornerScrollPane(Component view, int vsbPolicy, int hsbPolicy)
+	{
+		super(view, vsbPolicy, hsbPolicy);
+		
+		initComponents();
+	}
+	
+	/**
+	 * Initializes the components.
+	 */
 	private void initComponents()
 	{
 		setBorder(BorderManager.createLineBorder(Color.gray, 0, 0, 0, 0));
@@ -54,6 +75,9 @@ public class JCornerScrollPane
 		ScrollPaneManager.setPreferenceStyle(this);
 	}
 	
+	/**
+	 * Sets the label style.
+	 */
 	public void setLabelStyle()
 	{
 		ScrollPaneManager.setLabelStyle(this);

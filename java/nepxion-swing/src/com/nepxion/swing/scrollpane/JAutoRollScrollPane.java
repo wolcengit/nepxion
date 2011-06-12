@@ -36,27 +36,9 @@ import com.nepxion.swing.style.button.lite.LiteButtonUI;
 public class JAutoRollScrollPane
 	extends SimpleScrollPane implements SwingConstants
 {	
-	public JAutoRollScrollPane(Component view, int vsbPolicy, int hsbPolicy)
-	{
-		super(view, vsbPolicy, hsbPolicy);
-		
-		initComponents();
-	}
-	
-	public JAutoRollScrollPane(Component view)
-	{
-		super(view);
-		
-		initComponents();
-	}
-	
-	public JAutoRollScrollPane(int vsbPolicy, int hsbPolicy)
-	{
-		super(vsbPolicy, hsbPolicy);
-		
-		initComponents();
-	}
-	
+	/**
+	 * Constructs with the default.
+	 */
 	public JAutoRollScrollPane()
 	{
 		super();
@@ -64,6 +46,45 @@ public class JAutoRollScrollPane
 		initComponents();
 	}
 	
+	/**
+	 * Constructs with the specified initial vertical scroll bar policy and horizontal scroll bar policy.
+	 * @param vsbPolicy the vertical scroll bar policy value
+	 * @param hsbPolicy the horizontal scroll bar policy value
+	 */
+	public JAutoRollScrollPane(int vsbPolicy, int hsbPolicy)
+	{
+		super(vsbPolicy, hsbPolicy);
+		
+		initComponents();
+	}
+	
+	/**
+	 * Constructs with the specified initial view.
+	 * @param view the instance of Component
+	 */
+	public JAutoRollScrollPane(Component view)
+	{
+		super(view);
+		
+		initComponents();
+	}
+	
+	/**
+	 * Constructs with the specified initial view, vertical scroll bar policy and horizontal scroll bar policy.
+	 * @param view the instance of Component
+	 * @param vsbPolicy the vertical scroll bar policy value
+	 * @param hsbPolicy the horizontal scroll bar policy value
+	 */
+	public JAutoRollScrollPane(Component view, int vsbPolicy, int hsbPolicy)
+	{
+		super(view, vsbPolicy, hsbPolicy);
+		
+		initComponents();
+	}
+	
+	/**
+	 * Initializes the components.
+	 */
 	private void initComponents()
 	{					
 		setScrollUpButton(new JAutoRollScrollButton(SwingConstants.NORTH));
@@ -80,9 +101,20 @@ public class JAutoRollScrollPane
 	public class JAutoRollScrollButton
 		extends JBasicButton implements MouseListener, ActionListener, UIResource
 	{
+		/**
+		 * The direction value.
+		 */
 		private int direction;
+		
+		/**
+		 * The instance of Timer.
+		 */
 		private Timer timer;
 		
+		/**
+		 * Constructs with the specified initial direction.
+		 * @param direction the direction value
+		 */
 		public JAutoRollScrollButton(final int direction)
 		{
 			this.direction = direction;
@@ -153,6 +185,10 @@ public class JAutoRollScrollPane
 			addMouseListener(this);
 		}
 		
+		/**
+		 * Invoked when the selection value is changed.
+		 * @param e the instance of ListSelectionEvent
+		 */
 		public void actionPerformed(ActionEvent e)
 		{
 			scroll(getViewport(), direction);
@@ -160,10 +196,18 @@ public class JAutoRollScrollPane
 			updateButtonState();
 		}
 		
+	    /**
+	     * Invoked when the mouse button has been clicked (pressed and released) on a component.
+	     * @param e the instance of MouseEvent
+	     */
 		public void mouseClicked(MouseEvent e)
 		{
 		}
 		
+	    /**
+	     * Invoked when the mouse button has been pressed on a component.
+	     * @param e the instance of MouseEvent
+	     */
 		public void mousePressed(MouseEvent e)
 		{
 			if (!isScrollOnRollover())
@@ -176,6 +220,10 @@ public class JAutoRollScrollPane
 			}
 		}
 		
+	    /**
+	     * Invoked when the mouse button has been released on a component.
+	     * @param e the instance of MouseEvent
+	     */
 		public void mouseReleased(MouseEvent e)
 		{
 			if (!isScrollOnRollover())
@@ -188,6 +236,10 @@ public class JAutoRollScrollPane
 			}
 		}
 		
+	    /**
+	     * Invoked when the mouse enters a component.
+	     * @param e the instance of MouseEvent
+	     */
 		public void mouseEntered(MouseEvent e)
 		{
 			if (isScrollOnRollover())
@@ -196,23 +248,50 @@ public class JAutoRollScrollPane
 			}
 		}
 		
+	    /**
+	     * Invoked when the mouse exits a component.
+	     * @param e the instance of MouseEvent
+	     */
+		public void mouseExited(MouseEvent e)
+		{
+			if (isScrollOnRollover())
+			{
+				stopTimer();
+			}
+		}
+		
+		/**
+		 * Updates the timer.
+		 * @param e the instance of MouseEvent
+		 */
 		private void updateTimer(MouseEvent e)
 		{
 			if (timer != null)
 			{
-				timer.setDelay(getDelay(e));
+				int delay = getDelay(e);
+				timer.setDelay(delay);
 			}
 		}
 		
-		private void startTimer(MouseEvent e, int initDelay)
+		/**
+		 * Starts the timer.
+		 * @param e the instance of MouseEvent
+		 * @param initDelay the initial delay value
+		 */
+		private void startTimer(MouseEvent e, int initialDelay)
 		{
 			stopTimer();
 			
-			timer = new Timer(getDelay(e), this);
-			timer.setInitialDelay(initDelay);
+			int delay = getDelay(e);
+			
+			timer = new Timer(delay, this);
+			timer.setInitialDelay(initialDelay);
 			timer.start();
 		}
 		
+		/**
+		 * Stops the timer.
+		 */
 		private void stopTimer()
 		{
 			if (timer != null)
@@ -222,6 +301,11 @@ public class JAutoRollScrollPane
 			}
 		}
 		
+		/**
+		 * Gets the delay.
+		 * @param e the instance of MouseEvent
+		 * @return the delay value
+		 */
 		private int getDelay(MouseEvent e)
 		{
 			if (isScrollOnRollover())
@@ -231,14 +315,6 @@ public class JAutoRollScrollPane
 			else
 			{
 				return getRepeatDelay();
-			}
-		}
-		
-		public void mouseExited(MouseEvent e)
-		{
-			if (isScrollOnRollover())
-			{
-				stopTimer();
 			}
 		}
 	}
