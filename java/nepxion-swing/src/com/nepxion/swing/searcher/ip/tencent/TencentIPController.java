@@ -23,6 +23,11 @@ import com.nepxion.util.searcher.ip.tencent.TencentIPSearcher;
 
 public class TencentIPController
 {
+	/**
+	 * Gets the search action.
+	 * @param panel the instance of JTencentIPPanel
+	 * @return the instance of JSecurityAction
+	 */
 	public static JSecurityAction getSearchAction(final JTencentIPPanel panel)
 	{
 		JSecurityAction action = new JSecurityAction(SwingLocale.getString("query"), IconFactory.getSwingIcon("stereo_search.png"), SwingLocale.getString("ip_to_native_address"))
@@ -62,6 +67,11 @@ public class TencentIPController
 		return action;
 	}
 	
+	/**
+	 * Gets the clear action.
+	 * @param table the instance of JTencentIPTable
+	 * @return the instance of JSecurityAction
+	 */
 	public static JSecurityAction getClearAction(final JTencentIPTable table)
 	{
 		JSecurityAction action = new JSecurityAction(SwingLocale.getString("clear"), IconFactory.getSwingIcon("stereo/delete_16.png"), SwingLocale.getString("clear_query_result"))

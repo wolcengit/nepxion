@@ -22,13 +22,18 @@ import com.nepxion.swing.textfield.JBasicTextField;
 public class JSinaIPTable
 	extends JBasicTable
 {
+	/**
+	 * The instance of JBasicPopupMenu.
+	 */
 	private JBasicPopupMenu popupMenu;
 	
+	/**
+	 * Constructs with the default.
+	 */	
 	public JSinaIPTable()
 	{
 		super(new SinaIPTableModel(new ArrayList()));
 		
-		setRowHeight(20);
 		JBasicTextField textField = new JBasicTextField();
 		for (int i = 0; i < getColumnCount(); i++)
 		{
@@ -40,11 +45,22 @@ public class JSinaIPTable
 		popupMenu.add(clearMenuItem);
 	}
 	
+	/**
+	 * Executes the popup menu.
+	 * @param selectedRow the selected row index value
+	 * @param x the x value
+	 * @param y the y value
+	 */
 	public void executePopupMenu(int selectedRow, int x, int y)
 	{
 		popupMenu.show(this, x, y);
 	}
 	
+	/**
+	 * Executes the popup menu.
+	 * @param x the x value
+	 * @param y the y value
+	 */
 	public void executePopupMenu(int x, int y)
 	{
 		popupMenu.show(this, x, y);

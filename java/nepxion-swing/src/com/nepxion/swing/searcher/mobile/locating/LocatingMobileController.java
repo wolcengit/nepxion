@@ -23,6 +23,11 @@ import com.nepxion.util.searcher.mobile.locating.LocatingMobileSearcher;
 
 public class LocatingMobileController
 {
+	/**
+	 * Gets the search action.
+	 * @param panel the instance of JLocatingMobilePanel
+	 * @return the instance of JSecurityAction
+	 */
 	public static JSecurityAction getSearchAction(final JLocatingMobilePanel panel)
 	{
 		JSecurityAction action = new JSecurityAction(SwingLocale.getString("query"), IconFactory.getSwingIcon("stereo_search.png"), SwingLocale.getString("mobile_to_address"))
@@ -73,6 +78,11 @@ public class LocatingMobileController
 		return action;
 	}
 	
+	/**
+	 * Gets the clear action.
+	 * @param table the instance of JLocatingMobileTable
+	 * @return the instance of JSecurityAction
+	 */
 	public static JSecurityAction getClearAction(final JLocatingMobileTable table)
 	{
 		JSecurityAction action = new JSecurityAction(SwingLocale.getString("clear"), IconFactory.getSwingIcon("stereo/delete_16.png"), SwingLocale.getString("clear_query_result"))

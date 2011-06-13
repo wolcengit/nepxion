@@ -19,18 +19,37 @@ import com.nepxion.util.searcher.ip.local.IPEntity;
 public class AddressTableModel
 	extends BasicTableModel
 {
+	/**
+	 * The column name array.
+	 */
 	public static final String[] COLUMN_NAMES = {SwingLocale.getString("ip_start"), SwingLocale.getString("ip_end"), SwingLocale.getString("address")};
 	
+	/**
+	 * Constructs with the specified initial row data list.
+	 * @param rowDatas the instance of List
+	 */
 	public AddressTableModel(List rowDatas)
 	{
 		super(rowDatas, COLUMN_NAMES);
 	}
 	
+	/**
+	 * Returns true if the cell is editable.
+	 * @param row the row index value
+	 * @param column the column index value
+	 * @return true if the cell is editable
+	 */
 	public boolean isCellEditable(int row, int column)
 	{
 		return true;
 	}
 	
+	/**
+	 * Gets the value by a row and column.
+	 * @param row the row index value
+	 * @param column the column index value
+	 * @return the object value
+	 */
 	public Object getValueAt(int row, int column)
 	{
 		IPEntity entity = (IPEntity) rowDatas.get(row);

@@ -29,10 +29,19 @@ import com.nepxion.swing.textfield.JBasicTextField;
 public class JNeteaseIDPanel
 	extends JPanel
 {
+	/**
+	 * The id code text field.
+	 */
 	private JBasicTextField textField;
 	
+	/**
+	 * The netease id table.
+	 */
 	private JNeteaseIDTable table;
 	
+	/**
+	 * Constructs with the default.
+	 */
 	public JNeteaseIDPanel()
 	{
 		table = new JNeteaseIDTable();
@@ -45,6 +54,9 @@ public class JNeteaseIDPanel
 	public class ToolBar
 		extends JPanel
 	{
+		/**
+		 * Constructs with the default.
+		 */
 		public ToolBar()
 		{
 			setLayout(new ToolBarLayout());
@@ -68,16 +80,28 @@ public class JNeteaseIDPanel
 		}
 	}
 	
+	/**
+	 * Gets the id table.
+	 * @return the instance of JNeteaseIDTable
+	 */
 	public JNeteaseIDTable getIDTable()
 	{
 		return table;
 	}
 	
+	/**
+	 * Gets the id.
+	 * @return the id string
+	 */
 	public String getID()
 	{
 		return textField.getText().trim();
 	}
 	
+	/**
+	 * Sets the id.
+	 * @param id the id string
+	 */
 	public void setID(String id)
 	{
 		textField.setText(id);

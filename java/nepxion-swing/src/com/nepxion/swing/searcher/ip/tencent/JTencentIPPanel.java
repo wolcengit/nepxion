@@ -24,8 +24,14 @@ import com.nepxion.swing.scrollpane.JBasicScrollPane;
 public class JTencentIPPanel
 	extends JPanel
 {
+	/**
+	 * The tencent ip table.
+	 */
 	private JTencentIPTable table;
 	
+	/**
+	 * Constructs with the default.
+	 */
 	public JTencentIPPanel()
 	{
 		table = new JTencentIPTable();
@@ -38,6 +44,9 @@ public class JTencentIPPanel
 	public class ToolBar
 		extends JPanel
 	{
+		/**
+		 * Constructs with the default.
+		 */
 		public ToolBar()
 		{
 			setLayout(new ToolBarLayout());
@@ -55,6 +64,10 @@ public class JTencentIPPanel
 		}
 	}
 	
+	/**
+	 * Gets the ip table.
+	 * @return the instance of JTencentIPTable
+	 */
 	public JTencentIPTable getIPTable()
 	{
 		return table;

@@ -23,6 +23,11 @@ import com.nepxion.util.searcher.mobile.netease.NeteaseMobileSearcher;
 
 public class NeteaseMobileController
 {
+	/**
+	 * Gets the search action.
+	 * @param panel the instance of JNeteaseMobilePanel
+	 * @return the instance of JSecurityAction
+	 */
 	public static JSecurityAction getSearchAction(final JNeteaseMobilePanel panel)
 	{
 		JSecurityAction action = new JSecurityAction(SwingLocale.getString("query"), IconFactory.getSwingIcon("stereo_search.png"), SwingLocale.getString("mobile_to_address"))
@@ -73,6 +78,11 @@ public class NeteaseMobileController
 		return action;
 	}
 	
+	/**
+	 * Gets the clear action.
+	 * @param table the instance of JNeteaseMobileTable
+	 * @return the instance of JSecurityAction
+	 */
 	public static JSecurityAction getClearAction(final JNeteaseMobileTable table)
 	{
 		JSecurityAction action = new JSecurityAction(SwingLocale.getString("clear"), IconFactory.getSwingIcon("stereo/delete_16.png"), SwingLocale.getString("clear_query_result"))

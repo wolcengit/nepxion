@@ -23,6 +23,11 @@ import com.nepxion.util.searcher.gis.google.loc.LocSearcher;
 
 public class LocController
 {
+	/**
+	 * Gets the search action.
+	 * @param panel the instance of JCoordinatePanel
+	 * @return the instance of JSecurityAction
+	 */
 	public static JSecurityAction getSearchAction(final JCoordinatePanel panel)
 	{
 		JSecurityAction action = new JSecurityAction(SwingLocale.getString("query"), IconFactory.getSwingIcon("stereo_search.png"), SwingLocale.getString("geo_to_address"))
@@ -75,6 +80,11 @@ public class LocController
 		return action;
 	}
 	
+	/**
+	 * Gets the search action.
+	 * @param panel the instance of JCellPanel
+	 * @return the instance of JSecurityAction
+	 */
 	public static JSecurityAction getSearchAction(final JCellPanel panel)
 	{
 		JSecurityAction action = new JSecurityAction(SwingLocale.getString("query"), IconFactory.getSwingIcon("stereo_search.png"), SwingLocale.getString("mobile_to_address"))
@@ -131,6 +141,11 @@ public class LocController
 		return action;
 	}
 	
+	/**
+	 * Gets the clear action.
+	 * @param table the instance of JLocTable
+	 * @return the instance of JSecurityAction
+	 */
 	public static JSecurityAction getClearAction(final JLocTable table)
 	{
 		JSecurityAction action = new JSecurityAction(SwingLocale.getString("clear"), IconFactory.getSwingIcon("stereo/delete_16.png"), SwingLocale.getString("clear_query_result"))

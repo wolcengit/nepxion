@@ -23,6 +23,11 @@ import com.nepxion.util.searcher.gis.google.geo.GeoSearcher;
 
 public class GeoController
 {
+	/**
+	 * Gets the search action.
+	 * @param panel the instance of JGeoPanel
+	 * @return the instance of JSecurityAction
+	 */
 	public static JSecurityAction getSearchAction(final JGeoPanel panel)
 	{
 		JSecurityAction action = new JSecurityAction(SwingLocale.getString("query"), IconFactory.getSwingIcon("stereo_search.png"), SwingLocale.getString("address_to_geo"))
@@ -68,6 +73,11 @@ public class GeoController
 		return action;
 	}
 	
+	/**
+	 * Gets the clear action.
+	 * @param table the instance of JGeoTable
+	 * @return the instance of JSecurityAction
+	 */
 	public static JSecurityAction getClearAction(final JGeoTable table)
 	{
 		JSecurityAction action = new JSecurityAction(SwingLocale.getString("clear"), IconFactory.getSwingIcon("stereo/delete_16.png"), SwingLocale.getString("clear_query_result"))

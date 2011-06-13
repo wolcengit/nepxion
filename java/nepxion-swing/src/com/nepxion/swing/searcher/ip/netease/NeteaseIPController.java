@@ -23,6 +23,11 @@ import com.nepxion.util.searcher.ip.netease.NeteaseIPSearcher;
 
 public class NeteaseIPController
 {
+	/**
+	 * Gets the search action.
+	 * @param panel the instance of JNeteaseIPPanel
+	 * @return the instance of JSecurityAction
+	 */
 	public static JSecurityAction getSearchAction(final JNeteaseIPPanel panel)
 	{
 		JSecurityAction action = new JSecurityAction(SwingLocale.getString("query"), IconFactory.getSwingIcon("stereo_search.png"), SwingLocale.getString("ip_to_address"))
@@ -68,6 +73,11 @@ public class NeteaseIPController
 		return action;
 	}
 	
+	/**
+	 * Gets the clear action.
+	 * @param table the instance of JNeteaseIPTable
+	 * @return the instance of JSecurityAction
+	 */
 	public static JSecurityAction getClearAction(final JNeteaseIPTable table)
 	{
 		JSecurityAction action = new JSecurityAction(SwingLocale.getString("clear"), IconFactory.getSwingIcon("stereo/delete_16.png"), SwingLocale.getString("clear_query_result"))

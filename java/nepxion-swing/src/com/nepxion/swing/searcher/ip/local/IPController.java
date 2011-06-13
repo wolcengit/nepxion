@@ -23,6 +23,11 @@ import com.nepxion.util.searcher.ip.local.IPSearcher;
 
 public class IPController
 {
+	/**
+	 * Gets the search action.
+	 * @param panel the instance of JIPPanel
+	 * @return the instance of JSecurityAction
+	 */
 	public static JSecurityAction getSearchAction(final JIPPanel panel)
 	{
 		JSecurityAction action = new JSecurityAction(SwingLocale.getString("query"), IconFactory.getSwingIcon("stereo_search.png"), SwingLocale.getString("ip_to_address"))
@@ -42,7 +47,7 @@ public class IPController
 							return;
 						}
 						
-						IPTableModel tableModel = (IPTableModel) panel.getAddressTable().getModel();
+						IPTableModel tableModel = (IPTableModel) panel.getIPTable().getModel();
 						tableModel.addRow(entity);
 					}
 					
@@ -74,6 +79,11 @@ public class IPController
 		return action;
 	}
 	
+	/**
+	 * Gets the clear action.
+	 * @param table the instance of JIPTable
+	 * @return the instance of JSecurityAction
+	 */
 	public static JSecurityAction getClearAction(final JIPTable table)
 	{
 		JSecurityAction action = new JSecurityAction(SwingLocale.getString("clear"), IconFactory.getSwingIcon("stereo/delete_16.png"), SwingLocale.getString("clear_query_result"))

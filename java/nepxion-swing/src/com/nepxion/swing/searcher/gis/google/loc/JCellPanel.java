@@ -33,14 +33,39 @@ import com.nepxion.util.locale.LocaleConstants;
 public class JCellPanel
 	extends JPanel
 {
+	/**
+	 * The cell id text field.
+	 */
 	private JBasicTextField cellIDTextField;
+	
+	/**
+	 * The lac text field.
+	 */	
 	private JBasicTextField lacTextField;
+	
+	/**
+	 * The mcc text field.
+	 */	
 	private JBasicTextField mccTextField;
+	
+	/**
+	 * The mnc text field.
+	 */	
 	private JBasicTextField mncTextField;
+	
+	/**
+	 * The language combo box.
+	 */	
 	private JBasicComboBox languageComboBox;
 	
+	/**
+	 * The loc table.
+	 */
 	private JLocTable table;
 	
+	/**
+	 * Constructs with the default.
+	 */
 	public JCellPanel()
 	{
 		table = new JLocTable();
@@ -53,6 +78,9 @@ public class JCellPanel
 	public class ToolBar
 		extends JPanel
 	{
+		/**
+		 * Constructs with the default.
+		 */
 		public ToolBar()
 		{
 			setLayout(new ToolBarLayout());
@@ -113,51 +141,91 @@ public class JCellPanel
 		}
 	}
 	
+	/**
+	 * Gets the loc table.
+	 * @return the instance of JLocTable
+	 */
 	public JLocTable getLocTable()
 	{
 		return table;
 	}
 	
+	/**
+	 * Gets the cell id.
+	 * @return the cell id value
+	 */
 	public int getCellID()
 	{
 		return Integer.parseInt(cellIDTextField.getText());
 	}
 	
+	/**
+	 * Sets the cell id.
+	 * @param cellID the cell id value
+	 */
 	public void setCellID(int cellID)
 	{
 		cellIDTextField.setText(cellID + "");
 	}
 	
+	/**
+	 * Gets the lac.
+	 * @return the lac value
+	 */
 	public int getLac()
 	{
 		return Integer.parseInt(lacTextField.getText());
 	}
 	
+	/**
+	 * Sets the lac.
+	 * @param lac the lac value
+	 */
 	public void setLac(int lac)
 	{
 		lacTextField.setText(lac + "");
 	}
 	
+	/**
+	 * Gets the mcc.
+	 * @return the mcc value
+	 */
 	public int getMcc()
 	{
 		return Integer.parseInt(mccTextField.getText());
 	}
 	
+	/**
+	 * Sets the mcc.
+	 * @param mcc the mcc value
+	 */
 	public void setMcc(int mcc)
 	{
 		mccTextField.setText(mcc + "");
 	}
 	
+	/**
+	 * Gets the mnc.
+	 * @return the mnc value
+	 */
 	public int getMnc()
 	{
 		return Integer.parseInt(mncTextField.getText());
 	}
 	
+	/**
+	 * Sets the mnc.
+	 * @param mnc the mnc value
+	 */
 	public void setMnc(int mnc)
 	{
 		mncTextField.setText(mnc + "");
 	}
 	
+	/**
+	 * Gets the language.
+	 * @return the language string 
+	 */
 	public String getLanguage()
 	{
 		ElementNode selectedElementNode = (ElementNode) languageComboBox.getSelectedItem();
@@ -166,6 +234,10 @@ public class JCellPanel
 		return locale.toString();
 	}
 	
+	/**
+	 * Set the language.
+	 * @param language the language string
+	 */
 	public void setLanguage(String language)
 	{
 		for (int i = 0; i < languageComboBox.getItemCount(); i++)

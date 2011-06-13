@@ -19,18 +19,37 @@ import com.nepxion.util.searcher.gis.google.loc.LocEntity;
 public class LocTableModel
 	extends BasicTableModel
 {
+	/**
+	 * The column name array.
+	 */
 	public static final String[] COLUMN_NAMES = {SwingLocale.getString("latitude"), SwingLocale.getString("longitude"), SwingLocale.getString("country"), SwingLocale.getString("country_code"), SwingLocale.getString("region"), SwingLocale.getString("city"), SwingLocale.getString("street"), SwingLocale.getString("street_number"), SwingLocale.getString("postal_code")};
 	
+	/**
+	 * Constructs with the specified initial row data list.
+	 * @param rowDatas the instance of List
+	 */
 	public LocTableModel(List rowDatas)
 	{
 		super(rowDatas, COLUMN_NAMES);
 	}
 	
+	/**
+	 * Returns true if the cell is editable.
+	 * @param row the row index value
+	 * @param column the column index value
+	 * @return true if the cell is editable
+	 */	
 	public boolean isCellEditable(int row, int column)
 	{
 		return true;
 	}
 	
+	/**
+	 * Gets the value by a row and column.
+	 * @param row the row index value
+	 * @param column the column index value
+	 * @return the object value
+	 */
 	public Object getValueAt(int row, int column)
 	{
 		LocEntity entity = (LocEntity) rowDatas.get(row);
@@ -59,6 +78,12 @@ public class LocTableModel
 		return null;
 	}
 	
+	/**
+	 * Sets the value by a row and column
+	 * @param value the object value
+	 * @param row the row index value
+	 * @param column the column index value
+	 */
 	public void setValueAt(Object value, int row, int column)
 	{
 		LocEntity entity = (LocEntity) rowDatas.get(row);

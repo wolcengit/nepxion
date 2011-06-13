@@ -19,18 +19,37 @@ import com.nepxion.util.searcher.id.netease.NeteaseIDEntity;
 public class NeteaseIDTableModel
 	extends BasicTableModel
 {
+	/**
+	 * The column name array.
+	 */
 	public static final String[] COLUMN_NAMES = {SwingLocale.getString("id_code"), SwingLocale.getString("location"), SwingLocale.getString("birthday"), SwingLocale.getString("gender")};
 	
+	/**
+	 * Constructs with the specified initial row data list.
+	 * @param rowDatas the instance of List
+	 */
 	public NeteaseIDTableModel(List rowDatas)
 	{
 		super(rowDatas, COLUMN_NAMES);
 	}
 	
+	/**
+	 * Returns true if the cell is editable.
+	 * @param row the row index value
+	 * @param column the column index value
+	 * @return true if the cell is editable
+	 */	
 	public boolean isCellEditable(int row, int column)
 	{
 		return true;
 	}
 	
+	/**
+	 * Gets the value by a row and column.
+	 * @param row the row index value
+	 * @param column the column index value
+	 * @return the object value
+	 */
 	public Object getValueAt(int row, int column)
 	{
 		NeteaseIDEntity entity = (NeteaseIDEntity) rowDatas.get(row);
@@ -50,6 +69,12 @@ public class NeteaseIDTableModel
 		return null;
 	}
 	
+	/**
+	 * Sets the value by a row and column
+	 * @param value the object value
+	 * @param row the row index value
+	 * @param column the column index value
+	 */
 	public void setValueAt(Object value, int row, int column)
 	{
 		NeteaseIDEntity entity = (NeteaseIDEntity) rowDatas.get(row);

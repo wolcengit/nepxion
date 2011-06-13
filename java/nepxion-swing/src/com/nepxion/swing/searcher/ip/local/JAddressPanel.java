@@ -31,14 +31,34 @@ import com.nepxion.util.searcher.ip.local.IPConstants;
 public class JAddressPanel
 	extends JPanel
 {
+	/**
+	 * The address text field.
+	 */
 	private JBasicTextField addressTextField;
 	
+	/**
+	 * The address table.
+	 */
 	private JAddressTable table;
 	
+	/**
+	 * The version date label.
+	 */
 	private JLabel versionDateLabel;
+	
+	/**
+	 * The total count label.
+	 */
 	private JLabel totalCountLabel;
+	
+	/**
+	 * The count label.
+	 */
 	private JLabel countLabel;
 	
+	/**
+	 * Constructs with the default.
+	 */
 	public JAddressPanel()
 	{
 		table = new JAddressTable();
@@ -52,6 +72,9 @@ public class JAddressPanel
 	public class ToolBar
 		extends JPanel
 	{
+		/**
+		 * Constructs with the default.
+		 */
 		public ToolBar()
 		{
 			setLayout(new ToolBarLayout());
@@ -78,6 +101,9 @@ public class JAddressPanel
 	public class InfoBar
 		extends JPanel
 	{
+		/**
+		 * Constructs with the default.
+		 */
 		public InfoBar()
 		{
 			versionDateLabel = new JLabel(SwingLocale.getString("ip_database_version") + " " + IPConstants.VERSION_DATE);
@@ -92,21 +118,37 @@ public class JAddressPanel
 		}
 	}
 	
-	public JAddressTable getIPTable()
+	/**
+	 * Gets the address table.
+	 * @return the instance of JAddressTable
+	 */
+	public JAddressTable getAddressTable()
 	{
 		return table;
 	}
 	
+	/**
+	 * Gets the address.
+	 * @return the address string
+	 */
 	public String getAddress()
 	{
 		return addressTextField.getText().trim();
 	}
 	
+	/**
+	 * Sets the address.
+	 * @param address the address string
+	 */
 	public void setAddress(String address)
 	{
 		addressTextField.setText(address.trim());
 	}
 	
+	/**
+	 * Sets the count.
+	 * @param count the count value
+	 */
 	public void setCount(int count)
 	{
 		countLabel.setText(SwingLocale.getString("ip_database_matched") + " " + count);

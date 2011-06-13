@@ -29,10 +29,19 @@ import com.nepxion.swing.textfield.JIPAddressTextField;
 public class JIPPanel
 	extends JPanel
 {
+	/**
+	 * The ip address text field.
+	 */
 	private JIPAddressTextField textField;
 	
+	/**
+	 * The ip table.
+	 */
 	private JIPTable table;
 	
+	/**
+	 * Constructs with the default.
+	 */
 	public JIPPanel()
 	{
 		table = new JIPTable();
@@ -45,6 +54,9 @@ public class JIPPanel
 	public class ToolBar
 		extends JPanel
 	{
+		/**
+		 * Constructs with the default.
+		 */
 		public ToolBar()
 		{
 			setLayout(new ToolBarLayout());
@@ -68,16 +80,28 @@ public class JIPPanel
 		}
 	}
 	
-	public JIPTable getAddressTable()
+	/**
+	 * Gets the ip table.
+	 * @return the instance of JIPTable
+	 */
+	public JIPTable getIPTable()
 	{
 		return table;
 	}
 	
+	/**
+	 * Gets the ip.
+	 * @return the ip string
+	 */
 	public String getIP()
 	{
 		return textField.getText();
 	}
 	
+	/**
+	 * Sets the ip.
+	 * @param ip the ip string
+	 */
 	public void setIP(String ip)
 	{
 		textField.setText(ip);

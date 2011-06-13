@@ -29,10 +29,19 @@ import com.nepxion.swing.textfield.JBasicTextField;
 public class JNeteaseMobilePanel
 	extends JPanel
 {
+	/**
+	 * The mobile text field.
+	 */
 	private JBasicTextField textField;
 	
+	/**
+	 * The netease mobile table.
+	 */
 	private JNeteaseMobileTable table;
 	
+	/**
+	 * Constructs with the default.
+	 */
 	public JNeteaseMobilePanel()
 	{
 		table = new JNeteaseMobileTable();
@@ -45,6 +54,9 @@ public class JNeteaseMobilePanel
 	public class ToolBar
 		extends JPanel
 	{
+		/**
+		 * Constructs with the default.
+		 */
 		public ToolBar()
 		{
 			setLayout(new ToolBarLayout());
@@ -68,16 +80,28 @@ public class JNeteaseMobilePanel
 		}
 	}
 	
+	/**
+	 * Gets the mobile table.
+	 * @return the instance of JNeteaseMobileTable
+	 */
 	public JNeteaseMobileTable getMobileTable()
 	{
 		return table;
 	}
 	
+	/**
+	 * Gets the mobile.
+	 * @return the moble string
+	 */
 	public String getMobile()
 	{
 		return textField.getText().trim();
 	}
 	
+	/**
+	 * Sets the mobile.
+	 * @param mobile the mobile string
+	 */
 	public void setMobile(String mobile)
 	{
 		textField.setText(mobile);

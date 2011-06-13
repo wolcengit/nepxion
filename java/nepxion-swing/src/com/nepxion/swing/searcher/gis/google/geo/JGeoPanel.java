@@ -29,9 +29,19 @@ import com.nepxion.swing.textfield.JBasicTextField;
 public class JGeoPanel
 	extends JPanel
 {
+	/**
+	 * The address text field.
+	 */
 	private JBasicTextField addressTextField;
+	
+	/**
+	 * The geo table.
+	 */
 	private JGeoTable table;
 	
+	/**
+	 * Constructs with the default.
+	 */
 	public JGeoPanel()
 	{
 		table = new JGeoTable();
@@ -44,6 +54,9 @@ public class JGeoPanel
 	public class ToolBar
 		extends JPanel
 	{
+		/**
+		 * Constructs with the default.
+		 */
 		public ToolBar()
 		{
 			setLayout(new ToolBarLayout());
@@ -67,16 +80,28 @@ public class JGeoPanel
 		}
 	}
 	
+	/**
+	 * Gets the geo table.
+	 * @return the instance of JGeoTable
+	 */
 	public JGeoTable getGeoTable()
 	{
 		return table;
 	}
 	
+	/**
+	 * Gets the address.
+	 * @return the address string
+	 */
 	public String getAddress()
 	{
 		return addressTextField.getText().trim();
 	}
 	
+	/**
+	 * Sets the address.
+	 * @param address the address string
+	 */
 	public void setAddress(String address)
 	{
 		addressTextField.setText(address.trim());

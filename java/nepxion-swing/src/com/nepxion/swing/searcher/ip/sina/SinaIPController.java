@@ -23,6 +23,11 @@ import com.nepxion.util.searcher.ip.sina.SinaIPSearcher;
 
 public class SinaIPController
 {
+	/**
+	 * Gets the search action.
+	 * @param panel the instance of JSinaIPPanel
+	 * @return the instance of JSecurityAction
+	 */
 	public static JSecurityAction getSearchAction(final JSinaIPPanel panel)
 	{
 		JSecurityAction action = new JSecurityAction(SwingLocale.getString("query"), IconFactory.getSwingIcon("stereo_search.png"), SwingLocale.getString("ip_to_address"))
@@ -72,6 +77,11 @@ public class SinaIPController
 		return action;
 	}
 	
+	/**
+	 * Gets the clear action.
+	 * @param table the instance of JSinaIPTable
+	 * @return the instance of JSecurityAction
+	 */
 	public static JSecurityAction getClearAction(final JSinaIPTable table)
 	{
 		JSecurityAction action = new JSecurityAction(SwingLocale.getString("clear"), IconFactory.getSwingIcon("stereo/delete_16.png"), SwingLocale.getString("clear_query_result"))

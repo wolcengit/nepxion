@@ -19,18 +19,37 @@ import com.nepxion.util.searcher.gis.google.geo.GeoEntity;
 public class GeoTableModel
 	extends BasicTableModel
 {
+	/**
+	 * The column name array.
+	 */
 	public static final String[] COLUMN_NAMES = {SwingLocale.getString("address"), SwingLocale.getString("center_latitude"), SwingLocale.getString("center_longitude"), SwingLocale.getString("north_latitude"), SwingLocale.getString("south_latitude"), SwingLocale.getString("west_longitude"), SwingLocale.getString("east_longitude")};
 	
+	/**
+	 * Constructs with the specified initial row data list.
+	 * @param rowDatas the instance of List
+	 */
 	public GeoTableModel(List rowDatas)
 	{
 		super(rowDatas, COLUMN_NAMES);
 	}
 	
+	/**
+	 * Returns true if the cell is editable.
+	 * @param row the row index value
+	 * @param column the column index value
+	 * @return true if the cell is editable
+	 */
 	public boolean isCellEditable(int row, int column)
 	{
 		return true;
 	}
 	
+	/**
+	 * Gets the value by a row and column.
+	 * @param row the row index value
+	 * @param column the column index value
+	 * @return the object value
+	 */
 	public Object getValueAt(int row, int column)
 	{
 		GeoEntity entity = (GeoEntity) rowDatas.get(row);
@@ -56,6 +75,12 @@ public class GeoTableModel
 		return null;
 	}
 	
+	/**
+	 * Sets the value by a row and column
+	 * @param value the object value
+	 * @param row the row index value
+	 * @param column the column index value
+	 */
 	public void setValueAt(Object value, int row, int column)
 	{
 		GeoEntity entity = (GeoEntity) rowDatas.get(row);

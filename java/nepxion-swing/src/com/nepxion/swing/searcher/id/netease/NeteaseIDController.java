@@ -23,6 +23,11 @@ import com.nepxion.util.searcher.id.netease.NeteaseIDSearcher;
 
 public class NeteaseIDController
 {
+	/**
+	 * Gets the search action.
+	 * @param panel the instance of JNeteaseIDPanel
+	 * @return the instance of JSecurityAction
+	 */
 	public static JSecurityAction getSearchAction(final JNeteaseIDPanel panel)
 	{
 		JSecurityAction action = new JSecurityAction(SwingLocale.getString("query"), IconFactory.getSwingIcon("stereo_search.png"), SwingLocale.getString("id_code_to_info"))
@@ -73,6 +78,11 @@ public class NeteaseIDController
 		return action;
 	}
 	
+	/**
+	 * Gets the clear action.
+	 * @param table the instance of JNeteaseIDTable
+	 * @return the instance of JSecurityAction
+	 */
 	public static JSecurityAction getClearAction(final JNeteaseIDTable table)
 	{
 		JSecurityAction action = new JSecurityAction(SwingLocale.getString("clear"), IconFactory.getSwingIcon("stereo/delete_16.png"), SwingLocale.getString("clear_query_result"))

@@ -33,12 +33,29 @@ import com.nepxion.util.locale.LocaleConstants;
 public class JCoordinatePanel
 	extends JPanel
 {
+	/**
+	 * The latitude text field.
+	 */
 	private JNumberTextField latitudeTextField;
+	
+	/**
+	 * The longitude text field.
+	 */
 	private JNumberTextField longitudeTextField;
+	
+	/**
+	 * The language combo box.
+	 */	
 	private JBasicComboBox languageComboBox;
 	
+	/**
+	 * The loc table.
+	 */
 	private JLocTable table;
 	
+	/**
+	 * Constructs with the default.
+	 */
 	public JCoordinatePanel()
 	{
 		table = new JLocTable();
@@ -51,6 +68,9 @@ public class JCoordinatePanel
 	public class ToolBar
 		extends JPanel
 	{
+		/**
+		 * Constructs with the default.
+		 */
 		public ToolBar()
 		{
 			setLayout(new ToolBarLayout());
@@ -97,31 +117,55 @@ public class JCoordinatePanel
 		}
 	}
 	
+	/**
+	 * Gets the loc table.
+	 * @return the instance of JLocTable
+	 */
 	public JLocTable getLocTable()
 	{
 		return table;
 	}
 	
+	/**
+	 * Gets the latitude.
+	 * @return the latitude value
+	 */
 	public double getLatitude()
 	{
 		return Double.parseDouble(latitudeTextField.getText());
 	}
 	
+	/**
+	 * Sets the latitude.
+	 * @param latitude the latitude value
+	 */
 	public void setLatitude(double latitude)
 	{
 		latitudeTextField.setText(latitude + "");
 	}
 	
+	/**
+	 * Gets the longitude.
+	 * @return the latitude value
+	 */
 	public double getLongitude()
 	{
 		return Double.parseDouble(longitudeTextField.getText());
 	}
 	
+	/**
+	 * Sets the longitude
+	 * @param longitude the longitude value
+	 */
 	public void setLongitude(double longitude)
 	{
 		longitudeTextField.setText(longitude + "");
 	}
 	
+	/**
+	 * Gets the language.
+	 * @return the language string 
+	 */
 	public String getLanguage()
 	{
 		ElementNode selectedElementNode = (ElementNode) languageComboBox.getSelectedItem();
@@ -130,6 +174,10 @@ public class JCoordinatePanel
 		return locale.toString();
 	}
 	
+	/**
+	 * Set the language.
+	 * @param language the language string
+	 */
 	public void setLanguage(String language)
 	{
 		for (int i = 0; i < languageComboBox.getItemCount(); i++)
