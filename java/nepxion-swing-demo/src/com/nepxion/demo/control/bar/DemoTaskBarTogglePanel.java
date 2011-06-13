@@ -18,6 +18,7 @@ import com.nepxion.demo.component.taskbar.DemoTaskBarPanel;
 import com.nepxion.swing.icon.IconFactory;
 import com.nepxion.swing.lookandfeel.LookAndFeelManager;
 import com.nepxion.swing.tabbedpane.JEclipseTabbedPane;
+import com.nepxion.swing.taskbar.JTaskManager;
 
 public class DemoTaskBarTogglePanel
 	extends DemoTogglePanel
@@ -29,6 +30,8 @@ public class DemoTaskBarTogglePanel
 	public void initialize()
 	{
 		JEclipseTabbedPane toggleTabbedPane = getToggleTabbedPane();
+		
+		JTaskManager.installTaskPlainFont();
 		
 		LookAndFeelManager.addonMetalLookAndFeel();
 		toggleTabbedPane.addTab("Metal L&F", IconFactory.getSwingIcon("component/tool_bar_16.png"), new DemoToggleTemplate(new DemoTaskBarPanel()), "Metal L&F");
