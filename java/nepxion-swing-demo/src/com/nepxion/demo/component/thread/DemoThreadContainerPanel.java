@@ -62,7 +62,6 @@ public class DemoThreadContainerPanel
 			setBorder(BorderManager.createComplexTitledBorder("File Loader"));
 			
 			JBasicTable fileTable = new JBasicTable(new FileTableModel(new ArrayList()));
-			fileTable.setRowHeight(20);
 			
 			FileThreadContainer fileThreadContainer = new FileThreadContainer(fileTable);
 			

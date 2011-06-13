@@ -61,7 +61,6 @@ public class DemoThreadDialoglPanel
 			setBorder(BorderManager.createComplexTitledBorder("File Loader"));
 			
 			JBasicTable fileTable = new JBasicTable(new FileTableModel(new ArrayList()));
-			fileTable.setRowHeight(20);
 			
 			FileToolBar fileTooBar = new FileToolBar(fileTable);
 			
