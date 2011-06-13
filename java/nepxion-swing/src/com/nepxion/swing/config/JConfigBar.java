@@ -98,17 +98,17 @@ public class JConfigBar
 	}
 	
 	/**
-	 * Gets the toggle panel by a toggle name.
-	 * @param toggleName the toggle name string
+	 * Gets the toggle panel by a toggle text.
+	 * @param toggleText the toggle text string
 	 * @return the instance of ITogglePanel
 	 */
-	public ITogglePanel getTogglePanel(String toggleName)
+	public ITogglePanel getTogglePanel(String toggleText)
 	{
 		for (Enumeration enumeration = configButtonBar.getButtonGroup().getElements(); enumeration.hasMoreElements();)
 		{
 			JToggleActionButton toggleActionButton = (JToggleActionButton) enumeration.nextElement();
 			ITogglePanel togglePanel = toggleActionButton.getTogglePanel();
-			if (togglePanel.getToggleName().equals(toggleName))
+			if (togglePanel.getToggleText().equals(toggleText))
 			{
 				return togglePanel;
 			}
@@ -175,12 +175,12 @@ public class JConfigBar
 	}
 	
 	/**
-	 * Sets the selection toggle panel by a toggle name.
-	 * @param toggleName the toggle name string
+	 * Sets the selection toggle panel by a toggle text.
+	 * @param toggleText the toggle text string
 	 */
-	public void setSelectionTogglePanel(String toggleName)
+	public void setSelectionTogglePanel(String toggleText)
 	{
-		if (toggleName == null)
+		if (toggleText == null)
 		{
 			return;
 		}
@@ -189,7 +189,7 @@ public class JConfigBar
 		{
 			JToggleActionButton toggleActionButton = (JToggleActionButton) enumeration.nextElement();
 			ITogglePanel togglePanel = toggleActionButton.getTogglePanel();
-			if (togglePanel.getToggleName().equals(toggleName))
+			if (togglePanel.getToggleText().equals(toggleText))
 			{
 				toggleActionButton.doClick();
 				
