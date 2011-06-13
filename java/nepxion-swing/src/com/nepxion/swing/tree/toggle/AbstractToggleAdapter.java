@@ -46,10 +46,10 @@ public abstract class AbstractToggleAdapter
 			return;
 		}
 		
-		if (togglePanel.getToggleName() == null)
+		if (togglePanel.getToggleText() == null)
 		{
-			String name = newSelectionTreeNode.toString();
-			togglePanel.setToggleName(name);
+			String text = newSelectionTreeNode.toString();
+			togglePanel.setToggleText(text);
 		}
 		
 		if (togglePanel.getToggleDescription() == null)
