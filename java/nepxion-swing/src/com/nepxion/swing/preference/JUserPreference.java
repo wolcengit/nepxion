@@ -21,8 +21,14 @@ import com.nepxion.swing.panel.JPasswordPanel;
 public class JUserPreference
 	extends JPreference
 {	
+	/**
+	 * The password panel.
+	 */
 	private JPasswordPanel passwordPanel;
 	
+	/**
+	 * Constructs with the default.
+	 */
 	public JUserPreference()
 	{		
 		passwordPanel = new JPasswordPanel();
@@ -32,51 +38,91 @@ public class JUserPreference
 		add(passwordPanel);
 	}
 	
+	/**
+	 * Gets the password panel.
+	 * @return the instance of JPasswordPanel
+	 */
 	public JPasswordPanel getPasswordPanel()
 	{
 		return passwordPanel;
 	}
 	
+	/**
+	 * Returns true if it is verified.
+	 * @return true if it is verified
+	 */
 	public boolean verify()
 	{
 		return passwordPanel.verify();
 	}
 	
-	public String getToggleName()
+	/**
+	 * Gets the toggle text.
+	 * @return the toggle text string
+	 */
+	public String getToggleText()
 	{
-		return SwingLocale.getString("user_toggle_name");
+		return SwingLocale.getString("user_toggle_text");
 	}
 	
-	public void setToggleName(String toggleName)
+	/**
+	 * Sets the toggle text.
+	 * @param toggleText the toggle text string
+	 */
+	public void setToggleText(String toggleText)
 	{
 		
 	}
 	
+	/**
+	 * Gets the toggle icon.
+	 * @return the instance of Icon
+	 */
 	public Icon getToggleIcon()
 	{
 		return IconFactory.getSwingIcon("banner/user.png");
 	}
 	
+	/**
+	 * Sets the toggle icon.
+	 * @param toggleIcon the instance of Icon
+	 */
 	public void setToggleIcon(Icon toggleIcon)
 	{
 		
 	}
 	
+	/**
+	 * Gets the toggle banner icon.
+	 * @return the instance of Icon
+	 */
 	public Icon getToggleBannerIcon()
 	{
 		return IconFactory.getSwingIcon("banner/user.png");
 	}
 	
+	/**
+	 * Sets the toggle banner icon.
+	 * @param toggleBannerIcon the instance of Icon
+	 */
 	public void setToggleBannerIcon(Icon toggleBannerIcon)
 	{
 		
 	}
 	
+	/**
+	 * Gets the toggle description.
+	 * @return the toggle description string
+	 */
 	public String getToggleDescription()
 	{
 		return SwingLocale.getString("user_toggle_description");
 	}
 	
+	/**
+	 * Sets the toggle description.
+	 * @param toggleDescription the toggle description string
+	 */
 	public void setToggleDescription(String toggleDescription)
 	{
 		

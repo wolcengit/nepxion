@@ -23,9 +23,19 @@ import com.nepxion.swing.radiobutton.JBasicRadioButton;
 public class JLazyLoaderPreference
 	extends JPreference
 {
+	/**
+	 * The sync load strategy radio button.
+	 */
 	private JBasicRadioButton syncLoadStrategyRadioButton;
+	
+	/**
+	 * The asyn load strategy radio button.
+	 */
 	private JBasicRadioButton asynLoadStrategyRadioButton;
 	
+	/**
+	 * Constructs with the default.
+	 */
 	public JLazyLoaderPreference()
 	{
 		syncLoadStrategyRadioButton = new JBasicRadioButton(SwingLocale.getString("sync_loader_strategy"), true);
@@ -45,53 +55,93 @@ public class JLazyLoaderPreference
 		add(loadStrategyPanel);
 	}
 	
+	/**
+	 * Returns true if the lazy loader is synchronized. 
+	 * @return true if the lazy loader is synchronized
+	 */
 	public boolean isSynchronized()
 	{
 		return syncLoadStrategyRadioButton.isSelected();
 	}
 	
-	public String getToggleName()
+	/**
+	 * Returns true if it is verified.
+	 * @return true if it is verified
+	 */
+	public boolean verify()
 	{
-		return SwingLocale.getString("loader_toggle_name");
+		return true;
 	}
 	
-	public void setToggleName(String toggleName)
+	/**
+	 * Gets the toggle text.
+	 * @return the toggle text string
+	 */
+	public String getToggleText()
+	{
+		return SwingLocale.getString("loader_toggle_text");
+	}
+	
+	/**
+	 * Sets the toggle text.
+	 * @param toggleText the toggle text string
+	 */
+	public void setToggleText(String toggleText)
 	{
 		
 	}
 	
+	/**
+	 * Gets the toggle icon.
+	 * @return the instance of Icon
+	 */
 	public Icon getToggleIcon()
 	{
 		return IconFactory.getSwingIcon("banner/query.png");
 	}
 	
+	/**
+	 * Sets the toggle icon.
+	 * @param toggleIcon the instance of Icon
+	 */
 	public void setToggleIcon(Icon toggleIcon)
 	{
 		
 	}
 	
+	/**
+	 * Gets the toggle banner icon.
+	 * @return the instance of Icon
+	 */
 	public Icon getToggleBannerIcon()
 	{
 		return IconFactory.getSwingIcon("banner/query.png");
 	}
 	
+	/**
+	 * Sets the toggle banner icon.
+	 * @param toggleBannerIcon the instance of Icon
+	 */
 	public void setToggleBannerIcon(Icon toggleBannerIcon)
 	{
 		
 	}
 	
+	/**
+	 * Gets the toggle description.
+	 * @return the toggle description string
+	 */
 	public String getToggleDescription()
 	{
 		return SwingLocale.getString("loader_toggle_description");
 	}
 	
+	/**
+	 * Sets the toggle description.
+	 * @param toggleDescription the toggle description string
+	 */
 	public void setToggleDescription(String toggleDescription)
 	{
 		
-	}
-
-	public boolean verify()
-	{
-		return true;
 	}
 }

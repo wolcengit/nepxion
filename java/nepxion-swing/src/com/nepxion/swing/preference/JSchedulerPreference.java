@@ -24,10 +24,19 @@ import com.nepxion.swing.panel.JTimePanel;
 public class JSchedulerPreference
 	extends JPreference
 {
+	/**
+	 * The instance of JTimePanel.
+	 */
 	private JTimePanel timePanel;
 	
+	/**
+	 * The instance of JBasicCheckBox.
+	 */
 	private JBasicCheckBox bubbleTipCheckBox;
 	
+	/**
+	 * Constructs with the default.
+	 */
 	public JSchedulerPreference()
 	{
 		timePanel = new JTimePanel(JTimePanel.VERTICAL);
@@ -48,61 +57,109 @@ public class JSchedulerPreference
 		add(scheduleMessagePanel);
 	}
 	
+	/**
+	 * Gets the time panel.
+	 * @return the instance of JTimePanel
+	 */
 	public JTimePanel getTimePanel()
 	{
 		return timePanel;
 	}
 	
+	/**
+	 * Gets the interval.
+	 * @return the interval array value.
+	 */
 	public int[] getInterval()
 	{
 		return timePanel.getInterval();
 	}
 	
-	public boolean isBubbleTipShowing()
+	/**
+	 * Returns true the bubble tip showing.
+	 * @return true the bubble tip showing 
+	 */
+	public boolean isBubbleTipShown()
 	{
 		return bubbleTipCheckBox.isSelected();
 	}
 	
+	/**
+	 * Returns true if it is verified.
+	 * @return true if it is verified
+	 */
 	public boolean verify()
 	{
 		return timePanel.verify();
 	}
 	
-	public String getToggleName()
+	/**
+	 * Gets the toggle text.
+	 * @return the toggle text string
+	 */
+	public String getToggleText()
 	{
-		return SwingLocale.getString("scheduler_toggle_name");
+		return SwingLocale.getString("scheduler_toggle_text");
 	}
 	
-	public void setToggleName(String toggleName)
+	/**
+	 * Sets the toggle text.
+	 * @param toggleText the toggle text string
+	 */
+	public void setToggleText(String toggleText)
 	{
 		
 	}
 	
+	/**
+	 * Gets the toggle icon.
+	 * @return the instance of Icon
+	 */
 	public Icon getToggleIcon()
 	{
 		return IconFactory.getSwingIcon("banner/timer.png");
 	}
 	
+	/**
+	 * Sets the toggle icon.
+	 * @param toggleIcon the instance of Icon
+	 */
 	public void setToggleIcon(Icon toggleIcon)
 	{
 		
 	}
 	
+	/**
+	 * Gets the toggle banner icon.
+	 * @return the instance of Icon
+	 */
 	public Icon getToggleBannerIcon()
 	{
 		return IconFactory.getSwingIcon("banner/timer.png");
 	}
 	
+	/**
+	 * Sets the toggle banner icon.
+	 * @param toggleBannerIcon the instance of Icon
+	 */
 	public void setToggleBannerIcon(Icon toggleBannerIcon)
 	{
 		
 	}
 	
+	/**
+	 * Gets the toggle description.
+	 * @return the toggle description string
+	 */
 	public String getToggleDescription()
 	{
 		return SwingLocale.getString("scheduler_toggle_description");
 	}
 	
+	/**
+	 * Sets the toggle description.
+	 * @param toggleDescription the toggle description string
+	 */
 	public void setToggleDescription(String toggleDescription)
 	{
 		

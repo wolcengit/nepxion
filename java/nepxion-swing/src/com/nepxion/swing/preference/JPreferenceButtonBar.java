@@ -25,9 +25,19 @@ import com.nepxion.swing.locale.SwingLocale;
 public class JPreferenceButtonBar
 	extends JPanel
 {	
+	/**
+	 * The save button.
+	 */
 	protected JBasicButton saveButton;
+	
+	/**
+	 * The refresh button.
+	 */
 	protected JBasicButton refreshButton;
 	
+	/**
+	 * Constructs with the default.
+	 */
 	public JPreferenceButtonBar()
 	{
 		saveButton = new JBasicButton(SwingLocale.getString("save"), IconFactory.getSwingIcon("stereo/confirm_16.png"), SwingLocale.getString("save"));
@@ -60,16 +70,25 @@ public class JPreferenceButtonBar
 		ButtonManager.updateUI(this);
 	}
 	
+	/**
+	 * Saves.
+	 */
 	public void save()
 	{
 		
 	}
 	
+	/**
+	 * Refreshes.
+	 */
 	public void refresh()
 	{
 		
 	}
 	
+	/**
+	 * Customizes.
+	 */
 	public void customize()
 	{
 		
