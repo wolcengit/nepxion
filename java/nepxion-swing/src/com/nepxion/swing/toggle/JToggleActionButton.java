@@ -87,7 +87,7 @@ public class JToggleActionButton
 	{
 		this.togglePanel = togglePanel;
 		
-		setText(togglePanel.getToggleName());
+		setText(togglePanel.getToggleText());
 		
 		if (togglePanel.getToggleIcon() != null)
 		{

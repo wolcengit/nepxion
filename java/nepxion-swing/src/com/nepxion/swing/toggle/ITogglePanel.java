@@ -15,16 +15,16 @@ import javax.swing.Icon;
 public interface ITogglePanel
 {
 	/**
-	 * Gets the toggle name.
-	 * @return the toggle name string
+	 * Gets the toggle text.
+	 * @return the toggle text string
 	 */
-	public String getToggleName();
+	public String getToggleText();
 	
 	/**
-	 * Sets the toggle name.
-	 * @param toggleName the toggle name string
+	 * Sets the toggle text.
+	 * @param toggleText the toggle text string
 	 */
-	public void setToggleName(String toggleName);
+	public void setToggleText(String toggleText);
 	
 	/**
 	 * Gets the toggle icon.

@@ -17,9 +17,9 @@ public class JTogglePanel
 	extends JPanel implements ITogglePanel
 {
 	/**
-	 * The toggle name.
+	 * The toggle text.
 	 */
-	protected String toggleName;
+	protected String toggleText;
 	
 	/**
 	 * The toggle icon.
@@ -45,21 +45,21 @@ public class JTogglePanel
 	}
 	
 	/**
-	 * Gets the toggle name.
-	 * @return the toggle name string
+	 * Gets the toggle text.
+	 * @return the toggle text string
 	 */
-	public String getToggleName()
+	public String getToggleText()
 	{
-		return toggleName;
+		return toggleText;
 	}
 	
 	/**
-	 * Sets the toggle name.
-	 * @param toggleName the toggle name string
+	 * Sets the toggle text.
+	 * @param toggleText the toggle text string
 	 */
-	public void setToggleName(String toggleName)
+	public void setToggleText(String toggleText)
 	{
-		this.toggleName = toggleName;
+		this.toggleText = toggleText;
 	}
 	
 	/**
