@@ -94,7 +94,7 @@ public abstract class JThreadTogglePanel
 	
 	/**
 	 * Sets the toggle icon.
-	 * @param toggleIcon
+	 * @param toggleIcon the instance of Icon
 	 */
 	public void setToggleIcon(Icon toggleIcon)
 	{
