@@ -10,6 +10,7 @@ package com.nepxion.demo.component.taskbar;
  * @version 1.0
  */
 
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 
 import javax.swing.BorderFactory;
@@ -48,7 +49,7 @@ public class DemoTaskBarPanel
 			final JTaskBar taskBar = new JTaskBar();
 			
 			// System TaskGroup
-			JTaskGroup systemTaskGroup = new JTaskGroup("File and Folder Tasks", IconFactory.getIcon("com/l2fprod/common/demo/icons/tasks-email.png"), "Everything you can execute on files and folders");
+			JTaskGroup systemTaskGroup = new JTaskGroup("File and Folder Tasks", IconFactory.getIcon("com/l2fprod/common/demo/icons/tasks-email.png"), "Everything you can execute on files and folders", new Font("Dialog", Font.BOLD, 12));
 			systemTaskGroup.setSpecial(true);
 			systemTaskGroup.add(new JTaskAction("Send by email", IconFactory.getIcon("com/l2fprod/common/demo/icons/tasks-email.png"), "Send by email")
 			{
@@ -102,16 +103,6 @@ public class DemoTaskBarPanel
 			}
 			);
 			taskBar.add(seeAlsoTaskGroup);
-			
-			// Details TaskGroup
-			JTaskGroup detailsTaskGroup = new JTaskGroup("Details", "Details");
-//			detailsTaskGroup.setAnimated(false);
-//			JEditorPane detailsText = new JEditorPane("text/html", "<html>");
-//			LookAndFeelTweak.makeMultilineLabel(detailsText);
-//			LookAndFeelTweak.htmlize(detailsText);			
-//			detailsText.setText("<html><b>My Computer</b><br>Very special folder</html>");
-//			detailsTaskGroup.add(detailsText);   
-//			taskBar.add(detailsTaskGroup);
 
 			// Management
 			JTaskGroup managementTaskGroup = new JTaskGroup("Management", "Management");
@@ -147,7 +138,7 @@ public class DemoTaskBarPanel
 			
 			JBasicScrollPane taskBarScrollPane = new JBasicScrollPane();
 			taskBarScrollPane.getViewport().add(taskBar);				
-			add(taskBarScrollPane);			
+			add(taskBarScrollPane);
 		}
 	}
 }
