@@ -61,9 +61,9 @@ public abstract class AbstractToggleAdapter
 		
 		String text = elementNode.toString();
 		
-		if (togglePanel.getToggleName() == null)
+		if (togglePanel.getToggleText() == null)
 		{
-			togglePanel.setToggleName(text);
+			togglePanel.setToggleText(text);
 		}
 		
 		if (togglePanel.getToggleDescription() == null)
