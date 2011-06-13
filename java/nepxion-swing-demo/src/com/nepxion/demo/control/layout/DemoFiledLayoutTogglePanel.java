@@ -33,7 +33,7 @@ public class DemoFiledLayoutTogglePanel
 		toggleTabbedPane.addTab("Column Mode", IconFactory.getSwingIcon("component/layout_16.png"), new DemoToggleTemplate(new DemoColumnFiledLayoutPanel()), "Column Mode");		
 	}
 	
-	public String getToggleName()
+	public String getToggleText()
 	{
 		return "Filed Layout";
 	}

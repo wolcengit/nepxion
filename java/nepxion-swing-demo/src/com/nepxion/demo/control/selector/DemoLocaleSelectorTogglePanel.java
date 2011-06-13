@@ -31,7 +31,7 @@ public class DemoLocaleSelectorTogglePanel
 		toggleTabbedPane.addTab("Locale", IconFactory.getSwingIcon("component/locale_16.png"), new DemoToggleTemplate(new DemoLocaleSelectorPanel()), "Locale");		
 	}
 	
-	public String getToggleName()
+	public String getToggleText()
 	{
 		return "Locale";
 	}

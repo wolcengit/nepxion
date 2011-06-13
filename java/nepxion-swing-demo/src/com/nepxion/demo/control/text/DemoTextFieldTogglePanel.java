@@ -41,7 +41,7 @@ public class DemoTextFieldTogglePanel
 		toggleTabbedPane.addTab("Underline Border TextField", IconFactory.getSwingIcon("component/text_field_16.png"), new DemoToggleTemplate(new DemoUnderlineBorderTextFieldPanel()), "Underline Border TextField");		
 	}
 	
-	public String getToggleName()
+	public String getToggleText()
 	{
 		return "TextField";
 	}

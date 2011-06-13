@@ -31,7 +31,7 @@ public class DemoFileSelectorTogglePanel
 		toggleTabbedPane.addTab("File", IconFactory.getSwingIcon("component/file_chooser_16.png"), new DemoToggleTemplate(new DemoFileSelectorPanel()), "File");		
 	}
 	
-	public String getToggleName()
+	public String getToggleText()
 	{
 		return "File";
 	}

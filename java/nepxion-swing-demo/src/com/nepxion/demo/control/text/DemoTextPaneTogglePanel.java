@@ -30,7 +30,7 @@ public class DemoTextPaneTogglePanel
 		JEditorPane editorPane = new JEditorPane();	
 	}
 	
-	public String getToggleName()
+	public String getToggleText()
 	{
 		return "TextPane";
 	}

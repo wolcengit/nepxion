@@ -31,7 +31,7 @@ public class DemoRadioButtonSelectorTogglePanel
 		toggleTabbedPane.addTab("RadioButton", IconFactory.getSwingIcon("component/radio_button_16.png"), new DemoToggleTemplate(new DemoRadioButtonSelectorPanel()), "RadioButton");		
 	}
 	
-	public String getToggleName()
+	public String getToggleText()
 	{
 		return "RadioButton";
 	}

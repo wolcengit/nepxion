@@ -33,7 +33,7 @@ public class DemoXBorderLayoutTogglePanel
 		toggleTabbedPane.addTab("Border", IconFactory.getSwingIcon("component/layout_16.png"), new DemoToggleTemplate(new DemoBorderLayoutPanel()), "Border");		
 	}
 	
-	public String getToggleName()
+	public String getToggleText()
 	{
 		return "XBorder Layout";
 	}

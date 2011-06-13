@@ -33,7 +33,7 @@ public class DemoLabelTogglePanel
 		toggleTabbedPane.addTab("Style Label Builder", IconFactory.getSwingIcon("component/label_16.png"), new DemoToggleTemplate(new DemoStyledLabelBuilderPanel()), "Style Label Builder");
 	}
 	
-	public String getToggleName()
+	public String getToggleText()
 	{
 		return "Label";
 	}

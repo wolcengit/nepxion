@@ -39,7 +39,7 @@ public class DemoButtonTogglePanel
 		toggleTabbedPane.addTab("SelectorMenuButton", IconFactory.getSwingIcon("component/popup_menu_16.png"), new DemoToggleTemplate(new DemoSelectorMenuButtonPanel()), "SelectorMenuButton");		
 	}
 	
-	public String getToggleName()
+	public String getToggleText()
 	{
 		return "Button";
 	}

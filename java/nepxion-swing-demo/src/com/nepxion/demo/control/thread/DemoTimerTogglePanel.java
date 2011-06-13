@@ -33,7 +33,7 @@ public class DemoTimerTogglePanel
 		toggleTabbedPane.addTab("Timer ProgressBar", IconFactory.getSwingIcon("component/thread_16.png"), new DemoToggleTemplate(new DemoTimerProgressBarPanel()), "Timer ProgressBar");		
 	}
 	
-	public String getToggleName()
+	public String getToggleText()
 	{
 		return "Timer";
 	}

@@ -28,7 +28,7 @@ public class DemoCompletionTogglePanel
 		JEclipseTabbedPane toggleTabbedPane = getToggleTabbedPane();	
 	}
 	
-	public String getToggleName()
+	public String getToggleText()
 	{
 		return "Completion";
 	}

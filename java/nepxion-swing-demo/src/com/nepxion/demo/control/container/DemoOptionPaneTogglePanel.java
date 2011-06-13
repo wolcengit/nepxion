@@ -31,7 +31,7 @@ public class DemoOptionPaneTogglePanel
 		toggleTabbedPane.addTab("OptionPane", IconFactory.getSwingIcon("component/option_pane_16.png"), new DemoToggleTemplate(new DemoOptionPanePanel()), "OptionPane");		
 	}
 	
-	public String getToggleName()
+	public String getToggleText()
 	{
 		return "OptionPane";
 	}

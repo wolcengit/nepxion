@@ -31,7 +31,7 @@ public class DemoLineChartTogglePanel
 		toggleTabbedPane.addTab("Line Chart", IconFactory.getSwingIcon("component/chart_line_16.png"), new DemoToggleTemplate(new DemoLineChartPanel()), "Line Chart");		
 	}
 	
-	public String getToggleName()
+	public String getToggleText()
 	{
 		return "Line Chart";
 	}

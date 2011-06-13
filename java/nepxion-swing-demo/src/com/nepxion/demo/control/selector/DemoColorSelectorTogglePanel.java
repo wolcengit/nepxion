@@ -28,7 +28,7 @@ public class DemoColorSelectorTogglePanel
 		JEclipseTabbedPane toggleTabbedPane = getToggleTabbedPane();
 	}
 	
-	public String getToggleName()
+	public String getToggleText()
 	{
 		return "Color";
 	}

@@ -31,7 +31,7 @@ public class DemoUIExplorerTogglePanel
 		toggleTabbedPane.addTab("UI Explorer", IconFactory.getSwingIcon("component/ui_16.png"), new DemoToggleTemplate(new DemoUIExplorerPanel()), "UI Explorer");		
 	}
 	
-	public String getToggleName()
+	public String getToggleText()
 	{
 		return "UI Explorer";
 	}

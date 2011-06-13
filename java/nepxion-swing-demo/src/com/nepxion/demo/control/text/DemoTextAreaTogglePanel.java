@@ -37,7 +37,7 @@ public class DemoTextAreaTogglePanel
 		toggleTabbedPane.addTab("Hover Border TextArea", IconFactory.getSwingIcon("component/text_area_16.png"), new DemoToggleTemplate(new DemoHoverBorderTextAreaPanel()), "Hover Border TextArea");				
 	}
 	
-	public String getToggleName()
+	public String getToggleText()
 	{
 		return "TextArea";
 	}

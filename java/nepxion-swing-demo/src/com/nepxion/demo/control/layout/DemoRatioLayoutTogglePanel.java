@@ -33,7 +33,7 @@ public class DemoRatioLayoutTogglePanel
 		toggleTabbedPane.addTab("Vertical Mode", IconFactory.getSwingIcon("component/layout_16.png"), new DemoToggleTemplate(new DemoVerticalRatioLayoutPanel()), "Vertical Mode");		
 	}
 	
-	public String getToggleName()
+	public String getToggleText()
 	{
 		return "Ratio Layout";
 	}

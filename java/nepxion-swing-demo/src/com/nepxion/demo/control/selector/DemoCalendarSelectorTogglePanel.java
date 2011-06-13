@@ -31,7 +31,7 @@ public class DemoCalendarSelectorTogglePanel
 		toggleTabbedPane.addTab("Calendar", IconFactory.getSwingIcon("component/calendar_16.png"), new DemoToggleTemplate(new DemoCalendarSelectorPanel()), "Calendar");		
 	}
 	
-	public String getToggleName()
+	public String getToggleText()
 	{
 		return "Calendar";
 	}

@@ -28,7 +28,7 @@ public class DemoMenuTogglePanel
 		JEclipseTabbedPane toggleTabbedPane = getToggleTabbedPane();
 	}
 	
-	public String getToggleName()
+	public String getToggleText()
 	{
 		return "Menu";
 	}

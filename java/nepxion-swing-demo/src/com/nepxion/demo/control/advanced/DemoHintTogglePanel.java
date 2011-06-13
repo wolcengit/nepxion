@@ -28,7 +28,7 @@ public class DemoHintTogglePanel
 		JEclipseTabbedPane toggleTabbedPane = getToggleTabbedPane();	
 	}
 	
-	public String getToggleName()
+	public String getToggleText()
 	{
 		return "Hint";
 	}

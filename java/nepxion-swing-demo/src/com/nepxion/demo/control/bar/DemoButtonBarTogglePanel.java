@@ -31,7 +31,7 @@ public class DemoButtonBarTogglePanel
 		toggleTabbedPane.addTab("ButtonBar", IconFactory.getSwingIcon("component/tool_bar_16.png"), new DemoToggleTemplate(new DemoButtonBarPanel()), "ButtonBar");		
 	}
 	
-	public String getToggleName()
+	public String getToggleText()
 	{
 		return "ButtonBar";
 	}

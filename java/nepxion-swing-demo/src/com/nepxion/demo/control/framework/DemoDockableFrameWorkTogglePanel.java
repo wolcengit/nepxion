@@ -31,7 +31,7 @@ public class DemoDockableFrameWorkTogglePanel
 		toggleTabbedPane.addTab("Dockable FrameWork", IconFactory.getSwingIcon("component/framework_16.png"), new DemoToggleTemplate(new DemoDockableFrameWorkPanel()), "Dockable FrameWork");						
 	}
 	
-	public String getToggleName()
+	public String getToggleText()
 	{
 		return "Dockable";
 	}

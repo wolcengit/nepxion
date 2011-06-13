@@ -31,7 +31,7 @@ public class DemoIDTogglePanel
 		toggleTabbedPane.addTab("身份证归属地查询 - 网易接口", IconFactory.getSwingIcon("component/application_16.png"), new DemoToggleTemplate(new DemoNeteaseIDPanel()), "身份证归属地查询 - 网易接口");		
 	}
 	
-	public String getToggleName()
+	public String getToggleText()
 	{
 		return "ID";
 	}

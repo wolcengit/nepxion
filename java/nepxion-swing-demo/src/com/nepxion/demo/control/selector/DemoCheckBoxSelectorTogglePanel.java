@@ -31,7 +31,7 @@ public class DemoCheckBoxSelectorTogglePanel
 		toggleTabbedPane.addTab("CheckBox", IconFactory.getSwingIcon("component/check_box_16.png"), new DemoToggleTemplate(new DemoCheckBoxSelectorPanel()), "CheckBox");		
 	}
 	
-	public String getToggleName()
+	public String getToggleText()
 	{
 		return "CheckBox";
 	}

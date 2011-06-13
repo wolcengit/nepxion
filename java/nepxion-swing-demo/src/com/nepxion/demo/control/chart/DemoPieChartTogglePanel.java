@@ -31,7 +31,7 @@ public class DemoPieChartTogglePanel
 		toggleTabbedPane.addTab("Pie Chart", IconFactory.getSwingIcon("component/chart_pie_16.png"), new DemoToggleTemplate(new DemoPieChartPanel()), "Pie Chart");		
 	}
 	
-	public String getToggleName()
+	public String getToggleText()
 	{
 		return "Pie Chart";
 	}

@@ -37,7 +37,7 @@ public class DemoComboBoxTogglePanel
 		toggleTabbedPane.addTab("Tree ComboBox", IconFactory.getSwingIcon("component/combo_box_16.png"), new DemoToggleTemplate(new DemoTreeComboBoxPanel()), "Tree ComboBox");		
 	}
 	
-	public String getToggleName()
+	public String getToggleText()
 	{
 		return "ComboBox";
 	}

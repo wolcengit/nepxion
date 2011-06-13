@@ -28,7 +28,7 @@ public class DemoVLDockingFrameWorkTogglePanel
 		JEclipseTabbedPane toggleTabbedPane = getToggleTabbedPane();
 	}
 	
-	public String getToggleName()
+	public String getToggleText()
 	{
 		return "VLDocking";
 	}

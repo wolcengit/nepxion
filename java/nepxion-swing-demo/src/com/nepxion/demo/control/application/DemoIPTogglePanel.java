@@ -39,7 +39,7 @@ public class DemoIPTogglePanel
 		toggleTabbedPane.addTab("本地IP地址查询 - 腾讯接口", IconFactory.getSwingIcon("component/application_16.png"), new DemoToggleTemplate(new DemoTencentIPPanel()), "本地IP地址查询地理位置 - 腾讯接口");		
 	}	
 	
-	public String getToggleName()
+	public String getToggleText()
 	{
 		return "IP";
 	}

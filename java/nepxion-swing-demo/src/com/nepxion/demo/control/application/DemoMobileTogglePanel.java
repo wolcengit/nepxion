@@ -33,7 +33,7 @@ public class DemoMobileTogglePanel
 		toggleTabbedPane.addTab("手机归属地查询  - 网易接口", IconFactory.getSwingIcon("component/application_16.png"), new DemoToggleTemplate(new DemoNeteaseMobilePanel()), "手机归属地查询  - 网易接口");		
 	}
 	
-	public String getToggleName()
+	public String getToggleText()
 	{
 		return "Mobile";
 	}

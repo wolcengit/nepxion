@@ -33,7 +33,7 @@ public class DemoThreadTogglePanel
 		toggleTabbedPane.addTab("Thread Dialog", IconFactory.getSwingIcon("component/thread_16.png"), new DemoToggleTemplate(new DemoThreadDialoglPanel()), "Thread Dialog");		
 	}
 	
-	public String getToggleName()
+	public String getToggleText()
 	{
 		return "Thread";
 	}

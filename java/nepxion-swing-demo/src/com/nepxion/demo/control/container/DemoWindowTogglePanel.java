@@ -33,7 +33,7 @@ public class DemoWindowTogglePanel
 		toggleTabbedPane.addTab("Caption Splash Window", IconFactory.getSwingIcon("component/internal_frame_16.png"), new DemoToggleTemplate(new DemoCaptionSplashWindowPanel()), "Caption Splash Window");		
 	}
 	
-	public String getToggleName()
+	public String getToggleText()
 	{
 		return "Window";
 	}

@@ -28,7 +28,7 @@ public class DemoEditorPaneTogglePanel
 		JEclipseTabbedPane toggleTabbedPane = getToggleTabbedPane();	
 	}
 	
-	public String getToggleName()
+	public String getToggleText()
 	{
 		return "EditorPane";
 	}

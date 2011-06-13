@@ -52,7 +52,7 @@ public class DemoTaskBarTogglePanel
 		toggleTabbedPane.addTab("Glossy L&F", IconFactory.getSwingIcon("component/tool_bar_16.png"), new DemoToggleTemplate(new DemoTaskBarPanel()), "Glossy L&F");		
 	}
 	
-	public String getToggleName()
+	public String getToggleText()
 	{
 		return "TaskBar";
 	}

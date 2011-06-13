@@ -37,7 +37,7 @@ public class DemoPanelTogglePanel
 		toggleTabbedPane.addTab("IP Property Panel", IconFactory.getSwingIcon("component/panel_16.png"), new DemoToggleTemplate(new DemoIPPropertyPanel()), "IP Property Panel");		
 	}
 	
-	public String getToggleName()
+	public String getToggleText()
 	{
 		return "Panel";
 	}

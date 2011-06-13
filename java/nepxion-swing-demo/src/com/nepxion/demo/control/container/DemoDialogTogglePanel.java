@@ -37,7 +37,7 @@ public class DemoDialogTogglePanel
 		toggleTabbedPane.addTab("Caption Splash Dialog", IconFactory.getSwingIcon("component/dialog_16.png"), new DemoToggleTemplate(new DemoCaptionSplashDialogPanel()), "Caption Splash Dialog");		
 	}
 	
-	public String getToggleName()
+	public String getToggleText()
 	{
 		return "Dialog";
 	}

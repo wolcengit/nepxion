@@ -37,7 +37,7 @@ public class DemoListTogglePanel
 		toggleTabbedPane.addTab("Tab List", IconFactory.getSwingIcon("component/list_16.png"), new DemoToggleTemplate(new DemoTabbedListPanel()), "Tab List");		
 	}
 	
-	public String getToggleName()
+	public String getToggleText()
 	{
 		return "List";
 	}

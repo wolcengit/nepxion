@@ -31,7 +31,7 @@ public class DemoOutlookBarTogglePanel
 		toggleTabbedPane.addTab("OutlookBar", IconFactory.getSwingIcon("component/tool_bar_16.png"), new DemoToggleTemplate(new DemoOutlookBarPanel()), "OutlookBar");		
 	}
 	
-	public String getToggleName()
+	public String getToggleText()
 	{
 		return "OutlookBar";
 	}

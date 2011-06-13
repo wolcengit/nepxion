@@ -31,7 +31,7 @@ public class DemoPlugInTogglePanel
 		toggleTabbedPane.addTab("ActiveX PlugIn", IconFactory.getSwingIcon("component/advanced_16.png"), new DemoToggleTemplate(new DemoActiveXPanel()), "ActiveX Plug-In");		
 	}
 	
-	public String getToggleName()
+	public String getToggleText()
 	{
 		return "PlugIn";
 	}

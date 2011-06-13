@@ -39,7 +39,7 @@ public class DemoTableLayoutTogglePanel
 		toggleTabbedPane.addTab("Mixed Mode", IconFactory.getSwingIcon("component/layout_16.png"), new DemoToggleTemplate(new DemoMixedTableLayoutPanel()), "Mixed Mode");				
 	}
 	
-	public String getToggleName()
+	public String getToggleText()
 	{
 		return "Table Layout";
 	}

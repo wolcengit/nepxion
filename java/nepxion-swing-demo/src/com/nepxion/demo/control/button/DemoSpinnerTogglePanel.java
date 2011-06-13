@@ -33,7 +33,7 @@ public class DemoSpinnerTogglePanel
 		toggleTabbedPane.addTab("Point SpinnerField", IconFactory.getSwingIcon("component/spinner_16.png"), new DemoToggleTemplate(new DemoPointSpinnerFieldPanel()), "Point SpinnerField");		
 	}
 	
-	public String getToggleName()
+	public String getToggleText()
 	{
 		return "Spinner";
 	}

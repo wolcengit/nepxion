@@ -33,7 +33,7 @@ public class DemoScrollPaneTogglePanel
 		toggleTabbedPane.addTab("Auto ScrollPane", IconFactory.getSwingIcon("component/scroll_pane_16.png"), new DemoToggleTemplate(new DemoAutoScrollPanePanel()), "Auto ScrollPane");		
 	}
 	
-	public String getToggleName()
+	public String getToggleText()
 	{
 		return "ScrollPane";
 	}

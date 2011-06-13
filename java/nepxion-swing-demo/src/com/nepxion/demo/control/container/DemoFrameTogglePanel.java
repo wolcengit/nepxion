@@ -31,7 +31,7 @@ public class DemoFrameTogglePanel
 		toggleTabbedPane.addTab("Basic Frame", IconFactory.getSwingIcon("component/framework_16.png"), new DemoToggleTemplate(new DemoBasicFramePanel()), "Basic Dialog");		
 	}
 	
-	public String getToggleName()
+	public String getToggleText()
 	{
 		return "Frame";
 	}

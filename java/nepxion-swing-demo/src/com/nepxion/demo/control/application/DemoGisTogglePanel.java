@@ -35,7 +35,7 @@ public class DemoGisTogglePanel
 		toggleTabbedPane.addTab("根据移动信息查询 - 谷歌移动接口", IconFactory.getSwingIcon("component/application_16.png"), new DemoToggleTemplate(new DemoCellPanel()), "根据移动信息查询地理位置 - 谷歌移动接口");		
 	}	
 	
-	public String getToggleName()
+	public String getToggleText()
 	{
 		return "GIS";
 	}

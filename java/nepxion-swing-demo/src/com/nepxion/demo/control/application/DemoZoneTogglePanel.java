@@ -31,7 +31,7 @@ public class DemoZoneTogglePanel
 		toggleTabbedPane.addTab("区号查询  - 本地接口", IconFactory.getSwingIcon("component/application_16.png"), new DemoToggleTemplate(new DemoZonePanel()), "区号查询  - 本地接口");		
 	}
 	
-	public String getToggleName()
+	public String getToggleText()
 	{
 		return "Zone";
 	}

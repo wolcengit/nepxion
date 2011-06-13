@@ -37,7 +37,7 @@ public class DemoTreeTogglePanel
 		toggleTabbedPane.addTab("LazyLoader CheckBox Tree", IconFactory.getSwingIcon("component/tree_16.png"), new DemoToggleTemplate(new DemoLazyLoaderCheckBoxTreePanel()), "LazyLoader CheckBox Tree");		
 	}
 	
-	public String getToggleName()
+	public String getToggleText()
 	{
 		return "Tree";
 	}

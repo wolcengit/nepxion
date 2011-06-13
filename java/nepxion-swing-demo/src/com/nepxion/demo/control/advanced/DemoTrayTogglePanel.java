@@ -28,7 +28,7 @@ public class DemoTrayTogglePanel
 		JEclipseTabbedPane toggleTabbedPane = getToggleTabbedPane();	
 	}
 	
-	public String getToggleName()
+	public String getToggleText()
 	{
 		return "Tray";
 	}

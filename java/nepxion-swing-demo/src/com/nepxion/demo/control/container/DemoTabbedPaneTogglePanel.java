@@ -33,7 +33,7 @@ public class DemoTabbedPaneTogglePanel
 		toggleTabbedPane.addTab("Eclipse TabbedPane", IconFactory.getSwingIcon("component/tabbed_pane_16.png"), new DemoToggleTemplate(new DemoEclipseTabbedPanePanel()), "Eclipse TabbedPane");		
 	}
 	
-	public String getToggleName()
+	public String getToggleText()
 	{
 		return "TabbedPane";
 	}

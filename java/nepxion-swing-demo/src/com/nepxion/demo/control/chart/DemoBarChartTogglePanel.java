@@ -35,7 +35,7 @@ public class DemoBarChartTogglePanel
 		toggleTabbedPane.addTab("Cylinder Bar Chart 3D", IconFactory.getSwingIcon("component/chart_bar_16.png"), new DemoToggleTemplate(new DemoCylinderBarChart3DPanel()), "Cylinder Bar Chart 3D");		
 	}
 	
-	public String getToggleName()
+	public String getToggleText()
 	{
 		return "Bar Chart";
 	}
