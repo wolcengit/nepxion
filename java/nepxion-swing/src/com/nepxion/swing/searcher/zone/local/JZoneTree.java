@@ -24,11 +24,18 @@ import com.nepxion.util.searcher.zone.local.ZoneConstants;
 public class JZoneTree
 	extends JBasicTree implements ZoneConstants
 {
+	/**
+	 * Constructs with the default.
+	 */
 	public JZoneTree()
 	{
 		this(FileContext.getContent(CONFIG_FILE_PATH));
 	}
 	
+	/**
+	 * Constructs with the specified initial content.
+	 * @param content the content string
+	 */
 	public JZoneTree(String content)
 	{
 		Dom4JTreeParser parser = new Dom4JTreeParser();
@@ -46,7 +53,7 @@ public class JZoneTree
 		}
 		DefaultTreeModel treeModel = new DefaultTreeModel(root);
 		setModel(treeModel);
-		setCellRenderer(new ElementTreeCellRenderer(ElementTreeCellRenderer.NIMBUS_STYLE, 20));
+		setCellRenderer(new ElementTreeCellRenderer(ElementTreeCellRenderer.TREE_THEME_NIMBUS, 20));
 		setSelectionMode(JBasicTree.SINGLE_TREE_SELECTION);
 	}
 }

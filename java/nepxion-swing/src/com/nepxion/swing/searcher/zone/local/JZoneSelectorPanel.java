@@ -33,47 +33,97 @@ import com.nepxion.swing.textfield.number.JNumberTextField;
 public class JZoneSelectorPanel
 	extends JPanel
 {
+	/**
+	 * The instance of JNumberTextField.
+	 */
 	private JNumberTextField textField;
+	
+	/**
+	 * The instance of ISelectorMenuButton.
+	 */
 	private ISelectorMenuButton menuButton;
+	
+	/**
+	 * The instance of JZoneTree.
+	 */
 	private JZoneTree tree;
 	
+	/**
+	 * The maximum length value.
+	 */
 	private int maximumLength = 12;
 	
+	/**
+	 * Constructs with the default.
+	 */
 	public JZoneSelectorPanel()
 	{
 		this(false);
 	}
 	
+	/**
+	 * Constructs with the specified initial classic style.
+	 * @param isClassicStyle the boolean value of isClassicStyle
+	 */
 	public JZoneSelectorPanel(boolean isClassicStyle)
 	{
 		this("", isClassicStyle);
 	}
 	
+	/**
+	 * Constructs with the specified initial value.
+	 * @param value the value string
+	 */
 	public JZoneSelectorPanel(String value)
 	{
 		this(value, false);
 	}
 	
+	/**
+	 * Constructs with the specified initial value and classic style.
+	 * @param value the value string
+	 * @param isClassicStyle the boolean value of isClassicStyle
+	 */
 	public JZoneSelectorPanel(String value, boolean isClassicStyle)
 	{
 		this(value, 12, isClassicStyle);
 	}
 	
+	/**
+	 * Constructs with the specified initial maximum length.
+	 * @param maximumLength the maximum length value
+	 */
 	public JZoneSelectorPanel(int maximumLength)
 	{
 		this(maximumLength, false);
 	}
 	
+	/**
+	 * Constructs with the specified initial maximum length and classic style.
+	 * @param maximumLength the maximum length value
+	 * @param isClassicStyle the boolean value of isClassicStyle
+	 */
 	public JZoneSelectorPanel(int maximumLength, boolean isClassicStyle)
 	{
 		this("", maximumLength, isClassicStyle);
 	}
 	
+	/**
+	 * Constructs with the specified initial value and maximum length.
+	 * @param value the value string
+	 * @param maximumLength the maximum length value
+	 */
 	public JZoneSelectorPanel(String value, int maximumLength)
 	{
 		this(value, maximumLength, false);
 	}
 	
+	/**
+	 * Constructs with the specified initial value, maximum length and classic style.
+	 * @param value the value string
+	 * @param maximumLength the maximum length value
+	 * @param isClassicStyle the boolean value of isClassicStyle
+	 */
 	public JZoneSelectorPanel(String value, int maximumLength, boolean isClassicStyle)
 	{
 		textField = new JNumberTextField(maximumLength, 0);
@@ -124,6 +174,10 @@ public class JZoneSelectorPanel
 		setValue(value);
 	}
 	
+	/**
+	 * Returns true if it is confirmed.
+	 * @return true if it is confirmed
+	 */
 	public boolean confirm()
 	{
 		TreeNode treeNode = tree.getSelectionTreeNode();
@@ -143,32 +197,56 @@ public class JZoneSelectorPanel
 		return true;
 	}
 	
+	/**
+	 * Gets the text field.
+	 * @return the instance of JBasicTextField
+	 */
 	public JBasicTextField getTextField()
 	{
 		return textField;
 	}
 	
+	/**
+	 * Gets the menu button.
+	 * @return the instance of ISelectorMenuButton
+	 */
 	public ISelectorMenuButton getMenuButton()
 	{
 		return menuButton;
 	}
 	
+	/**
+	 * Gets the tree.
+	 * @return the instance of JZoneTree
+	 */
 	public JZoneTree getTree()
 	{
 		return tree;
 	}
 	
+	/**
+	 * Sets the enabled.
+	 * @param enabled the boolean value of enabled
+	 */
 	public void setEnabled(boolean enabled)
 	{
 		textField.setEditable(enabled);
 		((Component) menuButton).setEnabled(enabled);
 	}
 	
+	/**
+	 * Gets the value.
+	 * @return the value object
+	 */
 	public Object getValue()
 	{
 		return textField.getText();
 	}
 	
+	/**
+	 * Sets the value.
+	 * @param value the value object
+	 */
 	public void setValue(Object value)
 	{
 		String text = null;
