@@ -12,8 +12,8 @@ package com.nepxion.swing.preference;
 
 import javax.swing.JPanel;
 
-import com.nepxion.swing.optionpane.IValidation;
 import com.nepxion.swing.toggle.ITogglePanel;
+import com.nepxion.swing.validation.IValidation;
 
 public abstract class JPreference
 	extends JPanel implements ITogglePanel, IValidation
