@@ -40,7 +40,6 @@ public class FlatOutlookBarManager
 			scrollPane.setViewportBorder(BorderFactory.createEmptyBorder());
 		}
 		
-		scrollPane.getHorizontalScrollBar().setUI(scrollBarUI);
 		scrollPane.getVerticalScrollBar().setUI(scrollBarUI);
 	}
 }
