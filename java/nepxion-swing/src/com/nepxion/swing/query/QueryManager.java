@@ -15,6 +15,10 @@ import com.nepxion.swing.lookandfeel.LookAndFeelManager;
 
 public class QueryManager
 {
+	/**
+	 * Sets the preference style for the query dockable.
+	 * @param dockable the instance of JDockable
+	 */
 	public static void setPreferenceStyle(JDockable dockable)
 	{
 		if (!LookAndFeelManager.isNimbusLookAndFeel())

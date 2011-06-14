@@ -14,6 +14,7 @@ import java.awt.Dimension;
 import java.util.Calendar;
 import java.util.Date;
 
+import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JLabel;
@@ -24,23 +25,37 @@ import com.nepxion.swing.border.BorderManager;
 import com.nepxion.swing.dimension.DimensionManager;
 import com.nepxion.swing.layout.table.TableLayout;
 import com.nepxion.swing.locale.SwingLocale;
-import com.nepxion.swing.optionpane.IValidation;
 import com.nepxion.swing.selector.calendar.JDateTimeSelector;
 import com.nepxion.swing.selector.calendar.editor.JSpinnerDateTimeEditor;
+import com.nepxion.swing.validation.IValidation;
 import com.nepxion.util.time.TimeConstants;
 import com.nepxion.util.time.TimeUtil;
 
 public class JQueryDateTimeBar
 	extends JPanel implements SwingConstants, IValidation
 {
+	/**
+	 * The start data time selector.
+	 */
 	private JDateTimeSelector startDateTimeSelector;
+	
+	/**
+	 * The end data time selector.
+	 */
 	private JDateTimeSelector endDateTimeSelector;
 	
+	/**
+	 * Constructs with the default.
+	 */
 	public JQueryDateTimeBar()
 	{
 		this(VERTICAL);
 	}
 	
+	/**
+	 * Constructs with the specified initial direction.
+	 * @param direction the direction value
+	 */
 	public JQueryDateTimeBar(int direction)
 	{
         Date endDateTime = new Date();
@@ -66,7 +81,7 @@ public class JQueryDateTimeBar
 				tableLayout.setHGap(5);
 				tableLayout.setVGap(5);
 				setLayout(tableLayout);
-				setBorder(BorderManager.createComplexTitledBorder(SwingLocale.getString("time_parameter"), 0, 2, 0, 2));
+				setBorder(BorderFactory.createCompoundBorder(BorderFactory.createEmptyBorder(0, 2, 0, 2), BorderManager.createComplexTitledBorder(SwingLocale.getString("time_parameter"))));
 				
 				add(startDateTimeLabel, "0, 0");
 				add(startDateTimeSelector, "1, 0");
@@ -94,26 +109,46 @@ public class JQueryDateTimeBar
 		}		
 	}
 	
+	/**
+	 * Gets the start date time selector.
+	 * @return the instance of JDateTimeSelector
+	 */
 	public JDateTimeSelector getStartDateTimeSelector()
 	{
 		return startDateTimeSelector;
 	}
 	
+	/**
+	 * sets the start date time selector.
+	 * @param startDateTimeSelector the instance of JDateTimeSelector
+	 */
 	public void setStartDateTimeSelector(JDateTimeSelector startDateTimeSelector)
 	{
 		this.startDateTimeSelector = startDateTimeSelector;
 	}
 	
+	/**
+	 * Gets the end date time selector.
+	 * @return the instance of JDateTimeSelector
+	 */
 	public JDateTimeSelector getEndDateTimeSelector()
 	{
 		return endDateTimeSelector;
 	}
 	
+	/**
+	 * Sets the end date time selector.
+	 * @param endDateTimeSelector the instance of JDateTimeSelector
+	 */
 	public void setEndDateTimeSelector(JDateTimeSelector endDateTimeSelector)
 	{
 		this.endDateTimeSelector = endDateTimeSelector;
 	}
 	
+	/**
+	 * Gets the time range.
+	 * @return the time range string
+	 */
 	public String getTimeRange()
 	{
 		Date startDateTime = startDateTimeSelector.getDate();
@@ -122,6 +157,10 @@ public class JQueryDateTimeBar
 		return TimeUtil.getDateTime(startDateTime) + " - " + TimeUtil.getDateTime(endDateTime);
 	}
 	
+	/**
+	 * Returns true if it is verified.
+	 * @return true if it is verified
+	 */
 	public boolean verify()
 	{
 		Date startDateTime = startDateTimeSelector.getDate();

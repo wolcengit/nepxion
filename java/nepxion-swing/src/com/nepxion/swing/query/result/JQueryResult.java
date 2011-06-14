@@ -15,6 +15,9 @@ import javax.swing.JPanel;
 public class JQueryResult
 	extends JPanel
 {
+	/**
+	 * Constructs with the default.
+	 */
 	public JQueryResult()
 	{
 		

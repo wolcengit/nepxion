@@ -21,18 +21,38 @@ import com.nepxion.swing.query.result.JQueryResult;
 public class JQueryHierarchy
 	extends JDockableHierarchy
 {
+	/**
+	 * The query condition title string.
+	 */
 	public static final String QUERY_CONDITION_TITLE = SwingLocale.getString("query_condition");
+	
+	/**
+	 * The query result title string.
+	 */
 	public static final String QUERY_RESULT_TITLE = SwingLocale.getString("query_result");
 	
+	/**
+	 * The instance of JQueryCondition.
+	 */
 	private JQueryCondition queryCondition;
+	
+	/**
+	 * The instance of JQueryResult.
+	 */
 	private JQueryResult queryResult;
 	
+	/**
+	 * Constructs with the default.
+	 */
 	public JQueryHierarchy()
 	{
 		initContentPane();
 		initBar();
 	}
 	
+	/**
+	 * Initializes the content pane.
+	 */
 	private void initContentPane()
 	{
 		queryCondition = new JQueryCondition();
@@ -54,17 +74,28 @@ public class JQueryHierarchy
 		getDockableContainer().setContentPane(dockable);
 	}
 	
+	/**
+	 * Initializes the bar.
+	 */
 	private void initBar()
 	{
 		getBarContainer().setVisible(false);
 		getStatusBarContainer().setVisible(false);
 	}
 	
+	/**
+	 * Gets the query condition.
+	 * @return the instance of JQueryCondition
+	 */
 	public JQueryCondition getQueryCondition()
 	{
 		return queryCondition;
 	}
 	
+	/**
+	 * Gets the query result.
+	 * @return the instance of JQueryResult
+	 */
 	public JQueryResult getQueryResult()
 	{
 		return queryResult;

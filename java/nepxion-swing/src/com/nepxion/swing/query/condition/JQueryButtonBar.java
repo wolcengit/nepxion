@@ -22,8 +22,14 @@ import com.nepxion.swing.locale.SwingLocale;
 public class JQueryButtonBar
 	extends JPanel
 {
+	/**
+	 * The query button.
+	 */
 	private JClassicButton queryButton;
 	
+	/**
+	 * Constructs with the default.
+	 */
 	public JQueryButtonBar()
 	{
 		queryButton = new JClassicButton(SwingLocale.getString("query"), IconFactory.getSwingIcon("query.png"), SwingLocale.getString("query"));
@@ -36,6 +42,10 @@ public class JQueryButtonBar
 		add(Box.createHorizontalGlue());
 	}
 	
+	/**
+	 * Gets the query button.
+	 * @return the instance of JClassicButton
+	 */
 	public JClassicButton getQueryButton()
 	{
 		return queryButton;

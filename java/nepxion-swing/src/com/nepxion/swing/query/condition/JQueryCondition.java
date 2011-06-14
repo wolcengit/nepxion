@@ -15,6 +15,9 @@ import javax.swing.JPanel;
 public class JQueryCondition
 	extends JPanel
 {
+	/**
+	 * Constructs with the default.
+	 */
 	public JQueryCondition()
 	{
 		
