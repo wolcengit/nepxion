@@ -29,7 +29,7 @@ public abstract class JQueryTogglePanel
 		setInformationIcon(IconFactory.getSwingIcon("banner/query_128.png"));
 		setErrorText(SwingLocale.getString("query") + " " + SwingLocale.getString("quotation_left") + queryTarget + SwingLocale.getString("quotation_right") + " " + SwingLocale.getString("relative_data_exception"));
 		setErrorIcon(IconFactory.getSwingIcon("banner/error_128.png"));
-		setWidth(300);
+		setThreadPanelWidth(300);
 		
 		showInformation();
 	}
