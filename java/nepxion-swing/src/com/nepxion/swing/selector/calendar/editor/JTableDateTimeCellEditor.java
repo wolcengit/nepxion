@@ -15,6 +15,9 @@ import com.toedter.calendar.JDateChooserCellEditor;
 public class JTableDateTimeCellEditor
 	extends JDateChooserCellEditor
 {
+	/**
+	 * Constructs with the default.
+	 */
 	public JTableDateTimeCellEditor()
 	{
 		

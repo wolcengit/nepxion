@@ -15,6 +15,9 @@ import com.toedter.calendar.JSpinnerDateEditor;
 public class JSpinnerDateTimeEditor
 	extends JSpinnerDateEditor
 {
+	/**
+	 * Constructs with the default.
+	 */
 	public JSpinnerDateTimeEditor()
 	{
 		super();
