@@ -24,9 +24,21 @@ import com.nepxion.swing.timer.JTimerProgressPanel;
 public abstract class AbstractThreadPanel
 	extends JBasicScrollPane
 {
+	/**
+	 * The instance of JPanel.
+	 */
 	private JPanel panel;
+	
+	/**
+	 * The instance of JTimerProgressPanel.
+	 */
 	private JTimerProgressPanel progressPanel;
 	
+	/**
+	 * Constructs with the specified initial animation label and information.
+	 * @param animationLabel the animation label
+	 * @param information the information string
+	 */
 	public AbstractThreadPanel(JLabel animationLabel, String information)
 	{
 		progressPanel = new JTimerProgressPanel(animationLabel, information)
@@ -56,51 +68,86 @@ public abstract class AbstractThreadPanel
 		getViewport().add(panel);
 	}
 	
+	/**
+	 * Resets the thread.
+	 */
 	public void reset()
 	{
 		progressPanel.reset();
 	}
 	
+	/**
+	 * Starts the thread.
+	 */
 	public void start()
 	{
 		progressPanel.start();
 	}
 	
+	/**
+	 * Starts the thread by a delay time.
+	 * @param delayTime the delay time value
+	 */
 	public void start(int delayTime)
 	{
 		progressPanel.start(delayTime);
 	}
 	
+	/**
+	 * Restarts the thread.
+	 */
 	public void restart()
 	{
 		progressPanel.restart();
 	}
 	
+	/**
+	 * Restarts the thread by a delay time.
+	 * @param delayTime the delay time value 
+	 */
 	public void restart(int delayTime)
 	{
 		progressPanel.restart(delayTime);
 	}
 	
+	/**
+	 * Stops the thread.
+	 */
 	public void stop()
 	{
 		progressPanel.stop();
 	}
 	
+	/**
+	 * Finished the thread.
+	 */
 	public void finish()
 	{
 		progressPanel.finish();
 	}
 	
+	/**
+	 * Gets the progress panel.
+	 * @return the instance of JTimerProgressPanel
+	 */
 	public JTimerProgressPanel getProgressPanel()
 	{
 		return progressPanel;
 	}
 	
+	/**
+	 * Gets the progress bar.
+	 * @return the instance of JTimerProgressBar
+	 */
 	public JTimerProgressBar getProgressBar()
 	{
 		return progressPanel.getTimerProgressBar();
 	}
 	
+	/**
+	 * Sets the width.
+	 * @param width the width value
+	 */
 	public void setWidth(int width)
 	{
 		if (panel.getLayout() instanceof TableLayout)
@@ -110,6 +157,10 @@ public abstract class AbstractThreadPanel
 		}
 	}
 	
+	/**
+	 * Sets the height.
+	 * @param height the height value
+	 */
 	public void setHeight(int height)
 	{
 		if (panel.getLayout() instanceof TableLayout)
@@ -119,6 +170,11 @@ public abstract class AbstractThreadPanel
 		}
 	}
 	
+	/**
+	 * Sets the background for the component.
+	 * @param component the instance of JComponent
+	 * @param background the instance of Color
+	 */
 	private void setBackgound(JComponent component, Color background)
 	{
 		for (int i = 0; i < component.getComponentCount(); i++)
@@ -132,7 +188,13 @@ public abstract class AbstractThreadPanel
 		component.setBackground(background);
 	}
 	
+	/**
+	 * Fires the hidden.
+	 */
 	protected abstract void fireHidden();
 	
+	/**
+	 * Fires the cancelled.
+	 */
 	protected abstract void fireCancelled();
 }

@@ -18,6 +18,10 @@ import com.nepxion.swing.thread.dialog.AbstractThreadDialog;
 
 public class ThreadManager
 {
+	/**
+	 * Sets the preference style of the thread dialog.
+	 * @param threadDialog the instance of AbstractThreadDialog
+	 */
 	public static void setPreferenceStyle(AbstractThreadDialog threadDialog)
 	{
 		if (LookAndFeelManager.isNimbusLookAndFeel())
@@ -26,6 +30,11 @@ public class ThreadManager
 		}
 	}
 	
+	/**
+	 * Gets the decorated margin.
+	 * @param threadDialog the instance of AbstractThreadDialog
+	 * @return the decorated margin value
+	 */
 	public static int getDecoratedMargin(AbstractThreadDialog threadDialog)
 	{
 		if (!LookAndFeelManager.isNimbusLookAndFeel())

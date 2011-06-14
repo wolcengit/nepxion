@@ -31,13 +31,33 @@ import com.nepxion.swing.timer.JTimerProgressPanel;
 public abstract class AbstractThreadDialog
 	extends JBasicDialog
 {
+	/**
+	 * The layout panel.
+	 */
 	private JPanel layoutPanel;
 	
+	/**
+	 * The progress panel.
+	 */
 	private JTimerProgressPanel progressPanel;
 	
+	/**
+	 * The animation label.
+	 */
 	private JLabel animationLabel;
+	
+	/**
+	 * The information string.
+	 */
 	private String information;
 	
+	/**
+	 * Constructs with the specified initial frame, title, animation label and information.
+	 * @param owner the instance of Frame
+	 * @param title the title string
+	 * @param animationLabel the animation label
+	 * @param information the information string
+	 */
 	public AbstractThreadDialog(Frame owner, String title, JLabel animationLabel, String information)
 	{
 		super(owner, title, null);
@@ -48,6 +68,13 @@ public abstract class AbstractThreadDialog
 		initComponents();
 	}
 	
+	/**
+	 * Constructs with the specified initial dialog, title, animation label and information.
+	 * @param owner the instance of Dialog
+	 * @param title the title string
+	 * @param animationLabel the animation label
+	 * @param information the information string
+	 */
 	public AbstractThreadDialog(Dialog owner, String title, JLabel animationLabel, String information)
 	{
 		super(owner, title, null);
@@ -58,6 +85,9 @@ public abstract class AbstractThreadDialog
 		initComponents();
 	}
 	
+	/**
+	 * Initializes the components.
+	 */
 	private void initComponents()
 	{
 		progressPanel = new JTimerProgressPanel(animationLabel, information)
@@ -106,54 +136,94 @@ public abstract class AbstractThreadDialog
 		ThreadManager.setPreferenceStyle(this);
 	}
 	
+	/**
+	 * Resets the thread.
+	 */
 	public void reset()
 	{
 		progressPanel.reset();
 	}
 	
+	/**
+	 * Starts the thread.
+	 */
 	public void start()
 	{
 		progressPanel.start();
 	}
 	
+	/**
+	 * Starts the thread by a delay time.
+	 * @param delayTime the delay time value
+	 */
 	public void start(int delayTime)
 	{
 		progressPanel.start(delayTime);
 	}
 	
+	/**
+	 * Restarts the thread.
+	 */
 	public void restart()
 	{
 		progressPanel.restart();
 	}
 	
+	/**
+	 * Restarts the thread by a delay time.
+	 * @param delayTime the delay time value 
+	 */
 	public void restart(int delayTime)
 	{
 		progressPanel.restart(delayTime);
 	}
 	
+	/**
+	 * Stops the thread.
+	 */
 	public void stop()
 	{
 		progressPanel.stop();
 	}
 	
+	/**
+	 * Finished the thread.
+	 */
 	public void finish()
 	{
 		progressPanel.finish();
 	}
 	
+	/**
+	 * Gets the layout panel.
+	 * @return the instance of JPanel
+	 */
 	public JPanel getLayoutPanel()
 	{
 		return layoutPanel;
 	}
 	
+	/**
+	 * Gets the progress panel.
+	 * @return the instance of JTimerProgressPanel
+	 */
 	public JTimerProgressPanel getProgressPanel()
 	{
 		return progressPanel;
 	}
 	
+	/**
+	 * Executes.
+	 */
 	public abstract void execute();
 	
+	/**
+	 * Fires the hidden.
+	 */
 	protected abstract void fireHidden();
 	
+	/**
+	 * Fires the cancelled.
+	 */
 	protected abstract void fireCancelled();
 }

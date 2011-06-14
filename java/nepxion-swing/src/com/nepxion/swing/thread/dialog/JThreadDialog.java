@@ -24,39 +24,85 @@ import com.nepxion.swing.locale.SwingLocale;
 public abstract class JThreadDialog
 	extends AbstractThreadDialog
 {
+	/**
+	 * The instance of SwingWorker.
+	 */
 	private SwingWorker swingWorker;
+	
+	/**
+	 * The delay time value.
+	 */
 	private int delayTime = 200;
 
+	/**
+	 * Constructs with the specified initial frame and title.
+	 * @param owner the instance of Frame
+	 * @param title the title string
+	 */
 	public JThreadDialog(Frame owner, String title)
 	{
 		this(owner, title, SwingLocale.getString("transact_and_wait"));
 	}
 	
+	/**
+	 * Constructs with the specified initial dialog and title.
+	 * @param owner the instance of Dialog
+	 * @param title the title string
+	 */
 	public JThreadDialog(Dialog owner, String title)
 	{
 		this(owner, title, SwingLocale.getString("transact_and_wait"));
 	}
 	
+	/**
+	 * Constructs with the specified initial frame, title and information.
+	 * @param owner the instance of Frame
+	 * @param title the title string
+	 * @param information the information string
+	 */
 	public JThreadDialog(Frame owner, String title, String information)
 	{
 		this(owner, title, new JLabel(IconFactory.getSwingIcon("thread/progress.gif")), information);
 	}
 	
+	/**
+	 * Constructs with the specified initial dialog, title and information.
+	 * @param owner the instance of Dialog
+	 * @param title the title string
+	 * @param information the information string
+	 */
 	public JThreadDialog(Dialog owner, String title, String information)
 	{
 		this(owner, title, new JLabel(IconFactory.getSwingIcon("thread/progress.gif")), information);
 	}
 	
+	/**
+	 * Constructs with the specified initial frame, title, animation label and information.
+	 * @param owner the instance of Frame
+	 * @param title the title string
+	 * @param animationLabel the animation label
+	 * @param information the information string
+	 */
 	public JThreadDialog(Frame owner, String title, JLabel animationLabel, String information)
 	{
 		super(owner, title, animationLabel, information);
 	}
 	
+	/**
+	 * Constructs with the specified initial dialog, title, animation label and information.
+	 * @param owner the instance of Dialog
+	 * @param title the title string
+	 * @param animationLabel the animation label
+	 * @param information the information string
+	 */
 	public JThreadDialog(Dialog owner, String title, JLabel animationLabel, String information)
 	{
 		super(owner, title, animationLabel, information);
 	}
 	
+	/**
+	 * Executes.
+	 */
 	public void execute()
 	{
 		swingWorker = new SwingWorker();
@@ -73,11 +119,17 @@ public abstract class JThreadDialog
 		);
 	}
 	
+	/**
+	 * Fires the hidden.
+	 */
 	protected void fireHidden()
 	{
 		dispose();
 	}
 	
+	/**
+	 * Fires the cancelled.
+	 */
 	protected void fireCancelled()
 	{
 		if (swingWorker != null)
@@ -86,11 +138,19 @@ public abstract class JThreadDialog
 		}
 	}
 	
+	/**
+	 * Gets the delay time.
+	 * @return the delay time value
+	 */
 	public int getDelayTime()
 	{
 		return delayTime;
 	}
 	
+	/**
+	 * Sets the delay time.
+	 * @param delayTime the delay time value
+	 */
 	public void setDelayTime(int delayTime)
 	{
 		this.delayTime = delayTime;
@@ -99,11 +159,19 @@ public abstract class JThreadDialog
 	public class SwingWorker
 		extends AbstractSwingWorker
 	{		
+		/**
+		 * Constructs with the default.
+		 */
 		public SwingWorker()
 		{
 			super(JThreadDialog.this, delayTime);
 		}
 		
+		/**
+		 * Loads the foreground.
+		 * @param data the background data
+		 * @throws Exception
+		 */
 		protected void loadForeground(final Object data)
 			throws Exception
 		{
@@ -147,6 +215,11 @@ public abstract class JThreadDialog
 			);
 		}
 		
+		/**
+		 * Loads the background.
+		 * @return the background data
+		 * @throws Exception
+		 */
 		protected Object loadBackground()
 			throws Exception
 		{
@@ -154,9 +227,19 @@ public abstract class JThreadDialog
 		}
 	}
 	
+	/**
+	 * Loads the foreground.
+	 * @param data the background data
+	 * @throws Exception
+	 */
 	protected abstract void loadForeground(Object data)
 		throws Exception;
 	
+	/**
+	 * Loads the background.
+	 * @return the background data
+	 * @throws Exception
+	 */
 	protected abstract Object loadBackground()
 		throws Exception;
 }

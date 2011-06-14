@@ -17,8 +17,16 @@ import com.nepxion.swing.swingworker.JSwingWorker;
 public abstract class AbstractSwingWorker
 	extends JSwingWorker
 {
+	/**
+	 * The delay time value.
+	 */
 	private int delayTime = 0;
 	
+	/**
+	 * Constructs with the specified initial component and delay time.
+	 * @param component the instance of Component
+	 * @param delayTime the delay time value
+	 */
 	public AbstractSwingWorker(Component component, int delayTime)
 	{
 		super(component);
@@ -26,16 +34,28 @@ public abstract class AbstractSwingWorker
 		this.delayTime = delayTime;
 	}
 	
+	/**
+	 * Gets the delay time.
+	 * @return the delay time value
+	 */
 	public int getDelayTime()
 	{
 		return delayTime;
 	}
 	
+	/**
+	 * Sets the delay time.
+	 * @param delayTime the delay time value
+	 */
 	public void setDelayTime(int delayTime)
 	{
 		this.delayTime = delayTime;
 	}
 	
+	/**
+	 * Invoked when the swing worker loads the background data.
+	 * @return the background data
+	 */
 	protected Object doInBackground()
 		throws Exception
 	{
@@ -56,28 +76,44 @@ public abstract class AbstractSwingWorker
 		return data;
 	}
 	
+	/**
+	 * Fires the pending status changed.
+	 */
 	public void firePendingStatusChanged()
 	{
 		
 	}
 	
+	/**
+	 * Fires the started status changed.
+	 */
 	public void fireStartedStatusChanged()
 	{
 		AbstractThreadContainer threadContainer = (AbstractThreadContainer) getComponent();
 		threadContainer.showThread();
 	}
 	
+	/**
+	 * Fires the done status changed.
+	 */
 	public void fireDoneStatusChanged()
 	{
 		AbstractThreadContainer threadContainer = (AbstractThreadContainer) getComponent();
 		threadContainer.stop();
 	}
 	
+	/**
+	 * Fires the progress value changed.
+	 * @param value the value object
+	 */
 	public void fireProgressValueChanged(Object value)
 	{
 		
 	}
 	
+	/**
+	 * Fires the cancelled status changed.
+	 */
 	public void fireCancelledStatusChanged()
 	{
 		AbstractThreadContainer threadContainer = (AbstractThreadContainer) getComponent();
@@ -85,6 +121,10 @@ public abstract class AbstractSwingWorker
 		threadContainer.showInformation();
 	}
 	
+	/**
+	 * Fires the foreground exception.
+	 * @param e the instance of Exception
+	 */
 	public void fireForegroundException(Exception e)
 	{
 		AbstractThreadContainer threadContainer = (AbstractThreadContainer) getComponent();
@@ -92,6 +132,10 @@ public abstract class AbstractSwingWorker
 		threadContainer.showError();
 	}
 	
+	/**
+	 * Fires the background exception.
+	 * @param e the instance of Exception
+	 */
 	public void fireBackgroundException(Exception e)
 	{
 		
