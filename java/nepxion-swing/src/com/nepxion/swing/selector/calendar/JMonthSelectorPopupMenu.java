@@ -27,9 +27,21 @@ import com.nepxion.swing.selector.dropdown.JDropDownPane;
 public abstract class JMonthSelectorPopupMenu
 	extends JDropDownDraggablePopupMenu implements IMonthSelectorComponent
 {
+	/**
+	 * The instance of JMonthSelector.
+	 */
 	private JMonthSelector monthSelector;
+	
+	/**
+	 * The layout panel.
+	 */
 	private JPanel layoutPanel;
 	
+	/**
+	 * Constructs with the specified initial month selector and button.
+	 * @param monthSelector the instance of JMonthSelector
+	 * @param button the instance of AbstractButton
+	 */
 	public JMonthSelectorPopupMenu(JMonthSelector monthSelector, AbstractButton button)
 	{		
 		this.monthSelector = monthSelector;
@@ -54,11 +66,19 @@ public abstract class JMonthSelectorPopupMenu
 		setResizable(false);
 	}
 	
+	/**
+	 * Gets the month selector.
+	 * @return the instance of JMonthSelector
+	 */
 	public JMonthSelector getMonthSelector()
 	{
 		return monthSelector;
 	}
 	
+	/**
+	 * Sets the month selector.
+	 * @param monthSelector the instance of JMonthSelector
+	 */
 	public void setMonthSelector(JMonthSelector monthSelector)
 	{
 		this.monthSelector = monthSelector;
@@ -71,23 +91,44 @@ public abstract class JMonthSelectorPopupMenu
 	public class DropDownPane
 		extends JDropDownPane
 	{
+		/**
+		 * Constructs with the specified initial popup menu and content pane.
+		 * @param popupMenu the instance of IDropDownPopupMenu
+		 * @param contentPane the instance of Component
+		 */
 		public DropDownPane(IDropDownPopupMenu popupMenu, Component contentPane)
 		{
 			super(popupMenu, contentPane);
 		}
 		
+		/**
+		 * Returns true if it is confirmed.
+		 * @return true if it is confirmed
+		 */
 		public boolean confirm()
 		{
 			return JMonthSelectorPopupMenu.this.confirm();
 		}
 		
+		/**
+		 * Returns true if it is cancelled.
+		 * @return true if it is cancelled
+		 */
 		public boolean cancel()
 		{
 			return JMonthSelectorPopupMenu.this.cancel();
 		}
 	}
 	
+	/**
+	 * Returns true if it is confirmed.
+	 * @return true if it is confirmed
+	 */
 	public abstract boolean confirm();
 	
+	/**
+	 * Returns true if it is cancelled.
+	 * @return true if it is cancelled
+	 */
 	public abstract boolean cancel();
 }

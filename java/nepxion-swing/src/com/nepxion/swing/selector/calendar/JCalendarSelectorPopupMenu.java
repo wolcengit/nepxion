@@ -26,9 +26,21 @@ import com.nepxion.swing.selector.dropdown.JDropDownPane;
 public abstract class JCalendarSelectorPopupMenu
 	extends JDropDownDraggablePopupMenu implements ICalendarSelectorComponent
 {
+	/**
+	 * The instance of JCalendarSelector.
+	 */
 	private JCalendarSelector calendarSelector;
+	
+	/**
+	 * The layout panel.
+	 */
 	private JPanel layoutPanel;
 	
+	/**
+	 * Constructs with the specified initial calendar selector and button.
+	 * @param calendarSelector the instance of JCalendarSelector
+	 * @param button the instance of AbstractButton
+	 */
 	public JCalendarSelectorPopupMenu(JCalendarSelector calendarSelector, AbstractButton button)
 	{
 		this.calendarSelector = calendarSelector;
@@ -52,11 +64,19 @@ public abstract class JCalendarSelectorPopupMenu
 		setResizable(false);
 	}
 	
+	/**
+	 * Gets the calendar selector.
+	 * @return the instance of JCalendarSelector
+	 */
 	public JCalendarSelector getCalendarSelector()
 	{
 		return calendarSelector;
 	}
 	
+	/**
+	 * Sets the calendar selector.
+	 * @param calendarSelector the instance of JCalendarSelector
+	 */
 	public void setCalendarSelector(JCalendarSelector calendarSelector)
 	{
 		this.calendarSelector = calendarSelector;
@@ -68,23 +88,44 @@ public abstract class JCalendarSelectorPopupMenu
 	public class DropDownPane
 		extends JDropDownPane
 	{
+		/**
+		 * Constructs with the specified initial popup menu and content pane.
+		 * @param popupMenu the instance of IDropDownPopupMenu
+		 * @param contentPane the instance of Component
+		 */
 		public DropDownPane(IDropDownPopupMenu popupMenu, Component contentPane)
 		{
 			super(popupMenu, contentPane);
 		}
 		
+		/**
+		 * Returns true if it is confirmed.
+		 * @return true if it is confirmed
+		 */
 		public boolean confirm()
 		{
 			return JCalendarSelectorPopupMenu.this.confirm();
 		}
 		
+		/**
+		 * Returns true if it is cancelled.
+		 * @return true if it is cancelled.
+		 */
 		public boolean cancel()
 		{
 			return JCalendarSelectorPopupMenu.this.cancel();
 		}
 	}
 	
+	/**
+	 * Returns true if it is confirmed.
+	 * @return true if it is confirmed
+	 */
 	public abstract boolean confirm();
 	
+	/**
+	 * Returns true if it is cancelled.
+	 * @return true if it is cancelled
+	 */
 	public abstract boolean cancel();
 }

@@ -27,9 +27,21 @@ import com.nepxion.swing.selector.dropdown.JDropDownPane;
 public abstract class JTimeSelectorPopupMenu
 	extends JDropDownDraggablePopupMenu implements ITimeSelectorComponent
 {
+	/**
+	 * The instance of JTimeSelector.
+	 */
 	private JTimeSelector timeSelector;
+	
+	/**
+	 * The layout panel.
+	 */
 	private JPanel layoutPanel;
 	
+	/**
+	 * Constructs with the specified initial time selector and button.
+	 * @param timeSelector the instance of JTimeSelector
+	 * @param button the instance of AbstractButton
+	 */
 	public JTimeSelectorPopupMenu(JTimeSelector timeSelector, AbstractButton button)
 	{		
 		this.timeSelector = timeSelector;		
@@ -54,11 +66,19 @@ public abstract class JTimeSelectorPopupMenu
 		setResizable(false);
 	}
 	
+	/**
+	 * Gets the time selector.
+	 * @return the instance of JTimeSelector
+	 */
 	public JTimeSelector getTimeSelector()
 	{
 		return timeSelector;
 	}
 	
+	/**
+	 * Sets the time selector.
+	 * @param timeSelector the instance of JTimeSelector
+	 */
 	public void setTimeSelector(JTimeSelector timeSelector)
 	{
 		this.timeSelector = timeSelector;
@@ -71,23 +91,44 @@ public abstract class JTimeSelectorPopupMenu
 	public class DropDownPane
 		extends JDropDownPane
 	{
+		/**
+		 * Constructs with the specified initial popup menu and content pane.
+		 * @param popupMenu the instance of IDropDownPopupMenu
+		 * @param contentPane the instance of Component
+		 */
 		public DropDownPane(IDropDownPopupMenu popupMenu, Component contentPane)
 		{
 			super(popupMenu, contentPane);
 		}
 		
+		/**
+		 * Returns true if it is confirmed.
+		 * @return true if it is confirmed
+		 */
 		public boolean confirm()
 		{
 			return JTimeSelectorPopupMenu.this.confirm();
 		}
 		
+		/**
+		 * Returns true if it is cancelled.
+		 * @return true if it is cancelled
+		 */
 		public boolean cancel()
 		{
 			return JTimeSelectorPopupMenu.this.cancel();
 		}
 	}
 	
+	/**
+	 * Returns true if it is confirmed.
+	 * @return true if it is confirmed
+	 */
 	public abstract boolean confirm();
 	
+	/**
+	 * Returns true if it is cancelled.
+	 * @return true if it is cancelled
+	 */
 	public abstract boolean cancel();
 }

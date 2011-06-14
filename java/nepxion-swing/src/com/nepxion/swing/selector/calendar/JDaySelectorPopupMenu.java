@@ -26,9 +26,21 @@ import com.nepxion.swing.selector.dropdown.JDropDownPane;
 public abstract class JDaySelectorPopupMenu
 	extends JDropDownDraggablePopupMenu implements IDaySelectorComponent
 {
+	/**
+	 * The instance of JDaySelector.
+	 */
 	private JDaySelector daySelector;
+	
+	/**
+	 * The layout panel.
+	 */
 	private JPanel layoutPanel;
 	
+	/**
+	 * Constructs with the specified initial day selector and button.
+	 * @param daySelector the instance of JDaySelector
+	 * @param button the instance of AbstractButton
+	 */
 	public JDaySelectorPopupMenu(JDaySelector daySelector, AbstractButton button)
 	{		
 		this.daySelector = daySelector;
@@ -52,11 +64,19 @@ public abstract class JDaySelectorPopupMenu
 		setResizable(false);		
 	}
 	
+	/**
+	 * Gets the day selector.
+	 * @return the instance of JDaySelector
+	 */
 	public JDaySelector getDaySelector()
 	{
 		return daySelector;
 	}
 	
+	/**
+	 * Sets the day selector.
+	 * @param daySelector the instance of JDaySelector
+	 */
 	public void setDaySelector(JDaySelector daySelector)
 	{
 		this.daySelector = daySelector;
@@ -68,23 +88,44 @@ public abstract class JDaySelectorPopupMenu
 	public class DropDownPane
 		extends JDropDownPane
 	{
+		/**
+		 * Constructs with the specified initial popup menu and content pane.
+		 * @param popupMenu the instance of IDropDownPopupMenu
+		 * @param contentPane the instance of Component
+		 */
 		public DropDownPane(IDropDownPopupMenu popupMenu, Component contentPane)
 		{
 			super(popupMenu, contentPane);
 		}
 		
+		/**
+		 * Returns true if it is confirmed.
+		 * @return true if it is confirmed
+		 */
 		public boolean confirm()
 		{
 			return JDaySelectorPopupMenu.this.confirm();
 		}
 		
+		/**
+		 * Returns true if it is cancelled.
+		 * @return true if it is cancelled
+		 */
 		public boolean cancel()
 		{
 			return JDaySelectorPopupMenu.this.cancel();
 		}
 	}
 	
+	/**
+	 * Returns true if it is confirmed.
+	 * @return true if it is confirmed
+	 */
 	public abstract boolean confirm();
 	
+	/**
+	 * Returns true if it is cancelled.
+	 * @return true if it is cancelled
+	 */
 	public abstract boolean cancel();
 }
