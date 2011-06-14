@@ -12,7 +12,15 @@ package com.nepxion.swing.selector.calendar;
 
 public interface ICalendarSelectorComponent
 {
+	/**
+	 * Gets the calendar selector.
+	 * @return the instance of JCalendarSelector
+	 */
 	public JCalendarSelector getCalendarSelector();
 	
+	/**
+	 * Sets the calendar selector.
+	 * @param calendarSelector the instance of JCalendarSelector
+	 */
 	public void setCalendarSelector(JCalendarSelector calendarSelector);
 }

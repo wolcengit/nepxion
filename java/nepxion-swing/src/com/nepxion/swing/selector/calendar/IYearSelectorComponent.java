@@ -12,7 +12,15 @@ package com.nepxion.swing.selector.calendar;
 
 public interface IYearSelectorComponent
 {
+	/**
+	 * Gets the year selector.
+	 * @return the instance of JYearSelector
+	 */
 	public JYearSelector getYearSelector();
 	
+	/**
+	 * Sets the year selector.
+	 * @param yearSelector the instance of JYearSelector
+	 */
 	public void setYearSelector(JYearSelector yearSelector);
 }

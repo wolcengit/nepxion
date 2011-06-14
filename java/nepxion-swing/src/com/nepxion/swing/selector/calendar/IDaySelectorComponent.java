@@ -12,7 +12,15 @@ package com.nepxion.swing.selector.calendar;
 
 public interface IDaySelectorComponent
 {
+	/**
+	 * Gets the day selector.
+	 * @return the instance of JDaySelector
+	 */
 	public JDaySelector getDaySelector();
 	
+	/**
+	 * Sets the day selector.
+	 * @param daySelector the instance of JDaySelector
+	 */
 	public void setDaySelector(JDaySelector daySelector);
 }

@@ -12,7 +12,15 @@ package com.nepxion.swing.selector.calendar;
 
 public interface IDateTimeSelectorComponent
 {
+	/**
+	 * Gets the date time selector.
+	 * @return the instance of JDateTimeSelector
+	 */
 	public JDateTimeSelector getDateTimeSelector();
 	
+	/**
+	 * Sets the date time selector.
+	 * @param dateTimeSelector the instance of JDateTimeSelector
+	 */
 	public void setDateTimeSelector(JDateTimeSelector dateTimeSelector);
 }

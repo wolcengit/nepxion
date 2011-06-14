@@ -12,7 +12,15 @@ package com.nepxion.swing.selector.calendar;
 
 public interface IMonthSelectorComponent
 {
+	/**
+	 * Gets the month selector.
+	 * @return the instance of JMonthSelector
+	 */
 	public JMonthSelector getMonthSelector();
 	
+	/**
+	 * Sets the month selector.
+	 * @param monthSelector the instance of JMonthSelector
+	 */
 	public void setMonthSelector(JMonthSelector monthSelector);
 }
