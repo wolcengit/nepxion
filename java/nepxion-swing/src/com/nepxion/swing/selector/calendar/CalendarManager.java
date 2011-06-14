@@ -23,6 +23,10 @@ import com.nepxion.swing.lookandfeel.LookAndFeelManager;
 
 public class CalendarManager
 {
+	/**
+	 * Sets the preference style for the combo box.
+	 * @param comboBox the instance of JComboBox
+	 */
 	public static void setPreferenceStyle(JComboBox comboBox)
 	{
 		if (LookAndFeelManager.isNimbusLookAndFeel())
@@ -37,6 +41,10 @@ public class CalendarManager
 		}
 	}
 	
+	/**
+	 * Sets the preference style for the button.
+	 * @param button the instance of JButton
+	 */
 	public static void setPreferenceStyle(JButton button)
 	{
 		if (LookAndFeelManager.isNimbusLookAndFeel())
@@ -45,6 +53,10 @@ public class CalendarManager
 		}
 	}
 	
+	/**
+	 * Sets the preference style for the spinner.
+	 * @param spinner the instance of JSpinner
+	 */
 	public static void setPreferenceStyle(JSpinner spinner)
 	{
 		if (LookAndFeelManager.isNimbusLookAndFeel())
@@ -55,6 +67,10 @@ public class CalendarManager
 		}
 	}
 	
+	/**
+	 * Gets the calendar selector dialog height.
+	 * @return the height value
+	 */
 	public static int getCalendarSelectorDialogHeight()
 	{
 		if (LookAndFeelManager.isNimbusLookAndFeel())
@@ -67,6 +83,10 @@ public class CalendarManager
 		}
 	}
 	
+	/**
+	 * Gets the day selector dialog height.
+	 * @return the height value
+	 */
 	public static int getDaySelectorDialogHeight()
 	{
 		if (LookAndFeelManager.isNimbusLookAndFeel())
