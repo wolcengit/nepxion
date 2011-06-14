@@ -16,16 +16,29 @@ import com.jidesoft.swing.SelectAllUtils;
 
 public class JSelectAllUtil
 {
+	/**
+	 * Installs the select all feature for a component.
+	 * @param component the instance of Component
+	 */
 	public static void install(Component component)
 	{
 		SelectAllUtils.install(component);
 	}
 	
+	/**
+	 * Installs the select all feature for a component.
+	 * It is only allowed to be installed once.
+	 * @param component the instance of Component
+	 */
 	public static void install(Component component, boolean onlyOnce)
 	{
 		SelectAllUtils.install(component, onlyOnce);
 	}
 	
+	/**
+	 * Uninstalls the select all feature for a component. 
+	 * @param component component the instance of Component 
+	 */
 	public static void uninstall(Component component)
 	{
 		SelectAllUtils.uninstall(component);
