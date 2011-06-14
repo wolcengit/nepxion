@@ -23,10 +23,26 @@ import com.nepxion.swing.optionpane.JBasicOptionPane;
 public class JTimeSelectorOptionPane
 	extends JBasicOptionPane implements ITimeSelectorComponent
 {
+	/**
+	 * The owner.
+	 */
 	private Component owner;
+	
+	/**
+	 * The instance of JTimeSelector.
+	 */
 	private JTimeSelector timeSelector;
+	
+	/**
+	 * The layout panel.
+	 */
 	private JPanel layoutPanel;
 	
+	/**
+	 * Constructs with the specified initial owner and time selector.
+	 * @param owner the instance of Component
+	 * @param timeSelector the instance of JTimeSelector
+	 */
 	public JTimeSelectorOptionPane(Component owner, JTimeSelector timeSelector)
 	{
 		this.owner = owner;
@@ -38,16 +54,28 @@ public class JTimeSelectorOptionPane
 		layoutPanel.add(timeSelector, BorderLayout.NORTH);
 	}
 	
+	/**
+	 * Shows the time select dialog.
+	 * @return the selected value
+	 */
 	public int showTimeDialog()
 	{
 		return showDialog(owner, layoutPanel, SwingLocale.getString("time_selector"), IconFactory.getSwingIcon("component/calendar_48.png"));
 	}
 	
+	/**
+	 * Gets the time selector.
+	 * @return the instance of JTimeSelector
+	 */
 	public JTimeSelector getTimeSelector()
 	{
 		return timeSelector;
 	}
 	
+	/**
+	 * Sets the time selector.
+	 * @param timeSelector the instance of JTimeSelector
+	 */
 	public void setTimeSelector(JTimeSelector timeSelector)
 	{
 		this.timeSelector = timeSelector;

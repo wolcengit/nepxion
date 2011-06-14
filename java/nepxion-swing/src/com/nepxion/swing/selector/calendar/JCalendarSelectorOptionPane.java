@@ -22,10 +22,26 @@ import com.nepxion.swing.optionpane.JBasicOptionPane;
 public class JCalendarSelectorOptionPane
 	extends JBasicOptionPane implements ICalendarSelectorComponent
 {
+	/**
+	 * The owner.
+	 */
 	private Component owner;
+	
+	/**
+	 * The instance of JCalendarSelector.
+	 */
 	private JCalendarSelector calendarSelector;
+	
+	/**
+	 * The layout panel.
+	 */
 	private JPanel layoutPanel;
 	
+	/**
+	 * Constructs with the specified initial owner and calendar selector.
+	 * @param owner the instance of Component
+	 * @param calendarSelector the instance of JCalendarSelector
+	 */
 	public JCalendarSelectorOptionPane(Component owner, JCalendarSelector calendarSelector)
 	{
 		this.owner = owner;
@@ -36,16 +52,28 @@ public class JCalendarSelectorOptionPane
 		layoutPanel.add(calendarSelector, BorderLayout.NORTH);
 	}
 	
+	/**
+	 * Shows the calendar select dialog.
+	 * @return the selected value
+	 */
 	public int showCalendarDialog()
 	{
 		return showDialog(owner, layoutPanel, SwingLocale.getString("calendar_selector"), IconFactory.getSwingIcon("component/calendar_48.png"));
 	}
 	
+	/**
+	 * Gets the calendar selector.
+	 * @return the instance of JCalendarSelector
+	 */
 	public JCalendarSelector getCalendarSelector()
 	{
 		return calendarSelector;
 	}
 	
+	/**
+	 * Sets the calendar selector.
+	 * @param calendarSelector the instance of JCalendarSelector
+	 */
 	public void setCalendarSelector(JCalendarSelector calendarSelector)
 	{
 		this.calendarSelector = calendarSelector;

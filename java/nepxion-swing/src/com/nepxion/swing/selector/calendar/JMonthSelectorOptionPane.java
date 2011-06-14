@@ -23,10 +23,26 @@ import com.nepxion.swing.optionpane.JBasicOptionPane;
 public class JMonthSelectorOptionPane
 	extends JBasicOptionPane implements IMonthSelectorComponent
 {
+	/**
+	 * The owner.
+	 */
 	private Component owner;
+	
+	/**
+	 * The instance of JMonthSelector.
+	 */
 	private JMonthSelector monthSelector;
+	
+	/**
+	 * The layout panel.
+	 */
 	private JPanel layoutPanel;
 	
+	/**
+	 * Constructs with the specified initial owner and month selector.
+	 * @param owner the instance of Component
+	 * @param monthSelector the instance of JMonthSelector
+	 */
 	public JMonthSelectorOptionPane(Component owner, JMonthSelector monthSelector)
 	{
 		this.owner = owner;
@@ -38,16 +54,28 @@ public class JMonthSelectorOptionPane
 		layoutPanel.add(monthSelector, BorderLayout.NORTH);
 	}
 	
+	/**
+	 * Shows the month select dialog.
+	 * @return the selected value
+	 */
 	public int showMonthDialog()
 	{
 		return showDialog(owner, layoutPanel, SwingLocale.getString("month_selector"), IconFactory.getSwingIcon("component/calendar_48.png"));
 	}
 	
+	/**
+	 * Gets the month selector.
+	 * @return the instance of JMonthSelector
+	 */
 	public JMonthSelector getMonthSelector()
 	{
 		return monthSelector;
 	}
 	
+	/**
+	 * Sets the month selector.
+	 * @param monthSelector the instance of JMonthSelector
+	 */
 	public void setMonthSelector(JMonthSelector monthSelector)
 	{
 		this.monthSelector = monthSelector;

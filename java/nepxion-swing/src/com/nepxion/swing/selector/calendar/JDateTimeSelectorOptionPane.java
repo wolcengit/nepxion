@@ -23,10 +23,26 @@ import com.nepxion.swing.optionpane.JBasicOptionPane;
 public class JDateTimeSelectorOptionPane
 	extends JBasicOptionPane implements IDateTimeSelectorComponent
 {
+	/**
+	 * The owner.
+	 */
 	private Component owner;
+	
+	/**
+	 * The instance of JDateTimeSelector.
+	 */
 	private JDateTimeSelector dateTimeSelector;
+	
+	/**
+	 * The layout panel.
+	 */
 	private JPanel layoutPanel;
 	
+	/**
+	 * Constructs with the specified initial owner and date time selector.
+	 * @param owner the instance of Component
+	 * @param dateTimeSelector the instance of JDateTimeSelector
+	 */
 	public JDateTimeSelectorOptionPane(Component owner, JDateTimeSelector dateTimeSelector)
 	{
 		this.owner = owner;
@@ -38,16 +54,28 @@ public class JDateTimeSelectorOptionPane
 		layoutPanel.add(dateTimeSelector, BorderLayout.NORTH);
 	}
 	
-	public int showDateDialog()
+	/**
+	 * Shows the date time select dialog.
+	 * @return the selected value
+	 */
+	public int showDateTimeDialog()
 	{
 		return showDialog(owner, layoutPanel, SwingLocale.getString("date_time_selector"), IconFactory.getSwingIcon("component/calendar_48.png"));
 	}
 	
+	/**
+	 * Gets the date time selector. 
+	 * @return the instance of JDateTimeSelector
+	 */
 	public JDateTimeSelector getDateTimeSelector()
 	{
 		return dateTimeSelector;
 	}
 	
+	/**
+	 * Sets the date time selector.
+	 * @param dateTimeSelector the instance of JDateTimeSelector
+	 */
 	public void setDateTimeSelector(JDateTimeSelector dateTimeSelector)
 	{
 		this.dateTimeSelector = dateTimeSelector;

@@ -23,10 +23,26 @@ import com.nepxion.swing.optionpane.JBasicOptionPane;
 public class JDateSelectorOptionPane
 	extends JBasicOptionPane implements IDateSelectorComponent
 {
+	/**
+	 * The owner.
+	 */
 	private Component owner;
+	
+	/**
+	 * The instance of JDateSelector.
+	 */
 	private JDateSelector dateSelector;
+	
+	/**
+	 * The layout panel.
+	 */
 	private JPanel layoutPanel;
 	
+	/**
+	 * Constructs with the specified initial owner and date selector.
+	 * @param owner the instance of Component
+	 * @param dateSelector the instance of JDateSelector
+	 */
 	public JDateSelectorOptionPane(Component owner, JDateSelector dateSelector)
 	{
 		this.owner = owner;
@@ -38,16 +54,28 @@ public class JDateSelectorOptionPane
 		layoutPanel.add(dateSelector, BorderLayout.NORTH);
 	}
 	
+	/**
+	 * Shows the date select dialog.
+	 * @return the selected value
+	 */
 	public int showDateDialog()
 	{
 		return showDialog(owner, layoutPanel, SwingLocale.getString("date_selector"), IconFactory.getSwingIcon("component/calendar_48.png"));
 	}
 	
+	/**
+	 * Gets the date selector.
+	 * @return the instance of JDateSelector
+	 */
 	public JDateSelector getDateSelector()
 	{
 		return dateSelector;
 	}
 	
+	/**
+	 * Sets the date selector.
+	 * @param dateSelector the instance of JDateSelector
+	 */
 	public void setDateSelector(JDateSelector dateSelector)
 	{
 		this.dateSelector = dateSelector;

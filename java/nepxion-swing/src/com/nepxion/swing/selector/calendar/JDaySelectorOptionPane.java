@@ -22,10 +22,26 @@ import com.nepxion.swing.optionpane.JBasicOptionPane;
 public class JDaySelectorOptionPane
 	extends JBasicOptionPane implements IDaySelectorComponent
 {
+	/**
+	 * The owner.
+	 */
 	private Component owner;
+	
+	/**
+	 * The instance of JDaySelector.
+	 */
 	private JDaySelector daySelector;
+	
+	/**
+	 * The layout panel.
+	 */
 	private JPanel layoutPanel;
 	
+	/**
+	 * Constructs with the specified initial owner and day selector.
+	 * @param owner the instance of Component
+	 * @param daySelector the instance of JDaySelector
+	 */
 	public JDaySelectorOptionPane(Component owner, JDaySelector daySelector)
 	{
 		this.owner = owner;
@@ -36,16 +52,28 @@ public class JDaySelectorOptionPane
 		layoutPanel.add(daySelector, BorderLayout.NORTH);
 	}
 	
+	/**
+	 * Shows the day select dialog.
+	 * @return the selected value
+	 */
 	public int showDayDialog()
 	{
 		return showDialog(owner, layoutPanel, SwingLocale.getString("day_selector"), IconFactory.getSwingIcon("component/calendar_48.png"));
 	}
 	
+	/**
+	 * Gets the day selector.
+	 * @return the instance of JDaySelector
+	 */
 	public JDaySelector getDaySelector()
 	{
 		return daySelector;
 	}
 	
+	/**
+	 * Sets the day selector.
+	 * @param daySelector the instance of JDaySelector
+	 */
 	public void setDaySelector(JDaySelector daySelector)
 	{
 		this.daySelector = daySelector;
