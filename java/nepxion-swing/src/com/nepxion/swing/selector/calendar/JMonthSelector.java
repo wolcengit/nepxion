@@ -18,6 +18,9 @@ import com.toedter.calendar.JMonthChooser;
 public class JMonthSelector
 	extends JMonthChooser
 {
+	/**
+	 * Constructs with the default.
+	 */
 	public JMonthSelector()
 	{
 		super();
@@ -25,6 +28,10 @@ public class JMonthSelector
 		initComponents();
 	}
 	
+	/**
+	 * Constructs with the specified initial spinner.
+	 * @param hasSpinner the boolean value of hasSpinner
+	 */
 	public JMonthSelector(boolean hasSpinner)
 	{
 		super(hasSpinner);
@@ -32,6 +39,9 @@ public class JMonthSelector
 		initComponents();
 	}
 	
+	/**
+	 * Initializes the components.
+	 */
 	private void initComponents()
 	{
 		setFont(FontContext.getFont());
