@@ -55,7 +55,7 @@ public class JYearSelectorOptionPane
 	}
 	
 	/**
-	 * Shows the year select dialog.
+	 * Shows the year selector dialog.
 	 * @return the selected value
 	 */
 	public int showYearDialog()

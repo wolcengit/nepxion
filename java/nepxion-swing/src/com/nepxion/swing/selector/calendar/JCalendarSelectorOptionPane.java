@@ -53,7 +53,7 @@ public class JCalendarSelectorOptionPane
 	}
 	
 	/**
-	 * Shows the calendar select dialog.
+	 * Shows the calendar selector dialog.
 	 * @return the selected value
 	 */
 	public int showCalendarDialog()

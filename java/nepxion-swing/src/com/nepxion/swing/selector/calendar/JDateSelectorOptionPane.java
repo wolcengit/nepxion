@@ -55,7 +55,7 @@ public class JDateSelectorOptionPane
 	}
 	
 	/**
-	 * Shows the date select dialog.
+	 * Shows the date selector dialog.
 	 * @return the selected value
 	 */
 	public int showDateDialog()

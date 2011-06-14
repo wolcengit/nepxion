@@ -55,7 +55,7 @@ public class JTimeSelectorOptionPane
 	}
 	
 	/**
-	 * Shows the time select dialog.
+	 * Shows the time selector dialog.
 	 * @return the selected value
 	 */
 	public int showTimeDialog()

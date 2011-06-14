@@ -55,7 +55,7 @@ public class JMonthSelectorOptionPane
 	}
 	
 	/**
-	 * Shows the month select dialog.
+	 * Shows the month selector dialog.
 	 * @return the selected value
 	 */
 	public int showMonthDialog()

@@ -53,7 +53,7 @@ public class JDaySelectorOptionPane
 	}
 	
 	/**
-	 * Shows the day select dialog.
+	 * Shows the day selector dialog.
 	 * @return the selected value
 	 */
 	public int showDayDialog()
