@@ -16,6 +16,9 @@ import com.toedter.calendar.JDayChooser;
 public class JDaySelector
 	extends JDayChooser
 {
+	/**
+	 * Constructs with the default.
+	 */
 	public JDaySelector()
 	{
 		super();
@@ -23,6 +26,10 @@ public class JDaySelector
 		initComponents();
 	}
 	
+	/**
+	 * Constructs with the specified initial week of year visible.
+	 * @param weekOfYearVisible the boolean value of weekOfYearVisible
+	 */
 	public JDaySelector(boolean weekOfYearVisible)
 	{
 		super(weekOfYearVisible);
@@ -30,6 +37,9 @@ public class JDaySelector
 		initComponents();
 	}
 	
+	/**
+	 * Initializes the components.
+	 */
 	private void initComponents()
 	{
 		setFont(FontContext.getFont());

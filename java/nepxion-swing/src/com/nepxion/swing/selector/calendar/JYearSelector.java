@@ -18,6 +18,9 @@ import com.toedter.calendar.JYearChooser;
 public class JYearSelector
 	extends JYearChooser
 {
+	/**
+	 * Constructs with the default.
+	 */
 	public JYearSelector()
 	{
 		super();
@@ -25,6 +28,9 @@ public class JYearSelector
 		initComponents();
 	}
 	
+	/**
+	 * Initializes the components.
+	 */
 	private void initComponents()
 	{
 		setFont(FontContext.getFont());

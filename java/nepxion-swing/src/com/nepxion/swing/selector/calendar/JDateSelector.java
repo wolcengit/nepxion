@@ -28,6 +28,9 @@ import com.toedter.calendar.JDateChooser;
 public class JDateSelector
 	extends JDateChooser
 {
+	/**
+	 * Constructs with the default.
+	 */
 	public JDateSelector()
 	{
 		super();
@@ -35,6 +38,10 @@ public class JDateSelector
 		initComponents();
 	}
 	
+	/**
+	 * Constructs with the specified initial date editor.
+	 * @param dateEditor the instance of IDateEditor
+	 */
 	public JDateSelector(IDateEditor dateEditor)
 	{
 		super(dateEditor);
@@ -42,6 +49,10 @@ public class JDateSelector
 		initComponents();
 	}
 	
+	/**
+	 * Constructs with the specified initial date.
+	 * @param date the instance of Date
+	 */
 	public JDateSelector(Date date)
 	{
 		super(date);
@@ -49,6 +60,11 @@ public class JDateSelector
 		initComponents();
 	}
 	
+	/**
+	 * Constructs with the specified initial date and date format string.
+	 * @param date the instance of Date
+	 * @param dateFormatString the date format string
+	 */
 	public JDateSelector(Date date, String dateFormatString)
 	{
 		super(date, dateFormatString);
@@ -56,6 +72,12 @@ public class JDateSelector
 		initComponents();
 	}
 	
+	/**
+	 * Constructs with the specified initial date, date format string and date editor.
+	 * @param date the instance of Date
+	 * @param dateFormatString the date format string
+	 * @param dateEditor the instance of IDateEditor
+	 */
 	public JDateSelector(Date date, String dateFormatString, IDateEditor dateEditor)
 	{
 		super(date, dateFormatString, dateEditor);
@@ -63,13 +85,26 @@ public class JDateSelector
 		initComponents();
 	}
 	
-	public JDateSelector(String datePattern, String maskPattern, char placeholder)
+	/**
+	 * Constructs with the specified initial date pattern, mask pattern and place holder.
+	 * @param datePattern the date pattern string
+	 * @param maskPattern the mask pattern string
+	 * @param placeHolder the place holder char
+	 */
+	public JDateSelector(String datePattern, String maskPattern, char placeHolder)
 	{
-		super(datePattern, maskPattern, placeholder);
+		super(datePattern, maskPattern, placeHolder);
 		
 		initComponents();
 	}
 	
+	/**
+	 * Constructs with the specified initial calendar, date, date format string and date editor.
+	 * @param calendar the instance of JCalendar
+	 * @param date the instance of Date
+	 * @param dateFormatString the date format string
+	 * @param dateEditor the instance of IDateEditor
+	 */
 	public JDateSelector(JCalendar calendar, Date date, String dateFormatString, IDateEditor dateEditor)
 	{
 		super(calendar, date, dateFormatString, dateEditor);
@@ -77,6 +112,9 @@ public class JDateSelector
 		initComponents();
 	}
 	
+	/**
+	 * Initializes the components.
+	 */
 	private void initComponents()
 	{
 		setFont(FontContext.getFont());

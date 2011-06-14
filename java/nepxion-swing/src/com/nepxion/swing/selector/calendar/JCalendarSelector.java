@@ -23,6 +23,9 @@ import com.toedter.calendar.JCalendar;
 public class JCalendarSelector
 	extends JCalendar
 {
+	/**
+	 * Constructs with the default.
+	 */
 	public JCalendarSelector()
 	{
 		super();
@@ -30,6 +33,10 @@ public class JCalendarSelector
 		initComponents();
 	}
 	
+	/**
+	 * Constructs with the specified initial date.
+	 * @param date the instance of Date
+	 */
 	public JCalendarSelector(Date date)
 	{
 		super(date);
@@ -37,6 +44,10 @@ public class JCalendarSelector
 		initComponents();
 	}
 	
+	/**
+	 * Constructs with the specified initial calendar.
+	 * @param calendar the instance of Calendar
+	 */
 	public JCalendarSelector(Calendar calendar)
 	{
 		super(calendar);
@@ -44,6 +55,10 @@ public class JCalendarSelector
 		initComponents();
 	}
 	
+	/**
+	 * Constructs with the specified initial locale.
+	 * @param locale the instance of Locale
+	 */
 	public JCalendarSelector(Locale locale)
 	{
 		super(locale);
@@ -51,6 +66,11 @@ public class JCalendarSelector
 		initComponents();
 	}
 	
+	/**
+	 * Constructs with the specified initial date and locale.
+	 * @param date the instance of Date
+	 * @param locale the instance of Locale
+	 */
 	public JCalendarSelector(Date date, Locale locale)
 	{
 		super(date, locale);
@@ -58,6 +78,11 @@ public class JCalendarSelector
 		initComponents();
 	}
 	
+	/**
+	 * Constructs with the specified initial date and month spinner.
+	 * @param date the instance of Date
+	 * @param monthSpinner the boolean value of monthSpinner
+	 */
 	public JCalendarSelector(Date date, boolean monthSpinner)
 	{
 		super(date, monthSpinner);
@@ -65,6 +90,11 @@ public class JCalendarSelector
 		initComponents();
 	}
 	
+	/**
+	 * Constructs with the specified initial locale and month spinner.
+	 * @param locale the instance of Locale
+	 * @param monthSpinner the boolean value of monthSpinner
+	 */
 	public JCalendarSelector(Locale locale, boolean monthSpinner)
 	{
 		super(locale, monthSpinner);
@@ -72,6 +102,10 @@ public class JCalendarSelector
 		initComponents();
 	}
 	
+	/**
+	 * Constructs with the specified initial month spinner.
+	 * @param monthSpinner the boolean value of monthSpinner
+	 */
 	public JCalendarSelector(boolean monthSpinner)
 	{
 		super(monthSpinner);
@@ -79,6 +113,13 @@ public class JCalendarSelector
 		initComponents();
 	}
 	
+	/**
+	 * Constructs with the specified initial date, locale, month spinner and week of year visible.
+	 * @param date the instance of Date
+	 * @param locale the instance of Locale
+	 * @param monthSpinner the boolean value of monthSpinner
+	 * @param weekOfYearVisible the boolean value of weekOfYearVisible
+	 */
 	public JCalendarSelector(Date date, Locale locale, boolean monthSpinner, boolean weekOfYearVisible)
 	{
 		super(date, locale, monthSpinner, weekOfYearVisible);
@@ -86,6 +127,9 @@ public class JCalendarSelector
 		initComponents();
 	}
 	
+	/**
+	 * Initializes the components.
+	 */
 	private void initComponents()
 	{
 		setFont(FontContext.getFont());

@@ -20,21 +20,37 @@ import com.jidesoft.spinner.DateSpinner;
 public class JTimeSelector
 	extends DateSpinner
 {
+	/**
+	 * Constructs with the default.
+	 */
 	public JTimeSelector()
 	{
 		super("HH:mm:ss");
 	}
 	
-	public JTimeSelector(String format)
+	/**
+	 * Constructs with the specified initial date format string. 
+	 * @param dateFormatString the date format string
+	 */
+	public JTimeSelector(String dateFormatString)
 	{
-		super(format);
+		super(dateFormatString);
 	}
 	
-	public JTimeSelector(String format, Date date)
+	/**
+	 * Constructs with the specified initial date format string and date. 
+	 * @param dateFormatString the date format string
+	 * @param date the instance of Date
+	 */
+	public JTimeSelector(String dateFormatString, Date date)
 	{
-		super(format, date);
+		super(dateFormatString, date);
 	}
 	
+	/**
+	 * Gets the time.
+	 * @return the instance of Date
+	 */
 	public Date getTime()
 	{
 		SpinnerDateModel model = (SpinnerDateModel) getModel();
@@ -47,12 +63,20 @@ public class JTimeSelector
 		return null;
 	}
 	
+	/**
+	 * Sets the time.
+	 * @param date the instance of Date
+	 */
 	public void setTime(Date date)
 	{
 		SpinnerDateModel model = (SpinnerDateModel) getModel();
 		model.setValue(date);
 	}
 	
+	/**
+	 * Gets the preferred size.
+	 * @return the instance of Dimension
+	 */
 	public Dimension getPreferredSize()
 	{
 		Dimension preferredSize = super.getPreferredSize();
