@@ -27,9 +27,21 @@ import com.nepxion.swing.selector.dropdown.JDropDownPane;
 public abstract class JLocaleSelectorPopupMenu
 	extends JDropDownDraggablePopupMenu implements ILocaleSelectorComponent
 {
+	/**
+	 * The instance of JLocaleSelector.
+	 */
 	private JLocaleSelector localeSelector;
+	
+	/**
+	 * The layout panel.
+	 */
 	private JPanel layoutPanel;
 	
+	/**
+	 * Constructs with the specified initial locale selector and button.
+	 * @param localeSelector the instance of JLocaleSelector
+	 * @param button the instance of AbstractButton
+	 */
 	public JLocaleSelectorPopupMenu(JLocaleSelector localeSelector, AbstractButton button)
 	{		
 		this.localeSelector = localeSelector;		
@@ -54,11 +66,19 @@ public abstract class JLocaleSelectorPopupMenu
 		setResizable(false);
 	}
 	
+	/**
+	 * Gets the locale selector.
+	 * @return the instance of JLocaleSelector
+	 */
 	public JLocaleSelector getLocaleSelector()
 	{
 		return localeSelector;
 	}
 	
+	/**
+	 * Sets the locale selector.
+	 * @param localeSelector the instance of JLocaleSelector
+	 */
 	public void setLocaleSelector(JLocaleSelector localeSelector)
 	{
 		this.localeSelector = localeSelector;
@@ -71,23 +91,44 @@ public abstract class JLocaleSelectorPopupMenu
 	public class DropDownPane
 		extends JDropDownPane
 	{
+		/**
+		 * Constructs with the specified initial popup menu and content pane.
+		 * @param popupMenu the instance of IDropDownPopupMenu
+		 * @param contentPane the instance of Component
+		 */
 		public DropDownPane(IDropDownPopupMenu popupMenu, Component contentPane)
 		{
 			super(popupMenu, contentPane);
 		}
 		
+		/**
+		 * Returns true if it is confirmed.
+		 * @return true if it is confirmed
+		 */
 		public boolean confirm()
 		{
 			return JLocaleSelectorPopupMenu.this.confirm();
 		}
 		
+		/**
+		 * Returns true if it is cancelled.
+		 * @return true if it is cancelled.
+		 */
 		public boolean cancel()
 		{
 			return JLocaleSelectorPopupMenu.this.cancel();
 		}
 	}
 	
+	/**
+	 * Returns true if it is confirmed.
+	 * @return true if it is confirmed
+	 */
 	public abstract boolean confirm();
 	
+	/**
+	 * Returns true if it is cancelled.
+	 * @return true if it is cancelled.
+	 */
 	public abstract boolean cancel();
 }

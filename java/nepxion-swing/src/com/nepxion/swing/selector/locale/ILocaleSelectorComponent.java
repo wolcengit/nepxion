@@ -12,7 +12,15 @@ package com.nepxion.swing.selector.locale;
 
 public interface ILocaleSelectorComponent
 {
+	/**
+	 * Gets the locale selector.
+	 * @return the instance of JLocaleSelector
+	 */
 	public JLocaleSelector getLocaleSelector();
 	
+	/**
+	 * Sets the locale selector.
+	 * @param localeSelector the instance of JLocaleSelector
+	 */
 	public void setLocaleSelector(JLocaleSelector localeSelector);
 }

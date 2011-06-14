@@ -18,6 +18,9 @@ import com.toedter.components.JLocaleChooser;
 public class JLocaleSelector
 	extends JLocaleChooser
 {
+	/**
+	 * Constructs with the default.
+	 */
 	public JLocaleSelector()
 	{
 		super();
@@ -25,6 +28,10 @@ public class JLocaleSelector
 		initComponents();
 	}
 	
+	/**
+	 * Constructs with the specified initial component.
+	 * @param component the instance of JComponent
+	 */
 	public JLocaleSelector(JComponent component) 
 	{
 		super(component);
@@ -32,6 +39,9 @@ public class JLocaleSelector
 		initComponents();
 	}
 	
+	/**
+	 * Initializes the components.
+	 */
 	private void initComponents()
 	{
 		ComboBoxManager.setPreferenceStyle(this);
