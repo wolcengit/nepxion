@@ -25,48 +25,98 @@ import com.nepxion.swing.panel.option.JOptionButtonPanel;
 public abstract class JTimeSelectorDialog
 	extends JBasicDialog implements ITimeSelectorComponent
 {
+	/**
+	 * The instance of OptionButtonPanel.
+	 */
 	private OptionButtonPanel optionButtonPanel;
+	
+	/**
+	 * The instance of JTimeSelector.
+	 */
 	private JTimeSelector timeSelector;
+	
+	/**
+	 * The layout panel.
+	 */
 	private JPanel layoutPanel;
 	
+	/**
+	 * Constructs with the specified initial frame and time selector.
+	 * @param owner the instance of Frame
+	 * @param timeSelector the instance of JTimeSelector
+	 */
 	public JTimeSelectorDialog(Frame owner, JTimeSelector timeSelector)
 	{
 		this(owner, timeSelector, true);
 	}
 	
+	/**
+	 * Constructs with the specified initial dialog and time selector.
+	 * @param owner the instance of Dialog
+	 * @param timeSelector the instance of JTimeSelector
+	 */
 	public JTimeSelectorDialog(Dialog owner, JTimeSelector timeSelector)
 	{
 		this(owner, timeSelector, true);
 	}
 	
+	/**
+	 * Constructs with the specified initial frame, time selector and modal.
+	 * @param owner the instance of Frame
+	 * @param timeSelector the instance of JTimeSelector
+	 * @param modal the boolean value of modal
+	 */
 	public JTimeSelectorDialog(Frame owner, JTimeSelector timeSelector, boolean modal)
 	{
 		this(owner, timeSelector, modal, false);
 	}
 	
+	/**
+	 * Constructs with the specified initial dialog, time selector and modal.
+	 * @param owner the instance of Dialog
+	 * @param timeSelector the instance of JTimeSelector
+	 * @param modal the boolean value of modal
+	 */
 	public JTimeSelectorDialog(Dialog owner, JTimeSelector timeSelector, boolean modal)
 	{
 		this(owner, timeSelector, modal, false);
 	}
 	
-	public JTimeSelectorDialog(Frame owner, JTimeSelector timeSelector, boolean modal, boolean isHint)
+	/**
+	 * Constructs with the specified initial frame, time selector, modal and hint.
+	 * @param owner the instance of Frame
+	 * @param timeSelector the instance of JTimeSelector
+	 * @param modal the boolean value of modal
+	 * @param hint the boolean value of hint
+	 */
+	public JTimeSelectorDialog(Frame owner, JTimeSelector timeSelector, boolean modal, boolean hint)
 	{
-		super(owner, SwingLocale.getString("time_selector"), new Dimension(200, 115), modal, isHint, false);
+		super(owner, SwingLocale.getString("time_selector"), new Dimension(200, 115), modal, hint, false);
 		
 		this.timeSelector = timeSelector;
 		
 		initComponents();
 	}
 	
-	public JTimeSelectorDialog(Dialog owner, JTimeSelector timeSelector, boolean modal, boolean isHint)
+	/**
+	 * Constructs with the specified initial dialog, time selector, modal and hint.
+	 * @param owner the instance of Dialog
+	 * @param timeSelector the instance of JTimeSelector
+	 * @param modal the boolean value of modal
+	 * @param hint the boolean value of hint
+	 */
+	public JTimeSelectorDialog(Dialog owner, JTimeSelector timeSelector, boolean modal, boolean hint)
 	{
-		super(owner, SwingLocale.getString("time_selector"), new Dimension(200, 115), modal, isHint, false);
+		super(owner, SwingLocale.getString("time_selector"), new Dimension(200, 115), modal, hint, false);
 		
 		this.timeSelector = timeSelector;
 		
 		initComponents();
 	}
 	
+	/**
+	 * Initializes the components.
+	 */
 	private void initComponents()
 	{		
 		layoutPanel = new JPanel();
@@ -81,11 +131,19 @@ public abstract class JTimeSelectorDialog
 		getContentPane().add(optionButtonPanel, BorderLayout.SOUTH);
 	}
 	
+	/**
+	 * Gets the time selector.
+	 * @return the instance of JTimeSelector
+	 */
 	public JTimeSelector getTimeSelector()
 	{
 		return timeSelector;
 	}
 	
+	/**
+	 * Sets the time selector.
+	 * @param timeSelector the instance of JTimeSelector
+	 */
 	public void setTimeSelector(JTimeSelector timeSelector)
 	{
 		this.timeSelector = timeSelector;
@@ -97,6 +155,9 @@ public abstract class JTimeSelectorDialog
 	public class OptionButtonPanel
 		extends JOptionButtonPanel
 	{
+		/**
+		 * Constructs with the default.
+		 */
 		public OptionButtonPanel()
 		{
 			super(YES_NO_OPTION);
@@ -104,18 +165,34 @@ public abstract class JTimeSelectorDialog
 			setBorder(BorderFactory.createEmptyBorder(5, 0, 5, 0));
 		}
 		
+		/**
+		 * Returns true if it is confirmed.
+		 * @return true if it is confirmed
+		 */
 		public boolean confirm()
 		{
 			return JTimeSelectorDialog.this.confirm();
 		}
 		
+		/**
+		 * Returns true if it is cancelled.
+		 * @return true if it is cancelled.
+		 */
 		public boolean cancel()
 		{
 			return JTimeSelectorDialog.this.cancel();
 		}
 	}
 	
+	/**
+	 * Returns true if it is confirmed.
+	 * @return true if it is confirmed
+	 */
 	public abstract boolean confirm();
 	
+	/**
+	 * Returns true if it is cancelled.
+	 * @return true if it is cancelled.
+	 */
 	public abstract boolean cancel();
 }

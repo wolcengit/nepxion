@@ -25,48 +25,98 @@ import com.nepxion.swing.panel.option.JOptionButtonPanel;
 public abstract class JDateTimeSelectorDialog
 	extends JBasicDialog implements IDateTimeSelectorComponent
 {
+	/**
+	 * The instance of OptionButtonPanel.
+	 */
 	private OptionButtonPanel optionButtonPanel;
+	
+	/**
+	 * The instance of JDateTimeSelector.
+	 */
 	private JDateTimeSelector dateTimeSelector;
+	
+	/**
+	 * The layout panel.
+	 */
 	private JPanel layoutPanel;
 	
+	/**
+	 * Constructs with the specified initial frame and date time selector.
+	 * @param owner the instance of Frame
+	 * @param dateTimeSelector the instance of JDateTimeSelector
+	 */
 	public JDateTimeSelectorDialog(Frame owner, JDateTimeSelector dateTimeSelector)
 	{
 		this(owner, dateTimeSelector, true);
 	}
 	
+	/**
+	 * Constructs with the specified initial dialog and date time selector.
+	 * @param owner the instance of Dialog
+	 * @param dateTimeSelector the instance of JDateTimeSelector
+	 */
 	public JDateTimeSelectorDialog(Dialog owner, JDateTimeSelector dateTimeSelector)
 	{
 		this(owner, dateTimeSelector, true);
 	}
 	
+	/**
+	 * Constructs with the specified initial frame, date time selector and modal.
+	 * @param owner the instance of Frame
+	 * @param dateTimeSelector the instance of JDateTimeSelector
+	 * @param modal the boolean value of modal
+	 */
 	public JDateTimeSelectorDialog(Frame owner, JDateTimeSelector dateTimeSelector, boolean modal)
 	{
 		this(owner, dateTimeSelector, modal, false);
 	}
 	
+	/**
+	 * Constructs with the specified initial dialog, date time selector and modal.
+	 * @param owner the instance of Dialog
+	 * @param dateTimeSelector the instance of JDateTimeSelector
+	 * @param modal the boolean value of modal
+	 */
 	public JDateTimeSelectorDialog(Dialog owner, JDateTimeSelector dateTimeSelector, boolean modal)
 	{
 		this(owner, dateTimeSelector, modal, false);
 	}
 	
-	public JDateTimeSelectorDialog(Frame owner, JDateTimeSelector dateTimeSelector, boolean modal, boolean isHint)
+	/**
+	 * Constructs with the specified initial frame, date time selector, modal and hint.
+	 * @param owner the instance of Frame
+	 * @param dateTimeSelector the instance of JDateTimeSelector
+	 * @param modal the boolean value of modal
+	 * @param hint the boolean value of hint
+	 */
+	public JDateTimeSelectorDialog(Frame owner, JDateTimeSelector dateTimeSelector, boolean modal, boolean hint)
 	{
-		super(owner, SwingLocale.getString("date_time_selector"), new Dimension(200, 115), modal, isHint, false);
+		super(owner, SwingLocale.getString("date_time_selector"), new Dimension(200, 115), modal, hint, false);
 		
 		this.dateTimeSelector = dateTimeSelector;
 		
 		initComponents();
 	}
 	
-	public JDateTimeSelectorDialog(Dialog owner, JDateTimeSelector dateTimeSelector, boolean modal, boolean isHint)
+	/**
+	 * Constructs with the specified initial dialog, date time selector, modal and hint.
+	 * @param owner the instance of Dialog
+	 * @param dateTimeSelector the instance of JDateTimeSelector
+	 * @param modal the boolean value of modal
+	 * @param hint the boolean value of hint
+	 */
+	public JDateTimeSelectorDialog(Dialog owner, JDateTimeSelector dateTimeSelector, boolean modal, boolean hint)
 	{
-		super(owner, SwingLocale.getString("date_time_selector"), new Dimension(200, 115), modal, isHint, false);
+		super(owner, SwingLocale.getString("date_time_selector"), new Dimension(200, 115), modal, hint, false);
 		
 		this.dateTimeSelector = dateTimeSelector;
 		
 		initComponents();
 	}
 	
+	/**
+	 * Initializes the components.
+	 */
 	private void initComponents()
 	{		
 		layoutPanel = new JPanel();
@@ -81,11 +131,19 @@ public abstract class JDateTimeSelectorDialog
 		getContentPane().add(optionButtonPanel, BorderLayout.SOUTH);
 	}
 	
+	/**
+	 * Gets the date time selector. 
+	 * @return the instance of JDateTimeSelector
+	 */
 	public JDateTimeSelector getDateTimeSelector()
 	{
 		return dateTimeSelector;
 	}
 	
+	/**
+	 * Sets the date time selector.
+	 * @param dateTimeSelector the instance of JDateTimeSelector
+	 */
 	public void setDateTimeSelector(JDateTimeSelector dateTimeSelector)
 	{
 		this.dateTimeSelector = dateTimeSelector;
@@ -97,6 +155,9 @@ public abstract class JDateTimeSelectorDialog
 	public class OptionButtonPanel
 		extends JOptionButtonPanel
 	{
+		/**
+		 * Constructs with the default.
+		 */
 		public OptionButtonPanel()
 		{
 			super(YES_NO_OPTION);
@@ -104,18 +165,34 @@ public abstract class JDateTimeSelectorDialog
 			setBorder(BorderFactory.createEmptyBorder(5, 0, 5, 0));
 		}
 		
+		/**
+		 * Returns true if it is confirmed.
+		 * @return true if it is confirmed
+		 */
 		public boolean confirm()
 		{
 			return JDateTimeSelectorDialog.this.confirm();
 		}
 		
+		/**
+		 * Returns true if it is cancelled.
+		 * @return true if it is cancelled.
+		 */
 		public boolean cancel()
 		{
 			return JDateTimeSelectorDialog.this.cancel();
 		}
 	}
 	
+	/**
+	 * Returns true if it is confirmed.
+	 * @return true if it is confirmed
+	 */
 	public abstract boolean confirm();
 	
+	/**
+	 * Returns true if it is cancelled.
+	 * @return true if it is cancelled.
+	 */
 	public abstract boolean cancel();
 }
