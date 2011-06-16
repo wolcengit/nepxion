@@ -98,9 +98,9 @@ public class JDecorationHeader
 		
 		label = new JLabel(title, icon, LEADING);
 		
-		if (style.getLabelBorder() != null)
+		if (style.getTitleBorder() != null)
 		{
-			setBorder(style.getLabelBorder());
+			setBorder(style.getTitleBorder());
 		}
 		add(label, BorderLayout.WEST);
 		
