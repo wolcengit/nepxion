@@ -10,7 +10,6 @@ package com.nepxion.swing.selector.calendar;
  * @version 1.0
  */
 
-import java.awt.BorderLayout;
 import java.awt.Dialog;
 import java.awt.Dimension;
 import java.awt.Frame;
@@ -18,18 +17,13 @@ import java.awt.Frame;
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 
-import com.nepxion.swing.dialog.JBasicDialog;
+import com.nepxion.swing.dialog.JOptionDialog;
+import com.nepxion.swing.icon.IconFactory;
 import com.nepxion.swing.locale.SwingLocale;
-import com.nepxion.swing.panel.option.JOptionButtonPanel;
 
 public abstract class JCalendarSelectorDialog
-	extends JBasicDialog implements ICalendarSelectorComponent
-{
-	/**
-	 * The instance of OptionButtonPanel.
-	 */
-	private OptionButtonPanel optionButtonPanel;
-	
+	extends JOptionDialog implements ICalendarSelectorComponent
+{	
 	/**
 	 * The instance of JCalendarSelector.
 	 */
@@ -91,7 +85,7 @@ public abstract class JCalendarSelectorDialog
 	 */
 	public JCalendarSelectorDialog(Frame owner, JCalendarSelector calendarSelector, boolean modal, boolean hint)
 	{
-		super(owner, SwingLocale.getString("calendar_selector"), new Dimension(330, CalendarManager.getCalendarSelectorDialogHeight()), modal, hint, false);
+		super(owner, SwingLocale.getString("calendar_selector"), new Dimension(380, CalendarManager.getCalendarSelectorDialogHeight()), modal, hint, false);
 		
 		this.calendarSelector = calendarSelector;
 		
@@ -107,7 +101,7 @@ public abstract class JCalendarSelectorDialog
 	 */
 	public JCalendarSelectorDialog(Dialog owner, JCalendarSelector calendarSelector, boolean modal, boolean hint)
 	{
-		super(owner, SwingLocale.getString("calendar_selector"), new Dimension(330, CalendarManager.getCalendarSelectorDialogHeight()), modal, hint, false);
+		super(owner, SwingLocale.getString("calendar_selector"), new Dimension(380, CalendarManager.getCalendarSelectorDialogHeight()), modal, hint, false);
 		
 		this.calendarSelector = calendarSelector;
 		
@@ -120,14 +114,13 @@ public abstract class JCalendarSelectorDialog
 	private void initComponents()
 	{		
 		layoutPanel = new JPanel();
-		layoutPanel.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
 		layoutPanel.add(calendarSelector);
 		
-		optionButtonPanel = new OptionButtonPanel();
+		getOptionPanel().setBorder(BorderFactory.createEmptyBorder(15, 15, 0, 15));
 		
-		getContentPane().setLayout(new BorderLayout());
-		getContentPane().add(layoutPanel, BorderLayout.CENTER);
-		getContentPane().add(optionButtonPanel, BorderLayout.SOUTH);
+		setOption(YES_NO_OPTION);
+		setIcon(IconFactory.getSwingIcon("component/calendar_48.png"));
+		setComponent(layoutPanel);
 	}
 	
 	/**
@@ -149,38 +142,6 @@ public abstract class JCalendarSelectorDialog
 	
 		layoutPanel.removeAll();
 		layoutPanel.add(calendarSelector);
-	}
-	
-	public class OptionButtonPanel
-		extends JOptionButtonPanel
-	{
-		/**
-		 * Constructs with the default.
-		 */
-		public OptionButtonPanel()
-		{
-			super(YES_NO_OPTION);
-			
-			setBorder(BorderFactory.createEmptyBorder(5, 0, 5, 0));
-		}
-		
-		/**
-		 * Returns true if it is confirmed.
-		 * @return true if it is confirmed
-		 */
-		public boolean confirm()
-		{
-			return JCalendarSelectorDialog.this.confirm();
-		}
-		
-		/**
-		 * Returns true if it is cancelled.
-		 * @return true if it is cancelled.
-		 */
-		public boolean cancel()
-		{
-			return JCalendarSelectorDialog.this.cancel();
-		}
 	}
 	
 	/**

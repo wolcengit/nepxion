@@ -18,18 +18,13 @@ import java.awt.Frame;
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 
-import com.nepxion.swing.dialog.JBasicDialog;
+import com.nepxion.swing.dialog.JOptionDialog;
+import com.nepxion.swing.icon.IconFactory;
 import com.nepxion.swing.locale.SwingLocale;
-import com.nepxion.swing.panel.option.JOptionButtonPanel;
 
 public abstract class JDateTimeSelectorDialog
-	extends JBasicDialog implements IDateTimeSelectorComponent
-{
-	/**
-	 * The instance of OptionButtonPanel.
-	 */
-	private OptionButtonPanel optionButtonPanel;
-	
+	extends JOptionDialog implements IDateTimeSelectorComponent
+{	
 	/**
 	 * The instance of JDateTimeSelector.
 	 */
@@ -91,7 +86,7 @@ public abstract class JDateTimeSelectorDialog
 	 */
 	public JDateTimeSelectorDialog(Frame owner, JDateTimeSelector dateTimeSelector, boolean modal, boolean hint)
 	{
-		super(owner, SwingLocale.getString("date_time_selector"), new Dimension(200, 115), modal, hint, false);
+		super(owner, SwingLocale.getString("date_time_selector"), new Dimension(285, 145), modal, hint, false);
 		
 		this.dateTimeSelector = dateTimeSelector;
 		
@@ -107,7 +102,7 @@ public abstract class JDateTimeSelectorDialog
 	 */
 	public JDateTimeSelectorDialog(Dialog owner, JDateTimeSelector dateTimeSelector, boolean modal, boolean hint)
 	{
-		super(owner, SwingLocale.getString("date_time_selector"), new Dimension(200, 115), modal, hint, false);
+		super(owner, SwingLocale.getString("date_time_selector"), new Dimension(285, 145), modal, hint, false);
 		
 		this.dateTimeSelector = dateTimeSelector;
 		
@@ -120,15 +115,14 @@ public abstract class JDateTimeSelectorDialog
 	private void initComponents()
 	{		
 		layoutPanel = new JPanel();
-		layoutPanel.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
 		layoutPanel.setLayout(new BorderLayout());
 		layoutPanel.add(dateTimeSelector, BorderLayout.NORTH);
 		
-		optionButtonPanel = new OptionButtonPanel();
+		getOptionPanel().setBorder(BorderFactory.createEmptyBorder(15, 15, 0, 15));
 		
-		getContentPane().setLayout(new BorderLayout());
-		getContentPane().add(layoutPanel, BorderLayout.CENTER);
-		getContentPane().add(optionButtonPanel, BorderLayout.SOUTH);
+		setOption(YES_NO_OPTION);
+		setIcon(IconFactory.getSwingIcon("component/calendar_48.png"));
+		setComponent(layoutPanel);
 	}
 	
 	/**
@@ -150,38 +144,6 @@ public abstract class JDateTimeSelectorDialog
 		
 		layoutPanel.removeAll();
 		layoutPanel.add(dateTimeSelector, BorderLayout.NORTH);
-	}
-	
-	public class OptionButtonPanel
-		extends JOptionButtonPanel
-	{
-		/**
-		 * Constructs with the default.
-		 */
-		public OptionButtonPanel()
-		{
-			super(YES_NO_OPTION);
-			
-			setBorder(BorderFactory.createEmptyBorder(5, 0, 5, 0));
-		}
-		
-		/**
-		 * Returns true if it is confirmed.
-		 * @return true if it is confirmed
-		 */
-		public boolean confirm()
-		{
-			return JDateTimeSelectorDialog.this.confirm();
-		}
-		
-		/**
-		 * Returns true if it is cancelled.
-		 * @return true if it is cancelled.
-		 */
-		public boolean cancel()
-		{
-			return JDateTimeSelectorDialog.this.cancel();
-		}
 	}
 	
 	/**
