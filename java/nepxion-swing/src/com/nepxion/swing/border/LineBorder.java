@@ -266,25 +266,40 @@ public class LineBorder
 	{
 		Color oldColor = g.getColor();
 		
-		g.setColor(northColor);
-		for (int i = 0; i < northThickness; i++)
-		{
-			g.drawLine(x, y + i, x + width - 1, y + i);
+		if (northColor != null)
+		{	
+			g.setColor(northColor);
+			for (int i = 0; i < northThickness; i++)
+			{
+				g.drawLine(x, y + i, x + width - 1, y + i);
+			}
 		}
-		g.setColor(southColor);
-		for (int i = 0; i < southThickness; i++)
-		{
-			g.drawLine(x, y + height - i - 1, x + width - 1, y + height - i - 1);
+		
+		if (southColor != null)
+		{	
+			g.setColor(southColor);
+			for (int i = 0; i < southThickness; i++)
+			{
+				g.drawLine(x, y + height - i - 1, x + width - 1, y + height - i - 1);
+			}
 		}
-		g.setColor(eastColor);
-		for (int i = 0; i < westThickness; i++)
-		{
-			g.drawLine(x + i, y, x + i, y + height - 1);
+		
+		if (eastColor != null)
+		{	
+			g.setColor(eastColor);
+			for (int i = 0; i < westThickness; i++)
+			{
+				g.drawLine(x + i, y, x + i, y + height - 1);
+			}
 		}
-		g.setColor(westColor);
-		for (int i = 0; i < eastThickness; i++)
-		{
-			g.drawLine(x + width - i - 1, y, x + width - i - 1, y + height - 1);
+		
+		if (westColor != null)
+		{	
+			g.setColor(westColor);
+			for (int i = 0; i < eastThickness; i++)
+			{
+				g.drawLine(x + width - i - 1, y, x + width - i - 1, y + height - 1);
+			}
 		}
 		
 		g.setColor(oldColor);
