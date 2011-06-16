@@ -35,6 +35,8 @@ public class JOptionButtonPanel
 	private JClassicButton applyButton;
 	private JClassicButton closeButton;
 	
+	private int option;
+	
 	private String value;
 	
 	public JOptionButtonPanel()
@@ -59,9 +61,16 @@ public class JOptionButtonPanel
 		add(Box.createHorizontalGlue());
 	}
 	
+	public int getOption()
+	{
+		return option;
+	}
+	
 	public void setOption(int option)
 	{
 		container.removeAll();
+		
+		this.option = option;
 		
 		switch (option)
 		{
