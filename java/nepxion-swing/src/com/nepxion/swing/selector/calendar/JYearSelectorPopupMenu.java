@@ -61,7 +61,7 @@ public abstract class JYearSelectorPopupMenu
 		registerRenderer(button);
 		registerButton(button);
 		
-		setPopupMenuWidth(yearSelector.getPreferredSize().width + 90);
+		setPopupMenuWidth(yearSelector.getPreferredSize().width + 85);
 		setPopupMenuHeight(yearSelector.getPreferredSize().height + 95);
 		setResizable(false);
 	}

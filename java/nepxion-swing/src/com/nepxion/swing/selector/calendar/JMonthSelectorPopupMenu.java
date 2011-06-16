@@ -61,7 +61,7 @@ public abstract class JMonthSelectorPopupMenu
 		registerRenderer(button);
 		registerButton(button);
 		
-		setPopupMenuWidth(monthSelector.getPreferredSize().width + 90);
+		setPopupMenuWidth(monthSelector.getPreferredSize().width + 85);
 		setPopupMenuHeight(monthSelector.getPreferredSize().height + 95);
 		setResizable(false);
 	}

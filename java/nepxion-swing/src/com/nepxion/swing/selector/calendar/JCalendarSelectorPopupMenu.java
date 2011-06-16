@@ -59,7 +59,7 @@ public abstract class JCalendarSelectorPopupMenu
 		registerRenderer(button);
 		registerButton(button);
 		
-		setPopupMenuWidth(calendarSelector.getPreferredSize().width + 90);
+		setPopupMenuWidth(calendarSelector.getPreferredSize().width + 85);
 		setPopupMenuHeight(calendarSelector.getPreferredSize().height + 75);
 		setResizable(false);
 	}

@@ -61,7 +61,7 @@ public abstract class JDateTimeSelectorPopupMenu
 		registerRenderer(button);
 		registerButton(button);
 		
-		setPopupMenuWidth(dateTimeSelector.getPreferredSize().width + 90);
+		setPopupMenuWidth(dateTimeSelector.getPreferredSize().width + 85);
 		setPopupMenuHeight(dateTimeSelector.getPreferredSize().height + 95);
 		setResizable(false);
 	}

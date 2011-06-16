@@ -61,7 +61,7 @@ public abstract class JTimeSelectorPopupMenu
 		registerRenderer(button);
 		registerButton(button);
 		
-		setPopupMenuWidth(timeSelector.getPreferredSize().width + 90);
+		setPopupMenuWidth(timeSelector.getPreferredSize().width + 85);
 		setPopupMenuHeight(timeSelector.getPreferredSize().height + 95);
 		setResizable(false);
 	}

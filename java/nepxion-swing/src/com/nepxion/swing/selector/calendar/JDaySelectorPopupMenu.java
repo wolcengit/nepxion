@@ -59,7 +59,7 @@ public abstract class JDaySelectorPopupMenu
 		registerRenderer(button);
 		registerButton(button);
 		
-		setPopupMenuWidth(daySelector.getPreferredSize().width + 90);
+		setPopupMenuWidth(daySelector.getPreferredSize().width + 85);
 		setPopupMenuHeight(daySelector.getPreferredSize().height + 75);
 		setResizable(false);		
 	}
