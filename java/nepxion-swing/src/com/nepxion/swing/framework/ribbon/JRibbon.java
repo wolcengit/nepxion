@@ -101,6 +101,8 @@ public class JRibbon
 		{
 			public void paintComponent(Graphics g)
 			{
+				super.paintComponent(g);
+				
 				Graphics2D g2d = (Graphics2D) g;
 				
 				int width = getWidth();
@@ -109,8 +111,6 @@ public class JRibbon
 				// Paint Background
 				JGradientPainter.fastFill(g2d, new Rectangle(0, 0, width, 14), new Color(222, 235, 247), new Color(210, 224, 241), true);
 				JGradientPainter.fastFill(g2d, new Rectangle(0, 14, width, height - 14), new Color(199, 216, 237), new Color(231, 242, 255), true);
-				
-				super.paintComponent(g);
 			}
 		};
 		
