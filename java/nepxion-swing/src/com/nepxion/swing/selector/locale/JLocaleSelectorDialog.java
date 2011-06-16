@@ -18,18 +18,13 @@ import java.awt.Frame;
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 
-import com.nepxion.swing.dialog.JBasicDialog;
+import com.nepxion.swing.dialog.JOptionDialog;
+import com.nepxion.swing.icon.IconFactory;
 import com.nepxion.swing.locale.SwingLocale;
-import com.nepxion.swing.panel.option.JOptionButtonPanel;
 
 public abstract class JLocaleSelectorDialog
-	extends JBasicDialog implements ILocaleSelectorComponent
-{
-	/**
-	 * The instance of OptionButtonPanel.
-	 */
-	private OptionButtonPanel optionButtonPanel;
-	
+	extends JOptionDialog implements ILocaleSelectorComponent
+{	
 	/**
 	 * The instance of JLocaleSelector.
 	 */
@@ -91,7 +86,7 @@ public abstract class JLocaleSelectorDialog
 	 */
 	public JLocaleSelectorDialog(Frame owner, JLocaleSelector localeSelector, boolean modal, boolean hint)
 	{
-		super(owner, SwingLocale.getString("locale_selector"), new Dimension(240, 115), modal, hint, false);
+		super(owner, SwingLocale.getString("locale_selector"), new Dimension(320, 145), modal, hint, false);
 		
 		this.localeSelector = localeSelector;
 		
@@ -107,7 +102,7 @@ public abstract class JLocaleSelectorDialog
 	 */
 	public JLocaleSelectorDialog(Dialog owner, JLocaleSelector localeSelector, boolean modal, boolean hint)
 	{
-		super(owner, SwingLocale.getString("locale_selector"), new Dimension(240, 115), modal, hint, false);
+		super(owner, SwingLocale.getString("locale_selector"), new Dimension(320, 145), modal, hint, false);
 		
 		this.localeSelector = localeSelector;
 		
@@ -120,14 +115,14 @@ public abstract class JLocaleSelectorDialog
 	private void initComponents()
 	{		
 		layoutPanel = new JPanel();
-		layoutPanel.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
 		layoutPanel.setLayout(new BorderLayout());
 		layoutPanel.add(localeSelector, BorderLayout.NORTH);
 		
-		optionButtonPanel = new OptionButtonPanel();
-		getContentPane().setLayout(new BorderLayout());
-		getContentPane().add(layoutPanel, BorderLayout.CENTER);
-		getContentPane().add(optionButtonPanel, BorderLayout.SOUTH);
+		getOptionPanel().setBorder(BorderFactory.createEmptyBorder(15, 15, 0, 15));
+		
+		setOption(YES_NO_OPTION);
+		setIcon(IconFactory.getSwingIcon("component/locale_48.png"));
+		setComponent(layoutPanel);
 	}
 	
 	/**
@@ -149,38 +144,6 @@ public abstract class JLocaleSelectorDialog
 		
 		layoutPanel.removeAll();
 		layoutPanel.add(localeSelector, BorderLayout.NORTH);
-	}
-	
-	public class OptionButtonPanel
-		extends JOptionButtonPanel
-	{
-		/**
-		 * Constructs with the default.
-		 */
-		public OptionButtonPanel()
-		{
-			super(YES_NO_OPTION);
-			
-			setBorder(BorderFactory.createEmptyBorder(5, 0, 5, 0));
-		}
-		
-		/**
-		 * Returns true if it is confirmed.
-		 * @return true if it is confirmed
-		 */
-		public boolean confirm()
-		{
-			return JLocaleSelectorDialog.this.confirm();
-		}
-		
-		/**
-		 * Returns true if it is cancelled.
-		 * @return true if it is cancelled.
-		 */
-		public boolean cancel()
-		{
-			return JLocaleSelectorDialog.this.cancel();
-		}
 	}
 	
 	/**
