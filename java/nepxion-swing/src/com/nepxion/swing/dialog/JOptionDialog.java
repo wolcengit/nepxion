@@ -16,6 +16,8 @@ import java.awt.Container;
 import java.awt.Dialog;
 import java.awt.Dimension;
 import java.awt.Frame;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 import javax.swing.BorderFactory;
 import javax.swing.Icon;
@@ -295,6 +297,23 @@ public class JOptionDialog
 		contentPane.setLayout(new BorderLayout());
 		contentPane.add(optionPanel, BorderLayout.CENTER);
 		contentPane.add(optionButtonPanel, BorderLayout.SOUTH);
+		
+		addWindowListener(new WindowAdapter()
+		{
+			public void windowClosing(WindowEvent e)
+			{
+				int option = optionButtonPanel.getOption();
+				if (option == YES_NO_APPLY_OPTION || option == YES_NO_OPTION)
+				{
+					JOptionDialog.this.cancel();
+				}
+				else if (option == CLOSE_OPTION)
+				{
+					JOptionDialog.this.close();
+				}
+			}			
+		}
+		);
 	}
 	
 	/**
