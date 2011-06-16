@@ -61,7 +61,7 @@ public abstract class JLocaleSelectorPopupMenu
 		registerRenderer(button);
 		registerButton(button);
 		
-		setPopupMenuWidth(localeSelector.getPreferredSize().width + 90);
+		setPopupMenuWidth(localeSelector.getPreferredSize().width + 85);
 		setPopupMenuHeight(localeSelector.getPreferredSize().height + 95);
 		setResizable(false);
 	}
