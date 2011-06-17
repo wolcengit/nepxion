@@ -328,7 +328,7 @@ public abstract class JColorSelector
 			{
 				hideParent();
 				
-				setColor(new Color(255, 255, 255, 0));
+				setColor(null);
 				
 				executeSelection();
 			}
@@ -414,11 +414,6 @@ public abstract class JColorSelector
 	public void setColor(Color color)
 	{				
 		this.selectedColor = color;
-		
-		if (color == null)
-		{
-			return;
-		}	
 		
 		for (Iterator iterator = colorItemMap.values().iterator(); iterator.hasNext();)
 		{
