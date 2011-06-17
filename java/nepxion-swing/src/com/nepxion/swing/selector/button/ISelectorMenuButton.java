@@ -16,15 +16,27 @@ import com.nepxion.swing.panel.option.JOptionButtonPanel;
 
 public interface ISelectorMenuButton
 {
+	/**
+	 * Sets the content pane.
+	 * @param component the instance of Component
+	 */
 	public void setContentPane(Component component);
 	
+	/**
+	 * Gets the option button panel.
+	 * @return the instance of JOptionButtonPanel
+	 */
 	public JOptionButtonPanel getOptionButtonPanel();
 	
-	public boolean doConfirm();
-	
-	public boolean doCancel();
-	
+	/**
+	 * Confirms.
+	 * @return true if confirmed successfully
+	 */
 	public boolean confirm();
 	
+	/**
+	 * Cancels.
+	 * @return true if cancelled successfully
+	 */
 	public boolean cancel();
 }

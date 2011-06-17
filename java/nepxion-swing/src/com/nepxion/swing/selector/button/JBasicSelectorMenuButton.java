@@ -24,9 +24,19 @@ import com.nepxion.swing.popupmenu.JBasicPopupMenu;
 public abstract class JBasicSelectorMenuButton
 	extends JBasicMenuButton implements ISelectorMenuButton
 {
+	/**
+	 * The instance of JPanel.
+	 */
 	private JPanel container;
+	
+	/**
+	 * The instance of JOptionButtonPanel.
+	 */
 	private JOptionButtonPanel optionButtonPanel;
 	
+	/**
+	 * Constructs with the default.
+	 */
 	public JBasicSelectorMenuButton()
 	{
 		super();
@@ -34,6 +44,10 @@ public abstract class JBasicSelectorMenuButton
 		initComponents();
 	}
 	
+	/**
+	 * Constructs with the specified initial action.
+	 * @param action the instance of Action
+	 */
 	public JBasicSelectorMenuButton(Action action)
 	{
 		super(action);
@@ -41,6 +55,10 @@ public abstract class JBasicSelectorMenuButton
 		initComponents();
 	}
 	
+	/**
+	 * Constructs with the specified initial text.
+	 * @param text the text string
+	 */
 	public JBasicSelectorMenuButton(String text)
 	{
 		super(text);
@@ -48,6 +66,10 @@ public abstract class JBasicSelectorMenuButton
 		initComponents();
 	}
 	
+	/**
+	 * Constructs with the specified initial icon.
+	 * @param icon the instance of Icon
+	 */
 	public JBasicSelectorMenuButton(Icon icon)
 	{
 		super(icon);
@@ -55,20 +77,11 @@ public abstract class JBasicSelectorMenuButton
 		initComponents();
 	}
 	
-	public JBasicSelectorMenuButton(Icon icon, String toolTipText)
-	{
-		super(icon, toolTipText);
-		
-		initComponents();
-	}
-	
-	public JBasicSelectorMenuButton(String text, String toolTipText)
-	{
-		super(text, toolTipText);
-		
-		initComponents();
-	}
-	
+	/**
+	 * Constructs with the specified initial text and icon.
+	 * @param text the text string 
+	 * @param icon the icon of Icon
+	 */
 	public JBasicSelectorMenuButton(String text, Icon icon)
 	{
 		super(text, icon);
@@ -76,6 +89,36 @@ public abstract class JBasicSelectorMenuButton
 		initComponents();
 	}
 	
+	/**
+	 * Constructs with the specified initial text and tooltip text.
+	 * @param text the text string
+	 * @param toolTipText the tooltip text string
+	 */
+	public JBasicSelectorMenuButton(String text, String toolTipText)
+	{
+		super(text, toolTipText);
+		
+		initComponents();
+	}
+	
+	/**
+	 * Constructs with the specified initial icon and tooltip text.
+	 * @param icon the instance of Icon
+	 * @param toolTipText the tooltip text string
+	 */
+	public JBasicSelectorMenuButton(Icon icon, String toolTipText)
+	{
+		super(icon, toolTipText);
+		
+		initComponents();
+	}
+	
+	/**
+	 * Constructs with the specified initial text and icon.
+	 * @param text the text string 
+	 * @param icon the icon of Icon
+	 * @param toolTipText the tooltip text string
+	 */
 	public JBasicSelectorMenuButton(String text, Icon icon, String toolTipText)
 	{
 		super(text, icon, toolTipText);
@@ -83,6 +126,9 @@ public abstract class JBasicSelectorMenuButton
 		initComponents();
 	}
 	
+	/**
+	 * Initializes the components.
+	 */
 	private void initComponents()
 	{
 		final JBasicPopupMenu popupMenu = new JBasicPopupMenu();
@@ -108,16 +154,28 @@ public abstract class JBasicSelectorMenuButton
 		popupMenu.add(container);
 	}
 	
+	/**
+	 * Sets the content pane.
+	 * @param component the instance of Component
+	 */
 	public void setContentPane(Component component)
 	{
 		container.add(component, BorderLayout.CENTER);
 	}
 	
+	/**
+	 * Gets the option button panel.
+	 * @return the instance of JOptionButtonPanel
+	 */
 	public JOptionButtonPanel getOptionButtonPanel()
 	{
 		return optionButtonPanel;
 	}
 	
+	/**
+	 * Does confirming.
+	 * @return true if confirmed successfully
+	 */
 	public boolean doConfirm()
 	{
 		if (confirm())
@@ -128,6 +186,10 @@ public abstract class JBasicSelectorMenuButton
 		return false;
 	}
 	
+	/**
+	 * Does cancelling.
+	 * @return true if cancelled successfully
+	 */
 	public boolean doCancel()
 	{
 		if (cancel())
