@@ -14,7 +14,6 @@ import java.awt.Color;
 
 import com.nepxion.swing.button.JBasicMenuButton;
 import com.nepxion.swing.icon.paint.ColorCombinationIcon;
-import com.nepxion.swing.locale.SwingLocale;
 
 public abstract class JBasicColorSelectorButton
 	extends JBasicMenuButton implements IColorSelectorComponent
@@ -25,7 +24,17 @@ public abstract class JBasicColorSelectorButton
 	 */
 	public JBasicColorSelectorButton(ColorCombinationIcon icon)
 	{
-		this(icon, SwingLocale.getString("color_selector"));
+		this(null, icon);
+	}
+	
+	/**
+	 * Constructs with the specified initial text and icon.
+	 * @param text the text string
+	 * @param icon the instance of ColorCombinationIcon
+	 */
+	public JBasicColorSelectorButton(String text, ColorCombinationIcon icon)
+	{
+		this(text, icon, null);
 	}
 	
 	/**
@@ -33,9 +42,19 @@ public abstract class JBasicColorSelectorButton
 	 * @param icon the instance of ColorCombinationIcon
 	 * @param toolTipText the tooltip text string
 	 */
-	public JBasicColorSelectorButton(final ColorCombinationIcon icon, String toolTipText)
+	public JBasicColorSelectorButton(ColorCombinationIcon icon, String toolTipText)
 	{
-		super(icon, toolTipText);
+		this(null, icon, toolTipText);
+	}
+	
+	/**
+	 * Constructs with the specified initial icon and tooltip text.
+	 * @param icon the instance of ColorCombinationIcon
+	 * @param toolTipText the tooltip text string
+	 */
+	public JBasicColorSelectorButton(String text, final ColorCombinationIcon icon, String toolTipText)
+	{
+		super(text, icon, toolTipText);
 		
 		JColorSelectorPopupMenu colorSelectorPopupMenu = new JColorSelectorPopupMenu()
 		{
@@ -44,6 +63,7 @@ public abstract class JBasicColorSelectorButton
 				ColorCombinationIcon colorCombinationIcon = (ColorCombinationIcon) getIcon();
 				colorCombinationIcon.setFillColor(color);
 				
+				JBasicColorSelectorButton.this.repaint();
 				JBasicColorSelectorButton.this.executeSelection(color);
 			}
 		};
