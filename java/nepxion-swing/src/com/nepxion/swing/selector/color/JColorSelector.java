@@ -46,7 +46,7 @@ import com.nepxion.swing.separator.JBasicSeparator;
 import com.nepxion.swing.style.button.lite.JYellowLiteButtonStyle;
 import com.nepxion.swing.style.button.lite.LiteButtonUI;
 
-public class JColorSelector
+public abstract class JColorSelector
 	extends JPanel implements SwingConstants
 {	
 	/**
@@ -599,8 +599,5 @@ public class JColorSelector
 	/**
 	 * Executes the selection.
 	 */
-	public void executeSelection()
-	{
-		
-	}
+	public abstract void executeSelection();
 }
