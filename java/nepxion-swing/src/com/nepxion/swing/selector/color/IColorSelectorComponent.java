@@ -13,13 +13,7 @@ package com.nepxion.swing.selector.color;
 import java.awt.Color;
 
 public interface IColorSelectorComponent
-{
-	/**
-	 * Gets the color selector.
-	 * @return the instance of JColorSelector
-	 */
-	public JColorSelector getColorSelector();
-	
+{	
 	/**
 	 * Executes the color selection.
 	 * @param color the instance of Color
