@@ -135,7 +135,7 @@ public class ColorIcon
 		}
 		
 		if (fillColor != null)
-		{	
+		{			
 			g.setColor(fillColor);
 			g.fillRect(x + 1, y + 1, width - 2, height - 2);
 		}
