@@ -10,6 +10,7 @@ package com.nepxion.demo.component.ribbon;
  * @version 1.0
  */
 
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Insets;
 
@@ -26,12 +27,15 @@ import com.nepxion.swing.font.FontManager;
 import com.nepxion.swing.framework.ribbon.JRibbon;
 import com.nepxion.swing.framework.ribbon.JRibbonBar;
 import com.nepxion.swing.framework.ribbon.JRibbonContainer;
+import com.nepxion.swing.handle.HandleManager;
 import com.nepxion.swing.icon.IconFactory;
+import com.nepxion.swing.icon.paint.ColorCombinationIcon;
 import com.nepxion.swing.layout.filed.FiledLayout;
 import com.nepxion.swing.layout.table.TableLayout;
-import com.nepxion.swing.menu.JColorMenu;
 import com.nepxion.swing.menuitem.JBasicMenuItem;
+import com.nepxion.swing.optionpane.JBasicOptionPane;
 import com.nepxion.swing.popupmenu.JBasicPopupMenu;
+import com.nepxion.swing.selector.color.JClassicColorSelectorButton;
 import com.nepxion.swing.separator.JBasicSeparator;
 import com.nepxion.swing.toolbar.JBasicToolBar;
 
@@ -149,14 +153,25 @@ public class DemoRibbonBar
 		bottomToolBar.add(separator3);
 				
 		bottomToolBar.add(new JClassicMenuButton(IconFactory.getContextIcon("font_effect.png")));
-		bottomToolBar.add(new JClassicMenuButton(IconFactory.getContextIcon("font_highlight.png")));
 		
-		JBasicPopupMenu fontColorPopupMenu = new JBasicPopupMenu();
-		fontColorPopupMenu.add(new JColorMenu());
+		JClassicColorSelectorButton fontHighlightButton = new JClassicColorSelectorButton(new ColorCombinationIcon(IconFactory.getContextIcon("font_highlight.png"), Color.white), "字体高亮色")
+		{
+			public void executeSelection(Color color)
+			{
+				JBasicOptionPane.showMessageDialog(HandleManager.getFrame(DemoRibbonBar.this), "Color : " + color);
+			}
+			
+		};
+		bottomToolBar.add(fontHighlightButton);
 		
-		JClassicMenuButton fontColorButton = new JClassicMenuButton(IconFactory.getContextIcon("font_color.png"));
-		fontColorButton.setPopupMenu(fontColorPopupMenu);
-		
+		JClassicColorSelectorButton fontColorButton = new JClassicColorSelectorButton(new ColorCombinationIcon(IconFactory.getContextIcon("font_color.png"), Color.yellow), "字体颜色")
+		{
+			public void executeSelection(Color color)
+			{
+				JBasicOptionPane.showMessageDialog(HandleManager.getFrame(DemoRibbonBar.this), "Color : " + color);
+			}
+			
+		};
 		bottomToolBar.add(fontColorButton);
 		
 		bottomToolBar.add(new JClassicToggleButton(IconFactory.getContextIcon("font_background.png")));
@@ -232,7 +247,16 @@ public class DemoRibbonBar
 		JBasicSeparator separator6 = new JBasicSeparator();
 		bottomToolBar.add(separator6);
 				
-		bottomToolBar.add(new JClassicMenuButton(IconFactory.getContextIcon("paragraph_background.png")));
+		JClassicColorSelectorButton paragraphBackgroundButton = new JClassicColorSelectorButton(new ColorCombinationIcon(IconFactory.getContextIcon("paragraph_background.png"), Color.red), "填充颜色")
+		{
+			public void executeSelection(Color color)
+			{
+				JBasicOptionPane.showMessageDialog(HandleManager.getFrame(DemoRibbonBar.this), "Color : " + color);
+			}
+			
+		};
+		bottomToolBar.add(paragraphBackgroundButton);
+		
 		bottomToolBar.add(new JClassicMenuButton(IconFactory.getContextIcon("paragraph_border.png")));
 		
 		ButtonManager.updateUI(bottomToolBar, new Insets(2, 2, 2, 2), new ButtonGroup());
