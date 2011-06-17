@@ -36,7 +36,7 @@ public abstract class DemoTogglePanel
 		setInformationIcon(IconFactory.getSwingIcon("banner/query_128.png"));
 		setErrorText("Initialize the component failure");
 		setErrorIcon(IconFactory.getSwingIcon("banner/error_128.png"));
-		setWidth(300);
+		setThreadPanelWidth(300);
 		
 		showInformation();
 		
