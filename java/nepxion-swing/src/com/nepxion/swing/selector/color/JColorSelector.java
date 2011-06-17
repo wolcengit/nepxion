@@ -12,6 +12,7 @@ package com.nepxion.swing.selector.color;
 
 import java.awt.Color;
 import java.awt.Component;
+import java.awt.Dialog;
 import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
@@ -40,6 +41,7 @@ import com.nepxion.swing.handle.HandleManager;
 import com.nepxion.swing.icon.IconFactory;
 import com.nepxion.swing.icon.paint.ColorIcon;
 import com.nepxion.swing.layout.filed.FiledLayout;
+import com.nepxion.swing.locale.SwingLocale;
 import com.nepxion.swing.separator.JBasicSeparator;
 import com.nepxion.swing.style.button.lite.JYellowLiteButtonStyle;
 import com.nepxion.swing.style.button.lite.LiteButtonUI;
@@ -47,26 +49,68 @@ import com.nepxion.swing.style.button.lite.LiteButtonUI;
 public class JColorSelector
 	extends JPanel implements SwingConstants
 {	
-	public static final int ALL = 0;
-	public static final int TOP = 1;
-	public static final int CENTER = 2;
-	public static final int BOTTOM = 3;
+	/**
+	 * The border style of all.
+	 */
+	public static final int BORDER_STYLE_ALL = 0;
+	
+	/**
+	 * The border style of top.
+	 */
+	public static final int BORDER_STYLE_TOP = 1;
+	
+	/**
+	 * The border style of center.
+	 */
+	public static final int BORDER_STYLE_CENTER = 2;
+	
+	/**
+	 * The border style of bottom.
+	 */
+	public static final int BORDER_STYLE_BOTTOM = 3;
 
+	/**
+	 * The selected border.
+	 */
 	protected Border selectedBorder = BorderFactory.createCompoundBorder(new LineBorder(new Color(239, 72, 16)), new LineBorder(new Color(255, 226, 148)));
+	
+	/**
+	 * The hover border.
+	 */
 	protected Border hoverBorder = BorderFactory.createCompoundBorder(new LineBorder(new Color(242, 148, 54)), new LineBorder(new Color(255, 226, 148)));
 
+	/**
+	 * The color list.
+	 */
 	protected List colorList;
+	
+	/**
+	 * The color item map.
+	 */
 	protected Map colorItemMap;
 	
+	/**
+	 * The selected color item.
+	 */
 	protected ColorItem selectedColorItem;
+	
+	/**
+	 * The selected color.
+	 */
 	protected Color selectedColor;
 	
+	/**
+	 * Constructs with the default.
+	 */
 	public JColorSelector()
 	{
 		initColors();
 		initComponents();
 	}
 	
+	/**
+	 * Initializes the colors.
+	 */
 	private void initColors()
 	{
 		colorList = new ArrayList();
@@ -151,6 +195,9 @@ public class JColorSelector
 		colorItemMap = new LinkedHashMap();
 	}
 	
+	/**
+	 * Initializes the components.
+	 */
 	private void initComponents()
 	{
 		setBorder(BorderFactory.createEmptyBorder(0, 1, 0, 1));
@@ -167,9 +214,13 @@ public class JColorSelector
 		add(buttonPanel);
 	}
 	
+	/**
+	 * Creates the theme panel.
+	 * @return the instance of JPanel
+	 */
 	private JPanel createThemePanel()
 	{
-		JPanel labelPanel = createLabelPanel("主题颜色");
+		JPanel labelPanel = createLabelPanel(SwingLocale.getString("theme_color"));
 		
 		JPanel topPanel = new JPanel();
 		topPanel.setBackground(Color.white);
@@ -180,7 +231,7 @@ public class JColorSelector
 		{	
 			Color color = (Color) colorList.get(i);
 			
-			int borderStyle = ALL;
+			int borderStyle = BORDER_STYLE_ALL;
 			
 			ColorItem colorItem = new ColorItem(color, borderStyle);
 			topPanel.add(colorItem);
@@ -197,19 +248,19 @@ public class JColorSelector
 		{	
 			Color color = (Color) colorList.get(i);
 			
-			int borderStyle = ALL;
+			int borderStyle = BORDER_STYLE_ALL;
 
 			if (i / 10 == 1)
 			{
-				borderStyle = TOP;
+				borderStyle = BORDER_STYLE_TOP;
 			}
 			else if (i / 10 == 5)
 			{
-				borderStyle = BOTTOM;
+				borderStyle = BORDER_STYLE_BOTTOM;
 			}
 			else
 			{
-				borderStyle = CENTER;
+				borderStyle = BORDER_STYLE_CENTER;
 			}
 			
 			ColorItem colorItem = new ColorItem(color, borderStyle);
@@ -228,9 +279,13 @@ public class JColorSelector
 		return panel;
 	}
 	
+	/**
+	 * Create the standard panel.
+	 * @return the instance of JPanel
+	 */
 	private JPanel createStandardPanel()
 	{
-		JPanel labelPanel = createLabelPanel("标准颜色");
+		JPanel labelPanel = createLabelPanel(SwingLocale.getString("standard_color"));
 		
 		JPanel topPanel = new JPanel();
 		topPanel.setBackground(Color.white);
@@ -241,7 +296,7 @@ public class JColorSelector
 		{	
 			Color color = (Color) colorList.get(i);
 			
-			int borderStyle = ALL;
+			int borderStyle = BORDER_STYLE_ALL;
 			
 			ColorItem colorItem = new ColorItem(color, borderStyle);
 			topPanel.add(colorItem);
@@ -258,9 +313,13 @@ public class JColorSelector
 		return panel;
 	}
 	
+	/**
+	 * Creates the button panel.
+	 * @return the instance of JPanel
+	 */
 	private JPanel createButtonPanel()
 	{
-		JBasicButton noColorButton = new JBasicButton("无颜色", new ColorIcon(null, new Color(226, 228, 231), 16, 16), "无颜色");
+		JBasicButton noColorButton = new JBasicButton(SwingLocale.getString("no_color"), new ColorIcon(null, new Color(226, 228, 231), 16, 16), SwingLocale.getString("no_color"));
 		noColorButton.setUI(new LiteButtonUI(new JYellowLiteButtonStyle()));
 		ButtonManager.setButtonLayout(noColorButton, new int[] {HORIZONTAL, LEFT});
 		noColorButton.addActionListener(new ActionListener()
@@ -276,7 +335,7 @@ public class JColorSelector
 		}
 		);
 		
-		JBasicButton otherColorColorButton = new JBasicButton("其他颜色...", IconFactory.getSwingIcon("palette.png"), "其他颜色...");
+		JBasicButton otherColorColorButton = new JBasicButton(SwingLocale.getString("other_color") + "...", IconFactory.getSwingIcon("palette.png"), SwingLocale.getString("other_color") + "...");
 		otherColorColorButton.setUI(new LiteButtonUI(new JYellowLiteButtonStyle()));
 		ButtonManager.setButtonLayout(otherColorColorButton, new int[] {HORIZONTAL, LEFT});
 		otherColorColorButton.addActionListener(new ActionListener()
@@ -285,7 +344,7 @@ public class JColorSelector
 			{			
 				hideParent();
 				
-				setColor(JColorChooser.showDialog(HandleManager.getFrame(JColorSelector.this), "颜色拾选器", selectedColor));
+				setColor(JColorChooser.showDialog(HandleManager.getFrame(JColorSelector.this), SwingLocale.getString("color_selector"), selectedColor));
 				
 				executeSelection();
 			}
@@ -302,6 +361,11 @@ public class JColorSelector
 		return panel;
 	}
 	
+	/**
+	 * Creates the label panel.
+	 * @param title the title string
+	 * @return the instance of JPanel
+	 */
 	private JPanel createLabelPanel(String title)
 	{
 		JLabel label = new JLabel(title);
@@ -316,20 +380,37 @@ public class JColorSelector
 		return labelPanel;
 	}
 	
+	/**
+	 * Hides the parent.
+	 */
 	private void hideParent()
 	{
-		Component component = HandleManager.getComponent(this, MenuElement.class);
-		if (component != null)
+		Component menu = HandleManager.getComponent(this, MenuElement.class);
+		if (menu != null)
 		{
-			component.setVisible(false);
+			menu.setVisible(false);
+		}
+		
+		Component dialog = HandleManager.getComponent(this, Dialog.class);
+		if (dialog != null)
+		{
+			dialog.setVisible(false);
 		}
 	}
 	
+	/**
+	 * Gets the selected color.
+	 * @return the instance of Color
+	 */
 	public Color getColor()
 	{
 		return selectedColor;
 	}
 	
+	/**
+	 * Sets the selected color.
+	 * @param color the instance of Color
+	 */
 	public void setColor(Color color)
 	{				
 		this.selectedColor = color;
@@ -357,59 +438,93 @@ public class JColorSelector
 	public class ColorItem
 		extends JPanel implements MouseListener
 	{
+		/**
+		 * The instance of Color.
+		 */
 		protected Color color;
+		
+		/**
+		 * The boolean value of selected.
+		 */
 		protected boolean selected;
 		
+		/**
+		 * The instance of line border.
+		 */
 		protected LineBorder normalBorder = new LineBorder(new Color(227, 228, 232));
 		
+		/**
+		 * Constructs with the specified initial color and border style.
+		 * @param color the instance of Color
+		 * @param borderStyle the border style
+		 */
 		public ColorItem(Color color, int borderStyle)
 		{
 			this.color = color;
 			
 			switch (borderStyle)
 			{
-				case ALL :
+				case BORDER_STYLE_ALL :
 					break;
-				case TOP :
+				case BORDER_STYLE_TOP :
 					normalBorder.setColor(null, SOUTH);
 					break;
-				case CENTER :
+				case BORDER_STYLE_CENTER :
 					normalBorder.setColor(null, NORTH);
 					normalBorder.setColor(null, SOUTH);
 					break;
-				case BOTTOM :
+				case BORDER_STYLE_BOTTOM :
 					normalBorder.setColor(null, NORTH);
 					break;					
 			}
 			
-			
 			setBackground(color);
 			setBorder(normalBorder);
-			setToolTipText("R " + color.getRed() + ", G " + color.getGreen() + ", B " + color.getBlue());
+			setToolTipText(SwingLocale.getString("red_short") + " " + color.getRed() + ", " + SwingLocale.getString("green_short") + " " + color.getGreen() + ", " + SwingLocale.getString("blue_short") + " " + color.getBlue());
 			
 			addMouseListener(this);
 		}
 		
+		/**
+		 * Gets the color.
+		 * @return the instance of Color
+		 */
 		public Color getColor()
 		{
 			return color;
 		}
 		
+		/**
+		 * Gets the preferred size.
+		 * @return the instance of Dimension
+		 */
 		public Dimension getPreferredSize()
 		{
 			return new Dimension(13, 13);
 		}
 		
+		/**
+		 * Gets the maximum size.
+		 * @return the instance of Dimension
+		 */
 		public Dimension getMaximumSize()
 		{
 			return getPreferredSize();
 		}
 		
+		/**
+		 * Gets the minimum size.
+		 * @return the instance of Dimension
+		 */
 		public Dimension getMinimumSize()
 		{
 			return getPreferredSize();
 		}
 		
+		/**
+		 * Sets the selected.
+		 * @param selected the boolean value of selected
+		 */
 		public void setSelected(boolean selected)
 		{
 			this.selected = selected;
@@ -424,15 +539,27 @@ public class JColorSelector
 			}
 		}
 		
+		/**
+		 * Returns true if selected.
+		 * @return true if selected 
+		 */
 		public boolean isSelected()
 		{
 			return selected;
 		}
 		
+	    /**
+	     * Invoked when the mouse button has been clicked (pressed and released) on a component.
+	     * @param e the instance of MouseEvent
+	     */
 		public void mouseClicked(MouseEvent e)
 		{
 		}
 		
+	    /**
+	     * Invoked when the mouse button has been pressed on a component.
+	     * @param e the instance of MouseEvent
+	     */
 		public void mousePressed(MouseEvent e)
 		{			
 			hideParent();
@@ -442,21 +569,36 @@ public class JColorSelector
 			executeSelection();
 		}
 		
+	    /**
+	     * Invoked when the mouse button has been released on a component.
+	     * @param e the instance of MouseEvent
+	     */
 		public void mouseReleased(MouseEvent e)
 		{
 		}
 		
+	    /**
+	     * Invoked when the mouse enters a component.
+	     * @param e the instance of MouseEvent
+	     */
 		public void mouseEntered(MouseEvent e)
 		{
 			setBorder(hoverBorder);
 		}
 		
+	    /**
+	     * Invoked when the mouse exits a component.
+	     * @param e the instance of MouseEvent
+	     */
 		public void mouseExited(MouseEvent e)
 		{
 			setBorder(selected ? selectedBorder : normalBorder);
 		}
 	}
 	
+	/**
+	 * Executes the selection.
+	 */
 	public void executeSelection()
 	{
 		
