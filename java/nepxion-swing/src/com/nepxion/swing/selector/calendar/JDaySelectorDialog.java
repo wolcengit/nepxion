@@ -86,7 +86,7 @@ public abstract class JDaySelectorDialog
 	 */
 	public JDaySelectorDialog(Frame owner, JDaySelector daySelector, boolean modal, boolean hint)
 	{
-		super(owner, SwingLocale.getString("day_selector"), new Dimension(380, CalendarManager.getDaySelectorDialogHeight()), modal, hint, false);
+		super(owner, SwingLocale.getString("day_selector"), new Dimension(380, CalendarManager.getDaySelectorDialogHeight()), modal, hint, true);
 		
 		this.daySelector = daySelector;
 		
@@ -102,7 +102,7 @@ public abstract class JDaySelectorDialog
 	 */
 	public JDaySelectorDialog(Dialog owner, JDaySelector daySelector, boolean modal, boolean hint)
 	{
-		super(owner, SwingLocale.getString("day_selector"), new Dimension(380, CalendarManager.getDaySelectorDialogHeight()), modal, hint, false);
+		super(owner, SwingLocale.getString("day_selector"), new Dimension(380, CalendarManager.getDaySelectorDialogHeight()), modal, hint, true);
 		
 		this.daySelector = daySelector;
 		
@@ -123,6 +123,10 @@ public abstract class JDaySelectorDialog
 		setOption(YES_NO_OPTION);
 		setIcon(IconFactory.getSwingIcon("component/calendar_48.png"));
 		setComponent(layoutPanel);
+		
+		Dimension size = getSize();
+		setMinimumDimension(size);
+		setMaximumDimension(size);		
 	}
 	
 	/**

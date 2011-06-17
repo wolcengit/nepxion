@@ -85,7 +85,7 @@ public abstract class JCalendarSelectorDialog
 	 */
 	public JCalendarSelectorDialog(Frame owner, JCalendarSelector calendarSelector, boolean modal, boolean hint)
 	{
-		super(owner, SwingLocale.getString("calendar_selector"), new Dimension(380, CalendarManager.getCalendarSelectorDialogHeight()), modal, hint, false);
+		super(owner, SwingLocale.getString("calendar_selector"), new Dimension(380, CalendarManager.getCalendarSelectorDialogHeight()), modal, hint, true);
 		
 		this.calendarSelector = calendarSelector;
 		
@@ -101,7 +101,7 @@ public abstract class JCalendarSelectorDialog
 	 */
 	public JCalendarSelectorDialog(Dialog owner, JCalendarSelector calendarSelector, boolean modal, boolean hint)
 	{
-		super(owner, SwingLocale.getString("calendar_selector"), new Dimension(380, CalendarManager.getCalendarSelectorDialogHeight()), modal, hint, false);
+		super(owner, SwingLocale.getString("calendar_selector"), new Dimension(380, CalendarManager.getCalendarSelectorDialogHeight()), modal, hint, true);
 		
 		this.calendarSelector = calendarSelector;
 		
@@ -121,6 +121,10 @@ public abstract class JCalendarSelectorDialog
 		setOption(YES_NO_OPTION);
 		setIcon(IconFactory.getSwingIcon("component/calendar_48.png"));
 		setComponent(layoutPanel);
+		
+		Dimension size = getSize();
+		setMinimumDimension(size);
+		setMaximumDimension(size);
 	}
 	
 	/**

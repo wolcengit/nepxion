@@ -86,7 +86,7 @@ public abstract class JTimeSelectorDialog
 	 */
 	public JTimeSelectorDialog(Frame owner, JTimeSelector timeSelector, boolean modal, boolean hint)
 	{
-		super(owner, SwingLocale.getString("time_selector"), new Dimension(285, 145), modal, hint, false);
+		super(owner, SwingLocale.getString("time_selector"), new Dimension(285, 145), modal, hint, true);
 		
 		this.timeSelector = timeSelector;
 		
@@ -102,7 +102,7 @@ public abstract class JTimeSelectorDialog
 	 */
 	public JTimeSelectorDialog(Dialog owner, JTimeSelector timeSelector, boolean modal, boolean hint)
 	{
-		super(owner, SwingLocale.getString("time_selector"), new Dimension(285, 145), modal, hint, false);
+		super(owner, SwingLocale.getString("time_selector"), new Dimension(285, 145), modal, hint, true);
 		
 		this.timeSelector = timeSelector;
 		
@@ -123,6 +123,10 @@ public abstract class JTimeSelectorDialog
 		setOption(YES_NO_OPTION);
 		setIcon(IconFactory.getSwingIcon("component/calendar_48.png"));
 		setComponent(layoutPanel);
+		
+		Dimension size = getSize();
+		setMinimumDimension(size);
+		setMaximumDimension(size);
 	}
 	
 	/**

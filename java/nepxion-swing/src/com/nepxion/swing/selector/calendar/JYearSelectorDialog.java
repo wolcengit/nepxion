@@ -86,7 +86,7 @@ public abstract class JYearSelectorDialog
 	 */
 	public JYearSelectorDialog(Frame owner, JYearSelector yearSelector, boolean modal, boolean hint)
 	{
-		super(owner, SwingLocale.getString("year_selector"), new Dimension(280, 145), modal, hint, false);
+		super(owner, SwingLocale.getString("year_selector"), new Dimension(280, 145), modal, hint, true);
 		
 		this.yearSelector = yearSelector;
 		
@@ -102,7 +102,7 @@ public abstract class JYearSelectorDialog
 	 */
 	public JYearSelectorDialog(Dialog owner, JYearSelector yearSelector, boolean modal, boolean hint)
 	{
-		super(owner, SwingLocale.getString("year_selector"), new Dimension(280, 145), modal, hint, false);
+		super(owner, SwingLocale.getString("year_selector"), new Dimension(280, 145), modal, hint, true);
 		
 		this.yearSelector = yearSelector;
 		
@@ -123,6 +123,10 @@ public abstract class JYearSelectorDialog
 		setOption(YES_NO_OPTION);
 		setIcon(IconFactory.getSwingIcon("component/calendar_48.png"));
 		setComponent(layoutPanel);
+		
+		Dimension size = getSize();
+		setMinimumDimension(size);
+		setMaximumDimension(size);
 	}
 	
 	/**

@@ -86,7 +86,7 @@ public abstract class JMonthSelectorDialog
 	 */
 	public JMonthSelectorDialog(Frame owner, JMonthSelector monthSelector, boolean modal, boolean hint)
 	{
-		super(owner, SwingLocale.getString("month_selector"), new Dimension(280, 145), modal, hint, false);
+		super(owner, SwingLocale.getString("month_selector"), new Dimension(280, 145), modal, hint, true);
 		
 		this.monthSelector = monthSelector;
 		
@@ -102,7 +102,7 @@ public abstract class JMonthSelectorDialog
 	 */
 	public JMonthSelectorDialog(Dialog owner, JMonthSelector monthSelector, boolean modal, boolean hint)
 	{
-		super(owner, SwingLocale.getString("month_selector"), new Dimension(280, 145), modal, hint, false);
+		super(owner, SwingLocale.getString("month_selector"), new Dimension(280, 145), modal, hint, true);
 		
 		this.monthSelector = monthSelector;
 		
@@ -123,6 +123,10 @@ public abstract class JMonthSelectorDialog
 		setOption(YES_NO_OPTION);
 		setIcon(IconFactory.getSwingIcon("component/calendar_48.png"));
 		setComponent(layoutPanel);
+		
+		Dimension size = getSize();
+		setMinimumDimension(size);
+		setMaximumDimension(size);
 	}
 	
 	/**

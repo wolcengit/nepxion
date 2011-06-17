@@ -86,7 +86,7 @@ public abstract class JDateTimeSelectorDialog
 	 */
 	public JDateTimeSelectorDialog(Frame owner, JDateTimeSelector dateTimeSelector, boolean modal, boolean hint)
 	{
-		super(owner, SwingLocale.getString("date_time_selector"), new Dimension(285, 145), modal, hint, false);
+		super(owner, SwingLocale.getString("date_time_selector"), new Dimension(285, 145), modal, hint, true);
 		
 		this.dateTimeSelector = dateTimeSelector;
 		
@@ -102,7 +102,7 @@ public abstract class JDateTimeSelectorDialog
 	 */
 	public JDateTimeSelectorDialog(Dialog owner, JDateTimeSelector dateTimeSelector, boolean modal, boolean hint)
 	{
-		super(owner, SwingLocale.getString("date_time_selector"), new Dimension(285, 145), modal, hint, false);
+		super(owner, SwingLocale.getString("date_time_selector"), new Dimension(285, 145), modal, hint, true);
 		
 		this.dateTimeSelector = dateTimeSelector;
 		
@@ -123,6 +123,10 @@ public abstract class JDateTimeSelectorDialog
 		setOption(YES_NO_OPTION);
 		setIcon(IconFactory.getSwingIcon("component/calendar_48.png"));
 		setComponent(layoutPanel);
+		
+		Dimension size = getSize();
+		setMinimumDimension(size);
+		setMaximumDimension(size);
 	}
 	
 	/**
