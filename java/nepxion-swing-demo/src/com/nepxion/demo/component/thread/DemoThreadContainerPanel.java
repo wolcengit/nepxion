@@ -169,7 +169,7 @@ public class DemoThreadContainerPanel
 			setInformationIcon(IconFactory.getSwingIcon("banner/query_128.png"));
 			setErrorText("An exception throws out while loading files");
 			setErrorIcon(IconFactory.getSwingIcon("banner/error_128.png"));
-			setWidth(300);
+			setThreadPanelWidth(300);
 			
 			showInformation();
 		}

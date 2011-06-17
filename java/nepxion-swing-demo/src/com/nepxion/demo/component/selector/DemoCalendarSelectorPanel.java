@@ -219,7 +219,7 @@ public class DemoCalendarSelectorPanel
 				{
 					JDateTimeSelectorOptionPane optionPane = new JDateTimeSelectorOptionPane(HandleManager.getFrame(DemoCalendarSelectorPanel.this), new JDateTimeSelector(new Date(), "yyyy-MM-dd HH:mm:ss", new JSpinnerDateTimeEditor()));
 					optionPane.getDateTimeSelector().setDateFormatString(getDateFormat() + " " + getTimeFormat());
-					int selectedValue = optionPane.showDateDialog();					
+					int selectedValue = optionPane.showDateTimeDialog();					
 					if (selectedValue == JCalendarSelectorOptionPane.OK_OPTION)
 					{
 						Date date = optionPane.getDateTimeSelector().getDate();

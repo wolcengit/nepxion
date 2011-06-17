@@ -75,7 +75,7 @@ public class DemoLocaleSelectorPanel
 						}
 						
 						public boolean cancel()
-						{
+						{							
 							return true;
 						}
 					};
