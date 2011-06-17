@@ -24,6 +24,7 @@ import javax.swing.UIManager;
 import com.nepxion.swing.button.ButtonFocusListener;
 import com.nepxion.swing.dialog.DialogResizer;
 import com.nepxion.swing.locale.SwingLocale;
+import com.nepxion.swing.validation.IValidation;
 
 public class JBasicOptionPane
 	extends JOptionPane
