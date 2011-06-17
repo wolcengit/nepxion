@@ -13,6 +13,8 @@ package com.nepxion.swing.table;
 import javax.swing.JTable;
 import javax.swing.table.TableModel;
 
+import com.nepxion.swing.lookandfeel.LookAndFeelManager;
+
 public class TableManager
 {
 	public static void setPreferenceStyle(JTable table)
@@ -21,6 +23,15 @@ public class TableManager
 		// tableHeader.setPreferredSize(new Dimension(tableHeader.getPreferredSize().width, 18));
 		// tableHeader.setBackground(UIManager.getColor("Panel.background"));
 		// tableHeader.setReorderingAllowed(false);
+		
+		if (LookAndFeelManager.isNimbusLookAndFeel())
+		{	
+			table.setRowHeight(25);
+		}
+		else
+		{
+			table.setRowHeight(20);
+		}
 	}
 	
 	public static int getSelectionMode(JTable table)
