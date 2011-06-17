@@ -13,6 +13,8 @@ package com.nepxion.demo.control.selector;
 import javax.swing.Icon;
 
 import com.nepxion.demo.common.DemoTogglePanel;
+import com.nepxion.demo.common.DemoToggleTemplate;
+import com.nepxion.demo.component.selector.DemoColorSelectorPanel;
 import com.nepxion.swing.icon.IconFactory;
 import com.nepxion.swing.tabbedpane.JEclipseTabbedPane;
 
@@ -26,6 +28,7 @@ public class DemoColorSelectorTogglePanel
 	public void initialize()
 	{
 		JEclipseTabbedPane toggleTabbedPane = getToggleTabbedPane();
+		toggleTabbedPane.addTab("Color", IconFactory.getSwingIcon("component/color_chooser_16.png"), new DemoToggleTemplate(new DemoColorSelectorPanel()), "Color");
 	}
 	
 	public String getToggleText()
