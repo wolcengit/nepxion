@@ -18,7 +18,6 @@ import java.awt.event.ActionListener;
 
 import javax.swing.BorderFactory;
 import javax.swing.Box;
-import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -42,7 +41,7 @@ public class DemoStyledLabelBuilderPanel
 	public DemoStyledLabelBuilderPanel()
 	{
 		JPanel panel = new JPanel();
-		panel.setLayout(new XBoxLayout(panel, BoxLayout.Y_AXIS));
+		panel.setLayout(new XBoxLayout(panel, XBoxLayout.Y_AXIS));
 		panel.setBorder(BorderFactory.createEmptyBorder(0, 5, 5, 5));
 		panel.add(new PreviewPanel());
 		panel.add(Box.createVerticalStrut(6));
