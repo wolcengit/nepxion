@@ -29,7 +29,6 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSeparator;
 
-import com.nepxion.swing.border.BorderManager;
 import com.nepxion.swing.button.JClassicButton;
 import com.nepxion.swing.handle.HandleManager;
 import com.nepxion.swing.icon.IconFactory;
@@ -250,7 +249,7 @@ public class JWizard
 			JPanel panel = new JPanel();
 			panel.setLayout(new BorderLayout());
 			panel.setBackground(Color.white);
-			panel.setBorder(BorderManager.createLineBorder(Color.gray, 0, 0, 0, 0));
+			panel.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0), BorderFactory.createLineBorder(Color.gray)));
 			panel.add(imageLabel, BorderLayout.CENTER);
 			
 			setLayout(new BorderLayout());
