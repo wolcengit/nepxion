@@ -86,7 +86,7 @@ public abstract class JLocaleSelectorDialog
 	 */
 	public JLocaleSelectorDialog(Frame owner, JLocaleSelector localeSelector, boolean modal, boolean hint)
 	{
-		super(owner, SwingLocale.getString("locale_selector"), new Dimension(320, 145), modal, hint, false);
+		super(owner, SwingLocale.getString("locale_selector"), new Dimension(320, 145), modal, hint, true);
 		
 		this.localeSelector = localeSelector;
 		
@@ -102,7 +102,7 @@ public abstract class JLocaleSelectorDialog
 	 */
 	public JLocaleSelectorDialog(Dialog owner, JLocaleSelector localeSelector, boolean modal, boolean hint)
 	{
-		super(owner, SwingLocale.getString("locale_selector"), new Dimension(320, 145), modal, hint, false);
+		super(owner, SwingLocale.getString("locale_selector"), new Dimension(320, 145), modal, hint, true);
 		
 		this.localeSelector = localeSelector;
 		
@@ -123,6 +123,10 @@ public abstract class JLocaleSelectorDialog
 		setOption(YES_NO_OPTION);
 		setIcon(IconFactory.getSwingIcon("component/locale_48.png"));
 		setComponent(layoutPanel);
+		
+		Dimension size = getSize();
+		setMinimumDimension(size);
+		setMaximumDimension(size);
 	}
 	
 	/**
