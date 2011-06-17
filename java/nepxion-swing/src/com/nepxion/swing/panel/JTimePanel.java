@@ -23,9 +23,9 @@ import com.nepxion.swing.handle.HandleManager;
 import com.nepxion.swing.layout.filed.FiledLayout;
 import com.nepxion.swing.listener.DisplayAbilityListener;
 import com.nepxion.swing.locale.SwingLocale;
-import com.nepxion.swing.optionpane.IValidation;
 import com.nepxion.swing.optionpane.JBasicOptionPane;
 import com.nepxion.swing.textfield.number.JNumberTextField;
+import com.nepxion.swing.validation.IValidation;
 
 public class JTimePanel
 	extends JPanel implements SwingConstants, IValidation

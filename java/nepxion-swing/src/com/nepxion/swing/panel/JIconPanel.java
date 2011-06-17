@@ -14,12 +14,12 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 
+import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.Icon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import com.nepxion.swing.border.BorderManager;
 import com.nepxion.swing.dimension.DimensionManager;
 
 public class JIconPanel
@@ -30,7 +30,7 @@ public class JIconPanel
 		JPanel panel = new JPanel();
 		panel.setBackground(Color.white);
 		
-		panel.setBorder(BorderManager.createLineBorder(Color.gray, 0, 0, 0, 0));
+		panel.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0), BorderFactory.createLineBorder(Color.gray)));
 		panel.setLayout(new BorderLayout());
 		panel.add(new JLabel(icon), BorderLayout.CENTER);
 		DimensionManager.setDimension(panel, imageDimension);

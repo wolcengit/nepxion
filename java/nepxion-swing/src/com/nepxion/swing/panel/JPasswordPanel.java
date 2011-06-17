@@ -16,9 +16,9 @@ import javax.swing.JPanel;
 import com.nepxion.swing.layout.filed.FiledLayout;
 import com.nepxion.swing.layout.table.TableLayout;
 import com.nepxion.swing.locale.SwingLocale;
-import com.nepxion.swing.optionpane.IValidation;
 import com.nepxion.swing.optionpane.JBasicOptionPane;
 import com.nepxion.swing.textfield.JBasicPasswordField;
+import com.nepxion.swing.validation.IValidation;
 
 public class JPasswordPanel
 	extends JPanel implements IValidation
