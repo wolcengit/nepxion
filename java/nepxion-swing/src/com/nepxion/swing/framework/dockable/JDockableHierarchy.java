@@ -35,7 +35,7 @@ public class JDockableHierarchy
 	private JPanel menuBarContainer;
 	
 	/**
-	 * The separator
+	 * The separator.
 	 */
 	private JSeparator separator;
 	
