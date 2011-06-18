@@ -30,14 +30,14 @@ public interface ShrinkContants
 	public static final ImageIcon HEADER_BACKGROUND_LEFT_IMAGE_ICON = IconFactory.getSwingIcon("skin/header_background_left.png");
 	public static final ImageIcon HEADER_BACKGROUND_RIGHT_IMAGE_ICON = IconFactory.getSwingIcon("skin/header_background_right.png");
 	
-	public static final ImageIcon HEADER_ARROW_LEFT_IMAGE_ICON = IconFactory.getSwingIcon("skin/shrink_handler_left.png");
-	public static final ImageIcon HEADER_ARROW_RIGHT_IMAGE_ICON = IconFactory.getSwingIcon("skin/shrink_handler_right.png");
-	
-	public static final ImageIcon HEADER_HANDLER_IMAGE_ICON = IconFactory.getSwingIcon("skin/resize_handler.png");
+	public static final ImageIcon HEADER_SHRINK_HANDLER_LEFT_IMAGE_ICON = IconFactory.getSwingIcon("skin/shrink_handler_left.png");
+	public static final ImageIcon HEADER_SHRINK_HANDLER_RIGHT_IMAGE_ICON = IconFactory.getSwingIcon("skin/shrink_handler_right.png");
+	public static final ImageIcon HEADER_RESIZE_HANDLER_IMAGE_ICON = IconFactory.getSwingIcon("skin/resize_handler.png");
 	
 	public static final TexturePaint HEADER_TEXTURE_PAINT = JGradientPainter.createTexturePaint(HEADER_BACKGROUND_IMAGE_ICON.getImage());
 	
 	public static final Color TITLE_COLOR = new Color(215, 215, 216);
+	public static final Color SPLIT_COLOR = new Color(76, 84, 91);
 	
 	public static final int SHRINKED_WIDTH = 37;
 }

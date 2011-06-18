@@ -67,7 +67,7 @@ public class JShrinkHeader
 		SplitListener splitListener = new SplitListener(this);
 		ShrinkListener shrinkListener = new ShrinkListener(this);
 		
-		resizeHandlerLabel = new JLabel(HEADER_HANDLER_IMAGE_ICON);
+		resizeHandlerLabel = new JLabel(HEADER_RESIZE_HANDLER_IMAGE_ICON);
 		resizeHandlerLabel.addMouseListener(splitListener);
 		resizeHandlerLabel.addMouseMotionListener(splitListener);
 		resizeHandlerLabel.setBorder(BorderFactory.createEmptyBorder(2, 6, 2, 6));
@@ -321,22 +321,22 @@ public class JShrinkHeader
 		{
 			if (placement == PLACEMENT_EAST)
 			{
-				shrinkIcon = HEADER_ARROW_LEFT_IMAGE_ICON;
+				shrinkIcon = HEADER_SHRINK_HANDLER_LEFT_IMAGE_ICON;
 			}
 			else if (placement == PLACEMENT_WEST)
 			{
-				shrinkIcon = HEADER_ARROW_RIGHT_IMAGE_ICON;
+				shrinkIcon = HEADER_SHRINK_HANDLER_RIGHT_IMAGE_ICON;
 			}
 		}
 		else
 		{
 			if (placement == PLACEMENT_EAST)
 			{
-				shrinkIcon = HEADER_ARROW_RIGHT_IMAGE_ICON;				
+				shrinkIcon = HEADER_SHRINK_HANDLER_RIGHT_IMAGE_ICON;				
 			}
 			else if (placement == PLACEMENT_WEST)
 			{
-				shrinkIcon = HEADER_ARROW_LEFT_IMAGE_ICON;
+				shrinkIcon = HEADER_SHRINK_HANDLER_LEFT_IMAGE_ICON;
 			}
 		}
 		

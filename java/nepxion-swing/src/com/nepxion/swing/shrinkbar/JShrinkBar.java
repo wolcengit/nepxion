@@ -117,7 +117,7 @@ public class JShrinkBar
 		{
 			public void paintBorder(Component c, Graphics g, int x, int y, int width, int height)
 			{
-				g.setColor(new Color(76, 84, 91));
+				g.setColor(SPLIT_COLOR);
 				if (placement == PLACEMENT_EAST)
 				{
 					g.drawLine(x, y, x, y + height);
