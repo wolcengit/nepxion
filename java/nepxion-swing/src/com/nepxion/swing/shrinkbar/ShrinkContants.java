@@ -10,6 +10,7 @@ package com.nepxion.swing.shrinkbar;
  * @version 1.0
  */
 
+import java.awt.Color;
 import java.awt.TexturePaint;
 
 import javax.swing.ImageIcon;
@@ -35,6 +36,8 @@ public interface ShrinkContants
 	public static final ImageIcon HEADER_HANDLER_IMAGE_ICON = IconFactory.getSwingIcon("skin/resize_handler.png");
 	
 	public static final TexturePaint HEADER_TEXTURE_PAINT = JGradientPainter.createTexturePaint(HEADER_BACKGROUND_IMAGE_ICON.getImage());
+	
+	public static final Color TITLE_COLOR = new Color(215, 215, 216);
 	
 	public static final int SHRINKED_WIDTH = 37;
 }

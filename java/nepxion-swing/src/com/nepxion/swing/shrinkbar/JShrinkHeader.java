@@ -220,6 +220,7 @@ public class JShrinkHeader
 			if (label == null)
 			{
 				label = new JLabel();
+				label.setForeground(TITLE_COLOR);
 			}
 			
 			add(label, BorderLayout.CENTER);
