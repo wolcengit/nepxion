@@ -110,21 +110,21 @@ public class DemoDockableHierarchy
     }
 
     private void initMenuBar()
-    {
-        JBasicMenuBar menuBar = getMenuBar();
-        
-        JBasicMenu menu = DockableManager.getToggleMenu(this);
-        ((JMenuItem) menu.getMenuComponent(1)).doClick();
-        menuBar.add(menu);
-        
-        JBasicMenu helpMenu = new JBasicMenu("Help", "°ïÖú(H)");
-        helpMenu.setMnemonic('H');
-        menuBar.add(helpMenu);
-
-        JBasicMenuItem aboutMenuItem = new JBasicMenuItem(DemoController.getAboutAction());
-        KeyStrokeManager.registerButton(aboutMenuItem, KeyEvent.VK_F1, 'U');
-        helpMenu.add(aboutMenuItem);
-    }
+	{
+		JBasicMenuBar menuBar = getMenuBar();
+		
+		JBasicMenu menu = DockableManager.getToggleMenu(this);
+		((JMenuItem) menu.getMenuComponent(1)).doClick();
+		menuBar.add(menu);
+		
+		JBasicMenu helpMenu = new JBasicMenu("Help", "°ïÖú(H)");
+		helpMenu.setMnemonic('H');
+		menuBar.add(helpMenu);
+		
+		JBasicMenuItem aboutMenuItem = new JBasicMenuItem(DemoController.getAboutAction());
+		KeyStrokeManager.registerButton(aboutMenuItem, KeyEvent.VK_F1, 'U');
+		helpMenu.add(aboutMenuItem);
+	}
 
     private void initToolBar()
     {
