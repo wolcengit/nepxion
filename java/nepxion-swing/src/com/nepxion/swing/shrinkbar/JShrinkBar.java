@@ -15,7 +15,7 @@ import java.awt.Component;
 
 public class JShrinkBar
 	extends BasicShrinkBar
-{	
+{
 	private Component contentPane;
 	
 	public JShrinkBar(int placement)
