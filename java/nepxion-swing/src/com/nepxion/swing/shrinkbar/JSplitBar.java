@@ -40,7 +40,7 @@ public class JSplitBar
 		{
 			public void paintBorder(Component c, Graphics g, int x, int y, int width, int height)
 			{
-				g.setColor(SPLIT_COLOR);
+				g.setColor(HEADER_SPLIT_COLOR);
 				
 				if (placement == PLACEMENT_EAST)
 				{

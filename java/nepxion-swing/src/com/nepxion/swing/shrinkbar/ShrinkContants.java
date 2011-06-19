@@ -36,8 +36,8 @@ public interface ShrinkContants
 	
 	public static final TexturePaint HEADER_TEXTURE_PAINT = JGradientPainter.createTexturePaint(HEADER_BACKGROUND_IMAGE_ICON.getImage());
 	
-	public static final Color TITLE_COLOR = new Color(215, 215, 216);
-	public static final Color SPLIT_COLOR = new Color(76, 84, 91);
+	public static final Color HEADER_TITLE_COLOR = new Color(215, 215, 216);
+	public static final Color HEADER_SPLIT_COLOR = new Color(76, 84, 91);
 	
 	public static final int SHRINKED_WIDTH = 37;
 }
