@@ -61,7 +61,8 @@ public class JSplitBar
 			{
 				return true;
 			}
-		});
+		}
+		);
 	}
 	
 	protected void setShrinked(boolean shrinked)
