@@ -10,12 +10,11 @@ package com.nepxion.swing.shrinkbar;
  * @version 1.0
  */
 
+import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-import javax.swing.event.MouseInputAdapter;
-
 public class ShrinkListener
-	extends MouseInputAdapter implements ShrinkContants
+	extends MouseAdapter implements ShrinkContants
 {
 	protected JShrinkHeader shrinkHeader;
 	
