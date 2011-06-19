@@ -13,17 +13,11 @@ package com.nepxion.swing.shrinkbar;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
-import java.awt.Cursor;
 import java.awt.Font;
-import java.awt.Graphics;
-import java.awt.Insets;
 
-import javax.swing.Box;
 import javax.swing.Icon;
-import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.border.Border;
 
 import com.nepxion.swing.toolbar.JBasicToolBar;
 
@@ -32,7 +26,7 @@ public class JShrinkBar
 {
 	private JShrinkHeader shrinkHeader;
 	
-	private JComponent split;
+	private JSplitBar splitBar;
 	
 	private Component contentPane;
 	
@@ -71,23 +65,10 @@ public class JShrinkBar
 			{
 				super.setShrinked(shrinked);
 				
-				if (shrinked)
-				{
-					split.setCursor(Cursor.getDefaultCursor());
-				}
-				else
-				{
-					split.setCursor(Cursor.getPredefinedCursor(Cursor.W_RESIZE_CURSOR));
-				}
+				splitBar.setShrinked(shrinked);
 			}
-		};
-		SplitListener splitListener = new SplitListener(shrinkHeader);
-		
-		split = (JComponent) Box.createHorizontalStrut(3);
-		split.setOpaque(true);
-		split.setCursor(Cursor.getPredefinedCursor(Cursor.W_RESIZE_CURSOR));
-		split.addMouseListener(splitListener);
-		split.addMouseMotionListener(splitListener);
+		};		
+		splitBar = new JSplitBar(shrinkHeader, 3);
 		
 		setLayout(new BorderLayout());
 		add(shrinkHeader, BorderLayout.NORTH);
@@ -102,43 +83,18 @@ public class JShrinkBar
 	
 	protected void togglePlacement()
 	{
-		final int placement = shrinkHeader.getPlacement();
+		int placement = shrinkHeader.getPlacement();
+		
+		splitBar.setPlacement(placement);
 		
 		if (placement == PLACEMENT_EAST)
 		{
-			add(split, BorderLayout.WEST);
+			add(splitBar, BorderLayout.WEST);
 		}
 		else if (placement == PLACEMENT_WEST)
 		{
-			add(split, BorderLayout.EAST);
+			add(splitBar, BorderLayout.EAST);
 		}
-		
-		split.setBorder(new Border()
-		{
-			public void paintBorder(Component c, Graphics g, int x, int y, int width, int height)
-			{
-				g.setColor(SPLIT_COLOR);
-				if (placement == PLACEMENT_EAST)
-				{
-					g.drawLine(x, y, x, y + height);
-				}
-				else if (placement == PLACEMENT_WEST)
-				{
-					g.drawLine(x + width - 1, y, x + width -1, y + height);
-				}
-			}
-			
-			public Insets getBorderInsets(Component c)
-			{
-				return new Insets(0, 1, 0, 1);
-			}
-			
-			public boolean isBorderOpaque()
-			{
-				return true;
-			}
-		}
-		);
 	}
 	
 	public Component getContentPane()
