@@ -11,6 +11,9 @@ package com.nepxion.swing.framework.ribbon;
  */
 
 import java.awt.BorderLayout;
+import java.awt.Component;
+import java.awt.Dimension;
+import java.awt.Graphics;
 
 import javax.swing.BoxLayout;
 import javax.swing.JPanel;
@@ -52,7 +55,29 @@ public class JRibbonHierarchy
 		
 		container = new JRibbonContainer();
 		
-		statusBar = new JFrameWorkStatusBar();
+		statusBar = new JFrameWorkStatusBar()
+		{
+			protected void paintComponent(Graphics g)
+			{
+				super.paintComponent(g);
+				
+				paintStatusBarBackground(statusBar, g);
+			}
+			
+			public Dimension getPreferredSize()
+			{
+				int height = getStatusBarBackgroundHeight();
+				if (height <= 0)
+				{
+					return super.getPreferredSize();
+				}
+				else
+				{
+					return new Dimension(super.getPreferredSize().width, height);
+				}
+			}
+		};
+		
 		statusBarContainer = new JPanel();
 		statusBarContainer.setLayout(new BorderLayout());
 		statusBarContainer.add(statusBar, BorderLayout.NORTH);
@@ -61,6 +86,24 @@ public class JRibbonHierarchy
 		add(navigatorContainer, BorderLayout.NORTH);
 		add(container, BorderLayout.CENTER);
 		add(statusBarContainer, BorderLayout.SOUTH);
+	}
+	
+	/**
+	 * Paints the status bar background.
+	 * @param component the instance of Component
+	 * @param g the instance of Graphics
+	 */
+	protected void paintStatusBarBackground(Component component, Graphics g)
+	{
+	}
+	
+	/**
+	 * Gets the status bar background height.
+	 * @return the status bar background height value 
+	 */
+	protected int getStatusBarBackgroundHeight()
+	{
+		return -1;
 	}
 	
 	/**

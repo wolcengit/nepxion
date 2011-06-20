@@ -11,6 +11,9 @@ package com.nepxion.swing.framework.dockable;
  */
 
 import java.awt.BorderLayout;
+import java.awt.Component;
+import java.awt.Dimension;
+import java.awt.Graphics;
 import java.util.List;
 
 import javax.swing.JPanel;
@@ -73,15 +76,59 @@ public class JDockableHierarchy
 	 * Constructs with the default.
 	 */
 	public JDockableHierarchy()
-	{
-		menuBar = new JBasicMenuBar();
+	{		
+		menuBar = new JBasicMenuBar()
+		{
+			protected void paintComponent(Graphics g)
+			{
+				super.paintComponent(g);
+				
+				paintMenuBarBackground(menuBar, g);
+			}
+			
+			public Dimension getPreferredSize()
+			{
+				int height = getMenuBarBackgroundHeight();
+				if (height <= 0)
+				{
+					return super.getPreferredSize();
+				}
+				else
+				{
+					return new Dimension(super.getPreferredSize().width, height);
+				}
+			}
+		};
+
 		menuBarContainer = new JPanel();
 		menuBarContainer.setLayout(new BorderLayout());
 		menuBarContainer.add(menuBar, BorderLayout.NORTH);
 		
 		separator = new JSeparator();
 		
-		toolBar = new JBasicToolBar();
+		toolBar = new JBasicToolBar()
+		{
+			protected void paintComponent(Graphics g)
+			{
+				super.paintComponent(g);
+				
+				paintToolBarBackground(toolBar, g);
+			}
+			
+			public Dimension getPreferredSize()
+			{
+				int height = getToolBarBackgroundHeight();
+				if (height <= 0)
+				{
+					return super.getPreferredSize();
+				}
+				else
+				{
+					return new Dimension(super.getPreferredSize().width, height);
+				}
+			}
+		};
+		
 		toolBarContainer = new JPanel();
 		toolBarContainer.setLayout(new BorderLayout());
 		toolBarContainer.add(toolBar, BorderLayout.NORTH);
@@ -94,7 +141,29 @@ public class JDockableHierarchy
 		
 		dockableContainer = new JDockableContainer();
 		
-		statusBar = new JFrameWorkStatusBar();
+		statusBar = new JFrameWorkStatusBar()
+		{
+			protected void paintComponent(Graphics g)
+			{
+				super.paintComponent(g);
+				
+				paintStatusBarBackground(statusBar, g);
+			}
+			
+			public Dimension getPreferredSize()
+			{
+				int height = getStatusBarBackgroundHeight();
+				if (height <= 0)
+				{
+					return super.getPreferredSize();
+				}
+				else
+				{
+					return new Dimension(super.getPreferredSize().width, height);
+				}
+			}
+		};
+		
 		statusBarContainer = new JPanel();
 		statusBarContainer.setLayout(new BorderLayout());
 		statusBarContainer.add(statusBar, BorderLayout.NORTH);		
@@ -103,6 +172,60 @@ public class JDockableHierarchy
 		add(barContainer, BorderLayout.NORTH);
 		add(dockableContainer, BorderLayout.CENTER);
 		add(statusBarContainer, BorderLayout.SOUTH);
+	}
+	
+	/**
+	 * Paints the menu bar background.
+	 * @param component the instance of Component
+	 * @param g the instance of Graphics
+	 */
+	protected void paintMenuBarBackground(Component component, Graphics g)
+	{
+	}
+	
+	/**
+	 * Gets the menu bar background height.
+	 * @return the menu bar background height value 
+	 */
+	protected int getMenuBarBackgroundHeight()
+	{
+		return -1;
+	}
+	
+	/**
+	 * Paints the tool bar background.
+	 * @param component the instance of Component
+	 * @param g the instance of Graphics
+	 */
+	protected void paintToolBarBackground(Component component, Graphics g)
+	{
+	}
+	
+	/**
+	 * Gets the tool bar background height.
+	 * @return the tool bar background height value 
+	 */
+	protected int getToolBarBackgroundHeight()
+	{
+		return -1;
+	}
+	
+	/**
+	 * Paints the status bar background.
+	 * @param component the instance of Component
+	 * @param g the instance of Graphics
+	 */
+	protected void paintStatusBarBackground(Component component, Graphics g)
+	{
+	}
+	
+	/**
+	 * Gets the status bar background height.
+	 * @return the status bar background height value 
+	 */
+	protected int getStatusBarBackgroundHeight()
+	{
+		return -1;
 	}
 	
 	/**
