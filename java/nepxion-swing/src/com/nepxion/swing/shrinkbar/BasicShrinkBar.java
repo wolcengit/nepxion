@@ -12,6 +12,7 @@ package com.nepxion.swing.shrinkbar;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Font;
 
 import javax.swing.Icon;
@@ -64,7 +65,12 @@ public class BasicShrinkBar
 	
 	protected void togglePlacement()
 	{
-		int placement = shrinkHeader.getPlacement();
+		if (!isShrinkable())
+		{
+			throw new IllegalArgumentException("The shrinking is disabled");
+		}
+		
+		int placement = getPlacement();
 		
 		splitBar.setPlacement(placement);
 		
@@ -203,6 +209,43 @@ public class BasicShrinkBar
 	public void setShrinked(boolean shrinked)
 	{
 		shrinkHeader.setShrinked(shrinked);
+	}
+	
+	public boolean isShrinkable()
+	{
+		return shrinkHeader.isShrinkable();
+	}
+	
+	public void setShrinkable(boolean shrinkable)
+	{
+		shrinkHeader.setShrinkable(shrinkable);
+		
+		if (shrinkable)
+		{
+			togglePlacement();
+		}
+		else
+		{
+			if (retrieveComponent(splitBar))
+			{	
+				remove(splitBar);
+			}
+		}
+	}
+	
+	private boolean retrieveComponent(Component component)
+	{
+		for (int i = 0; i < getComponentCount(); i++)
+		{
+			Component c = getComponent(i);
+			
+			if (c == component)
+			{
+				return true;
+			}	
+		}
+		
+		return false;
 	}
 	
 	public int getShrinkedWidth()

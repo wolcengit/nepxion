@@ -12,6 +12,7 @@ package com.nepxion.swing.shrinkbar;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Container;
 import java.awt.Cursor;
 import java.awt.Dimension;
@@ -34,8 +35,6 @@ public class JShrinkHeader
 	private int placement = PLACEMENT_WEST;
 	private int contentPaneType = DEFAULT_CONTENT_PANE_TYPE;
 	
-	private boolean shrinked = false;
-	
 	private JLabel resizeHandlerLabel;
 	private JLabel shrinkHandlerLabel;
 	
@@ -46,6 +45,9 @@ public class JShrinkHeader
 	private int preferredWidth = 0;
 	
 	private IHeaderTextureStyle headerTextureStyle;
+	
+	private boolean shrinked = false;
+	private boolean shrinkable = true;
 	
 	public JShrinkHeader(int placement)
 	{
@@ -203,6 +205,11 @@ public class JShrinkHeader
 	
 	protected void togglePlacement()
 	{
+		if (!shrinkable)
+		{
+			throw new IllegalArgumentException("The shrinking is disabled");
+		}
+		
 		if (placement == PLACEMENT_EAST)
 		{
 			add(shrinkHandlerLabel, BorderLayout.EAST);
@@ -235,6 +242,7 @@ public class JShrinkHeader
 			{
 				label = new JLabel();
 				label.setForeground(headerTextureStyle.getForeground());
+				label.setBorder(BorderFactory.createEmptyBorder());
 			}
 			
 			add(label, BorderLayout.CENTER);
@@ -244,6 +252,7 @@ public class JShrinkHeader
 			if (toolBar == null)
 			{
 				toolBar = new JBasicToolBar();
+				toolBar.setBorder(BorderFactory.createEmptyBorder());
 			}
 			
 			add(toolBar, BorderLayout.CENTER);
@@ -257,6 +266,11 @@ public class JShrinkHeader
 	
 	public void setShrinked(boolean shrinked)
 	{
+		if (!shrinkable)
+		{
+			throw new IllegalArgumentException("The shrinking is disabled");
+		}
+		
 		if (this.shrinked == shrinked)
 		{
 			return;
@@ -300,6 +314,68 @@ public class JShrinkHeader
 		boolean shrinked = isShrinked();
 		
 		setShrinked(!shrinked);
+	}
+	
+	public boolean isShrinkable()
+	{
+		return shrinkable;
+	}
+	
+	public void setShrinkable(boolean shrinkable)
+	{
+		this.shrinkable = shrinkable;
+		
+		if (shrinkable)
+		{
+			togglePlacement();
+			
+			if (label != null)
+			{	
+				label.setBorder(BorderFactory.createEmptyBorder());
+			}
+			
+			if (toolBar != null)
+			{	
+				toolBar.setBorder(BorderFactory.createEmptyBorder());
+			}
+		}
+		else
+		{
+			if (retrieveComponent(resizeHandlerLabel))
+			{	
+				remove(resizeHandlerLabel);
+			}
+			
+			if (retrieveComponent(shrinkHandlerLabel))
+			{	
+				remove(shrinkHandlerLabel);
+			}
+			
+			if (label != null)
+			{	
+				label.setBorder(BorderFactory.createEmptyBorder(0, 6, 0, 0));
+			}
+			
+			if (toolBar != null)
+			{	
+				toolBar.setBorder(BorderFactory.createEmptyBorder(0, 6, 0, 0));
+			}
+		}
+	}
+	
+	private boolean retrieveComponent(Component component)
+	{
+		for (int i = 0; i < getComponentCount(); i++)
+		{
+			Component c = getComponent(i);
+			
+			if (c == component)
+			{
+				return true;
+			}	
+		}
+		
+		return false;
 	}
 	
 	public int getShrinkedWidth()
