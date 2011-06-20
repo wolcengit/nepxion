@@ -12,7 +12,7 @@ package com.nepxion.swing.shrinkbar;
 
 import com.nepxion.swing.style.texture.shrink.IHeaderTextureStyle;
 import com.nepxion.swing.style.texture.shrink.IOutlookTextureStyle;
-import com.nepxion.swing.style.texture.shrink.JGrayHeaderTextureStyle;
+import com.nepxion.swing.style.texture.shrink.JBlackHeaderTextureStyle;
 import com.nepxion.swing.style.texture.shrink.JGreenOutlookTextureStyle;
 
 public interface ShrinkContants
@@ -25,6 +25,6 @@ public interface ShrinkContants
 	
 	public static final int DEFAULT_CONTENT_PANE_TYPE = CONTENT_PANE_TYPE_LABEL;
 	
-	public static final IHeaderTextureStyle DEFAULT_HEADER_TEXTURE_STYLE = new JGrayHeaderTextureStyle();
+	public static final IHeaderTextureStyle DEFAULT_HEADER_TEXTURE_STYLE = new JBlackHeaderTextureStyle();
 	public static final IOutlookTextureStyle DEFAULT_OUTLOOK_TEXTURE_STYLE = new JGreenOutlookTextureStyle();
 }
