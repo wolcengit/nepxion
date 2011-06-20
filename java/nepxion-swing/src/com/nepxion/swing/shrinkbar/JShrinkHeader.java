@@ -41,7 +41,7 @@ public class JShrinkHeader
 	private JLabel label;
 	private JBasicToolBar toolBar;
 	
-	private int shrinkedWidth = 37;
+	private int shrinkedWidth = 40;
 	private int preferredWidth = 0;
 	
 	private IHeaderTextureStyle headerTextureStyle;
@@ -81,11 +81,11 @@ public class JShrinkHeader
 		resizeHandlerLabel = new JLabel(headerTextureStyle.getResizeHandlerImageIcon());
 		resizeHandlerLabel.addMouseListener(splitListener);
 		resizeHandlerLabel.addMouseMotionListener(splitListener);
-		resizeHandlerLabel.setBorder(BorderFactory.createEmptyBorder(2, 6, 2, 6));
+		resizeHandlerLabel.setBorder(BorderFactory.createEmptyBorder(2, 7, 2, 7));
 		
 		shrinkHandlerLabel = new JLabel();
 		shrinkHandlerLabel.addMouseListener(shrinkListener);
-		shrinkHandlerLabel.setBorder(BorderFactory.createEmptyBorder(2, 6, 2, 6));
+		shrinkHandlerLabel.setBorder(BorderFactory.createEmptyBorder(2, 7, 2, 7));
 		
 		setOpaque(false);
 		setLayout(new BorderLayout());

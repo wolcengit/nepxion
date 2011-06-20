@@ -10,25 +10,17 @@ package com.nepxion.swing.shrinkbar;
  * @version 1.0
  */
 
-import java.awt.Component;
 import java.awt.Cursor;
 import java.awt.Dimension;
-import java.awt.Graphics;
-import java.awt.Insets;
 
 import javax.swing.Box.Filler;
-import javax.swing.border.Border;
 
 public class JSplitBar
 	extends Filler implements ShrinkContants
 {
-	private JShrinkHeader shrinkHeader;
-	
 	public JSplitBar(JShrinkHeader shrinkHeader, int width)
 	{
 		super(new Dimension(width, 0), new Dimension(width, 0), new Dimension(width, Short.MAX_VALUE));
-		
-		this.shrinkHeader = shrinkHeader;
 		
 		SplitListener splitListener = new SplitListener(shrinkHeader);
 		
@@ -36,37 +28,6 @@ public class JSplitBar
 		setCursor(Cursor.getPredefinedCursor(Cursor.W_RESIZE_CURSOR));
 		addMouseListener(splitListener);
 		addMouseMotionListener(splitListener);
-	}
-	
-	protected void setPlacement(final int placement)
-	{
-		setBorder(new Border()
-		{
-			public void paintBorder(Component c, Graphics g, int x, int y, int width, int height)
-			{
-				g.setColor(shrinkHeader.getHeaderTextureStyle().getBorderColor());
-				
-				if (placement == PLACEMENT_EAST)
-				{
-					g.drawLine(x, y, x, y + height);
-				}
-				else if (placement == PLACEMENT_WEST)
-				{
-					g.drawLine(x + width - 1, y, x + width - 1, y + height);
-				}
-			}
-			
-			public Insets getBorderInsets(Component c)
-			{
-				return new Insets(0, 1, 0, 1);
-			}
-			
-			public boolean isBorderOpaque()
-			{
-				return true;
-			}
-		}
-		);
 	}
 	
 	protected void setShrinked(boolean shrinked)

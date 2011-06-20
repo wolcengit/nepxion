@@ -15,19 +15,24 @@ import java.awt.Color;
 import java.awt.Component;
 import java.awt.Font;
 
+import javax.swing.BorderFactory;
 import javax.swing.Icon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.border.Border;
 
+import com.nepxion.swing.border.LineBorder;
 import com.nepxion.swing.style.texture.shrink.IHeaderTextureStyle;
 import com.nepxion.swing.toolbar.JBasicToolBar;
 
 public class BasicShrinkBar
 	extends JPanel implements ShrinkContants
 {
-	private JShrinkHeader shrinkHeader;
+	protected JShrinkHeader shrinkHeader;
+	protected JSplitBar splitBar;
+	protected JPanel shrinkContentPane;
 	
-	private JSplitBar splitBar;
+	protected int splitWidth = 2;
 	
 	public BasicShrinkBar(int placement)
 	{
@@ -55,10 +60,14 @@ public class BasicShrinkBar
 				splitBar.setShrinked(shrinked);
 			}
 		};
-		splitBar = new JSplitBar(shrinkHeader, 3);
+		splitBar = new JSplitBar(shrinkHeader, splitWidth);
+		
+		shrinkContentPane = new JPanel();
+		shrinkContentPane.setLayout(new BorderLayout());
 		
 		setLayout(new BorderLayout());
 		add(shrinkHeader, BorderLayout.NORTH);
+		add(shrinkContentPane, BorderLayout.CENTER);
 		
 		togglePlacement();
 	}
@@ -71,16 +80,15 @@ public class BasicShrinkBar
 		}
 		
 		int placement = getPlacement();
-		
-		splitBar.setPlacement(placement);
-		
 		if (placement == PLACEMENT_EAST)
 		{
-			add(splitBar, BorderLayout.WEST);
+			shrinkContentPane.add(splitBar, BorderLayout.WEST);
+			shrinkContentPane.setBorder(createBorder(splitWidth - 1, 0, splitWidth, splitWidth));
 		}
 		else if (placement == PLACEMENT_WEST)
 		{
-			add(splitBar, BorderLayout.EAST);
+			shrinkContentPane.add(splitBar, BorderLayout.EAST);
+			shrinkContentPane.setBorder(createBorder(splitWidth - 1, splitWidth, splitWidth, 0));
 		}
 	}
 	
@@ -228,16 +236,17 @@ public class BasicShrinkBar
 		{
 			if (retrieveComponent(splitBar))
 			{	
-				remove(splitBar);
+				shrinkContentPane.remove(splitBar);
+				shrinkContentPane.setBorder(createBorder(splitWidth - 1, splitWidth, splitWidth, splitWidth));
 			}
 		}
 	}
 	
 	private boolean retrieveComponent(Component component)
 	{
-		for (int i = 0; i < getComponentCount(); i++)
+		for (int i = 0; i < shrinkContentPane.getComponentCount(); i++)
 		{
-			Component c = getComponent(i);
+			Component c = shrinkContentPane.getComponent(i);
 			
 			if (c == component)
 			{
@@ -256,5 +265,13 @@ public class BasicShrinkBar
 	public void setShrinkedWidth(int shrinkedWidth)
 	{
 		shrinkHeader.setShrinkedWidth(shrinkedWidth);
+	}
+	
+	private Border createBorder(int top, int left, int bottom, int right)
+	{
+		LineBorder lineBorder = new LineBorder(shrinkHeader.getHeaderTextureStyle().getBorderColor());
+		lineBorder.setColor(null, LineBorder.NORTH);
+		
+		return BorderFactory.createCompoundBorder(lineBorder, BorderFactory.createEmptyBorder(top, left, bottom, right));
 	}
 }

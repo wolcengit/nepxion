@@ -49,6 +49,6 @@ public class JShrinkBar
 	{
 		this.contentPane = contentPane;
 		
-		add(contentPane, BorderLayout.CENTER);
+		shrinkContentPane.add(contentPane, BorderLayout.CENTER);
 	}
 }

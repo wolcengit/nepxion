@@ -106,7 +106,7 @@ public class JShrinkOutlookBar
 		contentPane.add(outlookContentPane, BorderLayout.NORTH);
 		contentPane.add(fillContentPane, BorderLayout.CENTER);
 		
-		add(contentPane, BorderLayout.CENTER);
+		shrinkContentPane.add(contentPane, BorderLayout.CENTER);
 	}
 	
 	public IOutlookTextureStyle getOutlookTextureStyle()
