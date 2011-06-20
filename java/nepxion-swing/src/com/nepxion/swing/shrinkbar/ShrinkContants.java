@@ -10,13 +10,10 @@ package com.nepxion.swing.shrinkbar;
  * @version 1.0
  */
 
-import java.awt.Color;
-import java.awt.TexturePaint;
-
-import javax.swing.ImageIcon;
-
-import com.nepxion.swing.gradient.JGradientPainter;
-import com.nepxion.swing.icon.IconFactory;
+import com.nepxion.swing.style.texture.shrink.IHeaderTextureStyle;
+import com.nepxion.swing.style.texture.shrink.IOutlookTextureStyle;
+import com.nepxion.swing.style.texture.shrink.JGrayHeaderTextureStyle;
+import com.nepxion.swing.style.texture.shrink.JGreenOutlookTextureStyle;
 
 public interface ShrinkContants
 {
@@ -26,18 +23,8 @@ public interface ShrinkContants
 	public static final int CONTENT_PANE_TYPE_LABEL = 2;
 	public static final int CONTENT_PANE_TYPE_TOOLBAR = 3;
 	
-	public static final ImageIcon HEADER_BACKGROUND_IMAGE_ICON = IconFactory.getSwingIcon("skin/header_background.png");
-	public static final ImageIcon HEADER_BACKGROUND_LEFT_IMAGE_ICON = IconFactory.getSwingIcon("skin/header_background_left.png");
-	public static final ImageIcon HEADER_BACKGROUND_RIGHT_IMAGE_ICON = IconFactory.getSwingIcon("skin/header_background_right.png");
+	public static final int DEFAULT_CONTENT_PANE_TYPE = CONTENT_PANE_TYPE_LABEL;
 	
-	public static final ImageIcon HEADER_SHRINK_HANDLER_LEFT_IMAGE_ICON = IconFactory.getSwingIcon("skin/shrink_handler_left.png");
-	public static final ImageIcon HEADER_SHRINK_HANDLER_RIGHT_IMAGE_ICON = IconFactory.getSwingIcon("skin/shrink_handler_right.png");
-	public static final ImageIcon HEADER_RESIZE_HANDLER_IMAGE_ICON = IconFactory.getSwingIcon("skin/resize_handler.png");
-	
-	public static final TexturePaint HEADER_TEXTURE_PAINT = JGradientPainter.createTexturePaint(HEADER_BACKGROUND_IMAGE_ICON.getImage());
-	
-	public static final Color HEADER_TITLE_COLOR = new Color(215, 215, 216);
-	public static final Color HEADER_SPLIT_COLOR = new Color(76, 84, 91);
-	
-	public static final int SHRINKED_WIDTH = 37;
+	public static final IHeaderTextureStyle DEFAULT_HEADER_TEXTURE_STYLE = new JGrayHeaderTextureStyle();
+	public static final IOutlookTextureStyle DEFAULT_OUTLOOK_TEXTURE_STYLE = new JGreenOutlookTextureStyle();
 }

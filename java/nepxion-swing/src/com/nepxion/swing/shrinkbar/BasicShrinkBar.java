@@ -18,6 +18,7 @@ import javax.swing.Icon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import com.nepxion.swing.style.texture.shrink.IHeaderTextureStyle;
 import com.nepxion.swing.toolbar.JBasicToolBar;
 
 public class BasicShrinkBar
@@ -29,12 +30,22 @@ public class BasicShrinkBar
 	
 	public BasicShrinkBar(int placement)
 	{
-		this(placement, CONTENT_PANE_TYPE_LABEL);
+		this(placement, DEFAULT_CONTENT_PANE_TYPE);
+	}
+	
+	public BasicShrinkBar(int placement, IHeaderTextureStyle headerTextureStyle)
+	{
+		this(placement, DEFAULT_CONTENT_PANE_TYPE, headerTextureStyle);
 	}
 	
 	public BasicShrinkBar(int placement, int contentPaneType)
 	{
-		shrinkHeader = new JShrinkHeader(placement, contentPaneType)
+		this(placement, contentPaneType, DEFAULT_HEADER_TEXTURE_STYLE);
+	}
+	
+	public BasicShrinkBar(int placement, int contentPaneType, IHeaderTextureStyle headerTextureStyle)
+	{
+		shrinkHeader = new JShrinkHeader(placement, contentPaneType, headerTextureStyle)
 		{
 			public void setShrinked(boolean shrinked)
 			{

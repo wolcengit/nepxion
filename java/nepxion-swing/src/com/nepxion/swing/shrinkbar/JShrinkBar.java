@@ -13,6 +13,8 @@ package com.nepxion.swing.shrinkbar;
 import java.awt.BorderLayout;
 import java.awt.Component;
 
+import com.nepxion.swing.style.texture.shrink.IHeaderTextureStyle;
+
 public class JShrinkBar
 	extends BasicShrinkBar
 {
@@ -20,29 +22,22 @@ public class JShrinkBar
 	
 	public JShrinkBar(int placement)
 	{
-		this(placement, null);
+		this(placement, DEFAULT_CONTENT_PANE_TYPE);
 	}
 	
-	public JShrinkBar(int placement, Component contentPane)
+	public JShrinkBar(int placement, IHeaderTextureStyle headerTextureStyle)
 	{
-		this(placement, CONTENT_PANE_TYPE_LABEL, contentPane);
+		this(placement, DEFAULT_CONTENT_PANE_TYPE, headerTextureStyle);
 	}
 	
 	public JShrinkBar(int placement, int contentPaneType)
 	{
-		this(placement, contentPaneType, null);
+		this(placement, contentPaneType, DEFAULT_HEADER_TEXTURE_STYLE);
 	}
 	
-	public JShrinkBar(int placement, int contentPaneType, Component contentPane)
+	public JShrinkBar(int placement, int contentPaneType, IHeaderTextureStyle headerTextureStyle)
 	{
-		super(placement, contentPaneType);
-		
-		this.contentPane = contentPane;
-		
-		if (contentPane != null)
-		{
-			setContentPane(contentPane);
-		}
+		super(placement, contentPaneType, headerTextureStyle);
 	}
 	
 	public Component getContentPane()

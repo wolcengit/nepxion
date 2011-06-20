@@ -22,9 +22,13 @@ import javax.swing.border.Border;
 public class JSplitBar
 	extends Filler implements ShrinkContants
 {
+	private JShrinkHeader shrinkHeader;
+	
 	public JSplitBar(JShrinkHeader shrinkHeader, int width)
 	{
 		super(new Dimension(width, 0), new Dimension(width, 0), new Dimension(width, Short.MAX_VALUE));
+		
+		this.shrinkHeader = shrinkHeader;
 		
 		SplitListener splitListener = new SplitListener(shrinkHeader);
 		
@@ -40,7 +44,7 @@ public class JSplitBar
 		{
 			public void paintBorder(Component c, Graphics g, int x, int y, int width, int height)
 			{
-				g.setColor(HEADER_SPLIT_COLOR);
+				g.setColor(shrinkHeader.getHeaderTextureStyle().getBorderColor());
 				
 				if (placement == PLACEMENT_EAST)
 				{

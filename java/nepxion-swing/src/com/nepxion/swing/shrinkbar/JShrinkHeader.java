@@ -17,7 +17,6 @@ import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics;
-import java.awt.Graphics2D;
 
 import javax.swing.BorderFactory;
 import javax.swing.Icon;
@@ -25,13 +24,15 @@ import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import com.nepxion.swing.gradient.JBackgroundPainter;
+import com.nepxion.swing.style.texture.shrink.IHeaderTextureStyle;
 import com.nepxion.swing.toolbar.JBasicToolBar;
 
 public class JShrinkHeader
 	extends JPanel implements ShrinkContants
 {
 	private int placement = PLACEMENT_WEST;
-	private int contentPaneType = CONTENT_PANE_TYPE_LABEL;
+	private int contentPaneType = DEFAULT_CONTENT_PANE_TYPE;
 	
 	private boolean shrinked = false;
 	
@@ -41,23 +42,31 @@ public class JShrinkHeader
 	private JLabel label;
 	private JBasicToolBar toolBar;
 	
-	private int shrinkedWidth = SHRINKED_WIDTH;
+	private int shrinkedWidth = 37;
 	private int preferredWidth = 0;
-		
-	public JShrinkHeader()
-	{
-		this(PLACEMENT_WEST);
-	}
+	
+	private IHeaderTextureStyle headerTextureStyle;
 	
 	public JShrinkHeader(int placement)
 	{
-		this(placement, CONTENT_PANE_TYPE_LABEL);
+		this(placement, DEFAULT_CONTENT_PANE_TYPE);
+	}
+	
+	public JShrinkHeader(int placement, IHeaderTextureStyle headerTextureStyle)
+	{
+		this(placement, DEFAULT_CONTENT_PANE_TYPE, headerTextureStyle);
 	}
 	
 	public JShrinkHeader(int placement, int contentPaneType)
 	{
+		this(placement, contentPaneType, DEFAULT_HEADER_TEXTURE_STYLE);
+	}
+	
+	public JShrinkHeader(int placement, int contentPaneType, IHeaderTextureStyle headerTextureStyle)
+	{
 		this.placement = placement;
 		this.contentPaneType = contentPaneType;
+		this.headerTextureStyle = headerTextureStyle;
 		
 		initComponents();
 	}
@@ -67,7 +76,7 @@ public class JShrinkHeader
 		SplitListener splitListener = new SplitListener(this);
 		ShrinkListener shrinkListener = new ShrinkListener(this);
 		
-		resizeHandlerLabel = new JLabel(HEADER_RESIZE_HANDLER_IMAGE_ICON);
+		resizeHandlerLabel = new JLabel(headerTextureStyle.getResizeHandlerImageIcon());
 		resizeHandlerLabel.addMouseListener(splitListener);
 		resizeHandlerLabel.addMouseMotionListener(splitListener);
 		resizeHandlerLabel.setBorder(BorderFactory.createEmptyBorder(2, 6, 2, 6));
@@ -84,7 +93,7 @@ public class JShrinkHeader
 		updateShrinkIcon();
 		updateCursor();
 	}
-	
+		
 	public JLabel getLabel()
 	{
 		return label;
@@ -93,6 +102,11 @@ public class JShrinkHeader
 	public JBasicToolBar getToolBar()
 	{
 		return toolBar;
+	}
+	
+	public IHeaderTextureStyle getHeaderTextureStyle()
+	{
+		return headerTextureStyle;
 	}
 	
 	public String getTitle()
@@ -220,7 +234,7 @@ public class JShrinkHeader
 			if (label == null)
 			{
 				label = new JLabel();
-				label.setForeground(HEADER_TITLE_COLOR);
+				label.setForeground(headerTextureStyle.getForeground());
 			}
 			
 			add(label, BorderLayout.CENTER);
@@ -300,7 +314,9 @@ public class JShrinkHeader
 	
 	public Dimension getPreferredSize()
 	{
-		return new Dimension(super.getPreferredSize().width, HEADER_BACKGROUND_IMAGE_ICON.getIconHeight());
+		int height = headerTextureStyle.getHeight();
+		
+		return new Dimension(super.getPreferredSize().width, height);
 	}
 	
 	protected void revalidateParent()
@@ -321,22 +337,22 @@ public class JShrinkHeader
 		{
 			if (placement == PLACEMENT_EAST)
 			{
-				shrinkIcon = HEADER_SHRINK_HANDLER_LEFT_IMAGE_ICON;
+				shrinkIcon = headerTextureStyle.getShrinkHandlerLeftImageIcon();
 			}
 			else if (placement == PLACEMENT_WEST)
 			{
-				shrinkIcon = HEADER_SHRINK_HANDLER_RIGHT_IMAGE_ICON;
+				shrinkIcon = headerTextureStyle.getShrinkHandlerRightImageIcon();
 			}
 		}
 		else
 		{
 			if (placement == PLACEMENT_EAST)
 			{
-				shrinkIcon = HEADER_SHRINK_HANDLER_RIGHT_IMAGE_ICON;				
+				shrinkIcon = headerTextureStyle.getShrinkHandlerRightImageIcon();		
 			}
 			else if (placement == PLACEMENT_WEST)
 			{
-				shrinkIcon = HEADER_SHRINK_HANDLER_LEFT_IMAGE_ICON;
+				shrinkIcon = headerTextureStyle.getShrinkHandlerLeftImageIcon();
 			}
 		}
 		
@@ -357,18 +373,6 @@ public class JShrinkHeader
 	
 	protected void paintComponent(Graphics g)
 	{
-		Graphics2D g2d = (Graphics2D) g;
-		
-		int width = getWidth();
-		int height = getHeight();
-		
-		g2d.setPaint(HEADER_TEXTURE_PAINT);
-		g2d.fillRect(0, 0, width, height);
-		
-		g2d.drawImage(HEADER_BACKGROUND_LEFT_IMAGE_ICON.getImage(), 0, 0, null);
-		
-		int x = width - HEADER_BACKGROUND_RIGHT_IMAGE_ICON.getImage().getWidth(null);
-		int y = 0;
-		g2d.drawImage(HEADER_BACKGROUND_RIGHT_IMAGE_ICON.getImage(), x, y, null);
+		JBackgroundPainter.paintBackground(this, g, headerTextureStyle);
 	}
 }
