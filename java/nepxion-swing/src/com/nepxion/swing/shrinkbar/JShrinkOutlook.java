@@ -21,9 +21,9 @@ import java.awt.TexturePaint;
 import javax.swing.BorderFactory;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
-import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JViewport;
 import javax.swing.SwingConstants;
 import javax.swing.border.Border;
 
@@ -110,7 +110,24 @@ public class JShrinkOutlook
 		return shrinkOutlookBar;
 	}
 	
-	public JComponent getContentPane()
+	public Component getContentPane()
+	{
+		JViewport viewport = scrollPane.getViewport();
+		
+		if (viewport.getComponentCount() == 0)
+		{
+			return null;
+		}
+		
+		return viewport.getComponent(0);
+	}
+	
+	public void setContentPane(Component contentPane)
+	{
+		scrollPane.getViewport().add(contentPane);
+	}
+	
+	public JBasicScrollPane getScrollPane()
 	{
 		return scrollPane;
 	}
@@ -158,9 +175,7 @@ public class JShrinkOutlook
 			titleLabel.setForeground(outlookTextureStyle.getForeground());
 		}
 		
-		JComponent component = getContentPane();
-		
-		shrinkOutlookBar.updateLayoutConstraint(component, selected);
+		shrinkOutlookBar.updateLayoutConstraint(scrollPane, selected);
 		shrinkOutlookBar.setFillContentPaneVisible(!selected);
 		shrinkOutlookBar.revalidate();
 	}

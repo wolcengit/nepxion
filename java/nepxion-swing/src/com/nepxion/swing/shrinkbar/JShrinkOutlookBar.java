@@ -114,13 +114,22 @@ public class JShrinkOutlookBar
 		return outlookTextureStyle;
 	}
 	
-	public JShrinkOutlook addOutlook(String title, Icon icon, Icon selectedIcon)
+	public JShrinkOutlook addOutlook(String title, Icon icon, Component contentPane)
+	{
+		return addOutlook(title, icon, icon, contentPane);
+	}
+	
+	public JShrinkOutlook addOutlook(String title, Icon icon, Icon selectedIcon, Component contentPane)
 	{
 		JShrinkOutlook outlook = new JShrinkOutlook(this);
-		outlook.setSelected(false);
 		outlook.setTitle(title);
 		outlook.setIcon(icon);
 		outlook.setSelectedIcon(selectedIcon);
+		outlook.setSelected(false);
+		if (contentPane != null)
+		{	
+			outlook.setContentPane(contentPane);
+		}
 		
 		int rowCount = tableLayout.getRow().length;
 		
@@ -130,8 +139,8 @@ public class JShrinkOutlookBar
 		rowCount++;
 		
 		tableLayout.insertRow(rowCount, TableLayout.MINIMUM);
-		outlookContentPane.add(outlook.getContentPane(), "0," + rowCount);
-		tableLayoutMap.put(outlook.getContentPane(), rowCount);
+		outlookContentPane.add(outlook.getScrollPane(), "0," + rowCount);
+		tableLayoutMap.put(outlook.getScrollPane(), rowCount);
 		
 		return outlook;
 	}
@@ -216,6 +225,38 @@ public class JShrinkOutlookBar
 				JShrinkOutlook shrinkOutlook = (JShrinkOutlook) component;
 				
 				if (shrinkOutlook.isSelected())
+				{
+					return shrinkOutlook;
+				}
+			}
+		}
+		
+		return null;
+	}
+	
+	public JShrinkOutlook getOutlook(int index)
+	{
+		Component component = outlookContentPane.getComponent(index);
+		if (component instanceof JShrinkOutlook)
+		{
+			JShrinkOutlook shrinkOutlook = (JShrinkOutlook) component;
+			
+			return shrinkOutlook;
+		}
+		
+		return null;
+	}
+	
+	public JShrinkOutlook getOutlook(String title)
+	{
+		for (int i = 0; i < outlookContentPane.getComponentCount(); i++)
+		{
+			Component component = outlookContentPane.getComponent(i);
+			if (component instanceof JShrinkOutlook)
+			{
+				JShrinkOutlook shrinkOutlook = (JShrinkOutlook) component;
+				
+				if (shrinkOutlook.getTitle().equals(title))
 				{
 					return shrinkOutlook;
 				}
