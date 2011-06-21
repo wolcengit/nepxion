@@ -21,6 +21,7 @@ import java.util.Map;
 import javax.swing.BorderFactory;
 import javax.swing.Icon;
 import javax.swing.JComponent;
+import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.UIManager;
 import javax.swing.border.Border;
@@ -185,11 +186,13 @@ public class JShrinkOutlookBar
 			if (component instanceof JShrinkOutlook)
 			{
 				JShrinkOutlook shrinkOutlook = (JShrinkOutlook) component;
-//				FreeOutlookList list = bar.getList();
-//				// fire this property change to cheat the UI to revalidate
-//				// and recalculate prefered size, so the cell renderer
-//				// will be displayed in center.
-//				list.firePropertyChange("layoutOrientation", true, false);
+				
+				Component contentPane = shrinkOutlook.getContentPane();
+				if (contentPane != null && contentPane instanceof JList)
+				{
+					JList list = (JList) contentPane;
+					list.firePropertyChange("layoutOrientation", true, false);
+				}
 			}
 		}
 	}
