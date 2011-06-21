@@ -36,6 +36,7 @@ public class DemoTaskBarPanel
 	public DemoTaskBarPanel()
 	{
 		JEclipseTabbedPane tabbedPane = new JEclipseTabbedPane();
+		tabbedPane.setTabPlacement(JEclipseTabbedPane.BOTTOM);
 		
 		JTaskManager.installTaskPlainFont();
 		
