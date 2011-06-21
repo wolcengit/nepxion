@@ -15,6 +15,11 @@ import com.nepxion.swing.icon.IconFactory;
 public class JBasicHeaderTextureStyle
 	extends AbstractHeaderTextureStyle
 {
+	/**
+	 * Constructs with the specified initial basic style path and extension style path.
+	 * @param basicStylePath the basic style path string
+	 * @param extensionStylePath the extension style path string
+	 */
 	public JBasicHeaderTextureStyle(String basicStylePath, String extensionStylePath)
 	{
 		backgroundImageIcon = IconFactory.getSwingIcon(basicStylePath + "background.png");

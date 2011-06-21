@@ -15,6 +15,11 @@ import com.nepxion.swing.icon.IconFactory;
 public class JBasicOutlookTextureStyle
 	extends AbstractOutlookTextureStyle
 {
+	/**
+	 * Constructs with the specified initial basic style path and extension style path.
+	 * @param basicStylePath the basic style path string
+	 * @param extensionStylePath the extension style path string
+	 */
 	public JBasicOutlookTextureStyle(String basicStylePath, String extensionStylePath)
 	{
 		backgroundImageIcon = IconFactory.getSwingIcon(extensionStylePath + "background.png");

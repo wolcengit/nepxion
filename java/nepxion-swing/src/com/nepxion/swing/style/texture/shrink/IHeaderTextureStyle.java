@@ -19,11 +19,27 @@ import com.nepxion.swing.style.texture.ITextureStyle;
 public interface IHeaderTextureStyle
 	extends ITextureStyle
 {
+	/**
+	 * Gets the resize handler image icon.
+	 * @return the instance of ImageIcon
+	 */
 	public ImageIcon getResizeHandlerImageIcon();
 	
+	/**
+	 * Gets the shrink hander left image icon.
+	 * @return the instance of ImageIcon
+	 */
 	public ImageIcon getShrinkHandlerLeftImageIcon();
 	
+	/**
+	 * Gets the shrink hander right image icon.
+	 * @return the instance of ImageIcon
+	 */
 	public ImageIcon getShrinkHandlerRightImageIcon();
 	
+	/**
+	 * Gets the border color.
+	 * @return the instance of Color
+	 */
 	public Color getBorderColor();
 }
