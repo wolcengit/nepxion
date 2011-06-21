@@ -257,13 +257,13 @@ public class JShrinkOutlook
 		
 		g2d.fillRect(0, 0, width, height);
 		
-		if (selected)
+		/*if (selected)
 		{
 			ImageIcon selectionBackgroundLeftImageIcon = outlookTextureStyle.getSelectionBackgroundLeftImageIcon();
 			ImageIcon selectionBackgroundRightImageIcon = outlookTextureStyle.getSelectionBackgroundRightImageIcon();
 			
 			g2d.drawImage(selectionBackgroundLeftImageIcon.getImage(), 0, 0, null);
 			g2d.drawImage(selectionBackgroundRightImageIcon.getImage(), width - selectionBackgroundRightImageIcon.getImage().getWidth(null), 0, null);
-		}
+		}*/
 	}
 }
