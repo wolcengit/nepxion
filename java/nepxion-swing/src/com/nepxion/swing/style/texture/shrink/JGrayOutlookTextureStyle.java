@@ -33,6 +33,5 @@ public class JGrayOutlookTextureStyle
 		selectionForeground = new Color(59, 59, 59);
 		
 		borderColor = new Color(146, 151, 161);
-		scrollBorderColor = new Color(233, 223, 207);
 	}
 }

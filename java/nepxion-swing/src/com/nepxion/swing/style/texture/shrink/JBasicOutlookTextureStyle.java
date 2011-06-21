@@ -10,6 +10,8 @@ package com.nepxion.swing.style.texture.shrink;
  * @version 1.0
  */
 
+import java.awt.Color;
+
 import com.nepxion.swing.icon.IconFactory;
 
 public class JBasicOutlookTextureStyle
@@ -35,5 +37,7 @@ public class JBasicOutlookTextureStyle
 		
 		handlerImageIcon = IconFactory.getSwingIcon(extensionStylePath + "handler.png");
 		SelectionHandlerImageIcon = IconFactory.getSwingIcon(extensionStylePath + "handler_selection.png");
+		
+		scrollBorderColor = new Color(223, 224, 225);
 	}
 }

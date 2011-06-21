@@ -33,6 +33,5 @@ public class JBlueOutlookTextureStyle
 		selectionForeground = new Color(21, 66, 139);
 		
 		borderColor = new Color(146, 151, 161);
-		scrollBorderColor = new Color(233, 223, 207);
 	}
 }

@@ -33,6 +33,5 @@ public class JGreenOutlookTextureStyle
 		selectionForeground = Color.white;
 		
 		borderColor = new Color(146, 151, 161);
-		scrollBorderColor = new Color(233, 223, 207);
 	}
 }
