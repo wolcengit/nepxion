@@ -16,9 +16,7 @@ import com.nepxion.demo.common.DemoTogglePanel;
 import com.nepxion.demo.common.DemoToggleTemplate;
 import com.nepxion.demo.component.taskbar.DemoTaskBarPanel;
 import com.nepxion.swing.icon.IconFactory;
-import com.nepxion.swing.lookandfeel.LookAndFeelManager;
 import com.nepxion.swing.tabbedpane.JEclipseTabbedPane;
-import com.nepxion.swing.taskbar.JTaskManager;
 
 public class DemoTaskBarTogglePanel
 	extends DemoTogglePanel
@@ -30,26 +28,7 @@ public class DemoTaskBarTogglePanel
 	public void initialize()
 	{
 		JEclipseTabbedPane toggleTabbedPane = getToggleTabbedPane();
-		
-		JTaskManager.installTaskPlainFont();
-		
-		LookAndFeelManager.addonMetalLookAndFeel();
-		toggleTabbedPane.addTab("Metal L&F", IconFactory.getSwingIcon("component/tool_bar_16.png"), new DemoToggleTemplate(new DemoTaskBarPanel()), "Metal L&F");
-		
-		LookAndFeelManager.addonWindowsLookAndFeel();
-		toggleTabbedPane.addTab("Windows L&F", IconFactory.getSwingIcon("component/tool_bar_16.png"), new DemoToggleTemplate(new DemoTaskBarPanel()), "Windows L&F");
-		
-		LookAndFeelManager.addonLunaLookAndFeel();
-		toggleTabbedPane.addTab("Luna L&F", IconFactory.getSwingIcon("component/tool_bar_16.png"), new DemoToggleTemplate(new DemoTaskBarPanel()), "Luna L&F");
-		
-		LookAndFeelManager.addonHomesteadLookAndFeel();
-		toggleTabbedPane.addTab("Homestead L&F", IconFactory.getSwingIcon("component/tool_bar_16.png"), new DemoToggleTemplate(new DemoTaskBarPanel()), "Homestead L&F");
-		
-		LookAndFeelManager.addonMetallicLookAndFeel();
-		toggleTabbedPane.addTab("Metallic L&F", IconFactory.getSwingIcon("component/tool_bar_16.png"), new DemoToggleTemplate(new DemoTaskBarPanel()), "Metallic L&F");
-		
-		LookAndFeelManager.addonGlossyLookAndFeel();
-		toggleTabbedPane.addTab("Glossy L&F", IconFactory.getSwingIcon("component/tool_bar_16.png"), new DemoToggleTemplate(new DemoTaskBarPanel()), "Glossy L&F");		
+		toggleTabbedPane.addTab("TaskBar", IconFactory.getSwingIcon("component/tool_bar_16.png"), new DemoToggleTemplate(new DemoTaskBarPanel()), "TaskBar");
 	}
 	
 	public String getToggleText()
