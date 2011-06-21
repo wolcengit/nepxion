@@ -21,30 +21,55 @@ import com.nepxion.swing.border.BorderManager;
 import com.nepxion.swing.container.ContainerManager;
 import com.nepxion.swing.handle.HandleManager;
 import com.nepxion.swing.icon.IconFactory;
+import com.nepxion.swing.lookandfeel.LookAndFeelManager;
 import com.nepxion.swing.optionpane.JBasicOptionPane;
 import com.nepxion.swing.scrollpane.JBasicScrollPane;
+import com.nepxion.swing.tabbedpane.JEclipseTabbedPane;
 import com.nepxion.swing.taskbar.JTaskAction;
 import com.nepxion.swing.taskbar.JTaskBar;
 import com.nepxion.swing.taskbar.JTaskGroup;
+import com.nepxion.swing.taskbar.JTaskManager;
 
 public class DemoTaskBarPanel
 	extends JPanel
 {
 	public DemoTaskBarPanel()
 	{
+		JEclipseTabbedPane tabbedPane = new JEclipseTabbedPane();
+		
+		JTaskManager.installTaskPlainFont();
+		
+		LookAndFeelManager.addonMetalLookAndFeel();
+		tabbedPane.addTab("Metal", IconFactory.getSwingIcon("component/color_16.png"), new TaskBarPanel("Metal L&F"), "Metal L&F");
+		
+		LookAndFeelManager.addonWindowsLookAndFeel();
+		tabbedPane.addTab("Windows", IconFactory.getSwingIcon("component/color_16.png"), new TaskBarPanel("Windows L&F"), "Windows L&F");
+		
+		LookAndFeelManager.addonLunaLookAndFeel();
+		tabbedPane.addTab("Luna", IconFactory.getSwingIcon("component/color_16.png"), new TaskBarPanel("Luna L&F"), "Luna L&F");
+		
+		LookAndFeelManager.addonHomesteadLookAndFeel();
+		tabbedPane.addTab("Homestead", IconFactory.getSwingIcon("component/color_16.png"), new TaskBarPanel("Homestead L&F"), "Homestead L&F");
+		
+		LookAndFeelManager.addonMetallicLookAndFeel();
+		tabbedPane.addTab("Metallic", IconFactory.getSwingIcon("component/color_16.png"), new TaskBarPanel("Metallic L&F"), "Metallic L&F");
+		
+		LookAndFeelManager.addonGlossyLookAndFeel();
+		tabbedPane.addTab("Glossy", IconFactory.getSwingIcon("component/color_16.png"), new TaskBarPanel("Glossy L&F"), "Glossy L&F");
+		
 		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 		setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
 		
-		add(new TaskBarPanel());
+		add(tabbedPane);
 	}
 	
 	public class TaskBarPanel
 		extends JPanel
 	{
-		public TaskBarPanel()
+		public TaskBarPanel(String title)
 		{
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(BorderManager.createComplexTitledBorder("TaskBar"));
+			setBorder(BorderManager.createComplexTitledBorder(title));
 			
 			final JTaskBar taskBar = new JTaskBar();
 			
