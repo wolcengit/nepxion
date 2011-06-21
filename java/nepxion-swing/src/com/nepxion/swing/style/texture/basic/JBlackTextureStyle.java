@@ -13,8 +13,14 @@ package com.nepxion.swing.style.texture.basic;
 public class JBlackTextureStyle
 	extends JBasicTextureStyle
 {
+	/**
+	 * The style path.
+	 */
 	public static final String STYLE_PATH = "skin/basic/black/";
 	
+	/**
+	 * Constructs with the default.
+	 */
 	public JBlackTextureStyle()
 	{
 		super(STYLE_PATH);

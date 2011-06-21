@@ -13,8 +13,14 @@ package com.nepxion.swing.style.texture.basic;
 public class JBlueTextureStyle
 	extends JBasicTextureStyle
 {
+	/**
+	 * The style path.
+	 */
 	public static final String STYLE_PATH = "skin/basic/blue/";
 	
+	/**
+	 * Constructs with the default.
+	 */
 	public JBlueTextureStyle()
 	{
 		super(STYLE_PATH);

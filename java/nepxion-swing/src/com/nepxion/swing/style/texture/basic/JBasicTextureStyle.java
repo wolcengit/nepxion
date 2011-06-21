@@ -16,6 +16,10 @@ import com.nepxion.swing.style.texture.AbstractTextureStyle;
 public class JBasicTextureStyle
 	extends AbstractTextureStyle
 {
+	/**
+	 * Constructs with the specified initial style path.
+	 * @param stylePath the style path string.
+	 */
 	public JBasicTextureStyle(String stylePath)
 	{
 		backgroundImageIcon = IconFactory.getSwingIcon(stylePath + "background.png");

@@ -13,8 +13,14 @@ package com.nepxion.swing.style.texture.basic;
 public class JGrayTextureStyle
 	extends JBasicTextureStyle
 {
+	/**
+	 * The style path.
+	 */
 	public static final String STYLE_PATH = "skin/basic/gray/";
 	
+	/**
+	 * Constructs with the default.
+	 */
 	public JGrayTextureStyle()
 	{
 		super(STYLE_PATH);

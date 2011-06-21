@@ -13,8 +13,14 @@ package com.nepxion.swing.style.texture.basic;
 public class JYellowTextureStyle
 	extends JBasicTextureStyle
 {
+	/**
+	 * The style path.
+	 */
 	public static final String STYLE_PATH = "skin/basic/yellow/";
 	
+	/**
+	 * Constructs with the default.
+	 */
 	public JYellowTextureStyle()
 	{
 		super(STYLE_PATH);
