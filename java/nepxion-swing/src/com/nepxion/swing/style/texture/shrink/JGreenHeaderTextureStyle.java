@@ -32,6 +32,6 @@ public class JGreenHeaderTextureStyle
 		foreground = Color.white;
 		selectionForeground = Color.white;
 		
-		borderColor = new Color(146, 151, 161);
+		borderColor = new Color(93, 166, 49);
 	}
 }
