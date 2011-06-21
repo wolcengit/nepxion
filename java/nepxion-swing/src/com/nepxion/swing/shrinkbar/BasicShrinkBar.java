@@ -58,6 +58,8 @@ public class BasicShrinkBar
 				super.setShrinked(shrinked);
 				
 				splitBar.setShrinked(shrinked);
+				
+				shrinkChanged(shrinked);
 			}
 		};
 		splitBar = new JSplitBar(shrinkHeader, splitWidth);
@@ -90,6 +92,10 @@ public class BasicShrinkBar
 			shrinkContentPane.add(splitBar, BorderLayout.EAST);
 			shrinkContentPane.setBorder(createBorder(splitWidth - 1, splitWidth, splitWidth, 0));
 		}
+	}
+	
+	protected void shrinkChanged(boolean shrinked)
+	{
 	}
 	
 	public JShrinkHeader getShrinkHeader()

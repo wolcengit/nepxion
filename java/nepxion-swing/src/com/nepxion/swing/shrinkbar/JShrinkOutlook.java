@@ -187,18 +187,6 @@ public class JShrinkOutlook
 		setSelected(!selected);
 	}
 	
-	protected void toggleShrink(boolean shrinked)
-	{
-		if (shrinked)
-		{
-			handlerLabel.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 22));
-		}
-		else
-		{
-			handlerLabel.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 16));
-		}
-	}
-	
 	public Icon getIcon()
 	{
 		return icon;

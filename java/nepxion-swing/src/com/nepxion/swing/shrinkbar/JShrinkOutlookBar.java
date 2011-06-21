@@ -175,23 +175,23 @@ public class JShrinkOutlookBar
 		}
 	}
 	
-	private void shrinkChanged(boolean shrinked)
+	protected void shrinkChanged(boolean shrinked)
 	{
-		// inform all bar list to update cell renderer.
-//		for (int i = 0; i < barPane.getComponentCount(); i++)
-//		{
-//			Component c = barPane.getComponent(i);
-//			if (c instanceof JShrinkOutlookBar)
-//			{
-//				JShrinkOutlookBar bar = (JShrinkOutlookBar) c;
-//				bar.headerShrinkChanged(shrinked);
-////				FreeOutlookList list = bar.getList();
-////				// fire this property change to cheat the UI to revalidate
-////				// and recalculate prefered size, so the cell renderer
-////				// will be displayed in center.
-////				list.firePropertyChange("layoutOrientation", true, false);
-//			}
-//		}
+		super.shrinkChanged(shrinked);
+		
+		for (int i = 0; i < outlookContentPane.getComponentCount(); i++)
+		{
+			Component component = outlookContentPane.getComponent(i);
+			if (component instanceof JShrinkOutlook)
+			{
+				JShrinkOutlook shrinkOutlook = (JShrinkOutlook) component;
+//				FreeOutlookList list = bar.getList();
+//				// fire this property change to cheat the UI to revalidate
+//				// and recalculate prefered size, so the cell renderer
+//				// will be displayed in center.
+//				list.firePropertyChange("layoutOrientation", true, false);
+			}
+		}
 	}
 	
 	public JComponent getFillContentPane()
