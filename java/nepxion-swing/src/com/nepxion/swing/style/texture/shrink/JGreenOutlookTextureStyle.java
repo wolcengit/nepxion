@@ -17,8 +17,14 @@ import com.nepxion.swing.style.texture.basic.JGreenTextureStyle;
 public class JGreenOutlookTextureStyle
 	extends JBasicOutlookTextureStyle
 {
+	/**
+	 * The style path.
+	 */
 	public static final String STYLE_PATH = "skin/outlook/green/";
 	
+	/**
+	 * Constructs with the default.
+	 */
 	public JGreenOutlookTextureStyle()
 	{
 		super(JGreenTextureStyle.STYLE_PATH, STYLE_PATH);
