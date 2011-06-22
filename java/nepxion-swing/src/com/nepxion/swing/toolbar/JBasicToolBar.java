@@ -28,9 +28,7 @@ public class JBasicToolBar
 	 * Constructs with the default.
 	 */
 	public JBasicToolBar()
-	{
-		super();
-		
+	{		
 		setFloatable(false);
 		setBorderVisible(false);
 	}
