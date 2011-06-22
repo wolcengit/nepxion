@@ -19,11 +19,11 @@ import javax.swing.JComponent;
 public class ShrinkOutlookListener
 	extends MouseAdapter
 {
-	private JShrinkOutlook shrinkOutlookBar;
+	private JShrinkOutlook shrinkOutlook;
 	
-	public ShrinkOutlookListener(JShrinkOutlook shrinkOutlookBar)
+	public ShrinkOutlookListener(JShrinkOutlook shrinkOutlook)
 	{
-		this.shrinkOutlookBar = shrinkOutlookBar;
+		this.shrinkOutlook = shrinkOutlook;
 	}
 	
 	public void mouseReleased(MouseEvent e)
@@ -33,7 +33,7 @@ public class ShrinkOutlookListener
 		
 		if (component.contains(point))
 		{
-			shrinkOutlookBar.toggleSelection();
+			shrinkOutlook.toggleSelection();
 		}
 	}
 }
