@@ -13,6 +13,7 @@ package com.nepxion.swing.shrinkbar;
 import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Insets;
@@ -140,6 +141,16 @@ public class JShrinkOutlook
 	public void setTitle(String title)
 	{
 		titleLabel.setText(title);
+	}
+	
+	public Font getTitleFont()
+	{
+		return titleLabel.getFont();
+	}
+	
+	public void setTitleFont(Font font)
+	{
+		titleLabel.setFont(font);
 	}
 	
 	public String getToolTipText()

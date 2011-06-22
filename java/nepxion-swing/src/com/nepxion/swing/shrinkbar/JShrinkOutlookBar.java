@@ -13,6 +13,7 @@ package com.nepxion.swing.shrinkbar;
 import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Insets;
 import java.util.Hashtable;
@@ -115,18 +116,55 @@ public class JShrinkOutlookBar
 		return outlookTextureStyle;
 	}
 	
+	public JShrinkOutlook addOutlook(String title, Icon icon, String toolTipText)
+	{
+		return addOutlook(title, icon, toolTipText, (Component) null);
+	}
+	
 	public JShrinkOutlook addOutlook(String title, Icon icon, String toolTipText, Component contentPane)
 	{
-		return addOutlook(title, icon, icon, toolTipText, contentPane);
+		return addOutlook(title, icon, icon, toolTipText, null, contentPane);
+	}
+	
+	
+	public JShrinkOutlook addOutlook(String title, Icon icon, String toolTipText, Font titleFont)
+	{
+		return addOutlook(title, icon, toolTipText, titleFont, null);
+	}
+	
+	public JShrinkOutlook addOutlook(String title, Icon icon, String toolTipText, Font titleFont, Component contentPane)
+	{
+		return addOutlook(title, icon, icon, toolTipText, titleFont, contentPane);
+	}
+	
+	
+	public JShrinkOutlook addOutlook(String title, Icon icon, Icon selectedIcon, String toolTipText)
+	{
+		return addOutlook(title, icon, selectedIcon, toolTipText, (Component) null);
 	}
 	
 	public JShrinkOutlook addOutlook(String title, Icon icon, Icon selectedIcon, String toolTipText, Component contentPane)
+	{
+		return addOutlook(title, icon, selectedIcon, toolTipText, null, contentPane);
+	}
+	
+	
+	public JShrinkOutlook addOutlook(String title, Icon icon, Icon selectedIcon, String toolTipText, Font titleFont)
+	{
+		return addOutlook(title, icon, selectedIcon, toolTipText, titleFont, null);
+	}
+	
+	public JShrinkOutlook addOutlook(String title, Icon icon, Icon selectedIcon, String toolTipText, Font titleFont, Component contentPane)
 	{
 		JShrinkOutlook outlook = new JShrinkOutlook(this);
 		outlook.setTitle(title);
 		outlook.setToolTipText(toolTipText);
 		outlook.setIcon(icon);
 		outlook.setSelectedIcon(selectedIcon);
+		if (titleFont != null)
+		{	
+			outlook.setTitleFont(titleFont);
+		}
 		outlook.setSelected(false);
 		if (contentPane != null)
 		{	
