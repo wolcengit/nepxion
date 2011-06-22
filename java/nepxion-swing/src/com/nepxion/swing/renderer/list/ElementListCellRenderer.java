@@ -260,6 +260,60 @@ public class ElementListCellRenderer
 	}
 	
 	/**
+	 * Gets the no focus border.
+	 * @return the instance of Border
+	 */
+	public Border getNoFocusBorder()
+	{
+		return noFocusBorder;
+	}
+
+	/**
+	 * Sets the no focus border.
+	 * @param noFocusBorder the instance of Border
+	 */
+	public void setNoFocusBorder(Border noFocusBorder)
+	{
+		this.noFocusBorder = noFocusBorder;
+	}
+
+	/**
+	 * Gets the selection border.
+	 * @return the instance of Border
+	 */
+	public Border getSelectionBorder()
+	{
+		return selectionBorder;
+	}
+
+	/**
+	 * Sets the selection border.
+	 * @param selectionBorder the instance of Border
+	 */
+	public void setSelectionBorder(Border selectionBorder)
+	{
+		this.selectionBorder = selectionBorder;
+	}
+
+	/**
+	 * Gets the unselection border.
+	 * @return the instance of Border
+	 */
+	public Border getUnSeletionBorder()
+	{
+		return unSeletionBorder;
+	}
+
+	/**
+	 * Sets the unselection border.
+	 * @param unSeletionBorder the instance of Border
+	 */
+	public void setUnSeletionBorder(Border unSeletionBorder)
+	{
+		this.unSeletionBorder = unSeletionBorder;
+	}
+	
+	/**
 	 * Gets the cell icon.
 	 * @return the instance of Icon
 	 */
@@ -369,7 +423,7 @@ public class ElementListCellRenderer
 			{
 				if (selectionBorder == null)
 				{
-					selectionBorder = BorderFactory.createCompoundBorder(getBorder(), cellBorder);
+					selectionBorder = BorderFactory.createCompoundBorder(getBorder(), getCellBorder());
 				}
 				setBorder(selectionBorder);
 			}
@@ -377,7 +431,7 @@ public class ElementListCellRenderer
 			{
 				if (unSeletionBorder == null)
 				{
-					unSeletionBorder = BorderFactory.createCompoundBorder(getBorder(), cellBorder);
+					unSeletionBorder = BorderFactory.createCompoundBorder(getBorder(), getCellBorder());
 				}
 				setBorder(unSeletionBorder);
 			}
@@ -386,7 +440,7 @@ public class ElementListCellRenderer
 		{
 			if (noFocusBorder == null)
 			{
-				noFocusBorder = BorderFactory.createCompoundBorder(getBorder(), cellBorder);
+				noFocusBorder = BorderFactory.createCompoundBorder(getBorder(), getCellBorder());
 			}
 			setBorder(noFocusBorder);
 		}
