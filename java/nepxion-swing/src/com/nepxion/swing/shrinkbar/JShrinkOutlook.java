@@ -82,9 +82,9 @@ public class JShrinkOutlook
 		scrollPane.setBorder(new Border()
 		{
 			public void paintBorder(Component c, Graphics g, int x, int y, int width, int height)
-			{
+			{				
 				g.setColor(outlookTextureStyle.getScrollBorderColor());
-				g.drawLine(0, height, x, height);
+				g.drawLine(0, height - 1, width, height - 1);
 			}
 			
 			public Insets getBorderInsets(Component c)
@@ -140,9 +140,18 @@ public class JShrinkOutlook
 	public void setTitle(String title)
 	{
 		titleLabel.setText(title);
-		titleLabel.setToolTipText(title);
-		iconLabel.setToolTipText(title);
-		handlerLabel.setToolTipText(title);
+	}
+	
+	public String getToolTipText()
+	{
+		return titleLabel.getToolTipText();
+	}
+	
+	public void setToolTipText(String toolTipText)
+	{
+		titleLabel.setToolTipText(toolTipText);
+		iconLabel.setToolTipText(toolTipText);
+		handlerLabel.setToolTipText(toolTipText);
 	}
 	
 	public boolean isSelected()

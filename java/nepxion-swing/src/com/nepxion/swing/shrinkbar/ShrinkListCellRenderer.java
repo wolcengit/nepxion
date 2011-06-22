@@ -197,7 +197,7 @@ public class ShrinkListCellRenderer
 		
 		BasicShrinkBar shrinkBar = (BasicShrinkBar) HandleManager.getComponent(list, BasicShrinkBar.class);
 		if (shrinkBar != null && shrinkBar.isShrinkable())
-		{			
+		{
 			if (shrinkBar.isShrinked())
 			{
 				setText(null);

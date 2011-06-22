@@ -115,15 +115,16 @@ public class JShrinkOutlookBar
 		return outlookTextureStyle;
 	}
 	
-	public JShrinkOutlook addOutlook(String title, Icon icon, Component contentPane)
+	public JShrinkOutlook addOutlook(String title, Icon icon, String toolTipText, Component contentPane)
 	{
-		return addOutlook(title, icon, icon, contentPane);
+		return addOutlook(title, icon, icon, toolTipText, contentPane);
 	}
 	
-	public JShrinkOutlook addOutlook(String title, Icon icon, Icon selectedIcon, Component contentPane)
+	public JShrinkOutlook addOutlook(String title, Icon icon, Icon selectedIcon, String toolTipText, Component contentPane)
 	{
 		JShrinkOutlook outlook = new JShrinkOutlook(this);
 		outlook.setTitle(title);
+		outlook.setToolTipText(toolTipText);
 		outlook.setIcon(icon);
 		outlook.setSelectedIcon(selectedIcon);
 		outlook.setSelected(false);
