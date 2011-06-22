@@ -131,6 +131,26 @@ public class JShrinkHeader
 		label.setText(title);
 	}
 	
+	public String getToolTipText()
+	{
+		if (label == null)
+		{
+			throw new IllegalArgumentException("It should be set content pane type with CONTENT_PANE_TYPE_LABEL");
+		}
+		
+		return label.getToolTipText();
+	}
+	
+	public void setToolTipText(String toolTipText)
+	{
+		if (label == null)
+		{
+			throw new IllegalArgumentException("It should be set content pane type with CONTENT_PANE_TYPE_LABEL");
+		}
+		
+		label.setToolTipText(toolTipText);
+	}
+	
 	public Color getTitleColor()
 	{
 		if (label == null)

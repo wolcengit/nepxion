@@ -116,73 +116,73 @@ public class JShrinkOutlookBar
 		return outlookTextureStyle;
 	}
 	
-	public JShrinkOutlook addOutlook(String title, Icon icon, String toolTipText)
+	public JShrinkOutlook addShrinkOutlook(String title, Icon icon, String toolTipText)
 	{
-		return addOutlook(title, icon, toolTipText, (Component) null);
+		return addShrinkOutlook(title, icon, toolTipText, (Component) null);
 	}
 	
-	public JShrinkOutlook addOutlook(String title, Icon icon, String toolTipText, Component contentPane)
+	public JShrinkOutlook addShrinkOutlook(String title, Icon icon, String toolTipText, Component contentPane)
 	{
-		return addOutlook(title, icon, icon, toolTipText, null, contentPane);
-	}
-	
-	
-	public JShrinkOutlook addOutlook(String title, Icon icon, String toolTipText, Font titleFont)
-	{
-		return addOutlook(title, icon, toolTipText, titleFont, null);
-	}
-	
-	public JShrinkOutlook addOutlook(String title, Icon icon, String toolTipText, Font titleFont, Component contentPane)
-	{
-		return addOutlook(title, icon, icon, toolTipText, titleFont, contentPane);
+		return addShrinkOutlook(title, icon, icon, toolTipText, null, contentPane);
 	}
 	
 	
-	public JShrinkOutlook addOutlook(String title, Icon icon, Icon selectedIcon, String toolTipText)
+	public JShrinkOutlook addShrinkOutlook(String title, Icon icon, String toolTipText, Font titleFont)
 	{
-		return addOutlook(title, icon, selectedIcon, toolTipText, (Component) null);
+		return addShrinkOutlook(title, icon, toolTipText, titleFont, null);
 	}
 	
-	public JShrinkOutlook addOutlook(String title, Icon icon, Icon selectedIcon, String toolTipText, Component contentPane)
+	public JShrinkOutlook addShrinkOutlook(String title, Icon icon, String toolTipText, Font titleFont, Component contentPane)
 	{
-		return addOutlook(title, icon, selectedIcon, toolTipText, null, contentPane);
+		return addShrinkOutlook(title, icon, icon, toolTipText, titleFont, contentPane);
 	}
 	
 	
-	public JShrinkOutlook addOutlook(String title, Icon icon, Icon selectedIcon, String toolTipText, Font titleFont)
+	public JShrinkOutlook addShrinkOutlook(String title, Icon icon, Icon selectedIcon, String toolTipText)
 	{
-		return addOutlook(title, icon, selectedIcon, toolTipText, titleFont, null);
+		return addShrinkOutlook(title, icon, selectedIcon, toolTipText, (Component) null);
 	}
 	
-	public JShrinkOutlook addOutlook(String title, Icon icon, Icon selectedIcon, String toolTipText, Font titleFont, Component contentPane)
+	public JShrinkOutlook addShrinkOutlook(String title, Icon icon, Icon selectedIcon, String toolTipText, Component contentPane)
 	{
-		JShrinkOutlook outlook = new JShrinkOutlook(this);
-		outlook.setTitle(title);
-		outlook.setToolTipText(toolTipText);
-		outlook.setIcon(icon);
-		outlook.setSelectedIcon(selectedIcon);
+		return addShrinkOutlook(title, icon, selectedIcon, toolTipText, null, contentPane);
+	}
+	
+	
+	public JShrinkOutlook addShrinkOutlook(String title, Icon icon, Icon selectedIcon, String toolTipText, Font titleFont)
+	{
+		return addShrinkOutlook(title, icon, selectedIcon, toolTipText, titleFont, null);
+	}
+	
+	public JShrinkOutlook addShrinkOutlook(String title, Icon icon, Icon selectedIcon, String toolTipText, Font titleFont, Component contentPane)
+	{
+		JShrinkOutlook shrinkOutlook = new JShrinkOutlook(this);
+		shrinkOutlook.setTitle(title);
+		shrinkOutlook.setToolTipText(toolTipText);
+		shrinkOutlook.setIcon(icon);
+		shrinkOutlook.setSelectedIcon(selectedIcon);
 		if (titleFont != null)
 		{	
-			outlook.setTitleFont(titleFont);
+			shrinkOutlook.setTitleFont(titleFont);
 		}
-		outlook.setSelected(false);
+		shrinkOutlook.setSelected(false);
 		if (contentPane != null)
 		{	
-			outlook.setContentPane(contentPane);
+			shrinkOutlook.setContentPane(contentPane);
 		}
 		
 		int rowCount = tableLayout.getRow().length;
 		
 		tableLayout.insertRow(rowCount, TableLayout.PREFERRED);
-		outlookContentPane.add(outlook, "0, " + rowCount);
-		tableLayoutMap.put(outlook, rowCount);
+		outlookContentPane.add(shrinkOutlook, "0, " + rowCount);
+		tableLayoutMap.put(shrinkOutlook, rowCount);
 		rowCount++;
 		
 		tableLayout.insertRow(rowCount, TableLayout.MINIMUM);
-		outlookContentPane.add(outlook.getScrollPane(), "0," + rowCount);
-		tableLayoutMap.put(outlook.getScrollPane(), rowCount);
+		outlookContentPane.add(shrinkOutlook.getScrollPane(), "0," + rowCount);
+		tableLayoutMap.put(shrinkOutlook.getScrollPane(), rowCount);
 		
-		return outlook;
+		return shrinkOutlook;
 	}
 	
 	protected void updateLayoutConstraint(Component component, boolean selected)
@@ -241,7 +241,7 @@ public class JShrinkOutlookBar
 		return fillContentPane;
 	}
 	
-	public void closeAllOutlooks()
+	public void closeAllShrinkOutlooks()
 	{
 		for (int i = 0; i < outlookContentPane.getComponentCount(); i++)
 		{
@@ -257,7 +257,7 @@ public class JShrinkOutlookBar
 		}
 	}
 	
-	public JShrinkOutlook getSelectedOutlook()
+	public JShrinkOutlook getSelectedShrinkOutlook()
 	{
 		for (int i = 0; i < outlookContentPane.getComponentCount(); i++)
 		{
@@ -276,7 +276,7 @@ public class JShrinkOutlookBar
 		return null;
 	}
 	
-	public JShrinkOutlook getOutlook(int index)
+	public JShrinkOutlook getShrinkOutlook(int index)
 	{
 		Component component = outlookContentPane.getComponent(index);
 		if (component instanceof JShrinkOutlook)
@@ -289,7 +289,7 @@ public class JShrinkOutlookBar
 		return null;
 	}
 	
-	public JShrinkOutlook getOutlook(String title)
+	public JShrinkOutlook getShrinkOutlook(String title)
 	{
 		for (int i = 0; i < outlookContentPane.getComponentCount(); i++)
 		{

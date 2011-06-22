@@ -106,7 +106,7 @@ public class JShrinkOutlook
 		add(titleLabel, BorderLayout.CENTER);
 	}
 	
-	public JShrinkOutlookBar getShrinkOutlookPane()
+	public JShrinkOutlookBar getShrinkOutlookBar()
 	{
 		return shrinkOutlookBar;
 	}
@@ -179,7 +179,7 @@ public class JShrinkOutlook
 		
 		if (!this.selected)
 		{
-			shrinkOutlookBar.closeAllOutlooks();
+			shrinkOutlookBar.closeAllShrinkOutlooks();
 		}
 		
 		this.selected = selected;
