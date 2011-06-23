@@ -151,6 +151,26 @@ public class JShrinkHeader
 		label.setToolTipText(toolTipText);
 	}
 	
+	public Icon getIcon()
+	{
+		if (label == null)
+		{
+			throw new IllegalArgumentException("It should be set content pane type with CONTENT_PANE_TYPE_LABEL");
+		}
+		
+		return label.getIcon();
+	}
+	
+	public void setIcon(Icon icon)
+	{
+		if (label == null)
+		{
+			throw new IllegalArgumentException("It should be set content pane type with CONTENT_PANE_TYPE_LABEL");
+		}
+		
+		label.setIcon(icon);
+	}
+	
 	public Color getTitleColor()
 	{
 		if (label == null)
@@ -189,26 +209,6 @@ public class JShrinkHeader
 		}
 		
 		label.setFont(font);
-	}
-	
-	public Icon getIcon()
-	{
-		if (label == null)
-		{
-			throw new IllegalArgumentException("It should be set content pane type with CONTENT_PANE_TYPE_LABEL");
-		}
-		
-		return label.getIcon();
-	}
-	
-	public void setIcon(Icon icon)
-	{
-		if (label == null)
-		{
-			throw new IllegalArgumentException("It should be set content pane type with CONTENT_PANE_TYPE_LABEL");
-		}
-		
-		label.setIcon(icon);
 	}
 	
 	public int getPlacement()

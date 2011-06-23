@@ -28,10 +28,24 @@ import com.nepxion.swing.toolbar.JBasicToolBar;
 public class BasicShrinkBar
 	extends JPanel implements ShrinkContants
 {
+	/**
+	 * The instance of JShrinkHeader.
+	 */
 	protected JShrinkHeader shrinkHeader;
+	
+	/**
+	 * The instance of JSplitBar.
+	 */
 	protected JSplitBar splitBar;
+	
+	/**
+	 * The shrink content pane.
+	 */
 	protected JPanel shrinkContentPane;
 	
+	/**
+	 * The split width value.
+	 */
 	protected int splitWidth = 2;
 	
 	public BasicShrinkBar(int placement)
@@ -133,6 +147,46 @@ public class BasicShrinkBar
 		shrinkHeader.getLabel().setText(title);
 	}
 	
+	public String getToolTipText()
+	{
+		if (shrinkHeader.getLabel() == null)
+		{
+			throw new IllegalArgumentException("It should be set content pane type with CONTENT_PANE_TYPE_LABEL");
+		}
+		
+		return shrinkHeader.getLabel().getToolTipText();
+	}
+	
+	public void setToolTipText(String toolTipText)
+	{
+		if (shrinkHeader.getLabel() == null)
+		{
+			throw new IllegalArgumentException("It should be set content pane type with CONTENT_PANE_TYPE_LABEL");
+		}
+		
+		shrinkHeader.getLabel().setToolTipText(toolTipText);
+	}
+	
+	public Icon getIcon()
+	{
+		if (shrinkHeader.getLabel() == null)
+		{
+			throw new IllegalArgumentException("It should be set content pane type with CONTENT_PANE_TYPE_LABEL");
+		}
+		
+		return shrinkHeader.getLabel().getIcon();
+	}
+	
+	public void setIcon(Icon icon)
+	{
+		if (shrinkHeader.getLabel() == null)
+		{
+			throw new IllegalArgumentException("It should be set content pane type with CONTENT_PANE_TYPE_LABEL");
+		}
+		
+		shrinkHeader.getLabel().setIcon(icon);
+	}
+	
 	public Color getTitleColor()
 	{
 		if (shrinkHeader.getLabel() == null)
@@ -171,26 +225,6 @@ public class BasicShrinkBar
 		}
 		
 		shrinkHeader.getLabel().setFont(font);
-	}
-	
-	public Icon getIcon()
-	{
-		if (shrinkHeader.getLabel() == null)
-		{
-			throw new IllegalArgumentException("It should be set content pane type with CONTENT_PANE_TYPE_LABEL");
-		}
-		
-		return shrinkHeader.getLabel().getIcon();
-	}
-	
-	public void setIcon(Icon icon)
-	{
-		if (shrinkHeader.getLabel() == null)
-		{
-			throw new IllegalArgumentException("It should be set content pane type with CONTENT_PANE_TYPE_LABEL");
-		}
-		
-		shrinkHeader.getLabel().setIcon(icon);
 	}
 	
 	public int getPlacement()
