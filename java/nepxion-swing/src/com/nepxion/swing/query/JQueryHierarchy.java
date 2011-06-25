@@ -58,8 +58,8 @@ public class JQueryHierarchy
 		queryCondition = new JQueryCondition();
 		queryResult = new JQueryResult();
 		
-		JDockableView queryConditionView = new JDockableView(QUERY_CONDITION_TITLE, IconFactory.getSwingIcon("edit.png"), queryCondition);
-		JDockableView queryResultView = new JDockableView(QUERY_RESULT_TITLE, IconFactory.getSwingIcon("query.png"), queryResult);
+		JDockableView queryConditionView = new JDockableView(QUERY_CONDITION_TITLE, IconFactory.getSwingIcon("edit.png"), QUERY_CONDITION_TITLE, queryCondition);
+		JDockableView queryResultView = new JDockableView(QUERY_RESULT_TITLE, IconFactory.getSwingIcon("query.png"), QUERY_RESULT_TITLE, queryResult);
 		
 		queryConditionView.setClosable(false);
 		queryResultView.setClosable(false);
