@@ -36,7 +36,7 @@ public class JFrameWorkApplet
 		
 		JComponent contentPane = (JComponent) getContentPane();
 		
-		IStyle style = (IStyle) StyleManager.getStyle();
+		IStyle style = StyleManager.getStyle();
 		contentPane.setBorder(style.getBorder());
 		contentPane.setBackground(Color.white);
 	}
