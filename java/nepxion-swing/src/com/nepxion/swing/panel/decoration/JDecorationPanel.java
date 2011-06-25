@@ -30,89 +30,90 @@ public class JDecorationPanel
 	
 	public JDecorationPanel()
 	{
-		this("");
+		this((String) null, null);
 	}
 	
-	public JDecorationPanel(String title)
+	public JDecorationPanel(String title, String toolTipText)
 	{
-		this(title, null, true, null, (IStyle) StyleManager.getStyle());
+		this(title, null, toolTipText, true, null, StyleManager.getStyle());
 	}
 	
-	public JDecorationPanel(String title, boolean selected)
+	public JDecorationPanel(String title, String toolTipText, boolean selected)
 	{
-		this(title, null, selected, null, (IStyle) StyleManager.getStyle());
+		this(title, null, toolTipText, selected, null, StyleManager.getStyle());
 	}
 	
-	public JDecorationPanel(String title, IStyle style)
+	public JDecorationPanel(String title, String toolTipText, IStyle style)
 	{
-		this(title, null, true, null, style);
+		this(title, null, toolTipText, true, null, style);
 	}
 	
-	public JDecorationPanel(String title, boolean selected, IStyle style)
+	public JDecorationPanel(String title, String toolTipText, boolean selected, IStyle style)
 	{
-		this(title, null, selected, null, style);
+		this(title, null, toolTipText, selected, null, style);
 	}
 	
-	public JDecorationPanel(Icon icon)
+	public JDecorationPanel(Icon icon, String toolTipText)
 	{
-		this("", icon, true, null, (IStyle) StyleManager.getStyle());
+		this(null, icon, toolTipText, true, null, StyleManager.getStyle());
 	}
 	
-	public JDecorationPanel(Icon icon, boolean selected)
+	public JDecorationPanel(Icon icon, String toolTipText, boolean selected)
 	{
-		this("", icon, selected, null, (IStyle) StyleManager.getStyle());
+		this(null, icon, toolTipText, selected, null, StyleManager.getStyle());
 	}
 	
-	public JDecorationPanel(Icon icon, IStyle style)
+	public JDecorationPanel(Icon icon, String toolTipText, IStyle style)
 	{
-		this("", icon, true, null, style);
+		this(null, icon, toolTipText, true, null, style);
 	}
 	
-	public JDecorationPanel(Icon icon, boolean selected, IStyle style)
+	public JDecorationPanel(Icon icon, String toolTipText, boolean selected, IStyle style)
 	{
-		this("", icon, selected, null, style);
+		this(null, icon, toolTipText, selected, null, style);
 	}
 	
-	public JDecorationPanel(String title, Icon icon)
+	public JDecorationPanel(String title, Icon icon, String toolTipText)
 	{
-		this(title, icon, true, null, (IStyle) StyleManager.getStyle());
+		this(title, icon, toolTipText, true, null, StyleManager.getStyle());
 	}
 	
-	public JDecorationPanel(String title, Icon icon, boolean selected)
+	public JDecorationPanel(String title, Icon icon, String toolTipText, boolean selected)
 	{
-		this(title, icon, selected, null, (IStyle) StyleManager.getStyle());
+		this(title, icon, toolTipText, selected, null, StyleManager.getStyle());
 	}
 	
-	public JDecorationPanel(String title, Icon icon, IStyle style)
+	public JDecorationPanel(String title, Icon icon, String toolTipText, IStyle style)
 	{
-		this(title, icon, true, null, style);
+		this(title, icon, toolTipText, true, null, style);
 	}
 	
-	public JDecorationPanel(String title, Icon icon, boolean selected, IStyle style)
+	public JDecorationPanel(String title, Icon icon, String toolTipText, boolean selected, IStyle style)
 	{
-		this(title, icon, selected, null, style);
+		this(title, icon, toolTipText, selected, null, style);
 	}
 	
-	public JDecorationPanel(String title, Icon icon, JComponent content)
+	public JDecorationPanel(String title, Icon icon, String toolTipText, JComponent content)
 	{
-		this(title, icon, true, content, (IStyle) StyleManager.getStyle());
+		this(title, icon, toolTipText, true, content, StyleManager.getStyle());
 	}
 	
-	public JDecorationPanel(String title, Icon icon, JComponent content, IStyle style)
+	public JDecorationPanel(String title, Icon icon, String toolTipText, JComponent content, IStyle style)
 	{
-		this(title, icon, true, content, style);
+		this(title, icon, toolTipText, true, content, style);
 	}
 	
-	public JDecorationPanel(String title, Icon icon, boolean selected, JComponent content)
+	public JDecorationPanel(String title, Icon icon, String toolTipText, boolean selected, JComponent content)
 	{
-		this(title, icon, selected, content, (IStyle) StyleManager.getStyle());
+		this(title, icon, toolTipText, selected, content, StyleManager.getStyle());
 	}
 	
-	public JDecorationPanel(String title, Icon icon, boolean selected, JComponent content, IStyle style)
+	public JDecorationPanel(String title, Icon icon, String toolTipText, boolean selected, JComponent content, IStyle style)
 	{
-		header = new JDecorationHeader(title, icon, selected, style);
+		header = new JDecorationHeader(title, icon, toolTipText, selected, style);
 		
-		headContainer = new JPanel(new BorderLayout());
+		headContainer = new JPanel();
+		headContainer.setLayout(new BorderLayout());
 		headContainer.setOpaque(false);
 		headContainer.add(header, BorderLayout.CENTER);
 		if (style.getHeaderBorder() != null)
@@ -120,9 +121,10 @@ public class JDecorationPanel
 			headContainer.setBorder(style.getHeaderBorder());
 		}
 		
-		Dimension minSize = new Dimension(headContainer.getMinimumSize());
-		minSize.height += 3;
-		setMinimumSize(minSize);
+		Dimension minimumSize = new Dimension(headContainer.getMinimumSize());
+		minimumSize.height += 3;
+		setMinimumSize(minimumSize);
+		
 		if (style.getBorder() != null)
 		{
 			setBorder(style.getBorder());
@@ -186,6 +188,16 @@ public class JDecorationPanel
 	public void setIcon(Icon icon)
 	{
 		header.setIcon(icon);
+	}
+	
+	public String getToolTipText()
+	{
+		return header.getToolTipText();
+	}
+	
+	public void setToolTipText(String toolTipText)
+	{
+		header.setToolTipText(toolTipText);
 	}
 	
 	public boolean isSelected()
