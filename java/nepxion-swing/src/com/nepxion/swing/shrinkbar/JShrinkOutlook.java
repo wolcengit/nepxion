@@ -143,16 +143,6 @@ public class JShrinkOutlook
 		titleLabel.setText(title);
 	}
 	
-	public Font getTitleFont()
-	{
-		return titleLabel.getFont();
-	}
-	
-	public void setTitleFont(Font font)
-	{
-		titleLabel.setFont(font);
-	}
-	
 	public String getToolTipText()
 	{
 		return titleLabel.getToolTipText();
@@ -163,6 +153,49 @@ public class JShrinkOutlook
 		titleLabel.setToolTipText(toolTipText);
 		iconLabel.setToolTipText(toolTipText);
 		handlerLabel.setToolTipText(toolTipText);
+	}
+	
+	public Icon getIcon()
+	{
+		return icon;
+	}
+	
+	public void setIcon(Icon icon)
+	{
+		this.icon = icon;
+		
+		if (selectedIcon == null)
+		{
+			selectedIcon = icon;
+		}
+		if (selected)
+		{
+			iconLabel.setIcon(selectedIcon);
+		}
+		else
+		{
+			iconLabel.setIcon(icon);
+		}
+	}
+	
+	public Icon getSelectedIcon()
+	{
+		return selectedIcon;
+	}
+	
+	public void setSelectedIcon(Icon selectedIcon)
+	{
+		this.selectedIcon = selectedIcon;
+	}
+	
+	public Font getTitleFont()
+	{
+		return titleLabel.getFont();
+	}
+	
+	public void setTitleFont(Font font)
+	{
+		titleLabel.setFont(font);
 	}
 	
 	public boolean isSelected()
@@ -205,39 +238,6 @@ public class JShrinkOutlook
 		boolean selected = isSelected();
 		
 		setSelected(!selected);
-	}
-	
-	public Icon getIcon()
-	{
-		return icon;
-	}
-	
-	public void setIcon(Icon icon)
-	{
-		this.icon = icon;
-		
-		if (selectedIcon == null)
-		{
-			selectedIcon = icon;
-		}
-		if (selected)
-		{
-			iconLabel.setIcon(selectedIcon);
-		}
-		else
-		{
-			iconLabel.setIcon(icon);
-		}
-	}
-	
-	public Icon getSelectedIcon()
-	{
-		return selectedIcon;
-	}
-	
-	public void setSelectedIcon(Icon selectedIcon)
-	{
-		this.selectedIcon = selectedIcon;
 	}
 	
 	public Dimension getPreferredSize()

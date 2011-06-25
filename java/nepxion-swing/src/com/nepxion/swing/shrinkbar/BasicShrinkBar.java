@@ -147,26 +147,6 @@ public class BasicShrinkBar
 		shrinkHeader.getLabel().setText(title);
 	}
 	
-	public String getToolTipText()
-	{
-		if (shrinkHeader.getLabel() == null)
-		{
-			throw new IllegalArgumentException("It should be set content pane type with CONTENT_PANE_TYPE_LABEL");
-		}
-		
-		return shrinkHeader.getLabel().getToolTipText();
-	}
-	
-	public void setToolTipText(String toolTipText)
-	{
-		if (shrinkHeader.getLabel() == null)
-		{
-			throw new IllegalArgumentException("It should be set content pane type with CONTENT_PANE_TYPE_LABEL");
-		}
-		
-		shrinkHeader.getLabel().setToolTipText(toolTipText);
-	}
-	
 	public Icon getIcon()
 	{
 		if (shrinkHeader.getLabel() == null)
@@ -185,6 +165,26 @@ public class BasicShrinkBar
 		}
 		
 		shrinkHeader.getLabel().setIcon(icon);
+	}
+	
+	public String getToolTipText()
+	{
+		if (shrinkHeader.getLabel() == null)
+		{
+			throw new IllegalArgumentException("It should be set content pane type with CONTENT_PANE_TYPE_LABEL");
+		}
+		
+		return shrinkHeader.getLabel().getToolTipText();
+	}
+	
+	public void setToolTipText(String toolTipText)
+	{
+		if (shrinkHeader.getLabel() == null)
+		{
+			throw new IllegalArgumentException("It should be set content pane type with CONTENT_PANE_TYPE_LABEL");
+		}
+		
+		shrinkHeader.getLabel().setToolTipText(toolTipText);
 	}
 	
 	public Color getTitleColor()
