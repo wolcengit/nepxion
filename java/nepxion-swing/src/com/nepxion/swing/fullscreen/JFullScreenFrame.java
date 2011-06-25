@@ -199,7 +199,7 @@ public class JFullScreenFrame
 	 */
 	private void initComponents()
 	{
-		decorationPanel = new JFullScreenDecorationPanel(WINDOW_TITLE, IconFactory.getSwingIcon(WINDOW_ICON));
+		decorationPanel = new JFullScreenDecorationPanel(WINDOW_TITLE, IconFactory.getSwingIcon(WINDOW_ICON), WINDOW_TITLE);
 		decorationPanel.setBackground(Color.white);
 		
 		getContentPane().add(decorationPanel);

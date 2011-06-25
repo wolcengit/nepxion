@@ -46,7 +46,7 @@ public class JFullScreenApplet
 		initWindowTitle();		
 		initWindowIcon();
 		
-		decorationPanel = new JFullScreenDecorationPanel(windowTitle, windowIcon);
+		decorationPanel = new JFullScreenDecorationPanel(windowTitle, windowIcon, windowTitle);
 		decorationPanel.setBackground(Color.white);
 		
 		getContentPane().add(decorationPanel);

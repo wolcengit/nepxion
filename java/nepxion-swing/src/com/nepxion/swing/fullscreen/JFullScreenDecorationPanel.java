@@ -35,21 +35,23 @@ public class JFullScreenDecorationPanel
 	 * Constructs with the specified initial title and icon.
 	 * @param title the title string
 	 * @param icon the instance of Icon
+	 * @param toolTipText the tooltip text string
 	 */
-	public JFullScreenDecorationPanel(String title, Icon icon)
+	public JFullScreenDecorationPanel(String title, Icon icon, String toolTipText)
 	{
-		this(title, icon, true);
+		this(title, icon, toolTipText, true);
 	}
 	
 	/**
 	 * Constructs with the specified initial title, icon and selected.
 	 * @param title the title string
 	 * @param icon the instance of Icon
+	 * @param toolTipText the tooltip text string
 	 * @param selected the boolean value of selected
 	 */
-	public JFullScreenDecorationPanel(String title, Icon icon, boolean selected)
+	public JFullScreenDecorationPanel(String title, Icon icon, String toolTipText, boolean selected)
 	{
-		super(title, icon, selected);
+		super(title, icon, toolTipText, selected);
 		
 		initComponents();
 	}
@@ -58,23 +60,25 @@ public class JFullScreenDecorationPanel
 	 * Constructs with the specified initial title, icon and style.
 	 * @param title the title string
 	 * @param icon the instance of Icon
+	 * @param toolTipText the tooltip text string
 	 * @param style the instance of IStyle
 	 */
-	public JFullScreenDecorationPanel(String title, Icon icon, IStyle style)
+	public JFullScreenDecorationPanel(String title, Icon icon, String toolTipText, IStyle style)
 	{
-		this(title, icon, true, style);
+		this(title, icon, toolTipText, true, style);
 	}
 	
 	/**
 	 * Constructs with the specified initial title, icon, selected and style.
 	 * @param title the title string
 	 * @param icon the instance of Icon
+	 * @param toolTipText the tooltip text string
 	 * @param selected the boolean value of selected
 	 * @param style the instance of IStyle
 	 */
-	public JFullScreenDecorationPanel(String title, Icon icon, boolean selected, IStyle style)
+	public JFullScreenDecorationPanel(String title, Icon icon, String toolTipText, boolean selected, IStyle style)
 	{
-		super(title, icon, selected, style);
+		super(title, icon, toolTipText, selected, style);
 		
 		initComponents();
 	}
