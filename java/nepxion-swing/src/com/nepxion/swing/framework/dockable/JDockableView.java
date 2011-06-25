@@ -34,7 +34,6 @@ import com.nepxion.swing.panel.decoration.JDecorationHeader;
 import com.nepxion.swing.panel.decoration.JDecorationPanel;
 import com.nepxion.swing.popupmenu.JBasicPopupMenu;
 import com.nepxion.swing.style.framework.IStyle;
-import com.nepxion.swing.style.framework.StyleManager;
 
 public class JDockableView
 	extends JDecorationPanel implements FullScreenConstants
@@ -94,179 +93,227 @@ public class JDockableView
 	 */
 	public JDockableView()
 	{
-		this("");
+		super();
+		
+		initComponents();
 	}
 	
 	/**
 	 * Constructs with the specified initial title.
 	 * @param title the title string
+	 * @param toolTipText the tooltip text string
 	 */
-	public JDockableView(String title)
+	public JDockableView(String title, String toolTipText)
 	{
-		this(title, null, true, null, (IStyle) StyleManager.getStyle());
+		super(title, toolTipText);
+		
+		initComponents();
 	}
 	
 	/**
 	 * Constructs with the specified initial title and selected.
 	 * @param title the title string
+	 * @param toolTipText the tooltip text string
 	 * @param selected the boolean value of selected
 	 */
-	public JDockableView(String title, boolean selected)
+	public JDockableView(String title, String toolTipText, boolean selected)
 	{
-		this(title, null, selected, null, (IStyle) StyleManager.getStyle());
+		super(title, toolTipText, selected);
+		
+		initComponents();
 	}
 	
 	/**
 	 * Constructs with the specified initial title and style.
 	 * @param title the title string
+	 * @param toolTipText the tooltip text string
 	 * @param style the instance of IStyle
 	 */
-	public JDockableView(String title, IStyle style)
+	public JDockableView(String title, String toolTipText, IStyle style)
 	{
-		this(title, null, true, null, style);
+		super(title, toolTipText, style);
+		
+		initComponents();
 	}
 	
 	/**
 	 * Constructs with the specified initial title, selected and style.
 	 * @param title the title string 
+	 * @param toolTipText the tooltip text string
 	 * @param selected the boolean value of selected
 	 * @param style the instance of IStyle
 	 */
-	public JDockableView(String title, boolean selected, IStyle style)
+	public JDockableView(String title, String toolTipText, boolean selected, IStyle style)
 	{
-		this(title, null, selected, null, style);
+		super(title, toolTipText, selected, style);
+		
+		initComponents();
 	}
 	
 	/**
 	 * Constructs with the specified initial icon.
 	 * @param icon the instance of Icon
+	 * @param toolTipText the tooltip text string
 	 */
-	public JDockableView(Icon icon)
+	public JDockableView(Icon icon, String toolTipText)
 	{
-		this("", icon, true, null, (IStyle) StyleManager.getStyle());
+		super(icon, toolTipText);
+		
+		initComponents();
 	}
 	
 	/**
 	 * Constructs with the specified initial icon and selected.
 	 * @param icon the instance of Icon
+	 * @param toolTipText the tooltip text string
 	 * @param selected the boolean value of selected
 	 */
-	public JDockableView(Icon icon, boolean selected)
+	public JDockableView(Icon icon, String toolTipText, boolean selected)
 	{
-		this("", icon, selected, null, (IStyle) StyleManager.getStyle());
+		super(icon, toolTipText, selected);
+		
+		initComponents();
 	}
 	
 	/**
 	 * Constructs with the specified initial icon and style.
 	 * @param icon the instance of Icon
+	 * @param toolTipText the tooltip text string
 	 * @param style the instance of IStyle
 	 */
-	public JDockableView(Icon icon, IStyle style)
+	public JDockableView(Icon icon, String toolTipText, IStyle style)
 	{
-		this("", icon, true, null, style);
+		super(icon, toolTipText, style);
+		
+		initComponents();
 	}
 	
 	/**
 	 * Constructs with the specified initial icon, selected and style.
 	 * @param icon the instance of Icon
+	 * @param toolTipText the tooltip text string
 	 * @param selected the boolean value of selected
 	 * @param style the instance of IStyle
 	 */
-	public JDockableView(Icon icon, boolean selected, IStyle style)
+	public JDockableView(Icon icon, String toolTipText, boolean selected, IStyle style)
 	{
-		this("", icon, selected, null, style);
+		super(icon, toolTipText, selected, style);
+		
+		initComponents();		
 	}
 	
 	/**
 	 * Constructs with the specified initial title and icon.
 	 * @param title the title string
 	 * @param icon the instance of Icon
+	 * @param toolTipText the tooltip text string
 	 */
-	public JDockableView(String title, Icon icon)
+	public JDockableView(String title, Icon icon, String toolTipText)
 	{
-		this(title, icon, true, null, (IStyle) StyleManager.getStyle());
+		super(title, icon, toolTipText);
+		
+		initComponents();		
 	}
 	
 	/**
 	 * Constructs with the specified initial title, icon and selected.
 	 * @param title the title string
 	 * @param icon the instance of Icon
+	 * @param toolTipText the tooltip text string
 	 * @param selected the boolean value of selected
 	 */
-	public JDockableView(String title, Icon icon, boolean selected)
+	public JDockableView(String title, Icon icon, String toolTipText, boolean selected)
 	{
-		this(title, icon, selected, null, (IStyle) StyleManager.getStyle());
+		super(title, icon, toolTipText, selected);
+		
+		initComponents();
 	}
 	
 	/**
 	 * Constructs with the specified initial title, icon and style.
 	 * @param title the title string
 	 * @param icon the instance of Icon
+	 * @param toolTipText the tooltip text string
 	 * @param style the instance of IStyle
 	 */
-	public JDockableView(String title, Icon icon, IStyle style)
+	public JDockableView(String title, Icon icon, String toolTipText, IStyle style)
 	{
-		this(title, icon, true, null, style);
+		super(title, icon, toolTipText, style);
+		
+		initComponents();		
 	}
 	
 	/**
 	 * Constructs with the specified initial title, icon, selected and style.
 	 * @param title the title string
 	 * @param icon the instance of Icon
+	 * @param toolTipText the tooltip text string
 	 * @param selected the boolean value of selected
 	 * @param style the instance of IStyle
 	 */
-	public JDockableView(String title, Icon icon, boolean selected, IStyle style)
+	public JDockableView(String title, Icon icon, String toolTipText, boolean selected, IStyle style)
 	{
-		this(title, icon, selected, null, style);
+		super(title, icon, toolTipText, selected, style);
+		
+		initComponents();
 	}
 	
 	/**
 	 * Constructs with the specified initial title, icon and content.
 	 * @param title the title string
 	 * @param icon the instance of Icon
+	 * @param toolTipText the tooltip text string
 	 * @param content the instance of JComponent
 	 */
-	public JDockableView(String title, Icon icon, JComponent content)
+	public JDockableView(String title, Icon icon, String toolTipText, JComponent content)
 	{
-		this(title, icon, true, content, (IStyle) StyleManager.getStyle());
+		super(title, icon, toolTipText, content);
+		
+		initComponents();
 	}
 	
 	/**
 	 * Constructs with the specified initial title, icon, content and style.
 	 * @param title the title string
 	 * @param icon the instance of Icon
+	 * @param toolTipText the tooltip text string
 	 * @param content the instance of JComponent
 	 * @param style the instance of IStyle
 	 */
-	public JDockableView(String title, Icon icon, JComponent content, IStyle style)
+	public JDockableView(String title, Icon icon, String toolTipText, JComponent content, IStyle style)
 	{
-		this(title, icon, true, content, style);
+		super(title, icon, toolTipText, content, style);
+		
+		initComponents();
 	}
 	
 	/**
 	 * Constructs with the specified initial title, icon, selected and content.
 	 * @param title the title string
 	 * @param icon the instance of Icon
+	 * @param toolTipText the tooltip text string
 	 * @param selected the boolean value of selected
 	 * @param content the instance of JComponent
 	 */
-	public JDockableView(String title, Icon icon, boolean selected, JComponent content)
+	public JDockableView(String title, Icon icon, String toolTipText, boolean selected, JComponent content)
 	{
-		this(title, icon, selected, content, (IStyle) StyleManager.getStyle());
+		super(title, icon, toolTipText, selected, content);
+		
+		initComponents();
 	}
 	
 	/**
 	 * Constructs with the specified initial title, icon, selected, content and style.
 	 * @param title the title string
 	 * @param icon the instance of Icon
+	 * @param toolTipText the tooltip text string
 	 * @param selected the boolean value of selected
 	 * @param content the instance of JComponent
 	 * @param style the instance of IStyle
 	 */
-	public JDockableView(String title, Icon icon, boolean selected, JComponent content, IStyle style)
+	public JDockableView(String title, Icon icon, String toolTipText, boolean selected, JComponent content, IStyle style)
 	{
-		super(title, icon, selected, content, style);
+		super(title, icon, toolTipText, selected, content, style);
 		
 		initComponents();
 	}
