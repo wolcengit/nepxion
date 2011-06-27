@@ -17,6 +17,7 @@ import javax.swing.JList;
 import javax.swing.SwingConstants;
 import javax.swing.border.Border;
 
+import com.nepxion.swing.container.ContainerManager;
 import com.nepxion.swing.handle.HandleManager;
 import com.nepxion.swing.renderer.list.ElementListCellRenderer;
 
@@ -202,13 +203,24 @@ public class ShrinkListCellRenderer
 			{
 				setText(null);
 				setHorizontalAlignment(SwingConstants.CENTER);
+				
+				rendererBorder = LABEL_BORDER;
 			}
 			else
 			{
 				setHorizontalAlignment(SwingConstants.LEADING);
+	
+				rendererBorder = compoundBorder;
 			}
 		}
 		
+		setBorder(rendererBorder);
+		
 		return this;
+	}
+	
+	protected void adaptBorder()
+	{
+
 	}
 }
