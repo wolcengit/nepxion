@@ -11,6 +11,10 @@ package com.nepxion.swing.framework.ribbon;
  */
 
 import java.awt.BorderLayout;
+import java.awt.Dimension;
+import java.awt.Point;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
 import java.awt.event.ContainerAdapter;
 import java.awt.event.ContainerEvent;
 import java.beans.PropertyChangeEvent;
@@ -27,9 +31,11 @@ import javax.swing.border.Border;
 import com.nepxion.swing.container.JContainer;
 import com.nepxion.swing.exception.ExceptionTracer;
 import com.nepxion.swing.handle.HandleManager;
+import com.nepxion.swing.icon.IconFactory;
 import com.nepxion.swing.internalframe.InternalFrameManager;
 import com.nepxion.swing.locale.SwingLocale;
 import com.nepxion.swing.optionpane.JBasicOptionPane;
+import com.nepxion.swing.panel.JReflectionPanel;
 import com.nepxion.swing.popupmenu.JBasicPopupMenu;
 import com.nepxion.swing.selector.checkbox.JCheckBoxSelector;
 import com.nepxion.swing.tabbedpane.ITabbedPane;
@@ -83,9 +89,9 @@ public class JRibbonContainer
 	private ITabbedPane tabbedPane;
 	
 	/**
-	 * The instance of JContainer.
+	 * The instance of JRibbonTweenPanel.
 	 */
-	private JContainer panel;
+	private JRibbonTweenPanel panel;
 	
 	/**
 	 * The instance of JCheckBoxSelector.
@@ -253,12 +259,15 @@ public class JRibbonContainer
 			{
 				if (panel.getParent() == null)
 				{
-					addComponent(panel, BorderLayout.CENTER);
+					desktopPane.add(panel);
 				}
 				
 				if (handler == null)
 				{
-					panel.addComponent(ribbonComponent, BorderLayout.CENTER);
+					panel.setTitle(title);
+					panel.setIcon(icon != null ? icon : IconFactory.getSwingIcon("component/internal_frame_16.png"));
+					panel.setToolTipText(toolTipText);
+					panel.setContentPane(ribbonComponent);
 				}	
 				break;
 			}
@@ -459,21 +468,37 @@ public class JRibbonContainer
 	
 	/**
 	 * Gets the panel.
-	 * @return the instance of JContainer
+	 * @return the instance of JReflectionPanel
 	 */
-	public JContainer getPanel()
+	public JReflectionPanel getPanel()
 	{
 		return panel;
 	}
 	
 	/**
 	 * Sets the panel.
-	 * @param panel the instance of JContainer
+	 * @param panel the instance of JRibbonTweenPanel
 	 */
-	public void setPanel(JContainer panel)
+	public void setPanel(final JRibbonTweenPanel panel)
 	{
 		this.panel = panel;
 		
-		panel.setLayout(new BorderLayout());
+		addComponentListener(new ComponentAdapter()
+		{
+			public void componentResized(ComponentEvent e)
+			{
+				if (containerStyle == CONTAINER_STYLE_PANEL)
+				{
+					Dimension desktopSize = desktopPane.getSize();
+					Point desktopPoint = desktopPane.getLocation();
+					
+					Dimension panelSize = new Dimension(desktopSize.width - panel.getWidthOffset() * 2, desktopSize.height - panel.getHeightOffset() * 2);
+					
+					panel.setSize(panelSize);
+					panel.setLocation((int) (desktopSize.width - panelSize.width) / 2 + desktopPoint.x, (int) (desktopSize.height - panelSize.height) / 2 + desktopPoint.y);
+				}
+			}
+		}
+		);
 	}
 }
