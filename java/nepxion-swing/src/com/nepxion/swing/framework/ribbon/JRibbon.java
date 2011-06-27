@@ -230,6 +230,7 @@ public class JRibbon
 		
 		setLayout(new BorderLayout());
 		// setBorder(new RoundBorder(new Color(175, 195, 213), new Color(225, 234, 244)));
+		setBackground(new Color(231, 239, 248));
 		setBorder(BorderFactory.createCompoundBorder(BorderFactory.createEmptyBorder(1, 1, 1, 1), new LineBorder(RibbonManager.getStyle().getTabbedPaneBorderLineColor())));
 		
 		add(toolBar, BorderLayout.CENTER);

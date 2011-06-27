@@ -19,6 +19,7 @@ public class RibbonContextInitializer
 	public void initialize()
 	{
 		// UIManager.put("nimbusBlueGrey", ColorUtil.getDerivedColor(new Color(169, 176, 190)));
+		// UIManager.put("control", new Color(231, 239, 248));
 		UIManager.put("control", new Color(200, 217, 237));
 	}
 }
