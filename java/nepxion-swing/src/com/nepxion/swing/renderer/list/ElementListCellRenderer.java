@@ -15,6 +15,7 @@ import java.awt.Component;
 import javax.swing.BorderFactory;
 import javax.swing.DefaultListCellRenderer;
 import javax.swing.Icon;
+import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.border.Border;
 
@@ -24,24 +25,24 @@ public class ElementListCellRenderer
 	extends DefaultListCellRenderer
 {
 	/**
+	 * The label border.
+	 */
+	public static final Border LABEL_BORDER = new JLabel().getBorder();
+	
+	/**
+	 * The renderer border. 
+	 */
+	protected Border rendererBorder;
+	
+	/**
+	 * The compound border.
+	 */
+	protected Border compoundBorder;
+	
+	/**
 	 * The instance JList.
 	 */
 	private JList list;
-	
-	/**
-	 * The no focus border.
-	 */
-	private Border noFocusBorder;
-	
-	/**
-	 * The selection border.
-	 */
-	private Border selectionBorder;
-	
-	/**
-	 * The unselection border.
-	 */
-	private Border unSeletionBorder;
 	
 	/**
 	 * The cell border.
@@ -216,9 +217,9 @@ public class ElementListCellRenderer
 	public ElementListCellRenderer(JList list, Border cellBorder, Icon cellIcon, int cellHeight)
 	{
 		this.list = list;
-		this.cellBorder = cellBorder;
 		this.cellIcon = cellIcon;
 		
+		setCellBorder(cellBorder);
 		setCellHeight(cellHeight);
 		setOpaque(true);
 	}
@@ -257,60 +258,16 @@ public class ElementListCellRenderer
 	public void setCellBorder(Border cellBorder)
 	{
 		this.cellBorder = cellBorder;
-	}
-	
-	/**
-	 * Gets the no focus border.
-	 * @return the instance of Border
-	 */
-	public Border getNoFocusBorder()
-	{
-		return noFocusBorder;
-	}
-
-	/**
-	 * Sets the no focus border.
-	 * @param noFocusBorder the instance of Border
-	 */
-	public void setNoFocusBorder(Border noFocusBorder)
-	{
-		this.noFocusBorder = noFocusBorder;
-	}
-
-	/**
-	 * Gets the selection border.
-	 * @return the instance of Border
-	 */
-	public Border getSelectionBorder()
-	{
-		return selectionBorder;
-	}
-
-	/**
-	 * Sets the selection border.
-	 * @param selectionBorder the instance of Border
-	 */
-	public void setSelectionBorder(Border selectionBorder)
-	{
-		this.selectionBorder = selectionBorder;
-	}
-
-	/**
-	 * Gets the unselection border.
-	 * @return the instance of Border
-	 */
-	public Border getUnSeletionBorder()
-	{
-		return unSeletionBorder;
-	}
-
-	/**
-	 * Sets the unselection border.
-	 * @param unSeletionBorder the instance of Border
-	 */
-	public void setUnSeletionBorder(Border unSeletionBorder)
-	{
-		this.unSeletionBorder = unSeletionBorder;
+		
+		if (cellBorder != null)
+		{	
+			compoundBorder = BorderFactory.createCompoundBorder(LABEL_BORDER, cellBorder);
+			rendererBorder = compoundBorder;
+		}
+		else
+		{
+			rendererBorder = LABEL_BORDER;
+		}
 	}
 	
 	/**
@@ -402,47 +359,16 @@ public class ElementListCellRenderer
 			}
 		}
 		
-		if (cellBorder != null)
-		{
-			adaptBorder(isSelected, cellHasFocus);
-		}
+		adaptBorder();
 		
 		return this;
 	}
 	
 	/**
 	 * Adapts the border.
-	 * @param isSelected the boolean value of isSelected
-	 * @param cellHasFocus the boolean value of cellHasFocus
 	 */
-	private void adaptBorder(boolean isSelected, boolean cellHasFocus)
+	protected void adaptBorder()
 	{
-		if (cellHasFocus)
-		{
-			if (isSelected)
-			{
-				if (selectionBorder == null)
-				{
-					selectionBorder = BorderFactory.createCompoundBorder(getBorder(), getCellBorder());
-				}
-				setBorder(selectionBorder);
-			}
-			else
-			{
-				if (unSeletionBorder == null)
-				{
-					unSeletionBorder = BorderFactory.createCompoundBorder(getBorder(), getCellBorder());
-				}
-				setBorder(unSeletionBorder);
-			}
-		}
-		else
-		{
-			if (noFocusBorder == null)
-			{
-				noFocusBorder = BorderFactory.createCompoundBorder(getBorder(), getCellBorder());
-			}
-			setBorder(noFocusBorder);
-		}
+		setBorder(rendererBorder);
 	}
 }
