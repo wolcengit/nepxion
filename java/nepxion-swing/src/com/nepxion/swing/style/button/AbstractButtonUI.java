@@ -36,6 +36,16 @@ public abstract class AbstractButtonUI
 	private Color darkShadow;
 	
 	/**
+	 * The width offset value.
+	 */
+	private int widthOffset = 0;
+	
+	/**
+	 * The height offset value.
+	 */
+	private int heightOffset = 0;
+	
+	/**
 	 * The boolean value of isArrowPainted.
 	 */
 	protected boolean isArrowPainted = true;
@@ -49,6 +59,42 @@ public abstract class AbstractButtonUI
 		
 		shadow = UIManager.getColor("controlShadow");
 		darkShadow = Color.black;
+	}
+	
+	/**
+	 * Gets the width offset.
+	 * @return the width offset value
+	 */
+	public int getWidthOffset()
+	{
+		return widthOffset;
+	}
+	
+	/**
+	 * Sets the width offset.
+	 * @param widthOffset the width offset value
+	 */
+	public void setWidthOffset(int widthOffset)
+	{
+		this.widthOffset = widthOffset;
+	}
+	
+	/**
+	 * Gets the height offset.
+	 * @return the height offset value
+	 */
+	public int getHeightOffset()
+	{
+		return heightOffset;
+	}
+	
+	/**
+	 * Sets the height offset.
+	 * @param heightOffset the height offset value
+	 */
+	public void setHeightOffset(int heightOffset)
+	{
+		this.heightOffset = heightOffset;
 	}
 	
 	/**

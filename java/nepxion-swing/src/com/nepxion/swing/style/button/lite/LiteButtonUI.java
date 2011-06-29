@@ -155,6 +155,9 @@ public class LiteButtonUI
 			textRect.y += 1;
 		}
 		
+		textRect.x += getWidthOffset();
+		textRect.y += getHeightOffset();
+		
 		super.paintText(g, c, textRect, text);
 	}
 	
@@ -174,6 +177,9 @@ public class LiteButtonUI
 		{
 			iconRect.y += 1;
 		}
+		
+		iconRect.x += getWidthOffset();
+		iconRect.y += getHeightOffset();
 		
 		super.paintIcon(g, c, iconRect);
 	}
