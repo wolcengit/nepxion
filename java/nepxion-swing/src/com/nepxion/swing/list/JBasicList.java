@@ -10,6 +10,7 @@ package com.nepxion.swing.list;
  * @version 1.0
  */
 
+import java.awt.Point;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.Vector;
@@ -176,6 +177,16 @@ public class JBasicList
 			
 			setSelectedIndex(index + 1);
 		}
+	}
+	
+	/**
+	 * Gets the index by a point.
+	 * @param point the instance of Point
+	 * @return the index value
+	 */
+	public int getIndex(Point point)
+	{
+		return ListManager.getIndex(this, point);
 	}
 	
 	/**
