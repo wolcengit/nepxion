@@ -33,5 +33,9 @@ public class JBlackHeaderTextureStyle
 		selectionForeground = new Color(215, 215, 216);
 		
 		borderColor = new Color(146, 151, 161);
+		
+		contentBackground = new Color(175, 174, 176);
+		
+		separatorColors = new Color[] {new Color(197, 196, 198), new Color(153, 152, 154)};
 	}
 }

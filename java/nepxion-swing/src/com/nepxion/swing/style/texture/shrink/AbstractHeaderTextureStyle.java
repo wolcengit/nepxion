@@ -40,6 +40,16 @@ public class AbstractHeaderTextureStyle
 	protected Color borderColor;
 	
 	/**
+	 * The content background.
+	 */
+	protected Color contentBackground;
+	
+	/**
+	 * The separator color array.
+	 */
+	protected Color[] separatorColors;
+	
+	/**
 	 * Gets the resize handler image icon.
 	 * @return the instance of ImageIcon
 	 */
@@ -73,5 +83,23 @@ public class AbstractHeaderTextureStyle
 	public Color getBorderColor()
 	{
 		return borderColor;
+	}
+	
+	/**
+	 * Gets the content background.
+	 * @return the instance of Color
+	 */
+	public Color getContentBackground()
+	{
+		return contentBackground;
+	}
+	
+	/**
+	 * Gets the separator color array.
+	 * @return the color array
+	 */
+	public Color[] getSeparatorColors()
+	{
+		return separatorColors;
 	}
 }

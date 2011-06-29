@@ -42,4 +42,16 @@ public interface IHeaderTextureStyle
 	 * @return the instance of Color
 	 */
 	public Color getBorderColor();
+	
+	/**
+	 * Gets the content background.
+	 * @return the instance of Color
+	 */
+	public Color getContentBackground();
+	
+	/**
+	 * Gets the separator color array.
+	 * @return the color array
+	 */
+	public Color[] getSeparatorColors();
 }
