@@ -15,7 +15,6 @@ import java.awt.Component;
 import javax.swing.BorderFactory;
 import javax.swing.DefaultListCellRenderer;
 import javax.swing.Icon;
-import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.border.Border;
 
@@ -23,22 +22,7 @@ import com.nepxion.swing.element.IElementNode;
 
 public class ElementListCellRenderer
 	extends DefaultListCellRenderer
-{
-	/**
-	 * The label border.
-	 */
-	public static final Border LABEL_BORDER = new JLabel().getBorder();
-	
-	/**
-	 * The renderer border. 
-	 */
-	protected Border rendererBorder;
-	
-	/**
-	 * The compound border.
-	 */
-	protected Border compoundBorder;
-	
+{	
 	/**
 	 * The instance JList.
 	 */
@@ -258,16 +242,6 @@ public class ElementListCellRenderer
 	public void setCellBorder(Border cellBorder)
 	{
 		this.cellBorder = cellBorder;
-		
-		if (cellBorder != null)
-		{	
-			compoundBorder = BorderFactory.createCompoundBorder(LABEL_BORDER, cellBorder);
-			rendererBorder = compoundBorder;
-		}
-		else
-		{
-			rendererBorder = LABEL_BORDER;
-		}
 	}
 	
 	/**
@@ -359,16 +333,11 @@ public class ElementListCellRenderer
 			}
 		}
 		
-		adaptBorder();
+		if (cellBorder != null)
+		{	
+			setBorder(BorderFactory.createCompoundBorder(super.getBorder(), cellBorder));
+		}
 		
 		return this;
-	}
-	
-	/**
-	 * Adapts the border.
-	 */
-	protected void adaptBorder()
-	{
-		setBorder(rendererBorder);
 	}
 }
