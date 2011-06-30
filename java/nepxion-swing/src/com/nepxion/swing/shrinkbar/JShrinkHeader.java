@@ -272,6 +272,7 @@ public class JShrinkHeader
 			if (toolBar == null)
 			{
 				toolBar = new JBasicToolBar();
+				toolBar.setOpaque(false);
 				toolBar.setBorder(BorderFactory.createEmptyBorder());
 			}
 			
