@@ -22,7 +22,7 @@ import com.nepxion.swing.container.JContainer;
 import com.nepxion.swing.panel.decoration.JDecorationHeader;
 
 public class JToggleContentPanel
-	extends JPanel
+	extends JPanel implements IToggleContentPanel
 {
 	/**
 	 * The instance of JContainer.

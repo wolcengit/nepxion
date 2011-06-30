@@ -21,9 +21,9 @@ public class JToggleActionButton
 	extends JBasicToggleButton implements SwingConstants
 {
 	/**
-	 * The instance of JToggleContentPanel.
+	 * The instance of IToggleContentPanel.
 	 */
-	private JToggleContentPanel toggleContentPanel;
+	private IToggleContentPanel toggleContentPanel;
 	
 	/**
 	 * The instance of ITogglePanel.
@@ -32,10 +32,10 @@ public class JToggleActionButton
 	
 	/**
 	 * Constructs with the specified initial toggle content panel and toggle panel.
-	 * @param toggleContentPanel the instance of JToggleContentPanel
+	 * @param toggleContentPanel the instance of IToggleContentPanel
 	 * @param togglePanel the instance of ITogglePanel
 	 */
-	public JToggleActionButton(JToggleContentPanel toggleContentPanel, ITogglePanel togglePanel)
+	public JToggleActionButton(IToggleContentPanel toggleContentPanel, ITogglePanel togglePanel)
 	{
 		this.toggleContentPanel = toggleContentPanel;
 		
@@ -54,18 +54,18 @@ public class JToggleActionButton
 	
 	/**
 	 * Gets the toggle content panel.
-	 * @return the instance of JToggleContentPanel
+	 * @return the instance of IToggleContentPanel
 	 */
-	public JToggleContentPanel getToggleContentPanel()
+	public IToggleContentPanel getToggleContentPanel()
 	{
 		return toggleContentPanel;
 	}
 	
 	/**
 	 * Sets the toggle content panel.
-	 * @param toggleContentPanel the instance of JToggleContentPanel
+	 * @param toggleContentPanel the instance of IToggleContentPanel
 	 */
-	public void setToggleContentPanel(JToggleContentPanel toggleContentPanel)
+	public void setToggleContentPanel(IToggleContentPanel toggleContentPanel)
 	{
 		this.toggleContentPanel = toggleContentPanel;
 	}
