@@ -12,7 +12,7 @@ package com.nepxion.swing.tree.toggle;
 
 import javax.swing.tree.TreeNode;
 
-import com.nepxion.swing.toggle.JToggleContentPanel;
+import com.nepxion.swing.toggle.IToggleContentPanel;
 import com.nepxion.swing.tree.TreeNavigator;
 import com.nepxion.swing.tree.lazyloader.JLazyLoaderCheckBoxTree;
 
@@ -22,7 +22,7 @@ public class JToggleLazyLoaderCheckBoxTree
 	private int invokeMode = INVOKE_MODE_SELECTED;
 	private TreeNavigator treeNavigator;
 	
-	private JToggleContentPanel toggleContentPanel;
+	private IToggleContentPanel toggleContentPanel;
 	
 	private IToggleAdapter toggleAdapter;
 	
@@ -58,12 +58,12 @@ public class JToggleLazyLoaderCheckBoxTree
 		this.treeNavigator = treeNavigator;
 	}
 	
-	public JToggleContentPanel getToggleContentPanel()
+	public IToggleContentPanel getToggleContentPanel()
 	{
 		return toggleContentPanel;
 	}
 	
-	public void setToggleContentPanel(JToggleContentPanel toggleContentPanel)
+	public void setToggleContentPanel(IToggleContentPanel toggleContentPanel)
 	{
 		this.toggleContentPanel = toggleContentPanel;
 	}

@@ -16,7 +16,7 @@ import java.util.Vector;
 import javax.swing.tree.TreeModel;
 import javax.swing.tree.TreeNode;
 
-import com.nepxion.swing.toggle.JToggleContentPanel;
+import com.nepxion.swing.toggle.IToggleContentPanel;
 import com.nepxion.swing.tree.JCheckBoxTree;
 import com.nepxion.swing.tree.TreeNavigator;
 
@@ -26,7 +26,7 @@ public class JToggleCheckBoxTree
 	private int invokeMode = INVOKE_MODE_SELECTED;
 	private TreeNavigator treeNavigator;
 	
-	private JToggleContentPanel toggleContentPanel;
+	private IToggleContentPanel toggleContentPanel;
 	
 	private IToggleAdapter toggleAdapter;
 	
@@ -104,12 +104,12 @@ public class JToggleCheckBoxTree
 		this.treeNavigator = treeNavigator;
 	}
 	
-	public JToggleContentPanel getToggleContentPanel()
+	public IToggleContentPanel getToggleContentPanel()
 	{
 		return toggleContentPanel;
 	}
 	
-	public void setToggleContentPanel(JToggleContentPanel toggleContentPanel)
+	public void setToggleContentPanel(IToggleContentPanel toggleContentPanel)
 	{
 		this.toggleContentPanel = toggleContentPanel;
 	}

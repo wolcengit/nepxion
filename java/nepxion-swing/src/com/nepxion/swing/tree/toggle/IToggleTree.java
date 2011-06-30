@@ -10,7 +10,7 @@ package com.nepxion.swing.tree.toggle;
  * @version 1.0
  */
 
-import com.nepxion.swing.toggle.JToggleContentPanel;
+import com.nepxion.swing.toggle.IToggleContentPanel;
 import com.nepxion.swing.tree.ITree;
 import com.nepxion.swing.tree.TreeNavigator;
 
@@ -29,9 +29,9 @@ public interface IToggleTree
 	
 	public void setTreeNavigator(TreeNavigator treeNavigator);
 	
-	public JToggleContentPanel getToggleContentPanel();
+	public IToggleContentPanel getToggleContentPanel();
 	
-	public void setToggleContentPanel(JToggleContentPanel toggleContentPanel);
+	public void setToggleContentPanel(IToggleContentPanel toggleContentPanel);
 	
 	public IToggleAdapter getToggleAdapter();
 	

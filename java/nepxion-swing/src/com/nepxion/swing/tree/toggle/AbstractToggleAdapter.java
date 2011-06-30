@@ -12,9 +12,9 @@ package com.nepxion.swing.tree.toggle;
 
 import javax.swing.tree.TreeNode;
 
+import com.nepxion.swing.toggle.IToggleContentPanel;
 import com.nepxion.swing.toggle.ITogglePanel;
 import com.nepxion.swing.toggle.JThreadTogglePanel;
-import com.nepxion.swing.toggle.JToggleContentPanel;
 
 public abstract class AbstractToggleAdapter
 	implements IToggleAdapter
@@ -34,7 +34,7 @@ public abstract class AbstractToggleAdapter
 			return;
 		}
 		
-		JToggleContentPanel toggleContentPanel = toggleTree.getToggleContentPanel();
+		IToggleContentPanel toggleContentPanel = toggleTree.getToggleContentPanel();
 		if (toggleContentPanel == null)
 		{
 			return;
