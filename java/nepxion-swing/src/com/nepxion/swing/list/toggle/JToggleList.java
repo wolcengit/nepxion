@@ -14,7 +14,7 @@ import java.util.Vector;
 
 import com.nepxion.swing.list.BasicListModel;
 import com.nepxion.swing.list.JBasicList;
-import com.nepxion.swing.toggle.JToggleContentPanel;
+import com.nepxion.swing.toggle.IToggleContentPanel;
 
 public class JToggleList
 	extends JBasicList implements IToggleList
@@ -25,9 +25,9 @@ public class JToggleList
 	private int toggleMode = TOGGLE_MODE_SELECTED;
 	
 	/**
-	 * The instance of JToggleContentPanel.
+	 * The instance of IToggleContentPanel.
 	 */
-	private JToggleContentPanel toggleContentPanel;
+	private IToggleContentPanel toggleContentPanel;
 	
 	/**
 	 * The instance of IToggleAdapter.
@@ -105,18 +105,18 @@ public class JToggleList
 	
 	/**
 	 * Gets the toggle content panel.
-	 * @return the instance of JToggleContentPanel
+	 * @return the instance of IToggleContentPanel
 	 */
-	public JToggleContentPanel getToggleContentPanel()
+	public IToggleContentPanel getToggleContentPanel()
 	{
 		return toggleContentPanel;
 	}
 	
 	/**
 	 * Sets the toggle content panel.
-	 * @param toggleContentPanel the instance of JToggleContentPanel
+	 * @param toggleContentPanel the instance of IToggleContentPanel
 	 */
-	public void setToggleContentPanel(JToggleContentPanel toggleContentPanel)
+	public void setToggleContentPanel(IToggleContentPanel toggleContentPanel)
 	{
 		this.toggleContentPanel = toggleContentPanel;
 	}

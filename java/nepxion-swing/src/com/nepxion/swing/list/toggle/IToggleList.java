@@ -11,7 +11,7 @@ package com.nepxion.swing.list.toggle;
  */
 
 import com.nepxion.swing.list.IList;
-import com.nepxion.swing.toggle.JToggleContentPanel;
+import com.nepxion.swing.toggle.IToggleContentPanel;
 
 public interface IToggleList
 	extends IList
@@ -48,15 +48,15 @@ public interface IToggleList
 	
 	/**
 	 * Gets the toggle content panel.
-	 * @return the instance of JToggleContentPanel
+	 * @return the instance of IToggleContentPanel
 	 */
-	public JToggleContentPanel getToggleContentPanel();
+	public IToggleContentPanel getToggleContentPanel();
 	
 	/**
 	 * Sets the toggle content panel.
-	 * @param toggleContentPanel the instance of JToggleContentPanel
+	 * @param toggleContentPanel the instance of IToggleContentPanel
 	 */
-	public void setToggleContentPanel(JToggleContentPanel toggleContentPanel);
+	public void setToggleContentPanel(IToggleContentPanel toggleContentPanel);
 	
 	/**
 	 * Gets the toggle adapter.
