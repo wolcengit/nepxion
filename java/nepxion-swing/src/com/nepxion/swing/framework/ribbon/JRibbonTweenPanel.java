@@ -20,6 +20,7 @@ import javax.swing.JComponent;
 import javax.swing.JPanel;
 
 import com.nepxion.swing.border.LineBorder;
+import com.nepxion.swing.container.ContainerManager;
 import com.nepxion.swing.panel.JReflectionPanel;
 import com.nepxion.swing.shrinkbar.JShrinkHeader;
 import com.nepxion.swing.style.texture.shrink.IHeaderTextureStyle;
@@ -297,7 +298,6 @@ public class JRibbonTweenPanel
 		this.contentPane.setBorder(BorderFactory.createCompoundBorder(lineBorder, this.contentPane.getBorder()));
 		contentBar.add(this.contentPane, BorderLayout.CENTER);
 		
-		contentBar.revalidate();
-		contentBar.repaint();
+		ContainerManager.update(contentBar);
 	}
 }
