@@ -43,11 +43,15 @@ public class ExceptionUtil
 	public static String getText(Exception e)
 	{
 		ByteArrayOutputStream baos = new ByteArrayOutputStream();
-		e.printStackTrace(new PrintStream(baos));
+		PrintStream printStream = new PrintStream(baos);
+		e.printStackTrace(printStream);
+		
 		try
 		{
 			baos.flush();
 			baos.close();
+			
+			printStream.close();
 		}
 		catch (IOException ex)
 		{
