@@ -30,27 +30,44 @@ public class ServerInvoker
 {
 	/**
 	 * The request entity type for parameter.
-	 * The client is allowed to send parameter list to server.It supports GET and POST mode.
+	 * The client is allowed to send parameter list to server. It supports GET and POST mode.
 	 * This function is mostly like the url parameter transfer as ("http://localhost:8080?key1=value1&key2=value2").
 	 */
 	public static final int REQUEST_ENTITY_TYPE_PARAMETER = 0;
 	
 	/**
 	 * The request entity type for string.
-	 * The client is allowed to send string(Text, XML, JSON, Properties...) to server.It only supports POST mode.
+	 * The client is allowed to send string(Text, XML, JSON, Properties...) to server. It only supports POST mode.
 	 */
 	public static final int REQUEST_ENTITY_TYPE_STRING = 1;
 	
 	/**
 	 * The request entity type for serializable.
-	 * The client is allowed to send serializable object to server.It only supports POST mode.
+	 * The client is allowed to send serializable object to server. It only supports POST mode.
 	 */
 	public static final int REQUEST_ENTITY_TYPE_SERIALIZABLE = 2;
+	
+	/**
+	 * The response entity type for stream.
+	 * The server will response the object by output stream.
+	 */
+	public static final int RESPONSE_ENTITY_TYPE_STREAM = 3;
+	
+	/**
+	 * The response entity type for PrintWriter.
+	 * The server will response the string by out.println().
+	 */
+	public static final int RESPONSE_ENTITY_TYPE_PRINTWRITER = 4;
 	
 	/**
 	 * The request entity type.
 	 */
 	private int requestEntityType = REQUEST_ENTITY_TYPE_SERIALIZABLE;
+	
+	/**
+	 * The response entity type.
+	 */
+	private int responseEntityType = RESPONSE_ENTITY_TYPE_STREAM;
 	
 	/**
 	 * The charset string.
@@ -139,19 +156,32 @@ public class ServerInvoker
 		}
 		
 		Object responseObject = invoke(requestObject, request, response);
-		if (responseObject != null)
+		
+		switch (responseEntityType)
 		{
-			ServerLogger.responseInfo("Serializable Entity", responseObject);
-			
-			IOUtil.write(response.getOutputStream(), responseObject);
-		}
-		else
-		{
-			IllegalArgumentException illegalArgumentException = new IllegalArgumentException("The response serializable entity is null or invalid");
-			
-			ServerLogger.responseInfo("Serializable Entity", illegalArgumentException);
-			
-			IOUtil.write(response.getOutputStream(), illegalArgumentException);
+			case RESPONSE_ENTITY_TYPE_STREAM : 
+			{
+				if (responseObject != null)
+				{
+					ServerLogger.responseInfo("Serializable Entity", responseObject);
+					
+					IOUtil.write(response.getOutputStream(), responseObject);
+				}
+				else
+				{
+					IllegalArgumentException illegalArgumentException = new IllegalArgumentException("The response serializable entity is null or invalid");
+					
+					ServerLogger.responseInfo("Serializable Entity", illegalArgumentException);
+					
+					IOUtil.write(response.getOutputStream(), illegalArgumentException);
+				}
+				break;
+			}
+			case RESPONSE_ENTITY_TYPE_PRINTWRITER :
+			{
+				ServerLogger.responseInfo("String - [Text, XML, JSON, Properties ...]", "It is output by the PrintWriter");
+			}
+			break;
 		}
 	}
 	
@@ -187,6 +217,24 @@ public class ServerInvoker
 	public void setRequestEntityType(int requestEntityType)
 	{
 		this.requestEntityType = requestEntityType;
+	}
+	
+	/**
+	 * Gets the response entity type.
+	 * @return the response entity type value
+	 */
+	public int getResponseEntityType()
+	{
+		return responseEntityType;
+	}
+	
+	/**
+	 * Sets the response entity type.
+	 * @param responseEntityType the response entity type value
+	 */
+	public void setResponseEntityType(int responseEntityType)
+	{
+		this.responseEntityType = responseEntityType;
 	}
 	
 	/**
