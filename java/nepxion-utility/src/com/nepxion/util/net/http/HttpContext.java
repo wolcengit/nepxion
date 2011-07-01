@@ -11,6 +11,7 @@ package com.nepxion.util.net.http;
  */
 
 import java.io.FileInputStream;
+import java.io.InputStream;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -52,11 +53,12 @@ public class HttpContext
 		
 		httpConfigMap = new LinkedHashMap();
 		Properties properties = new Properties();
+		
+		InputStream inputStream = null;
 		try
 		{
-			FileInputStream fis = new FileInputStream(filePath);
-			properties.load(fis);
-			fis.close();
+			inputStream = new FileInputStream(filePath);
+			properties.load(inputStream);
 			
 			parseConfig(properties);
 		}
@@ -65,6 +67,13 @@ public class HttpContext
 			log.fatal(e);
 			
 			throw e;
+		}
+		finally
+		{
+			if (inputStream != null)
+			{
+				inputStream.close();
+			}	
 		}
 		
 		log.info("------ Http Context Initialization End ------");
@@ -106,6 +115,7 @@ public class HttpContext
 		
 		httpConfigMap = new LinkedHashMap();
 		Properties properties = new Properties();
+		
 		try
 		{
 			URL url = new URL(codeBase + CONFIG_FILE_PATH);
