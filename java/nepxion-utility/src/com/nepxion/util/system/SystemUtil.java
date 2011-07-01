@@ -11,14 +11,12 @@ package com.nepxion.util.system;
  */
 
 import java.io.BufferedReader;
-import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 import java.util.Map;
 
 import com.nepxion.util.encoder.EncoderContext;
-import com.nepxion.util.io.IOUtil;
 
 public class SystemUtil
 {
@@ -69,12 +67,10 @@ public class SystemUtil
 	 * @param cmd the cmd string
 	 * @param waitFor the boolean value of waitFor
 	 * @return the cmd result string
-	 * @throws IOException
-	 * @throws InterruptedException
-	 * @throws UnsupportedEncodingException
+	 * @throws Exception
 	 */
 	public static String processExec(String cmd, boolean waitFor)
-		throws IOException, InterruptedException, UnsupportedEncodingException
+		throws Exception
 	{
 		return processExec(cmd, EncoderContext.getIOCharset(), waitFor);
 	}
@@ -85,47 +81,85 @@ public class SystemUtil
 	 * @param charset the charset string
 	 * @param waitFor the boolean value of waitFor
 	 * @return the cmd result string
-	 * @throws IOException
-	 * @throws InterruptedException
-	 * @throws UnsupportedEncodingException
+	 * @throws Exception
 	 */
 	public static String processExec(String cmd, String charset, boolean waitFor)
-		throws IOException, InterruptedException, UnsupportedEncodingException
-	{
-		String text = null;
-		
+		throws Exception
+	{		
 		Process process = Runtime.getRuntime().exec(cmd);
 		
-		text = IOUtil.getString(process.getInputStream(), charset);
+		InputStream inputStream = process.getInputStream();
+		InputStreamReader inputStreamReader = new InputStreamReader(inputStream, charset);
+		BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+		
+		StringBuffer stringBuffer = new StringBuffer();
+		try
+		{
+			String line = null;
+			while ((line = bufferedReader.readLine()) != null)
+			{
+				if (!line.equals(""))
+				{
+					stringBuffer.append(line + "\n");
+				}
+			}
+		}
+		catch (Exception e)
+		{
+			throw e;
+		}
+		finally
+		{
+			if (bufferedReader != null)
+			{	
+				bufferedReader.close();
+			}
+		}
 		
 		if (waitFor)
 		{
 			process.waitFor();
 		}
 		
-		return text;
+		return stringBuffer.toString();
 	}
 	
 	/**
 	 * Gets the environment variables.
 	 * @return the instance of Map
-	 * @throws IOException
+	 * @throws Exception
 	 */
 	public static Map getEnvironmentVariables()
-		throws IOException
+		throws Exception
 	{
 		Map map = new HashMap();
 		
 		Process process = Runtime.getRuntime().exec("cmd /c set");
-		BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(process.getInputStream()));
 		
-		String line = null;
-		while ((line = bufferedReader.readLine()) != null)
+		InputStream inputStream = process.getInputStream();
+		InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
+		BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+		
+		try
 		{
-			String[] stringArray = line.split("=");
-			map.put(stringArray[0], stringArray[1]);
+			String line = null;
+			while ((line = bufferedReader.readLine()) != null)
+			{
+				String[] stringArray = line.split("=");
+				map.put(stringArray[0], stringArray[1]);
+			}
 		}
-		bufferedReader.close();
+		catch (Exception e)
+		{
+			throw e;
+		}
+		finally
+		{			
+			if (bufferedReader != null)
+			{	
+				bufferedReader.close();
+			}
+		}
 		
 		return map;
 	}
