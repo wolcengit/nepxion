@@ -11,6 +11,7 @@ package com.nepxion.util.context;
  */
 
 import java.io.FileInputStream;
+import java.io.InputStream;
 import java.net.URL;
 import java.util.Properties;
 
@@ -27,15 +28,23 @@ public abstract class AbstractContextRegister
 		throws Exception
 	{
 		Properties properties = new Properties();
+		
+		InputStream inputStream = null;
 		try
 		{
-			FileInputStream fis = new FileInputStream(filePath);
-			properties.load(fis);
-			fis.close();
+			inputStream = new FileInputStream(filePath);
+			properties.load(inputStream);
 		}
 		catch (Exception e)
 		{
 			throw e;
+		}
+		finally
+		{
+			if (inputStream != null)
+			{
+				inputStream.close();
+			}	
 		}
 		
 		initializeContext(properties);
@@ -52,15 +61,9 @@ public abstract class AbstractContextRegister
 		throws Exception
 	{		
 		Properties properties = new Properties();
-		try
-		{
-			URL url = new URL(codeBase + filePath);
-			properties.load(url.openStream());
-		}
-		catch (Exception e)
-		{
-			throw e;
-		}
+		
+		URL url = new URL(codeBase + filePath);
+		properties.load(url.openStream());
 		
 		initializeContext(codeBase, properties);
 	}
