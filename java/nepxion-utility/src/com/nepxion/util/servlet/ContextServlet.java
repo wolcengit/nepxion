@@ -11,6 +11,8 @@ package com.nepxion.util.servlet;
  */
 
 import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.Properties;
 
 import javax.servlet.ServletConfig;
@@ -52,15 +54,29 @@ public class ContextServlet
 			
 			Properties properties = new Properties();
 			
+			InputStream inputStream = null;
 			try
 			{
-				FileInputStream fis = new FileInputStream(loggerPath);
-				properties.load(fis);
-				fis.close();
+				inputStream = new FileInputStream(loggerPath);
+				properties.load(inputStream);
 			}
 			catch (Exception e)
 			{
 				e.printStackTrace();
+			}
+			finally
+			{
+				if (inputStream != null)
+				{
+					try
+					{
+						inputStream.close();
+					}
+					catch (IOException e)
+					{
+						e.printStackTrace();
+					}
+				}	
 			}
 			
 			loggerPath = loggerPath.substring(0, loggerPath.lastIndexOf("\\") + 1);
