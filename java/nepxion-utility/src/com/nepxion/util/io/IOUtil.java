@@ -171,7 +171,6 @@ public class IOUtil
 		}
 		inputStreamReader.close();
 
-		
 		return stringBuffer.toString().trim();
 	}
 	
