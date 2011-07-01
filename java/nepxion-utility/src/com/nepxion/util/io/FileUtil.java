@@ -267,25 +267,7 @@ public class FileUtil
 		writeBytes(bytes, filePath);
 		
 		return file;
-	}	
-	
-	/**
-	 * Gets the user directory of JVM.
-	 * @return the user directory
-	 */
-	public static String getUserDirectory()
-	{
-		return System.getProperty("user.dir");
 	}
-	
-	/**
-	 * Gets the temp directory of JVM.
-	 * @return  the temp directory
-	 */
-	public static String getTempDirectory()
-	{
-		return System.getProperty("java.io.tmpdir");
-	}	
 	
 	/**
 	 * Gets the size of the file context.

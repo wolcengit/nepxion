@@ -1,5 +1,7 @@
 package com.nepxion.util.jni;
 
+import com.nepxion.util.system.SystemUtil;
+
 /**
  * <p>Title: Nepxion Utility</p>
  * <p>Description: Nepxion Utility Repository</p>
@@ -55,7 +57,7 @@ public class ApplicationUtil
 			return;
 		}
 		
-		boolean isWindowsPlatform = isWindowsPlatform();
+		boolean isWindowsPlatform = SystemUtil.verifyOS(WINDOWS_OS_NAME);
 		String cmd = null;
 		
 		if (isWindowsPlatform)
@@ -86,20 +88,5 @@ public class ApplicationUtil
 	{
 		String cmd = "explorer " + url;
 		Runtime.getRuntime().exec(cmd);
-	}
-	
-	/**
-	 * Returns true if windows platform.
-	 * @return true if windows platform
-	 */
-	private static boolean isWindowsPlatform()
-	{
-		String osName = System.getProperty("os.name");
-		if (osName != null && osName.startsWith(WINDOWS_OS_NAME))
-		{
-			return true;
-		}
-		
-		return false;
 	}
 }

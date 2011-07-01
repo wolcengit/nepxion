@@ -10,7 +10,7 @@ package com.nepxion.util.searcher.ip.local;
  * @version 1.0
  */
 
-import com.nepxion.util.io.FileUtil;
+import com.nepxion.util.system.SystemUtil;
 
 public interface IPConstants
 {
@@ -22,7 +22,7 @@ public interface IPConstants
 	/**
 	 * The cache path of data file for "ip.dat".
 	 */
-	public static final String DATA_FILE_CACHE_PATH = FileUtil.getTempDirectory() + "ip.dat";
+	public static final String DATA_FILE_CACHE_PATH = SystemUtil.getTempDirectory() + "ip.dat";
 	
 	/**
 	 * The version date string.
