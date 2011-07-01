@@ -12,7 +12,7 @@ package com.nepxion.util.xml.dom4j;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
@@ -77,10 +77,10 @@ public class Dom4JReader
 	 * @param file the instance of File
 	 * @return the instance of Document
 	 * @throws DocumentException
-	 * @throws FileNotFoundException
+	 * @throws IOException
 	 */
 	public static Document getDocument(File file)
-		throws DocumentException, FileNotFoundException
+		throws DocumentException, IOException
 	{
 		InputStream inputStream = new FileInputStream(file);
 		
@@ -93,11 +93,11 @@ public class Dom4JReader
 	 * @param file the instance of File
 	 * @return the instance of Document
 	 * @throws DocumentException
-	 * @throws FileNotFoundException
+	 * @throws IOException
 	 * @throws UnsupportedEncodingException
 	 */
 	public static Document getFormatDocument(File file)
-		throws DocumentException, FileNotFoundException, UnsupportedEncodingException
+		throws DocumentException, IOException, UnsupportedEncodingException
 	{
 		return getFormatDocument(file, EncoderContext.getIOCharset());
 	}
@@ -108,11 +108,11 @@ public class Dom4JReader
 	 * @param charset the charset string
 	 * @return the instance of Document
 	 * @throws DocumentException
-	 * @throws FileNotFoundException 
+	 * @throws IOException
 	 * @throws UnsupportedEncodingException 
 	 */
 	public static Document getFormatDocument(File file, String charset)
-		throws DocumentException, FileNotFoundException, UnsupportedEncodingException
+		throws DocumentException, IOException, UnsupportedEncodingException
 	{
 		InputStream inputStream = new FileInputStream(file);
 		
@@ -166,13 +166,31 @@ public class Dom4JReader
 	 * @param inputStream the instance of InputStream
 	 * @return the instance of Document
 	 * @throws DocumentException
+	 * @throws IOException
 	 */
 	public static Document getDocument(InputStream inputStream)
-		throws DocumentException
+		throws DocumentException, IOException
 	{
 		SAXReader saxReader = new SAXReader();
 		
-		return saxReader.read(inputStream);
+		Document document = null;
+		try
+		{
+			document = saxReader.read(inputStream);
+		}
+		catch (DocumentException e)
+		{
+			throw e;
+		}
+		finally
+		{
+			if (inputStream != null)
+			{
+				inputStream.close();
+			}	
+		}
+		
+		return document;
 	}
 	
 	/**
@@ -181,10 +199,11 @@ public class Dom4JReader
 	 * @param inputStream the instance of InputStream
 	 * @return the instance of Document
 	 * @throws DocumentException
+	 * @throws IOException
 	 * @throws UnsupportedEncodingException
 	 */
 	public static Document getFormatDocument(InputStream inputStream)
-		throws DocumentException, UnsupportedEncodingException
+		throws DocumentException, IOException, UnsupportedEncodingException
 	{
 		return getFormatDocument(inputStream, EncoderContext.getIOCharset());
 	}
@@ -195,10 +214,11 @@ public class Dom4JReader
 	 * @param charset the charset string
 	 * @return the instance of Document
 	 * @throws DocumentException
+	 * @throws IOException
 	 * @throws UnsupportedEncodingException 
 	 */
 	public static Document getFormatDocument(InputStream inputStream, String charset)
-		throws DocumentException, UnsupportedEncodingException
+		throws DocumentException, IOException, UnsupportedEncodingException
 	{
 		Reader inputStreamReader = new InputStreamReader(inputStream, charset);
 		
@@ -210,13 +230,31 @@ public class Dom4JReader
 	 * @param reader the instance of Reader
 	 * @return the instance of Document
 	 * @throws DocumentException
+	 * @throws IOException
 	 */
 	public static Document getDocument(Reader reader)
-		throws DocumentException
+		throws DocumentException, IOException
 	{
 		SAXReader saxReader = new SAXReader();
+	
+		Document document = null;
+		try
+		{
+			document = saxReader.read(reader);
+		}
+		catch (DocumentException e)
+		{
+			throw e;
+		}
+		finally
+		{
+			if (reader != null)
+			{
+				reader.close();
+			}	
+		}
 		
-		return saxReader.read(reader);
+		return document;
 	}
 	
 	/**
