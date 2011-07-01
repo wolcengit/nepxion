@@ -17,6 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import com.nepxion.util.encoder.EncoderContext;
+import com.nepxion.util.io.IOUtil;
 
 public class SystemUtil
 {
@@ -89,39 +90,15 @@ public class SystemUtil
 		Process process = Runtime.getRuntime().exec(cmd);
 		
 		InputStream inputStream = process.getInputStream();
-		InputStreamReader inputStreamReader = new InputStreamReader(inputStream, charset);
-		BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
 		
-		StringBuffer stringBuffer = new StringBuffer();
-		try
-		{
-			String line = null;
-			while ((line = bufferedReader.readLine()) != null)
-			{
-				if (!line.equals(""))
-				{
-					stringBuffer.append(line + "\n");
-				}
-			}
-		}
-		catch (Exception e)
-		{
-			throw e;
-		}
-		finally
-		{
-			if (bufferedReader != null)
-			{	
-				bufferedReader.close();
-			}
-		}
+		String result = IOUtil.readString(inputStream, charset, true);
 		
 		if (waitFor)
 		{
 			process.waitFor();
 		}
 		
-		return stringBuffer.toString();
+		return result;
 	}
 	
 	/**
