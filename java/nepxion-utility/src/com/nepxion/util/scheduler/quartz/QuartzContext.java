@@ -106,6 +106,7 @@ public class QuartzContext
 		throws Exception
 	{
 		Properties properties = new Properties();
+		
 		try
 		{
 			URL url = new URL(codeBase + CONFIG_FILE_PATH);
