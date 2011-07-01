@@ -59,10 +59,29 @@ public class Dom4JWriter
 	{
 		ByteArrayOutputStream baos = new ByteArrayOutputStream();
 		OutputFormat outputFormat = new OutputFormat("  ", true, charset);
-		XMLWriter writer = new XMLWriter(baos, outputFormat);
-		writer.write(document);
-		baos.flush();
-		baos.close();
+		
+		try
+		{
+			XMLWriter writer = new XMLWriter(baos, outputFormat);
+			writer.write(document);
+			
+			baos.flush();
+		}
+		catch (UnsupportedEncodingException e)
+		{
+			throw e;
+		}
+		catch (IOException e)
+		{
+			throw e;
+		}
+		finally
+		{
+			if (baos != null)
+			{	
+				baos.close();
+			}
+		}
 		
 		return baos.toString(charset);
 	}
