@@ -73,23 +73,23 @@ public class DemoDockableFrameWorkPanel
 		
 		private void initContentPane()
 		{
-			JDockableView treeView = new JDockableView(TREE_TITLE, IconFactory.getSwingIcon("component/tree_16.png"), new JBasicScrollPane(DemoComponentFactory.getTree()));
-			JDockableView tableView = new JDockableView(TABLE_TITLE, IconFactory.getSwingIcon("component/table_16.png"), new JBasicScrollPane(DemoComponentFactory.getTable()));
-			JDockableView textAreaView = new JDockableView(TEXT_AREA_TITLE, IconFactory.getSwingIcon("component/text_area_16.png"), new JBasicScrollPane(new JBasicTextArea("TextArea View")));
+			JDockableView treeView = new JDockableView(TREE_TITLE, IconFactory.getSwingIcon("component/tree_16.png"), TREE_TITLE, new JBasicScrollPane(DemoComponentFactory.getTree()));
+			JDockableView tableView = new JDockableView(TABLE_TITLE, IconFactory.getSwingIcon("component/table_16.png"), TABLE_TITLE, new JBasicScrollPane(DemoComponentFactory.getTable()));
+			JDockableView textAreaView = new JDockableView(TEXT_AREA_TITLE, IconFactory.getSwingIcon("component/text_area_16.png"), TEXT_AREA_TITLE, new JBasicScrollPane(new JBasicTextArea("TextArea View")));
 			
 			JDockable leftDockable = new JDockable();
 			leftDockable.setOrientation(JDockable.VERTICAL_SPLIT);
 			leftDockable.add(treeView, JDockable.FLEXIBLE);
 			leftDockable.add(tableView, JDockable.FLEXIBLE);
 			leftDockable.add(textAreaView, JDockable.VARY);
-			leftDockable.setDividerLocation(0, 250);
+			leftDockable.setDividerLocation(0, 150);
 			leftDockable.setDividerLocation(1, 200);
 			
-			JDockableView tabbedPaneView = new JDockableView(TABBED_PANE_TITLE, IconFactory.getSwingIcon("component/tabbed_pane_16.png"), DemoComponentFactory.getTabbedPane());
+			JDockableView tabbedPaneView = new JDockableView(TABBED_PANE_TITLE, IconFactory.getSwingIcon("component/tabbed_pane_16.png"), TABBED_PANE_TITLE, DemoComponentFactory.getTabbedPane());
 			
-			JDockableView listView = new JDockableView(LIST_TITLE, IconFactory.getSwingIcon("component/list_16.png"), new JBasicScrollPane(DemoComponentFactory.getList()));
-			JDockableView checkBoxSelectorView = new JDockableView(CHECK_BOX_SELECTOR_TITLE, IconFactory.getSwingIcon("component/check_box_16.png"), new JCheckBoxListPanel(DemoDataFactory.getComponentElementNodes()));
-			JDockableView radioButtonSelectorView = new JDockableView(RADIO_BUTTON_SELECTOR_TITLE, IconFactory.getSwingIcon("component/radio_button_16.png"), new JRadioButtonListPanel(DemoDataFactory.getComponentElementNodes()));
+			JDockableView listView = new JDockableView(LIST_TITLE, IconFactory.getSwingIcon("component/list_16.png"), LIST_TITLE, new JBasicScrollPane(DemoComponentFactory.getList()));
+			JDockableView checkBoxSelectorView = new JDockableView(CHECK_BOX_SELECTOR_TITLE, IconFactory.getSwingIcon("component/check_box_16.png"), CHECK_BOX_SELECTOR_TITLE, new JCheckBoxListPanel(DemoDataFactory.getComponentElementNodes()));
+			JDockableView radioButtonSelectorView = new JDockableView(RADIO_BUTTON_SELECTOR_TITLE, IconFactory.getSwingIcon("component/radio_button_16.png"), RADIO_BUTTON_SELECTOR_TITLE, new JRadioButtonListPanel(DemoDataFactory.getComponentElementNodes()));
 			
 			JDockable rightDockable = new JDockable();
 			rightDockable.setOrientation(JDockable.VERTICAL_SPLIT);
