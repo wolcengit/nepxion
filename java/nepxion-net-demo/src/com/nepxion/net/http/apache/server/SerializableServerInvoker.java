@@ -28,6 +28,7 @@ public class SerializableServerInvoker
 	public SerializableServerInvoker()
 	{
 		setRequestEntityType(REQUEST_ENTITY_TYPE_SERIALIZABLE);
+		setResponseEntityType(RESPONSE_ENTITY_TYPE_STREAM);
 	}
 	
 	public Object invoke(Object requestObject, HttpServletRequest request, HttpServletResponse response)

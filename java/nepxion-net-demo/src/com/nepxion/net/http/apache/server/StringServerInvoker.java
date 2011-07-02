@@ -24,6 +24,7 @@ public class StringServerInvoker
 	public StringServerInvoker()
 	{
 		setRequestEntityType(REQUEST_ENTITY_TYPE_STRING);
+		setResponseEntityType(RESPONSE_ENTITY_TYPE_STREAM);
 		setCharset("GBK");
 	}
 	

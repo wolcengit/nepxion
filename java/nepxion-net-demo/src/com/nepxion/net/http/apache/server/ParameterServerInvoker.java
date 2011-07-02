@@ -26,6 +26,7 @@ public class ParameterServerInvoker
 	public ParameterServerInvoker()
 	{
 		setRequestEntityType(REQUEST_ENTITY_TYPE_PARAMETER);
+		setResponseEntityType(RESPONSE_ENTITY_TYPE_PRINTWRITER);
 		setCharset("GBK");
 	}
 	
