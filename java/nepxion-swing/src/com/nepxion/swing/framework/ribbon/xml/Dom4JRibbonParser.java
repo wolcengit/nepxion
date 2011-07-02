@@ -14,7 +14,7 @@ import java.awt.Insets;
 import java.awt.LayoutManager;
 import java.awt.event.ActionEvent;
 import java.io.File;
-import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.Iterator;
@@ -175,11 +175,11 @@ public class Dom4JRibbonParser
 	 * Parses the xml by a file.
 	 * @param file the instance of File
 	 * @throws DocumentException
-	 * @throws FileNotFoundException
+	 * @throws IOException
 	 * @throws UnsupportedEncodingException
 	 */
 	public void parse(File file)
-		throws DocumentException, FileNotFoundException, UnsupportedEncodingException
+		throws DocumentException, IOException, UnsupportedEncodingException
 	{
 		Document document = Dom4JReader.getDocument(file);
 		parse(document);
@@ -189,11 +189,11 @@ public class Dom4JRibbonParser
 	 * Parses the xml with the configured charset by a file.
 	 * @param file the instance of File
 	 * @throws DocumentException
-	 * @throws FileNotFoundException
+	 * @throws IOException
 	 * @throws UnsupportedEncodingException
 	 */
 	public void parseFormat(File file)
-		throws DocumentException, FileNotFoundException, UnsupportedEncodingException
+		throws DocumentException, IOException, UnsupportedEncodingException
 	{
 		Document document = Dom4JReader.getFormatDocument(file);
 		parse(document);
@@ -203,9 +203,10 @@ public class Dom4JRibbonParser
 	 * Parses the xml by an inputStream.
 	 * @param inputStream the instance of InputStream
 	 * @throws DocumentException
+	 * @throws IOException
 	 */
 	public void parse(InputStream inputStream)
-		throws DocumentException
+		throws DocumentException, IOException
 	{
 		Document document = Dom4JReader.getDocument(inputStream);
 		parse(document);
@@ -215,10 +216,11 @@ public class Dom4JRibbonParser
 	 * Parses the xml with the configured charset by an inputStream.
 	 * @param inputStream the instance of InputStream
 	 * @throws DocumentException
+	 * @throws IOException
 	 * @throws UnsupportedEncodingException
 	 */
 	public void parseFormat(InputStream inputStream)
-		throws DocumentException, UnsupportedEncodingException
+		throws DocumentException, IOException, UnsupportedEncodingException
 	{
 		Document document = Dom4JReader.getFormatDocument(inputStream);
 		parse(document);
