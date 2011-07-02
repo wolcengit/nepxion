@@ -11,7 +11,7 @@ package com.nepxion.swing.tree.xml;
  */
 
 import java.io.File;
-import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
@@ -71,7 +71,7 @@ public class Dom4JTreeParser
 	}
 	
 	public ElementNode parse(File file)
-		throws DocumentException, FileNotFoundException
+		throws DocumentException, IOException
 	{
 		Document document = Dom4JReader.getDocument(file);
 		
@@ -79,7 +79,7 @@ public class Dom4JTreeParser
 	}
 	
 	public ElementNode parseFormat(File file)
-		throws DocumentException, FileNotFoundException, UnsupportedEncodingException
+		throws DocumentException, IOException, UnsupportedEncodingException
 	{
 		Document document = Dom4JReader.getFormatDocument(file);
 		
@@ -87,7 +87,7 @@ public class Dom4JTreeParser
 	}
 	
 	public ElementNode parse(InputStream inputStream)
-		throws DocumentException
+		throws DocumentException, IOException
 	{
 		Document document = Dom4JReader.getDocument(inputStream);
 		
@@ -95,7 +95,7 @@ public class Dom4JTreeParser
 	}
 	
 	public ElementNode parseFormat(InputStream inputStream)
-		throws DocumentException, UnsupportedEncodingException
+		throws DocumentException, IOException, UnsupportedEncodingException
 	{
 		Document document = Dom4JReader.getFormatDocument(inputStream);
 		

@@ -11,7 +11,7 @@ package com.nepxion.swing.tree.xml;
  */
 
 import java.io.File;
-import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
@@ -73,28 +73,28 @@ public class Dom4JLazyLoaderTreeParser
 	}
 	
 	public void parse(File file, JLazyLoaderTreeNode lazyLoaderTreeNode)
-		throws DocumentException, FileNotFoundException, UnsupportedEncodingException
+		throws DocumentException, IOException, UnsupportedEncodingException
 	{
 		Document document = Dom4JReader.getDocument(file);
 		parse(document, lazyLoaderTreeNode);
 	}
 	
 	public void parseFormat(File file, JLazyLoaderTreeNode lazyLoaderTreeNode)
-		throws DocumentException, FileNotFoundException, UnsupportedEncodingException
+		throws DocumentException, IOException, UnsupportedEncodingException
 	{
 		Document document = Dom4JReader.getFormatDocument(file);
 		parse(document, lazyLoaderTreeNode);
 	}
 	
 	public void parse(InputStream inputStream, JLazyLoaderTreeNode lazyLoaderTreeNode)
-		throws DocumentException
+		throws DocumentException, IOException
 	{
 		Document document = Dom4JReader.getDocument(inputStream);
 		parse(document, lazyLoaderTreeNode);
 	}
 	
 	public void parseFormat(InputStream inputStream, JLazyLoaderTreeNode lazyLoaderTreeNode)
-		throws DocumentException, UnsupportedEncodingException
+		throws DocumentException, IOException, UnsupportedEncodingException
 	{
 		Document document = Dom4JReader.getFormatDocument(inputStream);
 		parse(document, lazyLoaderTreeNode);
