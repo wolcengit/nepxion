@@ -56,7 +56,7 @@ public class DemoDockableOutlookBar
 		addTab("Layout Control", IconFactory.getSwingIcon("component/layout_16.png"), makeScrollPane(new DemoLayoutControlOutlook()), "Layout Control Component");
 		addTab("UI Control", IconFactory.getSwingIcon("component/ui_16.png"), makeScrollPane(new DemoUIControlOutlook()), "UI Control Component");
 		addTab("Thread Control", IconFactory.getSwingIcon("component/thread_16.png"), makeScrollPane(new DemoThreadControlOutlook()), "Thread Control Component");
-		addTab("Chart Control", IconFactory.getSwingIcon("component/chart_16.png"), makeScrollPane(new DemoChartControlOutlook()), "Chart Control Component");
+		addTab("Chart Control", IconFactory.getSwingIcon("component/color_16.png"), makeScrollPane(new DemoChartControlOutlook()), "Chart Control Component");
 		addTab("FrameWork Control", IconFactory.getSwingIcon("component/framework_16.png"), makeScrollPane(new DemoFrameWorkControlOutlook()), "FrameWork Control Component");		
 		addTab("Advanced Control", IconFactory.getSwingIcon("component/advanced_16.png"), makeScrollPane(new DemoAdvancedControlOutlook()), "Advanced Control Component");
 		addTab("Application Control", IconFactory.getSwingIcon("component/application_16.png"), makeScrollPane(new DemoApplicationControlOutlook()), "Application Control Component");		

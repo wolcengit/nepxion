@@ -16,6 +16,7 @@ import com.nepxion.demo.component.splash.DemoSplashWindow;
 import com.nepxion.swing.context.DataContextInitializer;
 import com.nepxion.swing.context.UIContextInitializer;
 import com.nepxion.swing.framework.JFrameWorkFrame;
+import com.nepxion.swing.framework.ribbon.RibbonContextInitializer;
 import com.nepxion.swing.icon.IconFactory;
 import com.nepxion.swing.tray.JTray;
 
@@ -34,6 +35,7 @@ public class DemoDockableFrame
 	{
 		new DataContextInitializer().initialize();
 		new UIContextInitializer().initialize();
+		new RibbonContextInitializer().initialize();
 		
 		final DemoSplashWindow splashWindow = new DemoSplashWindow();
 		splashWindow.setVisible(true);

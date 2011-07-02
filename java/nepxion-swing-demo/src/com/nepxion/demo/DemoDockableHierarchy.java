@@ -10,6 +10,8 @@ package com.nepxion.demo;
  * @version 1.0
  */
 
+import java.awt.Component;
+import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 
 import javax.swing.JMenuItem;
@@ -20,11 +22,14 @@ import com.nepxion.swing.framework.dockable.DockableManager;
 import com.nepxion.swing.framework.dockable.JDockable;
 import com.nepxion.swing.framework.dockable.JDockableHierarchy;
 import com.nepxion.swing.framework.dockable.JDockableView;
+import com.nepxion.swing.gradient.JBackgroundPainter;
 import com.nepxion.swing.icon.IconFactory;
 import com.nepxion.swing.keystroke.KeyStrokeManager;
 import com.nepxion.swing.menu.JBasicMenu;
 import com.nepxion.swing.menubar.JBasicMenuBar;
 import com.nepxion.swing.menuitem.JBasicMenuItem;
+import com.nepxion.swing.style.texture.ITextureStyle;
+import com.nepxion.swing.style.texture.basic.JBlueTextureStyle;
 import com.nepxion.swing.toolbar.JBasicToolBar;
 
 public class DemoDockableHierarchy
@@ -43,8 +48,8 @@ public class DemoDockableHierarchy
     
     private void initContentPane()
     {
-    	JDockableView explorerView = new JDockableView(EXPLORER_TITLE, IconFactory.getSwingIcon("explorer.png"), DemoDockableOutlookBar.getInstance());
-		JDockableView contentPaneView = new JDockableView(CONTENT_PANE_TITLE, IconFactory.getSwingIcon("content_pane.png"), DemoToggleContentPanel.getInstance());
+    	JDockableView explorerView = new JDockableView(EXPLORER_TITLE, IconFactory.getSwingIcon("explorer.png"), EXPLORER_TITLE, DemoDockableOutlookBar.getInstance());
+		JDockableView contentPaneView = new JDockableView(CONTENT_PANE_TITLE, IconFactory.getSwingIcon("content_pane.png"), CONTENT_PANE_TITLE, DemoToggleContentPanel.getInstance());
 		
 		JDockable dockable = new JDockable();
 		dockable.setOrientation(JDockable.HORIZONTAL_SPLIT);
@@ -58,7 +63,7 @@ public class DemoDockableHierarchy
 
     private void initMenuBar()
     {
-        JBasicMenuBar menuBar = getMenuBar();
+    	JBasicMenuBar menuBar = getMenuBar();
         
         JBasicMenu menu = DockableManager.getToggleMenu(this);
         ((JMenuItem) menu.getMenuComponent(1)).doClick();
@@ -75,11 +80,25 @@ public class DemoDockableHierarchy
 
     private void initToolBar()
     {
-        JBasicToolBar toolBar = getToolBar();
+    	JBasicToolBar toolBar = getToolBar();
     }
 
     private void initStatusBar()
     {
         JFrameWorkStatusBar statusBar = getStatusBar();
     }
+    
+	protected void paintMenuBarBackground(Component component, Graphics g)
+	{
+		ITextureStyle textureStyle = new JBlueTextureStyle();
+		
+		JBackgroundPainter.paintBackground(component, g, textureStyle);
+	}
+	
+	protected int getMenuBarBackgroundHeight()
+	{
+		ITextureStyle textureStyle = new JBlueTextureStyle();
+		
+		return textureStyle.getHeight();
+	}
 }

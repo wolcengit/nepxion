@@ -10,10 +10,15 @@ package com.nepxion.demo;
  * @version 1.0
  */
 
-import com.nepxion.swing.container.JContainer;
+import java.awt.Color;
+import java.awt.Font;
+
 import com.nepxion.swing.framework.ribbon.JRibbonContainer;
 import com.nepxion.swing.framework.ribbon.JRibbonHierarchy;
+import com.nepxion.swing.framework.ribbon.JRibbonTweenPanel;
+import com.nepxion.swing.icon.IconFactory;
 import com.nepxion.swing.style.framework.JRibbonStyle;
+import com.nepxion.swing.style.texture.shrink.JBlueHeaderTextureStyle;
 import com.nepxion.swing.tabbedpane.JEclipseTabbedPane;
 
 public class DemoRibbonWorkspaceBar
@@ -34,8 +39,10 @@ public class DemoRibbonWorkspaceBar
 		tabbedPane.setTabPlacement(JEclipseTabbedPane.BOTTOM);
 		ribbonContainer.setTabbedPane(tabbedPane);
 		
-		// The container is displayed as JContainer
-		JContainer panel = new JContainer();
+		// The container is displayed as JRibbonTweenPanel
+		JRibbonTweenPanel panel = new JRibbonTweenPanel();
+		panel.setTitleColor(Color.black);
+		// panel.setTitleFont(new Font("Calibri", Font.BOLD, 14));
 		ribbonContainer.setPanel(panel);
 	}
 }
