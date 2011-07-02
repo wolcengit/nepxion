@@ -26,9 +26,12 @@ import javax.swing.JComponent;
 import javax.swing.JPanel;
 
 import com.nepxion.swing.button.ButtonManager;
+import com.nepxion.swing.button.JBasicButton;
 import com.nepxion.swing.button.JBasicToggleButton;
 import com.nepxion.swing.container.JContainer;
+import com.nepxion.swing.dimension.DimensionManager;
 import com.nepxion.swing.icon.IconFactory;
+import com.nepxion.swing.memorybar.JMemoryProgressBar;
 import com.nepxion.swing.scrollpane.JBasicScrollPane;
 import com.nepxion.swing.textarea.JBasicTextArea;
 import com.nepxion.util.io.FileUtil;
@@ -65,6 +68,20 @@ public class DemoToggleTemplate
 	{
 		public ToggleButtonPanel()
 		{			
+			final JMemoryProgressBar memoryProgressBar = new JMemoryProgressBar();
+			DimensionManager.setDimension(memoryProgressBar, new Dimension(120, 25));
+			memoryProgressBar.start();
+			
+			JBasicButton memoryGCButton = new JBasicButton(IconFactory.getSwingIcon("gc.png"), "Garbage Collector");
+			memoryGCButton.addActionListener(new ActionListener()
+			{
+				public void actionPerformed(ActionEvent e)
+				{					
+					memoryProgressBar.gc();
+				}
+			}
+			);
+			
 			JBasicToggleButton viewToggleButton = new JBasicToggleButton("View", IconFactory.getSwingIcon("component/view.png"), "View", true);
 			viewToggleButton.addActionListener(new ActionListener()
 			{
@@ -111,12 +128,16 @@ public class DemoToggleTemplate
 			
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
 			setBorder(BorderFactory.createEmptyBorder(2, 0, 3, 3)); // 2, 0, 1, 1
+			add(memoryProgressBar);
+			add(memoryGCButton);
 			add(Box.createHorizontalGlue());
 			add(viewToggleButton);			
 			add(Box.createHorizontalStrut(3));
 			add(codeToggleButton);
 			
 			ButtonManager.updateUI(this, new Dimension(75, 25), new ButtonGroup());
+			
+			memoryGCButton.setDimension(new Dimension(25, 25));
 		}
 	}
 }
