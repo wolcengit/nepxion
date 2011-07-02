@@ -34,10 +34,24 @@ public class IOUtil
 	public static void write(OutputStream outputStream, Object object)
 		throws IOException
 	{
-		ObjectOutputStream oos = new ObjectOutputStream(outputStream);
-		oos.writeObject(object);
-		oos.flush();
-		oos.close();
+		ObjectOutputStream oos = null;
+		try
+		{
+			oos = new ObjectOutputStream(outputStream);
+			oos.writeObject(object);
+			oos.flush();
+		}
+		catch (IOException e)
+		{
+			throw e;
+		}
+		finally
+		{
+			if (oos != null)
+			{	
+				oos.close();
+			}	
+		}
 	}
 	
 	/**
@@ -50,10 +64,29 @@ public class IOUtil
 	public static Object read(InputStream inputStream)
 		throws IOException, ClassNotFoundException
 	{
-		ObjectInputStream ois = new ObjectInputStream(inputStream);
-		Object object = ois.readObject();
-		ois.close();
-			
+		Object object = null;
+		ObjectInputStream ois = null;
+		try
+		{
+			ois = new ObjectInputStream(inputStream);
+			object = ois.readObject();
+		}
+		catch (IOException e)
+		{
+			throw e;
+		}
+		catch (ClassNotFoundException e)
+		{
+			throw e;
+		}
+		finally
+		{
+			if (ois != null)
+			{	
+				ois.close();
+			}
+		}
+		
 		return object;
 	}
 	
@@ -160,17 +193,35 @@ public class IOUtil
 		throws IOException, UnsupportedEncodingException
 	{
 		StringBuffer stringBuffer = new StringBuffer();
-
-		InputStreamReader inputStreamReader = new InputStreamReader(inputStream, charset);
 		
-		char[] bytes = new char[4096];
-		int index = -1;
-		while ((index = inputStreamReader.read(bytes)) != -1)
+		InputStreamReader inputStreamReader = null;
+		try
 		{
-			stringBuffer.append(new String(bytes, 0, index));
+			inputStreamReader = new InputStreamReader(inputStream, charset);
+			
+			char[] bytes = new char[4096];
+			int index = -1;
+			while ((index = inputStreamReader.read(bytes)) != -1)
+			{
+				stringBuffer.append(new String(bytes, 0, index));
+			}			
 		}
-		inputStreamReader.close();
-
+		catch (UnsupportedEncodingException e)
+		{
+			throw e;
+		}
+		catch (IOException e)
+		{
+			throw e;
+		}
+		finally
+		{
+			if (inputStreamReader != null)
+			{
+				inputStreamReader.close();
+			}
+		}
+		
 		return stringBuffer.toString().trim();
 	}
 	
@@ -178,38 +229,63 @@ public class IOUtil
 	 * Reads the text from an inputStream.
 	 * The charset is registered in EncoderContext.
 	 * @param inputStream the instance of InputStream
+	 * @param emptyLineRemoved the flag of emptyLineRemoved
 	 * @return the text string
 	 * @throws IOException
 	 * @throws UnsupportedEncodingException
 	 */
-	public static String readString(InputStream inputStream)
+	public static String readString(InputStream inputStream, boolean emptyLineRemoved)
 		throws IOException, UnsupportedEncodingException
 	{
-		return readString(inputStream, EncoderContext.getIOCharset());
+		return readString(inputStream, EncoderContext.getIOCharset(), emptyLineRemoved);
 	}
 	
 	/**
 	 * Reads the text from an inputStream with the charset formatted.
 	 * @param inputStream the instance of InputStream
 	 * @param charset the charset string
+	 * @param emptyLineRemoved the flag of emptyLineRemoved
 	 * @return the text string
 	 * @throws IOException
 	 * @throws UnsupportedEncodingException
 	 */
-	public static String readString(InputStream inputStream, String charset)
+	public static String readString(InputStream inputStream, String charset, boolean emptyLineRemoved)
 		throws IOException, UnsupportedEncodingException
 	{
 		StringBuffer stringBuffer = new StringBuffer();
-
-		BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream, charset));
 		
-		String line = null;
-		while ((line = bufferedReader.readLine()) != null)
+		InputStreamReader inputStreamReader = new InputStreamReader(inputStream, charset);
+		BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+		try
 		{
-			stringBuffer.append(line + "\n");
+			String line = null;
+			while ((line = bufferedReader.readLine()) != null)
+			{
+				if (emptyLineRemoved)
+				{	
+					if (!line.equals(""))
+					{
+						stringBuffer.append(line + "\n");
+					}
+				}
+				else
+				{
+					stringBuffer.append(line + "\n");
+				}
+			}
 		}
-		bufferedReader.close();
-
+		catch (IOException e)
+		{
+			throw e;
+		}
+		finally
+		{
+			if (bufferedReader != null)
+			{	
+				bufferedReader.close();
+			}
+		}
+		
 		return stringBuffer.toString().trim();
 	}
 	

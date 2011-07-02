@@ -75,17 +75,29 @@ public class FileUtil
 		byte[] bytes = new byte[length];
 		int bytesRead = 0;
 		int offset = 0;
-		while (offset < length)
+		try
 		{
-			bytesRead = bufferedInputStream.read(bytes, offset, bytes.length - offset);
-			if (bytesRead == -1)
-			{	
-				break;
+			while (offset < length)
+			{
+				bytesRead = bufferedInputStream.read(bytes, offset, bytes.length - offset);
+				if (bytesRead == -1)
+				{	
+					break;
+				}
+				offset += bytesRead;
 			}
-			offset += bytesRead;
 		}
-		
-		bufferedInputStream.close();
+		catch (IOException e)
+		{
+			throw e;
+		}
+		finally
+		{
+			if (bufferedInputStream != null)
+			{
+				bufferedInputStream.close();
+			}	
+		}
 		
 		if (offset != length)
 		{
@@ -165,10 +177,28 @@ public class FileUtil
 	public static void writeBytes(byte[] bytes, String filePath)
 		throws IOException, FileNotFoundException
 	{
-		OutputStream outputStream = new FileOutputStream(filePath);
-		outputStream.write(bytes);
-		outputStream.flush();
-		outputStream.close();
+		OutputStream outputStream = null;
+		try
+		{
+			outputStream = new FileOutputStream(filePath);
+			outputStream.write(bytes);
+			outputStream.flush();
+		}
+		catch (FileNotFoundException e)
+		{
+			throw e;
+		}
+		catch (IOException e)
+		{
+			throw e;
+		}
+		finally
+		{
+			if (outputStream != null)
+			{
+				outputStream.close();	
+			}	
+		}
 	}
 		
 	/**
@@ -188,7 +218,6 @@ public class FileUtil
 		}
 		else
 		{
-
 			inputStream = new FileInputStream(filePath);
 		}
 		
@@ -206,7 +235,7 @@ public class FileUtil
 	public static InputStream getInputStream(URL codeBase, String filePath)
 		throws IOException, MalformedURLException
 	{
-		URL url = new URL(codeBase + filePath);			
+		URL url = new URL(codeBase + filePath);
 		InputStream inputStream = url.openStream();
 		
 		return inputStream;

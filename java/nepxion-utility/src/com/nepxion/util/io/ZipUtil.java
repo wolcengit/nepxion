@@ -53,21 +53,46 @@ public class ZipUtil
 	public static List getZipFileList(String filePath, String charset, boolean classLoader)
 		throws IOException, FileNotFoundException, UnsupportedEncodingException
 	{
-		BufferedReader bufferedReader = getZipReader(filePath, charset, classLoader);
-		if (bufferedReader == null)
-		{
-			return null;
-		}
+		List list = null;
+		BufferedReader bufferedReader = null;
 		
-		List list = new ArrayList();
-		while (true)
+		try
 		{
-			String line = bufferedReader.readLine();
-			if (line == null || line.length() == 0)
+			bufferedReader = getZipReader(filePath, charset, classLoader);
+			if (bufferedReader == null)
 			{
-				break;
+				return null;
 			}
-			list.add(line);
+			
+			list = new ArrayList();
+			while (true)
+			{
+				String line = bufferedReader.readLine();
+				if (line == null || line.length() == 0)
+				{
+					break;
+				}
+				list.add(line);
+			}
+		}
+		catch (FileNotFoundException e)
+		{
+			throw e;
+		}
+		catch (UnsupportedEncodingException e)
+		{
+			throw e;
+		}
+		catch (IOException e)
+		{
+			throw e;
+		}
+		finally
+		{
+			if (bufferedReader != null)
+			{
+				bufferedReader.close();
+			}	
 		}
 		
 		return list;
