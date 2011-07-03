@@ -31,6 +31,7 @@ import javax.swing.RepaintManager;
 import org.jdesktop.swingx.RepaintManagerX;
 import org.jdesktop.swingx.image.FastBlurFilter;
 
+import com.nepxion.swing.container.ContainerManager;
 import com.nepxion.swing.graphics.GraphicsUtilities;
 
 public class JReflectionPanel
@@ -39,8 +40,8 @@ public class JReflectionPanel
 	private ReflectionRepaintManager manager;
 	private FastBlurFilter blurFilter;
 	
-	private JComponent contentComponent;
 	private JPanel contentPane;
+	private Component content;
 	
 	private BufferedImage contentBuffer;
 	private BufferedImage reflectionBuffer;
@@ -102,6 +103,11 @@ public class JReflectionPanel
 	
 	private void paintReflection(Graphics g)
 	{
+		if (contentPane.getWidth() <=0 || contentPane.getHeight() <= 0)
+		{
+			return;
+		}	
+		
 		int width = contentPane.getWidth();
 		int height = contentPane.getHeight() > maxReflectHeight ? maxReflectHeight : contentPane.getHeight();
 		
@@ -115,6 +121,11 @@ public class JReflectionPanel
 	
 	private void createReflection(Graphics g, int width, int height)
 	{
+		if (contentPane.getWidth() <=0 || contentPane.getHeight() <= 0)
+		{
+			return;
+		}	
+		
 		if (reflectionBuffer == null || reflectionBuffer.getWidth() != width || reflectionBuffer.getHeight() != height)
 		{
 			if (reflectionBuffer != null)
@@ -151,6 +162,11 @@ public class JReflectionPanel
 	
 	private void paintContent(Graphics g)
 	{
+		if (contentPane.getWidth() <=0 || contentPane.getHeight() <= 0)
+		{
+			return;
+		}	
+		
 		if (contentBuffer == null || contentBuffer.getWidth() != contentPane.getWidth() || contentBuffer.getHeight() != contentPane.getHeight())
 		{
 			if (contentBuffer != null)
@@ -224,28 +240,27 @@ public class JReflectionPanel
 		}
 	}
 	
-	public void setContent(JComponent component)
+	public void setContent(Component content)
 	{
-		if (contentComponent == component)
+		if (this.content == content)
 		{
 			return;
 		}	
 		
-		if (contentComponent != null)
+		if (this.content != null)
 		{
-			contentPane.remove(contentComponent);
+			contentPane.remove(this.content);
 		}	
 		
-		contentComponent = component;
-		contentPane.add(component, BorderLayout.CENTER);
+		this.content = content;
+		contentPane.add(content, BorderLayout.CENTER);
 		
-		contentPane.revalidate();
-		contentPane.repaint();
+		ContainerManager.update(contentPane);
 	}
 	
-	public JComponent getContent()
+	public Component getContent()
 	{
-		return contentComponent;
+		return content;
 	}
 	
 	public Dimension getPreferredSize()
@@ -271,15 +286,15 @@ public class JReflectionPanel
 		contentPane.removeAll();
 	}
 	
-	public void setLayout(LayoutManager mgr)
+	public void setLayout(LayoutManager layout)
 	{
 		if (initialized)
 		{
-			contentPane.setLayout(mgr);
+			contentPane.setLayout(layout);
 		}
 		else
 		{
-			super.setLayout(mgr);
+			super.setLayout(layout);
 		}
 	}
 }

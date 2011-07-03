@@ -19,10 +19,14 @@ import javax.swing.Icon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import com.nepxion.swing.container.ContainerManager;
+
 public class JOptionPanel
 	extends JPanel
 {
 	private JLabel label;
+	
+	private Component content;
 	
 	public JOptionPanel()
 	{
@@ -44,8 +48,27 @@ public class JOptionPanel
 		label.setIcon(icon);
 	}
 	
-	public void setComponent(Component component)
+	public Component getContent()
 	{
-		add(component, BorderLayout.CENTER);
+		return content;
+	}
+	
+	public void setContent(Component content)
+	{
+		if (this.content == content)
+		{
+			return;
+		}	
+		
+		if (this.content != null)
+		{
+			remove(this.content);
+		}
+		
+		this.content = content;
+		
+		add(content, BorderLayout.CENTER);
+		
+		ContainerManager.update(this);
 	}
 }
