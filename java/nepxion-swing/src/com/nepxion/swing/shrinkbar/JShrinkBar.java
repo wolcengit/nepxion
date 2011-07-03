@@ -13,10 +13,13 @@ package com.nepxion.swing.shrinkbar;
 import java.awt.BorderLayout;
 import java.awt.Component;
 
+import com.nepxion.swing.container.ContainerManager;
 import com.nepxion.swing.style.texture.shrink.IHeaderTextureStyle;
+import com.nepxion.swing.toggle.IToggleContentPanel;
+import com.nepxion.swing.toggle.ITogglePanel;
 
 public class JShrinkBar
-	extends BasicShrinkBar
+	extends BasicShrinkBar implements IToggleContentPanel
 {
 	private Component contentPane;
 	
@@ -49,6 +52,18 @@ public class JShrinkBar
 	{
 		this.contentPane = contentPane;
 		
+		shrinkContentPane.removeAll();
 		shrinkContentPane.add(contentPane, BorderLayout.CENTER);
+		
+		ContainerManager.update(shrinkContentPane);
+	}
+	
+	/**
+	 * Toggles.
+	 * @param togglePanel the instance of ITogglePanel
+	 */
+	public void toggle(ITogglePanel togglePanel)
+	{
+		setContentPane((Component) togglePanel);
 	}
 }
