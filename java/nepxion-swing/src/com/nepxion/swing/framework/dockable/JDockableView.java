@@ -11,6 +11,7 @@ package com.nepxion.swing.framework.dockable;
  */
 
 import java.awt.BorderLayout;
+import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -21,7 +22,6 @@ import javax.swing.AbstractButton;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.Icon;
-import javax.swing.JComponent;
 import javax.swing.JPanel;
 import javax.swing.JPopupMenu;
 
@@ -259,61 +259,61 @@ public class JDockableView
 	}
 	
 	/**
-	 * Constructs with the specified initial title, icon and content.
+	 * Constructs with the specified initial title, icon and content pane.
 	 * @param title the title string
 	 * @param icon the instance of Icon
 	 * @param toolTipText the tooltip text string
-	 * @param content the instance of JComponent
+	 * @param contentPane the instance of Component
 	 */
-	public JDockableView(String title, Icon icon, String toolTipText, JComponent content)
+	public JDockableView(String title, Icon icon, String toolTipText, Component contentPane)
 	{
-		super(title, icon, toolTipText, content);
+		super(title, icon, toolTipText, contentPane);
 		
 		initComponents();
 	}
 	
 	/**
-	 * Constructs with the specified initial title, icon, content and style.
+	 * Constructs with the specified initial title, icon, content pane and style.
 	 * @param title the title string
 	 * @param icon the instance of Icon
 	 * @param toolTipText the tooltip text string
-	 * @param content the instance of JComponent
+	 * @param contentPane the instance of Component
 	 * @param style the instance of IStyle
 	 */
-	public JDockableView(String title, Icon icon, String toolTipText, JComponent content, IStyle style)
+	public JDockableView(String title, Icon icon, String toolTipText, Component contentPane, IStyle style)
 	{
-		super(title, icon, toolTipText, content, style);
+		super(title, icon, toolTipText, contentPane, style);
 		
 		initComponents();
 	}
 	
 	/**
-	 * Constructs with the specified initial title, icon, selected and content.
+	 * Constructs with the specified initial title, icon, selected and content pane.
 	 * @param title the title string
 	 * @param icon the instance of Icon
 	 * @param toolTipText the tooltip text string
 	 * @param selected the boolean value of selected
-	 * @param content the instance of JComponent
+	 * @param contentPane the instance of Component
 	 */
-	public JDockableView(String title, Icon icon, String toolTipText, boolean selected, JComponent content)
+	public JDockableView(String title, Icon icon, String toolTipText, boolean selected, Component contentPane)
 	{
-		super(title, icon, toolTipText, selected, content);
+		super(title, icon, toolTipText, selected, contentPane);
 		
 		initComponents();
 	}
 	
 	/**
-	 * Constructs with the specified initial title, icon, selected, content and style.
+	 * Constructs with the specified initial title, icon, selected, content pane and style.
 	 * @param title the title string
 	 * @param icon the instance of Icon
 	 * @param toolTipText the tooltip text string
 	 * @param selected the boolean value of selected
-	 * @param content the instance of JComponent
+	 * @param contentPane the instance of Component
 	 * @param style the instance of IStyle
 	 */
-	public JDockableView(String title, Icon icon, String toolTipText, boolean selected, JComponent content, IStyle style)
+	public JDockableView(String title, Icon icon, String toolTipText, boolean selected, Component contentPane, IStyle style)
 	{
-		super(title, icon, toolTipText, selected, content, style);
+		super(title, icon, toolTipText, selected, contentPane, style);
 		
 		initComponents();
 	}

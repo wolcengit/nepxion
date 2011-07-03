@@ -124,29 +124,30 @@ public class JDockableSplitPane
 	
 	/**
 	 * Toggles the view.
-	 * @param component the instance of Component
+	 * @param contentPane the instance of Component
 	 */
-	public void toggleView(Component component)
+	public void toggleView(Component contentPane)
 	{
-		init();
+		initialize();
+		
 		if (!isMaximized)
 		{
-			index = indexOfPane(component);
+			index = indexOfPane(contentPane);
 			if (dockableView != null)
 			{
-				dockableView.setContentPane(component);
+				dockableView.setContentPane(contentPane);
 				dockableView.updateUI();
 			}
 			else if (dockableContainer != null)
 			{
 				dockableContainer.removeAll();
-				dockableContainer.add(component);
+				dockableContainer.add(contentPane);
 				dockableContainer.validate();
 			}
 		}
 		else
 		{
-			insertPane(component, index);
+			insertPane(contentPane, index);
 			if (dockableView != null)
 			{
 				dockableView.setContentPane(this);
@@ -167,7 +168,8 @@ public class JDockableSplitPane
 	 */
 	public void toggleLayout()
 	{
-		init();
+		initialize();
+		
 		if (isMaximized)
 		{
 			return;
@@ -189,7 +191,7 @@ public class JDockableSplitPane
 	/**
 	 * Initializes.
 	 */
-	private void init()
+	private void initialize()
 	{
 		Container container = getParent();
 		if (container instanceof JDockableView)

@@ -19,8 +19,6 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import javax.swing.JComponent;
-
 import com.nepxion.swing.framework.JFrameWorkWindow;
 import com.nepxion.swing.fullscreen.FullScreenRegister;
 import com.nepxion.swing.fullscreen.FullScreenSupport;
@@ -71,17 +69,17 @@ public class DockableManager
 			return null;
 		}
 		
-		Component content = dockableView.getContentPane();
-		if (content instanceof JDockableSplitPane)
+		Component contentPane = dockableView.getContentPane();
+		if (contentPane instanceof JDockableSplitPane)
 		{
-			JDockableSplitPane dockableSplitPane = (JDockableSplitPane) content;
+			JDockableSplitPane dockableSplitPane = (JDockableSplitPane) contentPane;
 			
 			return dockableSplitPane.getTabbedPanes();
 		}
-		else if (content instanceof JDockableTabbedPane)
+		else if (contentPane instanceof JDockableTabbedPane)
 		{
 			List tabbedPanes = new ArrayList();
-			tabbedPanes.add(content);
+			tabbedPanes.add(contentPane);
 			
 			return tabbedPanes;
 		}
@@ -100,16 +98,16 @@ public class DockableManager
 	 */
 	public static JDockableView getDockableView(JDockableContainer dockableContainer, String title)
 	{
-		Component component = dockableContainer.getContentPane();
-		if (component instanceof JDockable) // The dockable is null when maximized
+		Component contentPane = dockableContainer.getContentPane();
+		if (contentPane instanceof JDockable) // The dockable is null when maximized
 		{
-			JDockable dockable = (JDockable) component;
+			JDockable dockable = (JDockable) contentPane;
 			
 			return DockableManager.getDockableView(dockable, title);
 		}
-		else if (component instanceof JDockableView)
+		else if (contentPane instanceof JDockableView)
 		{
-			JDockableView dockableView = (JDockableView) component;
+			JDockableView dockableView = (JDockableView) contentPane;
 			if (dockableView.getTitle().equals(title))
 			{
 				return dockableView;
@@ -321,7 +319,7 @@ public class DockableManager
 		{
 			public void actionPerformed(ActionEvent e)
 			{
-				JComponent toolBar = dockableHierarchy.getToolBar();
+				Component toolBar = dockableHierarchy.getToolBar();
 				toolBar.setVisible(!toolBar.isVisible());
 			}
 		}
@@ -333,7 +331,7 @@ public class DockableManager
 		{
 			public void actionPerformed(ActionEvent e)
 			{
-				JComponent statusBar = dockableHierarchy.getStatusBar();
+				Component statusBar = dockableHierarchy.getStatusBar();
 				statusBar.setVisible(!statusBar.isVisible());
 			}
 		}

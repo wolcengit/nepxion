@@ -19,9 +19,9 @@ public class JDockableContainer
 	extends JContainer
 {
 	/**
-	 * The dock component.
+	 * The content pane.
 	 */
-	private Component dockComponent;
+	private Component contentPane;
 	
 	/**
 	 * Constructs with the default.
@@ -32,19 +32,19 @@ public class JDockableContainer
 	
 	/**
 	 * Sets the content pane.
-	 * @param dockComponent the dock component
+	 * @param contentPane the instance of Component
 	 */
-	public void setContentPane(Component dockComponent)
+	public void setContentPane(Component contentPane)
 	{
-		this.dockComponent = dockComponent;
+		this.contentPane = contentPane;
 		
 		setLayout(new BorderLayout());
-		setDockComponent(dockComponent);
+		setDockComponent(contentPane);
 	}
 	
 	/**
 	 * Gets the content pane.
-	 * @return the content pane
+	 * @return the instance of Component
 	 */
 	public Component getContentPane()
 	{
@@ -53,19 +53,19 @@ public class JDockableContainer
 	
 	/**
 	 * Sets the dock component.
-	 * @param dockComponent the dock component
+	 * @param component the instance of Component
 	 */
-	protected void setDockComponent(Component dockComponent)
+	protected void setDockComponent(Component component)
 	{
-		addComponent(dockComponent, BorderLayout.CENTER);
+		addComponent(component, BorderLayout.CENTER);
 	}
 	
 	/**
 	 * Docks the component.
-	 * @param component the dock component
+	 * @param component the instance of Component
 	 */
 	protected void dock(Component component)
 	{
-		setDockComponent(component != null ? component : dockComponent);
+		setDockComponent(component != null ? component : contentPane);
 	}
 }

@@ -94,7 +94,7 @@ public class JDockableTabbedPane
 		{
 			public void actionPerformed(ActionEvent e)
 			{
-				init();
+				initialize();
 				
 				splitPane.toggleView(JDockableTabbedPane.this);
 			}
@@ -107,7 +107,7 @@ public class JDockableTabbedPane
 		{
 			public void actionPerformed(ActionEvent e)
 			{
-				init();
+				initialize();
 				
 				splitPane.toggleLayout();
 			}
@@ -127,8 +127,20 @@ public class JDockableTabbedPane
 		// If the popup menu is disabled, the mouse clicking will be blocked at the same time. 
 		if (getPopupMenu() != null && e.getClickCount() > 1)
 		{
-			init();
+			initialize();
+			
 			splitPane.toggleView(JDockableTabbedPane.this);
+		}
+	}
+	
+	/**
+	 * Initializes.
+	 */
+	private void initialize()
+	{
+		if (splitPane == null)
+		{
+			splitPane = (JDockableSplitPane) getParent();
 		}
 	}
 	
@@ -166,16 +178,5 @@ public class JDockableTabbedPane
 	public void setHorizontalTabPlacement(int horizontalTabPlacement)
 	{
 		this.horizontalTabPlacement = horizontalTabPlacement;
-	}
-	
-	/**
-	 * Initializes.
-	 */
-	private void init()
-	{
-		if (splitPane == null)
-		{
-			splitPane = (JDockableSplitPane) getParent();
-		}
 	}
 }
