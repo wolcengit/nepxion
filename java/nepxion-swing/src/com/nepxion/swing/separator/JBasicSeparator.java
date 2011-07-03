@@ -38,6 +38,16 @@ public class JBasicSeparator
 	public static final int DEFAULT_THICKNESS = 10;
 	
 	/**
+	 * The bright color.
+	 */
+	protected Color brightColor = Color.white;
+
+	/**
+	 * The dark color.
+	 */
+	protected Color darkColor = Color.gray;
+	
+	/**
 	 * The orientation value.
 	 */
 	private int orientation;
@@ -146,6 +156,24 @@ public class JBasicSeparator
 	}
 	
 	/**
+	 * Sets the bright color.
+	 * @param brightColor the instance of Color
+	 */
+	public void setBrightColor(Color brightColor)
+	{
+		this.brightColor = brightColor;
+	}
+
+	/**
+	 * Sets the dark color.
+	 * @param darkColor the instance of Color
+	 */
+	public void setDarkColor(Color darkColor)
+	{
+		this.darkColor = darkColor;
+	}
+	
+	/**
 	 * Paints the graphics.
 	 * @param g the instance of Graphics
 	 */
@@ -158,11 +186,11 @@ public class JBasicSeparator
 		
 		if (style.equals(RAISED_STYLE))
 		{
-			g.setColor(Color.white);
+			g.setColor(brightColor);
 		}
 		else if (style.equals(LOWERED_STYLE))
 		{
-			g.setColor(Color.gray);
+			g.setColor(darkColor);
 		}
 		if (orientation == VERTICAL)
 		{
@@ -175,11 +203,11 @@ public class JBasicSeparator
 		
 		if (style.equals(LOWERED_STYLE))
 		{
-			g.setColor(Color.white);
+			g.setColor(brightColor);
 		}
 		else if (style.equals(RAISED_STYLE))
 		{
-			g.setColor(Color.gray);
+			g.setColor(darkColor);
 		}
 		if (orientation == VERTICAL)
 		{
