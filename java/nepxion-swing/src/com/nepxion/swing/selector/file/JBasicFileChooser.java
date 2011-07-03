@@ -156,23 +156,22 @@ public class JBasicFileChooser
 				rootPane.setDefaultButton(approvalButton);
 			}
 			
-			approvalButton.addActionListener(new ActionListener()
+			boolean isActionListener = false;
+			ActionListener[] actionListeners = approvalButton.getActionListeners();
+			for (int i = 0; i < actionListeners.length; i++)
 			{
-				public void actionPerformed(ActionEvent e)
+				ActionListener actionListener = actionListeners[i];
+				if (actionListener instanceof ApprovalActionListener)
 				{
-					FileChooserUI fileChooserUI = getUI();
-					if (fileChooserUI instanceof BasicFileChooserUI)
-					{
-						BasicFileChooserUI basicFileChooserUI = (BasicFileChooserUI) fileChooserUI;
-						String fileName = basicFileChooserUI.getFileName();
-						if (fileName == null || fileName.trim().equals(""))
-						{
-							JBasicOptionPane.showMessageDialog(parentComponent, getType() + SwingLocale.getString("name_not_null"), SwingLocale.getString("warning"), JBasicOptionPane.WARNING_MESSAGE);
-						}
-					}
+					isActionListener = true;
+					break;
 				}
 			}
-			);
+			
+			if (!isActionListener)
+			{	
+				approvalButton.addActionListener(new ApprovalActionListener());
+			}
 		}
 	}
 	
@@ -216,5 +215,23 @@ public class JBasicFileChooser
 		}
 		
 		return type;
+	}
+	
+	public class ApprovalActionListener
+		implements ActionListener
+	{
+		public void actionPerformed(ActionEvent e)
+		{
+			FileChooserUI fileChooserUI = getUI();
+			if (fileChooserUI instanceof BasicFileChooserUI)
+			{
+				BasicFileChooserUI basicFileChooserUI = (BasicFileChooserUI) fileChooserUI;
+				String fileName = basicFileChooserUI.getFileName();
+				if (fileName == null || fileName.trim().equals(""))
+				{
+					JBasicOptionPane.showMessageDialog(parentComponent, getType() + SwingLocale.getString("name_not_null"), SwingLocale.getString("warning"), JBasicOptionPane.WARNING_MESSAGE);
+				}
+			}
+		}
 	}
 }
