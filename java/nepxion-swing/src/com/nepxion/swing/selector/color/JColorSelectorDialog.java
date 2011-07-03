@@ -112,7 +112,7 @@ public abstract class JColorSelectorDialog
 		JOptionPanel optionPanel = new JOptionPanel();
 		optionPanel.setIcon(IconFactory.getSwingIcon("component/color_32.png"));
 		optionPanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
-		optionPanel.setComponent(colorSelector);
+		optionPanel.setContent(colorSelector);
 		
 		getContentPane().add(optionPanel);
 		

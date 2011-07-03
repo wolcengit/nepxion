@@ -122,7 +122,7 @@ public abstract class JYearSelectorDialog
 		
 		setOption(YES_NO_OPTION);
 		setIcon(IconFactory.getSwingIcon("component/calendar_48.png"));
-		setComponent(layoutPanel);
+		setContent(layoutPanel);
 		
 		Dimension size = getSize();
 		setMinimumDimension(size);

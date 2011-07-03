@@ -53,7 +53,7 @@ public abstract class JTimeSelectorPopupMenu
 		
 		JOptionPanel optionPanel = new JOptionPanel();
 		optionPanel.setIcon(IconFactory.getSwingIcon("component/calendar_48.png"));
-		optionPanel.setComponent(layoutPanel);
+		optionPanel.setContent(layoutPanel);
 		
 		DropDownPane dropDownPane = new DropDownPane(this, optionPanel);
 		dropDownPane.getOptionButtonPanel().setBorder(BorderFactory.createEmptyBorder(5, 0, 5, 0));
