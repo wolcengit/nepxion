@@ -16,7 +16,6 @@ import java.awt.Dimension;
 import java.awt.event.MouseListener;
 
 import javax.swing.Icon;
-import javax.swing.JComponent;
 import javax.swing.JPanel;
 
 import com.nepxion.swing.style.framework.IStyle;
@@ -93,22 +92,22 @@ public class JDecorationPanel
 		this(title, icon, toolTipText, selected, null, style);
 	}
 	
-	public JDecorationPanel(String title, Icon icon, String toolTipText, JComponent content)
+	public JDecorationPanel(String title, Icon icon, String toolTipText, Component contentPane)
 	{
-		this(title, icon, toolTipText, true, content, StyleManager.getStyle());
+		this(title, icon, toolTipText, true, contentPane, StyleManager.getStyle());
 	}
 	
-	public JDecorationPanel(String title, Icon icon, String toolTipText, JComponent content, IStyle style)
+	public JDecorationPanel(String title, Icon icon, String toolTipText, Component contentPane, IStyle style)
 	{
-		this(title, icon, toolTipText, true, content, style);
+		this(title, icon, toolTipText, true, contentPane, style);
 	}
 	
-	public JDecorationPanel(String title, Icon icon, String toolTipText, boolean selected, JComponent content)
+	public JDecorationPanel(String title, Icon icon, String toolTipText, boolean selected, Component contentPane)
 	{
-		this(title, icon, toolTipText, selected, content, StyleManager.getStyle());
+		this(title, icon, toolTipText, selected, contentPane, StyleManager.getStyle());
 	}
 	
-	public JDecorationPanel(String title, Icon icon, String toolTipText, boolean selected, JComponent content, IStyle style)
+	public JDecorationPanel(String title, Icon icon, String toolTipText, boolean selected, Component contentPane, IStyle style)
 	{
 		header = new JDecorationHeader(title, icon, toolTipText, selected, style);
 		
@@ -133,9 +132,9 @@ public class JDecorationPanel
 		setLayout(new BorderLayout());
 		add(headContainer, BorderLayout.NORTH);
 		
-		if (content != null)
+		if (contentPane != null)
 		{
-			setContentPane(content);
+			setContentPane(contentPane);
 		}
 	}
 	
