@@ -213,7 +213,7 @@ public abstract class JBubbleTip
 			
 			ButtonManager.updateUI(buttonPanel, new Dimension(20, 20), true);
 			
-			decorationPanel = new JDecorationPanel(SwingLocale.getString("message"), IconFactory.getSwingIcon("view.png"), true);
+			decorationPanel = new JDecorationPanel(SwingLocale.getString("message"), IconFactory.getSwingIcon("view.png"), SwingLocale.getString("message"), true);
 			decorationPanel.getHeader().add(buttonPanel, BorderLayout.EAST);
 			decorationPanel.setContentPane(panel);
 			
