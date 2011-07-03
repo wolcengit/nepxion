@@ -240,7 +240,7 @@ public class KeyStrokeManager
 	 */
 	public static void registerButtonToEnterKey(AbstractButton button, ActionListener actionListener)
 	{
-		registerButton(button, actionListener, KeyEvent.VK_ENTER, 0, 'E');
+		registerButton(button, actionListener, KeyEvent.VK_ENTER, 0, 'Y');
 		button.addAncestorListener(new ButtonAncestorListener());
 	}
 	
@@ -260,6 +260,6 @@ public class KeyStrokeManager
 	 */
 	public static void registerButtonToEscapeKey(AbstractButton button, ActionListener actionListener)
 	{
-		registerButton(button, actionListener, KeyEvent.VK_ESCAPE, 0, 'C');
+		registerButton(button, actionListener, KeyEvent.VK_ESCAPE, 0, 'N');
 	}
 }
