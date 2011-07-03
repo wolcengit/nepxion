@@ -10,8 +10,9 @@ package com.nepxion.swing.statusbar;
  * @version 1.0
  */
 
+import java.awt.Component;
+
 import javax.swing.BorderFactory;
-import javax.swing.JComponent;
 
 import com.nepxion.swing.toolbar.JBasicToolBar;
 
@@ -25,9 +26,9 @@ public class JStatusItem
 	
 	/**
 	 * Constructs with the specified initial component.
-	 * @param component the instance of JComponent
+	 * @param component the instance of Component
 	 */
-	public JStatusItem(JComponent component)
+	public JStatusItem(Component component)
 	{
 		this();
 		
