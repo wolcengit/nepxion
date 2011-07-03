@@ -22,7 +22,6 @@ import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.Icon;
-import javax.swing.JComponent;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -30,6 +29,7 @@ import javax.swing.JPanel;
 import javax.swing.JSeparator;
 
 import com.nepxion.swing.button.JClassicButton;
+import com.nepxion.swing.container.ContainerManager;
 import com.nepxion.swing.handle.HandleManager;
 import com.nepxion.swing.icon.IconFactory;
 import com.nepxion.swing.keystroke.KeyStrokeManager;
@@ -111,13 +111,13 @@ public class JWizard
 			panel.remove(imageModule);
 		}
 		
-		if (step.getContent() != null)
+		if (step.getContentPane() != null)
 		{
 			if (contentModule.getParent() != panel)
 			{
 				panel.add(contentModule, BorderLayout.CENTER);
 			}
-			contentModule.setContent(step.getContent());
+			contentModule.setContentPane(step.getContentPane());
 		}
 		else
 		{
@@ -274,11 +274,13 @@ public class JWizard
 			setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
 		}
 		
-		public void setContent(JComponent content)
+		public void setContentPane(Component contentPane)
 		{
 			removeAll();
-			add(content, BorderLayout.CENTER);
-			updateUI();
+			
+			add(contentPane, BorderLayout.CENTER);
+			
+			ContainerManager.update(this);
 		}
 	}
 	

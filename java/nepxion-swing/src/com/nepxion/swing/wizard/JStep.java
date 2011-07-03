@@ -10,23 +10,24 @@ package com.nepxion.swing.wizard;
  * @version 1.0
  */
 
+import java.awt.Component;
+
 import javax.swing.Icon;
-import javax.swing.JComponent;
 
 public abstract class JStep
 {
 	private String title;
 	private Icon image;
-	private JComponent content;
+	private Component contentPane;
 	
 	public JStep(String title)
 	{
 		this(title, null, null);
 	}
 	
-	public JStep(String title, JComponent content)
+	public JStep(String title, Component contentPane)
 	{
-		this(title, null, content);
+		this(title, null, contentPane);
 	}
 	
 	public JStep(String title, Icon image)
@@ -34,11 +35,11 @@ public abstract class JStep
 		this(title, image, null);
 	}
 	
-	public JStep(String title, Icon image, JComponent content)
+	public JStep(String title, Icon image, Component contentPane)
 	{
 		this.title = title;
 		this.image = image;
-		this.content = content;
+		this.contentPane = contentPane;
 	}
 	
 	public String getTitle()
@@ -61,14 +62,14 @@ public abstract class JStep
 		this.image = image;
 	}
 	
-	public JComponent getContent()
+	public Component getContentPane()
 	{
-		return content;
+		return contentPane;
 	}
 	
-	public void setContent(JComponent content)
+	public void setContentPane(Component contentPane)
 	{
-		this.content = content;
+		this.contentPane = contentPane;
 	}
 	
 	public abstract boolean confirm();
