@@ -19,7 +19,7 @@ import javax.swing.Icon;
 import javax.swing.JTextField;
 import javax.swing.text.Document;
 
-import com.nepxion.swing.textcomponent.PopupMenuAdapter;
+import com.nepxion.swing.textcomponent.TextPopupMenuAdapter;
 import com.nepxion.swing.tip.balloon.BalloonTipDecoration;
 import com.nepxion.swing.tip.balloon.JBalloonTip;
 
@@ -31,7 +31,7 @@ public class JBasicTextField
 	
 	private BalloonTipDecoration toolTipDecoration;
 	
-	private PopupMenuAdapter popupMenuAdapter;
+	private TextPopupMenuAdapter popupMenuAdapter;
 	
 	public JBasicTextField()
 	{
@@ -70,7 +70,7 @@ public class JBasicTextField
 	
 	private void initComponents()
 	{
-		popupMenuAdapter = new PopupMenuAdapter(this);
+		popupMenuAdapter = new TextPopupMenuAdapter(this);
 		
 		toolTipDecoration = new BalloonTipDecoration(this);
 		
@@ -131,7 +131,7 @@ public class JBasicTextField
 		
 	}
 	
-	public PopupMenuAdapter getPopupMenuAdapter()
+	public TextPopupMenuAdapter getPopupMenuAdapter()
 	{
 		return popupMenuAdapter;
 	}
