@@ -58,7 +58,7 @@ public class TabbedPaneManager
 			return;
 		}
 		
-		Vector slectionElementNodes = new Vector();
+		Vector selectionElementNodes = new Vector();
 		for (int i = 0; i < tabbedPane.getTabCount(); i++)
 		{
 			if (tabbedPane.isTabClosableAt(i))
@@ -68,11 +68,11 @@ public class TabbedPaneManager
 				Icon icon = tabbedPane.getIcon(i);
 				Component component = tabbedPane.getComponentAt(i);
 				IElementNode elementNode = new ElementNode(title, title, icon, toolTipText, component);
-				slectionElementNodes.add(elementNode);
+				selectionElementNodes.add(elementNode);
 			}
 		}
 		
-		if (slectionElementNodes.size() == 0)
+		if (selectionElementNodes.size() == 0)
 		{
 			JBasicOptionPane.showMessageDialog(HandleManager.getFrame((Component) tabbedPane), SwingLocale.getString("no_close_item"), SwingLocale.getString("warning"), JBasicOptionPane.WARNING_MESSAGE);
 			
@@ -83,7 +83,7 @@ public class TabbedPaneManager
 		{
 			checkBoxSelector = new JCheckBoxSelector(HandleManager.getFrame((Component) tabbedPane), SwingLocale.getString("select_close"));
 		}
-		checkBoxSelector.getCheckBoxList().setListData(slectionElementNodes);
+		checkBoxSelector.getCheckBoxList().setListData(selectionElementNodes);
 		checkBoxSelector.setVisible(true);
 		checkBoxSelector.dispose();
 		
