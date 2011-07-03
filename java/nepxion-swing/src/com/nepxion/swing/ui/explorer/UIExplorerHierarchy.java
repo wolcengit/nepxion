@@ -31,8 +31,8 @@ public class UIExplorerHierarchy
 	
 	private void initContentPane()
 	{
-		JDockableView explorerView = new JDockableView(EXPLORER_TITLE, IconFactory.getSwingIcon("explorer.png"), new JBasicScrollPane(new UIExplorerTree()));
-		JDockableView contentPaneView = new JDockableView(CONTENT_PANE_TITLE, IconFactory.getSwingIcon("content_pane.png"), new JBasicScrollPane(new UIExplorerTable()));
+		JDockableView explorerView = new JDockableView(EXPLORER_TITLE, IconFactory.getSwingIcon("explorer.png"), EXPLORER_TITLE, new JBasicScrollPane(new UIExplorerTree()));
+		JDockableView contentPaneView = new JDockableView(CONTENT_PANE_TITLE, IconFactory.getSwingIcon("content_pane.png"), CONTENT_PANE_TITLE, new JBasicScrollPane(new UIExplorerTable()));
 		
 		JDockable dockable = new JDockable();
 		dockable.setOrientation(JDockable.HORIZONTAL_SPLIT);
