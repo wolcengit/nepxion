@@ -328,8 +328,11 @@ public class JDockableView
 		toolBar = new ToolBar();
 		popupMenu = new PopupMenu();
 		
+		MaximizeAndRestoreMouseListener maximizeAndRestoreMouseListener = new MaximizeAndRestoreMouseListener();
+		
 		header.add(toolBar, BorderLayout.EAST);
-		header.addMouseListener(new MaximizeAndRestoreMouseListener());
+		header.addMouseListener(maximizeAndRestoreMouseListener);
+		header.getLabel().addMouseListener(maximizeAndRestoreMouseListener);
 	}
 	
 	/**
