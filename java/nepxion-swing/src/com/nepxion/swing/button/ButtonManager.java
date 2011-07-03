@@ -335,7 +335,7 @@ public class ButtonManager
 	{
 		for (int i = 0; i < container.getComponentCount(); i++)
 		{
-			Component component = (Component) container.getComponent(i);
+			Component component = container.getComponent(i);
 			if (component instanceof AbstractButton)
 			{
 				AbstractButton abstractButton = (AbstractButton) component;
