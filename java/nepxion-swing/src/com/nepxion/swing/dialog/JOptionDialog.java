@@ -353,12 +353,21 @@ public class JOptionDialog
 	}
 	
 	/**
-	 * Sets the component.
+	 * Gets the content.
+	 * @return the instance of Component
+	 */
+	public Component getContent()
+	{
+		return optionPanel.getContent();
+	}
+	
+	/**
+	 * Sets the content.
 	 * @param component the instance of Component
 	 */
-	public void setComponent(Component component)
+	public void setContent(Component component)
 	{
-		optionPanel.setComponent(component);
+		optionPanel.setContent(component);
 	}
 	
 	/**
