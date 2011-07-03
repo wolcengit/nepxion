@@ -17,7 +17,6 @@ import java.awt.Graphics;
 import java.awt.Insets;
 import java.awt.Rectangle;
 
-import javax.swing.JComponent;
 import javax.swing.border.Border;
 import javax.swing.border.TitledBorder;
 
@@ -25,15 +24,15 @@ public class ComponentTitledBorder
 	extends TitledBorder
 {
 	/**
-	 * The instance of JComponent.
+	 * The instance of Component.
 	 */
-	private JComponent component;
+	private Component component;
 	
 	/**
 	 * Constructs with the specified initial component.
-	 * @param component the instance of JComponent
+	 * @param component the instance of Component
 	 */
-	public ComponentTitledBorder(JComponent component)
+	public ComponentTitledBorder(Component component)
 	{
 		this(null, component, LEFT, TOP);
 	}
@@ -50,9 +49,9 @@ public class ComponentTitledBorder
 	/**
 	 * Constructs with the specified initial border and component.
 	 * @param border the instance of Border
-	 * @param component the instance of JComponent
+	 * @param component the instance of Component
 	 */
-	public ComponentTitledBorder(Border border, JComponent component)
+	public ComponentTitledBorder(Border border, Component component)
 	{
 		this(border, component, LEFT, TOP);
 	}
@@ -60,11 +59,11 @@ public class ComponentTitledBorder
 	/**
 	 * Constructs with the specified initial border, component, title justification and title position.
 	 * @param border the instance of Border
-	 * @param component the instance of JComponent
+	 * @param component the instance of Component
 	 * @param titleJustification the title justification value
 	 * @param titlePosition the title position value
 	 */
-	public ComponentTitledBorder(Border border, JComponent component, int titleJustification, int titlePosition)
+	public ComponentTitledBorder(Border border, Component component, int titleJustification, int titlePosition)
 	{
 		super(border, null, titleJustification, titlePosition, null, null);
 		
@@ -78,18 +77,18 @@ public class ComponentTitledBorder
 	
 	/**
 	 * Gets the component.
-	 * @return the instance of JComponent
+	 * @return the instance of Component
 	 */
-	public JComponent getComponent()
+	public Component getComponent()
 	{
 		return component;
 	}
 	
 	/**
 	 * Sets the component.
-	 * @param component the instance of JComponent
+	 * @param component the instance of Component
 	 */
-	public void setComponent(JComponent component)
+	public void setComponent(Component component)
 	{
 		this.component = component;
 	}
