@@ -103,7 +103,7 @@ public class JBasicSplitPane
 				
 				JBasicSplitPane.super.setDividerLocation(index, location);
 				
-				setComponentSize(index, location);
+				setPaneSize(index, location);
 			}
 			dividerLocations = null;
 		}
@@ -127,11 +127,11 @@ public class JBasicSplitPane
 	}
 	
 	/**
-	 * Sets the component size.
+	 * Sets the pane size.
 	 * @param index the index value
 	 * @param size the size value
 	 */
-	private void setComponentSize(final int index, final int size)
+	private void setPaneSize(final int index, final int size)
 	{
 		Component pane = getPaneAt(index);
 		if (pane != null && pane instanceof JComponent)
