@@ -11,12 +11,12 @@ package com.nepxion.swing.framework.reflection;
  */
 
 import java.awt.BorderLayout;
+import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Point;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
 
-import javax.swing.JComponent;
 import javax.swing.JDesktopPane;
 import javax.swing.JPanel;
 
@@ -39,7 +39,7 @@ public class JReflectionHierarchy
 	/**
 	 * The content pane.
 	 */
-	private JComponent contentPane;
+	private Component contentPane;
 	
 	/**
 	 * The width offset value.
@@ -107,18 +107,18 @@ public class JReflectionHierarchy
 	
 	/**
 	 * Gets the content pane.
-	 * @return the instance of JComponent
+	 * @return the instance of Component
 	 */
-	public JComponent getContentPane()
+	public Component getContentPane()
 	{
 		return contentPane;
 	}
 	
 	/**
 	 * Sets the content pane.
-	 * @param contentPane the instance of JComponent
+	 * @param contentPane the instance of Component
 	 */
-	public void setContentPane(JComponent contentPane)
+	public void setContentPane(Component contentPane)
 	{
 		if (this.contentPane == contentPane)
 		{
