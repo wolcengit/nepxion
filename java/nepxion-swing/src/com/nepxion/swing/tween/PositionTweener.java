@@ -10,20 +10,20 @@ package com.nepxion.swing.tween;
  * @version 1.0
  */
 
+import java.awt.Component;
 import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.JComponent;
 import javax.swing.Timer;
 
 public class PositionTweener
 	implements ActionListener
 {
 	/**
-	 * The instance of JComponent.
+	 * The instance of Component.
 	 */
-	private JComponent component;
+	private Component component;
 	
 	/**
 	 * The frame interval value.
@@ -57,11 +57,11 @@ public class PositionTweener
 	
 	/**
 	 * Constructs with the specified initial component.
-	 * @param component the instance of JComponent
+	 * @param component the instance of Component
 	 * @param frameInterval the frame interval value
 	 * @param frameCount the frame count value
 	 */
-	public PositionTweener(JComponent component, Rectangle startBounds, Rectangle endBounds)
+	public PositionTweener(Component component, Rectangle startBounds, Rectangle endBounds)
 	{
 		this(component, startBounds, endBounds, 1, 20);
 	}
@@ -69,13 +69,13 @@ public class PositionTweener
 	/**
 	 * Constructs with the specified initial component, start bounds, end
 	 * bounds, frame interval and frame count.
-	 * @param component the instance of JComponent
+	 * @param component the instance of Component
 	 * @param startBounds the instance of Rectangle
 	 * @param endBounds the instance of Rectangle
 	 * @param frameInterval the frame interval value
 	 * @param frameCount the frame count value
 	 */
-	public PositionTweener(JComponent component, Rectangle startBounds, Rectangle endBounds, int frameInterval, int frameCount)
+	public PositionTweener(Component component, Rectangle startBounds, Rectangle endBounds, int frameInterval, int frameCount)
 	{
 		this.component = component;
 		this.startBounds = startBounds;

@@ -10,20 +10,20 @@ package com.nepxion.swing.tween;
  * @version 1.0
  */
 
+import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.JComponent;
 import javax.swing.Timer;
 
 public class VisibilityTweener
 	implements ActionListener
 {
 	/**
-	 * The instance of JComponent.
+	 * The instance of Component.
 	 */
-	private JComponent component;
+	private Component component;
 	
 	/**
 	 * The instance of Dimension.
@@ -67,44 +67,44 @@ public class VisibilityTweener
 	
 	/**
 	 * Constructs with the specified initial component.
-	 * @param component the instance of JComponent
+	 * @param component the instance of Component
 	 */
-	public VisibilityTweener(JComponent component)
+	public VisibilityTweener(Component component)
 	{
 		this(component, true, true);
 	}
 	
 	/**
 	 * Constructs with the specified initial component, frame interval and frame count.
-	 * @param component the instance of JComponent
+	 * @param component the instance of Component
 	 * @param frameInterval the frame interval value
 	 * @param frameCount the frame count value
 	 */
-	public VisibilityTweener(JComponent component, int frameInterval, int frameCount)
+	public VisibilityTweener(Component component, int frameInterval, int frameCount)
 	{
 		this(component, true, true, frameInterval, frameCount);
 	}
 	
 	/**
 	 * Constructs with the specified initial component, horizontal tweening and vertical tweening.
-	 * @param component the instance of JComponent
+	 * @param component the instance of Component
 	 * @param horizontalTweening the boolean value of horizontalTweening
 	 * @param verticalTweening the boolean value of verticalTweening
 	 */
-	public VisibilityTweener(JComponent component, boolean horizontalTweening, boolean verticalTweening)
+	public VisibilityTweener(Component component, boolean horizontalTweening, boolean verticalTweening)
 	{
 		this(component, horizontalTweening, verticalTweening, 1, 20);
 	}
 	
 	/**
 	 * Constructs with the specified initial component, horizontal tweening, vertical tweening, frame interval and frame count.
-	 * @param component the instance of JComponent
+	 * @param component the instance of Component
 	 * @param horizontalTweening the boolean value of horizontalTweening
 	 * @param verticalTweening the boolean value of verticalTweening
 	 * @param frameInterval the frame interval value
 	 * @param frameCount the frame count value
 	 */
-	public VisibilityTweener(JComponent component, boolean horizontalTweening, boolean verticalTweening, int frameInterval, int frameCount)
+	public VisibilityTweener(Component component, boolean horizontalTweening, boolean verticalTweening, int frameInterval, int frameCount)
 	{
 		this.component = component;
 		this.dimension = component.getSize();
