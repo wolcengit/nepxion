@@ -25,27 +25,53 @@ public class BlankIcon
 	private Color color;
 	
 	/**
-	 * The size value.
+	 * The width value.
 	 */
-	private int size;
+	private int width = 16;
+	
+	/**
+	 * The height value.
+	 */
+	private int height = 16;
 	
 	/**
 	 * Constructs with the default.
 	 */
 	public BlankIcon()
 	{
-		this(null, 8);
+		this(null);
 	}
 	
 	/**
-	 * Constructs with the specified initial color and size.
-	 * @param color
-	 * @param size
+	 * Constructs with the specified initial color.
+	 * @param color the instance of Color
 	 */
-	public BlankIcon(Color color, int size)
+	public BlankIcon(Color color)
+	{
+		this(color, 16, 16);
+	}
+	
+	/**
+	 * Constructs with the specified initial width and height.
+	 * @param width the width value
+	 * @param height the height value
+	 */
+	public BlankIcon(int width, int height)
+	{
+		this(null, width, height);
+	}
+	
+	/**
+	 * Constructs with the specified initial color, width and height.
+	 * @param color the instance of Color
+	 * @param width the width value
+	 * @param height the height value
+	 */
+	public BlankIcon(Color color, int width, int height)
 	{
 		this.color = color;
-		this.size = size;
+		this.width = width;
+		this.height = height;
 	}
 	
 	/**
@@ -54,7 +80,7 @@ public class BlankIcon
 	 */
 	public int getIconWidth()
 	{
-		return size;
+		return width;
 	}
 	
 	/**
@@ -63,7 +89,7 @@ public class BlankIcon
 	 */
 	public int getIconHeight()
 	{
-		return size;
+		return height;
 	}
 	
 	/**
@@ -78,7 +104,7 @@ public class BlankIcon
 		if (color != null)
 		{
 			g.setColor(color);
-			g.drawRect(x, y, size - 1, size - 1);
+			g.drawRect(x, y, width - 1, height - 1);
 		}
 	}
 }
