@@ -65,30 +65,30 @@ public class SystemUtil
 	}
 	
 	/**
-	 * Executes the process.
+	 * Executes the cmd.
 	 * @param cmd the cmd string
 	 * @param waitFor the boolean value of waitFor
 	 * @return the cmd result string
 	 * @throws Exception
 	 */
-	public static String processExec(String cmd, boolean waitFor)
+	public static String processCmd(String cmd, boolean waitFor)
 		throws Exception
 	{
-		return processExec(cmd, EncoderContext.getIOCharset(), waitFor);
+		return processCmd(cmd, EncoderContext.getIOCharset(), waitFor);
 	}
 	
 	/**
-	 * Executes the process.
+	 * Executes the cmd.
 	 * @param cmd the cmd string
 	 * @param charset the charset string
 	 * @param waitFor the boolean value of waitFor
 	 * @return the cmd result string
 	 * @throws Exception
 	 */
-	public static String processExec(String cmd, String charset, boolean waitFor)
+	public static String processCmd(String cmd, String charset, boolean waitFor)
 		throws Exception
 	{		
-		Process process = Runtime.getRuntime().exec(cmd);
+		Process process = Runtime.getRuntime().exec("cmd /c " + cmd);
 		
 		InputStream inputStream = process.getInputStream();
 		
@@ -100,6 +100,45 @@ public class SystemUtil
 		}
 		
 		return result;
+	}
+		
+	/**
+	 * Executes the cmd.
+	 * @param cmd the cmd string
+	 * @param waitFor the boolean value of waitFor
+	 * @return the cmd result input stream
+	 * @throws Exception
+	 */
+	public static InputStream processCmdStream(String cmd, boolean waitFor)
+		throws Exception
+	{		
+		Process process = Runtime.getRuntime().exec("cmd /c " + cmd);
+		
+		InputStream inputStream = process.getInputStream();
+		
+		if (waitFor)
+		{
+			process.waitFor();
+		}
+		
+		return inputStream;
+	}
+	
+	/**
+	 * Executes the bat.
+	 * @param cmd the cmd string
+	 * @param waitFor the boolean value of waitFor
+	 * @throws Exception
+	 */
+	public static void processBat(String cmd, boolean waitFor)
+		throws Exception	
+	{
+		Process process = Runtime.getRuntime().exec("cmd.exe /c start " + cmd);
+		
+		if (waitFor)
+		{
+			process.waitFor();
+		}
 	}
 	
 	/**
@@ -136,9 +175,8 @@ public class SystemUtil
 	{
 		Map map = new HashMap();
 		
-		Process process = Runtime.getRuntime().exec("cmd /c set");
+		InputStream inputStream = processCmdStream("set", false);
 		
-		InputStream inputStream = process.getInputStream();
 		InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
 		BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
 		
@@ -199,10 +237,9 @@ public class SystemUtil
 		throws Exception
 	{
 		Map map = new HashMap();
+				
+		InputStream inputStream = processCmdStream("reg query \"HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Environment\\\" /v", false);
 		
-		Process process = Runtime.getRuntime().exec("cmd /c reg query \"HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Environment\\\" /v");
-		
-		InputStream inputStream = process.getInputStream();
 		InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
 		BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
 		
