@@ -14,7 +14,6 @@ import java.net.URL;
 import java.util.Properties;
 
 import com.nepxion.util.database.pool.proxool.ProxoolContext;
-import com.nepxion.util.encoder.EncoderConstants;
 import com.nepxion.util.encoder.EncoderContext;
 import com.nepxion.util.io.FileContext;
 import com.nepxion.util.locale.LocaleContext;
@@ -78,19 +77,16 @@ public class ContextRegister
 	private void initEncoder()
 	{
 		String ioCharset = properties.getProperty("ioCharset");
-		if (!isValid(ioCharset))
+		if (isValid(ioCharset))
 		{
-			ioCharset = EncoderConstants.DEFAULT_CHARSET;
+			EncoderContext.registerIOCharset(ioCharset);
 		}
 		
 		String httpCharset = properties.getProperty("httpCharset");
-		if (!isValid(httpCharset))
+		if (isValid(httpCharset))
 		{
-			httpCharset = EncoderConstants.DEFAULT_CHARSET;
+			EncoderContext.registerHttpCharset(httpCharset);
 		}
-		
-		EncoderContext.registerIOCharset(ioCharset);
-		EncoderContext.registerHttpCharset(httpCharset);
 	}
 	
 	/**
