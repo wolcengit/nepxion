@@ -177,16 +177,23 @@ public class SystemUtil
 		
 		InputStream inputStream = processCmdStream("set", false);
 		
-		InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
-		BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+		InputStreamReader inputStreamReader = null;
+		BufferedReader bufferedReader = null;
 		
 		try
 		{
+			inputStreamReader = new InputStreamReader(inputStream);
+			bufferedReader = new BufferedReader(inputStreamReader);
+			
 			String line = null;
 			while ((line = bufferedReader.readLine()) != null)
 			{
-				String[] stringArray = line.split("=");
-				map.put(stringArray[0].trim(), stringArray[1].trim());
+				line = line.trim();
+				if (!line.equals(""))
+				{
+					String[] stringArray = line.split("=");
+					map.put(stringArray[0].trim(), stringArray[1].trim());
+				}
 			}
 		}
 		catch (Exception e)
@@ -240,23 +247,30 @@ public class SystemUtil
 				
 		InputStream inputStream = processCmdStream("reg query \"HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Environment\\\" /v", false);
 		
-		InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
-		BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+		InputStreamReader inputStreamReader = null;
+		BufferedReader bufferedReader = null;
 		
 		try
 		{
+			inputStreamReader = new InputStreamReader(inputStream);
+			bufferedReader = new BufferedReader(inputStreamReader);
+			
 			String line = null;
 			while ((line = bufferedReader.readLine()) != null)
 			{
-				if (line.indexOf("REG_SZ") > -1)
+				line = line.trim();
+				if (!line.equals(""))
 				{
-					String[] stringArray = line.split("REG_SZ");
-					map.put(stringArray[0].trim(), stringArray[1].trim());
-				}
-				else if (line.indexOf("REG_EXPAND_SZ") > -1)
-				{
-					String[] stringArray = line.split("REG_EXPAND_SZ");
-					map.put(stringArray[0].trim(), stringArray[1].trim());
+					if (line.indexOf("REG_SZ") > -1)
+					{
+						String[] stringArray = line.split("REG_SZ");
+						map.put(stringArray[0].trim(), stringArray[1].trim());
+					}
+					else if (line.indexOf("REG_EXPAND_SZ") > -1)
+					{
+						String[] stringArray = line.split("REG_EXPAND_SZ");
+						map.put(stringArray[0].trim(), stringArray[1].trim());
+					}
 				}
 			}
 		}

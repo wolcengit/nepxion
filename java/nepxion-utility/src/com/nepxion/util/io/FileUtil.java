@@ -11,17 +11,23 @@ package com.nepxion.util.io;
  */
 
 import java.io.BufferedInputStream;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.OutputStream;
+import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
+import java.util.Iterator;
+import java.util.Map;
 
 import com.nepxion.util.encoder.EncoderContext;
 
@@ -311,6 +317,110 @@ public class FileUtil
 		InputStream inputStream = new FileInputStream(file);
 			
 		return inputStream.available();
+	}
+	
+	/**
+	 * Reads the map by an inputStream.
+	 * It is mainly used for the config file.
+	 * It clear is true, it will clear the old data of map.
+	 * @param inputStream the instance of InputStream
+	 * @param map the instance of Map
+	 * @param clear the boolean value of clear
+	 * @throws Exception
+	 */
+	public static void readMap(InputStream inputStream, Map map, boolean clear)
+		throws Exception
+	{
+		readMap(inputStream, map, clear, EncoderContext.getIOCharset());
+	}
+	
+	/**
+	 * Reads the map from the file by an inputStream.
+	 * It is mainly used for the config file.
+	 * It clear is true, it will clear the old data of map.
+	 * @param inputStream the instance of InputStream
+	 * @param map the instance of Map
+	 * @param clear the boolean value of clear
+	 * @param charset the charset value
+	 * @throws Exception
+	 */
+	public static void readMap(InputStream inputStream, Map map, boolean clear, String charset)
+		throws Exception
+	{		
+		if (clear && map.size() > 0)
+		{	
+			map.clear();
+		}
+		
+		InputStreamReader inputStreamReader = null;
+		BufferedReader bufferedReader = null;
+		
+		try
+		{
+			inputStreamReader = new InputStreamReader(inputStream, charset);
+			bufferedReader = new BufferedReader(inputStreamReader);
+			
+			String line = null;
+			while ((line = bufferedReader.readLine()) != null)
+			{
+				line = line.trim();
+				if (!line.equals(""))
+				{
+					String key = line.substring(0, line.indexOf("="));
+					String value = line.substring(line.indexOf("=") + 1);
+					map.put(key, value);
+				}
+			}
+		}
+		catch (Exception e)
+		{
+			throw e;
+		}
+		finally
+		{
+			if (bufferedReader != null)
+			{
+				bufferedReader.close();
+			}
+		}
+	}
+	
+	/**
+	 * Writes the map to the file by an outputStream.
+	 * @param outputStream the instance of OutputStream
+	 * @param map the instance of Map
+	 * @throws Exception
+	 */
+	public static void writeMap(OutputStream outputStream, Map map)
+		throws Exception
+	{
+		PrintWriter printWriter = null;
+		BufferedWriter bufferedWriter = null;
+		
+		try
+		{
+			printWriter = new PrintWriter(outputStream, true);
+			bufferedWriter = new BufferedWriter(printWriter);
+			
+			for (Iterator iterator = map.keySet().iterator(); iterator.hasNext();)
+			{
+				String key = (String) iterator.next();
+				String value = (String) map.get(key);
+				bufferedWriter.write(key + "=" + value);
+				bufferedWriter.newLine();
+			}
+		}
+		catch (Exception e)
+		{
+			throw e;
+		}
+		finally
+		{
+			if (bufferedWriter != null)
+			{
+				bufferedWriter.close();
+			}
+		}
 	}
 	
 	/**

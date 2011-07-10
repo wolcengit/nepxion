@@ -254,10 +254,13 @@ public class IOUtil
 	{
 		StringBuffer stringBuffer = new StringBuffer();
 		
-		InputStreamReader inputStreamReader = new InputStreamReader(inputStream, charset);
-		BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+		InputStreamReader inputStreamReader = null;
+		BufferedReader bufferedReader = null;
 		try
 		{
+			inputStreamReader = new InputStreamReader(inputStream, charset);
+			bufferedReader = new BufferedReader(inputStreamReader);
+			
 			String line = null;
 			while ((line = bufferedReader.readLine()) != null)
 			{
