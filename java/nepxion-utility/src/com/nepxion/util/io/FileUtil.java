@@ -366,8 +366,8 @@ public class FileUtil
 				line = line.trim();
 				if (!line.equals(""))
 				{
-					String key = line.substring(0, line.indexOf("="));
-					String value = line.substring(line.indexOf("=") + 1);
+					String key = line.substring(0, line.indexOf("=")).trim();
+					String value = line.substring(line.indexOf("=") + 1).trim();
 					map.put(key, value);
 				}
 			}
@@ -406,7 +406,7 @@ public class FileUtil
 			{
 				String key = (String) iterator.next();
 				String value = (String) map.get(key);
-				bufferedWriter.write(key + "=" + value);
+				bufferedWriter.write(key.trim() + "=" + value.trim());
 				bufferedWriter.newLine();
 			}
 		}
