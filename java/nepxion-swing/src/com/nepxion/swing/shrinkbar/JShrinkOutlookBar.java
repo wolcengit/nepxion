@@ -241,6 +241,11 @@ public class JShrinkOutlookBar
 		return fillContentPane;
 	}
 	
+	public JComponent getOutlookContentPane()
+	{
+		return outlookContentPane;
+	}
+	
 	public void closeAllShrinkOutlooks()
 	{
 		for (int i = 0; i < outlookContentPane.getComponentCount(); i++)
