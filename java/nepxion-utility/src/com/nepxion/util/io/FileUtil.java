@@ -402,12 +402,20 @@ public class FileUtil
 			printWriter = new PrintWriter(outputStream, true);
 			bufferedWriter = new BufferedWriter(printWriter);
 			
+			int index = 0;
+			int size = map.size();
+			
 			for (Iterator iterator = map.keySet().iterator(); iterator.hasNext();)
 			{
 				String key = (String) iterator.next();
 				String value = (String) map.get(key);
 				bufferedWriter.write(key.trim() + "=" + value.trim());
-				bufferedWriter.newLine();
+				if (index < size - 1)
+				{	
+					bufferedWriter.newLine();
+				}
+				
+				index++;
 			}
 		}
 		catch (Exception e)
