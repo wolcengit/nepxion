@@ -286,7 +286,7 @@ public class FileUtil
 	{
 		File file = new File(filePath);
 		
-		if (file != null && file.exists())
+		if (file.exists())
 		{	
 			if (readRemoteBytesLength(httpURL) == getFileSize(file))
 			{
