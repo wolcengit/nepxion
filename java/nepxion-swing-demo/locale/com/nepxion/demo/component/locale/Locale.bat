@@ -21,6 +21,6 @@
 	
 rem if "%JAVA_HOME%"=="" goto noJava
 
-if "%JAVA_HOME%"=="" set JAVA_HOME=D:\JDK1.5.0
+if "%JAVA_HOME%"=="" set JAVA_HOME=C:\JDK1.6.0
 
 %JAVA_HOME%\bin\native2ascii -encoding gbk Locale.properties Locale_zh_CN.properties
