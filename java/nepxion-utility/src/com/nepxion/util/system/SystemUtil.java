@@ -133,7 +133,7 @@ public class SystemUtil
 	public static void processBat(String cmd, boolean waitFor)
 		throws Exception	
 	{
-		Process process = Runtime.getRuntime().exec("cmd.exe /c start " + cmd);
+		Process process = Runtime.getRuntime().exec("cmd.exe /c start " + (waitFor ? "/wait " : "")  + cmd);
 		
 		if (waitFor)
 		{
