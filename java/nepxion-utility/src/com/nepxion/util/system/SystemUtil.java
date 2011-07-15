@@ -214,13 +214,14 @@ public class SystemUtil
 	/**
 	 * Gets the reg environment variable by a key.
 	 * @param key the key string
+	 * @param system the boolean value of query system register or user register
 	 * @return the value string
 	 * @throws Exception
 	 */
-	public static String getRegEnvironmentVariable(String key)
+	public static String getRegEnvironmentVariable(String key, boolean system)
 		throws Exception
 	{
-		Map environmentVariables = SystemUtil.getRegEnvironmentVariables();
+		Map environmentVariables = SystemUtil.getRegEnvironmentVariables(system);
 		
 		for (Iterator iterator = environmentVariables.keySet().iterator(); iterator.hasNext();)
 		{
@@ -237,15 +238,27 @@ public class SystemUtil
 	
 	/**
 	 * Gets the reg environment variables.
+	 * @param system the boolean value of query system register or user register
 	 * @return the instance of Map
 	 * @throws Exception
 	 */
-	public static Map getRegEnvironmentVariables()
+	public static Map getRegEnvironmentVariables(boolean system)
 		throws Exception
 	{
 		Map map = new HashMap();
 				
-		InputStream inputStream = processCmdStream("reg query \"HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Environment\\\" /v", false);
+		String cmd = null; 
+			
+		if (system)
+		{	
+			cmd = "reg query \"HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Environment\\\" /v";
+		}
+		else
+		{
+			cmd = "reg query \"HKEY_CURRENT_USER\\Environment\\\" /v";
+		}
+		
+		InputStream inputStream = processCmdStream(cmd, false);
 		
 		InputStreamReader inputStreamReader = null;
 		BufferedReader bufferedReader = null;
