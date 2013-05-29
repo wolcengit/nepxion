@@ -76,6 +76,8 @@ public class DemoBasicTabbedPanePanel
 			basicTabbedPane.addTab("Tab 6", IconFactory.getSwingIcon("component/tabbed_pane_16.png"), new JBasicScrollPane(new ConfigPanel(basicTabbedPane)), "Tab 6", false);
 			basicTabbedPane.addTab("Tab 7", IconFactory.getSwingIcon("component/tabbed_pane_16.png"), new JBasicScrollPane(new ConfigPanel(basicTabbedPane)), "Tab 7", true);
 			basicTabbedPane.addTab("Tab 8", IconFactory.getSwingIcon("component/tabbed_pane_16.png"), new JBasicScrollPane(new ConfigPanel(basicTabbedPane)), "Tab 8", false);
+			basicTabbedPane.setDrawCenter(0, true);
+			
 			
 			JBasicPopupMenu popupMenu = new JBasicPopupMenu();
 			basicTabbedPane.setPopupMenu(popupMenu, true);			

@@ -56,10 +56,10 @@ public class DemoRibbonFrame
 				DemoRibbonFrame frame = new DemoRibbonFrame();
 				frame.setExtendedState(MAXIMIZED_BOTH);
 				
-				JTray tray = new JTray(frame);
+				//JTray tray = new JTray(frame);
 				
 				splashWindow.setVisible(false);
-				tray.setVisible(true);
+				//tray.setVisible(true);
 				frame.setVisible(true);
 				frame.toFront();
 			}

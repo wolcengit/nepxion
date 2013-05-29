@@ -11,14 +11,16 @@ package com.nepxion.demo.component.checkbox;
  */
 
 import javax.swing.BorderFactory;
-import javax.swing.BoxLayout;
 import javax.swing.JPanel;
 
 import com.nepxion.swing.border.BorderManager;
-import com.nepxion.swing.checkbox.JBasicCheckBox;
 import com.nepxion.swing.checkbox.JLiteCheckBox;
 import com.nepxion.swing.layout.filed.FiledLayout;
-import com.nepxion.swing.radiobutton.JBasicRadioButton;
+import com.nepxion.swing.style.button.lite.JAcidLiteButtonStyle;
+import com.nepxion.swing.style.button.lite.JAlloyLiteButtonStyle;
+import com.nepxion.swing.style.button.lite.JBedouinLiteButtonStyle;
+import com.nepxion.swing.style.button.lite.JGlassLiteButtonStyle;
+import com.nepxion.swing.style.checkbox.lite.LiteCheckBoxUI;
 
 public class DemoCheckBoxPanel
 	extends JPanel
@@ -28,25 +30,32 @@ public class DemoCheckBoxPanel
 		setLayout(new FiledLayout(FiledLayout.COLUMN, FiledLayout.FULL, 0));
 		setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
 		
-		add(new StyleCheckBoxPanel());
-	}	
+		add(new AlloyStyleCheckBoxPanel());
+	}
 	
-	public class StyleCheckBoxPanel
+	public class AlloyStyleCheckBoxPanel
 		extends JPanel
 	{
-		public StyleCheckBoxPanel()
+		public AlloyStyleCheckBoxPanel()
 		{
-			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(BorderManager.createComplexTitledBorder("Flat ButtonUI"));
-		
-			JLiteCheckBox styleCheckBox = new JLiteCheckBox("Style CheckBox", true);
-			add(styleCheckBox);
+			setLayout(new FiledLayout(FiledLayout.ROW, FiledLayout.LEFT, 5));
+			setBorder(BorderManager.createComplexTitledBorder("Alloy CheckBoxUI"));
 			
-			JBasicCheckBox c = new JBasicCheckBox("CheckBox");
-			add(c);
-
-			JBasicRadioButton r = new JBasicRadioButton("RadioButton");
-			add(r);			
+			JLiteCheckBox alloyStyleCheckBox = new JLiteCheckBox("JAlloy Style", "JAlloy Style", true);
+			alloyStyleCheckBox.setUI(new LiteCheckBoxUI(LiteCheckBoxUI.CHECKBOX_THEME_PLASTIC, new JAlloyLiteButtonStyle()));
+			add(alloyStyleCheckBox);
+			
+			JLiteCheckBox acidStyleCheckBox = new JLiteCheckBox("JAcid Style", "JAcid Style", true);
+			acidStyleCheckBox.setUI(new LiteCheckBoxUI(LiteCheckBoxUI.CHECKBOX_THEME_PLASTIC, new JAcidLiteButtonStyle()));
+			add(acidStyleCheckBox);
+			
+			JLiteCheckBox bedouinStyleCheckBox = new JLiteCheckBox("JBedouin Style", "JBedouin Style", true);
+			bedouinStyleCheckBox.setUI(new LiteCheckBoxUI(LiteCheckBoxUI.CHECKBOX_THEME_PLASTIC, new JBedouinLiteButtonStyle()));
+			add(bedouinStyleCheckBox);
+			
+			JLiteCheckBox glassStyleCheckBox = new JLiteCheckBox("JGlass Style", "JGlass Style", true);
+			glassStyleCheckBox.setUI(new LiteCheckBoxUI(LiteCheckBoxUI.CHECKBOX_THEME_PLASTIC, new JGlassLiteButtonStyle()));
+			add(glassStyleCheckBox);
 		}
-	}	
+	}
 }

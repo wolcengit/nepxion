@@ -24,7 +24,6 @@ import com.nepxion.swing.handle.HandleManager;
 import com.nepxion.swing.icon.IconFactory;
 import com.nepxion.swing.layout.filed.FiledLayout;
 import com.nepxion.swing.optionpane.JBasicOptionPane;
-import com.nepxion.swing.selector.color.JColorPane;
 
 public class DemoOptionPanePanel
 	extends JPanel
@@ -50,12 +49,12 @@ public class DemoOptionPanePanel
 			{
 				public void actionPerformed(ActionEvent e)
 				{
-	                JColorPane colorPane = new JColorPane();
-	                int selectedValue = JBasicOptionPane.showDialog(HandleManager.getFrame(DemoOptionPanePanel.this), colorPane, "Color Selector", IconFactory.getSwingIcon("component/color_chooser_32.png"));
-	                if (selectedValue != 0)
-	                {
-	                    return;
-	                }
+//	                JColorPane colorPane = new JColorPane();
+//	                int selectedValue = JBasicOptionPane.showDialog(HandleManager.getFrame(DemoOptionPanePanel.this), colorPane, "Color Selector", IconFactory.getSwingIcon("component/color_chooser_32.png"));
+//	                if (selectedValue != 0)
+//	                {
+//	                    return;
+//	                }
 				}
 			}
 			);

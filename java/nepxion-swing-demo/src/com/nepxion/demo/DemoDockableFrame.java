@@ -56,10 +56,10 @@ public class DemoDockableFrame
 				DemoDockableFrame frame = new DemoDockableFrame();
 				frame.setExtendedState(MAXIMIZED_BOTH);
 				
-				JTray tray = new JTray(frame);
+				//JTray tray = new JTray(frame);
 				
 				splashWindow.setVisible(false);				
-				tray.setVisible(true);
+				//tray.setVisible(true);
 				frame.setVisible(true);
 				frame.toFront();
 			}

@@ -63,22 +63,37 @@
         <button name="OptionPane" text="OptionPane" largetext="Option&#x0A;Pane" icon="component/option_pane_16.png" largeicon="component/option_pane_32.png" tooltip="OptionPane" component="com.nepxion.demo.control.container.DemoOptionPaneTogglePanel"/>
         <button name="TabbedPane" text="TabbedPane" largetext="Tabbed&#x0A;Pane" icon="component/tabbed_pane_16.png" largeicon="component/tabbed_pane_32.png" tooltip="TabbedPane" component="com.nepxion.demo.control.container.DemoTabbedPaneTogglePanel"/>
       </ribbon>
+      <ribbon title="Advanced Series" icon="" tooltip="FrameWork Series" layout="" buttonlayout="1, 0" buttoninsets="8, 2, 8, 2" cornername="More details" cornertooltip="More details" corneraction="com.nepxion.demo.component.ribbon.DemoCornerAction">
+        <button name="FullScreen" text="FullScreen" largetext="Full&#x0A;Screen" icon="component/framework_16.png" largeicon="component/framework_32.png" tooltip="Dockable FrameWork" component="com.nepxion.demo.control.framework.DemoDockableFrameWorkTogglePanel"/>
+        <button name="Toggle" text="Toggle" largetext="Toggle&#x0A;&amp;nbsp;" icon="component/framework_16.png" largeicon="component/framework_32.png" tooltip="Dockable FrameWork" component="com.nepxion.demo.control.framework.DemoDockableFrameWorkTogglePanel"/>
+        <button name="Config" text="Config" largetext="Config&#x0A;&amp;nbsp;" icon="component/framework_16.png" largeicon="component/framework_32.png" tooltip="Ribbon FrameWork" component=""/>
+        <button name="Wizard" text="Wizard" largetext="Wizard&#x0A;&amp;nbsp;" icon="component/framework_16.png" largeicon="component/framework_32.png" tooltip="VLDocking FrameWork" component=""/>
+        <button name="Tip" text="Tip" largetext="Tip&#x0A;&amp;nbsp;" icon="component/framework_16.png" largeicon="component/framework_32.png" tooltip="VLDocking FrameWork" component=""/>
+        <button name="UI Explorer" text="UI Explorer" largetext="UI&#x0A;Explorer" icon="component/ui_16.png" largeicon="component/ui_32.png" tooltip="UI Explorer" component="com.nepxion.demo.control.ui.DemoUIExplorerTogglePanel"/>
+      </ribbon>
     </ribbonbar>
     <ribbonbar title="Bar" icon="" tooltip="Bar Control" closable="false">
       <ribbon title="Bar Series" icon="" tooltip="Bar Series" layout="" buttonlayout="1, 0" buttoninsets="8, 2, 8, 2" cornername="More details" cornertooltip="More details" corneraction="com.nepxion.demo.component.ribbon.DemoCornerAction">
         <button name="TaskBar" text="TaskBar" largetext="Task&#x0A;Bar" icon="component/tool_bar_16.png" largeicon="component/tool_bar_32.png" tooltip="TaskBar" component="com.nepxion.demo.control.bar.DemoTaskBarTogglePanel"/>
         <button name="OutlookBar" text="OutlookBar" largetext="Outlook&#x0A;Bar" icon="component/tool_bar_16.png" largeicon="component/tool_bar_32.png" tooltip="OutlookBar" component="com.nepxion.demo.control.bar.DemoOutlookBarTogglePanel"/>
         <button name="ButtonBar" text="ButtonBar" largetext="Button&#x0A;Bar" icon="component/tool_bar_16.png" largeicon="component/tool_bar_32.png" tooltip="ButtonBar" component="com.nepxion.demo.control.bar.DemoButtonBarTogglePanel"/>
+        <button name="ShrinkBar" text="ShrinkBar" largetext="Shrink&#x0A;Bar" icon="component/tool_bar_16.png" largeicon="component/tool_bar_32.png" tooltip="ShrinkBar" component="com.nepxion.demo.control.bar.DemoShrinkBarTogglePanel"/>
         <button name="ToolBar" text="ToolBar" largetext="Tool&#x0A;Bar" icon="component/tool_bar_16.png" largeicon="component/tool_bar_32.png" tooltip="ToolBar" component="com.nepxion.demo.control.bar.DemoToolBarTogglePanel"/>
         <button name="MenuBar" text="MenuBar" largetext="Menu&#x0A;Bar" icon="component/tool_bar_16.png" largeicon="component/tool_bar_32.png" tooltip="MenuBar" component="com.nepxion.demo.control.bar.DemoMenuBarTogglePanel"/>
         <button name="StatusBar" text="StatusBar" largetext="Status&#x0A;Bar" icon="component/tool_bar_16.png" largeicon="component/tool_bar_32.png" tooltip="StatusBar" component="com.nepxion.demo.control.bar.DemoStatusBarTogglePanel"/>
       </ribbon>
     </ribbonbar>
     <ribbonbar title="Data" icon="" tooltip="Data Control" closable="false">
-      <ribbon title="Data Series" icon="" tooltip="Data Series" layout="" buttonlayout="1, 0" buttoninsets="8, 2, 8, 2" cornername="More details" cornertooltip="More details" corneraction="com.nepxion.demo.component.ribbon.DemoCornerAction">
+      <ribbon title="Basic Series" icon="" tooltip="Basic Series" layout="" buttonlayout="1, 0" buttoninsets="8, 2, 8, 2" cornername="More details" cornertooltip="More details" corneraction="com.nepxion.demo.component.ribbon.DemoCornerAction">
         <button name="Tree" text="Tree" largetext="Tree&#x0A;&amp;nbsp;" icon="component/tree_16.png" largeicon="component/tree_32.png" tooltip="Tree" component="com.nepxion.demo.control.data.DemoTreeTogglePanel"/>
         <button name="Table" text="Table" largetext="Table&#x0A;&amp;nbsp;" icon="component/table_16.png" largeicon="component/table_32.png" tooltip="Table" component="com.nepxion.demo.control.data.DemoTableTogglePanel"/>        
         <button name="List" text="List" largetext="List&#x0A;&amp;nbsp;" icon="component/list_16.png" largeicon="component/list_32.png" tooltip="List" component="com.nepxion.demo.control.data.DemoListTogglePanel"/>        
+      </ribbon>
+      <ribbon title="Advanced Series" icon="" tooltip="Advanced Series" layout="" buttonlayout="1, 0" buttoninsets="8, 2, 8, 2" cornername="More details" cornertooltip="More details" corneraction="com.nepxion.demo.component.ribbon.DemoCornerAction">
+        <button name="Searchable" text="Searchable" largetext="Searchable&#x0A;&amp;nbsp;" icon="component/tree_16.png" largeicon="component/tree_32.png" tooltip="Searchable" component="com.nepxion.demo.control.searchable.DemoSearchableTogglePanel"/>
+        <button name="Completion" text="Completion" largetext="Completion&#x0A;&amp;nbsp;" icon="component/table_16.png" largeicon="component/table_32.png" tooltip="Table" component="com.nepxion.demo.control.data.DemoTableTogglePanel"/>        
+        <button name="Hint" text="Hint" largetext="Hint&#x0A;&amp;nbsp;" icon="component/list_16.png" largeicon="component/list_32.png" tooltip="List" component="com.nepxion.demo.control.data.DemoListTogglePanel"/>        
+        <button name="Pagination" text="Pagination" largetext="Pagination&#x0A;&amp;nbsp;" icon="component/list_16.png" largeicon="component/list_32.png" tooltip="List" component="com.nepxion.demo.control.data.DemoListTogglePanel"/>        
       </ribbon>
     </ribbonbar>
     <ribbonbar title="Selector" icon="" tooltip="Selector Control" closable="false">
@@ -109,11 +124,6 @@
         <button name="XBox Layout" text="XBox Layout" largetext="XBox&#x0A;Layout" icon="component/layout_32.png" largeicon="component/layout_32.png" tooltip="XBox Layout" component="com.nepxion.demo.control.layout.DemoXBoxLayoutTogglePanel"/>
       </ribbon>
     </ribbonbar>
-    <ribbonbar title="UI" icon="" tooltip="UI Control" closable="false">
-      <ribbon title="UI Series" icon="" tooltip="UI Series" layout="" buttonlayout="1, 0" buttoninsets="8, 2, 8, 2" cornername="More details" cornertooltip="More details" corneraction="com.nepxion.demo.component.ribbon.DemoCornerAction">
-        <button name="UI Defaults" text="UI Explorer" largetext="UI&#x0A;Explorer" icon="component/ui_16.png" largeicon="component/ui_32.png" tooltip="UI Explorer" component="com.nepxion.demo.control.ui.DemoUIExplorerTogglePanel"/>
-      </ribbon>
-    </ribbonbar>
     <ribbonbar title="Thread" icon="" tooltip="Thread Control" closable="false">
       <ribbon title="Thread Series" icon="" tooltip="Thread Series" layout="" buttonlayout="1, 0" buttoninsets="8, 2, 8, 2" cornername="More details" cornertooltip="More details" corneraction="com.nepxion.demo.component.ribbon.DemoCornerAction">
         <button name="Thread" text="Thread" largetext="Thread&#x0A;&amp;nbsp;" icon="component/thread_16.png" largeicon="component/thread_32.png" tooltip="Thread" component="com.nepxion.demo.control.thread.DemoThreadTogglePanel"/>
@@ -134,7 +144,11 @@
         <button name="VLDocking" text="VLDocking" largetext="VLDocking&#x0A;FrameWork" icon="component/framework_16.png" largeicon="component/framework_32.png" tooltip="VLDocking FrameWork" component=""/>
       </ribbon>
     </ribbonbar>
-    <ribbonbar title="Advanced" icon="" tooltip="Advanced Control" closable="false">  
+    <ribbonbar title="JNI" icon="" tooltip="JNI Control" closable="false">
+      <ribbon title="JNI Series" icon="" tooltip="FrameWork Series" layout="" buttonlayout="1, 0" buttoninsets="8, 2, 8, 2" cornername="More details" cornertooltip="More details" corneraction="com.nepxion.demo.component.ribbon.DemoCornerAction">
+        <button name="Call" text="Call" largetext="Call&#x0A;&amp;nbsp;" icon="component/framework_16.png" largeicon="component/framework_32.png" tooltip="Dockable FrameWork" component="com.nepxion.demo.control.framework.DemoDockableFrameWorkTogglePanel"/>
+        <button name="Tray" text="Tray" largetext="Tray&#x0A;&amp;nbsp;" icon="component/framework_16.png" largeicon="component/framework_32.png" tooltip="Ribbon FrameWork" component=""/>
+      </ribbon>
     </ribbonbar>
     <ribbonbar title="Application" icon="" tooltip="Application Control" closable="false">
       <ribbon title="Application Series" icon="" tooltip="Application Series" layout="" buttonlayout="1, 0" buttoninsets="8, 2, 8, 2" cornername="More details" cornertooltip="More details" corneraction="com.nepxion.demo.component.ribbon.DemoCornerAction">
@@ -222,6 +236,6 @@
       </ribbon>
     </ribbonbar>
   </ribbonnavigator>
-  <ribboncontainer containerstyle="0" maximumcount="100">
+  <ribboncontainer containerstyle="2" maximumcount="100">
   </ribboncontainer>
 </framework>
