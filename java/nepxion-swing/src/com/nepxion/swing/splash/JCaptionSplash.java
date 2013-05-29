@@ -26,6 +26,9 @@ import com.nepxion.swing.panel.JCaptionPanel;
 public class JCaptionSplash
 	extends JPanel
 {
+	/**
+	 * 
+	 */
 	private JCaptionPanel captionPanel;
 	
 	public JCaptionSplash(Icon splashIcon, Color splashColor, int[] captionStartPosition, int[] captionSize, String[] caption)

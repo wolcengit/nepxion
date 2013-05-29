@@ -171,7 +171,15 @@ public abstract class JTableDropDownSelector
 		return cancel();
 	}
 	
+	/**
+	 * Returns true if it is confirmed.
+	 * @return true if it is confirmed
+	 */
 	public abstract boolean confirm();
 	
+	/**
+	 * Returns true if it is cancelled.
+	 * @return true if it is cancelled.
+	 */
 	public abstract boolean cancel();
 }

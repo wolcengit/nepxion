@@ -14,5 +14,10 @@ import javax.swing.tree.TreeNode;
 
 public interface IToggleAdapter
 {
+	/**
+	 * ¸Ä³É toggle
+	 * @param oldSelectionTreeNode
+	 * @param newSelectionTreeNode
+	 */
 	public void invoke(TreeNode oldSelectionTreeNode, TreeNode newSelectionTreeNode);
 }

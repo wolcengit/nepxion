@@ -23,11 +23,33 @@ import com.nepxion.swing.locale.SwingLocale;
 
 public class UIExplorerConstants
 {
+	/**
+	 * 
+	 */
 	public static final String ROOT_NAME = SwingLocale.getString("parameter");
+	
+	/**
+	 * 
+	 */
 	public static final String ALL_NAME = SwingLocale.getString("all");
+	
+	/**
+	 * 
+	 */
 	public static final String COMPONENT_NAME = SwingLocale.getString("component");
+	
+	/**
+	 * 
+	 */
 	public static final String TYPE_NAME = SwingLocale.getString("type");
 	
+	/**
+	 * 
+	 */
 	public static final Class[] CLASS_TYPES = {Boolean.class, Border.class, Color.class, Dimension.class, Font.class, Icon.class, InputMap.class, Insets.class, Number.class, String.class};
+	
+	/**
+	 * 
+	 */
 	public static final String[] CLASS_TYPE_NAMES = {"Boolean", "Border", "Color", "Dimension", "Font", "Icon", "InputMap", "Insets", "Number", "String", SwingLocale.getString("others")};
 }

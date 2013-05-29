@@ -16,6 +16,9 @@ import javax.swing.tree.TreeNode;
 public abstract class AbstractTreeAdapter
 	implements ITreeAdapter
 {
+	/**
+	 * Constructs with the default.
+	 */
 	public AbstractTreeAdapter()
 	{
 		

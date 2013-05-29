@@ -159,6 +159,8 @@ public class JBasicTextField
 			return;
 		}
 		
+		requestFocus();
+		
 		balloonTip.setMinimumRows(rows);
 		balloonTip.setColumns(columns);
 		balloonTip.setText(tipText);

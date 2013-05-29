@@ -88,6 +88,9 @@ public class JCheckBoxSelector
 		initComponents();
 	}
 	
+	/**
+	 * Initializes the components.
+	 */
 	private void initComponents()
 	{
 		checkBoxListPanel = new JCheckBoxListPanel(allElementNodes);

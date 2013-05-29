@@ -24,6 +24,9 @@ import com.nepxion.swing.textarea.JBasicTextArea;
 
 public class JResult
 {
+	/**
+	 * 
+	 */
 	private static JResultPane resultPane;
 	
 	public static void show(JWizard wizard, String result)

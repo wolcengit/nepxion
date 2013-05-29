@@ -87,6 +87,9 @@ public class JMultiRadioButtonSelector
 		initComponents();
 	}
 	
+	/**
+	 * Initializes the components.
+	 */
 	private void initComponents()
 	{
 		radioButtonListPanel = new JMultiRadioButtonListPanel(allElementNodes);

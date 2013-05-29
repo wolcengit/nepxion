@@ -20,8 +20,14 @@ import com.nepxion.swing.tree.JBasicTree;
 public class UIExplorerTree
 	extends JBasicTree
 {
+	/**
+	 * 
+	 */
 	private UIExplorerTreeModel treeModel;
 	
+	/**
+	 * 
+	 */
 	public UIExplorerTree()
 	{
 		UIExplorerTreeNode allTreeNode = new UIExplorerTreeNode(UIExplorerConstants.ALL_NAME, UIExplorerParser.parseAllMap());
@@ -46,6 +52,11 @@ public class UIExplorerTree
 		putClientProperty("JTree.lineStyle", "Angled");
 	}
 	
+	/**
+	 * 
+	 * @param parentTreeNode
+	 * @param map
+	 */
 	private void parseComponent(UIExplorerTreeNode parentTreeNode, Map map)
 	{
 		for (Iterator iterator = map.keySet().iterator(); iterator.hasNext();)
@@ -57,6 +68,11 @@ public class UIExplorerTree
 		}
 	}
 	
+	/**
+	 * 
+	 * @param parentTreeNode
+	 * @param map
+	 */
 	private void parseType(UIExplorerTreeNode parentTreeNode, Map map)
 	{
 		for (int i = 0; i < UIExplorerConstants.CLASS_TYPE_NAMES.length; i++)

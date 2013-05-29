@@ -19,6 +19,10 @@ public abstract class JDropDownPane
 	extends JAbstractDropDownPane
 {
 	private Component contentPane;
+	
+	/**
+	 * The instance of OptionButtonPanel.
+	 */
 	private OptionButtonPanel optionButtonPanel;
 	
 	public JDropDownPane(final IDropDownPopupMenu popupMenu, Component contentPane)
@@ -55,6 +59,9 @@ public abstract class JDropDownPane
 	public class OptionButtonPanel
 		extends JOptionButtonPanel
 	{
+		/**
+		 * Constructs with the default.
+		 */
 		public OptionButtonPanel()
 		{
 			super(YES_NO_OPTION);
@@ -87,7 +94,15 @@ public abstract class JDropDownPane
 		}
 	}
 	
+	/**
+	 * Returns true if it is confirmed.
+	 * @return true if it is confirmed
+	 */
 	public abstract boolean confirm();
 	
+	/**
+	 * Returns true if it is cancelled.
+	 * @return true if it is cancelled.
+	 */
 	public abstract boolean cancel();
 }

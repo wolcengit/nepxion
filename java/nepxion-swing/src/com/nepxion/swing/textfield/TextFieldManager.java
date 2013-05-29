@@ -16,6 +16,10 @@ import com.nepxion.swing.color.ColorUtil;
 
 public class TextFieldManager
 {	
+	/**
+	 * Sets the label style for the text field.
+	 * @param scrollPane the instance of JTextField
+	 */
 	public static void setLabelStyle(JTextField textField)
 	{
 		textField.setBorder(null);

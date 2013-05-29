@@ -23,8 +23,13 @@ import javax.swing.JPopupMenu;
 public class JDropDownPopupMenu
 	extends JPopupMenu implements IDropDownPopupMenu
 {
+	/**
+	 * The owner.
+	 */
 	private Component owner;
+	
 	private Component renderer;
+	
 	private AbstractButton button;
 	
 	private int width = -1;

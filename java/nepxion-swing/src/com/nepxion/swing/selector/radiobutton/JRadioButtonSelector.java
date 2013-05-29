@@ -89,6 +89,9 @@ public class JRadioButtonSelector
 		initComponents();
 	}
 	
+	/**
+	 * Initializes the components.
+	 */
 	private void initComponents()
 	{
 		radioButtonListPanel = new JRadioButtonListPanel(allElementNodes);

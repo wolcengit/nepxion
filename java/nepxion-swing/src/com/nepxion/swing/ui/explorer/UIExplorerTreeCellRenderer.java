@@ -20,6 +20,9 @@ import com.nepxion.swing.icon.IconFactory;
 public class UIExplorerTreeCellRenderer
 	extends DefaultTreeCellRenderer
 {
+	/**
+	 * 
+	 */
 	public Component getTreeCellRendererComponent(JTree tree, Object value, boolean isSelected, boolean expanded, boolean leaf, int row, boolean hasFocus)
 	{
 		super.getTreeCellRendererComponent(tree, value, isSelected, expanded, leaf, row, hasFocus);

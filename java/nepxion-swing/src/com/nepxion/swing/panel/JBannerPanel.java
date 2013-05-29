@@ -22,6 +22,9 @@ import com.jidesoft.dialog.BannerPanel;
 public class JBannerPanel
 	extends BannerPanel
 {
+	/**
+	 * 
+	 */
 	public JBannerPanel()
 	{
 		super();

@@ -17,6 +17,9 @@ import javax.swing.JRadioButton;
 public class JBasicRadioButton
 	extends JRadioButton
 {
+	/**
+	 * 
+	 */
 	public JBasicRadioButton()
 	{
 		super();

@@ -20,15 +20,35 @@ import com.nepxion.swing.locale.SwingLocale;
 public class UIExplorerTableModel
 	extends AbstractTableModel
 {
+	/**
+	 * 
+	 */
 	protected Map rowDatas;
+	
+	/**
+	 * 
+	 */
 	protected Object[] rowKeys;
+	
+	/**
+	 * 
+	 */
 	protected String[] columnNames;
 	
+	/**
+	 * 
+	 * @param rowDatas
+	 */
 	public UIExplorerTableModel(Map rowDatas)
 	{
 		this(rowDatas, new String[] {SwingLocale.getString("ui_key"), SwingLocale.getString("ui_value"), SwingLocale.getString("ui_hint")});
 	}
 	
+	/**
+	 * 
+	 * @param rowDatas
+	 * @param columnNames
+	 */
 	public UIExplorerTableModel(Map rowDatas, String[] columnNames)
 	{
 		this.rowDatas = rowDatas;
@@ -36,26 +56,41 @@ public class UIExplorerTableModel
 		this.columnNames = columnNames;
 	}
 	
+	/**
+	 * 
+	 */
 	public int getRowCount()
 	{
 		return rowDatas.size();
 	}
 	
+	/**
+	 * 
+	 */
 	public int getColumnCount()
 	{
 		return columnNames.length;
 	}
 	
+	/**
+	 * 
+	 */
 	public String getColumnName(int column)
 	{
 		return columnNames[column];
 	}
 	
+	/**
+	 * 
+	 */
 	public Class getColumnClass(int column)
 	{
 		return Object.class;
 	}
 	
+	/**
+	 * 
+	 */
 	public boolean isCellEditable(int row, int column)
 	{
 		if (column == 2)
@@ -66,11 +101,19 @@ public class UIExplorerTableModel
 		return true;
 	}
 	
+	/**
+	 * 
+	 * @return
+	 */
 	public String[] getColumnNames()
 	{
 		return columnNames;
 	}
 	
+	/**
+	 * 
+	 * @param columnNames
+	 */
 	public synchronized void setColumnNames(String[] columnNames)
 	{
 		this.columnNames = columnNames;
@@ -78,11 +121,19 @@ public class UIExplorerTableModel
 		fireTableStructureChanged();
 	}
 	
+	/**
+	 * 
+	 * @return
+	 */
 	public Map getRowDatas()
 	{
 		return rowDatas;
 	}
 	
+	/**
+	 * 
+	 * @param rowDatas
+	 */
 	public synchronized void setRowData(Map rowDatas)
 	{
 		this.rowDatas = rowDatas;
@@ -91,6 +142,9 @@ public class UIExplorerTableModel
 		fireTableDataChanged();
 	}
 	
+	/**
+	 * 
+	 */
 	public Object getValueAt(int row, int column)
 	{	
 		Object key = rowKeys[row];

@@ -20,14 +20,19 @@ import com.nepxion.swing.textfield.JBasicTextField;
 public class UIExplorerTable
 	extends JBasicTable
 {
+	/**
+	 * 
+	 */
 	public UIExplorerTable()
 	{
 		setAutoResizeMode(AUTO_RESIZE_OFF);
-		setRowHeight(25);
 		
 		new RowHeightResizer(this, 25, 40);
 	}
 	
+	/**
+	 * 
+	 */
 	public void setModel(TableModel model)
 	{
 		super.setModel(model);

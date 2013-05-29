@@ -268,7 +268,7 @@ public class JRibbonContainer
 					panel.setIcon(icon != null ? icon : IconFactory.getSwingIcon("component/internal_frame_16.png"));
 					panel.setToolTipText(toolTipText);
 					panel.setContentPane(ribbonComponent);
-				}	
+				}
 				break;
 			}
 		}
@@ -298,8 +298,11 @@ public class JRibbonContainer
 	 */
 	private void closePanelChildren()
 	{
-		panel.removeAll();
-
+		if (panel.getParent() != null && panel.getParent() == desktopPane)
+		{	
+			desktopPane.remove(panel);
+		}
+		
 		addComponent(desktopPane, BorderLayout.CENTER);
 		setBorder(INTERNAL_FRAME_BORDER);
 	}

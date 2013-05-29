@@ -16,6 +16,9 @@ import javax.swing.text.Document;
 public class JBasicPasswordField
 	extends JPasswordField
 {
+	/**
+	 * 
+	 */
 	public JBasicPasswordField()
 	{
 		super();

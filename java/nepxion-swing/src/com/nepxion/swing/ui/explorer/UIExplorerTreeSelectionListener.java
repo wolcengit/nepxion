@@ -25,8 +25,14 @@ import com.nepxion.swing.table.layoutable.TableCellRendererLayout;
 public class UIExplorerTreeSelectionListener
 	implements TreeSelectionListener
 {
+	/**
+	 * 
+	 */
 	private UIExplorerTable table;
 	
+	/**
+	 * 
+	 */
 	public void valueChanged(TreeSelectionEvent evt)
 	{
 		UIExplorerTree tree = (UIExplorerTree) evt.getSource();

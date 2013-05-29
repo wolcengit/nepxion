@@ -127,6 +127,10 @@ public class BasicShrinkBar
 		return shrinkHeader.getToolBar();
 	}
 	
+	/**
+	 * Gets the title.
+	 * @return the title string
+	 */
 	public String getTitle()
 	{
 		if (shrinkHeader.getLabel() == null)
@@ -137,6 +141,10 @@ public class BasicShrinkBar
 		return shrinkHeader.getLabel().getText();
 	}
 	
+	/**
+	 * Sets the title.
+	 * @param title the title string
+	 */
 	public void setTitle(String title)
 	{
 		if (shrinkHeader.getLabel() == null)
@@ -147,6 +155,10 @@ public class BasicShrinkBar
 		shrinkHeader.getLabel().setText(title);
 	}
 	
+	/**
+	 * Gets the icon.
+	 * @return the instance of Icon
+	 */
 	public Icon getIcon()
 	{
 		if (shrinkHeader.getLabel() == null)
@@ -157,6 +169,10 @@ public class BasicShrinkBar
 		return shrinkHeader.getLabel().getIcon();
 	}
 	
+	/**
+	 * Sets the icon.
+	 * @param icon the instance of Icon
+	 */
 	public void setIcon(Icon icon)
 	{
 		if (shrinkHeader.getLabel() == null)
@@ -167,6 +183,10 @@ public class BasicShrinkBar
 		shrinkHeader.getLabel().setIcon(icon);
 	}
 	
+	/**
+	 * Gets the tooltip text.
+	 * @return the tooltip text string
+	 */
 	public String getToolTipText()
 	{
 		if (shrinkHeader.getLabel() == null)
@@ -177,6 +197,10 @@ public class BasicShrinkBar
 		return shrinkHeader.getLabel().getToolTipText();
 	}
 	
+	/**
+	 * Sets the tooltip text.
+	 * @param the toolTipText the tooltip text string
+	 */
 	public void setToolTipText(String toolTipText)
 	{
 		if (shrinkHeader.getLabel() == null)
@@ -187,6 +211,10 @@ public class BasicShrinkBar
 		shrinkHeader.getLabel().setToolTipText(toolTipText);
 	}
 	
+	/**
+	 * Gets the title color.
+	 * @return the instance of Color
+	 */
 	public Color getTitleColor()
 	{
 		if (shrinkHeader.getLabel() == null)
@@ -197,6 +225,10 @@ public class BasicShrinkBar
 		return shrinkHeader.getLabel().getForeground();
 	}
 	
+	/**
+	 * Sets the title color.
+	 * @param color the instance of Color
+	 */
 	public void setTitleColor(Color color)
 	{
 		if (shrinkHeader.getLabel() == null)
@@ -207,6 +239,10 @@ public class BasicShrinkBar
 		shrinkHeader.getLabel().setForeground(color);
 	}
 	
+	/**
+	 * Gets the title font.
+	 * @return the instance of Font
+	 */
 	public Font getTitleFont()
 	{
 		if (shrinkHeader.getLabel() == null)
@@ -217,6 +253,10 @@ public class BasicShrinkBar
 		return shrinkHeader.getLabel().getFont();
 	}
 	
+	/**
+	 * Sets the title font.
+	 * @param font the instance of Font
+	 */
 	public void setTitleFont(Font font)
 	{
 		if (shrinkHeader.getLabel() == null)

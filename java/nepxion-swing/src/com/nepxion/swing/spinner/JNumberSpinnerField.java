@@ -34,6 +34,9 @@ import com.nepxion.swing.textfield.JBasicTextField;
 public class JNumberSpinnerField
     extends JPanel implements ChangeListener, CaretListener, ActionListener, SwingConstants
 {
+	/**
+	 * 
+	 */
     protected JSpinner spinner;
 
     /** the text (number) field */

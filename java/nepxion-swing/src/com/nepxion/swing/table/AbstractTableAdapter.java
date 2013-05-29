@@ -15,6 +15,9 @@ import java.util.List;
 public abstract class AbstractTableAdapter
 	implements ITableAdapter	        
 {
+	/**
+	 * 
+	 */
 	public AbstractTableAdapter()
 	{
 		

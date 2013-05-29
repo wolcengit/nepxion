@@ -19,11 +19,18 @@ import com.jidesoft.swing.FolderChooser;
 public class JFolderSelector
 	extends FolderChooser
 {
+	/**
+	 * Constructs with the default.
+	 */
 	public JFolderSelector()
 	{
 		super();
 	}
 	
+	/**
+	 * Constructs with the specified initial current directory path.
+	 * @param currentDirectoryPath
+	 */
 	public JFolderSelector(String currentDirectoryPath)
 	{
 		super(currentDirectoryPath);

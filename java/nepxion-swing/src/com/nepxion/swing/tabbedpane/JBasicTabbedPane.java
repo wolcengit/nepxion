@@ -70,7 +70,7 @@ public class JBasicTabbedPane
 	/**
 	 * The instance of Map.
 	 */
-	private Map snamComponentMap;
+	private Map snapComponentMap;
 	
 	/**
 	 * Constructs with the default.
@@ -224,10 +224,10 @@ public class JBasicTabbedPane
 	 */
 	public void insertTab(String title, Icon icon, Component component, String toolTipText, int index)
 	{
-		if (snamComponentMap != null)
+		if (snapComponentMap != null)
 		{	
 			toolTipText = "tab" + component.hashCode();
-			snamComponentMap.put(toolTipText, component);
+			snapComponentMap.put(toolTipText, component);
 		}
 		
 		super.insertTab(title, icon, component, toolTipText, index);
@@ -239,9 +239,9 @@ public class JBasicTabbedPane
 	 */
 	public JToolTip createToolTip()
 	{		
-		if (snamComponentMap != null)
+		if (snapComponentMap != null)
 		{	
-			JSnapToolTip snapTooltip = new JSnapToolTip(snamComponentMap);
+			JSnapToolTip snapTooltip = new JSnapToolTip(snapComponentMap);
 			snapTooltip.setComponent(this);
 			
 			return snapTooltip;
@@ -269,11 +269,11 @@ public class JBasicTabbedPane
 		
 		if (isSnapToolTip)
 		{
-			snamComponentMap = new HashMap();
+			snapComponentMap = new HashMap();
 		}
 		else
 		{
-			snamComponentMap = null;
+			snapComponentMap = null;
 		}
 	}	
 	
@@ -569,10 +569,10 @@ public class JBasicTabbedPane
 	 */
 	public void removeTabAt(int index)
 	{
-		if (snamComponentMap != null)
+		if (snapComponentMap != null)
 		{	
 			Component component = getComponentAt(index);
-			snamComponentMap.remove("tab" + component.hashCode());
+			snapComponentMap.remove("tab" + component.hashCode());
 		}
 		
 		super.removeTabAt(index);

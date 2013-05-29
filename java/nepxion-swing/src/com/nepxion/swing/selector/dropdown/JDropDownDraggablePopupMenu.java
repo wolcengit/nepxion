@@ -23,13 +23,21 @@ import com.nepxion.swing.popupmenu.JDraggablePopupMenu;
 public class JDropDownDraggablePopupMenu
 	extends JDraggablePopupMenu implements IDropDownPopupMenu
 {
+	/**
+	 * The owner.
+	 */
 	private Component owner;
+	
 	private Component renderer;
+	
 	private AbstractButton button;
 	
 	private int width = -1;
 	private int height = -1;
 	
+	/**
+	 * Constructs with the default.
+	 */
 	public JDropDownDraggablePopupMenu()
 	{
 		super();

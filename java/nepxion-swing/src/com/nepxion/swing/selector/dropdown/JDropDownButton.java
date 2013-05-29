@@ -17,6 +17,9 @@ import com.nepxion.swing.button.JBasicButton;
 public abstract class JDropDownButton
 	extends JBasicButton
 {
+	/**
+	 * Constructs with the default.
+	 */
 	public JDropDownButton()
 	{
 		super();

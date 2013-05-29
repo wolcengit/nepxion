@@ -33,6 +33,9 @@ import com.nepxion.swing.border.BalloonBorder;
 public abstract class AbstractBalloonTip
 	extends JPanel
 {
+	/**
+	 * 
+	 */
 	public static final Color TIP_COLOR = new Color(255, 255, 225);
 	public static final int TIP_OFFSET = 10;
 	

@@ -24,6 +24,10 @@ public class UIExplorerParser
 	private static Map componentMap;
 	private static Map typeMap;
 	
+	/**
+	 * 
+	 * @return
+	 */
 	public static Map parseAllMap()
 	{
 		if (allMap == null)

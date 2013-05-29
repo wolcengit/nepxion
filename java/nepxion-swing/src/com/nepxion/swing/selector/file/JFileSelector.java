@@ -83,6 +83,9 @@ public class JFileSelector
 		initComponents();
 	}
 	
+	/**
+	 * Initializes the components.
+	 */
 	private void initComponents()
 	{
 		fileChooser.setPreferredSize(new Dimension(500, 325));

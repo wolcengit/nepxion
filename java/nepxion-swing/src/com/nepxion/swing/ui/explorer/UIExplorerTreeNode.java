@@ -15,13 +15,25 @@ import javax.swing.tree.DefaultMutableTreeNode;
 public class UIExplorerTreeNode
 	extends DefaultMutableTreeNode
 {
+	/**
+	 * 
+	 */
 	private Object value;
 	
+	/**
+	 * 
+	 * @param key
+	 */
 	public UIExplorerTreeNode(Object key)
 	{
 		this(key, null);
 	}
 	
+	/**
+	 * 
+	 * @param key
+	 * @param value
+	 */
 	public UIExplorerTreeNode(Object key, Object value)
 	{
 		super(key);
@@ -29,11 +41,19 @@ public class UIExplorerTreeNode
 		this.value = value;
 	}
 	
+	/**
+	 * 
+	 * @return
+	 */
 	public Object getKey()
 	{
 		return getUserObject();
 	}
 	
+	/**
+	 * 
+	 * @return
+	 */
 	public Object getValue()
 	{
 		return value;

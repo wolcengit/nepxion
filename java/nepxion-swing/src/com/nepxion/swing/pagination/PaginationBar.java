@@ -42,6 +42,9 @@ import com.nepxion.swing.tip.balloon.JBalloonTip;
 public abstract class PaginationBar
 	extends JPanel
 {
+	/**
+	 * 
+	 */
 	private JLabel currentPageIndexLabel; // 第X页
 	private JLabel currentPageRowCountLabel; // 当前页有X条
 	

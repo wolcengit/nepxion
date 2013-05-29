@@ -15,6 +15,10 @@ import javax.swing.tree.DefaultTreeModel;
 public class UIExplorerTreeModel
 	extends DefaultTreeModel
 {
+	/**
+	 * 
+	 * @param root
+	 */
 	public UIExplorerTreeModel(UIExplorerTreeNode root)
 	{
 		super(root);
