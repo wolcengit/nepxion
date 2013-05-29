@@ -21,7 +21,7 @@ public class TGraphKeyboardRegister
 {
 	public static void registerZoomIn(TGraph graph, JSecurityAction action)
 	{
-		graph.registerKeyboardAction(action, KeyEvent.VK_EQUALS, InputEvent.CTRL_MASK);
+		graph.registerKeyboardAction(action, KeyEvent.VK_PLUS, InputEvent.CTRL_MASK);
 	}
 	
 	public static void registerZoomOut(TGraph graph, JSecurityAction action)
